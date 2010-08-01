@@ -1,0 +1,12 @@
+Package: GoogleMotionChart
+Type: Package
+Title: Google Motion Chart Visualisation
+Version: 0.2
+Date: 2010-07-27
+Author: Markus Gesmann
+Maintainer: Markus Gesmann <markus.gesmann@googlemail.com>
+Description: Functions to visualise data using the Google Visualisation API
+Depends: R.rsp
+License: GPL (>= 2)
+LazyLoad: yes
+LazyData: yes

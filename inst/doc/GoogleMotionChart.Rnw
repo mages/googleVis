@@ -1,0 +1,88 @@
+\documentclass{article}
+
+\usepackage{Sweave}
+\usepackage{thumbpdf}
+
+%\VignetteIndexEntry{Google Motion Chart}
+
+\SweaveOpts{engine=R, eps=FALSE, keep.source = TRUE}
+<<options, echo=FALSE>>=
+options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
+@
+
+
+%\keywords{google, visualisation, api, statistical software, \proglang{R}}
+
+
+\begin{document}
+
+\author{Markus Gesmann\\markus.gesmann@gmail.com}
+\title{Google Motion Charts with R:\\Package Vignette}
+\maketitle
+
+\begin{abstract}
+  The \texttt{GoogleMotionChart} package provides functions to
+  format a \texttt{data.frame} in R into a DataTable as used by the
+  Google Visualisation API so it can embeded into HTML-page which
+  generates motion chart rendered within a browser using Flash.
+
+  turn a in R into a Google Motion Chart.
+
+
+The standard motion chart is essentially an animated bubble chart, which allows you to explore several indicators over time.
+The idea of motion chart was popularised by Hans Rosling at a Ted talk
+about socical and economic developments in the world
+in
+in 2006
+
+\end{abstract}
+
+\section{Introduction}
+
+Idea Hans Rosling
+
+When to use it one variable to investigate over time with
+mesasurements and several dimnstions
+
+Examples
+
+public data
+
+gapminder
+
+R.rsp
+
+\section{Google Motion Chart API}
+
+The Google Motion Chart is part of Google Visualisation API.
+The chart is rendered within a browser using Flash.
+
+Data stays local
+
+Output is html code with reference to Google's Visualisation API.
+
+
+All code and data are processed and rendered in the browser. No data is sent to any server.
+
+
+Example
+
+\includegraphics[width=\textwidth]{MotionChart.pdf}
+
+
+\section{Package overview}
+
+\cite{GooglePublicData}
+
+
+The full R code from the book is provided in the demos for the package %\pkg{GoogleMotionChart}.
+The source scripts can be found in the
+
+
+\section{Create dynamic pages}
+
+browseRsp
+\bibliographystyle{alpha}
+
+\bibliography{GoogleMotionChart}
+\end{document}

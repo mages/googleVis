@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+ <%title="Google Motion Chart with R"%>
+ 
+<html>
+<%@include file="src/simpleHead.rsp"%>
+
+<body>
+<%@include file="src/simpleHeader.rsp"%>
+
+<p>
+by Markus Gesmann 2010-<%=format(Sys.Date(), "%Y")%>.
+</p>
+
+<h2>
+Welcome!
+</h2> 
+By default the output of the <tt>MotionChartPage</tt> function will be stored in the following directory:
+<ul>
+ <li><a href="myAnalysis/index.rsp">myAnalysis</a>
+</ul>
+For example the follwing R commands
+<pre>
+require(GoogleMotionChart)
+MotionChartPage(Fruits, idvar="Fruit", timevar="Year", file="HelloWorld.rsp")
+</pre>
+would generate the file <tt>HelloWorld.rsp</tt> in the above directory.
+
+<h2>
+Embedding Google Motion Chart in your web page with <a href="/">R.rsp</a>
+</h2>
+<p>
+  The R package <tt>R.rsp</tt> provides a lightweight web-server which we
+  are using here to display these pages. Additionally the <tt>R.rsp</tt>
+  packages allows us to dynamically generate documents into
+  static content using R Server Pages. This means we can mix html and R 
+  code to create content on the fly. 
+</p>
+<p>
+  For more information
+  on <tt>R.rsp</tt> see <a href="/">here.</a>
+</p>
+<p>
+Here is an example of some R code, which is embedded into this page to
+get a list of files of the <tt>myAnalysis</tt> directory wrapped with
+html list and anchor tags.
+<!-- Display code in html format -->
+<pre>
+&lt;% cat(
+    paste("&lt;li&gt; &lt;a href='",
+         dir(system.file(paste("rsp","myAnalysis", sep=.Platform$file.sep),
+         package="GoogleMotionChart")),"'&gt;",
+         dir(system.file(paste("rsp","myAnalysis", sep=.Platform$file.sep),
+         package="GoogleMotionChart")),"&lt;/a&gt;\n", sep=""),
+file=paste(system.file(paste("rsp","myAnalysis",
+    sep=.Platform$file.sep), package="GoogleMotionChart"),
+    "dirlist.rsp", sep=.Platform$file.sep)) %&gt;
+</pre>
+<!-- Actual rsp code -->
+<% cat(paste("<li> <a href='", dir(system.file(paste("rsp","myAnalysis", sep=.Platform$file.sep), package="GoogleMotionChart")),"'>",   dir(system.file(paste("rsp","myAnalysis",  sep=.Platform$file.sep), package="GoogleMotionChart")), "</a>\n",   sep=""),  file=paste(system.file(paste("rsp","myAnalysis",   sep=.Platform$file.sep), package="GoogleMotionChart"),   "dirlist.rsp", sep=.Platform$file.sep)) %>
+</p>
+<p>
+The R code reads the files of the directory <tt>myAnalysis</tt> via a system
+call and writes the output with html tags into the file <tt><a href="myAnalysis/dirlist.rsp">dirlist.rsp</a></tt>.
+Hence the file <tt><a href="myAnalysis/dirlist.rsp">dirlist.rsp</a></tt> contains content of the
+directory as a html list and we can embed the file via the following
+statement <tt>&lt;%@include file="dirlist.rsp"%&gt;</tt>
+into a new R.rsp page: <a href="myAnalysis/index.rsp">myAnalysis/index.rsp</a>.
+</p>
+ In the same way the following command<br> 
+<!--Display code in html-->
+<pre>
+&lt;% MotionChart(Fruits, "Fruit", "Year",
+file=paste(system.file(paste("rsp","myAnalysis",
+sep=.Platform$file.sep), package="GoogleMotionChart"), "fruit.rsp", sep=.Platform$file.sep)) %&gt;<br>
+</pre>
+<!--Actual Code-->
+<% MotionChart(Fruits, "Fruit", "Year",  file=paste(system.file(paste("rsp","myAnalysis", sep=.Platform$file.sep), package="GoogleMotionChart"), "fruit.rsp", sep=.Platform$file.sep)) %>
+creates the file <tt>fruit.rsp</tt> with a Google Motion Chart which we can embbed into another file, like
+we do in  <a href="myAnalysis/FruitAnalysis.rsp">FruitAnalysis.rsp</a> 
+</p>
+<p>
+I hope these examples show you how you can generate content
+with functions from the <tt>R.rsp</tt> and <tt>GoogleMotionChart</tt>
+packages.
+</p>
+<p>
+</p>
+<small>
+<em>If a page is loading "forever", that is, the internal web server seems to be stuck, try to press ENTER in the main R window.  This normally helps.</em>
+</small>
+
+
+
+<%@include file="src/simpleFooter.rsp"%>
+</body>
+</html>
+
+
