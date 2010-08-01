@@ -1,12 +1,13 @@
 Package: GoogleMotionChart
 Type: Package
 Title: Google Motion Chart Visualisation
-Version: 0.2
-Date: 2010-07-27
+Version: 0.1.2
+Date: 2010-08-1
 Author: Markus Gesmann
 Maintainer: Markus Gesmann <markus.gesmann@googlemail.com>
-Description: Functions to visualise data using the Google Visualisation API
+Description: Functions to visualise data using the Google Visualisation API. Requires access to a web server and Adobe Flash.
 Depends: R.rsp
 License: GPL (>= 2)
+URL: http://code.google.com/p/google-motion-charts-with-r/
 LazyLoad: yes
 LazyData: yes

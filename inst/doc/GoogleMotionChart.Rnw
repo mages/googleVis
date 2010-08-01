@@ -21,67 +21,38 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \maketitle
 
 \begin{abstract}
-  The \texttt{GoogleMotionChart} package provides functions to
-  format a \texttt{data.frame} in R into a DataTable as used by the
-  Google Visualisation API so it can embeded into HTML-page which
-  generates motion chart rendered within a browser using Flash.
-
-  turn a in R into a Google Motion Chart.
-
-
-The standard motion chart is essentially an animated bubble chart, which allows you to explore several indicators over time.
-The idea of motion chart was popularised by Hans Rosling at a Ted talk
-about socical and economic developments in the world
-in
-in 2006
-
+  The \texttt{GoogleMotionChart} package is providing an interface between R and the Google Visualisation API.
+  The functions of the package allow the user to transform data stored in a R \texttt{data.frame} structure into a Google Motion Chart.
+  The output is html code, which when run on a web server, generates a dynamic flash based bubble chart to explore several indicators over time.
 \end{abstract}
 
 \section{Introduction}
 
-Idea Hans Rosling
-
-When to use it one variable to investigate over time with
-mesasurements and several dimnstions
-
-Examples
-
-public data
-
-gapminder
-
-R.rsp
+The standard motion chart is essentially an animated bubble chart,
+which allows the user to explore several indicators over time.
+The idea of motion chart was popularised by Hans Rosling at a Ted
+talk~\cite{HansRoslingTedTalk} about social and economic developments in the world, see also~\cite{Gapminder}.
 
 \section{Google Motion Chart API}
 
-The Google Motion Chart is part of Google Visualisation API.
-The chart is rendered within a browser using Flash.
-
-Data stays local
-
-Output is html code with reference to Google's Visualisation API.
-
-
-All code and data are processed and rendered in the browser. No data is sent to any server.
-
-
-Example
-
+The Google Motion Chart is part of Google Visualisation API~\cite{GoogleMotionChartApi}.
+Charts are rendered within a browser using Adobe Flash. The charting data
+can either be embedded into the html file or read dynamically.
+Key to Google Visualisation API is that the data is structured into a DataTable~\cite{DataTable}.
+The data has to have at least four columns with bubble name (\texttt{idvar}), time (\texttt{timevar}) and two columns of  numeric values.
+Further columns are optional. The Google Public Data
+Explorer~\cite{GooglePublicData} shows several examples of motion
+charts and how they can help to analyse data.
+\clearpage
+\begin{figure}[!ht]
+\begin{center}
 \includegraphics[width=\textwidth]{MotionChart.pdf}
+\caption{Overview of a Google motion chart.  Screenshot of the output of
+  \texttt{MotionChartPage(Fruits, idvar='Fruit', timevar='Year', file='FruitAnalysis.rsp')}
+}
+\end{center}
+\end{figure}
 
-
-\section{Package overview}
-
-\cite{GooglePublicData}
-
-
-The full R code from the book is provided in the demos for the package %\pkg{GoogleMotionChart}.
-The source scripts can be found in the
-
-
-\section{Create dynamic pages}
-
-browseRsp
 \bibliographystyle{alpha}
 
 \bibliography{GoogleMotionChart}

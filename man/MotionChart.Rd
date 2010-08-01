@@ -4,6 +4,7 @@
 %% Distributed under GPL 2 or later
 
 \name{Google Motion charts}
+\alias{GoogleMotionChart}
 \alias{MotionChart}
 \alias{MotionChartPage}
 \title{
@@ -14,7 +15,8 @@
   several indicators over time.
   The MotionChart and MotionChartPage functions read a data.frame and
   create text output using the Google Visualisation API to be either
-  included into a web page, or as a standalone page.
+  included into a web page, or as a standalone page. The actual chart is
+  rendered by the web browser in flash.
 }
 \usage{
 MotionChart(data,
@@ -97,7 +99,7 @@ MotionChartPage(data,
 }
 \details{
   \code{MotionChart} provides you with output which can be included
-  directly into a html page, either via a copy and paste, or if you use
+  directly into a html page, either via copy and paste, or if you use
   \code{\link{R.rsp}} you can include it with the following statement:
   \code{<\%@include file="myfilename.rsp"\%>}. Type \code{browseRsp()}
   to find some examples.
@@ -113,7 +115,7 @@ MotionChartPage(data,
   For more details on the Google Motion Chart API see:
   \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html}
 
-  See \verb{vignette("GoogleMotionChart")} for a brief introduction of
+  See \code{vignette("GoogleMotionChart")} for a brief introduction of
   the graphical user interface of Google motion charts.
 }
 \author{
@@ -124,13 +126,15 @@ Markus Gesmann, \email{markus.gesmann@googlemail.com}
   to illustrate social and economic transitions over time in the
   development world.
 
-  You can see his fascinating TED talk where he uses motion charts
+  You can see his fascinating TED talk where he used motion charts
   extensively here:
   \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
-  Data and further examples from Hans' talk are available via \url{http://www.gapminder.org}.
+  
+  Further examples and data can be found on \url{http://www.gapminder.org}.
 
   Google has made a very similar API available which we are using
-  here. Google motion charts are documented in detail here:
+  here. Google motion charts are documented in detail as part of their
+  Visualisation API here:
   \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html}. Please
   note that no data is send to Google.
   
@@ -163,6 +167,7 @@ See also \code{\link{browseRsp}}
  MotionChartPage(Fruits, idvar="Fruit",
                  timevar="Date", file="myFruitAnalysisDate.html")
 }
-
+## For more details see also the demos.
+## Type: demo(package='GoogleMotionChart') to see a list of available demos.
 }
 \keyword{ aplot }

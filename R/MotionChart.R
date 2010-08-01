@@ -169,7 +169,7 @@ MotionChart <- function(data,
                            return(x[[n]]),
                            ifelse(typeMotionChart[[n]] == "date",
                                   return(paste("new Date('", format(x[[n]], date.format), "')", sep="")),
-                                  return(paste("'", x[[n]], "'", sep=""))
+                                  return(paste("\"", gsub("\"","",x[[n]]), "\"", sep=""))
                                   )
                            )
                 }
