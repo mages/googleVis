@@ -21,8 +21,8 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \maketitle
 
 \begin{abstract}
-  The \texttt{GoogleMotionChart} package is providing an interface between R and the Google Visualisation API.
-  The functions of the package allow the user to transform data stored in a R \texttt{data.frame} structure into a Google Motion Chart.
+  The \texttt{GoogleMotionChart} package provides an interface between R and the Google Visualisation API.
+  The purpose of the package is to allow the user to transform data stored in a R \texttt{data.frame} structure into a Google Motion Chart.
   The output is html code, which when run on a web server, generates a dynamic flash based bubble chart to explore several indicators over time.
 \end{abstract}
 
@@ -40,7 +40,7 @@ Charts are rendered within a browser using Adobe Flash. The charting data
 can either be embedded into the html file or read dynamically.
 Key to Google Visualisation API is that the data is structured in a
 DataTable~\cite{DataTable}, and this is where this package helps.
-The data has to have at least four columns with bubble name (\texttt{idvar}), time (\texttt{timevar}) and two columns of  numeric values.
+The data has to have at least four columns with subject name (\texttt{idvar}), time (\texttt{timevar}) and two columns of  numeric values.
 Further columns are optional. The Google Public Data
 Explorer~\cite{GooglePublicData} shows several examples of motion
 charts and how they can help to analyse

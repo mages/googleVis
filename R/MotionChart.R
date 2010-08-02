@@ -46,7 +46,7 @@ MotionChartPage <- function(data,
 
     cat(caption, file=file, append=TRUE)
 
-    cat(paste("<%@include file=\"../src/simpleFooter.rsp\"%>\n",
+    cat(paste("\n<%@include file=\"../src/simpleFooter.rsp\"%>\n",
               "\n</body>\n</html>\n"), file = file, append=TRUE)
 
     if(.file != "" && view==TRUE){

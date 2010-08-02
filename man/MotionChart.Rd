@@ -51,10 +51,11 @@ MotionChartPage(data,
 \arguments{
   \item{data}{
     a \code{data.frame}. The data has to have at least four
-    columns with bubble name (\code{idvar}), time (\code{timevar}) and two columns of
+    columns with subject name (\code{idvar}), time (\code{timevar}) and two columns of
     numeric values. Further columns are optional.
   }
-  \item{idvar}{column name of \code{data} with the subject to be analysed.
+  \item{idvar}{column name of \code{data} with the subject to be
+    analysed.
   }
   \item{timevar}{
     column name of \code{data} which shows the time dimension. The information has to
@@ -76,8 +77,8 @@ MotionChartPage(data,
     caption to be written under the motion chart. Default is date and R version.
   }
   \item{file}{
-    file name to be used by \code{\link{cat}}. If "" (the default), cat
-    prints to the standard output connection, the console unless
+    file name to be used internally by \code{\link{cat}}. If "" (the
+    default), output will be printed to the standard output connection, the console unless
     redirected by \code{\link{sink}}
   }
   \item{dirname}{directory name in which the output file will be
@@ -88,8 +89,7 @@ MotionChartPage(data,
     of the \code{GoogleMotionChart} will be used.
   }  
   \item{append}{
-    logical. Only used if the argument file is the name of file (and not
-    a connection or "|cmd"). If TRUE output will be appended to file;
+    logical. If TRUE output will be appended to file;
     otherwise, it will overwrite the contents of file. See also \code{\link{cat}}
   }
    \item{view}{logical. If TRUE a web browser will be started to view the
@@ -105,23 +105,16 @@ MotionChartPage(data,
   to find some examples.
     
   \code{MotionChartPage} uses the function \code{MotionChart} and warps it
-  into a complete html page for immediate view.
+  into a complete html page, and if the argument \code{view} is set to
+  \code{TRUE}, the page can be immediately displayed in a web browser
+  using the technology of the \code{R.rsp} package. Please note also
+  that Flash is required.
 }
 \value{
   By default \code{MotionChart} and \code{MotionChartPage} return the file
-  name into which their output was written.
+  name into which the output was written.
 }
 \references{
-  For more details on the Google Motion Chart API see:
-  \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html}
-
-  See \code{vignette("GoogleMotionChart")} for a brief introduction of
-  the graphical user interface of Google motion charts.
-}
-\author{
-Markus Gesmann, \email{markus.gesmann@googlemail.com}
-}
-\note{
   Motion charts have been popularised by Hans Rosling, who has used them
   to illustrate social and economic transitions over time in the
   development world.
@@ -138,12 +131,22 @@ Markus Gesmann, \email{markus.gesmann@googlemail.com}
   \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html}. Please
   note that no data is send to Google.
   
+}
+\author{
+Markus Gesmann, \email{markus.gesmann@googlemail.com}
+}
+\note{
+  See \code{vignette("GoogleMotionChart")} for a brief introduction of
+  the graphical user interface of Google motion charts.
+
   Further examples of displaying data with motion charts are available with the Google Public Data Explorer:
   \url{http://www.google.com/publicdata/home}.
 
   Many thanks to Henrik Bengtsson for providing the R.rsp package
   \url{http://www.braju.com/R/}, which allows us to display motion
-  charts locally.
+  charts locally. Type
+  \code{browseRsp(path="/library/GoogleMotionChart/rsp/")} to find out a
+  bit more how you can integrate motion charts into rsp-pages.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -162,10 +165,10 @@ See also \code{\link{browseRsp}}
 
 \dontrun{
  MotionChartPage(Fruits, idvar="Fruit", timevar="Year",
-                 file="myFruitAnalysisYear.html")
+                 file="myFruitAnalysisYear.rsp")
 
  MotionChartPage(Fruits, idvar="Fruit",
-                 timevar="Date", file="myFruitAnalysisDate.html")
+                 timevar="Date", file="myFruitAnalysisDate.rsp")
 }
 ## For more details see also the demos.
 ## Type: demo(package='GoogleMotionChart') to see a list of available demos.
