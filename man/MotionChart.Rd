@@ -144,8 +144,9 @@ Markus Gesmann, \email{markus.gesmann@googlemail.com}
 
   Many thanks to Henrik Bengtsson for providing the R.rsp package
   \url{http://www.braju.com/R/}, which allows us to display motion
-  charts locally. Type
-  \code{browseRsp(path="/library/GoogleMotionChart/rsp/")} to find out a
+  charts locally.
+
+  Type \code{browseRsp(path="/library/GoogleMotionChart/rsp/")} to find out a
   bit more how you can integrate motion charts into rsp-pages.
 }
 

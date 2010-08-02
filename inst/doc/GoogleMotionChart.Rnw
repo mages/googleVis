@@ -55,6 +55,26 @@ of a motion chart.
 }\label{MotionChartGUI}
 \end{center}
 \end{figure}
+\section{Example}
+The package comes with an example data set called \texttt{Fruits}.
+<<>>=
+require(GoogleMotionChart)
+data(Fruits)
+Fruits
+@
+The example data shows sales information by Fruit and Year (also Date to
+illustrate how to handle this data type). Suppose we would like to
+generate the html output required for a motion chart, than we can use
+the function \texttt{MotionChart}.
+<<>>=
+MotionChart(Fruits[,-7], "Fruit", "Year") ## exclude Date column
+@
+The function \texttt{MotionChartPage} would top and tail the above output
+with some html tags to create a valid standalone page to be viewed.
+The page can be viewed immediately using the web server provided by
+the \texttt{R.rsp} package~\cite{Rsp}.
+
+Further examples are available via demos. See \texttt{demo('GoogleMotionChart')} for a list of demos files.
 
 \bibliographystyle{alpha}
 
