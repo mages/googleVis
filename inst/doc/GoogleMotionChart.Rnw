@@ -38,18 +38,21 @@ talk~\cite{HansRoslingTedTalk} about social and economic developments in the wor
 The Google Motion Chart is part of Google Visualisation API~\cite{GoogleMotionChartApi}.
 Charts are rendered within a browser using Adobe Flash. The charting data
 can either be embedded into the html file or read dynamically.
-Key to Google Visualisation API is that the data is structured into a DataTable~\cite{DataTable}.
+Key to Google Visualisation API is that the data is structured in a
+DataTable~\cite{DataTable}, and this is where this package helps.
 The data has to have at least four columns with bubble name (\texttt{idvar}), time (\texttt{timevar}) and two columns of  numeric values.
 Further columns are optional. The Google Public Data
 Explorer~\cite{GooglePublicData} shows several examples of motion
-charts and how they can help to analyse data.
+charts and how they can help to analyse
+data. Figure~\ref{MotionChartGUI} shows the graphical user interface
+of a motion chart.
 \clearpage
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=\textwidth]{MotionChart.pdf}
 \caption{Overview of a Google motion chart.  Screenshot of the output of
   \texttt{MotionChartPage(Fruits, idvar='Fruit', timevar='Year', file='FruitAnalysis.rsp')}
-}
+}\label{MotionChartGUI}
 \end{center}
 \end{figure}
 

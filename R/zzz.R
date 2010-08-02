@@ -3,7 +3,9 @@
     require(utils)
     cat("\n",paste("GoogleMotionChart version", packageDescription("GoogleMotionChart")$Version,
                    "by:\nMarkus Gesmann <markus.gesmann@gmail.com>\n\n"),
-        "Type ?MotionChart to see overall documentation and\nvignette('GoogleMotionChart') to see the package vignette.\n\n",
+        "Type ?MotionChart to see overall documentation and\n",
+        "vignette('GoogleMotionChart') to see the package vignette,\n",
+        "which givers you an overview of the graphical user interface of a motion chart.\n\n",
         "See demo(package='GoogleMotionChart') for a list of demos.\n\n",
         "Feel free to send me an email if you would like to keep ",
         "informed of\nnew versions or if you have any feedback, ",
