@@ -12,8 +12,7 @@ MotionChartPage <- function(data,
                             title=paste("Motion Chart:", deparse(substitute(data))),
                             caption=paste("",Sys.time(), R.Version()$version.string, sep="<BR>"),
                             file="",
-                            dirname=system.file(paste("rsp", "myAnalysis",
-                                         sep=.Platform$file.sep),
+                            dirname=system.file(file.path("rsp", "myAnalysis"),
                                          package = "GoogleMotionChart"),
                             repos=paste("http://127.0.0.1:8074/",
                                      basename(dirname(system.file(package="GoogleMotionChart"))),
@@ -23,7 +22,7 @@ MotionChartPage <- function(data,
 
     .file <- file
     if(file!=""){
-        file <- paste(dirname, file, sep=.Platform$file.sep)
+        file <- file.path(dirname, file)
     }
 
     cat(paste(#"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">",
