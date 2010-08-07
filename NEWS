@@ -1,0 +1,15 @@
+Version 0.1.3
+================
+NEW FEATURES
+
+   o More detail motion chart configuration option settings are possible.
+
+USER-VISIBLE CHANGES
+   o options have to set via a list. Arguments height and width have to set via the options list. 
+     However, further configuration options can now be set.
+
+
+Version 0.1.2
+================
+
+First public version.

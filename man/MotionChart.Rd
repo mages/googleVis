@@ -23,16 +23,14 @@ MotionChart(data,
             idvar = "id",
             timevar = "time",
             date.format="\%Y/\%m/\%d",
-            width = 600,
-            height = 500,
+            options=list(width = 600, height = 500),
             file = "",
             append = TRUE)
 MotionChartPage(data,
                 idvar = "id",
                 timevar = "time",
                 date.format = "\%Y/\%m/\%d",
-                width = 600,
-                height = 500,
+                options=list(width = 600, height = 500),
                 title = paste("Motion Chart:",
                           deparse(substitute(data))), 
                 caption = paste("", Sys.time(),
@@ -63,11 +61,51 @@ MotionChartPage(data,
   \item{date.format}{
     if \code{timevar} is of class \code{\link{Date}} than this argument specifies how the dates are reformatted to be used by javascript.
   }
-  \item{width}{
-    width of the chart in pixels.
-  }
-  \item{height}{
-    height of the chart in pixels.
+  \item{options}{list of configuration options for the motion chart.
+      The possible components are :
+
+      \describe{
+	\item{\code{height}}{height of the chart in pixels.
+	}
+	\item{\code{width}}{width of the chart in pixels.
+	}
+	\item{\code{state}}{An initial display state for the chart. This
+	is a serialized JSON object that describes zoom level, selected
+	dimensions, selected bubbles/entities, and other state
+	descriptions.}
+      \item{\code{showChartButtons}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the buttons that control the chart type (bubbles /
+	lines / columns) at top right corner. 
+      }
+      \item{\code{showHeader}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the title label of the entities (derived from the
+	label of the first column in the data table).
+	}
+	\item{\code{showSelectListComponent}}{logical,
+	  default=\code{TRUE}.
+	  \code{FALSE} hides the list of visible entities.
+	}
+	\item{\code{showSidePanel}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the right hand panel.
+	}
+	\item{\code{showXMetricPicker}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the metric picker for x.
+	}
+	\item{\code{showYMetricPicker}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the metric picker for y. 
+	}
+	\item{\code{showXScalePicker}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the scale picker for x. 
+	}	
+	\item{\code{showYScalePicker}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the scale picker for y.  
+	}
+	\item{\code{showAdvancedPanel}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides disables the options compartment in the settings panel.
+	}
+
+      } More informtion on:    
+    \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html#Motion_Chart_initial_state}
   }
   \item{title}{
     title for the html page. Default mentions the data set used.
@@ -167,8 +205,23 @@ See also \code{\link{browseRsp}}
  MotionChartPage(Fruits, idvar="Fruit", timevar="Year",
                  file="myFruitAnalysisYear.rsp")
 
+## Usage of date variable
  MotionChartPage(Fruits, idvar="Fruit",
                  timevar="Date", file="myFruitAnalysisDate.rsp")
+
+
+## Options: no side panel on the right
+ MotionChartPage(Fruits,"Fruit","Year", file="test.rsp",
+                 options=list(width=800, height=500,
+                              showSidePanel=FALSE)
+
+## Options: trails unticked
+ MotionChartPage(Fruits,"Fruit","Year", file="test.rsp",
+                 options=list(width=600,
+                              height=500,
+                              state='{"showTrails":false};')
+                              )
+
 }
 ## For more details see also the demos.
 ## Type: demo(package='GoogleMotionChart') to see a list of available demos.

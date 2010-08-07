@@ -7,8 +7,7 @@ MotionChartPage <- function(data,
                             idvar="id",
                             timevar="time",
                             date.format="%Y/%m/%d",
-                            width = 600,
-                            height=500,
+                            options=list(width = 600, height=500),
                             title=paste("Motion Chart:", deparse(substitute(data))),
                             caption=paste("",Sys.time(), R.Version()$version.string, sep="<BR>"),
                             file="",
@@ -40,7 +39,7 @@ MotionChartPage <- function(data,
         file=file)
 
     MotionChart(data, idvar, timevar,date.format=date.format,
-                width=width, height=height,
+                options=options,
                 file=file, append=TRUE)
 
     cat(caption, file=file, append=TRUE)
@@ -59,8 +58,7 @@ MotionChart <- function(data,
                         idvar="id",
                         timevar="time",
                         date.format="%Y/%m/%d",
-                        width = 600,
-                        height=500,
+                        options=list(width = 600,  height=500),
                         file="",
                         append=TRUE){
 
@@ -101,9 +99,11 @@ MotionChart <- function(data,
         paste("        data.setValue(", xy.data$x, ", ", xy.data$y, ", ", xy.data$value, ");", sep = "",
               collapse = "\n"),
         c("        var chart = new google.visualization.MotionChart(document.getElementById('chart_div'));"),
-        paste("        chart.draw(data, {width: ", width, ", height: ", height, "});\", \"      }", sep = ""),
+        c("        var options ={};"),
+       .setMotionChartOptions(options),
+        c("        chart.draw(data,options);\n }"),
         c("    </script>"),
-        paste("    <div id=\"chart_div\" style=\"width: ", width, "px; height: ", height, "px;\"></div>", sep = ""),
+        c("    <div id=\"chart_div\"></div>"),
         sep="\n", file=file, append=append)
 
     return(file)
@@ -145,7 +145,9 @@ MotionChart <- function(data,
 
     ## Check if timevar is either a numeric or date
     if( is.numeric(x[[timevar]]) | class(x[[timevar]])=="Date" ){
-        typeMotionChart[[timevar]] <- ifelse(is.numeric(x[[timevar]]), "number", "date")
+        typeMotionChart[[timevar]] <- ifelse(is.numeric(x[[timevar]]), "number",
+                                             ##ifelse(date.format %in% c("%YW%W","%YW%U"), "string",
+                                             "date")##)
     }else{
         stop(paste("The timevar has to be of numeric or Date format. Currently it is", class(x[[timevar]])))
     }
@@ -174,6 +176,7 @@ MotionChart <- function(data,
                 }
                 )
     names(x) <-  varOrder
+
     output <- list(
                    data.type= unlist(typeMotionChart[varOrder]),
                    data = as.data.frame(x)
@@ -183,3 +186,19 @@ MotionChart <- function(data,
 }
 
 
+.setMotionChartOptions <- function(options=list(width = 600, height=500)){
+
+    .par <- sapply(names(options), function(x)
+                   paste("                 options[\"", x,"\"] = ",
+                         ifelse(is.numeric(options[[x]]) | is.logical(options[[x]]),
+                                ifelse(is.numeric(options[[x]]),
+                                       options[[x]],
+                                       ifelse(options[[x]],
+                                              "true", "false")
+                                       ),
+                                paste("'", options[[x]],"'",sep="")),
+                         ";",sep="" )
+                   )
+
+    return(.par)
+}
