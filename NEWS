@@ -7,6 +7,7 @@ NEW FEATURES
 USER-VISIBLE CHANGES
    o options have to set via a list. Arguments height and width have to set via the options list. 
      However, further configuration options can now be set.
+   o Update demo PerformanceAnalyticsMotionChart   
 
 
 Version 0.1.2

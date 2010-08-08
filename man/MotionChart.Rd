@@ -167,7 +167,10 @@ MotionChartPage(data,
   Visualisation API here:
   \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html}. Please
   note that no data is send to Google.
-  
+
+  Yihui Xie, the maintainer of the \code{\link[animation]{animation-package}}
+  showed in an early blog entry the usage of the Google Motion Chart API
+  with R: \url{http://yihui.name/en/2008/11/brownian-motion-using-google-visualization-api-and-r/}
 }
 \author{
 Markus Gesmann, \email{markus.gesmann@googlemail.com}
@@ -190,7 +193,8 @@ Markus Gesmann, \email{markus.gesmann@googlemail.com}
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-See also \code{\link{browseRsp}}
+See also \code{\link{browseRsp}}, and also the
+\code{\link[animation]{animation-package}} and there the function \code{\link[animation]{Rosling.bubbles}}
 }
 \examples{
 

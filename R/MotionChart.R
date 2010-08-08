@@ -68,7 +68,7 @@ MotionChart <- function(data,
     ## of the original table, and finally the third column stores the actual value of
     ## the original table
 
-    output <- .formatMotionChartData(data, idvar, timevar, date.format)
+    output <- formatGoogleChartData(data, idvar, timevar, date.format)
     data <- output$data
 
     colNames <- names(output$data.type)
@@ -117,7 +117,7 @@ MotionChart <- function(data,
 }
 
 
-.formatMotionChartData <- function(data, idvar="id", timevar="time",  date.format="%Y/%m/%d"){
+formatGoogleChartData <- function(data, idvar="id", timevar="time",  date.format="%Y/%m/%d"){
 
     ## Create a list where the Google DataTable type of all variables will be stored
     ## Google Motion Chart needs a 'string' in the id variable (first column)
