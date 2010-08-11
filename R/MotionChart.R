@@ -51,7 +51,6 @@ MotionChartPage <- function(data,
         .viewGoogleVisualisation(.file, repos=repos)
     }
     return(file)
-
 }
 
 MotionChart <- function(data,
@@ -62,50 +61,46 @@ MotionChart <- function(data,
                         file="",
                         append=TRUE){
 
-    ## The data frame needs to be converted into a Google DataTable, which is a table
-    ## describing the original table. A DataTable has three column, the first column
-    ## indexing the row of the original table, the second column indexing the column
-    ## of the original table, and finally the third column stores the actual value of
-    ## the original table
-
     output <- formatGoogleChartData(data, idvar, timevar, date.format)
     data <- output$data
-
-    colNames <- names(output$data.type)
     data.type <- output$data.type
+    
+    names(data) <- NULL
+    as.numlist <- function(x){
+      fnn <- function(a){
+        b <- suppressWarnings(as.numeric(a))
+        if (is.na(b)) a else b
+      }
+      lapply(as.list(x),fnn)
+    } 
+    data.json <- toJSON(apply(as.matrix(data),1,as.numlist))
 
-    ## number of rows and columns
-    dimData <- dim(data)
-    x <- rep(0:(dimData[1]-1), dimData[2])
-    y <- sort(rep(0:(dimData[2]-1), dimData[1]))
-    ## convert table into a long vector
-    value=as.vector(as.matrix(data))
-    exsits <- !is.na(value)
-    x <- x[exsits]
-    y <- y[exsits]
-    value <- value[exsits]
+    jsMotionChartTemplate <- '
+     <script type="text/javascript\" src="http://www.google.com/jsapi"></script>
+     <script type="text/javascript">
+      google.load("visualization", "1", { packages:["motionchart"] });
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        var datajson = %s;
+	%s
+	data.addRows(datajson);
+        var chart = new google.visualization.MotionChart(document.getElementById(\'chart_div\'));
+        var options ={};
+        %s
+        chart.draw(data,options);
+      }        
+     </script>
+     <div id="chart_div"></div>   
+    '
 
-    xy.data <- data.frame(x,y,value)
+    jsMotionChart <- sprintf(jsMotionChartTemplate, 
+			data.json, 
+	                paste(paste("data.addColumn('",data.type,"','",
+				    names(data.type),"');",sep=""),collapse="\n"),
+		        paste(.setMotionChartOptions(options),collapse="\n"))
 
-    cat("    <script type=\"text/javascript\" src=\"http://www.google.com/jsapi\"></script>",
-        "    <script type=\"text/javascript\">",
-        "      google.load(\"visualization\", \"1\", { packages:[\"motionchart\"] });",
-        "      google.setOnLoadCallback(drawChart);",
-        "      function drawChart() {",
-        "        var data = new google.visualization.DataTable();",
-        paste("        data.addRows(", dimData[1], ");", sep = ""),
-        c(paste("        data.addColumn('",data.type, "', '",  colNames,"');", sep="")
-          ),
-        paste("        data.setValue(", xy.data$x, ", ", xy.data$y, ", ", xy.data$value, ");", sep = "",
-              collapse = "\n"),
-        c("        var chart = new google.visualization.MotionChart(document.getElementById('chart_div'));"),
-        c("        var options ={};"),
-       .setMotionChartOptions(options),
-        c("        chart.draw(data,options);\n }"),
-        c("    </script>"),
-        c("    <div id=\"chart_div\"></div>"),
-        sep="\n", file=file, append=append)
-
+    cat(jsMotionChart,sep="\n", file=file, append=append)
     return(file)
 }
 
