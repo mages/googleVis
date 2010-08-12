@@ -74,6 +74,7 @@ MotionChart <- function(data,
       lapply(as.list(x),fnn)
     } 
     data.json <- toJSON(apply(as.matrix(data),1,as.numlist))
+    data.json <-  gsub(')\"',')',gsub('\"new Date','new Date',data.json))
 
     jsMotionChartTemplate <- '
      <script type="text/javascript\" src="http://www.google.com/jsapi"></script>
@@ -165,7 +166,7 @@ formatGoogleChartData <- function(data, idvar="id", timevar="time",  date.format
                            return(x[[n]]),
                            ifelse(typeMotionChart[[n]] == "date",
                                   return(paste("new Date('", format(x[[n]], date.format), "')", sep="")),
-                                  return(paste("\"", gsub("\"","",x[[n]]), "\"", sep=""))
+                                  return(x[[n]])
                                   )
                            )
                 }
