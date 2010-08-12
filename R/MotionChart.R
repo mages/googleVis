@@ -64,7 +64,7 @@ MotionChart <- function(data,
     output <- formatGoogleChartData(data, idvar, timevar, date.format)
     data <- output$data
     data.type <- output$data.type
-    
+
     names(data) <- NULL
     as.numlist <- function(x){
       fnn <- function(a){
@@ -72,7 +72,7 @@ MotionChart <- function(data,
         if (is.na(b)) a else b
       }
       lapply(as.list(x),fnn)
-    } 
+    }
     data.json <- toJSON(apply(as.matrix(data),1,as.numlist))
     data.json <-  gsub(')\"',')',gsub('\"new Date','new Date',data.json))
 
@@ -90,13 +90,13 @@ MotionChart <- function(data,
         var options ={};
         %s
         chart.draw(data,options);
-      }        
+      }
      </script>
-     <div id="chart_div"></div>   
+     <div id="chart_div"></div>
     '
 
-    jsMotionChart <- sprintf(jsMotionChartTemplate, 
-			data.json, 
+    jsMotionChart <- sprintf(jsMotionChartTemplate,
+			data.json,
 	                paste(paste("data.addColumn('",data.type,"','",
 				    names(data.type),"');",sep=""),collapse="\n"),
 		        paste(.setMotionChartOptions(options),collapse="\n"))

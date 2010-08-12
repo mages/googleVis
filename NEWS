@@ -1,3 +1,9 @@
+Version 0.1.4
+================
+Changes
+
+   o Packages uses now the RJSONIO package from Omegahat to transform a data.frame into a datatable
+
 Version 0.1.3
 ================
 NEW FEATURES
