@@ -1,8 +1,8 @@
 Package: GoogleMotionChart
 Type: Package
 Title: Google Motion Chart Visualisation
-Version: 0.1.4
-Date: 2010-08-8
+Version: 0.1.5
+Date: 2010-08-1
 Author: Markus Gesmann, Diego de Castillo
 Maintainer: Markus Gesmann <markus.gesmann@googlemail.com>
 Description: Functions to visualise data using the Google Visualisation API. Requires access to a web server and Adobe Flash.
