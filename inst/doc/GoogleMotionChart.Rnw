@@ -39,7 +39,9 @@ The Google Motion Chart is part of Google Visualisation API~\cite{GoogleMotionCh
 Charts are rendered within a browser using Adobe Flash. The charting data
 can either be embedded into the html file or read dynamically.
 Key to Google Visualisation API is that the data is structured in a
-DataTable~\cite{DataTable}, and this is where this package helps.
+DataTable~\cite{DataTable}, and this is where this package helps, as
+it uses the functionality of the RJSONIO package~\cite{RJSONIO} and
+wraps it into a Google Motion chart.
 The data has to have at least four columns with subject name (\texttt{idvar}), time (\texttt{timevar}) and two columns of  numeric values.
 Further columns are optional. The Google Public Data
 Explorer~\cite{GooglePublicData} shows several examples of motion
@@ -68,6 +70,9 @@ generate the html output required for a motion chart, than we can use
 the function \texttt{MotionChart}.
 <<>>=
 MotionChart(Fruits[,-7], "Fruit", "Year") ## exclude Date column
+@
+<<>>=
+MotionChart(Fruits[,-2], "Fruit", "Date") ## exclude Year column
 @
 The function \texttt{MotionChartPage} would top and tail the above output
 with some html tags to create a valid standalone page to be viewed.
