@@ -62,19 +62,8 @@ MotionChart <- function(data,
                         append=TRUE){
 
     output <- formatGoogleChartData(data, idvar, timevar, date.format)
-    data <- output$data
     data.type <- output$data.type
-
-    names(data) <- NULL
-    as.numlist <- function(x){
-      fnn <- function(a){
-        b <- suppressWarnings(as.numeric(a))
-        if (is.na(b)) a else b
-      }
-      lapply(as.list(x),fnn)
-    }
-    data.json <- toJSON(apply(as.matrix(data),1,as.numlist))
-    data.json <-  gsub(')\"',')',gsub('\"new Date','new Date',data.json))
+    data.json <- output$json
 
     jsMotionChartTemplate <- '
      <script type="text/javascript\" src="http://www.google.com/jsapi"></script>
@@ -128,7 +117,6 @@ formatGoogleChartData <- function(data, idvar="id", timevar="time",  date.format
     x <- as.list(data)
     varNames <- names(x)
 
-
     ## typeMotionChart will hold the Google DataTable formats of our data
     typeMotionChart <- as.list(rep(NA, length(varNames)))
     names(typeMotionChart) <- varNames
@@ -155,32 +143,24 @@ formatGoogleChartData <- function(data, idvar="id", timevar="time",  date.format
     typeMotionChart[[idvar]] <- "string"
 
     varOthers <- varNames[ -idvar.timevar.pos  ]
-    ## check if all other variables are either numeric or strings
-    typeMotionChart[varOthers] <- sapply(varOthers, function(.x) ifelse(is.numeric(x[[.x]]), "number","string"))
-
     varOrder <- c(idvar, timevar, varOthers)
+    x <- x[varOrder]
 
-    x <- lapply(varOrder,
-                function(n){
-                    ifelse(typeMotionChart[[n]] == "number",
-                           return(x[[n]]),
-                           ifelse(typeMotionChart[[n]] == "date",
-                                  return(paste("new Date('", format(x[[n]], date.format), "')", sep="")),
-                                  return(x[[n]])
-                                  )
-                           )
-                }
-                )
-    names(x) <-  varOrder
+    typeMotionChart[varOthers] <- sapply(varOthers, function(.x) ifelse(is.numeric(x[[.x]]), "number","string"))
+    # factor to character, date to character
+    x[varOthers] <- lapply(varOthers,function(.x){ if(class(x[[.x]])=="Date") as.character(x[[.x]]) else x[[.x]]})
+    x.df <- as.data.frame(lapply(x,function(a) if (is.factor(a)) as.character(a) else a),stringsAsFactors=F)
+    # needed for toJSON, otherwise names are in json-array
+    names(x.df) <-  NULL
+    x.array <- lapply(seq(nrow(x.df)),function(.row){do.call("list",x.df[.row,])})
 
     output <- list(
-                   data.type= unlist(typeMotionChart[varOrder]),
-                   data = as.data.frame(x)
+                   data.type = unlist(typeMotionChart[varOrder]),
+                   json = toJSON(x.array)		
                    )
 
     return(output)
 }
-
 
 .setMotionChartOptions <- function(options=list(width = 600, height=500)){
 
