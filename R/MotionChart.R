@@ -90,6 +90,8 @@ MotionChart <- function(data,
 				    names(data.type),"');",sep=""),collapse="\n"),
 		        paste(.setMotionChartOptions(options),collapse="\n"))
 
+    if (!file.exists(file))
+       return(jsMotionChart)       
     cat(jsMotionChart,sep="\n", file=file, append=append)
     return(file)
 }
