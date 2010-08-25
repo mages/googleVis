@@ -90,9 +90,16 @@ MotionChart <- function(data,
 				    names(data.type),"');",sep=""),collapse="\n"),
 		        paste(.setMotionChartOptions(options),collapse="\n"))
 
-    if (!file.exists(file))
-       return(jsMotionChart)       
-    cat(jsMotionChart,sep="\n", file=file, append=append)
+    ## Delete:   8<
+    ##    if (!file.exists(file)) ### does not work with file==""
+    ##     return(jsMotionChart)
+    ## >8
+
+    if(file==""){
+           cat(jsMotionChart,sep="\n")
+    }else{
+        cat(jsMotionChart,sep="\n", file=file, append=append)
+    }
     return(file)
 }
 
@@ -158,7 +165,7 @@ formatGoogleChartData <- function(data, idvar="id", timevar="time",  date.format
 
     output <- list(
                    data.type = unlist(typeMotionChart[varOrder]),
-                   json = toJSON(x.array)		
+                   json = toJSON(x.array)
                    )
 
     return(output)

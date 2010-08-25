@@ -71,6 +71,8 @@ the function \texttt{MotionChart}.
 <<>>=
 MotionChart(Fruits[,-7], "Fruit", "Year") ## exclude Date column
 @
+Now we can also create a motion chart using the date colum. Please
+notice that 
 <<>>=
 MotionChart(Fruits[,-2], "Fruit", "Date") ## exclude Year column
 @
