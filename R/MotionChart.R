@@ -8,7 +8,8 @@ MotionChartPage <- function(data,
                             timevar="time",
                             date.format="%Y/%m/%d",
                             options=list(width = 600, height=500),
-                            title=paste("Motion Chart:", deparse(substitute(data))),
+			    htmlHeader=.htmlHeader(paste("Motion Chart:", deparse(substitute(data)))),                            
+		            htmlFooter=.htmlFooter(),
                             caption=paste("",Sys.time(), R.Version()$version.string, sep="<BR>"),
                             file="",
                             dirname=system.file(file.path("rsp", "myAnalysis"),
@@ -24,28 +25,9 @@ MotionChartPage <- function(data,
         file <- file.path(dirname, file)
     }
 
-    cat(paste(#"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">",
-              #"<html xmlns=\"http://www.w3.org/1999/xhtml\">\n",
+    htmlMotionChart <- MotionChart(data,idvar,timevar,date.format=date.format,options= options)
 
-"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\"\n",
-       " \"http://www.w3.org/TR/REC-html40/loose.dtd\">\n",
-
-
-              "<%title=\"", title, "\"%>\n<html>\n",
-              "<%@include file=\"../src/simpleHead.rsp\"%>\n",
-              "<body>\n",
-              "<%@include file=\"../src/simpleHeader.rsp\"%>\n",
-               sep=""),
-        file=file)
-
-    MotionChart(data, idvar, timevar,date.format=date.format,
-                options=options,
-                file=file, append=TRUE)
-
-    cat(caption, file=file, append=TRUE)
-
-    cat(paste("\n<%@include file=\"../src/simpleFooter.rsp\"%>\n",
-              "\n</body>\n</html>\n"), file = file, append=TRUE)
+    cat(htmlHeader,htmlMotionChart,caption,htmlFooter,file=file,append=TRUE)
 
     if(.file != "" && view==TRUE){
         .viewGoogleVisualisation(.file, repos=repos)
@@ -57,9 +39,7 @@ MotionChart <- function(data,
                         idvar="id",
                         timevar="time",
                         date.format="%Y/%m/%d",
-                        options=list(width = 600,  height=500),
-                        file="",
-                        append=TRUE){
+                        options=list(width = 600,  height=500)){
 
     output <- formatGoogleChartData(data, idvar, timevar, date.format)
     data.type <- output$data.type
@@ -90,17 +70,7 @@ MotionChart <- function(data,
 				    names(data.type),"');",sep=""),collapse="\n"),
 		        paste(.setMotionChartOptions(options),collapse="\n"))
 
-    ## Delete:   8<
-    ##    if (!file.exists(file)) ### does not work with file==""
-    ##     return(jsMotionChart)
-    ## >8
-
-    if(file==""){
-           cat(jsMotionChart,sep="\n")
-    }else{
-        cat(jsMotionChart,sep="\n", file=file, append=append)
-    }
-    return(file)
+    return(jsMotionChart)
 }
 
 .viewGoogleVisualisation <- function(file, repos=paste("http://127.0.0.1:8074/",
@@ -110,6 +80,28 @@ MotionChart <- function(data,
     browseRsp(paste(repos, file, sep=""))
 }
 
+.htmlHeader <- function(title){
+    htmlTemplateHeader <- '
+     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+       "http://www.w3.org/TR/REC-html40/loose.dtd"> <%%title="%s"%%>
+     <html>
+     <%%@include file="../src/simpleHead.rsp"%%>
+     <body>
+     <%%@include file="../src/simpleHeader.rsp"%%>
+    '
+    
+    htmlHeader <- sprintf(htmlTemplateHeader,title)
+    return(htmlHeader)
+}
+
+.htmlFooter <- function(){
+    htmlFooter <- '
+     <%@include file="../src/simpleFooter.rsp"%>
+     </body>
+     </html>
+    '
+    return(htmlFooter)
+}
 
 formatGoogleChartData <- function(data, idvar="id", timevar="time",  date.format="%Y/%m/%d"){
 
