@@ -1,6 +1,6 @@
 ## File R/MotionChart.R
 ## Part of the R package GoogleMotionChart
-## Copyright 2010 Markus Gesmann
+## Copyright 2010 Markus Gesmann, Diego de Castillo
 ## Distributed under GPL 2 or later
 
 MotionChartPage <- function(data,
@@ -179,3 +179,64 @@ formatGoogleChartData <- function(data, idvar="id", timevar="time",  date.format
 
     return(.par)
 }
+
+
+
+
+
+
+
+gvizMotionChart <- function(data,
+                            idvar="id",
+                            timevar="time",
+                            date.format="%Y/%m/%d",
+                            options=list(width = 600, height=500)){
+                            	
+                            	
+                            	.testMotionChartData(data) 
+                            	
+                            	jsonData <- toJSON (data)
+                            	
+                            	output <- gvizAPI(jsonData, chart.type, options)
+                            	
+                            	output ## html fragement class string / gviz
+                            	
+                            	}
+                            	
+                            	
+plot.gviz <- function(x){
+	
+	gvizHtmlHeader()
+	x
+	gvizHtmlFooter()
+	view
+	
+	}
+
+gvizTreeMap <- function(){}
+
+gvizGeoMap <- function(){}
+
+.testMotionChartData <- function(){}
+
+
+
+
+gvizChartOptions <- function(options=list(width = 600, height=500)){
+
+    .par <- sapply(names(options), function(x)
+                   paste("                 options[\"", x,"\"] = ",
+                         ifelse(is.numeric(options[[x]]) | is.logical(options[[x]]),
+                                ifelse(is.numeric(options[[x]]),
+                                       options[[x]],
+                                       ifelse(options[[x]],
+                                              "true", "false")
+                                       ),
+                                paste("'", options[[x]],"'",sep="")),
+                         ";",sep="" )
+                   )
+
+    return(.par)
+}
+
+## See also http://code.google.com/p/gvis/
