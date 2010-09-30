@@ -58,11 +58,13 @@ of a motion chart.
 \end{center}
 \end{figure}
 \section{Example}
-The package comes with an example data set called \texttt{Fruits}.
+The package comes with an example data set called \texttt{Fruits} and \texttt{Exports}.
 <<>>=
 require(GoogleMotionChart)
 data(Fruits)
 Fruits
+data(Exports)
+Exports
 @
 The example data shows sales information by Fruit and Year (also Date to
 illustrate how to handle this data type). Suppose we would like to
