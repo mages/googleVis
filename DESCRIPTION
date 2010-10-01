@@ -1,6 +1,6 @@
-Package: GoogleMotionChart
+Package: gvis
 Type: Package
-Title: Google Motion Chart Visualisation
+Title: Google Visualisation API
 Version: 0.1.5
 Date: 2010-08-1
 Author: Markus Gesmann, Diego de Castillo

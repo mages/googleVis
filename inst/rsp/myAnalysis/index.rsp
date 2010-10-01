@@ -13,7 +13,7 @@
 
 
 <p>
-By default the <tt>GoogleMotionChart</tt> package will store its output in
+By default the <tt>gvis</tt> package will store its output in
 this directory.
 </p>
 Current files:

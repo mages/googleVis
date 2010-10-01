@@ -1,14 +1,14 @@
 %% File man/MotionChart.Rd
-%% Part of the R package GoogleMotionChart
+%% Part of the R package gvis
 %% Copyright 2010 Markus Gesmann
 %% Distributed under GPL 2 or later
 
-\name{Google Motion charts}
-\alias{GoogleMotionChart}
+\name{Google API for Visualization}
+\alias{gvis}
 \alias{MotionChart}
 \alias{MotionChartPage}
 \title{
-  Visualising data with the Google motion chart API.
+  Visualising data with the Google visualization API.
 }
 \description{
   A Motion Chart is a dynamic flash based bubble chart to explore
@@ -37,11 +37,11 @@ MotionChartPage(data,
                            R.Version()$version.string, sep = "<BR>"), 
                 file = "",
                 dirname = system.file(file.path("rsp", "myAnalysis"),
-                           package = "GoogleMotionChart"), 
+                           package = "gvis"), 
                 repos = paste("http://127.0.0.1:8074/",
                            basename(dirname(system.file(package =
-                           "GoogleMotionChart"))), 
-                           "/GoogleMotionChart/rsp/myAnalysis/", sep = ""), 
+                           "gvis"))), 
+                           "/gvis/rsp/myAnalysis/", sep = ""), 
                 view = TRUE)
 
 }
@@ -119,11 +119,11 @@ MotionChartPage(data,
     redirected by \code{\link{sink}}
   }
   \item{dirname}{directory name in which the output file will be
-    stored. By default a sub-directory of the \code{GoogleMotionChart}
+    stored. By default a sub-directory of the \code{gvis}
     library folder will be used, which is also accessible by the web server.
   }
   \item{repos}{repository for the output file. By default the rsp-folder
-    of the \code{GoogleMotionChart} will be used.
+    of the \code{gvis} will be used.
   }  
   \item{append}{
     logical. If TRUE output will be appended to file;
@@ -176,7 +176,7 @@ MotionChartPage(data,
 Markus Gesmann, \email{markus.gesmann@googlemail.com}
 }
 \note{
-  See \code{vignette("GoogleMotionChart")} for a brief introduction of
+  See \code{vignette("gvis")} for a brief introduction of
   the graphical user interface of Google motion charts.
 
   Further examples of displaying data with motion charts are available with the Google Public Data Explorer:
@@ -186,7 +186,7 @@ Markus Gesmann, \email{markus.gesmann@googlemail.com}
   \url{http://www.braju.com/R/}, which allows us to display motion
   charts locally.
 
-  Type \code{browseRsp(path="/library/GoogleMotionChart/rsp/")} to find out a
+  Type \code{browseRsp(path="/library/gvis/rsp/")} to find out a
   bit more how you can integrate motion charts into rsp-pages.
 }
 
@@ -228,6 +228,6 @@ See also \code{\link{browseRsp}}, and also the
 
 }
 ## For more details see also the demos.
-## Type: demo(package='GoogleMotionChart') to see a list of available demos.
+## Type: demo(package='gvis') to see a list of available demos.
 }
 \keyword{ aplot }

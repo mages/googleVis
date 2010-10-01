@@ -1,5 +1,5 @@
 ## File R/Table.R
-## Part of the R package GoogleMotionChart
+## Part of the R package gvis
 ## Copyright 2010 Markus Gesmann, Diego de Castillo
 ## Distributed under GPL 2 or later
 
@@ -10,10 +10,10 @@ TablePage <- function(data,
                             caption=paste("",Sys.time(), R.Version()$version.string, sep="<BR>"),
                             file="",
                             dirname=system.file(file.path("rsp", "myAnalysis"),
-                                         package = "GoogleMotionChart"),
+                                         package = "gvis"),
                             repos=paste("http://127.0.0.1:8074/",
-                                     basename(dirname(system.file(package="GoogleMotionChart"))),
-                                     "/GoogleMotionChart/rsp/myAnalysis/", sep=""),
+                                     basename(dirname(system.file(package="gvis"))),
+                                     "/gvis/rsp/myAnalysis/", sep=""),
                             view=TRUE
                             ){
 

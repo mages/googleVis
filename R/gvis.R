@@ -1,5 +1,5 @@
 ## File R/gvis.R
-## Part of the R package GoogleMotionChart
+## Part of the R package gvis
 ## Copyright 2010 Markus Gesmann, Diego de Castillo
 ## Distributed under GPL 2 or later
 
@@ -127,8 +127,8 @@ gvisFormat <- function(type,data,idvar="id",timevar="time",date.format="%Y/%m/%d
 
 
 .viewGoogleVisualisation <- function(file, repos=paste("http://127.0.0.1:8074/",
-                                          basename(dirname(system.file(package="GoogleMotionChart"))),
-                                          "/GoogleMotionChart/rsp/myAnalysis/", sep="")){
+                                          basename(dirname(system.file(package="gvis"))),
+                                          "/gvis/rsp/myAnalysis/", sep="")){
 
     browseRsp(paste(repos, file, sep=""))
 }
@@ -166,7 +166,7 @@ infoString <- function(type=""){
 
     result <- result + BCOMMENT + type + " generated in " +
               info$language + " " + info$major + "." + info$minor + 
-              " by GoogleMotionChart " + packageDescription('GoogleMotionChart')$Version + " package" + ECOMMENT
+              " by gvis " + packageDescription('gvis')$Version + " package" + ECOMMENT
     result <- result + BCOMMENT + date() + ECOMMENT
     result$text
 }
