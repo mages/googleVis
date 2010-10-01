@@ -1,14 +1,11 @@
-## File R/MotionChart.R
+## File R/Table.R
 ## Part of the R package GoogleMotionChart
 ## Copyright 2010 Markus Gesmann, Diego de Castillo
 ## Distributed under GPL 2 or later
 
-MotionChartPage <- function(data,
-                            idvar="id",
-                            timevar="time",
-                            date.format="%Y/%m/%d",
+TablePage <- function(data,
                             options=list(width = 600, height=500),
-			    htmlHeader=.htmlHeader(paste("Motion Chart:", deparse(substitute(data)))),                            
+			    htmlHeader=.htmlHeader(paste("Table:", deparse(substitute(data)))),                            
 		            htmlFooter=.htmlFooter(),
                             caption=paste("",Sys.time(), R.Version()$version.string, sep="<BR>"),
                             file="",
@@ -25,9 +22,9 @@ MotionChartPage <- function(data,
         file <- file.path(dirname, file)
     }
 
-    htmlMotionChart <- MotionChart(data,options=options,idvar=idvar,timevar=timevar,date.format=date.format)
+    htmlTable <- Table(data=data,options=options)
 
-    cat(htmlHeader,htmlMotionChart,caption,htmlFooter,file=file,append=TRUE)
+    cat(htmlHeader,htmlTable,caption,htmlFooter,file=file,append=TRUE)
 
     if(.file != "" && view==TRUE){
         .viewGoogleVisualisation(.file, repos=repos)
@@ -35,13 +32,9 @@ MotionChartPage <- function(data,
     return(file)
 }
 
-MotionChart <- function(data,options=list(width = 600,  height=500),
-                        idvar=idvar,
-                        timevar=timevar,
-                        date.format=date.format){
 
-	result = gvis(type="MotionChart",data=data,options=options,idvar=idvar,timevar=timevar,date.format=date.format)
-        result
+Table <- function(data,options){
+    result = gvis(type="Table",data,options)
+    result
 }
-
 
