@@ -1,4 +1,4 @@
 importFrom(grDevices)
 importFrom(methods, setMethod)
 importFrom("RJSONIO", "toJSON")
-export(MotionChart, MotionChartPage, Table, TablePage, GeoMap, GeoMapPage)
+export(gvisMotionChart, gvisMotionChartPage, gvisTable, gvisTablePage, gvisGeoMap, gvisGeoMapPage)
