@@ -18,7 +18,7 @@ In this example we shows how the ouput of the script
 <pre>
 &lt;% MotionChart(Fruits, "Fruit", "Year",
 file=paste(system.file(paste("rsp","myAnalysis",
-sep=.Platform$file.sep), package="gvis"), "fruit.rsp",
+sep=.Platform$file.sep), package="googleVis"), "fruit.rsp",
 sep=.Platform$file.sep)) %&gt;
 </pre> 
 can be integrated into a page via the command

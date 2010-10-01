@@ -13,7 +13,7 @@
 
 
 <p>
-By default the <tt>gvis</tt> package will store its output in
+By default the <tt>googleVis</tt> package will store its output in
 this directory.
 </p>
 Current files:

@@ -1,4 +1,4 @@
-Package: gvis
+Package: googleVis
 Type: Package
 Title: Google Visualisation API
 Version: 0.1.5
