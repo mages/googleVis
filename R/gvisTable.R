@@ -4,7 +4,8 @@
 ## Distributed under GPL 2 or later
 
 gvisTablePage <- function(data,
-                            options=list(width = 600, height=500),
+                            options=list(gvis=list(width = 600, height=500),
+					 data=list(allowed="numeric,character,logical")),
 			    htmlHeader=.htmlHeader(paste("Table:", deparse(substitute(data)))),                            
 		            htmlFooter=.htmlFooter(),
                             caption=paste("",Sys.time(), R.Version()$version.string, sep="<BR>"),

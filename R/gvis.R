@@ -3,9 +3,9 @@
 ## Copyright 2010 Markus Gesmann, Diego de Castillo
 ## Distributed under GPL 2 or later
 
-gvis <- function(type="",data,options,idvar="id",timevar="time",date.format="%Y/%m/%d"){
+gvis <- function(type="",data,options){
 
-    output <- gvisFormat(type=type,data,idvar=idvar,timevar=timevar,date.format=date.format)
+    output <- gvisFormat(type=type,data,options)
     data.type <- output$data.type
     data.json <- output$json
     
@@ -39,7 +39,7 @@ gvis <- function(type="",data,options,idvar="id",timevar="time",date.format="%Y/
     return(jsTable)
 }
 
-gvisFormat <- function(type,data,idvar="id",timevar="time",date.format="%Y/%m/%d"){
+gvisFormat <- function(type,data,options){
 
     ## Create a list where the Google DataTable type of all variables will be stored
     ## Google Motion Chart needs a 'string' in the id variable (first column)
@@ -58,31 +58,30 @@ gvisFormat <- function(type,data,idvar="id",timevar="time",date.format="%Y/%m/%d
     typeMotionChart <- as.list(rep(NA, length(varNames)))
     names(typeMotionChart) <- varNames
 
-
     if (type == "MotionChart"){
     ## Check if idvar and timevar exist
-    idvar.timevar.pos <- match(c(idvar, timevar), varNames)
+    idvar.timevar.pos <- match(c(options$data$idvar, options$data$timevar), varNames)
     if(sum(!is.na(idvar.timevar.pos)) < 2){
         stop("There is a missmatch between the idvar and timevar specified and the colnames of your data.")
     }
 
     ## Check if timevar is either a numeric or date
-    if( is.numeric(x[[timevar]]) | class(x[[timevar]])=="Date" ){
-        typeMotionChart[[timevar]] <- ifelse(is.numeric(x[[timevar]]), "number",
+    if( is.numeric(x[[options$data$timevar]]) | class(x[[options$data$timevar]])=="Date" ){
+        typeMotionChart[[options$data$timevar]] <- ifelse(is.numeric(x[[options$data$timevar]]), "number",
                                              ##ifelse(date.format %in% c("%YW%W","%YW%U"), "string",
                                              "date")##)
     }else{
-        stop(paste("The timevar has to be of numeric or Date format. Currently it is", class(x[[timevar]])))
+        stop(paste("The timevar has to be of numeric or Date format. Currently it is", class(x[[options$data$timevar]])))
     }
 
     ## idvar has to be a character, so lets try to convert it into a character
-    if( ! is.character(x[[idvar]]) ){
-        x[[idvar]] <- as.character(x[[idvar]])
+    if( ! is.character(x[[options$data$idvar]]) ){
+        x[[options$data$idvar]] <- as.character(x[[options$data$idvar]])
     }
-    typeMotionChart[[idvar]] <- "string"
+    typeMotionChart[[options$data$idvar]] <- "string"
 
     varOthers <- varNames[ -idvar.timevar.pos  ]
-    varOrder <- c(idvar, timevar, varOthers)
+    varOrder <- c(options$data$idvar, options$data$timevar, varOthers)
     x <- x[varOrder]
 
     typeMotionChart[varOthers] <- sapply(varOthers, function(.x) ifelse(is.numeric(x[[.x]]), "number","string"))
@@ -107,8 +106,8 @@ gvisFormat <- function(type,data,idvar="id",timevar="time",date.format="%Y/%m/%d
 }
 
 
-.setOptions <- function(options=list(width = 600, height=500)){
-
+.setOptions <- function(options=list(gvis=list(width = 600, height=500))){
+    options <- options$gvis
     .par <- sapply(names(options), function(x)
                    paste("                 options[\"", x,"\"] = ",
                          ifelse(is.numeric(options[[x]]) | is.logical(options[[x]]),

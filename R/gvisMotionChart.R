@@ -4,10 +4,9 @@
 ## Distributed under GPL 2 or later
 
 gvisMotionChartPage <- function(data,
-                            idvar="id",
-                            timevar="time",
-                            date.format="%Y/%m/%d",
-                            options=list(width = 600, height=500),
+                            options=list(gvis=list(width = 600, height=500),
+					 data=list(idvar="id",timevar="time",date.format="%Y/%m/%d",
+						   allowed="numeric,character,date")),
 			    htmlHeader=.htmlHeader(paste("Motion Chart:", deparse(substitute(data)))),                            
 		            htmlFooter=.htmlFooter(),
                             caption=paste("",Sys.time(), R.Version()$version.string, sep="<BR>"),
@@ -25,7 +24,7 @@ gvisMotionChartPage <- function(data,
         file <- file.path(dirname, file)
     }
 
-    htmlMotionChart <- gvisMotionChart(data,options=options,idvar=idvar,timevar=timevar,date.format=date.format)
+    htmlMotionChart <- gvisMotionChart(data,options=options)
 
     cat(htmlHeader,htmlMotionChart,caption,htmlFooter,file=file,append=TRUE)
 
@@ -35,12 +34,8 @@ gvisMotionChartPage <- function(data,
     return(file)
 }
 
-gvisMotionChart <- function(data,options=list(width = 600,  height=500),
-                        idvar=idvar,
-                        timevar=timevar,
-                        date.format=date.format){
-
-	result = gvis(type="MotionChart",data=data,options=options,idvar=idvar,timevar=timevar,date.format=date.format)
+gvisMotionChart <- function(data,options){
+	result = gvis(type="MotionChart",data=data,options=options)
         result
 }
 
