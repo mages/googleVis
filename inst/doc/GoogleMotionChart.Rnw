@@ -63,8 +63,8 @@ The package comes with an example data set called \texttt{Fruits} and \texttt{Ex
 require(GoogleMotionChart)
 data(Fruits)
 Fruits
-data(Exports)
-Exports
+#data(Exports)
+#Exports
 @
 The example data shows sales information by Fruit and Year (also Date to
 illustrate how to handle this data type). Suppose we would like to
@@ -74,7 +74,7 @@ the function \texttt{MotionChart}.
 MotionChart(Fruits[,-7], "Fruit", "Year") ## exclude Date column
 @
 Now we can also create a motion chart using the date colum. Please
-notice that 
+notice that
 <<>>=
 MotionChart(Fruits[,-2], "Fruit", "Date") ## exclude Year column
 @
