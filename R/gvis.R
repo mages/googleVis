@@ -52,7 +52,7 @@ gvis <- function(type="", data, options){
                      paste(paste("data.addColumn('", data.type, "','",
                                  names(data.type), "');", sep=""), collapse="\n"),
                      type,
-                     paste(gvizOptions(options), collapse="\n")
+                     paste(gvisOptions(options), collapse="\n")
                      )
   
   jsTable <- paste(infoString(type), jsTable, sep="\n")
@@ -107,7 +107,7 @@ gvisFormat <- function(data){
 }
 
 
-gvizOptions <- function(options=list(gvis=list(width = 600, height=500))){
+gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
     options <- options$gvis
     .par <- sapply(names(options), function(x)
                    paste("                 options[\"", x,"\"] = ",
