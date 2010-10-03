@@ -36,6 +36,7 @@ plot.gvis <- function(x,
   
   print.gvis(x, file, ...)
 
+  require(R.rsp)
   browseRsp(paste(repos, basename(file), sep=""))
 
 }

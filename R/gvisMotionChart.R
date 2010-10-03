@@ -24,7 +24,7 @@ gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m
   ## Combine options for other generic functions
   my.options <- list(gvis=options,
                      data=list(idvar=idvar, timevar=timevar,
-                       date.format=date.format, allowed="numeric,character,date")
+                       date.format=date.format, allowed=c("number","string","date"))
                      )
   
   checked.data <- gvisCheckMotionChartData(data, my.options)

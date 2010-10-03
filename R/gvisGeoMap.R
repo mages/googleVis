@@ -20,7 +20,8 @@
 gvisGeoMap <- function(data, options=list(width = 600, height=500)){
 
   
-  my.options <- list(gvis=options)
+  my.options <- list(gvis=options, data=list(allowed=c("number", "string")))
+  
   checked.data <- gvisCheckGeoMapData(data)
 
   

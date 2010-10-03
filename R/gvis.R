@@ -27,7 +27,18 @@ gvis <- function(type="", data, options){
   output <- gvisFormat(data)
   data.type <- output$data.type
   data.json <- output$json
-  
+
+  ## check for not allowed data types
+  checkTypes <- data.type %in% options$data$allowed 
+  if(sum(!checkTypes)){
+    message <- paste("Only the following data types are allowed: ", 
+	paste(options$data$allowed, collapse=", "), "\n",
+	 "However, ", 
+	paste(names(data)[!checkTypes], collapse=", "), " is of type ", 
+	paste(data.type[!checkTypes], collapse=", "),"\n", sep="", collapse=" ")
+    stop(message)
+  }  
+
   jsTableTemplate <- '
      <script type="text/javascript\" src="http://www.google.com/jsapi"></script>
      <script type="text/javascript">
@@ -74,6 +85,7 @@ gvisFormat <- function(data){
                        ifelse(is.numeric(x[[.x]]), "number",ifelse(is.logical(x[[.x]]),"boolean","string"))
                      }
                      )
+
   
   x <- lapply(varNames,
               function(.x){
