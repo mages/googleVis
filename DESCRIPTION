@@ -1,8 +1,8 @@
 Package: googleVis
 Type: Package
 Title: Google Visualisation API
-Version: 0.1.5
-Date: 2010-08-1
+Version: 0.1.6
+Date: 2010-10-03
 Author: Markus Gesmann, Diego de Castillo
 Maintainer: Markus Gesmann <markus.gesmann@googlemail.com>
 Description: Functions to visualise data using the Google Visualisation API. Requires access to a web server and Adobe Flash.

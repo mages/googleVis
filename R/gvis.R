@@ -1,15 +1,34 @@
-## File R/googleVis.R
-## Part of the R package googleVis
-## Copyright 2010 Markus Gesmann, Diego de Castillo
-## Distributed under GPL 2 or later
+### File R/gvis.R
+### Part of the R package googleVis
+### Copyright 2010 Markus Gesmann, Diego de Castillo
+### Distributed under GPL 2 or later
 
-gvis <- function(type="",data,options){
+### It is made available under the terms of the GNU General Public
+### License, version 2, or at your option, any later version,
+### incorporated herein by reference.
+###
+### This program is distributed in the hope that it will be
+### useful, but WITHOUT ANY WARRANTY; without even the implied
+### warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+### PURPOSE.  See the GNU General Public License for more
+### details.
+###
+### You should have received a copy of the GNU General Public
+### License along with this program; if not, write to the Free
+### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+### MA 02110-1301, USA
 
-    output <- gvisFormat(type=type,data,options)
-    data.type <- output$data.type
-    data.json <- output$json
-    
-    jsTableTemplate <- '
+gvis <- function(type="", data, options){
+  
+  if( ! is.data.frame(data) ){
+    stop("Data has to be a data.frame. See ?data.frame for more details.")
+  }
+  
+  output <- gvisFormat(data)
+  data.type <- output$data.type
+  data.json <- output$json
+  
+  jsTableTemplate <- '
      <script type="text/javascript\" src="http://www.google.com/jsapi"></script>
      <script type="text/javascript">
       google.load("visualization", "1", { packages:["%s"] });
@@ -27,86 +46,68 @@ gvis <- function(type="",data,options){
      </script>
      <div id="chart_div"></div>
     '
-    jsTable <- sprintf(jsTableTemplate,
-			tolower(type),
-			data.json,
-	                paste(paste("data.addColumn('",data.type,"','",
-				    names(data.type),"');",sep=""),collapse="\n"),
-			type,
-		        paste(.setOptions(options),collapse="\n"))
-
-    jsTable <- paste(infoString(type),jsTable,sep="\n")
-    return(jsTable)
+  jsTable <- sprintf(jsTableTemplate,
+                     tolower(type),
+                     data.json,
+                     paste(paste("data.addColumn('", data.type, "','",
+                                 names(data.type), "');", sep=""), collapse="\n"),
+                     type,
+                     paste(gvizOptions(options), collapse="\n")
+                     )
+  
+  jsTable <- paste(infoString(type), jsTable, sep="\n")
+  
+  return(jsTable)
 }
 
-gvisFormat <- function(type,data,options){
-
-    ## Create a list where the Google DataTable type of all variables will be stored
-    ## Google Motion Chart needs a 'string' in the id variable (first column)
-    ## A number or date in the time variable (second column)
-    ## Everything else has to be a number or string
-
-    if( ! is.data.frame(data) ){
-        stop("Data has to be a data.frame. See ?data.frame for more details.")
-    }
-
-    ## Convert data.frame to list
-    x <- as.list(data)
-    varNames <- names(x)
-
-    ## typeMotionChart will hold the Google DataTable formats of our data
-    typeMotionChart <- as.list(rep(NA, length(varNames)))
-    names(typeMotionChart) <- varNames
-
-    if (type == "MotionChart"){
-    ## Check if idvar and timevar exist
-    idvar.timevar.pos <- match(c(options$data$idvar, options$data$timevar), varNames)
-    if(sum(!is.na(idvar.timevar.pos)) < 2){
-        stop("There is a missmatch between the idvar and timevar specified and the colnames of your data.")
-    }
-
-    ## Check if timevar is either a numeric or date
-    if( is.numeric(x[[options$data$timevar]]) | class(x[[options$data$timevar]])=="Date" ){
-        typeMotionChart[[options$data$timevar]] <- ifelse(is.numeric(x[[options$data$timevar]]), "number",
-                                             ##ifelse(date.format %in% c("%YW%W","%YW%U"), "string",
-                                             "date")##)
-    }else{
-        stop(paste("The timevar has to be of numeric or Date format. Currently it is", class(x[[options$data$timevar]])))
-    }
-
-    ## idvar has to be a character, so lets try to convert it into a character
-    if( ! is.character(x[[options$data$idvar]]) ){
-        x[[options$data$idvar]] <- as.character(x[[options$data$idvar]])
-    }
-    typeMotionChart[[options$data$idvar]] <- "string"
-
-    varOthers <- varNames[ -idvar.timevar.pos  ]
-    varOrder <- c(options$data$idvar, options$data$timevar, varOthers)
-    x <- x[varOrder]
-
-    typeMotionChart[varOthers] <- sapply(varOthers, function(.x) ifelse(is.numeric(x[[.x]]), "number","string"))
-    typeMotionChart <- typeMotionChart[varOrder]
-    x[varOthers] <- lapply(varOthers,function(.x){ if(class(x[[.x]])=="Date") as.character(x[[.x]]) else x[[.x]]})
-    } else {
-    typeMotionChart <- sapply(varNames, function(.x) ifelse(is.numeric(x[[.x]]), "number",ifelse(is.logical(x[[.x]]),"boolean","string")))
-    x <- lapply(varNames,function(.x){ if(class(x[[.x]])=="Date") as.character(x[[.x]]) else x[[.x]]})
-    }
-    # factor to character, date to character
-    x.df <- as.data.frame(lapply(x,function(a) if (is.factor(a)) as.character(a) else a),stringsAsFactors=F)
-    # needed for toJSON, otherwise names are in json-array
-    names(x.df) <-  NULL
-    x.array <- lapply(seq(nrow(x.df)),function(.row){do.call("list",x.df[.row,])})
-
-    output <- list(
-                   data.type = unlist(typeMotionChart),
-                   json = toJSON(x.array)
-                   )
-
-    return(output)
+gvisFormat <- function(data){
+  
+  ## Create a list where the Google DataTable type of all variables will be stored
+  require(RJSONIO)
+  
+  ## Convert data.frame to list
+  x <- as.list(data)
+  varNames <- names(x)
+  
+  varTypes <- sapply(varNames,
+                     function(.x){
+                       ifelse(is.numeric(x[[.x]]), "number",ifelse(is.logical(x[[.x]]),"boolean","string"))
+                     }
+                     )
+  
+  x <- lapply(varNames,
+              function(.x){
+                if(class(x[[.x]])=="Date") as.character(x[[.x]]) else x[[.x]]
+              }
+              )
+  
+  ## factor to character, date to character
+  x.df <- as.data.frame(
+                        lapply(x,
+                               function(a){
+                                 if (is.factor(a)) as.character(a) else a
+                               }
+                               ),
+                        stringsAsFactors=FALSE
+                        )
+  ## needed for toJSON, otherwise names are in json-array
+  names(x.df) <-  NULL
+  x.array <- lapply(seq(nrow(x.df)),
+                    function(.row){
+                      do.call("list", x.df[.row,])
+                    }
+                    )
+  
+  output <- list(
+                 data.type = unlist(varTypes),
+                 json = toJSON(x.array)
+                 )
+  
+  return(output)
 }
 
 
-.setOptions <- function(options=list(gvis=list(width = 600, height=500))){
+gvizOptions <- function(options=list(gvis=list(width = 600, height=500))){
     options <- options$gvis
     .par <- sapply(names(options), function(x)
                    paste("                 options[\"", x,"\"] = ",
@@ -123,17 +124,9 @@ gvisFormat <- function(type,data,options){
 }
 
 
+gvisHtmlWrapper <- function(title){
 
-
-.viewGoogleVisualisation <- function(file, repos=paste("http://127.0.0.1:8074/",
-                                          basename(dirname(system.file(package="googleVis"))),
-                                          "/googleVis/rsp/myAnalysis/", sep="")){
-
-    browseRsp(paste(repos, file, sep=""))
-}
-
-.htmlHeader <- function(title){
-    htmlTemplateHeader <- '
+  htmlHeader <- '
      <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
        "http://www.w3.org/TR/REC-html40/loose.dtd"> <%%title="%s"%%>
      <html>
@@ -141,21 +134,24 @@ gvisFormat <- function(type,data,options){
      <body>
      <%%@include file="../src/simpleHeader.rsp"%%>
     '
-    
-    htmlHeader <- sprintf(htmlTemplateHeader,title)
-    return(htmlHeader)
-}
+  
+  htmlHeader <- sprintf(htmlHeader,title)
 
-.htmlFooter <- function(){
-    htmlFooter <- '
+  htmlFooter <- '
      <%@include file="../src/simpleFooter.rsp"%>
      </body>
      </html>
     '
-    return(htmlFooter)
+    
+  htmlCaption <- paste("",Sys.time(), R.Version()$version.string, sep="<BR>")
+
+  return(list(htmlHeader=htmlHeader,
+              htmlFooter=htmlFooter,
+              htmlCaption=htmlCaption))
 }
 
-# info string 
+
+## info string 
 
 infoString <- function(type=""){
     result <- string("",file="",append=FALSE)

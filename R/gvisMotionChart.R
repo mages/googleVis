@@ -1,42 +1,105 @@
-## File R/MotionChart.R
-## Part of the R package googleVis
-## Copyright 2010 Markus Gesmann, Diego de Castillo
-## Distributed under GPL 2 or later
+### File R/MotionChart.R
+### Part of the R package googleVis
+### Copyright 2010 Markus Gesmann, Diego de Castillo
 
-gvisMotionChartPage <- function(data,
-                            options=list(gvis=list(width = 600, height=500),
-					 data=list(idvar="id",timevar="time",date.format="%Y/%m/%d",
-						   allowed="numeric,character,date")),
-			    htmlHeader=.htmlHeader(paste("Motion Chart:", deparse(substitute(data)))),                            
-		            htmlFooter=.htmlFooter(),
-                            caption=paste("",Sys.time(), R.Version()$version.string, sep="<BR>"),
-                            file="",
-                            dirname=system.file(file.path("rsp", "myAnalysis"),
-                                         package = "googleVis"),
-                            repos=paste("http://127.0.0.1:8074/",
-                                     basename(dirname(system.file(package="googleVis"))),
-                                     "/googleVis/rsp/myAnalysis/", sep=""),
-                            view=TRUE
-                            ){
+### It is made available under the terms of the GNU General Public
+### License, version 2, or at your option, any later version,
+### incorporated herein by reference.
+###
+### This program is distributed in the hope that it will be
+### useful, but WITHOUT ANY WARRANTY; without even the implied
+### warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+### PURPOSE.  See the GNU General Public License for more
+### details.
+###
+### You should have received a copy of the GNU General Public
+### License along with this program; if not, write to the Free
+### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+### MA 02110-1301, USA
 
-    .file <- file
-    if(file!=""){
-        file <- file.path(dirname, file)
-    }
 
-    htmlMotionChart <- gvisMotionChart(data,options=options)
+gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m/%d",
+                            options=list(width = 600, height=500)){
 
-    cat(htmlHeader,htmlMotionChart,caption,htmlFooter,file=file,append=TRUE)
+  ## Combine options for other generic functions
+  my.options <- list(gvis=options,
+                     data=list(idvar=idvar, timevar=timevar,
+                       date.format=date.format, allowed="numeric,character,date")
+                     )
+  
+  checked.data <- gvisCheckMotionChartData(data, my.options)
+  
+  htmlChart <- gvis(type="MotionChart", data=checked.data, options=my.options)
 
-    if(.file != "" && view==TRUE){
-        .viewGoogleVisualisation(.file, repos=repos)
-    }
-    return(file)
+  htmlScaffold <- gvisHtmlWrapper(title=paste("Motion Chart:", deparse(substitute(data))))
+  
+  output <- list(htmlHeader=htmlScaffold[["htmlHeader"]],
+                 htmlChart=htmlChart,
+                 htmlCaption=htmlScaffold[["htmlCaption"]],
+                 htmlFooter=htmlScaffold[["htmlFooter"]]
+                 )
+  
+  class(output) <- c("gvis", class(output))
+
+  return(output)
 }
 
-gvisMotionChart <- function(data,options){
-	result = gvis(type="MotionChart",data=data,options=options)
-        result
-}
+gvisCheckMotionChartData <- function(data, options){
+  
+  ## Motion Charts require in the first column the idvar and time var in the second column
+  ## The combination of idvar and timevar has to be unique
 
+  ## Google Motion Chart needs a 'string' in the id variable (first column)
+  ## A number or date in the time variable (second column)
+  ## Everything else has to be a number or string
+  
+  ## Convert data.frame to list
+  x <- as.list(data)
+  varNames <- names(x)
+  
+  ## typeMotionChart will hold the Google DataTable formats of our data
+  typeMotionChart <- as.list(rep(NA, length(varNames)))
+  names(typeMotionChart) <- varNames
+  
+  ## Check if idvar and timevar match columns in the data
+  idvar.timevar.pos <- match(c(options$data$idvar, options$data$timevar), varNames)
+  if(sum(!is.na(idvar.timevar.pos)) < 2){
+    stop("There is a missmatch between the idvar and timevar specified and the colnames of your data.")
+  }
+  
+  ## Check if timevar is either a numeric or date
+  if( is.numeric(x[[options$data$timevar]]) | class(x[[options$data$timevar]])=="Date" ){
+    typeMotionChart[[options$data$timevar]] <- ifelse(is.numeric(x[[options$data$timevar]]), "number",
+                                                      ##ifelse(date.format %in% c("%YW%W","%YW%U"), "string",
+                                                      "date")##)
+  }else{
+    stop(paste("The timevar has to be of numeric or Date format. Currently it is", class(x[[options$data$timevar]])))
+  }
+  
+  ## idvar has to be a character, so lets try to convert it into a character
+  if( ! is.character(x[[options$data$idvar]]) ){
+    x[[options$data$idvar]] <- as.character(x[[options$data$idvar]])
+  }
+  typeMotionChart[[options$data$idvar]] <- "string"
+  
+  varOthers <- varNames[ -idvar.timevar.pos  ]
+  varOrder <- c(options$data$idvar, options$data$timevar, varOthers)
+  x <- x[varOrder]
+  
+  typeMotionChart[varOthers] <- sapply(varOthers, function(.x) ifelse(is.numeric(x[[.x]]), "number","string"))
+  typeMotionChart <- typeMotionChart[varOrder]
+  x[varOthers] <- lapply(varOthers,function(.x){ if(class(x[[.x]])=="Date") as.character(x[[.x]]) else x[[.x]]})
+
+  
+  ## check uniqueness of rows
+
+  if( nrow(data) != nrow(unique(as.data.frame(x)[1:2]))  ){
+    stop(paste("Your data has to have rows which are unique by the combination of idvar and timevar.\n",
+               "Howerver, you data has ", nrow(data), "rows, but only idvar and timevar only define ",
+               nrow(unique(as.data.frame(x)[1:2])), "unique rows.", sep=""))
+  }
+
+  
+  return(data.frame(x))
+}
 

@@ -1,41 +1,55 @@
-## File R/GeoMap.R
-## Part of the R package googleVis
-## Copyright 2010 Markus Gesmann, Diego de Castillo
-## Distributed under GPL 2 or later
+### File R/GeoMap.R
+### Part of the R package googleVis
+### Copyright 2010 Markus Gesmann, Diego de Castillo
 
-gvisGeoMapPage <- function(data,
-                            options=list(gvis=list(width = 600, height=500),
-					 data=list(allowed="numeric,character")),
-			    htmlHeader=.htmlHeader(paste("GeoMap:", deparse(substitute(data)))),                            
-		            htmlFooter=.htmlFooter(),
-                            caption=paste("",Sys.time(), R.Version()$version.string, sep="<BR>"),
-                            file="",
-                            dirname=system.file(file.path("rsp", "myAnalysis"),
-                                         package = "googleVis"),
-                            repos=paste("http://127.0.0.1:8074/",
-                                     basename(dirname(system.file(package="googleVis"))),
-                                     "/googleVis/rsp/myAnalysis/", sep=""),
-                            view=TRUE
-                            ){
+### It is made available under the terms of the GNU General Public
+### License, version 2, or at your option, any later version,
+### incorporated herein by reference.
+###
+### This program is distributed in the hope that it will be
+### useful, but WITHOUT ANY WARRANTY; without even the implied
+### warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+### PURPOSE.  See the GNU General Public License for more
+### details.
+###
+### You should have received a copy of the GNU General Public
+### License along with this program; if not, write to the Free
+### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+### MA 02110-1301, USA
 
-    .file <- file
-    if(file!=""){
-        file <- file.path(dirname, file)
-    }
+gvisGeoMap <- function(data, options=list(width = 600, height=500)){
 
-    htmlGeoMap <- gvisGeoMap(data=data,options=options)
+  
+  my.options <- list(gvis=options)
+  checked.data <- gvisCheckGeoMapData(data)
 
-    cat(htmlHeader,htmlGeoMap,caption,htmlFooter,file=file,append=TRUE)
+  
+  htmlChart = gvis(type="GeoMap", checked.data, options=my.options)
+  
+  htmlScaffold <- gvisHtmlWrapper(title=paste("Geo Map:", deparse(substitute(data))))
+  
+  output <- list(htmlHeader=htmlScaffold[["htmlHeader"]],
+                 htmlChart=htmlChart,
+                 htmlCaption=htmlScaffold[["htmlCaption"]],
+                 htmlFooter=htmlScaffold[["htmlFooter"]]
+                 )
+  
+  class(output) <- c("gvis", class(output))
 
-    if(.file != "" && view==TRUE){
-        .viewGoogleVisualisation(.file, repos=repos)
-    }
-    return(file)
+  return(output)
 }
 
 
-gvisGeoMap <- function(data,options){
-    result = gvis(type="GeoMap",data,options)
-    result
-}
+gvisCheckGeoMapData <- function(data){
 
+  ## Convert data.frame to list
+  ##  x <- as.list(data)
+  ##  varNames <- names(x)
+  
+  ##  typeMotionChart <- sapply(varNames, function(.x) ifelse(is.numeric(x[[.x]]), "number",ifelse(is.logical(x[[.x]]),"boolean","string")))
+  ## x <- lapply(varNames,function(.x){ if(class(x[[.x]])=="Date") as.character(x[[.x]]) else x[[.x]]})
+  
+  ##return(data.frame(x))
+
+  return(data)
+}
