@@ -1,4 +1,4 @@
-### File R/MotionChart.R
+### File R/gvisMotionChart.R
 ### Part of the R package googleVis
 ### Copyright 2010 Markus Gesmann, Diego de Castillo
 

@@ -1,4 +1,4 @@
-### File R/GeoMap.R
+### File R/gvisGeoMap.R
 ### Part of the R package googleVis
 ### Copyright 2010 Markus Gesmann, Diego de Castillo
 

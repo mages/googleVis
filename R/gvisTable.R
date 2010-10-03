@@ -1,41 +1,48 @@
-## File R/Table.R
-## Part of the R package googleVis
-## Copyright 2010 Markus Gesmann, Diego de Castillo
-## Distributed under GPL 2 or later
+### File R/gvisTable.R
+### Part of the R package googleVis
+### Copyright 2010 Markus Gesmann, Diego de Castillo
 
-gvisTablePage <- function(data,
-                            options=list(gvis=list(width = 600, height=500),
-					 data=list(allowed="numeric,character,logical")),
-			    htmlHeader=.htmlHeader(paste("Table:", deparse(substitute(data)))),                            
-		            htmlFooter=.htmlFooter(),
-                            caption=paste("",Sys.time(), R.Version()$version.string, sep="<BR>"),
-                            file="",
-                            dirname=system.file(file.path("rsp", "myAnalysis"),
-                                         package = "googleVis"),
-                            repos=paste("http://127.0.0.1:8074/",
-                                     basename(dirname(system.file(package="googleVis"))),
-                                     "/googleVis/rsp/myAnalysis/", sep=""),
-                            view=TRUE
-                            ){
+### It is made available under the terms of the GNU General Public
+### License, version 2, or at your option, any later version,
+### incorporated herein by reference.
+###
+### This program is distributed in the hope that it will be
+### useful, but WITHOUT ANY WARRANTY; without even the implied
+### warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR
+### PURPOSE.  See the GNU General Public License for more
+### details.
+###
+### You should have received a copy of the GNU General Public
+### License along with this program; if not, write to the Free
+### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
+### MA 02110-1301, USA
 
-    .file <- file
-    if(file!=""){
-        file <- file.path(dirname, file)
-    }
+gvisTable <- function(data, options=list(width = 600, height=500)){
 
-    htmlTable <- gvisTable(data=data,options=options)
+  
+  my.options <- list(gvis=options, data=list(allowed=c("number", "string","date","boolean")))
+  
+  checked.data <- gvisCheckTableData(data)
 
-    cat(htmlHeader,htmlTable,caption,htmlFooter,file=file,append=TRUE)
+  
+  htmlChart = gvis(type="Table", checked.data, options=my.options)
+  
+  htmlScaffold <- gvisHtmlWrapper(title=paste("Table:", deparse(substitute(data))))
+  
+  output <- list(htmlHeader=htmlScaffold[["htmlHeader"]],
+                 htmlChart=htmlChart,
+                 htmlCaption=htmlScaffold[["htmlCaption"]],
+                 htmlFooter=htmlScaffold[["htmlFooter"]]
+                 )
+  
+  class(output) <- c("gvis", class(output))
 
-    if(.file != "" && view==TRUE){
-        .viewGoogleVisualisation(.file, repos=repos)
-    }
-    return(file)
+  return(output)
 }
 
 
-gvisTable <- function(data,options){
-    result = gvis(type="Table",data,options)
-    result
-}
+gvisCheckTableData <- function(data){
 
+  # nothing to check at the moment here
+  return(data)
+}
