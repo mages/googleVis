@@ -1,9 +1,9 @@
-\name{gvisMotionChart}
+\name{Google Visulisation Charts}
 \alias{gvisMotionChart}
 \alias{gvisGeoMap}
 \alias{gvisTable}
 
-\title{ Motion Chart with R }
+\title{ R interfaces to the Google Visualisation API}
 \description{
 
   A Motion Chart is a dynamic flash based bubble chart to explore
@@ -14,7 +14,9 @@
   rendered by the web browser in flash.
 }
 \usage{
-gvisMotionChart(data, idvar = "id", timevar = "time", date.format = "\%Y/\%m/\%d", options = list(width = 600, height = 500))
+gvisMotionChart(data, idvar = "id", timevar = "time", 
+		      date.format = "\%Y/\%m/\%d", 
+		      options = list(width = 600, height = 500))
 gvisGeoMap(data, options = list(width = 600, height = 500))
 gvisTable(data, options = list(width = 600, height = 500))
 }
@@ -118,8 +120,9 @@ An object of class "\code{gvis}" is a list containing at least the following com
   with R: \url{http://yihui.name/en/2008/11/brownian-motion-using-google-visualization-api-and-r/}
 }
 \author{
-Markus Gesmann, \email{markus.gesmann@googlemail.com}
-Diego de Castillo, \email{decastillo@gmail.com}
+Markus Gesmann, \email{markus.gesmann@googlemail.com},
+
+Diego de Castillo \email{decastillo@gmail.com}
 }
 \note{
   See \code{vignette("googleVis")} for a brief introduction of

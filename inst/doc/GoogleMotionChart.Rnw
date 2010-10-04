@@ -16,7 +16,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 
 \begin{document}
 
-\author{Markus Gesmann\\markus.gesmann@gmail.com}
+\author{Markus Gesmann\\markus.gesmann@gmail.com\\Diego de Castillo\\decastillo@gmail.com}
 \title{Using the Google Visulisation API with R:\\Package Vignette}
 \maketitle
 

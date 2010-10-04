@@ -22,9 +22,10 @@ A data frame with 9 observations on the following 7 variables.
 }
 \examples{
 data(Fruits)
+ gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
+
 \dontrun{
- MotionChartPage(Fruits, idvar="Fruit", timevar="Year",
-                 file="myFruitAnalysis.html")
+ plot(gvisMotionChart(Fruits, idvar="Fruit", timevar="Year"))
 }
 }
 \keyword{datasets}

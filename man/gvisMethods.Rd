@@ -46,8 +46,9 @@ Print and plot \code{gvis} objects
 %% ~put references to the literature/web site here ~
 %%}
 \author{
-Markus Gesmann, \email{markus.gesmann@googlemail.com}
-Diego de Castillo, \email{decastillo@gmail.com}
+Markus Gesmann, \email{markus.gesmann@googlemail.com},
+
+Diego de Castillo \email{decastillo@gmail.com}
 }
 %%\note{
 %%  ~~further notes~~
