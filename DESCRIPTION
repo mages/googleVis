@@ -6,7 +6,7 @@ Date: 2010-10-03
 Author: Markus Gesmann, Diego de Castillo
 Maintainer: Markus Gesmann <markus.gesmann@googlemail.com>
 Description: Functions to visualise data using the Google Visualisation API. Requires access to a web server and Adobe Flash.
-Depends: R (>= 2.11.0), RJSONIO (>= 0.3), R.rsp, methods
+Depends: R (>= 2.10.0), RJSONIO (>= 0.3), R.rsp, methods
 Suggests: animation
 License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/

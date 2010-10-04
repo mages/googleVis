@@ -12,7 +12,9 @@ if(getRversion()>="2.11.0"){ ## prior to version 2.10.1 there was a bug in read.
     ## Lets reorder the columns slightly
     Data <- Data[,c(1,2,5,3,4,6)]
     ## Create motion chart
-    MotionChartPage(Data, "Country", "Year", file="MobileData.rsp")
+    M <- gvisMotionChart(Data, "Country", "Year")
+    M
+    plot(M)
 }else{
 print("Unfortunately this demo works only on R version 2.11.0 and higher.")
 }

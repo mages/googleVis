@@ -43,14 +43,7 @@ gvisGeoMap <- function(data, options=list(width = 600, height=500)){
 
 gvisCheckGeoMapData <- function(data){
 
-  ## Convert data.frame to list
-  ##  x <- as.list(data)
-  ##  varNames <- names(x)
+  ## currently doesn't do anything.
   
-  ##  typeMotionChart <- sapply(varNames, function(.x) ifelse(is.numeric(x[[.x]]), "number",ifelse(is.logical(x[[.x]]),"boolean","string")))
-  ## x <- lapply(varNames,function(.x){ if(class(x[[.x]])=="Date") as.character(x[[.x]]) else x[[.x]]})
-  
-  ##return(data.frame(x))
-
   return(data)
 }

@@ -17,12 +17,14 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \begin{document}
 
 \author{Markus Gesmann\\markus.gesmann@gmail.com}
-\title{Google Motion Charts with R:\\Package Vignette}
+\title{Using the Google Visulisation API with R:\\Package Vignette}
 \maketitle
 
 \begin{abstract}
-  The \texttt{GoogleMotionChart} package provides an interface between R and the Google Visualisation API.
-  The purpose of the package is to allow the user to transform data stored in a R \texttt{data.frame} structure into a Google Motion Chart.
+  The \texttt{googleVis} package provides an interface between R and the Google Visualisation API.
+  The purpose of the package is to allow the user to transform data
+  stored in a R \texttt{data.frame} structure into a Google
+  Visulisation Object.
   The output is html code, which when run on a web server, generates a dynamic flash based bubble chart to explore several indicators over time.
 \end{abstract}
 
@@ -60,30 +62,30 @@ of a motion chart.
 \section{Example}
 The package comes with an example data set called \texttt{Fruits} and \texttt{Exports}.
 <<>>=
-require(GoogleMotionChart)
+require(googleVis)
 data(Fruits)
 Fruits
-#data(Exports)
-#Exports
+data(Exports)
+Exports
 @
 The example data shows sales information by Fruit and Year (also Date to
 illustrate how to handle this data type). Suppose we would like to
 generate the html output required for a motion chart, than we can use
 the function \texttt{MotionChart}.
 <<>>=
-MotionChart(Fruits[,-7], "Fruit", "Year") ## exclude Date column
+gvisMotionChart(Fruits[,-7], "Fruit", "Year") ## exclude Date column
 @
 Now we can also create a motion chart using the date colum. Please
 notice that
 <<>>=
-MotionChart(Fruits[,-2], "Fruit", "Date") ## exclude Year column
+gvisMotionChart(Fruits[,-2], "Fruit", "Date") ## exclude Year column
 @
 The function \texttt{MotionChartPage} would top and tail the above output
 with some html tags to create a valid standalone page to be viewed.
 The page can be viewed immediately using the web server provided by
 the \texttt{R.rsp} package~\cite{Rsp}.
 
-Further examples are available via demos. See \texttt{demo('GoogleMotionChart')} for a list of demos files.
+Further examples are available via demos. See \texttt{demo('googleVis')} for a list of demos files.
 
 \bibliographystyle{alpha}
 

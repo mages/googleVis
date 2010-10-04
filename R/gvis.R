@@ -152,8 +152,7 @@ gvisHtmlWrapper <- function(title){
   htmlFooter <- '
      <%@include file="../src/simpleFooter.rsp"%>
      </body>
-     </html>
-    '
+     </html>\n'
     
   htmlCaption <- paste("",Sys.time(), R.Version()$version.string, sep="<BR>")
 

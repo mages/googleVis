@@ -20,7 +20,9 @@
 
 print.gvis <- function(x,file="",...){
 
-  cat(paste(unlist(x), "\n", sep=""), file=file, ...)
+  ##cat(paste(unlist(x), "\n", sep=""), file=file, ...)
+  cat(unlist(x), file=file, ...)
+
 }
 
 plot.gvis <- function(x,
