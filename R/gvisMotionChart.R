@@ -37,7 +37,7 @@ gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m
                  htmlChart=htmlChart,
                  htmlCaption=htmlScaffold[["htmlCaption"]],
                  htmlFooter=htmlScaffold[["htmlFooter"]]
-                 )
+                )
   
   class(output) <- c("gvis", class(output))
 

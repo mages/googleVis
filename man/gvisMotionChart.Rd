@@ -2,6 +2,7 @@
 \alias{gvisMotionChart}
 \alias{gvisGeoMap}
 \alias{gvisTable}
+\alias{gvisTreeMap}
 
 \title{ R interfaces to the Google Visualisation API}
 \description{
@@ -19,6 +20,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 		      options = list(width = 600, height = 500))
 gvisGeoMap(data, options = list(width = 600, height = 500))
 gvisTable(data, options = list(width = 600, height = 500))
+gvisTreeMap(data, options = list(width = 600, height = 500))
 }
 
 \arguments{
