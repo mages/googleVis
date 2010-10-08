@@ -26,8 +26,7 @@ print.gvis <- function(x,file="",...){
 }
 
 plot.gvis <- function(x,
-                      file=paste(tempfile(tmpdir=system.file(file.path("rsp", "myAnalysis"),
-                                            package = "googleVis")),".rsp",sep="") ,
+                      file=createGvisFilename(x) ,
                       repos=paste("http://127.0.0.1:8074/",
                         basename(dirname(system.file(package="googleVis"))),
                         "/googleVis/rsp/myAnalysis/", sep=""),
@@ -35,10 +34,34 @@ plot.gvis <- function(x,
   ## Example
   ## M <- M=gvisMotionChart(Fruits, "Fruit", "Year")
   ## plot(M, file="~/Sites/myFruitAnalysis.html", repos="http://Cognac.local/~Markus/")
-  
+
+
   print.gvis(x, file, ...)
 
   require(R.rsp)
   browseRsp(paste(repos, basename(file), sep=""))
 
+}
+
+createGvisFilename <- function(x){
+  ##
+ if (!("gvis" %in% class(x)))
+    stop("getChartTypeDate works only for gvis objects")
+
+ ## Extract chart type and data name
+ type.data <- strsplit(strsplit(x$htmlHeader, "title=")[[1]][2], "%>")[[1]][1]
+ type.data <- gsub(":", "", gsub(" ", "_", gsub("\"","", type.data)))
+ 
+ ## extract date
+ date <- strsplit(x$htmlCaption, "<BR>")[[1]][2]
+ date <- gsub(" ", "-", trim(date))
+ date <- gsub(":","-", date)
+ 
+
+ type.data.date <- paste(paste(type.data, date, sep="_"), ".rsp", sep="")
+ 
+ filename <- filePath(system.file(file.path("rsp", "myAnalysis"),
+                                  package = "googleVis"),  type.data.date)
+
+ return(filename) 
 }

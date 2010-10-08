@@ -29,6 +29,7 @@ gvisTreeMap(data, options = list(width = 600, height = 500))
     columns with subject name (\code{idvar}), time (\code{timevar}) and two columns of
     numeric values. Further columns, numeric and character/factor are optional. 
     The combination of \code{idvar} and \code{timevar} has to describe a unique row.
+    Be mindful of missing data!!
   }
   \item{idvar}{column name of \code{data} with the subject to be
     analysed.

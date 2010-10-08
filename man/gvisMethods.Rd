@@ -12,10 +12,11 @@ Print and plot \code{gvis} objects
 \usage{
 \method{print}{gvis}(x, file = "", ...)
 
-\method{plot}{gvis}(x, file = paste(tempfile(tmpdir = system.file(file.path("rsp", "myAnalysis"), package = "googleVis")), ".rsp", sep = ""), 
-	     repos = paste("http://127.0.0.1:8074/", basename(dirname(system.file(package = "googleVis"))), "/googleVis/rsp/myAnalysis/", sep = ""), 
-	     ...)
-
+\method{plot}{gvis}(x, file = createGvisFilename(x), 
+		       repos = paste("http://127.0.0.1:8074/", 
+		       	       basename(dirname(system.file(package = "googleVis"))), 
+			       			"/googleVis/rsp/myAnalysis/", sep = ""), 
+	     					...)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
