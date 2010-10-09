@@ -116,18 +116,14 @@ gvisFormat <- function(data){
   
   varTypes <- sapply(varNames,
                      function(.x){
-                       ifelse(is.numeric(x[[.x]]), "number",ifelse(is.logical(x[[.x]]),"boolean","string"))
-                     }
-                     )
-
+                       switch(class(x[[.x]]),"integer"="number",
+					     "numeric"="number",
+					     "character"="string",
+					     "factor"="string",
+					     "logical"="boolean",
+						"Date"="date")})
   
-  x <- lapply(varNames,
-              function(.x){
-                if(class(x[[.x]])=="Date") as.character(x[[.x]]) else x[[.x]]
-              }
-              )
-  
-  ## factor to character, date to character
+  ## factor to character
   x.df <- as.data.frame(
                         lapply(x,
                                function(a){
