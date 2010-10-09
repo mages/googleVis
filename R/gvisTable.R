@@ -17,12 +17,12 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisTable <- function(data, options=list(allowHtml=TRUE)){
+gvisTable <- function(data, options=list()){
 
   my.type <- "Table"
   dataName <- deparse(substitute(data))
 
-  my.options <- list(gvis=options, dataName=dataName,
+  my.options <- list(gvis=modifyList(list(allowHtml=TRUE),options), dataName=dataName,
                      data=list(allowed=c("number","string","date","boolean")))
   
   checked.data <- gvisCheckTableData(data)

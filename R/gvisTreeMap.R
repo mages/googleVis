@@ -17,11 +17,11 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisTreeMap <- function(data, options=list(width = 600, height=500)){
+gvisTreeMap <- function(data, options=list()){
 
   my.type <- "TreeMap"
   dataName <- deparse(substitute(data))
-  my.options <- list(gvis=options, dataName=dataName, data=list(allowed=c("number", "string")))
+  my.options <- list(gvis=modifyList(list(width = 600, height=500),options), dataName=dataName, data=list(allowed=c("number", "string")))
   
   checked.data <- gvisCheckTreeMapData(data)
 
@@ -31,7 +31,7 @@ gvisTreeMap <- function(data, options=list(width = 600, height=500)){
   htmlChart <- output$html$Chart
   htmlChart <- gsub('"NA"', 'null', htmlChart)
   htmlChart <- gsub(sprintf('<div id="%s">', output$chartid),
-                    paste('<div id="',output$chartid,'" style="width: ', options$width, 'px; height: ', options$height, 'px;">', sep=""), htmlChart)
+                    paste('<div id="',output$chartid,'" style="width: ', my.options$gvis$width, 'px; height: ', my.options$gvis$height, 'px;">', sep=""), htmlChart)
   
   output$html$Chart <- htmlChart
   

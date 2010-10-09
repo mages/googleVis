@@ -17,12 +17,12 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisGeoMap <- function(data, options=list(width = 600, height=500)){
+gvisGeoMap <- function(data, options=list()){
 
   my.type <- "GeoMap"
   dataName <- deparse(substitute(data))
 
-  my.options <- list(gvis=options, dataName=dataName,
+  my.options <- list(gvis=modifyList(list(width = 600, height=500),options), dataName=dataName,
                      data=list(allowed=c("number", "string")))
   
   checked.data <- gvisCheckGeoMapData(data)
