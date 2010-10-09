@@ -17,10 +17,10 @@
 \usage{
 gvisMotionChart(data, idvar = "id", timevar = "time", 
 		      date.format = "\%Y/\%m/\%d", 
-		      options = list(width = 600, height = 500))
-gvisGeoMap(data, options = list(width = 600, height = 500))
-gvisTable(data, options = list(width = 600, height = 500))
-gvisTreeMap(data, options = list(width = 600, height = 500))
+		      options = list())
+gvisGeoMap(data, options = list())
+gvisTable(data, options = list())
+gvisTreeMap(data, options = list())
 }
 
 \arguments{
@@ -171,14 +171,11 @@ Further see also \code{\link{browseRsp}}, and also the
 
 ## Options: no side panel on the right
  gvisMotionChart(Fruits,"Fruit","Year",
-                 options=list(width=800, height=500,
-                              showSidePanel=FALSE))
+                 options=list(showSidePanel=FALSE))
 
 ## Options: trails unticked
  gvisMotionChart(Fruits,"Fruit","Year",
-                 options=list(width=600,
-                              height=500,
-                              state='{"showTrails":false};')
+                 options=list(state='{"showTrails":false};')
                               )
 }
 ## For more details see also the demos.
