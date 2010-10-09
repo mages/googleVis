@@ -20,7 +20,8 @@
 gvisTreeMap <- function(data, options=list(width = 600, height=500)){
 
   my.type <- "TreeMap"
-  my.options <- list(gvis=options, data=list(allowed=c("number", "string")))
+  dataName <- deparse(substitute(data))
+  my.options <- list(gvis=options, dataName=dataName, data=list(allowed=c("number", "string")))
   
   checked.data <- gvisCheckTreeMapData(data)
 
@@ -28,9 +29,9 @@ gvisTreeMap <- function(data, options=list(width = 600, height=500)){
   
   ## fixme: should be in gvisFormat
   htmlChart <- output$html$Chart
-  htmlChart <- gsub('"NA"','null',htmlChart)
-  htmlChart <- gsub('<div id="chart_div">',
-                    paste('<div id="chart_div" style="width: ', options$width, 'px; height: ', options$height, 'px;">'),htmlChart)
+  htmlChart <- gsub('"NA"', 'null', htmlChart)
+  htmlChart <- gsub(sprintf('<div id="%s">', output$chartid),
+                    paste('<div id="',output$chartid,'" style="width: ', options$width, 'px; height: ', options$height, 'px;">', sep=""), htmlChart)
   
   output$html$Chart <- htmlChart
   

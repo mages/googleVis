@@ -20,7 +20,10 @@
 gvisTable <- function(data, options=list(width = 600, height=500)){
 
   my.type <- "Table"
-  my.options <- list(gvis=options, data=list(allowed=c("number", "string","date","boolean")))
+  dataName <- deparse(substitute(data))
+
+  my.options <- list(gvis=options, dataName=dataName,
+                     data=list(allowed=c("number", "string","date","boolean")))
   
   checked.data <- gvisCheckTableData(data)
   

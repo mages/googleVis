@@ -26,7 +26,7 @@ print.gvis <- function(x,file="",...){
 }
 
 plot.gvis <- function(x,
-                      file=NULL,
+                      filename=NULL,
                       repos=paste("http://127.0.0.1:8074/",
                         basename(dirname(system.file(package="googleVis"))),
                         "/googleVis/rsp/myAnalysis/", sep=""),
@@ -34,16 +34,16 @@ plot.gvis <- function(x,
 
   require(R.rsp)
  
-  if(is.null(file)){
-    file <- filePath(system.file(file.path("rsp", "myAnalysis"),
+  if(is.null(filename)){
+    filename <- filePath(system.file(file.path("rsp", "myAnalysis"),
                                      package = "googleVis"), paste(x$chartid ,".rsp", sep="")) 
   }
 
-  print.gvis(x, file, ...)
+  print.gvis(x, file=filename, ...)
 
-  browseRsp(paste(repos, basename(file), sep=""))
+  browseRsp(paste(repos, basename(filename), sep=""))
 
-  output <- list(file=file, repos=repos)
+  output <- list(filename=filename, repos=repos)
 
   invisible(output) 
   

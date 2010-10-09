@@ -26,7 +26,7 @@ gvisChart <- function(type, checked.data, options){
   chartid <- Chart$chartid
   htmlChart <- Chart$jsChart
   
-  htmlScaffold <- gvisHtmlWrapper(title=paste(type,":", deparse(substitute(data))))
+  htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, dataName=options$dataName)
   
   output <- list(type=Chart$type,
                  chartid=Chart$chartid,
@@ -169,11 +169,12 @@ gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
 }
 
 
-gvisHtmlWrapper <- function(title){
+gvisHtmlWrapper <- function(title, dataName, chartid){
 
   htmlHeader <- '
      <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
        "http://www.w3.org/TR/REC-html40/loose.dtd"> <%%title="%s"%%>
+
      <html>
      <%%@include file="../src/simpleHead.rsp"%%>
      <body>
@@ -187,7 +188,8 @@ gvisHtmlWrapper <- function(title){
      </body>
      </html>\n'
     
-  htmlCaption <- paste("",Sys.time(), R.Version()$version.string, sep="<BR>")
+  htmlCaption <- sprintf("Data: %s, Chart ID: %s<BR>%s<BR><BR>",
+                         dataName, chartid, R.Version()$version.string)
 
   return(list(htmlHeader=htmlHeader,
               htmlFooter=htmlFooter,

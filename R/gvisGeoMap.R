@@ -20,7 +20,10 @@
 gvisGeoMap <- function(data, options=list(width = 600, height=500)){
 
   my.type <- "GeoMap"
-  my.options <- list(gvis=options, data=list(allowed=c("number", "string")))
+  dataName <- deparse(substitute(data))
+
+  my.options <- list(gvis=options, dataName=dataName,
+                     data=list(allowed=c("number", "string")))
   
   checked.data <- gvisCheckGeoMapData(data)
   
