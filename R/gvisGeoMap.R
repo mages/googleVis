@@ -19,24 +19,13 @@
 
 gvisGeoMap <- function(data, options=list(width = 600, height=500)){
 
-  
+  my.type <- "GeoMap"
   my.options <- list(gvis=options, data=list(allowed=c("number", "string")))
   
   checked.data <- gvisCheckGeoMapData(data)
-
   
-  htmlChart = gvis(type="GeoMap", checked.data, options=my.options)
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
   
-  htmlScaffold <- gvisHtmlWrapper(title=paste("Geo Map:", deparse(substitute(data))))
-  
-  output <- list(htmlHeader=htmlScaffold[["htmlHeader"]],
-                 htmlChart=htmlChart,
-                 htmlCaption=htmlScaffold[["htmlCaption"]],
-                 htmlFooter=htmlScaffold[["htmlFooter"]]            
-                 )
-  
-  class(output) <- c("gvis", class(output))
-
   return(output)
 }
 

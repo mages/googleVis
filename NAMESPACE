@@ -1,7 +1,7 @@
 importFrom(grDevices)
 importFrom(methods, setMethod)
 importFrom("RJSONIO", "toJSON")
-export(gvisMotionChart, gvisTable, gvisGeoMap,gvisTreeMap, createGvisFilename)
+export(gvisMotionChart, gvisTable, gvisGeoMap,gvisTreeMap)
 
 #Methods
 S3method(plot, gvis)

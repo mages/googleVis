@@ -19,24 +19,13 @@
 
 gvisTable <- function(data, options=list(width = 600, height=500)){
 
-  
+  my.type <- "Table"
   my.options <- list(gvis=options, data=list(allowed=c("number", "string","date","boolean")))
   
   checked.data <- gvisCheckTableData(data)
-
   
-  htmlChart = gvis(type="Table", checked.data, options=my.options)
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options) 
   
-  htmlScaffold <- gvisHtmlWrapper(title=paste("Table:", deparse(substitute(data))))
-  
-  output <- list(htmlHeader=htmlScaffold[["htmlHeader"]],
-                 htmlChart=htmlChart,
-                 htmlCaption=htmlScaffold[["htmlCaption"]],
-                 htmlFooter=htmlScaffold[["htmlFooter"]]         
-                 )
-  
-  class(output) <- c("gvis", class(output))
-
   return(output)
 }
 

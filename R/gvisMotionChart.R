@@ -21,6 +21,8 @@
 gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m/%d",
                             options=list(width = 600, height=500)){
 
+  my.type <- "MotionChart"
+  
   ## Combine options for other generic functions
   my.options <- list(gvis=options,
                      data=list(idvar=idvar, timevar=timevar,
@@ -28,18 +30,8 @@ gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m
                      )
   
   checked.data <- gvisCheckMotionChartData(data, my.options)
-  
-  htmlChart <- gvis(type="MotionChart", data=checked.data, options=my.options)
-
-  htmlScaffold <- gvisHtmlWrapper(title=paste("Motion Chart:", deparse(substitute(data))))
-  
-  output <- list(htmlHeader=htmlScaffold[["htmlHeader"]],
-                 htmlChart=htmlChart,
-                 htmlCaption=htmlScaffold[["htmlCaption"]],
-                 htmlFooter=htmlScaffold[["htmlFooter"]]
-                )
-  
-  class(output) <- c("gvis", class(output))
+   
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
 
   return(output)
 }

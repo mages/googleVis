@@ -18,10 +18,39 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvis <- function(type="", data, options){
+
+gvisChart <- function(type, checked.data, options){
   
+  Chart = gvis(type=type, checked.data, options=options)
+  
+  chartid <- Chart$chartid
+  htmlChart <- Chart$jsChart
+  
+  htmlScaffold <- gvisHtmlWrapper(title=paste(type,":", deparse(substitute(data))))
+  
+  output <- list(type=Chart$type,
+                 chartid=Chart$chartid,
+                 html=list(Header=htmlScaffold[["htmlHeader"]],
+                   Chart=htmlChart,
+                   Caption=htmlScaffold[["htmlCaption"]],
+                   Footer=htmlScaffold[["htmlFooter"]]
+                   ))
+  
+  class(output) <- c("gvis", class(output))
+  
+  return(output)
+}
+
+gvis <- function(type="", data, options, chartid=NULL){
+
   if( ! is.data.frame(data) ){
     stop("Data has to be a data.frame. See ?data.frame for more details.")
+  }
+
+  ## we need a unique chart id to have more than one chart on the same page
+  ## we use type and date to create the chart id
+  if(is.null(chartid)){
+    chartid <- paste(type, format(Sys.time(), "%Y-%m-%d-%H-%M-%S"), sep="_")
   }
   
   output <- gvisFormat(data)
@@ -39,7 +68,7 @@ gvis <- function(type="", data, options){
     stop(message)
   }  
 
-  jsTableTemplate <- '
+  jsTableTemplate <- paste('
      <script type="text/javascript\" src="http://www.google.com/jsapi"></script>
      <script type="text/javascript">
       google.load("visualization", "1", { packages:["%s"] });
@@ -49,15 +78,16 @@ gvis <- function(type="", data, options){
         var datajson = %s;
 	%s
 	data.addRows(datajson);
-        var chart = new google.visualization.%s(document.getElementById(\'chart_div\'));
+        var chart = new google.visualization.%s(document.getElementById(\'',chartid,'\'));
         var options ={};
         %s
         chart.draw(data,options);
       }
      </script>
-     <div id="chart_div"></div>
-    '
-  jsTable <- sprintf(jsTableTemplate,
+     <div id="', chartid,'"></div>
+    ', sep='')
+  
+  jsChart <- sprintf(jsTableTemplate,
                      tolower(type),
                      data.json,
                      paste(paste("data.addColumn('", data.type, "','",
@@ -66,9 +96,13 @@ gvis <- function(type="", data, options){
                      paste(gvisOptions(options), collapse="\n")
                      )
   
-  jsTable <- paste(infoString(type), jsTable, sep="\n")
+  jsChart <- paste(infoString(type), jsChart, sep="\n")
   
-  return(jsTable)
+  ## return json object and chart id
+  
+  output <- list(jsChart=jsChart, type=type, chartid=chartid)
+
+  return(output)
 }
 
 gvisFormat <- function(data){
@@ -117,7 +151,6 @@ gvisFormat <- function(data){
   
   return(output)
 }
-
 
 gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
     options <- options$gvis
