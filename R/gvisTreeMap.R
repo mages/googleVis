@@ -27,7 +27,8 @@ gvisTreeMap <- function(data, options=list(width = 600, height=500)){
   htmlChart = gvis(type="TreeMap", checked.data, options=my.options)
   # fixme: should be in gvisFormat
   htmlChart <- gsub('"NA"','null',htmlChart)
-  htmlChart <- gsub('<div id="chart_div">','<div id="chart_div" style="width: 1100px; height: 500px;">',htmlChart)
+  htmlChart <- gsub('<div id="chart_div">',
+                    paste('<div id="chart_div" style="width: ', options$width, 'px; height: ', options$height, 'px;">'),htmlChart)
 
   htmlScaffold <- gvisHtmlWrapper(title=paste("TreeMap:", deparse(substitute(data))))
   

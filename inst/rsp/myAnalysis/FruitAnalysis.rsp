@@ -16,8 +16,8 @@ by Markus Gesmann 2010-<%=format(Sys.Date(), "%Y")%>.
 </p>
 In this example we shows how the ouput of the script
 <pre>
-&lt;% MotionChart(Fruits, "Fruit", "Year",
-file=paste(system.file(paste("rsp","myAnalysis",
+&lt;% M <-gvisMotionChart(Fruits, "Fruit", "Year")<BR>
+cat(M$htmlChart, file=paste(system.file(paste("rsp","myAnalysis",
 sep=.Platform$file.sep), package="googleVis"), "fruit.rsp",
 sep=.Platform$file.sep)) %&gt;
 </pre> 
