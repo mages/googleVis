@@ -84,6 +84,8 @@
     </p>
     <p>
       <%=gvisGeoMap(Exports[,1:2], options=list(width=600, height=500))$html$Chart%>
+      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
+      Geo Map API</a>  
     </p>
     <p>
       For a Motion Chart we would write somthing like 
@@ -93,9 +95,34 @@
       </pre> 
     </p>
     <p>
-      <%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year", options=list(width=600, height=500))$html$Chart%>
+      <%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",  options=list(width=600, height=500))$html$Chart%>
+      See also :<a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
+	Motion Chart API</a>  
     </p>
     <p>
+      A Tree Map can be generated with 
+      <pre>
+	&lt;%=gvisTreeMap(Regions, options=list(width=600, height=500,
+	showScale=TRUE, fontSize=16))$html$Chart%&gt;
+      </pre> 
+    </p>
+    <p>
+      <%=gvisTreeMap(Regions, options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$Chart%>
+      See also :<a href="http://code.google.com/apis/visualization/documentation/gallery/treemap.html">Google
+	Tree Map API</a>  
+    </p>
+    <p>
+      To display a table we write 
+      <pre>
+	&lt;%=gvisTable(Exports, options=list(width=600, height=300))$html$Chart%&gt;
+     </pre> 
+    </p>
+    <p>
+      <%=gvisTable(Exports, options=list(width=600, height=300))$html$Chart%>
+      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/table.html">Google
+      Table API</a>  
+    </p>
+  <p>
       Here is an example of R code, which is embedded into this page to
       get a list of files of the <tt>myAnalysis</tt> directory wrapped with
       html list and anchor tags.

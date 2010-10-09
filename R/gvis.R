@@ -187,9 +187,11 @@ gvisHtmlWrapper <- function(title, dataName, chartid){
      <%@include file="../src/simpleFooter.rsp"%>
      </body>
      </html>\n'
+
+  googleTerms <- '<a href="http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a>'
     
-  htmlCaption <- sprintf('Data: %s, Chart ID: %s<BR>%s "http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a><BR><BR>',
-                         dataName, chartid, R.Version()$version.string)
+  htmlCaption <- sprintf('Data: %s, Chart ID: %s<BR>%s, %s<BR><BR>',
+                         dataName, chartid, R.Version()$version.string, googleTerms)
 
   return(list(htmlHeader=htmlHeader,
               htmlFooter=htmlFooter,
