@@ -188,7 +188,7 @@ gvisHtmlWrapper <- function(title, dataName, chartid){
      </body>
      </html>\n'
     
-  htmlCaption <- sprintf("Data: %s, Chart ID: %s<BR>%s<BR><BR>",
+  htmlCaption <- sprintf('Data: %s, Chart ID: %s<BR>%s "http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a><BR><BR>',
                          dataName, chartid, R.Version()$version.string)
 
   return(list(htmlHeader=htmlHeader,

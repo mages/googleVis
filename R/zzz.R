@@ -29,7 +29,7 @@
     require(utils)
     cat("\n",paste("Wellcome to googleVis version", packageDescription("googleVis")$Version,
                    "by:\nMarkus Gesmann <markus.gesmann@gmail.com> and Diego de Castillo <decastillo@gmail.com>\n\n"),
-        "Type ?googleVis to see overall documentation and\n",
+        "Type ?googleVis to see the overall documentation and\n",
         "vignette('googleVis') to see the package vignette.\n",
         ##   "which gives you an overview of the graphical user interface of a motion chart.\n\n",
         "See demo(package='googleVis') for a list of demos.\n\n",
@@ -39,6 +39,8 @@
         "would\nlike to collaborate.\n\n",
         "More information is available on the googleVis project web-site:\n",
         "http://code.google.com/p/google-motion-charts-with-r/\n\n",
+        "Please read also Google Visualisation API Terms of Use:\n",
+        "http://code.google.com/apis/visualization/terms.html\n\n",
         sep='')
 
     rjsonio <- require(RJSONIO)
