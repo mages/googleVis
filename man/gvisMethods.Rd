@@ -66,8 +66,8 @@ See also \code{\link{cat}}, \code{\link{browseRsp}}
 
 \dontrun{
 Motion=gvisMotionChart(Fruits, "Fruit", "Year")
-Geo=gvisGeoMap(Exports[,1:2])
-Table=gvisTable(Exports)
+Geo=gvisGeoMap(Population)
+Table=gvisTable(PopulationLarge)
 Tree=gvisTreeMap(Regions)
 
 Page <- list(type="MotionGeoTableTree", 
