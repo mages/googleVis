@@ -139,7 +139,10 @@ gvisFormat <- function(data){
                       do.call("list", x.df[.row,])
                     }
                     )
-  
+
+  ## replace  NA with ""
+  x.array <- rapply(x.array, function(z) ifelse(is.na(z), "",z), how="list")
+
   output <- list(
                  data.type = unlist(varTypes),
                  json = toJSON(x.array)
