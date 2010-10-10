@@ -3,7 +3,7 @@
 \alias{googleVis}
 \docType{package}
 \title{
-Using the Google Visualisation API with T
+Using the Google Visualisation API with R
 }
 \description{
 googleVis is an R package providing an interface between R and the Google Visualisation API. 
