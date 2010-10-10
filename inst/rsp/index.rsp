@@ -83,7 +83,7 @@
       gives you:
     </p>
     <p>
-      <%=gvisGeoMap(Exports[,1:2], options=list(width=600, height=500))$html$Chart%>
+      <%=gvisGeoMap(Exports[,1:2], options=list(width=600))$html$Chart%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
       Geo Map API</a>  
     </p>
@@ -96,7 +96,7 @@
     </p>
     <p>
       <%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",  options=list(width=600, height=500))$html$Chart%>
-      See also :<a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
+      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
 	Motion Chart API</a>  
     </p>
     <p>
@@ -108,7 +108,7 @@
     </p>
     <p>
       <%=gvisTreeMap(Regions, options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$Chart%>
-      See also :<a href="http://code.google.com/apis/visualization/documentation/gallery/treemap.html">Google
+      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/treemap.html">Google
 	Tree Map API</a>  
     </p>
     <p>

@@ -195,7 +195,7 @@ gvisHtmlWrapper <- function(title, dataName, chartid){
 }
 
 
-## taken from lattice
+## taken from lattice by Deepayan Sarkar
 modifyList <- function (x, val) {
     stopifnot(is.list(x), is.list(val))
     xnames <- names(x)

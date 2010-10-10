@@ -89,10 +89,6 @@ class(Page) <- list("gvis", class(Page))
 plot(Page)
 }			
 
-G$html$Chart2=M$html$Chart
-G$html$Caption2=M$html$Caption
-G$html <- G$html[c(1,2,3,5,6,4)]
-
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the
