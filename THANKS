@@ -2,4 +2,5 @@ Thanks to:
 	o Henrik Bengtsson for providing the 'R.rsp: R Server Pages' package
 	o Sebastian Pérez Saaibi for his inspiring talk on 'Generator Tool for Google Motion Charts' at the R/RMETRICS conference 2010
 	o All the guys behind www.gapminder.org and Hans Rosling for telling everyone that data is not boring
+	o Deepayan Sarkar for showing us in the lattice package how to deal with lists of options 
 	o Google, who made the API available

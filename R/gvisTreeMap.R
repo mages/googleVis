@@ -29,7 +29,6 @@ gvisTreeMap <- function(data, options=list()){
   
   ## fixme: should be in gvisFormat
   htmlChart <- output$html$Chart
-  htmlChart <- gsub('"NA"', 'null', htmlChart)
   htmlChart <- gsub(sprintf('<div id="%s">', output$chartid),
                     paste('<div id="',output$chartid,'" style="width: ', my.options$gvis$width, 'px; height: ', my.options$gvis$height, 'px;">', sep=""), htmlChart)
   

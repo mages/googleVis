@@ -1,12 +1,13 @@
 Package: googleVis
 Type: Package
 Title: Google Visualisation API
-Version: 0.1.6
-Date: 2010-10-03
+Version: 0.2.0
+Date: 2010-10-10
 Author: Markus Gesmann, Diego de Castillo
 Maintainer: Markus Gesmann <markus.gesmann@googlemail.com>
-Description: Functions to visualise data using the Google Visualisation API. Requires access to a web server and Adobe Flash.
-Depends: R (>= 2.10.0), RJSONIO (>= 0.3), R.rsp, methods
+Description: Functions to visualise data using the Google Visualisation API. 
+	     To view the output a browser with Adobe Flash and internet connection is required.
+Depends: RJSONIO (>= 0.3), R.rsp, methods
 Suggests: animation
 License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/
