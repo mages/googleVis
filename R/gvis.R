@@ -141,8 +141,9 @@ gvisFormat <- function(data){
                     )
 
   ## replace  NA with ""
-  x.array <- rapply(x.array, function(z) ifelse(is.na(z), "",z), how="list")
-
+  x.array <- rapply(x.array, function(z) if(!is.na(z)){z}, how="list")
+  json <- toJSON(x.array)
+  
   output <- list(
                  data.type = unlist(varTypes),
                  json = toJSON(x.array)
