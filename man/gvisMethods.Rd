@@ -6,16 +6,16 @@
 	Print and plot gvis objects
 }
 \description{
-	Print and plot \code{gvis} objects
+	Methods to print and plot \code{gvis} objects
 }
 \usage{	
 \method{print}{gvis}(x, file = "", ...)
 		
 \method{plot}{gvis}(x, filename = NULL, 
-		       repos = paste("http://127.0.0.1:8074/", 
-		       	       basename(dirname(system.file(package = "googleVis"))), 
-			       			"/googleVis/rsp/myAnalysis/", sep = ""), 
-	     					...)
+		    repos = paste("http://127.0.0.1:8074/", 
+		       	     basename(dirname(system.file(package = "googleVis"))), 
+			       		"/googleVis/rsp/myAnalysis/", sep = ""), 
+	     	     ...)
 }
 \arguments{
   \item{x}{
@@ -64,29 +64,13 @@ See also \code{\link{cat}}, \code{\link{browseRsp}}
 }
 \examples{
 
+
+myMotionChart=gvisMotionChart(Fruits, "Fruit", "Year")
+myMotionChart
+
 \dontrun{
-Motion=gvisMotionChart(Fruits, "Fruit", "Year")
-Geo=gvisGeoMap(Population)
-Table=gvisTable(PopulationLarge)
-Tree=gvisTreeMap(Regions)
-
-Page <- list(type="MotionGeoTableTree", 
-			 chartid=format(Sys.time(), "MotionGeoTableTree-%Y-%m-%d-%H-%M-%S"), 
-			 html=list(Header=Motion$html$Header,
-			 		Chart1=Motion$html$Chart,
-					Caption1=Motion$html$Caption,
-					Chart2=Geo$html$Chart,
-					Caption2=Geo$html$Caption,
-					Chart3=Table$html$Chart,
-					Caption3=Table$html$Caption,
-					Chart4=Tree$html$Chart,
-					Caption4=Tree$html$Caption,
-					Footer=Tree$html$Footer)
-			)
-		
-
-class(Page) <- list("gvis", class(Page))
-plot(Page)
+## Web browser with internet connection and Flash required.
+plot(myMotionChart)
 }			
 
 }

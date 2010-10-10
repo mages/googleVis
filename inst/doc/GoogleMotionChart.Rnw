@@ -35,7 +35,7 @@ which allows the user to explore several indicators over time.
 The idea of motion chart was popularised by Hans Rosling at a Ted
 talk~\cite{HansRoslingTedTalk} about social and economic developments in the world, see also~\cite{Gapminder}.
 
-\section{Google Motion Chart API}
+\section{Google Visualisation API}
 
 The Google Motion Chart is part of Google Visualisation API~\cite{GoogleMotionChartApi}.
 Charts are rendered within a browser using Adobe Flash. The charting data
@@ -60,7 +60,7 @@ of a motion chart.
 \end{center}
 \end{figure}
 \section{Example}
-The package comes with an example data set called \texttt{Fruits} and \texttt{Exports}.
+The package comes with example data sets, e.g. \texttt{Fruits} and \texttt{Exports}.
 <<>>=
 require(googleVis)
 data(Fruits)
