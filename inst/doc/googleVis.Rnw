@@ -1,0 +1,122 @@
+\documentclass{article}
+
+\usepackage{Sweave}
+\usepackage{thumbpdf}
+
+%\VignetteIndexEntry{Google Motion Chart}
+
+\SweaveOpts{engine=R, eps=FALSE, keep.source = TRUE}
+<<options, echo=FALSE>>=
+options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
+@
+
+
+%\keywords{google, visualisation, api, statistical software, \proglang{R}}
+
+\setlength{\parindent}{0.0in}
+\setlength{\parskip}{2mm}
+
+\newcommand{\googleVis}{\texttt{googleVis }}
+\renewcommand{\familydefault}{\sfdefault}
+\begin{document}
+
+\author{Markus Gesmann\footnote{markus.gesmann@gmail.com},
+  Diego de Castillo\footnote{decastillo@gmail.com}}
+\title{Using the Google Visualisation API with R:\\googleVis Package Vignette}
+\maketitle
+
+\begin{abstract}
+  The \googleVis package provides an interface between R and the Google Visualisation API.
+  The Google Visualisation API offers interactive charts which can be
+  embedded into web pages. The most well known of those charts is
+  probably the Motion Chart, popularised by Hans Rosling in his TED talks.
+  With the \googleVis package users can create web pages with
+  interactive charts based on R data frames easily and display them either
+  via the \texttt{R.rsp} package or within their own sites.
+  Currently the package provides interfaces to Motion Charts, Geo
+  Maps, Tables and Tree Maps.
+\end{abstract}
+
+\section{Motivation}
+More and more data is becoming available. Transparency is desired, but
+yet by making more data available the stories are still often missed. 
+Sometimes we struggle to see the wood for the trees. 
+
+Hence new tools are required to bring data to life, to engage with
+users, to enable them to slice and dice the data, to view it from various angles, 
+to find stories worth telling: outliers, trends, and sometimes even
+the bleeding obvious.
+
+In 2006 Hans Rosling gave an inspiring talk at TED ~\cite{HansRoslingTedTalk} about
+social and economic developments in the world over the last 50 years. 
+To visualise his talk, he and his team at Gapminder~\cite{Gapminder}
+had developed animated bubble charts, aka motion charts.
+His presentation popularised the idea and use of interactive charts,
+and as a result a few years later the software behind Gapminder was bought by Google and
+integrated as motion charts into their visualisation API~\cite{GoogleMotionChartApi}.
+
+In  2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented  at the R/Rmetrics Workshop on 
+Computational Finance and Financial Engineering the idea to
+link motion charts with R using the R.rsp package~\cite{Rsp}.
+
+Inspired by those talks and the desire to use interactive data visualisation tools 
+to foster the dialog between data analysts and others the authors of this vignette 
+started the development of the \googleVis package.
+
+\section{Google Visualisation API}
+
+The Google Visualisation API~\cite{GoogleMotionChartApi} allwos users
+to integrate interactive charts within Google
+documents/spreadsheets and web pages. 
+
+The Google Public Data Explorer~\cite{GooglePublicData} provides a good
+example, demonstrating the use of motion charts and how they can help to analyse data.
+Please note, that all those charts are rendered within a browser using Adobe Flash. 
+
+The charting data can either be embedded into the html file or read dynamically.
+Key to the Google Visualisation API is that the data is structured in a
+DataTable~\cite{DataTable}, and this is where this package helps, as
+it uses the functionality of the RJSONIO package~\cite{RJSONIO}.
+
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=\textwidth]{MotionChart.pdf}
+\caption{Overview of a Google motion chart.  Screenshot of the output of
+  \texttt{plot(gvisMotionChart(Fruits, idvar='Fruit', timevar='Year'))}
+}\label{MotionChartGUI}
+\end{center}
+\end{figure}
+\clearpage
+
+% \section{Example}
+% The package comes with example data sets, e.g. \texttt{Fruits} and \texttt{Exports}.
+% <<>>=
+% require(googleVis)
+% data(Fruits)
+% Fruits
+% data(Exports)
+% Exports
+% @
+% The example data shows sales information by Fruit and Year (also Date to
+% illustrate how to handle this data type). Suppose we would like to
+% generate the html output required for a motion chart, than we can use
+% the function \texttt{MotionChart}.
+% <<>>=
+% gvisMotionChart(Fruits[,-7], "Fruit", "Year") ## exclude Date column
+% @
+% Now we can also create a motion chart using the date colum. Please
+% notice that
+% <<>>=
+% gvisMotionChart(Fruits[,-2], "Fruit", "Date") ## exclude Year column
+% @
+% The function \texttt{MotionChartPage} would top and tail the above output
+% with some html tags to create a valid standalone page to be viewed.
+% The page can be viewed immediately using the web server provided by
+% the \texttt{R.rsp} package~\cite{Rsp}.
+
+% Further examples are available via demos. See \texttt{demo('googleVis')} for a list of demos files.
+
+ \bibliographystyle{plain}
+ \bibliography{googleVis}
+\end{document}
+
