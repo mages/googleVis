@@ -25,15 +25,36 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
   The purpose of the package is to allow the user to transform data
   stored in a R \texttt{data.frame} structure into a Google
   Visulisation Object.
-  The output is html code, which when run on a web server, generates a dynamic flash based bubble chart to explore several indicators over time.
+  The output is html code, which when run on a web server, generates a
+  dynamic flash based bubble chart to explore several indicators over
+  time.
 \end{abstract}
+
+\section{Motivation}
+In 2006 Hans Rosling presented at TED~\cite{HansRoslingTedTalk} about
+social and economic developments in the world over the last 50 years. 
+To visualise his talk he and his team at Gapminder~\cite{Gapminder}
+had developed animated bubble charts.
+His inspiring talk popularised the idea of interactive charts and
+eventually the software behind Gapminder was bought by Google and
+integrated as motion charts into their Visualisation
+API~\cite{GoogleMotionChartApi}.
+
+At the 2010 R/Rmetrics R/Rmetrics Workshop on Computational Finance
+and Financial Engineering presented Sebasti\'{a}n P\'{e}rez
+Saaibi~\cite{Saaibi2010} the idea to link motion charts with R using
+the R.rsp package~\cite{Rsp}.
+
+
+
 
 \section{Introduction}
 
 The standard motion chart is essentially an animated bubble chart,
 which allows the user to explore several indicators over time.
 The idea of motion chart was popularised by Hans Rosling at a Ted
-talk~\cite{HansRoslingTedTalk} about social and economic developments in the world, see also~\cite{Gapminder}.
+talk~\cite{HansRoslingTedTalk} about social and economic developments in the world, 
+See also~\cite{Gapminder}.
 
 \section{Google Visualisation API}
 
