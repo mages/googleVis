@@ -20,7 +20,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 		      options = list())
 gvisGeoMap(data, options = list())
 gvisTable(data, options = list())
-gvisTreeMap(data, options = list())
+gvisTreeMap(data, idvar = "", parentvar = "", options = list())
 }
 
 \arguments{
@@ -32,6 +32,8 @@ gvisTreeMap(data, options = list())
   }
   \item{idvar}{column name of \code{data} with the subject to be
     analysed.
+  }
+  \item{parentvar}{column name of \code{data} that match to entries in idvar..
   }
   \item{timevar}{
     column name of \code{data} which shows the time dimension. The information has to
