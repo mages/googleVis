@@ -1,6 +1,9 @@
 ## googleVis demo
 ## A web browse with internet connection and Flash is required
 
+## See ahow googleVis functions can be integrated into rsp-files:
+browseRsp("http://127.0.0.1:8074/library/googleVis/rsp/")
+
 ## Motion Chart
 Motion=gvisMotionChart(Fruits, "Fruit", "Year")
 plot(Motion)
@@ -35,6 +38,3 @@ Page <- list(type="MotionGeoTableTree",
 
 class(Page) <- list("gvis", class(Page))
 plot(Page)
-
-## See also how googleVis functions can be integrated into rsp-files:
-browseRsp("http://127.0.0.1:8074/library/googleVis/rsp/")

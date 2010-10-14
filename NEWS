@@ -1,10 +1,16 @@
 Version 0.2.0
 ================
+
 Changes
 
-   o The package has been renamed from GoogleMotionChart to googleVis to reflect a new more flexible implementation.
-     As a result more function for the Google Visualisation API are available to the user
+   o The package has been renamed from GoogleMotionChart to googleVis to reflect 
+     a new more flexible implementation.
+   o More functions of the Google Visualisation API are now available.
 
+USER-VISIBLE CHANGES
+   o New interfaces, all visualisation functions start with 'gvis'.
+   o Output is now of class 'gvis' with generic print and plot functions.
+  
 NEW FEATURES
 
    o New functions:
@@ -13,11 +19,7 @@ NEW FEATURES
      - gvisTreeMap to generate tree maps
      - gvisTable to generate table output
      - print.gvis: generic function to print 'gvis' objects
-     - plot.gvis: generic function to display 'gvis' chart in your local browser via the R.rsp package. 
-
-USER-VISIBLE CHANGES
-   o New interfaces, all visualisation functions start with 'gvis'.
-   o Output is now of class 'gvis' with generic print and plot functions.
+     - plot.gvis: generic function to display 'gvis' objects in a browser via the R.rsp package. 
 
 Version 0.1.4
 ================

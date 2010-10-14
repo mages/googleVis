@@ -27,21 +27,22 @@
            })
 
     require(utils)
-    cat("\n",paste("Wellcome to googleVis version", packageDescription("googleVis")$Version,
-                   "by:\nMarkus Gesmann <markus.gesmann@gmail.com> and Diego de Castillo <decastillo@gmail.com>\n\n"),
+    cat("\n",paste("Wellcome to googleVis version", packageDescription("googleVis")$Version, "\n\n"),
         "Type ?googleVis to see the overall documentation and\n",
         "vignette('googleVis') to see the package vignette.\n",
-        ##   "which gives you an overview of the graphical user interface of a motion chart.\n\n",
-        "See demo(package='googleVis') for a list of demos and type:\n",
-        "browseRsp('http://127.0.0.1:8074/library/googleVis/rsp/index.rsp')\n",
-        "to view examples in your browser.\n\n",
+        "You can see a demo of the package via: demo(googleVis)\n\n",  
+        "More information is available on the googleVis project web-site:\n",
+        "http://code.google.com/p/google-motion-charts-with-r/\n\n",
+ 
+        "Please read also the Google Visualisation API Terms of Use:\n",
+        "http://code.google.com/apis/visualization/terms.html\n\n",
+
         "Feel free to send us an email if you would like to keep informed of\n",
         "new versions or if you have any feedback, ideas, suggestions or would\n",
         "like to collaborate.\n\n",
-        "More information is available on the googleVis project web-site:\n",
-        "http://code.google.com/p/google-motion-charts-with-r/\n\n",
-        "Please read also the Google Visualisation API Terms of Use:\n",
-        "http://code.google.com/apis/visualization/terms.html\n\n",
+        
+        "Markus Gesmann <markus.gesmann@gmail.com>\n",
+        "Diego de Castillo <decastillo@gmail.com>\n\n",
         sep='')
 
     rjsonio <- require(RJSONIO)

@@ -18,7 +18,7 @@ this directory.
 </p>
 Current files:
 <ul>
-<%@include file="dirlist.rsp"%>
+ <%=paste("<li> <a href='", dir(system.file(paste("rsp","myAnalysis", sep=.Platform$file.sep), package="googleVis")),"'>",   dir(system.file(paste("rsp","myAnalysis",  sep=.Platform$file.sep), package="googleVis")), "</a>\n",   sep="")%>
 </ul>
 
 
