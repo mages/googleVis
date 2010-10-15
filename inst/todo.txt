@@ -1,7 +1,0 @@
-googleVis to-do list:
-
-	  o Documentation of gvis-functions
-	  o Vignette requires update
-	  o Demos  requires update
-	  o checkDataFunction for GeoMap, TreeMap and potentially Table
-	  o gvisTreeMap has still a Fixme entry

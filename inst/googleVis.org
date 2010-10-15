@@ -1,0 +1,9 @@
+* TASKS googleVis to-do list:
+** TODO Documentation of gvis-functions
+Document individual gvis-functions
+** TODO Vignette requires update
+   SCHEDULED: <2010-10-30 Sat>
+Vignette should show graphical examples of all gvis functions
+** DONE Demos  requires update
+** STARTED checkDataFunction for GeoMap, TreeMap and potentially Table
+** TODO gvisTreeMap has still a Fixme entry

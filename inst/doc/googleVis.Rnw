@@ -66,8 +66,7 @@ started the development of the \googleVis package.
 \section{Google Visualisation API}
 
 The Google Visualisation API~\cite{GoogleMotionChartApi} allwos users
-to integrate interactive charts within Google
-documents/spreadsheets and web pages. 
+to integrate interactive charts within Google documents/spreadsheets and web pages. 
 
 The Google Public Data Explorer~\cite{GooglePublicData} provides a good
 example, demonstrating the use of motion charts and how they can help to analyse data.
