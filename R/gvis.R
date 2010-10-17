@@ -151,6 +151,57 @@ gvisFormat <- function(data){
   return(output)
 }
 
+check.char <- function(x){
+    y = as.character(x)
+    if (! is.character(y))
+       stop(paste("The column has to be of character format. Currently it is", class(x)))
+    y
+}
+
+check.num <- function(x){
+    y = as.numeric(x)
+    if (! is.numeric(y))
+       stop(paste("The column has to be of numeric format. Currently it is", class(x)))
+    y
+}
+
+check.num.pos <- function(x){
+    y = as.numeric(x)
+    if (! is.numeric(y))
+       stop(paste("The column has to be of numeric format. Currently it is", class(x)))
+    if (any(x<0))
+       stop(paste("The column has to be > 0."))       
+    y
+}
+
+gvisCheckData <- function(data="", options=list(),data.structure=list()){
+  ## Convert data.frame to list
+  x <- as.list(data)
+  varNames <- names(x)
+  
+  ## Check if required vars match columns in the data
+  vars.req <- names(grep(TRUE,lapply(data.structure,function(x){x$mode})=="required",value=T))
+  vars.opt <- names(grep(TRUE,lapply(data.structure,function(x){x$mode})=="optional",value=T))
+
+  # required and empty? fill with varNames in order given by data.structure
+  req.and.empty <- (names(options$data) %in% vars.req) & (options$data=="") 
+  options$data[req.and.empty] <- varNames[match(names(options$data[req.and.empty]),names(data.structure))]
+
+  vars.pos <- match(unlist(options$data[vars.req],use.names=F),varNames)
+  if(any(is.na(vars.pos)) & (length(varNames) < length(vars.req))){
+    stop("There are not enough columns in your data.")
+  }
+  x <- x[as.character(options$data[options$data!="" & names(options$data) != "allowed"])]
+
+  sapply(names(options$data[options$data!="" & names(options$data) != "allowed"]),
+          function(.x){ 
+            .x <- as.character(.x)
+            y <- x[[as.character(options$data[.x])]];
+            x[[as.character(options$data[.x])]] <<- data.structure[[.x]]$FUN(y);
+          })
+  x
+}
+
 gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
     options <- options$gvis
     .par <- sapply(names(options), function(x)
