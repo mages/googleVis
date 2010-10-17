@@ -2,6 +2,7 @@
 
 \usepackage{Sweave}
 \usepackage{thumbpdf}
+\usepackage{url}
 
 %\VignetteIndexEntry{Google Motion Chart}
 
@@ -26,26 +27,42 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \maketitle
 
 \begin{abstract}
-  The \googleVis package provides an interface between R and the Google Visualisation API.
-  The Google Visualisation API offers interactive charts which can be
-  embedded into web pages. The most well known of those charts is
-  probably the Motion Chart, popularised by Hans Rosling in his TED talks.
-  With the \googleVis package users can create web pages with
-  interactive charts based on R data frames easily and display them either
-  via the \texttt{R.rsp} package or within their own sites.
-  Currently the package provides interfaces to Motion Charts, Geo
-  Maps, Tables and Tree Maps.
+  The \googleVis package provides an interface between R and the
+  Google Visualisation API.  The Google Visualisation API offers
+  interactive charts which can be embedded into web pages. The most
+  well known of those charts is probably the Motion Chart, popularised
+  by Hans Rosling in his TED talks.  With the \googleVis package users
+  can create web pages with  interactive charts based on R data frames
+  easily and display them either via the \texttt{R.rsp} package or
+  within their own sites. Currently the package provides interfaces to
+  Motion Charts, Geo Maps, Tables and Tree Maps. 
 \end{abstract}
 
 \section{Motivation}
+<<<<<<< .mine
+More and more data is becoming available and accesible, and yet
+stories and insights are still often missed. We are lost in the data
+jungle and struggle to see the wood for the trees. 
+=======
 More and more data is becoming available and accesible, and yet
 stories and insights are still often missed, as we sometimes struggle to see the wood for the trees. 
+>>>>>>> .r69
 
 Hence new tools are required to bring data to life, to engage with
-users, to enable them to slice and dice the data, to view it from various angles, 
-to find stories worth telling: outliers, trends, and sometimes even
-the bleeding obvious.
+users, to enable them to slice and dice the data, to view it from
+various angles, to find stories worth telling: outliers, trends, and
+sometimes even the bleeding obvious.
 
+<<<<<<< .mine
+In 2006 Hans Rosling gave an inspiring talk at TED
+~\cite{HansRoslingTedTalk} about social and economic developments in
+the world over the last 50 years, which challenged the views and
+perceptions of many listeners. Hans had used extensive data analysis
+to come to his conclusions, with data sourced from the World Bank, UN,
+IMF, etc.  To visualise his talk, he and his team at
+Gapminder~\cite{Gapminder} had developed animated bubble charts, aka
+motion charts, see Figure~\ref{MotionChartGUI}. 
+=======
 In 2006 Hans Rosling gave an inspiring talk at TED ~\cite{HansRoslingTedTalk} about
 social and economic developments in the world over the last 50 years,
 which challenged the views and perceptions of many listeners. Hans had used extensive
@@ -57,15 +74,36 @@ Figure~\ref{MotionChartGUI}.
 Rosling's presentation popularised the idea and use of interactive charts,
 and as a result a few years later the software behind Gapminder was bought by Google and
 integrated as motion charts into their visualisation API~\cite{GoogleMotionChartApi}.
+>>>>>>> .r69
 
+<<<<<<< .mine
+Rosling's presentation popularised the idea and use of interactive
+charts, and as a result a few years later the software behind
+Gapminder was bought by Google and integrated as motion charts into
+their visualisation API~\cite{GoogleVisApi}. 
+=======
 In  2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented at the R/Rmetrics Workshop on 
 Computational Finance and Financial Engineering the idea to link motion charts with R 
 using the \texttt{R.rsp} package~\cite{Rsp}.
+>>>>>>> .r69
 
+<<<<<<< .mine
+In  2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented at
+the R/Rmetrics Workshop on  Computational Finance and Financial
+Engineering the idea to link motion charts with R  using the
+\texttt{R.rsp} package~\cite{Rsp}. 
+=======
 Inspired by those talks and the desire to use interactive data visualisation tools 
 to foster the dialog between data analysts, who are familiar with R, and others the authors of this vignette 
 started the development of the \googleVis package. 
+>>>>>>> .r69
 
+<<<<<<< .mine
+Inspired by those talks and the desire to use interactive data
+visualisation tools to foster the dialog between data analysts who are
+familiar with R and others, the authors of this vignette started the
+development of the \googleVis package.  
+=======
 \begin{figure}[!ht]
 \begin{center}
 \includegraphics[width=\textwidth]{MotionChart.pdf}
@@ -78,7 +116,10 @@ started the development of the \googleVis package.
 \clearpage
 
 \section{Google Visualisation API}
+>>>>>>> .r69
 
+<<<<<<< .mine
+=======
 The Google Visualisation API~\cite{GoogleMotionChartApi} allwos users
 to integrate interactive charts within Google documents/spreadsheets,
 but also web pages. 
@@ -94,6 +135,47 @@ it uses the functionality of the RJSONIO package~\cite{RJSONIO} to
 transform R data frames into json~\cite{json} objects and as the basis
 for the DataTable.
 
+>>>>>>> .r69
+\section{googleVis}
+
+
+\begin{figure}[!ht]
+\begin{center}
+<<<<<<< .mine
+\includegraphics[width=\textwidth]{MotionChart.pdf}
+\caption{
+  Overview of a Google Motion Chart.  Screenshot of the output of
+  \texttt{plot(gvisMotionChart(Fruits, idvar='Fruit', timevar='Year'))}
+}\label{MotionChartGUI}
+=======
+\includegraphics[width=\textwidth]{googleVisDemoPlots.pdf}
+\caption{
+  Screenshot of the output of \texttt{demo(googleVis)} with 
+  \texttt{gvisTreeMap,  gvisTable, gvisMotionChart, gvisGeoMap} from top left to bottom right. 
+}\label{demos}
+>>>>>>> .r69
+\end{center}
+\end{figure}
+
+<<<<<<< .mine
+\section{Google Visualisation API}
+
+The Google Visualisation API~\cite{GoogleVisApi}, \cite{GoogleTerms}
+allwos users to integrate interactive charts within Google
+documents/spreadsheets, but also web pages. 
+
+The Google Public Data Explorer~\cite{GooglePublicData} provides a
+good example, demonstrating the use of motion charts and how they can
+help to analyse data. Please note, that all those charts are rendered
+within a browser using Adobe Flash~\cite{Flash}.  
+
+The charting data can either be embedded into the html file or read
+dynamically. Key to the Google Visualisation API is that the data is
+structured in a DataTable~\cite{DataTable}, and this is where this
+package helps, as it uses the functionality of the RJSONIO
+package~\cite{RJSONIO} to transform R data frames into
+json~\cite{json} objects and as the basis for the DataTable.
+
 \section{googleVis}
 
 
@@ -102,12 +184,16 @@ for the DataTable.
 \includegraphics[width=\textwidth]{googleVisDemoPlots.pdf}
 \caption{
   Screenshot of the output of \texttt{demo(googleVis)} with 
-  \texttt{gvisTreeMap,  gvisTable, gvisMotionChart, gvisGeoMap} from top left to bottom right. 
+  \texttt{gvisTreeMap,  gvisTable, gvisMotionChart, gvisGeoMap} from
+  top left to bottom right.  
 }\label{demos}
 \end{center}
 \end{figure}
 
 
+=======
+
+>>>>>>> .r69
 % \section{Example}
 % The package comes with example data sets, e.g. \texttt{Fruits} and \texttt{Exports}.
 % <<>>=
@@ -136,7 +222,7 @@ for the DataTable.
 
 % Further examples are available via demos. See \texttt{demo('googleVis')} for a list of demos files.
 
- \bibliographystyle{plain}
+ \bibliographystyle{alpha}
  \bibliography{googleVis}
 \end{document}
 
