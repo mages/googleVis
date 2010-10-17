@@ -119,7 +119,7 @@ An object of class "\code{gvis}" is a list containing at least the following com
   \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html}. Please
   note that no data is send to Google.
 
-  Yihui Xie, the maintainer of the \code{\link[animation]{animation-package}}
+  Yihui Xie, the maintainer of the \code{animation-package}
   showed in an early blog entry the usage of the Google Motion Chart API
   with R: \url{http://yihui.name/en/2008/11/brownian-motion-using-google-visualization-api-and-r/}
 }
@@ -147,7 +147,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 \seealso{
 See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and plotting methods. 
 Further see also \code{\link{browseRsp}}, and also the
-\code{\link[animation]{animation-package}} and there the function \code{\link[animation]{Rosling.bubbles}}
+\code{animation-package} and there the function \code{Rosling.bubbles}
 }
 \examples{
 

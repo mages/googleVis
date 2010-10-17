@@ -47,8 +47,7 @@
       M &lt;- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
       plot(M)
     </pre>
-    would generate the file <tt>MotionChart_<%=format(Sys.time(), "%Y-%m-%d-%H-%M-%S")%>.rsp</tt> in the above directory.
-    
+    would generate the file <tt>MotionChart_<%=format(Sys.time(), "%Y-%m-%d-%H-%M-%S")%>.rsp</tt> in the directory above.
     <h2>
       Embedding googleVis charts into your web page with <a href="/">R.rsp</a>
     </h2>

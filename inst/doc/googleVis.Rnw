@@ -3,8 +3,9 @@
 \usepackage{Sweave}
 \usepackage{thumbpdf}
 \usepackage{url}
+\usepackage{hyperref}
 
-%\VignetteIndexEntry{Google Motion Chart}
+%\VignetteIndexEntry{Using the Google Visualisation with R}
 
 \SweaveOpts{engine=R, eps=FALSE, keep.source = TRUE}
 <<options, echo=FALSE>>=
@@ -18,12 +19,17 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \setlength{\parskip}{2mm}
 
 \newcommand{\googleVis}{\texttt{googleVis }}
+\newcommand{\rsp}{\texttt{R.rsp }}
+\newcommand{\rjsonio}{\texttt{RJSONIO }}
+
 \renewcommand{\familydefault}{\sfdefault}
+
 \begin{document}
 
 \author{Markus Gesmann\footnote{markus.gesmann@gmail.com},
   Diego de Castillo\footnote{decastillo@gmail.com}}
-\title{Using the Google Visualisation API with R:\\googleVis Package Vignette}
+\title{Using the Google Visualisation API with R:\\
+  googleVis-0.2.0 Package Vignette}
 \maketitle
 
 \begin{abstract}
@@ -33,14 +39,14 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
   well known of those charts is probably the Motion Chart, popularised
   by Hans Rosling in his TED talks.  With the \googleVis package users
   can create web pages with  interactive charts based on R data frames
-  easily and display them either via the \texttt{R.rsp} package or
+  easily and display them either via the \rsp package or
   within their own sites. Currently the package provides interfaces to
   Motion Charts, Geo Maps, Tables and Tree Maps. 
 \end{abstract}
 
 \section{Motivation}
 More and more data is becoming available and accesible, and yet
-stories and insights are still often missed. We are lost in the data
+stories and insights are still often missed: we are lost in the data
 jungle and struggle to see the wood for the trees. 
 
 Hence new tools are required to bring data to life, to engage with
@@ -65,12 +71,12 @@ their visualisation API~\cite{GoogleVisApi}.
 In  2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented at
 the R/Rmetrics Workshop on  Computational Finance and Financial
 Engineering the idea to link motion charts with R  using the
-\texttt{R.rsp} package~\cite{Rsp}. 
+\rsp package~\cite{Rsp}. 
 
 Inspired by those talks and the desire to use interactive data
-visualisation tools to foster the dialog between data analysts who are
-familiar with R and others, the authors of this vignette started the
-development of the \googleVis package.  
+visualisation tools to foster the dialog between data analysts, who are
+familiar with R, and others the authors of this vignette started the
+development of the \googleVis package~\cite{googleVis}.  
 
 \begin{figure}[!ht]
 \begin{center}
@@ -86,25 +92,109 @@ development of the \googleVis package.
 \section{Google Visualisation API}
 
 The Google Visualisation API~\cite{GoogleVisApi}, \cite{GoogleTerms}
-allwos users to integrate interactive charts within Google
-documents/spreadsheets, but also web pages. 
+allows users to create interactive charts as part of Google
+documents/spreadsheets and web pages. In this text we will focus 
+on the usage of the API as part of web sites.
 
 The Google Public Data Explorer~\cite{GooglePublicData} provides a
 good example, demonstrating the use of motion charts and how they can
 help to analyse data. Please note, that all those charts are rendered
-within a browser using Adobe Flash~\cite{Flash}.  
+within a browser using Adobe Flash~\cite{Flash}.
 
 The charting data can either be embedded into the html file or read
 dynamically. Key to the Google Visualisation API is that the data is
-structured in a DataTable~\cite{DataTable}, and this is where this
-package helps, as it uses the functionality of the RJSONIO
+structured in a DataTable~\cite{DataTable}, and this is where the \googleVis
+package helps, as it uses the functionality of the \rjsonio
 package~\cite{RJSONIO} to transform R data frames into
-json~\cite{json} objects and as the basis for the DataTable.
+json~\cite{json} objects as the basis for the DataTable.
 
-\section{googleVis}
+As an example we shall look at the html-code of a motion chart from Google's visualisation 
+gallery~\cite{GoogleMotionChart}, which generates output similar to
+Figure~\ref{MotionChartGUI}:
+
+\begin{verbatim}
+<html>
+  <head>
+    <script type="text/javascript" src="http://www.google.com/jsapi">
+    </script>
+    <script type="text/javascript">
+      google.load('visualization', '1', {'packages':['motionchart']});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Fruit');
+        data.addColumn('date', 'Date');
+        data.addColumn('number', 'Sales');
+        data.addColumn('number', 'Expenses');
+        data.addColumn('string', 'Location');
+        data.addRows([
+          ['Apples',new Date (1988,0,1),1000,300,'East'],
+          ['Oranges',new Date (1988,0,1),1150,200,'West'],
+          ['Bananas',new Date (1988,0,1),300,250,'West'],
+          ['Apples',new Date (1989,6,1),1200,400,'East'],
+          ['Oranges',new Date (1989,6,1),750,150,'West'],
+          ['Bananas',new Date (1989,6,1),788,617,'West']
+          ]);
+        var chart = new google.visualization.MotionChart(
+                     document.getElementById('chart_div'));
+        chart.draw(data, {width: 600, height:300});
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="chart_div" style="width: 600px; height: 300px;"></div>
+  </body>
+</html>
+\end{verbatim}
+You will notice that the above html-code has three generic parts:
+\begin{itemize}
+\item Reference to a javascript function provided by Google, here 
+	\texttt{'motionchart'}
+
+\item The data to visualise as a \texttt{DataTable} 
+
+\item Chart with chart id (\texttt{'chart\_div'}) and options, here width
+  and height. 
+\end{itemize}
+
+Those principals hold true for most of the interactive charts of the
+Google Visualisation API, see the examples in Figure~\ref{demos}.
+
+To display the visualisation, the html-page it must be loaded from a
+web server in a browser with internet connection and Flash; will not
+work when loaded as a local file. For more details see the Google
+Visualisation API documentation~\cite{GoogleMotionChart}.
+
+Fortunately, the package \rsp~\cite{Rsp} provides an internal
+cross-platform web server which can be started from the R console; it
+serves the \googleVis package as a tool to display web
+pages. Additionally the \rsp  web server has the capability 
+to extract and execute R code from html code, similar to the approach
+taken by Sweave~\cite{Sweave2002}. For more details see the
+\rsp documentation.
+
+\section{The \googleVis package}
+
+From the previous section we have learned, that to display an
+interactive chart from the Google Visualisation API we have to
+generate html code with links to Google javascript functions, the data
+formated as a \texttt{DataTable} and further options; and to display
+the chart we need a web server. 
+
+The \googleVis package facilitates this process and provides currently
+interfaces to Motion Chart~\cite{GoogleMotionChart}, Geo
+Map~\cite{GoogleGeoMap}, Table~\cite{GoogleTable} and Tree
+Map~\cite{GoogleTreeMap}. 
+
+Let's see how we can use the \googleVis package to accomplish these
+tasks. It works analog for the other APIs.
+As an example we will show how to generate a motion chart as in 
+Figure~\ref{MotionChartGUI}. Further examples are covered in the demos
+of the \googleVis package, see also Figure~\ref{demos}.
 
 
-\begin{figure}[!ht]
+\begin{figure}%%[!ht]
 \begin{center}
 \includegraphics[width=\textwidth]{googleVisDemoPlots.pdf}
 \caption{
@@ -114,24 +204,75 @@ json~\cite{json} objects and as the basis for the DataTable.
 }\label{demos}
 \end{center}
 \end{figure}
+\clearpage
+
+\subsection{Installation}
+The \googleVis  package depends on the \rjsonio and
+\rsp packages, so we need to install those as well.  The \rjsonio
+package is currently not available from CRAN, hence we have to install
+it from source via: 
+
+\begin{verbatim}
+R> install.packages('RJSONIO', repos='http://www.omegahat.org/R', 
+                    type='source')
+\end{verbatim}
+Please check the R documentation~\cite{Rinstall} if you are unfamiliar with installing packages from source.
+              
+Following the installation of \rjsonio we can install \rsp and
+\googleVis in the usual way from CRAN:
+\begin{verbatim}
+R> install.packages(c('R.rsp', 'googleVis'), 
+                    repos='http://cran.r-project.org') 
+\end{verbatim}
+
+\subsection{\googleVis design principals}
+Following the installation of the \googleVis package we can load the
+package via
+<<>>=
+library(googleVis)
+@ 
+
+\subsection{Motion Chart}
+
+and the sample data set which we would like to visualise with a motion chart:
+<<>>=
+data(Fruits)
+ Fruits
+@
+
+Following the documentation of the Google Motion Chart API we need a
+data set which has at least four columns; one identifying the
+variable we would like to plot, one time variable and at least two
+numerical variables. Further numerical and character columns are allowed.
+In this case we will use the columns \texttt{'Fruit'} and
+\texttt{'Year'} as id and time variable respectively. 
+
+
+<<>>=
+ M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
+ M
+@
+
+
+<<>>=
+ str(M)
+ cat(M$html$Chart)
+@
+
+\begin{verbatim}
+R> plot(M)
+\end{verbatim}
+
+
+\clearpage
 
 
 % \section{Example}
 % The package comes with example data sets, e.g. \texttt{Fruits} and \texttt{Exports}.
-% <<>>=
-% require(googleVis)
-% data(Fruits)
-% Fruits
-% data(Exports)
-% Exports
-% @
 % The example data shows sales information by Fruit and Year (also Date to
 % illustrate how to handle this data type). Suppose we would like to
 % generate the html output required for a motion chart, than we can use
 % the function \texttt{MotionChart}.
-% <<>>=
-% gvisMotionChart(Fruits[,-7], "Fruit", "Year") ## exclude Date column
-% @
 % Now we can also create a motion chart using the date colum. Please
 % notice that
 % <<>>=
