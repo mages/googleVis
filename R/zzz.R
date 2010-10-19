@@ -27,7 +27,7 @@
             })
   
   require(utils)
-  cat("\n",paste("Wellcome to googleVis version", packageDescription("googleVis")$Version, "\n\n"),
+  cat("\n",paste("Welcome to googleVis version", packageDescription("googleVis")$Version, "\n\n"),
       "Type ?googleVis to see the overall documentation and\n",
       "vignette('googleVis') to see the package vignette.\n",
       "You can see a demo of the package via: demo(googleVis)\n\n",  

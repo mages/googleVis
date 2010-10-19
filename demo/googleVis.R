@@ -17,7 +17,7 @@ Table=gvisTable(Exports, options=list(width=400, height=300))
 plot(Table)
 
 ## TreeMap
-Tree=gvisTreeMap(Regions, options=list(fontSize=16))
+Tree=gvisTreeMap(Regions,  "Region", "parent", "Val", "Fac", options=list(fontSize=16))
 plot(Tree)
 
 ## Several charts on one page

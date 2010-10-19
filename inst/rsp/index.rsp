@@ -10,9 +10,9 @@
     <%@include file="src/simpleHeader.rsp"%>
 
     <h2>
-      Wellcome
+      Welcome
     </h2>
-    Wellcome
+    Welcome
     to <a href="http://code.google.com/p/google-motion-charts-with-r/"><b>googleVis</b></a> 
     version <%=packageDescription("googleVis")$Version%> by:
     <a href="mailto:markus.gesmann@gmail.com">Markus Gesmann</a>
@@ -27,7 +27,7 @@
      the <a href="http://code.google.com/apis/visualization/documentation/gallery.html">Google
      Visualisation API.</a> Please see also
      Google's <a href="http://code.google.com/apis/visualization/terms.html">Terms
-     of Use</a>. The visual ouput will be rendered in your browser using Flash. 
+     of Use</a>. The visual output will be rendered in your browser using Flash. 
     </p>
     <p>    
       Type <tt>?googleVis</tt> in R to see the overall documentation and <tt>vignette('googleVis')</tt> to see the package vignette.
@@ -41,7 +41,7 @@
     <ul>
       <li> <a href="myAnalysis/index.rsp">myAnalysis</a>.
     </ul>
-    For example the follwing R commands
+    For example the following R commands
     <pre>
       require(googleVis)
       M &lt;- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
@@ -65,7 +65,7 @@
       on <tt>R.rsp</tt> see <a href="/">here.</a>
     </p>
     <h2>Examples with googleVis</h2>
-    You can embbed googleVis charts quite easily in your rsp page.
+    You can embed googleVis charts quite easily in your rsp page.
     <p>
       For example 
       <pre>
@@ -80,7 +80,7 @@
       Geo Map API</a>  
     </p>
     <p>
-      For a Motion Chart we would write somthing like 
+      For a Motion Chart we would write something like 
       <pre>
 	&lt;%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
 	options=list(width=600, height=500))$html$Chart%&gt;
@@ -94,12 +94,12 @@
     <p>
       A Tree Map can be generated with 
       <pre>
-	&lt;%=gvisTreeMap(Regions, options=list(width=600, height=500,
+	&lt;%=gvisTreeMap(Regions,  "Region", "parent", "Val", "Fac", options=list(width=600, height=500,
 	showScale=TRUE, fontSize=16))$html$Chart%&gt;
       </pre> 
     </p>
     <p>
-      <%=gvisTreeMap(Regions, options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$Chart%>
+      <%=gvisTreeMap(Regions,  "Region", "parent", "Val", "Fac", options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$Chart%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/treemap.html">Google
 	Tree Map API</a>  
     </p>
