@@ -184,7 +184,7 @@ taken by Sweave~\cite{Sweave2002}. For more details see the
 From the previous section we have learned that to display an
 interactive chart using the Google Visualisation API we have to
 generate html code with links to Google javascript functions, the data
-formated as a \texttt{DataTable} plus further options.
+formated as a \texttt{DataTable} plus further optional settings.
 
 The \googleVis package facilitates this process and provides currently
 interfaces to Motion Chart~\cite{GoogleMotionChart}, Geo
@@ -231,20 +231,29 @@ R> install.packages(c('R.rsp', 'googleVis'),
 \subsection{The \googleVis design principals}
 
 
-The design of the corresponding functions is always similar, for a
-Motion Chart we have: 
+The design of the visualisation functions is fairly generic. The name
+of the visualisation function is \texttt{'gvis' + ChartType}, so for
+the Motion Chart we have: 
 \begin{verbatim}
 gvisMotionChart(data, idvar='id', timevar='date', options=list())
 \end{verbatim}
 Here \texttt{data} is the input \texttt{data.frame} and \texttt{idvar}
 and \texttt{timevar} specify the column names of the id variable and
-time variable for the plot, while options is a list of the various
-plotting options for the motion chart, as specified in the Google
+time variable for the plot, while plotting options are set in a list.
+The options and data requirements follow those of the Google
 Visualisation API. 
 
 The output of a \googleVis charting function is a list of lists
 containing information about the chart type, chart id and the html
-code as list separated into Header, Chart, Caption and Footer.
+code in a  sub-list with header, chart, caption and footer.
+
+The idea behind this concept is, that users get on one hand side a
+complete web page, but on the other hand can extract only parts,
+such as thee chart, if they wish.
+
+The output of a \googleVis function will be of class \texttt{'gvis'}
+and \texttt{'list'}. Generic print (\texttt{print.gvis})  and plot
+(\texttt{plot.gvis}) function exist to ease the handle of such objects. 
 
 To illustrate the concept we create a motion chart using the Fruits
 sample data set.
@@ -287,7 +296,20 @@ cat(M$html$Chart)
 R> plot(M)
 \end{verbatim}
 
+\subsection{Using \googlvis with \rsp}
+The \rsp package allows the user to integrate R code into html-code,
+which together with the \rsp web server are executed at run time.
 
+
+\begin{verbatim}
+
+<html>
+<body>
+  <%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")$html$Chart%>
+</body>
+</html>
+
+\end{verbatim}
 \clearpage
 
 
