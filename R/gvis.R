@@ -68,7 +68,7 @@ gvis <- function(type="", data, options, chartid=NULL){
     stop(message)
   }  
 
-  jsTableTemplate <- paste('
+  jsTableTemplate <- '
      <script type="text/javascript\" src="http://www.google.com/jsapi"></script>
      <script type="text/javascript">
       google.load("visualization", "1", { packages:["%s"] });
@@ -78,14 +78,14 @@ gvis <- function(type="", data, options, chartid=NULL){
         var datajson = %s;
 	%s
 	data.addRows(datajson);
-        var chart = new google.visualization.%s(document.getElementById(\'',chartid,'\'));
+        var chart = new google.visualization.%s(document.getElementById(\'%s\'));
         var options ={};
         %s
         chart.draw(data,options);
       }
      </script>
-     <div id="', chartid,'"></div>
-    ', sep='')
+     <div id="%s"></div>
+    '
   
   jsChart <- sprintf(jsTableTemplate,
                      tolower(type),
@@ -93,7 +93,9 @@ gvis <- function(type="", data, options, chartid=NULL){
                      paste(paste("data.addColumn('", data.type, "','",
                                  names(data.type), "');", sep=""), collapse="\n"),
                      type,
-                     paste(gvisOptions(options), collapse="\n")
+		     chartid,
+                     paste(gvisOptions(options), collapse="\n"),
+		     chartid
                      )
   
   jsChart <- paste(infoString(type), jsChart, sep="\n")
