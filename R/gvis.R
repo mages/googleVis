@@ -84,7 +84,7 @@ gvis <- function(type="", data, options, chartid=NULL){
         chart.draw(data,options);
       }
      </script>
-     <div id="%s"></div>
+     <div id="%s" style="width: %spx; height: %spx;"></div>
     '
   
   jsChart <- sprintf(jsTableTemplate,
@@ -95,7 +95,9 @@ gvis <- function(type="", data, options, chartid=NULL){
                      type,
 		     chartid,
                      paste(gvisOptions(options), collapse="\n"),
-		     chartid
+		     chartid,
+                     ifelse(!(is.null(options$gvis$width) || (options$gvis$width == "")),options$gvis$width,600),
+                     ifelse(!(is.null(options$gvis$height) || (options$gvis$height == "")),options$gvis$height,500)
                      )
   
   jsChart <- paste(infoString(type), jsChart, sep="\n")
