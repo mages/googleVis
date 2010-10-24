@@ -30,10 +30,10 @@ gvisChart <- function(type, checked.data, options){
   
   output <- list(type=Chart$type,
                  chartid=Chart$chartid,
-                 html=list(Header=htmlScaffold[["htmlHeader"]],
-                   Chart=htmlChart,
-                   Caption=htmlScaffold[["htmlCaption"]],
-                   Footer=htmlScaffold[["htmlFooter"]]
+                 html=list(header=htmlScaffold[["htmlHeader"]],
+                   chart=htmlChart,
+                   caption=htmlScaffold[["htmlCaption"]],
+                   footer=htmlScaffold[["htmlFooter"]]
                    ))
   
   class(output) <- c("gvis", class(output))
@@ -211,17 +211,30 @@ gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
     .par <- sapply(names(options), function(x)
                    paste("                 options[\"", x,"\"] = ",
                          ifelse(is.numeric(options[[x]]) | is.logical(options[[x]]),
+                                ## options are numeric or logical
                                 ifelse(is.numeric(options[[x]]),
                                        options[[x]],
                                        ifelse(options[[x]],
                                               "true", "false")
                                        ),
-                                paste("'", options[[x]],"'",sep="")),
+                                ## options are character or [-style, e.g. colours
+                                ifelse(checkSquareBracketOps(options[[x]]),
+                                       options[[x]],
+                                       paste("'", options[[x]],"'",sep="")
+                                       )
+                                ),
                          ";",sep="" )
                    )
     return(.par)
 }
 
+checkSquareBracketOps <- function(char){
+
+  first <- substr(char, 1,1)
+  n <- nchar(char)
+  last <- substr(char, n, n)
+  ifelse(first == "[" & last == "]", TRUE, FALSE)
+}
 
 gvisHtmlWrapper <- function(title, dataName, chartid){
 

@@ -23,16 +23,16 @@ plot(Tree)
 ## Several charts on one page
 Page <- list(type="MotionGeoTableTree", 
 			 chartid=format(Sys.time(), "MotionGeoTableTree-%Y-%m-%d-%H-%M-%S"), 
-			 html=list(Header=Motion$html$Header,
-			 		Chart1=Motion$html$Chart,
-					Caption1=Motion$html$Caption,
-					Chart2=Geo$html$Chart,
-					Caption2=Geo$html$Caption,
-					Chart3=Table$html$Chart,
-					Caption3=Table$html$Caption,
-					Chart4=Tree$html$Chart,
-					Caption4=Tree$html$Caption,
-					Footer=Tree$html$Footer)
+			 html=list(Header=Motion$html$header,
+			 		Chart1=Motion$html$chart,
+					Caption1=Motion$html$caption,
+					Chart2=Geo$html$chart,
+					Caption2=Geo$html$caption,
+					Chart3=Table$html$chart,
+					Caption3=Table$html$caption,
+					Chart4=Tree$html$chart,
+					Caption4=Tree$html$caption,
+					Footer=Tree$html$footer)
 			)
 		
 

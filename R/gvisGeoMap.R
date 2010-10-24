@@ -17,7 +17,7 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisGeoMap <- function(data, options=list()){
+gvisGeoMap <- function(data,  idvar="id", options=list()){
 
   my.type <- "GeoMap"
   dataName <- deparse(substitute(data))
@@ -25,7 +25,7 @@ gvisGeoMap <- function(data, options=list()){
   my.options <- list(gvis=modifyList(list(width = 600),options), dataName=dataName,
                      data=list(allowed=c("number", "string")))
   
-  checked.data <- gvisCheckGeoMapData(data)
+  checked.data <- gvisCheckGeoMapData(data, idvar)
   
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
   
@@ -33,9 +33,14 @@ gvisGeoMap <- function(data, options=list()){
 }
 
 
-gvisCheckGeoMapData <- function(data){
+gvisCheckGeoMapData <- function(data, idvar){
 
   ## currently doesn't do anything.
-  
+
+  id <- match(idvar, names(data))
+  if( length(id) < 1 )
+      stop("There is a missmatch between the idvar specified and the colnames of your data.")
+
+  data <- data[, c(id, c(1:ncol(data)))[-id]]
   return(data)
 }

@@ -69,13 +69,13 @@
     <p>
       For example 
       <pre>
-	&lt;%=gvisGeoMap(Exports[,1:2], options=list(width=600,
-	height=500))$html$Chart%&gt;
+	&lt;%=gvisGeoMap(Exports[,1:2], idvar='Country', options=list(width=600,
+	height=500))$html$chart%&gt;
       </pre> 
       gives you:
     </p>
     <p>
-      <%=gvisGeoMap(Exports[,1:2], options=list(width=600))$html$Chart%>
+      <%=gvisGeoMap(Exports[,1:2], idvar='Country', options=list(width=600))$html$chart%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
       Geo Map API</a>  
     </p>
@@ -83,34 +83,34 @@
       For a Motion Chart we would write something like 
       <pre>
 	&lt;%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
-	options=list(width=600, height=500))$html$Chart%&gt;
+	options=list(width=600, height=500))$html$chart%&gt;
       </pre> 
     </p>
     <p>
-      <%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",  options=list(width=600, height=500))$html$Chart%>
-      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
+      <%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",  options=list(width=600, height=500))$html$chart%>
+      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/motionchart.html">Google
 	Motion Chart API</a>  
     </p>
     <p>
       A Tree Map can be generated with 
       <pre>
 	&lt;%=gvisTreeMap(Regions,  "Region", "parent", "Val", "Fac", options=list(width=600, height=500,
-	showScale=TRUE, fontSize=16))$html$Chart%&gt;
+	showScale=TRUE, fontSize=16))$html$chart%&gt;
       </pre> 
     </p>
     <p>
-      <%=gvisTreeMap(Regions,  "Region", "parent", "Val", "Fac", options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$Chart%>
+      <%=gvisTreeMap(Regions,  "Region", "parent", "Val", "Fac", options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$chart%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/treemap.html">Google
 	Tree Map API</a>  
     </p>
     <p>
       To display a table we write 
       <pre>
-	&lt;%=gvisTable(Exports, options=list(width=600, height=300))$html$Chart%&gt;
+	&lt;%=gvisTable(Exports, options=list(width=600, height=300))$html$chart%&gt;
      </pre> 
     </p>
     <p>
-      <%=gvisTable(Exports, options=list(width=600, height=300))$html$Chart%>
+      <%=gvisTable(Exports, options=list(width=600, height=300))$html$chart%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/table.html">Google
       Table API</a>  
     </p>

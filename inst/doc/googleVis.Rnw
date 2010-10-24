@@ -83,15 +83,15 @@ visualisation tools to foster the dialog between data analysts and
 others the authors of this vignette started the development of the
 \googleVis package~\cite{googleVis}.
 
-\begin{figure}[!ht]
-\begin{center}
-\includegraphics[width=\textwidth]{MotionChart.pdf}
-\caption{
-  Overview of a Google Motion Chart.  Screenshot of the output of
-  \texttt{plot(gvisMotionChart(Fruits, idvar='Fruit', timevar='Year'))}
-}\label{MotionChartGUI}
-\end{center}
-\end{figure}
+% \begin{figure}[!ht]
+% \begin{center}
+% \includegraphics[width=\textwidth]{MotionChart.pdf}
+% \caption{
+%   Overview of a Google Motion Chart.  Screenshot of the output of
+%   \texttt{plot(gvisMotionChart(Fruits, idvar='Fruit', timevar='Year'))}
+% }\label{MotionChartGUI}
+% \end{center}
+% \end{figure}
 %\clearpage
 
 \subsection{Google Visualisation API}
@@ -197,16 +197,16 @@ Figure~\ref{MotionChartGUI}. It works analog for the other
 APIs. Further examples are covered in the demos of the \googleVis
 package, see also Figure~\ref{demos}. 
 
-\begin{figure}%%[!ht]
-\begin{center}
-\includegraphics[width=\textwidth]{googleVisDemoPlots.pdf}
-\caption{
-  Screenshot of the output of \texttt{demo(googleVis)} with 
-  \texttt{gvisTreeMap,  gvisTable, gvisMotionChart, gvisGeoMap} from
-  top left to bottom right.  
-}\label{demos}
-\end{center}
-\end{figure}
+% \begin{figure}%%[!ht]
+% \begin{center}
+% \includegraphics[width=\textwidth]{googleVisDemoPlots.pdf}
+% \caption{
+%   Screenshot of the output of \texttt{demo(googleVis)} with 
+%   \texttt{gvisTreeMap,  gvisTable, gvisMotionChart, gvisGeoMap} from
+%   top left to bottom right.  
+% }\label{demos}
+% \end{center}
+% \end{figure}
 
 
 \subsection{Installation}

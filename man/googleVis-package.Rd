@@ -24,6 +24,21 @@ Using the Google Visualisation API with R
 \author{
 	Markus Gesmann, Diego de Castillo
 	}
+\note{
+  See \code{vignette("googleVis")} for a brief introduction of
+  the graphical user interface of Google motion charts.
+
+  Further examples of displaying data with motion charts are available with the Google Public Data Explorer:
+  \url{http://www.google.com/publicdata/home}.
+
+  Many thanks to Henrik Bengtsson for providing the R.rsp package
+  \url{http://www.braju.com/R/}, which allows us to display motion
+  charts locally.
+
+  Type \code{browseRsp(path="/library/googleVis/rsp/")} to find out a
+  bit more how you can integrate motion charts into rsp-pages.
+}
+
 \references{
   \itemize{
 	\item googleVis project site: \url{http://code.google.com/p/google-motion-charts-with-r/}
