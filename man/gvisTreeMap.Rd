@@ -140,7 +140,7 @@ gvisTreeMap(data,
   
   An object of class "\code{gvis}" is a list containing at least the
   following components:
-  \item{\code{type}}{Google visualisation type, here 'treemap'}
+  \item{\code{type}}{Google visualisation type, here 'TreeMap'}
   \item{\code{chartid}}{character id of the chart object. The string is
     build at run time from chart type and date/time when the function is
     executed. Unique chart ids are required to place several charts on

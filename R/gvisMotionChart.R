@@ -21,7 +21,7 @@
 gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m/%d",
                             options=list()){
 
-  my.type <- "motionchart"
+  my.type <- "MotionChart"
   dataName <- deparse(substitute(data))
 
   ## Combine options for other generic functions
