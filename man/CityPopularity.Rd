@@ -2,10 +2,10 @@
 \alias{CityPopularity}
 \docType{data}
 \title{
-Example data set 
+Example data set
 }
 \description{
-Example data set to illustrate gvisGeoMap
+Example data set to illustrate the use of gvisGeoMap.
 }
 \usage{data(CityPopularity)}
 \format{
@@ -15,17 +15,22 @@ Example data set to illustrate gvisGeoMap
     \item{\code{Popularity}}{a numeric vector}
   }
 }
-\details{
+%%\details{
 %%  ~~ If necessary, more details than the __description__ above ~~
-}
+%%}
 \source{
-%%  ~~ reference to a publication or URL from which the data were obtained ~~
+ Google Geo Map  API: \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html}
 }
-\references{
+%%\references{
 %%  ~~ possibly secondary sources and usages ~~
-}
+%}
 \examples{
 data(CityPopularity)
-## maybe str(CityPopularity) ; plot(CityPopularity) ...
+
+G <-  gvisGeoMap(CityPopularity, idvar='City' ,options=list(region='US',
+       dataMode='markers', colors='[0xFF8747, 0xFFB581, 0xc06000]'))
+\dontrun{
+plot(G)
+}
 }
 \keyword{datasets}

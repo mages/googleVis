@@ -32,6 +32,11 @@ gvisGeoMap <- function(data,  idvar="id", options=list()){
   return(output)
 }
 
+## Fixme
+## gvisGeoMap should also accept Latitude and Longitude
+##  df=data.frame(Latitude=47, Longitude=-122, Value=1, HoverText="Hello World")
+## plot(gvisGeoMap(df, idvar="Latitude", options=list(dataMode="markers")))
+
 
 gvisCheckGeoMapData <- function(data, idvar){
 

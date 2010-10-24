@@ -111,7 +111,8 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   }
 }
 \references{
-  Google Motion Chart API: \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html}
+  Google Motion Chart API:
+  \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html} 
   
   See \code{vignette("googleVis")} for a brief introduction of
   the graphical user interface of Google motion charts.
@@ -134,9 +135,11 @@ Diego de Castillo \email{decastillo@gmail.com}
 
   Yihui Xie, the maintainer of the \code{animation-package}
   showed in an early blog entry the usage of the Google Motion Chart API
-  with R: \url{http://yihui.name/en/2008/11/brownian-motion-using-google-visualization-api-and-r/}
+  with R:
+  \url{http://yihui.name/en/2008/11/brownian-motion-using-google-visualization-api-and-r/} 
 
-  Further examples of displaying data with motion charts are available with the Google Public Data Explorer:
+  Further examples of displaying data with motion charts are available
+  with the Google Public Data Explorer:
   \url{http://www.google.com/publicdata/home}.
 }
 
@@ -173,8 +176,7 @@ Further see also \code{\link{browseRsp}}, and also the
 
 ## Options: trails unticked
  gvisMotionChart(Fruits,"Fruit","Year",
-                 options=list(state='{"showTrails":false};')
-                              )
+                 options=list(state='{"showTrails":false};'))
 }
 ## For more details see also the demos.
 ## Type: demo(package='googleVis') to see a list of available demos.

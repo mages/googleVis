@@ -5,11 +5,11 @@
 browseRsp("http://127.0.0.1:8074/library/googleVis/rsp/")
 
 ## Motion Chart
-Motion=gvisMotionChart(Fruits, "Fruit", "Year")
+Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 plot(Motion)
 
 ## Geo Map
-Geo=gvisGeoMap(Exports[,1:2])
+Geo=gvisGeoMap(Exports[,1:2], idvar="Country")
 plot(Geo)
 
 ## Table 

@@ -30,7 +30,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \author{Markus Gesmann\footnote{markus.gesmann@gmail.com},
   Diego de Castillo\footnote{decastillo@gmail.com}}
 \title{Using the Google Visualisation API with R:\\
-  googleVis-0.2.0 Package Vignette}
+  googleVis-\Sexpr{packageDescription("googleVis")$Version} Package Vignette}
 \maketitle
 \begin{abstract}
   The \googleVis package provides an interface between R and the
@@ -83,16 +83,16 @@ visualisation tools to foster the dialog between data analysts and
 others the authors of this vignette started the development of the
 \googleVis package~\cite{googleVis}.
 
-% \begin{figure}[!ht]
-% \begin{center}
-% \includegraphics[width=\textwidth]{MotionChart.pdf}
-% \caption{
-%   Overview of a Google Motion Chart.  Screenshot of the output of
-%   \texttt{plot(gvisMotionChart(Fruits, idvar='Fruit', timevar='Year'))}
-% }\label{MotionChartGUI}
-% \end{center}
-% \end{figure}
-%\clearpage
+\begin{figure}[!ht]
+\begin{center}
+\includegraphics[width=\textwidth]{MotionChart.pdf}
+\caption{
+  Overview of a Google Motion Chart.  Screenshot of the output of
+  \texttt{plot(gvisMotionChart(Fruits, idvar='Fruit', timevar='Year'))}
+}\label{MotionChartGUI}
+\end{center}
+\end{figure}
+\clearpage
 
 \subsection{Google Visualisation API}
 
@@ -197,16 +197,16 @@ Figure~\ref{MotionChartGUI}. It works analog for the other
 APIs. Further examples are covered in the demos of the \googleVis
 package, see also Figure~\ref{demos}. 
 
-% \begin{figure}%%[!ht]
-% \begin{center}
-% \includegraphics[width=\textwidth]{googleVisDemoPlots.pdf}
-% \caption{
-%   Screenshot of the output of \texttt{demo(googleVis)} with 
-%   \texttt{gvisTreeMap,  gvisTable, gvisMotionChart, gvisGeoMap} from
-%   top left to bottom right.  
-% }\label{demos}
-% \end{center}
-% \end{figure}
+\begin{figure}%%[!ht]
+\begin{center}
+\includegraphics[width=\textwidth]{googleVisDemoPlots.pdf}
+\caption{
+  Screenshot of the output of \texttt{demo(googleVis)} with 
+  \texttt{gvisTreeMap,  gvisTable, gvisMotionChart, gvisGeoMap} from
+  top left to bottom right.  
+}\label{demos}
+\end{center}
+\end{figure}
 
 
 \subsection{Installation}
@@ -296,7 +296,7 @@ cat(M$html$Chart)
 R> plot(M)
 \end{verbatim}
 
-\subsection{Using \googlvis with \rsp}
+\subsection{Using \texttt{googlvis} with \texttt{rsp}}
 The \rsp package allows the user to integrate R code into html-code,
 which together with the \rsp web server are executed at run time.
 

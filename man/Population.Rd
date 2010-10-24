@@ -2,7 +2,7 @@
 \alias{Population}
 \docType{data}
 \title{
-  Example data set to demonstrate the use of Gvis 
+  Example data set
 }
 \description{
   Example data set of information to demonstrate the use of Gvis
@@ -17,8 +17,9 @@
 }
 \examples{
 data(Population)
+G <-  gvisGeoMap(Population, idvar="country")
 \dontrun{
- gvisGeoMap(Population)
+plot(G)
 }
 }
 \keyword{datasets}

@@ -22,7 +22,10 @@
   too long to show, the name will be truncated with an ellipsis (...).
 }
 \usage{
-gvisTreeMap(data, idvar = "", parentvar = "", sizevar = "", colorvar = "", options = list())
+gvisTreeMap(data,
+            idvar = "", parentvar = "",
+            sizevar = "", colorvar = "",
+            options = list() )
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -39,7 +42,8 @@ gvisTreeMap(data, idvar = "", parentvar = "", sizevar = "", colorvar = "", optio
   \item{colorvar}{column name of \code{data} with values to define range of color.
   }
   \item{options}{list of configuration options for the motion chart.
-    The possible components are, taken from \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html} :
+    The possible components are, taken from
+    \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html}: 
     \describe{
       \item{\code{headerColor}}{string, default	'#988f86'. The color of
 	the header section for each node. Specify an HTML color value.
@@ -131,12 +135,14 @@ gvisTreeMap(data, idvar = "", parentvar = "", sizevar = "", colorvar = "", optio
   %%  ~~ If necessary, more details than the description above ~~
 }
 \value{
- \code{gvisTreeMap} returns list of \code{\link{class}} "\code{gvis}" and "\code{list}". 
+  \code{gvisTreeMap} returns list of \code{\link{class}} "\code{gvis}"
+  and "\code{list}". 
   
-  An object of class "\code{gvis}" is a list containing at least the following components:
+  An object of class "\code{gvis}" is a list containing at least the
+  following components:
   \item{\code{type}}{Google visualisation type, here 'treemap'}
-  \item{\code{chartid}}{character id of the chart object. The string is build
-    at run time from chart type and date/time when the function is
+  \item{\code{chartid}}{character id of the chart object. The string is
+    build at run time from chart type and date/time when the function is
     executed. Unique chart ids are required to place several charts on
     the same page.
   }
@@ -156,7 +162,9 @@ gvisTreeMap(data, idvar = "", parentvar = "", sizevar = "", colorvar = "", optio
   }
 }
 \references{
-  Google Geo Map  API: \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html}
+  Google Geo Map  API:
+  \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html}
+  
 }
 \author{
 Markus Gesmann, \email{markus.gesmann@gmail.com},
@@ -194,7 +202,8 @@ Diego de Castillo \email{decastillo@gmail.com}
 
 \seealso{
 
-  See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and plotting methods. 
+  See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
+  printing and plotting methods.   
 
 }
 \examples{

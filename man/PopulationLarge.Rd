@@ -2,7 +2,7 @@
 \alias{PopulationLarge}
 \docType{data}
 \title{
-  Example data set to demonstrate the use of Gvis 
+  Example data set
 }
 \description{
   Example data set of information to demonstrate the use of Gvis
@@ -22,8 +22,10 @@
 }
 \examples{
 data(PopulationLarge)
+tbl <- gvisTable(PopulationLarge)
+
 \dontrun{
- gvisTable(PopulationLarge)
+plot(tbl)
 }
 }
 \keyword{datasets}

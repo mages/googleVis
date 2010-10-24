@@ -2,10 +2,10 @@
 \alias{Exports}
 \docType{data}
 \title{
-  Example data set to demonstrate the use of Gvis 
+  Example data set
 }
 \description{
-  Example data set of information to demonstrate the use of Gvis
+  Example data set of information to demonstrate the use of gvisGeoMap.
 }
 \usage{data(Exports)}
 \format{
@@ -18,8 +18,10 @@
 }
 \examples{
 data(Exports)
+Exports
+G <- gvisGeoMap(Exports[, 1:2], idvar="Country")
 \dontrun{
- GeoMapPage(Exports,file="myExportAnalysis.html")
+plot(G)
 }
 }
 \keyword{datasets}
