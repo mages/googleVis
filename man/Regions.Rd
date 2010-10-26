@@ -2,25 +2,26 @@
 \alias{Regions}
 \docType{data}
 \title{
-  Example data set to demonstrate the use of Gvis 
+ Regions: googleVis example data set
 }
 \description{
-  Example data set of information to demonstrate the use of Gvis
-}
+ Example data set to illustrate the use of the googleVis package.
+ }
 \usage{data(Regions)}
 \format{
   A data frame with 11 observations on the following 4 variables.
   \describe{
     \item{\code{Region}}{a factor with levels \code{America}, \code{Asia} ...}
-    \item{\code{parent}}{parent region identifier}
+    \item{\code{Parent}}{parent region identifier}
     \item{\code{Val}}{a numeric vector}
     \item{\code{Fac}}{a numeric vector}
   }
 }
 \examples{
 data(Regions)
+Tree=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(fontSize=16))
 \dontrun{
- gvisTreeMap(Regions)
+plot(Tree)
 }
 }
 \keyword{datasets}

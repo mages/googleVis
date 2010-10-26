@@ -2,10 +2,10 @@
 \alias{Exports}
 \docType{data}
 \title{
-  Example data set
+Exports: googleVis example data set
 }
 \description{
-  Example data set of information to demonstrate the use of gvisGeoMap.
+  Example data set to illustrate the use of the googleVis package.
 }
 \usage{data(Exports)}
 \format{

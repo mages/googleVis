@@ -37,12 +37,10 @@
       "Please read also the Google Visualisation API Terms of Use:\n",
       "http://code.google.com/apis/visualization/terms.html\n\n",
       
-      "Feel free to send us an email if you would like to keep informed of\n",
-      "new versions or if you have any feedback, ideas, suggestions or would\n",
+      "Feel free to send us an email <rvisualisation@gmail.com>\n",
+      "if you would like to keep informed of new versions,\n",
+      "or if you have any feedback, ideas, suggestions or would\n",
       "like to collaborate.\n\n",
-      
-      "Markus Gesmann <markus.gesmann@gmail.com>\n",
-      "Diego de Castillo <decastillo@gmail.com>\n\n",
       sep='')    
   rjsonio <- require(RJSONIO)
   if(!rjsonio){

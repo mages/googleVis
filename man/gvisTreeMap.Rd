@@ -146,18 +146,18 @@ gvisTreeMap(data,
     executed. Unique chart ids are required to place several charts on
     the same page.
   }
-  \item{\code{html}}{a list with the building blocks for the page
+  \item{\code{html}}{a list with the building blocks for a page
     \describe{
       \item{\code{header}}{a character string of a html page header:
-	\code{<html> ... <body>},}
+	\code{<html>...<body>},}
       \item{\code{chart}}{a character string of the chart object with
-	reference to Google API. Only this string is needed to embed the
+	reference to the Google API. Only this string is needed to embed the
 	chart into pages, see also the examples in the \code{googleVis} demo,}
       \item{\code{caption}}{a character string of a standard caption,
-	including data set use, chart id, R version and link to Google's
+	including data set, chart id and R version used; further a link to Google's
 	Terms of Use,}
       \item{\code{footer}}{a character string of a html page footer:
-	\code{</html> ... </body>}.}
+	\code{</html>...</body>}.}
     }
   }
 }
@@ -167,7 +167,7 @@ gvisTreeMap(data,
   
 }
 \author{
-Markus Gesmann, \email{markus.gesmann@gmail.com},
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
 Diego de Castillo \email{decastillo@gmail.com}
 }
@@ -207,7 +207,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 
 }
 \examples{
-tree <- gvisTreeMap(Regions,  "Region", "parent", "Val", "Fac",
+tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
                     options=list(width=600, height=500,  showScale=TRUE, fontSize=16))
 \dontrun{
 plot(tree)

@@ -28,7 +28,8 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \begin{document}
 
 \author{Markus Gesmann\footnote{markus.gesmann@gmail.com},
-  Diego de Castillo\footnote{decastillo@gmail.com}}
+  Diego de Castillo\footnote{decastillo@gmail.com}\\
+Contact: rvisualisation@gmail.com}
 \title{Using the Google Visualisation API with R:\\
   googleVis-\Sexpr{packageDescription("googleVis")$Version} Package Vignette}
 \maketitle

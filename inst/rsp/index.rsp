@@ -94,12 +94,12 @@
     <p>
       A Tree Map can be generated with 
       <pre>
-	&lt;%=gvisTreeMap(Regions,  "Region", "parent", "Val", "Fac", options=list(width=600, height=500,
+	&lt;%=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(width=600, height=500,
 	showScale=TRUE, fontSize=16))$html$chart%&gt;
       </pre> 
     </p>
     <p>
-      <%=gvisTreeMap(Regions,  "Region", "parent", "Val", "Fac", options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$chart%>
+      <%=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$chart%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/treemap.html">Google
 	Tree Map API</a>  
     </p>

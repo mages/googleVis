@@ -2,10 +2,10 @@
 \alias{Fruits}
 \docType{data}
 \title{
-  Example data set to demonstrate the use of Motion Charts
+Fruits: googleVis example data set
 }
 \description{
-  Example data set of fruit sells information to demonstrate the use of Motion Charts
+ Example data set to illustrate the use of the googleVis package.
 }
 \usage{data(Fruits)}
 \format{
@@ -22,10 +22,10 @@ A data frame with 9 observations on the following 7 variables.
 }
 \examples{
 data(Fruits)
- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
+M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 
 \dontrun{
- plot(gvisMotionChart(Fruits, idvar="Fruit", timevar="Year"))
+ plot(M)
 }
 }
 \keyword{datasets}

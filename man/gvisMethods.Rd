@@ -49,7 +49,7 @@
 %% ~put references to the literature/web site here ~
 %%}
 \author{
-Markus Gesmann, \email{markus.gesmann@gmail.com},
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
 Diego de Castillo \email{decastillo@gmail.com}
 }
@@ -65,12 +65,12 @@ See also \code{\link{cat}}, \code{\link{browseRsp}}
 \examples{
 
 
-myMotionChart=gvisMotionChart(Fruits, "Fruit", "Year")
-myMotionChart
-
+M <- gvisMotionChart(Fruits, "Fruit", "Year")
+str(M)
+M
 \dontrun{
 ## Web browser with internet connection and Flash required.
-plot(myMotionChart)
+plot(M)
 }			
 
 }
