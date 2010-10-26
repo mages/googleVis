@@ -49,7 +49,7 @@
 %% ~put references to the literature/web site here ~
 %%}
 \author{
-Markus Gesmann, \email{markus.gesmann@googlemail.com},
+Markus Gesmann, \email{markus.gesmann@gmail.com},
 
 Diego de Castillo \email{decastillo@gmail.com}
 }

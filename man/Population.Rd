@@ -2,10 +2,10 @@
 \alias{Population}
 \docType{data}
 \title{
-  Example data set
+Population: googleVis example data set
 }
 \description{
-  Example data set of information to demonstrate the use of Gvis
+Example data set to illustrate the use of the googleVis package.
 }
 \usage{data(Population)}
 \format{

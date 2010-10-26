@@ -9,7 +9,7 @@ Using the Google Visualisation API with R
 
  googleVis provides an interface between R and the Google Visualisation API. 
  The functions of the package allow the user to visualise data stored in R data frames with the Google Visualisation API.
- To view the output a browser with Adobe Flash and internet connection is required.
+ To view the output a browser with Flash and internet connection is required.
  
 } 
 \details{
@@ -17,7 +17,7 @@ Using the Google Visualisation API with R
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
 	Version: \tab 0.2.0\cr
-	Date: \tab 20010-10-10\cr
+	Date: \tab 20010-10-26\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
@@ -25,11 +25,8 @@ Using the Google Visualisation API with R
 	Markus Gesmann, Diego de Castillo
 	}
 \note{
-  See \code{vignette("googleVis")} for a brief introduction of
-  the graphical user interface of Google motion charts.
-
-  Further examples of displaying data with motion charts are available with the Google Public Data Explorer:
-  \url{http://www.google.com/publicdata/home}.
+  See \code{vignette("googleVis")} for a introduction to the
+  \code{googleVis} package. 
 
   Many thanks to Henrik Bengtsson for providing the R.rsp package
   \url{http://www.braju.com/R/}, which allows us to display motion
@@ -37,6 +34,10 @@ Using the Google Visualisation API with R
 
   Type \code{browseRsp(path="/library/googleVis/rsp/")} to find out a
   bit more how you can integrate motion charts into rsp-pages.
+
+  The Google Public Data Explorer,
+  \url{http://www.google.com/publicdata/home}, provides lots of
+  examples using the Google Visualisation API. 
 }
 
 \references{

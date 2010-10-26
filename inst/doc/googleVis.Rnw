@@ -312,8 +312,9 @@ which together with the \rsp web server are executed at run time.
 \end{verbatim}
 \clearpage
 
+\bibliographystyle{alpha}
+\bibliography{googleVis}
+\addcontentsline{toc}{section}{References} 
 
- \bibliographystyle{alpha}
- \bibliography{googleVis}
 \end{document}
 

@@ -2,10 +2,10 @@
 \alias{CityPopularity}
 \docType{data}
 \title{
-Example data set
+CityPopularity: googleVis example data set
 }
 \description{
-Example data set to illustrate the use of gvisGeoMap.
+Example data set to illustrate the use of the googleVis package.
 }
 \usage{data(CityPopularity)}
 \format{
