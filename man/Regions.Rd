@@ -19,7 +19,9 @@
 }
 \examples{
 data(Regions)
-Tree=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(fontSize=16))
+Tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
+                    options=list(width=600, height=500,
+                                 showScale=TRUE, fontSize=16))
 \dontrun{
 plot(Tree)
 }

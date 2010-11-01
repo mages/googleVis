@@ -27,8 +27,10 @@ Example data set to illustrate the use of the googleVis package.
 \examples{
 data(CityPopularity)
 
-G <-  gvisGeoMap(CityPopularity, locationvar='City' ,numvar='Popularity', options=list(region='US',
-       dataMode='markers', colors='[0xFF8747, 0xFFB581, 0xc06000]'))
+G <-  gvisGeoMap(CityPopularity, locationvar='City' ,numvar='Popularity', 
+      			options=list(region='US',
+				     dataMode='markers', 
+				     colors='[0xFF8747, 0xFFB581, 0xc06000]'))
 \dontrun{
 plot(G)
 }

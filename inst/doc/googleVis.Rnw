@@ -177,7 +177,7 @@ cross-platform web server which can be started from the R console; it
 serves the \googleVis package as a tool to display web
 pages. Additionally the \rsp  web server has the capability 
 to extract and execute R code from html code, similar to the approach
-taken by Sweave~\cite{Sweave2002}. For more details see the
+taken by Sweave~\cite{Sweave2002} for \LaTeX. For more details see the
 \rsp documentation.
 
 \section{The \googleVis package}
@@ -223,7 +223,7 @@ R> install.packages('RJSONIO', repos='http://www.omegahat.org/R',
 Please check the R documentation~\cite{Rinstall} if you are unfamiliar with installing packages from source.
               
 Following the installation of \rjsonio we can install \rsp and
-\googleVis in the usual way from CRAN:
+\googleVis in the usual way from CRAN, e.g.:
 \begin{verbatim}
 R> install.packages(c('R.rsp', 'googleVis'), 
                     repos='http://cran.r-project.org') 

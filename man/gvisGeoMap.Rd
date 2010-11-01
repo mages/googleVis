@@ -20,11 +20,16 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',options = list())
 }
 \arguments{
   \item{data}{
-    Your DataTable must include every optional column preceding any
-    column that you want to use. So, for example, if you want to specify
-    a lat/long table, and only wanted to use columns 1, 2, and 4, your
-    DataTable must still define column 3 (though you don't need to add
-    any values to it): 
+    a \code{data.frame}. The data has to have at least three
+    columns with location names (\code{locationvar}), value to be mapped
+    to location (\code{numvar}) and an optional variable to display any
+    text while the mouse hovers over the location (\code{hovervar}).
+    
+    %%Your DataTable must include every optional column preceding any
+    %%column that you want to use. So, for example, if you want to specify
+    %%a lat/long table, and only wanted to use columns 1, 2, and 4, your
+    %%DataTable must still define column 3 (though you don't need to add
+    %%any values to it): 
   }
     \item{locationvar}{column name of \code{data} with the geo locations to be
       analysed.
@@ -34,8 +39,10 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',options = list())
   }
     \item{hovervar}{column name of \code{data} with the hover text.
   }
-  \item{options}{list of configuration options for the motion chart.
-    The possible components are, taken from \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html} :
+  \item{options}{list of configuration options for the geo map.
+    The possible components are, taken from
+    \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html}:
+  
     \describe{
       \item{region}{string, default \code{'world'}.	
 	The area to display on the map. (Surrounding areas will be
@@ -65,13 +72,14 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',options = list())
 	  limited zooming behavior. A basic zoom out can be enabled by setting
 	  the showZoomOut property.
 	}
-	\item{\code{dataMode}}{string, default	'regions'	
+	\item{\code{dataMode}}{string, default	'regions'.	
 	  How to display values on the map. Two values are supported:
+
 	  \code{regions} - Colors a whole region with the appropriate
 	  color. This option cannot be used with latitude/longitude
 	  addresses. See Regions Example.
-	} 
-	\item{\code{markers}}{Displays a dot over a region, with the
+	  
+	  \code{markers} - Displays a dot over a region, with the
 	  color and size indicating the value. See Markers Example.
 	}
 	\item{\code{width}}{string, default '556px'.Width of the
@@ -81,7 +89,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',options = list())
 	  visualization. If no units are given, the default unit is
 	  pixels. 
 	}
-	\item{\code{colors}}{Array of RGB numbers in the format 0xRRGGBB
+	\item{\code{colors}}{Array of RGB numbers in the format 0xRRGGBB 
 	  [0xE0FFD4, 0xA5EF63, 0x50AA00, 0x267114]. Color gradient
 	  to assign to values in the visualization. You must have at least	  
 	  two values; the gradient will include all your values, plus
@@ -96,7 +104,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',options = list())
 	  property. Note that this button does nothing when clicked,
 	  except throw the zoomOut event. To handle zooming, catch this
 	  event and change the region option. You can only specify
-	  showZoomOut if the region option is smaller than the world
+	  \code{showZoomOut} if the region option is smaller than the world
 	  view. One way of enabling zoom in behavior would be to listen
 	  for the regionClick event, change the region property to the
 	  appropriate region, and reload the map.
@@ -107,9 +115,9 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',options = list())
       }
     }
   }
-\details{
+%%\details{
 %%  ~~ If necessary, more details than the description above ~~
-}
+%%}
 \value{
   \code{gvisGeoMap} returns list of \code{\link{class}} "\code{gvis}" and "\code{list}". 
   
@@ -131,7 +139,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',options = list())
 	including data set, chart id and R version used; further a link to Google's
 	Terms of Use,}
       \item{\code{footer}}{a character string of a html page footer:
-	\code{</html>...</body>}.}
+	\code{</body>...</html>}.}
     }
   }
 }
@@ -146,9 +154,9 @@ Diego de Castillo \email{decastillo@gmail.com}
 \note{
   Note: A map can display a maximum of 400 entries; if your DataTable or
   DataView holds more than 400 rows, only the first 400 will be
-  shown. The fastest modes are dataMode='regions' with locations
-  specified as ISO codes, and dataMode='markers' with lat/long
-  entries. The slowest mode is dataMode='markers' with a string
+  shown. The fastest modes are \code{dataMode='regions'} with locations
+  specified as ISO codes, and \code{dataMode='markers'} with lat/long
+  entries. The slowest mode is \code{dataMode='markers'} with a string
   address. 
 }
 
@@ -166,7 +174,8 @@ Diego de Castillo \email{decastillo@gmail.com}
 ## corresponding to the values that you assign. Specify the regions style
 ## by assigning options['dataMode'] = 'regions' in your code.
 
-G1 <- gvisGeoMap(Exports[,1:2], locationvar='Country', numvar='Profit', options=list(dataMode="regions"))
+G1 <- gvisGeoMap(Exports[,1:2], locationvar='Country', numvar='Profit',
+                 options=list(dataMode="regions")) 
 
 \dontrun{
 plot(G1)
@@ -176,8 +185,10 @@ plot(G1)
 ## The "markers" style displays a circle, sized and colored to indicate
 ## a value, over the regions that you specify. 
 
-G2 <- gvisGeoMap(CityPopularity, locationvar='City' , numvar='Popularity',options=list(region='US',
-       dataMode='markers', colors='[0xFF8747, 0xFFB581, 0xc06000]'))	
+G2 <- gvisGeoMap(CityPopularity, locationvar='City', numvar='Popularity',
+                 options=list(region='US', 
+                              dataMode='markers',
+                              colors='[0xFF8747, 0xFFB581, 0xc06000]'))	
 
 \dontrun{
 plot(G2) 

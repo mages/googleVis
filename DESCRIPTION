@@ -4,10 +4,13 @@ Title: Using the Google Visualisation API with R
 Version: 0.2.0
 Date: 2010-10-26
 Author: Markus Gesmann, Diego de Castillo
-Maintainer: Markus Gesmann <markus.gesmann@googlemail.com>
-Description: googleVis provides an interface between R and the Google Visualisation API. 
-	     The functions of the package allow the user to visualise data stored in R data frames with the Google Visualisation API.
-	     To view the output a browser with Flash and internet connection is required.
+Maintainer: Markus Gesmann <markus.gesmann@gmail.com>
+Description: googleVis provides an interface between R and the Google
+             Visualisation API.     
+	     The functions of the package allow the user to visualise
+	     data stored in R data frames with the Google
+	     Visualisation API. To view the output a browser with
+	     Flash and internet connection is required.
 Depends: RJSONIO (>= 0.3), R.rsp, methods
 Suggests: 
 License: GPL (>= 2)

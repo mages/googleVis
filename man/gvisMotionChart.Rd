@@ -1,4 +1,4 @@
-\name{Google Motion Chart}
+\name{gvisMotionChart}
 \alias{gvisMotionChart}
 
 \title{ Google Motion Chart with R}
@@ -108,7 +108,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 	including data set, chart id and R version used; further a link to Google's
 	Terms of Use,}
       \item{\code{footer}}{a character string of a html page footer:
-	\code{</html>...</body>}.}
+	\code{</body>...</html>}.}
     }
   }
 }
@@ -125,21 +125,28 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   Diego de Castillo \email{decastillo@gmail.com}
 }
 \note{
-  Motion charts have been popularised by Hans Rosling, who has used them
-  to illustrate social and economic transitions over time in the
-  development world. You can see his fascinating TED talk where he used
-  motion charts extensively here:
-  \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
   
-  Further examples and data can be found on \url{http://www.gapminder.org}.
+  In 2006 Hans Rosling gave an inspiring talk at TED
+  \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
+  about social and economic developments in  the world over the last 50
+  years, which challenged the views and perceptions of many
+  listeners. Rosling had used extensive data analysis to come to his
+  conclusions.  To visualise his talk, he and his team at
+  Gapminder \url{http://www.gapminder.org} had developed animated bubble charts, aka
+  motion charts.
+
+  In March 2007 Google acquired Trendalyzer from the Gapminder
+  Foundation and the Gapminder team of developers joined Google in
+  California in April 2007.
   
   Yihui Xie, the maintainer of the \code{animation-package}
   showed in an early blog entry the usage of the Google Motion Chart API
   with R:
+
   \url{http://yihui.name/en/2008/11/brownian-motion-using-google-visualization-api-and-r/} 
   
   Further examples of displaying data with motion charts are available
-  with the Google Public Data Explorer:
+  via the Google Public Data Explorer:
   \url{http://www.google.com/publicdata/home}.
 }
 
@@ -162,12 +169,12 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 
  M2 <- gvisMotionChartPage(Fruits, idvar="Fruit", timevar="Year")
 
-## plot.gvis will create a tempfile and open it in your browser.
+## plot.gvis will create a file and open it in your browser.
  plot(M2)
 
-
 ## Usage of date variable
- M3 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date")
+ M3 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
+                               date.format = "/%Y/%m/%d") 
  plot(M3)
 
 ## Options: no side panel on the right
@@ -175,7 +182,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
                  options=list(showSidePanel=FALSE))
  plot(M4)
 
-## Options: trails unticked
+## Options: trails un-ticked
  M5 <- gvisMotionChart(Fruits,"Fruit","Year",
                  options=list(state='{"showTrails":false};'))
  plot(M5)
