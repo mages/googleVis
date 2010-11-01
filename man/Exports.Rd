@@ -19,7 +19,7 @@ Exports: googleVis example data set
 \examples{
 data(Exports)
 Exports
-G <- gvisGeoMap(Exports[, 1:2], idvar="Country")
+G <- gvisGeoMap(Exports[, 1:2], locationvar="Country",numvar="Profit")
 \dontrun{
 plot(G)
 }

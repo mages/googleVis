@@ -16,7 +16,7 @@
   zooming.
 }
 \usage{
-gvisGeoMap(data, idvar='id', options = list())
+gvisGeoMap(data, locationvar='id', numvar='num', hovervar='hover',options = list())
 }
 \arguments{
   \item{data}{
@@ -161,7 +161,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 ## corresponding to the values that you assign. Specify the regions style
 ## by assigning options['dataMode'] = 'regions' in your code.
 
-G1 <- gvisGeoMap(Exports[,1:2], idvar='Country', options=list(dataMode="regions"))
+G1 <- gvisGeoMap(Exports[,1:2], locationvar='Country', numvar='Profit', options=list(dataMode="regions"))
 
 \dontrun{
 plot(G1)
@@ -171,7 +171,7 @@ plot(G1)
 ## The "markers" style displays a circle, sized and colored to indicate
 ## a value, over the regions that you specify. 
 
-G2 <- gvisGeoMap(CityPopularity, idvar='City' ,options=list(region='US',
+G2 <- gvisGeoMap(CityPopularity, locationvar='City' , numvar='Popularity',options=list(region='US',
        dataMode='markers', colors='[0xFF8747, 0xFFB581, 0xc06000]'))	
 
 \dontrun{

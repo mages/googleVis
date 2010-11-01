@@ -69,13 +69,13 @@
     <p>
       For example 
       <pre>
-	&lt;%=gvisGeoMap(Exports[,1:2], idvar='Country', options=list(width=600,
+	&lt;%=gvisGeoMap(Exports[,1:2], locationvar='Country', numvar='Profit',options=list(width=600,
 	height=500))$html$chart%&gt;
       </pre> 
       gives you:
     </p>
     <p>
-      <%=gvisGeoMap(Exports[,1:2], idvar='Country', options=list(width=600))$html$chart%>
+      <%=gvisGeoMap(Exports[,1:2], locationvar='Country', numvar='Profit',options=list(width=600))$html$chart%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
       Geo Map API</a>  
     </p>
