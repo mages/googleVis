@@ -16,7 +16,7 @@
   zooming.
 }
 \usage{
-gvisGeoMap(data, locationvar='id', numvar='num', hovervar='hover',options = list())
+gvisGeoMap(data, locationvar='', numvar='', hovervar='',options = list())
 }
 \arguments{
   \item{data}{
@@ -26,8 +26,13 @@ gvisGeoMap(data, locationvar='id', numvar='num', hovervar='hover',options = list
     DataTable must still define column 3 (though you don't need to add
     any values to it): 
   }
-    \item{idvar}{column name of \code{data} with the geo locations to be
+    \item{locationvar}{column name of \code{data} with the geo locations to be
       analysed.
+  }
+    \item{numvar}{column name of \code{data} with the values to be
+      shown.
+  }
+    \item{hovervar}{column name of \code{data} with the hover text.
   }
   \item{options}{list of configuration options for the motion chart.
     The possible components are, taken from \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html} :
