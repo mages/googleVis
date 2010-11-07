@@ -185,7 +185,7 @@ taken by Sweave~\cite{Sweave2002} for \LaTeX. For more details see the
 From the previous section we have learned that to display an
 interactive chart using the Google Visualisation API we have to
 generate html code with links to Google javascript functions, the data
-formated as a \texttt{DataTable} plus further optional settings.
+formated as a \texttt{DataTable} and further optional settings for the plot.
 
 The \googleVis package facilitates this process and provides currently
 interfaces to Motion Chart~\cite{GoogleMotionChart}, Geo
@@ -230,7 +230,6 @@ R> install.packages(c('R.rsp', 'googleVis'),
 \end{verbatim}
 
 \subsection{The \googleVis design principals}
-
 
 The design of the visualisation functions is fairly generic. The name
 of the visualisation function is \texttt{'gvis' + ChartType}, so for
@@ -288,9 +287,8 @@ The output of \texttt{gvisMotionChart} is a list of list as described above
 <<>>=
  str(M)
 @ 
-
 <<>>=
-cat(M$html$Chart)
+cat(M$html$chart)
 @
 
 \begin{verbatim}
@@ -301,6 +299,8 @@ R> plot(M)
 The \rsp package allows the user to integrate R code into html-code,
 which together with the \rsp web server are executed at run time.
 
+The demo \texttt{demo(googleVis)} demonstrates how several charts can
+be incorporated into a single page.
 
 \begin{verbatim}
 

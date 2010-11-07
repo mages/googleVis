@@ -194,6 +194,19 @@ G2 <- gvisGeoMap(CityPopularity, locationvar='City', numvar='Popularity',
 \dontrun{
 plot(G2) 
 }
+
+## Example showing US data by state 
+
+require(datasets)
+states <- data.frame(state.name, state.x77)
+
+G3 <- gvisGeoMap(states, "state.name", "Illiteracy",
+                 options=list(region="US", width=600, height=400))
+\dontrun{
+plot(G3) 
+}
+
+
 }
 
 \keyword{ hplot }

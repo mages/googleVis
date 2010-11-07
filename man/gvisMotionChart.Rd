@@ -165,29 +165,28 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
  ## print.gvis, will concatenate the list into a one long string
  M1
 
+ M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
+ ## plot.gvis will create a file and open it in your browser.
 \dontrun{
-
- M2 <- gvisMotionChartPage(Fruits, idvar="Fruit", timevar="Year")
-
-## plot.gvis will create a file and open it in your browser.
  plot(M2)
-
-## Usage of date variable
+}
+\dontrun{
+ ## Usage of date variable
  M3 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
                                date.format = "/%Y/%m/%d") 
  plot(M3)
-
-## Options: no side panel on the right
+}
+ ## Options: no side panel on the right
  M4 <- gvisMotionChart(Fruits,"Fruit","Year",
                  options=list(showSidePanel=FALSE))
+\dontrun{
  plot(M4)
-
-## Options: trails un-ticked
+}
+ ## Options: trails un-ticked
  M5 <- gvisMotionChart(Fruits,"Fruit","Year",
-                 options=list(state='{"showTrails":false};'))
+                 options=list(state='{\"showTrails\":false};'))
+\dontrun{
  plot(M5)
 }
-## For more details see also the demos.
-## Type: demo(package='googleVis') to see a list of available demos.
 }
 \keyword{ hplot }
