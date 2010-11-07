@@ -192,23 +192,87 @@ Markus Gesmann \email{markus.gesmann@gmail.com},
 
 Diego de Castillo \email{decastillo@gmail.com}
 }
-%%\note{
-%%  }
+\note{
+
+  \code{treemap} and function{tmPlot}
+}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
 
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods.   
+  printing and plotting methods.  The \code{treemap} package offeres a
+  static version of tree maps via its \code{tmPlot} function. 
 
 }
 \examples{
-Tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
-                    options=list(width=600, height=500,
-                                 showScale=TRUE, fontSize=16))
+Tree <- gvisTreeMap(Regions,  idvar="Region", parentvar="Parent",
+                    sizevar="Val", colorvar="Fac")
 \dontrun{
 plot(Tree)
 }
+
+Tree2 <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
+                    options=list(width=600, height=500,
+                                 fontSize=16,
+                                 minColor='blue',
+                                 maxColor='green',
+                                 headerHeight=20,
+                                 fontColor='white',
+                                 showScale=TRUE))
+
+\dontrun{
+plot(Tree2)
+}
+
+## Simple static treemap with no drill down options based on US states
+## and their area. However we still have to create a parent id to use
+## gvisTreeMap
+ 
+require(datasets)
+states <- data.frame(state.name, state.area)
+
+## create parent variable
+
+total=data.frame(state.area=sum(states$state.area), state.name="USA")
+
+my.states <- rbind(total, states)
+my.states$parent="USA"
+## Set parent variable to NA at root level
+my.states$parent[my.states$state.name=="USA"] <- NA
+
+my.states$state.area.log=log(my.states$state.area)
+statesTree <- gvisTreeMap(my.states, "state.name", "parent",
+                          "state.area", "state.area.log")
+\dontrun{
+plot(statesTree)
+}
+
+
+## Add regions to the above data set to enable drill down capabilities
+
+states2 <- data.frame(state.region, state.name, state.area)
+
+regions <- aggregate(list(region.area=states2$state.area),
+                     list(region=state.region), sum)
+
+my.states2 <- data.frame(regionid=c("USA",
+                                    as.character(regions$region),
+                                    as.character(states2$state.name)),
+                         parentid=c(NA, rep("USA", 4),
+                                   as.character(states2$state.region)),
+                         state.area=c(sum(states2$state.area),
+                                      regions$region.area, states2$state.area))
+
+my.states2$state.area.log=log(my.states2$state.area)
+
+statesTree2 <- gvisTreeMap(my.states2, "regionid", "parentid",
+                           "state.area", "state.area.log")
+
+\dontrun{
+plot(statesTree2)
+}
+
 }
 \keyword{ hplot }

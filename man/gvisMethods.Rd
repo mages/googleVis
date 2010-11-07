@@ -27,35 +27,50 @@
     redirected by \code{\link{sink}}. 
 }
   \item{filename}{
-      If \code{filename=NULL} (Default) plot.gvis will create a file in the rsp folder of the \code{googleVis} library folder:
-      \code{filePath(system.file(file.path("rsp", "myAnalysis"), package = "googleVis"), paste(x$chartid ,".rsp", sep=""))}, 
-      where \code{x} is a gvis object.
+      If \code{filename=NULL} (Default) plot.gvis will create a
+      rsp-file, based on the chard id, in the rsp folder of the
+      \code{googleVis} library folder, see Details for more information.      
 }
   \item{repos}{repository for the output file. By default the rsp-folder
     of the \code{googleVis} package will be used.
 }
-  \item{\dots}{ arguments passed on to \code{\link{cat}}.
+  \item{\dots}{arguments passed on to \code{\link{cat}}.
 }
 }
-%%\details{
-%%  ~~ If necessary, more details than the description above ~~
-%%}
+\details{
+  You can find out the path to your \code{googleVis} folder with the
+  following R command:
+  \code{filePath( system.file( file.path( "rsp", "myAnalysis" ), package
+		    = "googleVis" ))}.
+  The default \code{filename} of the plot command is build as:  
+  \code{filePath(system.file( file.path( "rsp", "myAnalysis" ), 
+    package = "googleVis"), paste( x$chartid, ".rsp", 
+    sep = "" ))}, 		  
+  where \code{x} is a \code{gvis} object.
+}
 \value{
 \item{\code{print.gvis}}{ None (invisible \code{NULL}).}
 
 \item{\code{plot.gvis}}{Returns an invisible list with filename and repos.}
 }
-%%\references{
-%% ~put references to the literature/web site here ~
-%%}
+\references{
+  For more details on rps-pages type: \code{\link{browseRsp}()}, which
+  starts the internal web browser and opens the URL in the default web
+  browser. From this page you access not only help pages and demos on
+  how to use RSP, but also other package RSP pages, such as the
+  \code{googleVis} package. 
+}
 \author{
 Markus Gesmann \email{markus.gesmann@gmail.com},
 
 Diego de Castillo \email{decastillo@gmail.com}
 }
-%%\note{
-%%  ~~further notes~~
-%%}
+\note{
+  The \code{plot} command does not open a graphics device in the
+  traditional way. Instead it uses the \code{R.rsp} package to display the output
+  of a \code{googleVis} function in a browser using the local web server
+  provided by \code{R.rsp}. 
+}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 

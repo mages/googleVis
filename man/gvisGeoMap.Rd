@@ -16,12 +16,13 @@
   zooming.
 }
 \usage{
-gvisGeoMap(data, locationvar='', numvar='', hovervar='',options = list())
+gvisGeoMap(data, locationvar='', numvar='', hovervar='',
+           options = list())
 }
 \arguments{
   \item{data}{
     a \code{data.frame}. The data has to have at least three
-    columns with location names (\code{locationvar}), value to be mapped
+    columns with location name (\code{locationvar}), value to be mapped
     to location (\code{numvar}) and an optional variable to display any
     text while the mouse hovers over the location (\code{hovervar}).
     
@@ -152,7 +153,7 @@ Markus Gesmann \email{markus.gesmann@gmail.com},
 Diego de Castillo \email{decastillo@gmail.com}
 }
 \note{
-  Note: A map can display a maximum of 400 entries; if your DataTable or
+  A map can display a maximum of 400 entries; if your DataTable or
   DataView holds more than 400 rows, only the first 400 will be
   shown. The fastest modes are \code{dataMode='regions'} with locations
   specified as ISO codes, and \code{dataMode='markers'} with lat/long

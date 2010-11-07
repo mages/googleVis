@@ -47,7 +47,7 @@ gvisCheckTreeMapData <- function(data, options){
   # is there parent for every id?
   parent.match.id <- x[[2]][!(x[[2]] %in% x[[1]])]
   if (sum(is.na(parent.match.id))!=1 || length(parent.match.id)!=1){
-     stop("parentvar and idvar does not fit together.")
+     stop("parentvar and idvar do not fit together.")
   }
 
   return(data.frame(x))
