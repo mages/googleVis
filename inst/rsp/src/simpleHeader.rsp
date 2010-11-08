@@ -22,8 +22,8 @@ if (regexpr("./$", uri) != -1) {
   <% } %>
  </div>
  <div style="float: right;">
-  R.rsp: 
-  <a href="/">home</a>
+  Admin: 
+  <a href="/admin/shutdown.rsp">shutdown</a>
  </div>
  <br>
 </div>
@@ -34,5 +34,3 @@ tt {
 font-family: courier, monospace;  
 }  
 </style>  
-
-<h1><%=title%></h1>

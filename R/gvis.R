@@ -69,23 +69,22 @@ gvis <- function(type="", data, options, chartid=NULL){
   }  
 
   jsTableTemplate <- '
-     <script type="text/javascript\" src="http://www.google.com/jsapi"></script>
-     <script type="text/javascript">
-      google.load("visualization", "1", { packages:["%s"] });
-      google.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = new google.visualization.DataTable();
-        var datajson = %s;
-	%s
-	data.addRows(datajson);
-        var chart = new google.visualization.%s(document.getElementById(\'%s\'));
-        var options ={};
-        %s
-        chart.draw(data,options);
-      }
-     </script>
-     <div id="%s" style="width: %spx; height: %spx;"></div>
-    '
+<script type="text/javascript\" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript">
+google.load("visualization", "1", { packages:["%s"] });
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = new google.visualization.DataTable();
+var datajson = %s;
+%s
+data.addRows(datajson);
+var chart = new google.visualization.%s(document.getElementById(\'%s\'));
+var options ={};
+%s
+chart.draw(data,options);
+}
+</script>
+<div id="%s" style="width: %spx; height: %spx;"></div>\n'
   
   jsChart <- sprintf(jsTableTemplate,
                      tolower(type),
@@ -209,7 +208,7 @@ gvisCheckData <- function(data="", options=list(),data.structure=list()){
 gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
     options <- options$gvis
     .par <- sapply(names(options), function(x)
-                   paste("                 options[\"", x,"\"] = ",
+                   paste("options[\"", x,"\"] = ",
                          ifelse(is.numeric(options[[x]]) | is.logical(options[[x]]),
                                 ## options are numeric or logical
                                 ifelse(is.numeric(options[[x]]),
@@ -239,25 +238,24 @@ checkSquareBracketOps <- function(char){
 gvisHtmlWrapper <- function(title, dataName, chartid){
 
   htmlHeader <- '
-     <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
-       "http://www.w3.org/TR/REC-html40/loose.dtd"> <%%title="%s"%%>
-
-     <html>
-     <%%@include file="../src/simpleHead.rsp"%%>
-     <body>
-     <%%@include file="../src/simpleHeader.rsp"%%>
-    '
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+ "http://www.w3.org/TR/REC-html40/loose.dtd">
+<html>
+<%%@include file="../src/simpleHead.rsp"%%>
+<body>
+<%%@include file="../src/simpleHeader.rsp"%%>
+'
   
   htmlHeader <- sprintf(htmlHeader,title)
 
   htmlFooter <- '
-     <%@include file="../src/simpleFooter.rsp"%>
-     </body>
-     </html>\n'
+<%@include file="../src/simpleFooter.rsp"%>
+</body>
+</html>\n'
 
   googleTerms <- '<a href="http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a>'
     
-  htmlCaption <- sprintf('Data: %s, Chart ID: %s<BR>%s, %s<BR><BR>',
+  htmlCaption <- sprintf('Data: %s, Chart ID: %s\n<BR>\n%s,\n%s\n<BR>\n<BR>\n',
                          dataName, chartid, R.Version()$version.string, googleTerms)
 
   return(list(htmlHeader=htmlHeader,

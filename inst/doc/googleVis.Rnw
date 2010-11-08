@@ -182,21 +182,16 @@ taken by Sweave~\cite{Sweave2002} for \LaTeX. For more details see the
 
 \section{The \googleVis package}
 
-From the previous section we have learned that to display an
-interactive chart using the Google Visualisation API we have to
-generate html code with links to Google javascript functions, the data
-formated as a \texttt{DataTable} and further optional settings for the plot.
+The \googleVis package provides an interface between R and the Google
+Visualisation API.  The functions of the package allow the user to
+visualise data stored in R data frames with the Google  Visualisation
+API.  To view the output a browser with Flash and internet  connection
+is required.  
 
-The \googleVis package facilitates this process and provides currently
-interfaces to Motion Chart~\cite{GoogleMotionChart}, Geo
-Map~\cite{GoogleGeoMap}, Table~\cite{GoogleTable} and Tree
-Map~\cite{GoogleTreeMap}.  
-
-Let's see how we can use the \googleVis package to accomplish these
-tasks. As an example we will show how to generate a motion chart as in  
-Figure~\ref{MotionChartGUI}. It works analog for the other
-APIs. Further examples are covered in the demos of the \googleVis
-package, see also Figure~\ref{demos}. 
+Currently the package provides interfaces to Motion
+Chart~\cite{GoogleMotionChart}, Geo Map~\cite{GoogleGeoMap},
+Table~\cite{GoogleTable} and Tree Map~\cite{GoogleTreeMap}, see
+Figure~\ref{demos} for examples.  
 
 \begin{figure}%%[!ht]
 \begin{center}
@@ -212,8 +207,8 @@ package, see also Figure~\ref{demos}.
 
 \subsection{Installation}
 The \googleVis  package depends on the \rjsonio and
-\rsp packages, so we need to install those as well.  The \rjsonio
-package is currently not available from CRAN, hence we have to install
+\rsp packages, so we need to install those as well.  Currently the \rjsonio
+package is not available from CRAN, hence we have to install
 it from source via: 
 
 \begin{verbatim}
@@ -229,9 +224,25 @@ R> install.packages(c('R.rsp', 'googleVis'),
                     repos='http://cran.r-project.org') 
 \end{verbatim}
 
-\subsection{The \googleVis design principals}
+The installation of the \googleVis package was successful if the
+command \texttt{library(googleVis)} gives you the following message:
+<<>>=
+library(googleVis)
+@ 
 
-The design of the visualisation functions is fairly generic. The name
+
+\subsection{Using the  \googleVis package}
+
+The individual functions of the \googleVis package are documented in
+detail in the help pages. Here we will cover more the principals of
+the package.
+
+As an example we will show how to generate a motion chart as in  
+Figure~\ref{MotionChartGUI}. It works analog for the other
+APIs. Further examples are covered in the demos of the \googleVis
+package, see also Figure~\ref{demos}. 
+
+The design of the visualisation functions are fairly generic. The name
 of the visualisation function is \texttt{'gvis' + ChartType}, so for
 the Motion Chart we have: 
 \begin{verbatim}
@@ -239,46 +250,45 @@ gvisMotionChart(data, idvar='id', timevar='date', options=list())
 \end{verbatim}
 Here \texttt{data} is the input \texttt{data.frame} and \texttt{idvar}
 and \texttt{timevar} specify the column names of the id variable and
-time variable for the plot, while plotting options are set in a list.
-The options and data requirements follow those of the Google
-Visualisation API. 
+time variable for the plot, while plotting options are set in an
+optional list. The options and data requirements follow those of the
+Google Visualisation API and are documented in the help pages, see
+\texttt{?gvisMotionChart}.  
 
 The output of a \googleVis charting function is a list of lists
 containing information about the chart type, chart id and the html
 code in a  sub-list with header, chart, caption and footer.
 
 The idea behind this concept is, that users get on one hand side a
-complete web page, but on the other hand can extract only parts,
-such as thee chart, if they wish.
+complete web page, but on the other hand can extract specific parts,
+such as the chart. This is particular helpful if the package functions
+are used in solutions where the user wants to feed the visualisation
+output into other sites, or would like to embed them into rsp-pages,
+see page~\pageref{rspexample}.  
 
 The output of a \googleVis function will be of class \texttt{'gvis'}
 and \texttt{'list'}. Generic print (\texttt{print.gvis})  and plot
 (\texttt{plot.gvis}) function exist to ease the handle of such objects. 
 
-To illustrate the concept we create a motion chart using the Fruits
+To illustrate the concept we shall create a motion chart using the Fruits
 sample data set.
 
 \subsection{Motion Chart Example}
-
-Following the installation of the \googleVis package we can load the
-package via:
-<<>>=
-library(googleVis)
-@ 
-
-% objects(pos=which((search() %in% 'package:googleVis')), pattern='gvis')
-and the sample data set which we would like to visualise with a motion chart:
-<<>>=
-data(Fruits)
-Fruits
-@
 
 Following the documentation of the Google Motion Chart API we need a
 data set which has at least four columns; one identifying the
 variable we would like to plot, one time variable and at least two
 numerical variables. Further numerical and character columns are allowed.
+
+As an example we shall use the \texttt{Fruits} data set:
+<<>>=
+data(Fruits)
+Fruits
+@
+
 In this case we will use the columns \texttt{'Fruit'} and
 \texttt{'Year'} as id and time variable respectively. 
+
 
 <<>>=
  M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
@@ -287,30 +297,79 @@ The output of \texttt{gvisMotionChart} is a list of list as described above
 <<>>=
  str(M)
 @ 
+The first to item of the list contains information about the chart type
+used and an individual chart id generated at run time from the chart
+type and date:
+<<>>=
+M$type
+M$chartid
+@ 
+The html list is than split into header, chart, caption and
+footer. This allows either to create a complete html page, which the
+default print function is doing with an \texttt{unlist} statement:
+<<>>=
+googleVis:::print.gvis
+@ 
+Or we can access the components individually. 
+
+The header part of the html page has only basic html tags and includes
+two rsp-files to provide a  simple framework.
+<<>>=
+cat(M$html$header)
+@ 
+The actual Google Visualisation is stored in the \texttt{chart} item
+of the html list. 
 <<>>=
 cat(M$html$chart)
 @
 
+A basic chart caption and html footer are the final items of the html list:
+<<>>=
+cat(M$html$caption)
+cat(M$html$footer)
+@ 
+To display the page locally just type:
 \begin{verbatim}
 R> plot(M)
 \end{verbatim}
+The plot method for \texttt{gvis} object will automatically create a
+rsp-file in the \texttt{myAnalysis} folder of the \googleVis package
+using the type and chart id information of the object and display it
+with the local web server of the \rsp package.
 
-\subsection{Using \texttt{googlvis} with \texttt{rsp}}
+Further examples are part of the \googleVis demo and include one
+example how the output of several visualisation can
+be incorporated into a single page.
+
+
+\subsection{Using \texttt{googlvis} with \texttt{rsp}}\label{rspexample}
 The \rsp package allows the user to integrate R code into html-code,
 which together with the \rsp web server are executed at run time.
 
-The demo \texttt{demo(googleVis)} demonstrates how several charts can
-be incorporated into a single page.
-
+As mentioned above the R.rsp packages
+allows us to dynamically generate documents into static content using
+R Server Pages. This means we can mix html and R code to create
+content on the fly.   As an example, we can embed the above motion chart
+into a rsp-page: 
 \begin{verbatim}
-
 <html>
 <body>
-  <%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")$html$Chart%>
+<%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")$html$Chart%>
 </body>
 </html>
-
 \end{verbatim}
+You find a few examples a part of the \googleVis package, which can be displayed
+via the following R command:
+\begin{verbatim}
+browseRsp("http://127.0.0.1:8074/library/googleVis/rsp/")
+\end{verbatim}
+The actual rsp-file is located within the \googleVis package directory, and again R
+allows you to find the file with the following R command: 
+\begin{verbatim}
+filePath(system.file("rsp", package = "googleVis"), "index.rsp")
+\end{verbatim}
+Please read also the documentation of the \rsp package.
+
 \clearpage
 
 \bibliographystyle{alpha}
