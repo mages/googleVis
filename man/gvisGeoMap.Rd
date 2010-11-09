@@ -234,8 +234,8 @@ states <- data.frame(state.name, state.area,
 
 
 G4 <- gvisGeoMap(states, locationvar="state.center", numvar="state.area", 
-      			 hovervar="sate.name", 
-      		 options=list(region='US')))
+      			 hovervar="state.name", 
+      		 options=list(region='US'))
 \dontrun{
 plot(G4) 
 }
