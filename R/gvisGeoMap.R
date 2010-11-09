@@ -28,16 +28,14 @@ gvisGeoMap <- function(data, locationvar="", numvar="", hovervar="", options=lis
                      allowed=c("number", "string")))
   
   checked.data <- gvisCheckGeoMapData(data, my.options)
-  
+
+  if(any("numeric" %in% lapply(checked.data[,c(1,2)],class))){
+    my.options <- modifyList(list(gvis=list(dataMode = "markers")), my.options)
+  }
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
   
   return(output)
 }
-
-## Fixme
-## gvisGeoMap should also accept Latitude and Longitude
-##  df=data.frame(Latitude=47, Longitude=-122, Value=1, HoverText="Hello World")
-## plot(gvisGeoMap(df, locationvar="Latitude,Longitude", options=list(dataMode="markers")))
 
 check.location <- function(x){
     y = as.character(x)
@@ -57,6 +55,16 @@ gvisCheckGeoMapData <- function(data, options){
 
   # If column 3 is used, column numvar is required.
   # fixme: continue here
+
+  if (sum(nchar(gsub("[[:digit:].-]+:[[:digit:].-]+", "", x[[1]]))) == 0){
+  	# split first index and delete this one
+  	latlong <- as.data.frame(do.call("rbind",strsplit(as.character(x[[1]]),':')))
+  	x[[1]] <- NULL
+	varNames <- names(x)
+  	x$Latitude <- as.numeric(as.character(latlong$V1))
+  	x$Longitude <- as.numeric(as.character(latlong$V2))
+    	x <- x[c("Latitude","Longitude",varNames)]
+  }
 
   return(data.frame(x))
 }
