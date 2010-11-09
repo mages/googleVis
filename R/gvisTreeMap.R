@@ -40,7 +40,7 @@ gvisCheckTreeMapData <- function(data, options){
         	     idvar     = list(mode="required",FUN=check.char),
         	     parentvar = list(mode="required",FUN=check.char),
         	     sizevar   = list(mode="required",FUN=check.num.pos),
-        	     colorvar  = list(mode="optional",FUN=check.num))
+        	     colorvar  = list(mode="required",FUN=check.num))
 	
   x <- gvisCheckData(data=data,options=options,data.structure=data.structure)
 
