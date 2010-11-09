@@ -207,24 +207,25 @@ Figure~\ref{demos} for examples.
 
 \subsection{Installation}
 The \googleVis  package depends on the \rjsonio and
-\rsp packages, so we need to install those as well.  Currently the \rjsonio
-package is not available from CRAN, hence we have to install
-it from source via: 
-
+\rsp packages, so we need to install those as well. 
+%% Currently the \rjsonio
+%% package is not available from CRAN, hence we have to install
+%% it from source via: 
+%%
+%%\begin{verbatim}
+%%R> install.packages('RJSONIO', repos='http://www.omegahat.org/R', 
+ %%                   type='source')
+%%\end{verbatim}
+%%Please check the R documentation~\cite{Rinstall} if you are unfamiliar with installing packages from source.
+ %%             
+%%Following the installation of \rjsonio
+We can install \texttt{R.rsp, RJSONIO} and \googleVis in the usual way from CRAN, e.g.:
 \begin{verbatim}
-R> install.packages('RJSONIO', repos='http://www.omegahat.org/R', 
-                    type='source')
-\end{verbatim}
-Please check the R documentation~\cite{Rinstall} if you are unfamiliar with installing packages from source.
-              
-Following the installation of \rjsonio we can install \rsp and
-\googleVis in the usual way from CRAN, e.g.:
-\begin{verbatim}
-R> install.packages(c('R.rsp', 'googleVis'), 
+R> install.packages(c('R.rsp', 'RJSONIO', 'googleVis'), 
                     repos='http://cran.r-project.org') 
 \end{verbatim}
 
-The installation of the \googleVis package was successful if the
+The installation was successful if the
 command \texttt{library(googleVis)} gives you the following message:
 <<>>=
 library(googleVis)
@@ -250,7 +251,7 @@ gvisMotionChart(data, idvar='id', timevar='date', options=list())
 \end{verbatim}
 Here \texttt{data} is the input \texttt{data.frame} and \texttt{idvar}
 and \texttt{timevar} specify the column names of the id variable and
-time variable for the plot, while plotting options are set in an
+time variable for the plot, while display options are set in an
 optional list. The options and data requirements follow those of the
 Google Visualisation API and are documented in the help pages, see
 \texttt{?gvisMotionChart}.  

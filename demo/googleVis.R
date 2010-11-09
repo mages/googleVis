@@ -1,7 +1,7 @@
 ## googleVis demo
-## A web browse with internet connection and Flash is required
+## A web browser with internet connection and Flash is required
 
-## See ahow googleVis functions can be integrated into rsp-files:
+## See how googleVis functions can be integrated into rsp-files:
 browseRsp("http://127.0.0.1:8074/library/googleVis/rsp/")
 
 ## Motion Chart
@@ -9,7 +9,7 @@ Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 plot(Motion)
 
 ## Geo Map
-Geo=gvisGeoMap(Exports[,1:2], idvar="Country")
+Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit")
 plot(Geo)
 
 ## Table 

@@ -32,13 +32,29 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
     %%DataTable must still define column 3 (though you don't need to add
     %%any values to it): 
   }
-    \item{locationvar}{column name of \code{data} with the geo locations to be
-      analysed.
+  \item{locationvar}{column name of \code{data} with the geo locations to be
+    analysed. The locations can be provide in two formats:
+    \describe{	    
+      \item{Format 1}{\'latitude:longitude\'. This format works only
+	when the \code{dataMode} option is 'markers'. See the example below.}
+      \item{Format 2}{Address, country name, region name locations, or
+	US metropolitan area codes, see
+	\url{http://code.google.com/apis/adwords/docs/developer/adwords_api_us_metros.html}. This
+	format works with the \code{dataMode} option set to either
+	'markers' or 'regions'. The following formats are accepted: A
+	specific address (for example, "1600 Pennsylvania Ave"). A
+	country name as a string (for example, "England"), or an uppercase ISO-3166 code
+	or its English text equivalent (for example, "GB" or "United Kingdom").
+	An uppercase ISO-3166-2 region code name or its English text
+	equivalent (for example, "US-NJ" or "New Jersey"). 
+      }
+    }
   }
-    \item{numvar}{column name of \code{data} with the values to be
-      shown.
+  \item{numvar}{column name of \code{data} with the numeric value
+    displayed when the user hovers over this region.
   }
-    \item{hovervar}{column name of \code{data} with the hover text.
+  \item{hovervar}{column name of \code{data} with the additional string
+    text displayed when the user hovers over this region. 
   }
   \item{options}{list of configuration options for the geo map.
     The possible components are, taken from
@@ -83,7 +99,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
 	  \code{markers} - Displays a dot over a region, with the
 	  color and size indicating the value. See Markers Example.
 	}
-	\item{\code{width}}{string, default '556px'.Width of the
+	\item{\code{width}}{string, default '556px'. Width of the
 	  visualization. If no units are given, the default unit is pixels.
 	}
 	\item{\code{height}}{default, string '347px'. Height of the
@@ -204,6 +220,24 @@ G3 <- gvisGeoMap(states, "state.name", "Illiteracy",
                  options=list(region="US", width=600, height=400))
 \dontrun{
 plot(G3) 
+}
+
+## Example with latitude and longitude information
+ 
+
+states <- data.frame(state.name, state.area, 
+       	  	     state.center=paste(state.center$y, state.center$x, sep=":"))
+
+## state.center: list with components named x and y giving the
+## approximate geographic center of each state in negative longitude
+## and latitude. Alaska and Hawaii are placed just off the West Coast.  
+
+
+G4 <- gvisGeoMap(states, locationvar="state.center", numvar="state.area", 
+      			 hovervar="sate.name", 
+      		 options=list(region='US')))
+\dontrun{
+plot(G4) 
 }
 
 

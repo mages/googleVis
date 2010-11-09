@@ -56,8 +56,7 @@ gvisTreeMap(data,
     of all its children).
   }
   \item{colorvar}{column name of \code{data} with values to define range
-    of color.
-    An optional value used to calculate a color for this node. Any
+    of color. The value is used to calculate a color for this node. Any
     value, positive or negative, is allowed. The color value is first
     recomputed on a scale from \code{minColorValue} to \code{maxColorValue}, and then
     the node is assigned a color from the gradient between \code{minColor} and
