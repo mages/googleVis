@@ -53,9 +53,6 @@ gvisCheckGeoMapData <- function(data, options){
 	
   x <- gvisCheckData(data=data,options=options,data.structure=data.structure)
 
-  # If column 3 is used, column numvar is required.
-  # fixme: continue here
-
   if (sum(nchar(gsub("[[:digit:].-]+:[[:digit:].-]+", "", x[[1]]))) == 0){
   	# split first index and delete this one
   	latlong <- as.data.frame(do.call("rbind",strsplit(as.character(x[[1]]),':')))

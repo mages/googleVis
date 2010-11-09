@@ -2,7 +2,3 @@
 ** TODO Documentation of gvis-functions
 Document individual gvis-functions
 ** TODO Vignette requires update
-** STARTED checkDataFunction for GeoMap, TreeMap and potentially Table
-** TODO gvisTreeMap has still a Fixme entry
-** TODO gvisTreeMap currently colorvar not optional
-** TODO gvisGeoMap lat/long missing
