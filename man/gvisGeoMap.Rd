@@ -35,7 +35,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
   \item{locationvar}{column name of \code{data} with the geo locations to be
     analysed. The locations can be provide in two formats:
     \describe{	    
-      \item{Format 1}{\'latitude:longitude\'. This format works only
+      \item{Format 1}{'latitude:longitude'. This format works only
 	when the \code{dataMode} option is 'markers'. See the example below.}
       \item{Format 2}{Address, country name, region name locations, or
 	US metropolitan area codes, see

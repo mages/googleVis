@@ -306,12 +306,8 @@ M$type
 M$chartid
 @ 
 The html list is than split into header, chart, caption and
-footer. This allows either to create a complete html page, which the
-default print function is doing with an \texttt{unlist} statement:
-<<>>=
-googleVis:::print.gvis
-@ 
-Or we can access the components individually. 
+footer. This allows the user to either extract only certain parts
+of the page, or to create a complete html page. 
 
 The header part of the html page has only basic html tags and includes
 two rsp-files to provide a  simple framework.
