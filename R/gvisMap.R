@@ -1,12 +1,3 @@
-#beispiel
-
-#> plot(gvisMap(df,tipvar="Names",options=list(mapType='normal',enableScrollWheel=TRUE)))
-#> df <- data.frame(Location=paste(state.center$y,state.center$x,sep=":"),Values=state.area,Names=state.name)
-
-#myride=read.csv("http://www.kenkleinman.net/files/cycle-data-10022010.csv")
-#df <- data.frame(Location=paste(myride$Latitude,myride$Longitude,sep=":"),tip=myride$Pace)
-#plot(gvisMap(df,locationvar="Location",tipvar="tip",options=list(mapType='normal',enableScrollWheel=TRUE)))
-
 ### File R/gvisMap.R
 ### Part of the R package googleVis
 ### Copyright 2010 Markus Gesmann, Diego de Castillo
