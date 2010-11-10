@@ -334,20 +334,19 @@ rsp-file in the \texttt{myAnalysis} folder of the \googleVis package
 using the type and chart id information of the object and display it
 with the local web server of the \rsp package.
 
-Further examples are part of the \googleVis demo and include one
-example how the output of several visualisation can
+Further examples are part of the \googleVis demo. One
+example shows how the output of several visualisations can
 be incorporated into a single page.
 
 
-\subsection{Using \texttt{googlvis} with \texttt{rsp}}\label{rspexample}
+\subsection{Using \texttt{googl{V}is} with \texttt{rsp}}\label{rspexample}
 The \rsp package allows the user to integrate R code into html-code,
 which together with the \rsp web server are executed at run time.
 
-As mentioned above the R.rsp packages
-allows us to dynamically generate documents into static content using
-R Server Pages. This means we can mix html and R code to create
-content on the fly.   As an example, we can embed the above motion chart
-into a rsp-page: 
+As mentioned above the R.rsp packages allows us to dynamically
+generate documents into static content using R Server Pages. This
+means we can mix html and R code to create content on the fly.   As an
+example, we can embed the above motion chart into a rsp-page: 
 \begin{verbatim}
 <html>
 <body>
