@@ -155,6 +155,13 @@ gvisFormat <- function(data){
   return(output)
 }
 
+check.location <- function(x){
+    y = as.character(x)
+    if (! is.character(y))
+       stop(paste("The column has to be of character format. Currently it is", class(x)))
+    y
+}
+
 check.char <- function(x){
     y = as.character(x)
     if (! is.character(y))

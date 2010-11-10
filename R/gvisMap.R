@@ -1,4 +1,13 @@
-### File R/gvisGeoMap.R
+#beispiel
+
+#> plot(gvisMap(df,tipvar="Names",options=list(mapType='normal',enableScrollWheel=TRUE)))
+#> df <- data.frame(Location=paste(state.center$y,state.center$x,sep=":"),Values=state.area,Names=state.name)
+
+#myride=read.csv("http://www.kenkleinman.net/files/cycle-data-10022010.csv")
+#df <- data.frame(Location=paste(myride$Latitude,myride$Longitude,sep=":"),tip=myride$Pace)
+#plot(gvisMap(df,locationvar="Location",tipvar="tip",options=list(mapType='normal',enableScrollWheel=TRUE)))
+
+### File R/gvisMap.R
 ### Part of the R package googleVis
 ### Copyright 2010 Markus Gesmann, Diego de Castillo
 
@@ -17,32 +26,28 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisGeoMap <- function(data, locationvar="", numvar="", hovervar="", options=list()){
+gvisMap <- function(data, locationvar="", tipvar="",options=list()){
 
-  my.type <- "GeoMap"
+  my.type <- "Map"
   dataName <- deparse(substitute(data))
-
-  my.options <- list(gvis=modifyList(list(width = 600),options), 
-                     dataName=dataName,
-                     data=list(locationvar=locationvar,numvar=numvar,hovervar=hovervar,
-                     allowed=c("number", "string")))
+  my.options <- list(gvis=modifyList(list(showTip = TRUE),options), 
+		     dataName=dataName, 
+                     data=list(locationvar=locationvar, tipvar=tipvar,
+		      allowed=c("number","string"))
+                     )
   
-  checked.data <- gvisCheckGeoMapData(data, my.options)
+  checked.data <- gvisCheckMapData(data, my.options)
 
-  if(any("numeric" %in% lapply(checked.data[,c(1,2)],class))){
-    my.options <- modifyList(list(gvis=list(dataMode = "markers")), my.options)
-  }
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
   
   return(output)
 }
 
-gvisCheckGeoMapData <- function(data, options){
+gvisCheckMapData <- function(data, options){
 
   data.structure <- list(
-        	     locationvar = list(mode="required",FUN=check.location),
-        	     numvar      = list(mode="optional",FUN=check.num),
-        	     hovervar    = list(mode="optional",FUN=check.char))
+        	     locationvar   = list(mode="required",FUN=check.location),
+        	     tipvar  = list(mode="required",FUN=check.char))
 	
   x <- gvisCheckData(data=data,options=options,data.structure=data.structure)
 
