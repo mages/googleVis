@@ -71,7 +71,7 @@ gvis <- function(type="", data, options, chartid=NULL){
   jsTableTemplate <- '
 <script type="text/javascript\" src="http://www.google.com/jsapi"></script>
 <script type="text/javascript">
-google.load("visualization", "1", { packages:["%s"] });
+google.load("visualization", "1", { packages:["%s"] %s});
 google.setOnLoadCallback(drawChart);
 function drawChart() {
 var data = new google.visualization.DataTable();
@@ -88,6 +88,7 @@ chart.draw(data,options);
   
   jsChart <- sprintf(jsTableTemplate,
                      tolower(type),
+                     ifelse(!is.null(options$gvis$gvis.language),paste(",'language':'",options$gvis$gvis.language,"'",sep=""),''),
                      data.json,
                      paste(paste("data.addColumn('", data.type, "','",
                                  names(data.type), "');", sep=""), collapse="\n"),
@@ -207,6 +208,8 @@ gvisCheckData <- function(data="", options=list(),data.structure=list()){
 
 gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
     options <- options$gvis
+    # wipe out options with start with gvis.
+    options[grep("^gvis.",names(options))] <- NULL
     .par <- sapply(names(options), function(x)
                    paste("options[\"", x,"\"] = ",
                          ifelse(is.numeric(options[[x]]) | is.logical(options[[x]]),
