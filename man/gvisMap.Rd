@@ -100,13 +100,24 @@ states <- data.frame(state.name, state.area,
 ## approximate geographic center of each state in negative longitude
 ## and latitude. Alaska and Hawaii are placed just off the West Coast.  
 
-G1 <- gvisMap(states, locationvar="state.center",
+M1 <- gvisMap(states, locationvar="state.center",
       			 tipvar="state.name", 
       		 options=list(showTip=TRUE,mapType='normal'))
 \dontrun{
-plot(G1) 
+plot(M1) 
 }
 
+data(Andrew)
+Andrew$LatLong=with(Andrew, paste(Lat, Long, sep=":"))
+Andrew$Tip=with(Andrew,paste(Category, "<BR>Presure=",Presure_mb, "<BR>Speed=", Speed_kt, sep=""))
+M2 <- gvisMap(Andrew, "LatLong" , "Tip", 
+      	      options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
+		      mapType='terrain', useMapTypeControl=TRUE))
+
+
+\dontrun{
+plot(M2) 
+}
 
 }
 

@@ -12,6 +12,14 @@ plot(Motion)
 Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit")
 plot(Geo)
 
+## Map
+Andrew$LatLong=with(Andrew, paste(Lat, Long, sep=":"))
+Andrew$Tip=with(Andrew,paste(Category, "<BR>Presure=",Presure_mb, "<BR>Speed=", Speed_kt, sep=""))
+Map <- gvisMap(Andrew, "LatLong" , "Tip", 
+      	      options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
+		      mapType='terrain', useMapTypeControl=TRUE))
+plot(Map)
+
 ## Table 
 Table=gvisTable(Exports, options=list(width=400, height=300))
 plot(Table)
@@ -19,6 +27,7 @@ plot(Table)
 ## TreeMap
 Tree=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(fontSize=16))
 plot(Tree)
+
 
 ## Several charts on one page
 Page <- list(type="MotionGeoTableTree", 
@@ -32,8 +41,10 @@ Page <- list(type="MotionGeoTableTree",
 					Caption3=Table$html$caption,
 					Chart4=Tree$html$chart,
 					Caption4=Tree$html$caption,
+                 			Chart4=Map$html$chart,
+					Caption4=Map$html$caption,
 					Footer=Tree$html$footer)
-			)
+            )
 		
 
 class(Page) <- list("gvis", class(Page))

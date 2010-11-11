@@ -80,6 +80,24 @@
       Geo Map API</a>  
     </p>
     <p>
+      A Google Map can be create via 
+      <pre>
+	&lt;Andrew$LatLong=with(Andrew, paste(Lat, Long, sep=":"))
+	Andrew$Tip=with(Andrew,paste(Category,
+	"<BR>Presure=",Presure_mb, "<BR>Speed=", Speed_kt, sep=""))&gt;
+	&lt;%=gvisMap(Andrew, "LatLong" , "Tip", 
+      	      options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
+		      mapType='terrain', useMapTypeControl=TRUE))$html$chart&gt;
+     </pre> 
+    </p>
+    <p>
+<%Andrew$LatLong<-with(Andrew, paste(Lat, Long, sep=":"))%>
+<%Andrew$Tip <- with(Andrew,paste(Category, "<BR>Presure=",Presure_mb, "<BR>Speed=", Speed_kt, sep=""))%>
+<%=gvisMap(as.list(Andrew), "LatLong" , "Tip",  options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE, mapType='terrain', useMapTypeControl=TRUE))$html$chart%>
+     See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/map.html">Google
+	Map API</a>  
+    </p>
+   <p>
       For a Motion Chart we would write something like 
       <pre>
 	&lt;%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
