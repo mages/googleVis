@@ -161,6 +161,9 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
 }
 \references{
   Google Geo Map  API: \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html}
+
+  Follow the link also for Google's Data Policy.
+
 }
 \author{
 Markus Gesmann \email{markus.gesmann@gmail.com},
@@ -184,6 +187,14 @@ Diego de Castillo \email{decastillo@gmail.com}
 
 }
 \examples{
+## Please note that the plot (better plot.gvis) command will open a
+## browser window and requires Flash and internet connection to
+## display the visualisation. 
+## Because of those requirements are the plot commands not executed
+## automatically as part of the example. 
+## Please copy and paste the plot commands manually
+## to see the visualisation output.
+
 
 ## Regions Example
 ## The regions style fills entire regions (typically countries) with colors
@@ -237,6 +248,15 @@ G4 <- gvisGeoMap(states, locationvar="state.center", numvar="state.area",
       		 options=list(region='US'))
 \dontrun{
 plot(G4) 
+}
+
+## Show Hurricane Andrew (1992) storm track
+G5 <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt", 
+      			 hovervar="Category", 
+      		         options=list(height=350, region="US"))
+
+\dontrun{
+plot(G5) 
 }
 
 

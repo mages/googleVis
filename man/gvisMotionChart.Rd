@@ -37,49 +37,49 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   }
   \item{options}{list of configuration options for the motion chart.
     The possible components are, taken from
-  \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html}: 
-  \describe{
-    \item{\code{gvis.language}}{values may be ca, da, de, en, en_GB, en_IE, es, 
-       es_419, fi, fr, id, in, is, it, nl, no, pt, pt_BR, pt_PT, sv. If not set the API
-       detects the language settings of the browser.
-    } 
-    \item{\code{height}}{height of the chart in pixels.
-    }
-    \item{\code{width}}{width of the chart in pixels.
-    }
-    \item{\code{state}}{An initial display state for the chart. This
-      is a serialised JSON object that describes zoom level, selected
-      dimensions, selected bubbles/entities, and other state
-      descriptions. For more details see
-      \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html#Motion_Chart_initial_state}
-    }
-    \item{\code{showChartButtons}}{logical, default=\code{TRUE}.
-      \code{FALSE} hides the buttons that control the chart type (bubbles /
-      lines / columns) at top right corner. 
-    }
-    \item{\code{showHeader}}{logical, default=\code{TRUE}.
-      \code{FALSE} hides the title label of the entities (derived from the
-      label of the first column in the data table).
-    }
-    \item{\code{showSelectListComponent}}{logical,
-      default=\code{TRUE}.
-      \code{FALSE} hides the list of visible entities.
-    }
-    \item{\code{showSidePanel}}{logical, default=\code{TRUE}.
-      \code{FALSE} hides the right hand panel.
-    }
-    \item{\code{showXMetricPicker}}{logical, default=\code{TRUE}.
-      \code{FALSE} hides the metric picker for x.
-    }
-    \item{\code{showYMetricPicker}}{logical, default=\code{TRUE}.
-      \code{FALSE} hides the metric picker for y. 
-    }
-    \item{\code{showXScalePicker}}{logical, default=\code{TRUE}.
-      \code{FALSE} hides the scale picker for x. 
-    }	
-    \item{\code{showYScalePicker}}{logical, default=\code{TRUE}.
-	\code{FALSE} hides the scale picker for y.  
+    \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html}: 
+    \describe{
+      \item{\code{gvis.language}}{values may be 'ca', 'da', 'de', 'en', 'en_GB', 'en_IE', 'es', 
+	'es_419', 'fi', 'fr', 'id', 'in', 'is', 'it', 'nl', 'no', 'pt', 'pt_BR', 'pt_PT', 'sv'. If not set the API
+	detects the language settings of the browser.
+      } 
+      \item{\code{height}}{height of the chart in pixels.
       }
+      \item{\code{width}}{width of the chart in pixels.
+      }
+      \item{\code{state}}{An initial display state for the chart. This
+	is a serialised JSON object that describes zoom level, selected
+	dimensions, selected bubbles/entities, and other state
+	descriptions. For more details see
+	\url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html#Motion_Chart_initial_state}
+      }
+      \item{\code{showChartButtons}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the buttons that control the chart type (bubbles /
+	lines / columns) at top right corner. 
+      }
+      \item{\code{showHeader}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the title label of the entities (derived from the
+	label of the first column in the data table).
+      }
+      \item{\code{showSelectListComponent}}{logical,
+	default=\code{TRUE}.
+	\code{FALSE} hides the list of visible entities.
+      }
+      \item{\code{showSidePanel}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the right hand panel.
+      }
+      \item{\code{showXMetricPicker}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the metric picker for x.
+      }
+      \item{\code{showYMetricPicker}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the metric picker for y. 
+      }
+      \item{\code{showXScalePicker}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the scale picker for x. 
+      }	
+      \item{\code{showYScalePicker}}{logical, default=\code{TRUE}.
+	\code{FALSE} hides the scale picker for y.  
+      }	
       \item{\code{showAdvancedPanel}}{logical, default=\code{TRUE}.
 	\code{FALSE} hides disables the options compartment in the settings panel.
       }
@@ -119,9 +119,13 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 \references{
   Google Motion Chart API:
   \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html} 
+
+  Follow the link also for Google's Data Policy.
   
   See \code{vignette("googleVis")} for a brief introduction of
   the graphical user interface of Google motion charts.
+
+  
 }
 \author{
   Markus Gesmann \email{markus.gesmann@gmail.com},
@@ -161,6 +165,13 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   \code{animation-package} and there the function \code{Rosling.bubbles}.
 }
 \examples{
+## Please note that the plot (better plot.gvis) command will open a
+## browser window and requires Flash and internet connection to
+## display the visualisation. 
+## Because of those requirements are the plot commands not executed
+## automatically as part of the example. 
+## Please copy and paste the plot commands manually
+## to see the visualisation output.
 
  Fruits	
  ## timevar Year

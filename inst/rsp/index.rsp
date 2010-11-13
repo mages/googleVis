@@ -69,36 +69,31 @@
     <p>
       For example 
       <pre>
-	&lt;%=gvisGeoMap(Exports[,1:2], locationvar='Country', numvar='Profit',options=list(width=600,
+	&lt;%=gvisGeoMap(Exports, locationvar='Country', numvar='Profit',options=list(width=600,
 	height=500))$html$chart%&gt;
       </pre> 
-      gives you:
+      gives you a <b>Geo Map</b>:
     </p>
     <p>
-      <%=gvisGeoMap(Exports[,1:2], locationvar='Country', numvar='Profit',options=list(width=600))$html$chart%>
+      <%=gvisGeoMap(Exports, locationvar='Country',  numvar='Profit',options=list(height=350, dataMode='regions'))$html$chart%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
       Geo Map API</a>  
     </p>
     <p>
-      A Google Map can be create via 
+      A Google <b>Map</b> can be create via 
       <pre>
-	&lt;Andrew$LatLong=with(Andrew, paste(Lat, Long, sep=":"))
-	Andrew$Tip=with(Andrew,paste(Category,
-	"<BR>Presure=",Presure_mb, "<BR>Speed=", Speed_kt, sep=""))&gt;
 	&lt;%=gvisMap(Andrew, "LatLong" , "Tip", 
       	      options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
 		      mapType='terrain', useMapTypeControl=TRUE))$html$chart&gt;
      </pre> 
     </p>
     <p>
-<%Andrew$LatLong<-with(Andrew, paste(Lat, Long, sep=":"))%>
-<%Andrew$Tip <- with(Andrew,paste(Category, "<BR>Presure=",Presure_mb, "<BR>Speed=", Speed_kt, sep=""))%>
 <%=gvisMap(as.list(Andrew), "LatLong" , "Tip",  options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE, mapType='terrain', useMapTypeControl=TRUE))$html$chart%>
      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/map.html">Google
 	Map API</a>  
     </p>
    <p>
-      For a Motion Chart we would write something like 
+      For a <b>Motion Chart</b> we would write something like 
       <pre>
 	&lt;%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
 	options=list(width=600, height=500))$html$chart%&gt;
@@ -110,7 +105,7 @@
 	Motion Chart API</a>  
     </p>
     <p>
-      A Tree Map can be generated with 
+      A <b>Tree Map</b> can be generated with 
       <pre>
 	&lt;%=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(width=600, height=500,
 	showScale=TRUE, fontSize=16))$html$chart%&gt;
@@ -122,7 +117,7 @@
 	Tree Map API</a>  
     </p>
     <p>
-      To display a table we write 
+      To display a <b>Table</b> we write 
       <pre>
 	&lt;%=gvisTable(Exports, options=list(width=600, height=300))$html$chart%&gt;
      </pre> 

@@ -151,7 +151,11 @@ gvisFormat <- function(data){
                  data.type = unlist(varTypes),
                  json = toJSON(x.array)
                  )
-  
+
+  ## if we have have only one row of data we have to add additional "[" around the json output
+  if(nrow(data)==1){
+    output$json <- paste("[", output$json ,"]", sep="\n")
+  }
   return(output)
 }
 

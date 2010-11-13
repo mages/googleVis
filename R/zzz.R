@@ -42,18 +42,6 @@
       "or if you have any feedback, ideas, suggestions or would\n",
       "like to collaborate.\n\n",
       sep='')    
-  rjsonio <- require(RJSONIO)
-  if(!rjsonio){
-    cat(paste("\n\n!! WARNING !!\n\n",
-              "You will need the RJSONIO package in order to use googleVis.\n",
-              "Please install the RJSONIO from Omegahat, see:\n",
-              "http://www.omegahat.org/RJSONIO/\n",
-              "You can install RJSONIO via:\n",
-              "install.packages('RJSONIO', repos = 'http://www.omegahat.org/R', type='source')\n",
-              "Please check the R documentation if you are unfamiliar with installing packages from source:\n",
-              "http://cran.r-project.org/doc/manuals/R-admin.html#Installing-packages\n",
-              "\n", sep=""))
-  }
   
   invisible()
 }

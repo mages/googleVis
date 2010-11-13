@@ -184,7 +184,8 @@ gvisTreeMap(data,
 \references{
   Google Tree Map  API:
   \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html}
-  
+
+  Follow the link also for Google's Data Policy.  
 }
 \author{
 Markus Gesmann \email{markus.gesmann@gmail.com},
@@ -206,6 +207,14 @@ Diego de Castillo \email{decastillo@gmail.com}
 
 }
 \examples{
+## Please note that the plot (better plot.gvis) command will open a
+## browser window and internet connection to
+## display the visualisation. 
+## Because of those requirements are the plot commands not executed
+## automatically as part of the example. 
+## Please copy and paste the plot commands manually
+## to see the visualisation output.
+
 Tree <- gvisTreeMap(Regions,  idvar="Region", parentvar="Parent",
                     sizevar="Val", colorvar="Fac")
 \dontrun{
