@@ -197,8 +197,8 @@ Map~\cite{GoogleTreeMap}, see Figure~\ref{demos} for examples.
 \begin{center}
 \includegraphics[width=\textwidth]{googleVisDemoPlots.pdf}
 \caption{
-  Screenshot of the output of \texttt{demo(googleVis)} with 
-  \texttt{gvisTreeMap,  gvisTable, gvisMotionChart, gvisGeoMap} from
+  Screenshot of some of the outputs of \texttt{demo(googleVis)} with 
+  \texttt{gvisMotionChart, gvisMap,  gvisTable, gvisTreeMap,  gvisGeoMap} from
   top left to bottom right.  
 }\label{demos}
 \end{center}
@@ -365,6 +365,33 @@ allows you to find the file with the following R command:
 filePath(system.file("rsp", package = "googleVis"), "index.rsp")
 \end{verbatim}
 Please read also the documentation of the \rsp package.
+
+\section{Contact}
+\subsection{Collaboration} 
+Obviously, the package is work in progress and there are many other functions of the Google
+Visualisation API which are still untouched. 
+
+Please feel free to send us an email
+\href{mailto:rvisualisation@gmail.com}{rvisualisation@gmail.com} 
+if you would like to keep informed of new versions,
+or if you have any feedback, ideas, suggestions or would
+like to collaborate.
+
+\subsection{Citation}
+Please cite R and/or \googleVis if you use it in your work or publications. Use
+<<eval=FALSE>>=
+citation()
+@
+or
+<<eval=FALSE>>=
+citation("googleVis")
+@
+for information on how to cite the software.
+
+\subsection{Training and consultancy}
+Please do contact us if you would like to discuss tailored training or
+consultancy: \href{mailto:rvisualisation@gmail.com?subject=Training-and-consultancy}{rvisualisation@gmail.com} 
+
 
 \clearpage
 

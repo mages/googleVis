@@ -63,8 +63,8 @@ Page <- list(type="MotionGeoTableTree",
 					Caption3=Table$html$caption,
 					Chart4=Tree$html$chart,
 					Caption4=Tree$html$caption,
-                 			Chart4=Map$html$chart,
-					Caption4=Map$html$caption,
+                 			Chart4=AndrewMap$html$chart,
+					Caption4=AndrewMap$html$caption,
 					Footer=Tree$html$footer)
             )
 		
