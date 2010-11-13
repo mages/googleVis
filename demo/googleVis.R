@@ -1,32 +1,54 @@
 ## googleVis demo
-## A web browser with internet connection and Flash is required
 
-## See how googleVis functions can be integrated into rsp-files:
-browseRsp("http://127.0.0.1:8074/library/googleVis/rsp/")
+pause <- function(){  
+  invisible(readline("\nPress <return> to continue: ")) 
+}
+
+## A web browser with internet connection and Flash is required
 
 ## Motion Chart
 Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 plot(Motion)
+pause()
 
-## Geo Map
-Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit")
+## Geo Map with coloured regions
+Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit",
+                       options=list(height=350, dataMode='regions'))
 plot(Geo)
+pause()
 
-## Map
-Andrew$LatLong=with(Andrew, paste(Lat, Long, sep=":"))
-Andrew$Tip=with(Andrew,paste(Category, "<BR>Presure=",Presure_mb, "<BR>Speed=", Speed_kt, sep=""))
-Map <- gvisMap(Andrew, "LatLong" , "Tip", 
+
+## Show Hurricane Andrew (1992) storm track with Geo Map
+AndrewGeo <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt", 
+      			 hovervar="Category", 
+      		         options=list(height=350, region="US"))
+
+plot(AndrewGeo)
+pause()
+
+## Hurricane Andrew (1992) storm track with Google Maps
+AndrewMap <- gvisMap(Andrew, "LatLong" , "Tip", 
       	      options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
 		      mapType='terrain', useMapTypeControl=TRUE))
-plot(Map)
+plot(AndrewMap)
+pause()
+
 
 ## Table 
 Table=gvisTable(Exports, options=list(width=400, height=300))
 plot(Table)
+pause()
+
+## Table with embed links
+PopTable=gvisTable(Population, options=list(width=600, height=300, page='enable'))
+plot(PopTable)
+pause()
 
 ## TreeMap
 Tree=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(fontSize=16))
 plot(Tree)
+pause()
+
 
 
 ## Several charts on one page
@@ -49,3 +71,8 @@ Page <- list(type="MotionGeoTableTree",
 
 class(Page) <- list("gvis", class(Page))
 plot(Page)
+pause()
+
+
+## See how googleVis functions can be integrated into rsp-files:
+browseRsp("http://127.0.0.1:8074/library/googleVis/rsp/")

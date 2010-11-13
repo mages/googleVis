@@ -51,6 +51,5 @@ Geo <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt",
 plot(Geo) 
 }
 
-
 }
 \keyword{datasets}
