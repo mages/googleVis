@@ -201,7 +201,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 ## corresponding to the values that you assign. Specify the regions style
 ## by assigning options['dataMode'] = 'regions' in your code.
 
-G1 <- gvisGeoMap(Exports[,1:2], locationvar='Country', numvar='Profit',
+G1 <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
                  options=list(dataMode="regions")) 
 
 \dontrun{

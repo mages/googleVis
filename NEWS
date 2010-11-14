@@ -16,6 +16,7 @@ NEW FEATURES
    o New functions:
      - gvisMotionChart to generate motion charts
      - gvisGeoMap to generate geographical maps
+     - gvisMap to generate maps
      - gvisTreeMap to generate tree maps
      - gvisTable to generate table output
      - print.gvis: generic function to print 'gvis' objects
