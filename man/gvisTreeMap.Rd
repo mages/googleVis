@@ -202,7 +202,9 @@ Diego de Castillo \email{decastillo@gmail.com}
 \seealso{
 
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods.  The \code{treemap} package offeres a
+  printing and plotting methods. 
+
+  Please note that the \code{treemap} package offeres a
   static version of tree maps via its \code{tmPlot} function. 
 
 }

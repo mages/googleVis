@@ -8,7 +8,7 @@
   The gvisTable function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
   included into a web page, or as a standalone page. The actual chart is
-  rendered by the web browser in flash.
+  rendered by the web browser.
   
   A table that can be sorted and paged. Table cells can be formatted
   using format strings, or by directly inserting HTML as cell
@@ -53,7 +53,7 @@ gvisTable(data, options = list())
 	\code{tableRow} - Assigns a class name to the non-header rows (<tr> elements).
 	
 	\code{oddTableRow} - Assigns a class name to odd table rows (<tr>
-	elements). Note: the alternatingRowStyle option must be set to true.
+	elements). Note: the \code{alternatingRowStyle} option must be set to true.
 	
 	\code{selectedTableRow} - Assigns a class name to the selected table row (<tr>
 	element).
@@ -90,7 +90,7 @@ gvisTable(data, options = list())
 	
 	\code{'enable'} - The table will include page-forward and page-back
 	buttons. Clicking on these buttons will perform the paging operation and
-	change the displayed page. You might want to also set the pageSize
+	change the displayed page. You might want to also set the \code{pageSize}
 	option.
 	
 	\code{'event'} - The table will include page-forward and page-back buttons, but
@@ -127,9 +127,10 @@ gvisTable(data, options = list())
       }
       \item{\code{sort}}{string. Default \code{'enable'}.
 	If and how to sort columns when the user clicks a column heading. If
-	sorting is enabled, consider setting the sortAscending and sortColumn
-	properties as well. Choose one of the following string values:
-	
+	sorting is enabled, consider setting the \code{sortAscending}
+	and \code{sortColumn} properties as well. Choose one of the
+	following string values:
+		
 	\code{'enable'} - [Default] Users can click on column headers to sort by the
 	clicked column. When users click on the column header, the rows will be
 	automatically sorted, and a 'sort' event will be triggered.

@@ -28,17 +28,18 @@
 }
   \item{filename}{
       If \code{filename=NULL} (Default) plot.gvis will create a
-      rsp-file, based on the chard id, in the rsp folder of the
+      rsp-file, based on the chard id, in the \code{rsp/myAnalysis} folder of the
       \code{googleVis} library folder, see Details for more information.      
 }
-  \item{repos}{repository for the output file. By default the rsp-folder
-    of the \code{googleVis} package will be used.
+  \item{repos}{repository for the output file. By default the
+    \code{rsp/myAnalysis} folder of the \code{googleVis} package will be
+    used. 
 }
   \item{\dots}{arguments passed on to \code{\link{cat}}.
 }
 }
 \details{
-  You can find out the path to your \code{googleVis} folder with the
+  You can find the path to your \code{googleVis} folder with the
   following R command:
   \code{filePath( system.file( file.path( "rsp", "myAnalysis" ), package
 		    = "googleVis" ))}.
@@ -79,7 +80,7 @@ Diego de Castillo \email{decastillo@gmail.com}
   \code{system.file(file.path("rsp", "myAnalysis"), package="googleVis")}
   
   It is preferable that you have write-access to this directory, so you
-  may want to install the packages locally (e.g. your home
+  may want to install the package locally (e.g. in your home
   folder). Please contact your system administrator if you need further
   help.
 

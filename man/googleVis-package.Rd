@@ -27,19 +27,18 @@ Using the Google Visualisation API with R
 	Markus Gesmann, Diego de Castillo
 	}
 \note{
-  See \code{vignette("googleVis")} for a introduction to the
+  See \code{vignette("googleVis")} for an introduction to the
   \code{googleVis} package. 
 
   Many thanks to Henrik Bengtsson for providing the R.rsp package
-  \url{http://www.braju.com/R/}, which allows us to display motion
+  (\url{http://www.braju.com/R/}) that allows us to display motion
   charts locally.
 
-  Type \code{browseRsp(path="/library/googleVis/rsp/")} to find out a
-  bit more how you can integrate googleVis charts into rsp-pages.
+  To find out more on how you can integrate googleVis charts into
+  rsp-pages type \code{browseRsp(path="/library/googleVis/rsp/")}.  
 
-  The Google Public Data Explorer
-  (\url{http://www.google.com/publicdata/home}) provides lots of
-  examples using the Google Visualisation API. 
+  For examples using the Google Visualisation API see the Google
+  Public Data Explorer: \url{http://www.google.com/publicdata/home}
 
   Of course there are many alternative visualisation toolkits out there, to
   name but a few:
@@ -69,8 +68,8 @@ Using the Google Visualisation API with R
   
   \code{system.file(file.path("rsp", "myAnalysis"), package="googleVis")}
   
-  It is preferable that you have write-access to this directory, so you
-  may want to install the packages locally (e.g. your home
+  It is preferable that you have write-access to this directory; so you
+  may want to install the package locally (e.g. in your home
   folder). Please contact your system administrator if you need further
   help.
 }

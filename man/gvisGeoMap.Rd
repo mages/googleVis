@@ -183,8 +183,10 @@ Diego de Castillo \email{decastillo@gmail.com}
 
 \seealso{
 
-  See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and plotting methods. 
-
+  See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
+  printing and plotting methods, \code{\link{gvisMap}} for an
+  alternative to \code{gvisGeoMap}.  
+  
 }
 \examples{
 ## Please note that by default the plot (better plot.gvis) command will
@@ -215,7 +217,7 @@ plot(G1)
 ## a value, over the regions that you specify. 
 
 G2 <- gvisGeoMap(CityPopularity, locationvar='City', numvar='Popularity',
-                 options=list(region='US', 
+                 options=list(region='US', height=350, 
                               dataMode='markers',
                               colors='[0xFF8747, 0xFFB581, 0xc06000]'))	
 
@@ -229,36 +231,20 @@ require(datasets)
 states <- data.frame(state.name, state.x77)
 
 G3 <- gvisGeoMap(states, "state.name", "Illiteracy",
-                 options=list(region="US", width=600, height=400))
+                 options=list(region="US", dataMode="regions",
+		 width=600, height=400))
 \dontrun{
 plot(G3) 
 }
 
 ## Example with latitude and longitude information
- 
-
-states <- data.frame(state.name, state.area, 
-       	  	     state.center=paste(state.center$y, state.center$x, sep=":"))
-
-## state.center: list with components named x and y giving the
-## approximate geographic center of each state in negative longitude
-## and latitude. Alaska and Hawaii are placed just off the West Coast.  
-
-
-G4 <- gvisGeoMap(states, locationvar="state.center", numvar="state.area", 
-      			 hovervar="state.name", 
-      		 options=list(region='US'))
-\dontrun{
-plot(G4) 
-}
-
 ## Show Hurricane Andrew (1992) storm track
-G5 <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt", 
+G4 <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt", 
       			 hovervar="Category", 
       		         options=list(height=350, region="US"))
 
 \dontrun{
-plot(G5) 
+plot(G4) 
 }
 
 

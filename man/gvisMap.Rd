@@ -124,7 +124,9 @@ Diego de Castillo \email{decastillo@gmail.com}
 
 \seealso{
 
-  See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and plotting methods. 
+  See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
+  printing and plotting methods, \code{\link{gvisGeoMap}} for an 
+  alternative to \code{gvisMap}. 
 
 }
 \examples{

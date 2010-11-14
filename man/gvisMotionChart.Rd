@@ -3,12 +3,13 @@
 
 \title{ Google Motion Chart with R}
 \description{
-  A Motion Chart is dynamic chart to explore several indicators over time.
-  
-  The gvisMotionChart function reads a data.frame and
+   The gvisMotionChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
   included into a web page, or as a standalone page. The actual chart is
   rendered by the web browser in flash.
+
+  A Motion Chart is a dynamic chart to explore several indicators over time.
+
 }
 \usage{
 gvisMotionChart(data, idvar = "id", timevar = "time", 
@@ -121,10 +122,6 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html} 
 
   Follow the link also for Google's Data Policy.
-  
-  See \code{vignette("googleVis")} for a brief introduction of
-  the graphical user interface of Google motion charts.
-
 }
 \author{
   Markus Gesmann \email{markus.gesmann@gmail.com},
@@ -164,9 +161,9 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 \seealso{
-  See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and plotting methods. 
-  Further see also \code{\link{browseRsp}}, and also the
-  \code{animation-package} and there the function \code{Rosling.bubbles}.
+  See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
+  printing and plotting methods, further \code{\link{browseRsp}}, and also the
+  \code{animation-package} and its function \code{Rosling.bubbles}.
 }
 
 \examples{
@@ -181,35 +178,35 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 ## to see the visualisation output, see also ?plot.gvis for further
 ## details.  
 
- Fruits	
- ## timevar Year
- M1 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
- str(M1)
- ## print.gvis, will concatenate the list into a one long string
- M1
+Fruits	
+## timevar Year
+M1 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
+str(M1)
+## print.gvis, will concatenate the list into a one long string
+M1
 
- M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
- ## plot.gvis will create a file and open it in your browser.
+## plot.gvis will create a file and open it in your browser.
 \dontrun{
- plot(M2)
+plot(M1)
 }
-\dontrun{
- ## Usage of date variable
- M3 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
+
+## Usage of date variable
+M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
                                date.format = "/%Y/%m/%d") 
- plot(M3)
+\dontrun{
+plot(M2)
 }
- ## Options: no side panel on the right
- M4 <- gvisMotionChart(Fruits,"Fruit","Year",
+## Options: no side panel on the right
+M3 <- gvisMotionChart(Fruits,"Fruit","Year",
                  options=list(showSidePanel=FALSE))
 \dontrun{
- plot(M4)
+plot(M3)
 }
- ## Options: trails un-ticked
- M5 <- gvisMotionChart(Fruits,"Fruit","Year",
+## Options: trails un-ticked
+M4 <- gvisMotionChart(Fruits,"Fruit","Year",
                  options=list(state='{\"showTrails\":false};'))
 \dontrun{
- plot(M5)
+plot(M4)
 }
 }
 \keyword{ hplot }

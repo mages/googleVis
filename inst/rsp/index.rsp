@@ -80,8 +80,7 @@
     <p>
       For example 
       <pre>
-	&lt;%=gvisGeoMap(Exports, locationvar='Country', numvar='Profit',options=list(width=600,
-	height=500))$html$chart%&gt;
+	&lt;%=gvisGeoMap(Exports, locationvar='Country', numvar='Profit',options=list(height=350, dataMode='regions'))$html$chart%&gt;
       </pre> 
       gives you a <b>Geo Map</b>:
     </p>
