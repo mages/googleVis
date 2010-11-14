@@ -75,12 +75,11 @@ charts, and as a result the software behind
 Gapminder was bought by Google and integrated as motion charts into
 their Visualisation API~\cite{GoogleVisApi} a few years later. 
 
-We also noticed that the data journalism has grown over the recent
-years. The blogs of the,
+We also noticed that data journalism has grown over the recent
+years. The blogs of the
 \href{http://www.guardian.co.uk/news/datablog}{Guardian (UK)}, and 
-the
-\href{http://blogs.taz.de/open-data/}{taz (Die Tageszeitung,
- Germany)} have brought data and data visualisation to a wider
+\href{http://blogs.taz.de/open-data/}{taz.de (Die Tageszeitung,
+ Germany)} have brought data analysis and data visualisation to a wider
 audience. 
 
 In  2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented at
@@ -121,7 +120,7 @@ name but a few.
 
 The Google Visualisation API~\cite{GoogleVisApi}, \cite{GoogleTerms}
 allows users to create interactive charts as part of Google
-documents/spreadsheets and web pages. In this text we will focus 
+documents, spreadsheets and web pages. In this text we will focus 
 on the usage of the API as part of web sites.
 
 The Google Public Data Explorer~\cite{GooglePublicData} provides a
@@ -254,7 +253,7 @@ folder). Please contact your system administrator initially if you need help.
 \subsection{Using the  \googleVis package}
 
 The individual functions of the \googleVis package are documented in
-detail in the help pages. Here we will cover more the principals of
+detail in the help pages. Here we will cover only the principals of
 the package.
 
 As an example we will show how to generate a motion chart as in  
@@ -275,7 +274,7 @@ optional list. The options and data requirements follow those of the
 Google Visualisation API and are documented in the help pages, see
 \texttt{?gvisMotionChart}.  
 
-The output of a \googleVis charting function is a list of lists
+The output of a \googleVis function is a list of lists
 containing information about the chart type, chart id and the html
 code in a  sub-list with header, chart, caption and footer.
 
@@ -288,7 +287,7 @@ see page~\pageref{rspexample}.
 
 The output of a \googleVis function will be of class \texttt{'gvis'}
 and \texttt{'list'}. Generic print (\texttt{print.gvis})  and plot
-(\texttt{plot.gvis}) function exist to ease the handle of such objects. 
+(\texttt{plot.gvis}) functions exist to ease the handle of such objects. 
 
 To illustrate the concept we shall create a motion chart using the Fruits
 sample data set.
@@ -307,13 +306,13 @@ Fruits
 @
 
 In this case we will use the columns \texttt{'Fruit'} and
-\texttt{'Year'} as id and time variable respectively. 
-
+\texttt{'Year'} as id and time variable respectively. However we could
+heave used also \texttt{'Date'} instead of \texttt{'Year'}. 
 
 <<>>=
  M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 @
-The output of \texttt{gvisMotionChart} is a list of list as described above
+The structural output of \texttt{gvisMotionChart} is a list of list as described above
 <<>>=
  str(M)
 @ 
@@ -324,12 +323,12 @@ type and date:
 M$type
 M$chartid
 @ 
-The html list is than split into header, chart, caption and
-footer. This allows the user to either extract only certain parts
+The html output list is than split into header, chart, caption and
+footer. This allows the user to extract only certain parts
 of the page, or to create a complete html page. 
 
 The header part of the html page has only basic html tags and includes
-two rsp-files to provide a  simple framework.
+two rsp-files to provide a  simple layout framework.
 <<>>=
 cat(M$html$header)
 @ 
@@ -365,7 +364,7 @@ e.g. your web server repository, than you can set the arguments for
 repository) individually. 
 
 Further examples are part of the \googleVis demo, including one
-example showing how the output of several visualisations can
+example demonstrating how the output of several visualisations can
 be incorporated into a single page.
 
 \subsection{Using \texttt{googl{V}is} with \texttt{rsp}}\label{rspexample}
@@ -383,7 +382,7 @@ example, we can embed the above motion chart into a rsp-page:
 </body>
 </html>
 \end{verbatim}
-You find a few examples a part of the \googleVis package, which can be displayed
+You find a few examples a part of the \googleVis package. Those examples can be displayed
 via the following R command:
 <<eval=FALSE>>=
 browseRsp("http://127.0.0.1:8074/library/googleVis/rsp/")
