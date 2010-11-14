@@ -33,7 +33,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
     information has to be either numeric or of class \code{\link{Date}}.
   }
   \item{date.format}{
-    if \code{timevar} is of class \code{\link{Date}} than this argument
+    if \code{timevar} is of class \code{\link{Date}} then this argument
     specifies how the dates are reformatted to be used by javascript. 
   }
   \item{options}{list of configuration options for the motion chart.
