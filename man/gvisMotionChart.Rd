@@ -190,10 +190,10 @@ M1
 plot(M1)
 }
 
+\dontrun{
 ## Usage of date variable
 M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
                                date.format = "/%Y/%m/%d") 
-\dontrun{
 plot(M2)
 }
 ## Options: no side panel on the right
@@ -202,9 +202,11 @@ M3 <- gvisMotionChart(Fruits,"Fruit","Year",
 \dontrun{
 plot(M3)
 }
+
 ## Options: trails un-ticked
-M4 <- gvisMotionChart(Fruits,"Fruit","Year",
+M4 <- gvisMotionChart(Fruits, "Fruit", "Year",
                  options=list(state='{\"showTrails\":false};'))
+
 \dontrun{
 plot(M4)
 }

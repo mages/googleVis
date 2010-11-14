@@ -8,8 +8,12 @@ Changes
    o More functions of the Google Visualisation API are now available.
 
 USER-VISIBLE CHANGES
+
    o New interfaces, all visualisation functions start with 'gvis'.
-   o Output is now of class 'gvis' with generic print and plot functions.
+   o Output is now of class 'gvis' with generic print and plot
+     functions.
+   o 'gvis' objects are list of lists, which allow the use to extract
+     the various parts of the visualisation, e.g. just the chart object.  
   
 NEW FEATURES
 
@@ -22,22 +26,24 @@ NEW FEATURES
      - print.gvis: generic function to print 'gvis' objects
      - plot.gvis: generic function to display 'gvis' objects in a browser via the R.rsp package. 
 
+
 Version 0.1.4
 ================
 Changes
 
-   o Packages uses now the RJSONIO package from Omegahat to transform a data.frame into a datatable
+   o The package uses the RJSONIO package from Omegahat to
+     transform a data.frame into a json DataTable 
 
 Version 0.1.3
 ================
 NEW FEATURES
 
-   o More detail motion chart configuration option settings are possible.
+   o More detailed motion chart configuration settings are possible.
 
 USER-VISIBLE CHANGES
-   o options have to set via a list. Arguments height and width have to set via the options list. 
-     However, further configuration options can now be set.
-   o Update demo PerformanceAnalyticsMotionChart   
+   o options have to be set via a list. Arguments height and width
+     can be set, plus further configurations.
+   o Updated demo PerformanceAnalyticsMotionChart   
 
 
 Version 0.1.2
