@@ -88,7 +88,7 @@ Engineering the idea to link Google motion charts with R  using the
 \rsp package~\cite{Rsp}. 
 
 Inspired by those talks and the desire to use interactive data
-visualisation tools to foster the dialog between data analysts and
+visualisation tools to foster the dialogue between data analysts and
 others the authors of this vignette started the development of the
 \googleVis package~\cite{googleVis}. 
 
@@ -185,7 +185,7 @@ You will notice that the above html-code has three generic parts:
   and height. 
 \end{itemize}
 
-Those principals hold true for most of the interactive charts of the
+Those principles hold true for most of the interactive charts of the
 Google Visualisation API, see the examples in Figure~\ref{demos}.
 
 To display the visualisation, the html-page must be loaded from a
@@ -253,11 +253,11 @@ folder). Please contact your system administrator initially if you need help.
 \subsection{Using the  \googleVis package}
 
 The individual functions of the \googleVis package are documented in
-detail in the help pages. Here we will cover only the principals of
+detail in the help pages. Here we will cover only the principles of
 the package.
 
 As an example we will show how to generate a motion chart as in  
-Figure~\ref{MotionChartGUI}. It works analog for the other
+Figure~\ref{MotionChartGUI}. It works analogue for the other
 APIs. Further examples are covered in the demos of the \googleVis
 package, see also Figure~\ref{demos}. 
 
@@ -316,14 +316,14 @@ The structural output of \texttt{gvisMotionChart} is a list of list as described
 <<>>=
  str(M)
 @ 
-The first to item of the list contains information about the chart type
+The first two items of the list contain information about the chart type
 used and an individual chart id generated at run time from the chart
 type and date:
 <<>>=
 M$type
 M$chartid
 @ 
-The html output list is than split into header, chart, caption and
+The html output list is then split into header, chart, caption and
 footer. This allows the user to extract only certain parts
 of the page, or to create a complete html page. 
 
@@ -359,7 +359,7 @@ The following R-command will show the path to this folder:
 system.file(file.path("rsp", "myAnalysis"), package="googleVis")
 @ 
 If you would like to write the output into a different directory,
-e.g. your web server repository, than you can set the arguments for 
+e.g. your web server repository, then you can set the arguments for 
 \texttt{filename} and \texttt{repos} (web server address of the
 repository) individually. 
 
@@ -371,7 +371,7 @@ be incorporated into a single page.
 The \rsp package allows the user to integrate R code into html-code,
 which together with the \rsp web server are executed at run time.
 
-As mentioned above the R.rsp packages allows us to dynamically
+As mentioned above the R.rsp package allows us to dynamically
 generate documents into static content using R Server Pages. This
 means we can mix html and R code to create content on the fly.   As an
 example, we can embed the above motion chart into a rsp-page: 
@@ -401,7 +401,7 @@ Visualisation API which are still untouched.
 
 Please feel free to send us an email
 \href{mailto:rvisualisation@gmail.com}{rvisualisation@gmail.com} 
-if you would like to keep informed of new versions,
+if you would like to be kept informed of new versions,
 or if you have any feedback, ideas, suggestions or would
 like to collaborate.
 
