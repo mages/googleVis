@@ -71,6 +71,21 @@ Diego de Castillo \email{decastillo@gmail.com}
   of a \code{googleVis} function in a browser using the local web server
   provided by \code{R.rsp}. 
 }
+\section{Warning }{
+  By default the visualisation files will be stored in the
+  \code{rsp/myAnlysis} folder of the googleVis library. The following
+  R-command will show the path to this folder:
+  
+  \code{system.file(file.path("rsp", "myAnalysis"), package="googleVis")}
+  
+  It is preferable that you have write-access to this directory, so you
+  may want to install the packages locally (e.g. your home
+  folder). Please contact your system administrator if you need further
+  help.
+
+  Therefore the \code{plot} commands are not executed automatically as
+  part of the examples.
+}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 

@@ -8,7 +8,7 @@
   
   <body>
     <%@include file="src/simpleHeader.rsp"%>
-
+    <%require(googleVis)%>
     <h2>
       Welcome
     </h2>
@@ -25,13 +25,21 @@
      for <a href="http://www.r-project.org">R</a> which provides
      functions to visualise data in R with
      the <a href="http://code.google.com/apis/visualization/documentation/gallery.html">Google
-     Visualisation API.</a> Please see also
-     Google's <a href="http://code.google.com/apis/visualization/terms.html">Terms
-     of Use</a>. The visual output will be rendered in your browser using Flash. 
+     Visualisation API.</a> 
+     <BR>
+     Please see also
+     Google's <a href="http://code.google.com/apis/visualization/terms.html">terms
+     of use</a> and data policy. 
+     <BR>The visual output will be rendered in your browser using Flash. 
     </p>
     <p>    
-      Type <tt>?googleVis</tt> in R to see the overall documentation and <tt>vignette('googleVis')</tt> to see the package vignette.
-      This page provides some examples of the package. You find more as part of the demo; type: <tt>demo(googleVis)</tt>.
+      Type <tt>?googleVis</tt> in the R console to see the overall documentation
+      and <tt>vignette('googleVis')</tt> to access the package
+      vignette.
+      <BR>
+      This page provides some examples of the package. You find more
+      as part of the demo; to execute the demo type into the R
+      console: <tt>demo(googleVis)</tt>.
     </p>
     By default the output of the <tt>googleVis</tt> functions will be stored in the following directory: 
     <ul>
@@ -47,7 +55,10 @@
       M &lt;- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
       plot(M)
     </pre>
-    would generate the file <tt>MotionChart_<%=format(Sys.time(), "%Y-%m-%d-%H-%M-%S")%>.rsp</tt> in the directory above.
+    would generate the
+    file <tt>MotionChart_<%=format(Sys.time(),"%Y-%m-%d-%H-%M-%S")%>.rsp</tt>
+    in the directory above. 
+    Therefore you need write-access to that folder. 
     <h2>
       Embedding googleVis charts into your web page with <a href="/">R.rsp</a>
     </h2>

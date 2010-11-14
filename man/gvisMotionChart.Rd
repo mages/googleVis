@@ -125,7 +125,6 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   See \code{vignette("googleVis")} for a brief introduction of
   the graphical user interface of Google motion charts.
 
-  
 }
 \author{
   Markus Gesmann \email{markus.gesmann@gmail.com},
@@ -156,6 +155,11 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   Further examples of displaying data with motion charts are available
   via the Google Public Data Explorer:
   \url{http://www.google.com/publicdata/home}.
+
+  Stephen Thompson at Lloyd's developed an Excel version that mimics
+  much of the functionality of the Google motion charts: 	  
+  \url{http://www.lloyds.com/The-Market/Tools-and-Resources/Resources/Statistics-Relating-to-Lloyds/Visualisation}
+  
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -164,14 +168,18 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   Further see also \code{\link{browseRsp}}, and also the
   \code{animation-package} and there the function \code{Rosling.bubbles}.
 }
+
 \examples{
-## Please note that the plot (better plot.gvis) command will open a
+## Please note that by default the plot (better plot.gvis) command will
+## try to write the output into the rsp/myAnalysis folder of the
+## googleVis library. Further the plot command will open a
 ## browser window and requires Flash and internet connection to
-## display the visualisation. 
-## Because of those requirements are the plot commands not executed
+## display the visualisation.
+## Because of those requirements the plot commands are not executed
 ## automatically as part of the example. 
 ## Please copy and paste the plot commands manually
-## to see the visualisation output.
+## to see the visualisation output, see also ?plot.gvis for further
+## details.  
 
  Fruits	
  ## timevar Year

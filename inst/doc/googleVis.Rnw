@@ -31,7 +31,8 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
   Diego de Castillo\footnote{decastillo@gmail.com}\\
 Contact: rvisualisation@gmail.com}
 \title{Using the Google Visualisation API with R:\\
-  googleVis-\Sexpr{packageDescription("googleVis")$Version} Package Vignette}
+  googleVis-\Sexpr{packageDescription("googleVis")[['Version']]} Package Vignette
+}
 \maketitle
 \begin{abstract}
   The \googleVis package provides an interface between R and the
@@ -59,7 +60,7 @@ jungle and struggle to see the wood for the trees.
 Hence new tools are required to bring data to life, to engage with
 users, to enable them to slice and dice the data, to view it from
 various angles and to find stories worth telling: outliers, trends or
-even the bleeding obvious.
+even the bleeding obvious. 
 
 In 2006 Hans Rosling gave an inspiring talk at TED
 ~\cite{HansRoslingTedTalk} about social and economic developments in
@@ -74,15 +75,36 @@ charts, and as a result the software behind
 Gapminder was bought by Google and integrated as motion charts into
 their Visualisation API~\cite{GoogleVisApi} a few years later. 
 
+We also noticed that the data journalism has grown over the recent
+years. The blogs of the,
+\href{http://www.guardian.co.uk/news/datablog}{Guardian (UK)}, and 
+the
+\href{http://blogs.taz.de/open-data/}{taz (Die Tageszeitung,
+ Germany)} have brought data and data visualisation to a wider
+audience. 
+
 In  2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented at
 the R/Rmetrics Workshop on  Computational Finance and Financial
-Engineering the idea to link motion charts with R  using the
+Engineering the idea to link Google motion charts with R  using the
 \rsp package~\cite{Rsp}. 
 
 Inspired by those talks and the desire to use interactive data
 visualisation tools to foster the dialog between data analysts and
 others the authors of this vignette started the development of the
-\googleVis package~\cite{googleVis}.
+\googleVis package~\cite{googleVis}. 
+
+Of course there are many other alternative visualisation toolkits out
+there, e.g.  
+\href{http://services.alphaworks.ibm.com/manyeyes/page/Create_a_Visualization.html}{Many
+  Eyes} \cite{ManyEyes},
+\href{http://teethgrinder.co.uk/open-flash-chart/}{Open Flash Chart
+  (Flash)} \cite{OpenFlashChart}, 
+\href{http://www.openlayers.org/}{OpenLayers
+  (JavaScript)} \cite{OpenLayers}, 
+\href{http://processing.org/}{Processing (Java)} \cite{Processing}, 
+\href{http://simile.mit.edu/}{simile (AJAX)} \cite{Simile} and
+\href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare} to
+name but a few.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -208,28 +230,25 @@ Map~\cite{GoogleTreeMap}, see Figure~\ref{demos} for examples.
 \subsection{Installation}
 The \googleVis  package depends on the \rjsonio and
 \rsp packages, so we need to install those as well. 
-%% Currently the \rjsonio
-%% package is not available from CRAN, hence we have to install
-%% it from source via: 
-%%
-%%\begin{verbatim}
-%%R> install.packages('RJSONIO', repos='http://www.omegahat.org/R', 
- %%                   type='source')
-%%\end{verbatim}
-%%Please check the R documentation~\cite{Rinstall} if you are unfamiliar with installing packages from source.
- %%             
-%%Following the installation of \rjsonio
 We can install \texttt{R.rsp, RJSONIO} and \googleVis in the usual way from CRAN, e.g.:
-\begin{verbatim}
-R> install.packages(c('R.rsp', 'RJSONIO', 'googleVis'), 
+<<eval=FALSE>>=
+install.packages(c('R.rsp', 'RJSONIO', 'googleVis'), 
                     repos='http://cran.r-project.org') 
-\end{verbatim}
-
+@
 The installation was successful if the
 command \texttt{library(googleVis)} gives you the following message:
 <<>>=
 library(googleVis)
 @ 
+Please note that by default the visualisation output files will be
+written into the \texttt{rsp/myAnlysis} folder of the \googleVis
+library. The following  R-command will show the path to this folder: 
+<<eval=FALSE>>=
+system.file(file.path("rsp", "myAnalysis"), package="googleVis")
+@ 
+It is preferable that you have write-access to this directory. So you
+may want to install the packages locally (e.g. your home
+folder). Please contact your system administrator initially if you need help. 
 
 
 \subsection{Using the  \googleVis package}
@@ -325,19 +344,29 @@ A basic chart caption and html footer are the final items of the html list:
 cat(M$html$caption)
 cat(M$html$footer)
 @ 
+\subsection{Displaying \texttt{gvis} objects}
+
 To display the page locally just type:
-\begin{verbatim}
-R> plot(M)
-\end{verbatim}
-The plot method for \texttt{gvis} object will automatically create a
-rsp-file in the \texttt{myAnalysis} folder of the \googleVis package
-using the type and chart id information of the object and display it
-with the local web server of the \rsp package.
+<<eval=FALSE>>=
+plot(M)
+@
+The plot method for \texttt{gvis} object will automatically create by
+default a rsp-file in the \texttt{myAnalysis} folder of the \googleVis package
+using the type and chart id information of the object, and it will
+display the output using the local web server of the \rsp package.
 
-Further examples are part of the \googleVis demo. One
-example shows how the output of several visualisations can
+The following R-command will show the path to this folder:
+<<eval=FALSE>>=
+system.file(file.path("rsp", "myAnalysis"), package="googleVis")
+@ 
+If you would like to write the output into a different directory,
+e.g. your web server repository, than you can set the arguments for 
+\texttt{filename} and \texttt{repos} (web server address of the
+repository) individually. 
+
+Further examples are part of the \googleVis demo, including one
+example showing how the output of several visualisations can
 be incorporated into a single page.
-
 
 \subsection{Using \texttt{googl{V}is} with \texttt{rsp}}\label{rspexample}
 The \rsp package allows the user to integrate R code into html-code,
@@ -356,14 +385,14 @@ example, we can embed the above motion chart into a rsp-page:
 \end{verbatim}
 You find a few examples a part of the \googleVis package, which can be displayed
 via the following R command:
-\begin{verbatim}
+<<eval=FALSE>>=
 browseRsp("http://127.0.0.1:8074/library/googleVis/rsp/")
-\end{verbatim}
+@
 The actual rsp-file is located within the \googleVis package directory, and again R
 allows you to find the file with the following R command: 
-\begin{verbatim}
+<<eval=FALSE>>=
 filePath(system.file("rsp", package = "googleVis"), "index.rsp")
-\end{verbatim}
+@ 
 Please read also the documentation of the \rsp package.
 
 \section{Contact}
@@ -389,7 +418,7 @@ citation("googleVis")
 for information on how to cite the software.
 
 \subsection{Training and consultancy}
-Please do contact us if you would like to discuss tailored training or
+Please contact us if you would like to discuss tailored training or
 consultancy: \href{mailto:rvisualisation@gmail.com?subject=Training-and-consultancy}{rvisualisation@gmail.com} 
 
 

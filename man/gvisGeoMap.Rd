@@ -187,14 +187,16 @@ Diego de Castillo \email{decastillo@gmail.com}
 
 }
 \examples{
-## Please note that the plot (better plot.gvis) command will open a
+## Please note that by default the plot (better plot.gvis) command will
+## try to write the output into the rsp/myAnalysis folder of the
+## googleVis library. Further the plot command will open a
 ## browser window and requires Flash and internet connection to
-## display the visualisation. 
-## Because of those requirements are the plot commands not executed
+## display the visualisation.
+## Because of those requirements the plot commands are not executed
 ## automatically as part of the example. 
 ## Please copy and paste the plot commands manually
-## to see the visualisation output.
-
+## to see the visualisation output, see also ?plot.gvis for further
+## details.  
 
 ## Regions Example
 ## The regions style fills entire regions (typically countries) with colors

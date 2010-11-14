@@ -40,6 +40,19 @@ Using the Google Visualisation API with R
   The Google Public Data Explorer
   (\url{http://www.google.com/publicdata/home}) provides lots of
   examples using the Google Visualisation API. 
+
+  Of course there are many alternative visualisation toolkits out there, to
+  name but a few:
+  \itemize{
+    \item Many Eyes:
+    \url{http://services.alphaworks.ibm.com/manyeyes/page/Create_a_Visualization.html}    
+    \item Open Flash Chart (Flash):
+    \url{http://teethgrinder.co.uk/open-flash-chart/} 
+    \item OpenLayers (JavaScript): \url{http://www.openlayers.org/} 
+    \item Processing (Java): \url{http://processing.org/}
+    \item simile (AJAX): \url{http://simile.mit.edu/}
+    \item FLARE (ActionScript): \url{http://flare.prefuse.org/}
+  }
 }
 
 \references{
@@ -49,7 +62,18 @@ Using the Google Visualisation API with R
 	\item Google Terms of Use: \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html}
 	}
 }
-
+\section{Warning }{
+  By default the visualisation files will be stored in the
+  \code{rsp/myAnlysis} folder of the googleVis library. The following
+  R-command will show the path to this folder:
+  
+  \code{system.file(file.path("rsp", "myAnalysis"), package="googleVis")}
+  
+  It is preferable that you have write-access to this directory, so you
+  may want to install the packages locally (e.g. your home
+  folder). Please contact your system administrator if you need further
+  help.
+}
 \examples{
 \dontrun{
   demo(googleVis)

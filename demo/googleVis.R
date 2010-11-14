@@ -39,12 +39,12 @@ Table=gvisTable(Exports, options=list(width=400, height=300))
 plot(Table)
 pause()
 
-## Table with embed links
+## Table with embedded links
 PopTable=gvisTable(Population, options=list(width=600, height=300, page='enable'))
 plot(PopTable)
 pause()
 
-## TreeMap
+## Tree Map
 Tree=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(fontSize=16))
 plot(Tree)
 pause()
