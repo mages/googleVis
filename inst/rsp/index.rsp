@@ -67,7 +67,7 @@
       package <tt><a href="http://cran.r-project.org/package=R.rsp">R.rsp</a></tt>
       provides a lightweight web-server which we are using here to
       display these pages. Additionally the <tt>R.rsp</tt>
-      packages allows us to dynamically generate documents into
+      package allows us to dynamically generate documents into
       static content using R Server Pages. This means we can mix html and R 
       code to create content on the fly. 
     </p>
@@ -90,7 +90,7 @@
       Geo Map API</a>  
     </p>
     <p>
-      A Google <b>Map</b> can be create via 
+      A Google <b>Map</b> can be create e.g. via 
       <pre>
 	&lt;%=gvisMap(Andrew, "LatLong" , "Tip", 
       	      options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,

@@ -12,8 +12,8 @@ USER-VISIBLE CHANGES
    o New interfaces, all visualisation functions start with 'gvis'.
    o Output is now of class 'gvis' with generic print and plot
      functions.
-   o 'gvis' objects are list of lists, which allow the use to extract
-     the various parts of the visualisation, e.g. just the chart object.  
+   o 'gvis' objects are list of lists, which allow the user to extract
+     the various parts of the visualisation output, e.g. the chart object.  
   
 NEW FEATURES
 

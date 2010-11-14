@@ -246,7 +246,7 @@ library. The following  R-command will show the path to this folder:
 system.file(file.path("rsp", "myAnalysis"), package="googleVis")
 @ 
 It is preferable that you have write-access to this directory. So you
-may want to install the packages locally (e.g. your home
+may want to install the package locally (e.g. in your home
 folder). Please contact your system administrator initially if you need help. 
 
 
@@ -256,13 +256,13 @@ The individual functions of the \googleVis package are documented in
 detail in the help pages. Here we will cover only the principles of
 the package.
 
-As an example we will show how to generate a motion chart as in  
+As an example we will show how to generate a motion chart as displayed in   
 Figure~\ref{MotionChartGUI}. It works analogue for the other
 APIs. Further examples are covered in the demos of the \googleVis
 package, see also Figure~\ref{demos}. 
 
 The design of the visualisation functions are fairly generic. The name
-of the visualisation function is \texttt{'gvis' + ChartType}, so for
+of the visualisation function is \texttt{'gvis' + ChartType}. So for
 the Motion Chart we have: 
 \begin{verbatim}
 gvisMotionChart(data, idvar='id', timevar='date', options=list())
@@ -278,7 +278,7 @@ The output of a \googleVis function is a list of lists
 containing information about the chart type, chart id and the html
 code in a  sub-list with header, chart, caption and footer.
 
-The idea behind this concept is, that users get on one hand side a
+The idea behind this concept is that users can get on one hand side a
 complete web page, but on the other hand can extract specific parts,
 such as the chart. This is particular helpful if the package functions
 are used in solutions where the user wants to feed the visualisation
@@ -350,11 +350,11 @@ To display the page locally just type:
 plot(M)
 @
 The plot method for \texttt{gvis} object will automatically create by
-default a rsp-file in the \texttt{myAnalysis} folder of the \googleVis package
+default a rsp-file in the \texttt{rsp/myAnalysis} folder of the \googleVis package
 using the type and chart id information of the object, and it will
 display the output using the local web server of the \rsp package.
 
-The following R-command will show the path to this folder:
+The following R-command will show you the path to this folder:
 <<eval=FALSE>>=
 system.file(file.path("rsp", "myAnalysis"), package="googleVis")
 @ 

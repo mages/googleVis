@@ -4,7 +4,9 @@ pause <- function(){
   invisible(readline("\nPress <return> to continue: ")) 
 }
 
-## A web browser with internet connection and Flash is required
+## For the demo a web browser with internet connection and Flash is required.
+## Further you need write access to the following directory
+system.file(file.path("rsp", "myAnalysis"), package="googleVis")
 
 ## Motion Chart
 Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
@@ -34,7 +36,7 @@ plot(AndrewMap)
 pause()
 
 
-## Table 
+## Table. Click on the column header to sort the rows 
 Table=gvisTable(Exports, options=list(width=400, height=300))
 plot(Table)
 pause()
@@ -44,7 +46,7 @@ PopTable=gvisTable(Population, options=list(width=600, height=300, page='enable'
 plot(PopTable)
 pause()
 
-## Tree Map
+## Tree Map. Left mouse-click to drill down, right mouse-click to move up a hierarchy
 Tree=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(fontSize=16))
 plot(Tree)
 pause()
@@ -75,4 +77,4 @@ pause()
 
 
 ## See how googleVis functions can be integrated into rsp-files:
-browseRsp("http://127.0.0.1:8074/library/googleVis/rsp/")
+browseRsp() ## Click on googleVis in the Package section.
