@@ -69,7 +69,8 @@ gvis <- function(type="", data, options, chartid=NULL){
   }  
 
   jsTableTemplate <- '
-<script type="text/javascript\" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript\" src="http://www.google.com/jsapi">
+</script>
 <script type="text/javascript">
 google.load("visualization", "1", { packages:["%s"] %s});
 google.setOnLoadCallback(drawChart);
@@ -78,13 +79,16 @@ var data = new google.visualization.DataTable();
 var datajson = %s;
 %s
 data.addRows(datajson);
-var chart = new google.visualization.%s(document.getElementById(\'%s\'));
+var chart = new google.visualization.%s(
+   document.getElementById(\'%s\')
+);
 var options ={};
 %s
 chart.draw(data,options);
 }
 </script>
-<div id="%s" style="width: %spx; height: %spx;"></div>\n'
+<div id="%s" style="width: %spx; height: %spx;">
+</div>\n'
   
   jsChart <- sprintf(jsTableTemplate,
                      tolower(type),
@@ -267,7 +271,7 @@ gvisHtmlWrapper <- function(title, dataName, chartid){
 </body>
 </html>\n'
 
-  googleTerms <- '<a href="http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a>'
+  googleTerms <- '<a href="http://code.google.com/apis/visualization/terms.html">\nGoogle Terms of Use</a>'
     
   htmlCaption <- sprintf('Data: %s, Chart ID: %s\n<BR>\n%s,\n%s\n<BR>\n<BR>\n',
                          dataName, chartid, R.Version()$version.string, googleTerms)

@@ -313,8 +313,12 @@ heave used also \texttt{'Date'} instead of \texttt{'Year'}.
  M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 @
 The structural output of \texttt{gvisMotionChart} is a list of list as described above
-<<>>=
+<<eval=FALSE>>=
  str(M)
+@ 
+<<echo=FALSE>>=
+## This statement avoids truncation
+cat(paste(substring( capture.output( str(M) ) , 0, 66), sep="\n", collapse="\n"))
 @ 
 The first two items of the list contain information about the chart type
 used and an individual chart id generated at run time from the chart
