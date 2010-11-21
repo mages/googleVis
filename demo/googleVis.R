@@ -37,20 +37,29 @@ pause()
 
 
 ## Table. Click on the column header to sort the rows 
-Table=gvisTable(Exports, options=list(width=400, height=300))
+Table <- gvisTable(Exports, options=list(width=400, height=300))
 plot(Table)
 pause()
 
 ## Table with embedded links
-PopTable=gvisTable(Population, options=list(width=600, height=300, page='enable'))
+PopTable <- gvisTable(Population, options=list(width=600, height=300, page='enable'))
 plot(PopTable)
 pause()
 
 ## Tree Map. Left mouse-click to drill down, right mouse-click to move up a hierarchy
-Tree=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(fontSize=16))
+Tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(fontSize=16))
 plot(Tree)
 pause()
 
+## Annotated Time Line Chart
+AnnoTimeLine <- gvisAnnotatedTimeLine(Lehman[c("Date", "Adj.Close", "Title", "Annotation", "Volume")],
+                         datevar=Date,
+                         options=list(displayAnnotations=TRUE, 
+                           width=800, height=600, scaleColumns='[0,1]',
+                           scaleType='allmaximized')
+                         )
+plot(AnnoTimeLine)
+pause()
 
 
 ## Several charts on one page
@@ -67,6 +76,8 @@ Page <- list(type="MotionGeoTableTree",
 					Caption4=Tree$html$caption,
                  			Chart4=AndrewMap$html$chart,
 					Caption4=AndrewMap$html$caption,
+                                        Chart5=AnnoTimeLine$html$chart,
+                                        Caption5=AnnoTimeLine$html$caption,               
 					Footer=Tree$html$footer)
             )
 		

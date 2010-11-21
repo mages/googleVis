@@ -35,9 +35,9 @@ gvisMap(data, locationvar='', tipvar='',
   \item{tipvar}{column name of \code{data} with the string
     text displayed over the tip icon. 
   }
-  \item{options}{list of configuration options for the map.
+  \item{options}{list of configuration options for Google Map.
     The possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/map.html}:
+    \url{http://code.google.com/apis/visualization/documentation/gallery/map.html#Configuration_Options}:
     
     \describe{
       \item{\code{enableScrollWheel}}{boolean. Default \code{FALSE}.	If set
@@ -127,7 +127,15 @@ Diego de Castillo \email{decastillo@gmail.com}
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
   printing and plotting methods, \code{\link{gvisGeoMap}} for an 
   alternative to \code{gvisMap}. 
-
+  
+  Further the packages:
+  \itemize{   
+    \item R2GoogleMaps: Provides a mechanism to generate JavaScript code
+    from R that displays data using Google Maps,  
+    \url{http://www.omegahat.org/R2GoogleMaps/}. 
+    \item RgoogleMaps:  Overlays on Google map tiles in R, 
+    \url{http://cran.r-project.org/web/packages/RgoogleMaps/index.html}.
+  } 
 }
 \examples{
 ## Please note that by default the plot (better plot.gvis) command will

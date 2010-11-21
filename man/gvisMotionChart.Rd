@@ -36,9 +36,9 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
     if \code{timevar} is of class \code{\link{Date}} then this argument
     specifies how the dates are reformatted to be used by javascript. 
   }
-  \item{options}{list of configuration options for the motion chart.
+  \item{options}{list of configuration options for Google Motion Chart.
     The possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html}: 
+    \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html#Configuration_Options}: 
     \describe{
       \item{\code{gvis.language}}{values may be 'ca', 'da', 'de', 'en', 'en_GB', 'en_IE', 'es', 
 	'es_419', 'fi', 'fr', 'id', 'in', 'is', 'it', 'nl', 'no', 'pt', 'pt_BR', 'pt_PT', 'sv'. If not set the API

@@ -137,6 +137,24 @@
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/table.html">Google
       Table API</a>  
     </p>
+
+
+    <p>
+      For an <b>Annotated Time Line</b> an example could look like 
+      <pre>
+	&lt;%=gvisAnnotatedTimeLine(Lehman[c("Date", "Adj.Close", "Volume")], 
+	datevar="Date",  options=list(scaleColumns='[0,1]',
+        scaleType='allmaximized'))$html$chart%&gt; 
+     </pre> 
+    </p>
+    <p>
+      <%=gvisAnnotatedTimeLine(Lehman[c("Date", "Adj.Close", "Volume")],  datevar="Date",  options=list( scaleColumns='[0,1]', scaleType='allmaximized'))$html$chart%>
+      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html">Google
+      Annotated Time Line API</a>  
+    </p>
+
+
+
     <p>
       We hope these examples show you how you can generate content
       with functions from the <tt>R.rsp</tt> and <tt>googleVis</tt>

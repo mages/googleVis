@@ -55,9 +55,9 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
   \item{hovervar}{column name of \code{data} with the additional string
     text displayed when the user hovers over this region. 
   }
-  \item{options}{list of configuration options for the geo map.
+  \item{options}{list of configuration options for Google Geo Map.
     The possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html}:
+    \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html#Configuration_Options}:
   
     \describe{
       \item{region}{string, default \code{'world'}.	

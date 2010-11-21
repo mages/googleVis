@@ -26,7 +26,7 @@ gvisTable(data, options = list())
   }
   \item{options}{list of configuration options for Google Table.
      The possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/table.html}:
+    \url{http://code.google.com/apis/visualization/documentation/gallery/table.html#Configuration_Options}:
   
     \describe{
       \item{\code{allowHtml}}{boolean. Default \code{FALSE}.

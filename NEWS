@@ -1,3 +1,15 @@
+Version 0.2.1
+================
+
+Changes
+    
+    o First version to be released on CRAN
+
+NEW FEATURES
+
+   o New function:
+     - gvisAnnotationTimeLine to generate interactive annotated time line charts
+
 Version 0.2.0
 ================
 

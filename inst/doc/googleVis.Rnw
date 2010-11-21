@@ -43,7 +43,7 @@ Contact: rvisualisation@gmail.com}
   can create web pages with  interactive charts based on R data frames
   easily and display them either via the \rsp package or
   within their own sites. Currently the package provides interfaces to
-  Motion Charts, Maps, Geo Maps, Tables and Tree Maps. 
+  Motion Charts, Annotated Time Lines, Maps, Geo Maps, Tables and Tree Maps. 
 \end{abstract}
 
 \clearpage
@@ -210,18 +210,19 @@ API.  To view the output a browser with Flash and internet  connection
 is required.  
 
 Currently the package provides interfaces to Motion
-Chart~\cite{GoogleMotionChart}, Geo Map~\cite{GoogleGeoMap}, 
+Chart~\cite{GoogleMotionChart}, Annotated Time
+Line~\cite{GoogleAnnotatedTimeLine}, Geo Map~\cite{GoogleGeoMap}, 
 Map~\cite{GoogleMap}, Table~\cite{GoogleTable} and Tree
 Map~\cite{GoogleTreeMap}, see Figure~\ref{demos} for examples.  
 
 \begin{figure}%%[!ht]
 \begin{center}
-\includegraphics[width=\textwidth]{googleVisDemoPlots.pdf}
+\includegraphics[width=\textwidth]{googleVisDemoPlots.png}
 \caption{
   Screenshot of some of the outputs of \texttt{demo(googleVis)} with 
-  \texttt{gvisMotionChart, gvisMap,  gvisTable, gvisTreeMap,  gvisGeoMap} from
-  top left to bottom right.  
-}\label{demos}
+  \texttt{gvisMotionChart, gvisAnnotationTimeLine,  gvisMap,
+    gvisGeoMap,  gvisTable, gvisTreeMap, } from  top left to bottom
+  right.   }\label{demos}
 \end{center}
 \end{figure}
 

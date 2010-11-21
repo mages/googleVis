@@ -62,9 +62,9 @@ gvisTreeMap(data,
     the node is assigned a color from the gradient between \code{minColor} and
     \code{maxColor}.
   }
-  \item{options}{list of configuration options for the motion chart.
+  \item{options}{list of configuration options for Google Tree Map.
     The possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html}: 
+    \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html#Configuration_Options}: 
     \describe{
       \item{\code{headerColor}}{string, default	'#988f86'. The color of
 	the header section for each node. Specify an HTML color value.
@@ -192,10 +192,9 @@ Markus Gesmann \email{markus.gesmann@gmail.com},
 
 Diego de Castillo \email{decastillo@gmail.com}
 }
-\note{
-
-  \code{treemap} and function{tmPlot}
-}
+%%\note{
+%%  \code{treemap} and function{tmPlot}
+%%}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 

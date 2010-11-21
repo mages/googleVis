@@ -92,7 +92,9 @@ chart.draw(data,options);
   
   jsChart <- sprintf(jsTableTemplate,
                      tolower(type),
-                     ifelse(!is.null(options$gvis$gvis.language),paste(",'language':'",options$gvis$gvis.language,"'",sep=""),''),
+                     ifelse(!is.null(options$gvis$gvis.language),
+                            paste(",'language':'",
+                                  options$gvis$gvis.language, "'", sep=""), ''), 
                      data.json,
                      paste(paste("data.addColumn('", data.type, "','",
                                  names(data.type), "');", sep=""), collapse="\n"),
@@ -109,7 +111,7 @@ chart.draw(data,options);
   ## return json object and chart id
   
   output <- list(jsChart=jsChart, type=type, chartid=chartid)
-
+  
   return(output)
 }
 
@@ -221,29 +223,22 @@ gvisCheckData <- function(data="", options=list(),data.structure=list()){
   x
 }
 
+
 gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
     options <- options$gvis
     # wipe out options with start with gvis.
     options[grep("^gvis.",names(options))] <- NULL
     .par <- sapply(names(options), function(x)
                    paste("options[\"", x,"\"] = ",
-                         ifelse(is.numeric(options[[x]]) | is.logical(options[[x]]),
-                                ## options are numeric or logical
-                                ifelse(is.numeric(options[[x]]),
-                                       options[[x]],
-                                       ifelse(options[[x]],
-                                              "true", "false")
-                                       ),
-                                ## options are character or [-style, e.g. colours
                                 ifelse(checkSquareBracketOps(options[[x]]),
-                                       options[[x]],
-                                       paste("'", options[[x]],"'",sep="")
-                                       )
-                                ),
+                                       options[[x]],                                       
+                                       toJSON(options[[x]])
+                                       ),
                          ";",sep="" )
                    )
     return(.par)
 }
+
 
 checkSquareBracketOps <- function(char){
 
