@@ -20,7 +20,7 @@ gvisAnnotatedTimeLine(data,  datevar = "",
 \arguments{
   \item{data}{
     a \code{data.frame}. The data has to have at least two
-    columns with date information (\code{datevar})
+    columns, one with date information (\code{datevar})
     and one numerical variable. Further numerical and character
     columns are allowed. Every numerical column can have two columns
     followed in the data with character information containing an annotation title
@@ -408,3 +408,22 @@ plot(A3)
 
 }
 \keyword{ hplot }
+
+%% ## Example with ChainLadder triangle
+%% lRAA=as.data.frame(RAA, na.rm=TRUE)
+%% lRAA$dev.year.end <- as.Date(with(lRAA, paste(dev,"-12-31", sep="")))
+%% lRAA$title <- NA
+%% lRAA$annotation <- NA
+ 
+%% lRAA$title[c(2,47)] <- c("Low first claim", "Negative development")
+%% lRAA$annotation[c(2,47)] <- c("Change in underlying claims process resulted in delayed reporting", 
+%%    "Joe Bloggs was on holiday and the person who covered for him
+%% mixed up the signs.")	
+%% wRAA=reshape(lRAA,  idvar="dev.year.end", v.names=c("value", "title",
+%% "annotation"), timevar="origin", direction="wide")
+%% A=gvisAnnotatedTimeLine(wRAA[,-1], "cal.year.end",
+%% options=list(legendPosition='newRow', width=800, height=400,
+%% displayAnnotations=TRUE))
+%% plot(A)
+ 							   
+ 							   

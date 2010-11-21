@@ -71,12 +71,12 @@ Gapminder~\cite{Gapminder} had developed animated bubble charts, aka
 motion charts, see Figure~\ref{MotionChartGUI}. 
 
 Rosling's presentation popularised the idea and use of interactive
-charts, and as a result the software behind
+charts, and as one result the software behind
 Gapminder was bought by Google and integrated as motion charts into
 their Visualisation API~\cite{GoogleVisApi} a few years later. 
 
 We also noticed that data journalism has grown over the recent
-years. The blogs of the
+years. The data blogs of the
 \href{http://www.guardian.co.uk/news/datablog}{Guardian (UK)}, and 
 \href{http://blogs.taz.de/open-data/}{taz.de (Die Tageszeitung,
  Germany)} have brought data analysis and data visualisation to a wider
@@ -248,7 +248,7 @@ system.file(file.path("rsp", "myAnalysis"), package="googleVis")
 @ 
 It is preferable that you have write-access to this directory. So you
 may want to install the package locally (e.g. in your home
-folder). Please contact your system administrator initially if you need help. 
+folder). Please contact your system administrator first if you need help. 
 
 
 \subsection{Using the  \googleVis package}
