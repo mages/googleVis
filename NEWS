@@ -8,7 +8,7 @@ Changes
 NEW FEATURES
 
    o New function:
-     - gvisAnnotationTimeLine to generate interactive annotated time line charts
+     - gvisAnnotatedTimeLine to generate interactive annotated time line charts
 
 Version 0.2.0
 ================
