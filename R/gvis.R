@@ -179,6 +179,13 @@ check.char <- function(x){
     y
 }
 
+check.date <- function(x){
+    y = as.Date(x)
+    if (class(y)!="Date")
+       stop(paste("The column has to be of date format. Currently it is", class(x)))
+    y
+}
+
 check.num <- function(x){
     y = as.numeric(x)
     if (! is.numeric(y))
@@ -212,9 +219,9 @@ gvisCheckData <- function(data="", options=list(),data.structure=list()){
   if(any(is.na(vars.pos)) & (length(varNames) < length(vars.req))){
     stop("There are not enough columns in your data.")
   }
-  x <- x[as.character(options$data[options$data!="" & names(options$data) != "allowed"])]
+  x <- x[as.character(options$data[options$data!="" & names(options$data) != "allowed" & names(options$data) != "date.format"])]
 
-  sapply(names(options$data[options$data!="" & names(options$data) != "allowed"]),
+  sapply(names(options$data[options$data!="" & names(options$data) != "allowed" & names(options$data) != "date.format"]),
           function(.x){ 
             .x <- as.character(.x)
             y <- x[[as.character(options$data[.x])]];
