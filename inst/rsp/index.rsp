@@ -51,7 +51,7 @@
     </ul>
     For example the following R commands
     <pre>
-      require(googleVis)
+      library(googleVis)
       M &lt;- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
       plot(M)
     </pre>

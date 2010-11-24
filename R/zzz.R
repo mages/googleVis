@@ -26,13 +26,14 @@
               paste(tmp, collapse=", ")
             })
   
-  require(utils)
-  cat("\n",paste("Welcome to googleVis version", packageDescription("googleVis")$Version, "\n\n"),
+  library(utils)
+  packageStartupMessage("\n",
+       paste("Welcome to googleVis version", packageDescription("googleVis")$Version, "\n\n"),
       "Type ?googleVis to see the overall documentation and\n",
       "vignette('googleVis') to see the package vignette.\n",
       "You can see a demo of the package via: demo(googleVis)\n\n",  
       "More information is available on the googleVis project web-site:\n",
-      "http://code.google.com/p/google-motion-charts-with-r/\n\n",
+                        "http://code.google.com/p/google-motion-charts-with-r/\n\n",
       
       "Please read also the Google Visualisation API Terms of Use:\n",
       "http://code.google.com/apis/visualization/terms.html\n\n",
@@ -40,8 +41,7 @@
       "Feel free to send us an email <rvisualisation@gmail.com>\n",
       "if you would like to keep informed of new versions,\n",
       "or if you have any feedback, ideas, suggestions or would\n",
-      "like to collaborate.\n\n",
-      sep='')    
+      "like to collaborate.\n\n")    
   
   invisible()
 }
