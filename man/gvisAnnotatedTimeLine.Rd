@@ -13,7 +13,7 @@
   annotations. The chart is rendered within the browser using Flash. 
 }
 \usage{
-gvisAnnotatedTimeLine(data,  datevar = "", numvar="", titlevar="", textvar="",
+gvisAnnotatedTimeLine(data,  datevar = "", groupvar = "", numvar="", titlevar="", textvar="",
 		      date.format = "\%Y/\%m/\%d", options = list())
 }
 %- maybe also 'usage' for other objects documented here.
@@ -30,6 +30,10 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", titlevar="", textvar="",
   \item{datevar}{
     column name of \code{data} which shows the date dimension. The
     information has to be of class \code{\link{Date}}.
+  }
+  \item{groupvar}{
+    column name of \code{data} which groups the data. The
+    information has to be of class \code{\link{character}}.
   }
   \item{numvar}{
     column name of \code{data} which shows the values. The
