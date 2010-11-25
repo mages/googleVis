@@ -17,7 +17,7 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisAnnotatedTimeLine <- function(data, datevar="",groupvar="",numvar="",titlevar="",textvar="",
+gvisAnnotatedTimeLine <- function(data, datevar="",idvar="",numvar="",titlevar="",annotationvar="",
                                   date.format="%Y/%m/%d",
                                   options=list()){
   
@@ -27,7 +27,7 @@ gvisAnnotatedTimeLine <- function(data, datevar="",groupvar="",numvar="",titleva
   
   my.options <- list(gvis=modifyList(list(width = 600, height=300),options), 
 		     dataName=dataName,                     
-                     data=list(datevar=datevar,groupvar=groupvar,numvar=numvar,titlevar=titlevar,textvar=textvar,
+                     data=list(datevar=datevar,idvar=idvar,numvar=numvar,titlevar=titlevar,annotationvar=annotationvar,
 		       date.format=date.format,
                        allowed=c("number","string","date"))
                      )
@@ -48,10 +48,10 @@ gvisCheckAnnotatedTimeLineData <- function(data, options){
 
   data.structure <- list(
 		     datevar  = list(mode="required",FUN=check.date),
-        	     groupvar = list(mode="required",FUN=check.char),
+        	     idvar    = list(mode="required",FUN=check.char),
         	     numvar   = list(mode="required",FUN=check.num),
         	     titlevar = list(mode="optional",FUN=check.char),
-        	     textvar  = list(mode="optional",FUN=check.char))
+        	     annotationvar  = list(mode="optional",FUN=check.char))
 	
   x <- gvisCheckData(data=data,options=options,data.structure=data.structure)
 
