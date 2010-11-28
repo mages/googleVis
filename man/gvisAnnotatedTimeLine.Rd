@@ -13,7 +13,7 @@
   annotations. The chart is rendered within the browser using Flash. 
 }
 \usage{
-gvisAnnotatedTimeLine(data,  datevar = "", idvar = "", numvar="", titlevar="", annotationvar="",
+gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "", titlevar="", annotationvar="",
 		      date.format = "\%Y/\%m/\%d", options = list())
 }
 %- maybe also 'usage' for other objects documented here.
@@ -31,13 +31,13 @@ gvisAnnotatedTimeLine(data,  datevar = "", idvar = "", numvar="", titlevar="", a
     column name of \code{data} which shows the date dimension. The
     information has to be of class \code{\link{Date}}.
   }
-  \item{idvar}{
-    column name of \code{data} which groups the data. The
-    information has to be of class \code{\link{character}}.
-  }
   \item{numvar}{
     column name of \code{data} which shows the values. The
     information has to be of class \code{\link{numeric}}.
+  }
+  \item{idvar}{
+    column name of \code{data} which groups the data. The
+    information has to be of class \code{\link{character}}.
   }
   \item{titlevar}{
     column name of \code{data} which shows the title. The
@@ -388,35 +388,62 @@ described by a set of one to three columns.
 ## to see the visualisation output, see also ?plot.gvis for further
 ## details.  
 
-A1<-gvisAnnotatedTimeLine(Lehman[c("Date", "Adj.Close", "Title", "Annotation")],
-                         datevar="Date",
-                         options=list(displayAnnotations=TRUE,
-                           width=800, height=600)
-                         )
+## Create data as used by Google in their example
+ Date <- as.Date(paste("2008-1-", 1:6, sep=""))
+ Pencils <- c(3000, 14045, 5502, 75284, 41476, 333222)
+ Pencils.titles <-c(rep(NA,4), 'Bought Penciles', NA)
+ Pencils.annotation <-c(rep(NA,4), 'Bought 200k pencils', NA)
+ Pens <- c(40645, 20374, 50766, 14334, 66467, 39463)
+ Pens.titles <- c(rep(NA, 3), 'Out of stock', NA, NA)
+ Pens.annotation <- c(rep(NA, 3), 'Ran of stock on pens at 4pm', NA, NA)
+
+ original.df=data.frame(Date, Pencils, Pencils.titles,
+                        Pencils.annotation, Pens, Pens.titles,
+                        Pens.annotation)  
+
+
+ my.df <- reshape(original.df, idvar="Date", times=c("Pencils", "Pens"), 
+                  timevar="Device",
+                  varying=list(c("Pencils", "Pens"),
+                               c("Pencils.titles", "Pens.titles"),
+                               c("Pencils.annotation", "Pens.annotation")), 
+                   v.names=c("Value", "Title", "Annotation"),
+                   direction="long")
+
+
+A1 <- gvisAnnotatedTimeLine(my.df, datevar="Date",
+                           numvar="Value", idvar="Device",
+                           titlevar="Title", annotationvar="Annotation",
+                           options=list(displayAnnotations=TRUE,
+                            width=600, height=350)
+                           )
 \dontrun{
 plot(A1)
 }
 
 ## Two Y-axis
-A2<-gvisAnnotatedTimeLine(Lehman[c("Date", "Adj.Close", "Title", "Annotation", "Volume")],
-                         datevar="Date",
-                         options=list(displayAnnotations=TRUE, 
-                           width=800, height=600, scaleColumns='[0,1]',
-                           scaleType='allmaximized')
-                         )
+
+
+A2 <- gvisAnnotatedTimeLine(my.df, datevar="Date",
+                           numvar="Value", idvar="Device",
+                           titlevar="Title", annotationvar="Annotation",
+                           options=list(displayAnnotations=TRUE, 
+                            width=600, height=350, scaleColumns='[0,1]',
+                            scaleType='allmaximized')
+                          )
 \dontrun{
 plot(A2)
 }
 
 ## Zoom into the time window, no Y-axis ticks
-A3<-gvisAnnotatedTimeLine(Lehman[c("Date", "Adj.Close", "Volume")],
-                         datevar="Date",
-                         options=list(scaleColumns='[]',
-                           scaleType='allmaximized',
-                           width=600, height=350,
-                           zoomStartTime=as.Date("2006-04-01"),
-                           zoomEndTime=as.Date("2006-07-01")) 
-                         )
+A3 <- gvisAnnotatedTimeLine(my.df, datevar="Date",
+                           numvar="Value", idvar="Device",
+                           titlevar="Title", annotationvar="Annotation",
+                           options=list(
+                             width=600, height=350,
+                            zoomStartTime=as.Date("2008-01-04"),
+                            zoomEndTime=as.Date("2008-01-05")) 
+                          )
 \dontrun{
 plot(A3)
 }
