@@ -22,7 +22,7 @@ gvisAnnotatedTimeLine <- function(data, datevar="",
                                   annotationvar="", 
                                   date.format="%Y/%m/%d",
                                   options=list()){
-
+  
   
   my.type <- "AnnotatedTimeLine"
   dataName <- deparse(substitute(data))
@@ -35,7 +35,8 @@ gvisAnnotatedTimeLine <- function(data, datevar="",
                        allowed=c("number", "string", "date"))
                      )
   
-  checked.data <- gvisCheckAnnotatedTimeLineData(data, my.options, idvar=idvar)
+  checked.data <- gvisCheckAnnotatedTimeLineData(data, my.options,
+                                                 idvar=idvar, titlevar=titlevar, annotationvar=annotationvar)
 
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
   
@@ -43,7 +44,8 @@ gvisAnnotatedTimeLine <- function(data, datevar="",
 }
 
 
-gvisCheckAnnotatedTimeLineData <- function(data, options, idvar){
+gvisCheckAnnotatedTimeLineData <- function(data, options, idvar,
+                                           titlevar, annotationvar){
   
   data.structure <- list(
                          datevar  = list(mode="required",FUN=check.date),
@@ -53,7 +55,7 @@ gvisCheckAnnotatedTimeLineData <- function(data, options, idvar){
                          annotationvar  = list(mode="optional",FUN=check.char))
   
   x <- gvisCheckData(data=data, options=options, data.structure=data.structure)
-  ##  return(x)  
+   
 
   x.df <- as.data.frame(x)
 
@@ -71,18 +73,24 @@ gvisCheckAnnotatedTimeLineData <- function(data, options, idvar){
   groups <- factor(x.df[[idvar]])
   ngroups <- nlevels(groups)
 
-  
-  n.varying.vars <- ncol(x.df)-2
-  varying.vars <- c(2, 4:(3+n.varying.vars))
 
-  print( varying.vars)
+  checkTitleAnno <- c(titlevar != "", annotationvar != "")
+  if(all(checkTitleAnno)){
+    varying.vars <- c(2,4,5)
+  }else{
+    if(any(checkTitleAnno))
+      varying.vars <-  c(2,4)
+    else
+      varying.vars <- 2
+  }
+  
   x.df <- reshape(x.df,
                   v.names=names(x.df)[varying.vars], ##numvar , titlevar, annotationvar
                   idvar=names(x.df)[1], ## datevar 
                   timevar=names(x.df)[3], ## idvar
                   direction="wide") 
 
-  names(x.df)[c(2:(ngroups+1))] <- levels(groups)
+ ## names(x.df)[c(2:(ngroups+1))] <- levels(groups)
 
   return(x.df)
 }
