@@ -17,46 +17,73 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisAnnotatedTimeLine <- function(data, datevar="",idvar="",numvar="",titlevar="",annotationvar="",
+gvisAnnotatedTimeLine <- function(data, datevar="", 
+                                  numvar="", idvar="", titlevar="", 
+                                  annotationvar="", 
                                   date.format="%Y/%m/%d",
                                   options=list()){
-  
 
+  
   my.type <- "AnnotatedTimeLine"
   dataName <- deparse(substitute(data))
   
-  my.options <- list(gvis=modifyList(list(width = 600, height=300),options), 
+  my.options <- list(gvis=modifyList(list(width = 600, height=300), options), 
 		     dataName=dataName,                     
-                     data=list(datevar=datevar,idvar=idvar,numvar=numvar,titlevar=titlevar,annotationvar=annotationvar,
+                     data=list(datevar=datevar, numvar=numvar,
+                       idvar=idvar, titlevar=titlevar, annotationvar=annotationvar,
 		       date.format=date.format,
-                       allowed=c("number","string","date"))
+                       allowed=c("number", "string", "date"))
                      )
   
-  checked.data <- gvisCheckAnnotatedTimeLineData(data, my.options)
+  checked.data <- gvisCheckAnnotatedTimeLineData(data, my.options, idvar=idvar)
 
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
   
   return(output)
 }
 
-### Fixme:
-## zoomStartTime and zoomEndTime have to json objects, e.g.
-## new Date(2000,05,25)
-## However, setting this in the options list as character does not work. 
 
-gvisCheckAnnotatedTimeLineData <- function(data, options){
-
+gvisCheckAnnotatedTimeLineData <- function(data, options, idvar){
+  
   data.structure <- list(
-		     datevar  = list(mode="required",FUN=check.date),
-        	     idvar    = list(mode="required",FUN=check.char),
-        	     numvar   = list(mode="required",FUN=check.num),
-        	     titlevar = list(mode="optional",FUN=check.char),
-        	     annotationvar  = list(mode="optional",FUN=check.char))
-	
-  x <- gvisCheckData(data=data,options=options,data.structure=data.structure)
+                         datevar  = list(mode="required",FUN=check.date),
+                         numvar   =  list(mode="required",FUN=check.num),
+                         idvar  = list(mode="optional",FUN=check.char),                   
+                         titlevar = list(mode="optional",FUN=check.char),
+                         annotationvar  = list(mode="optional",FUN=check.char))
+  
+  x <- gvisCheckData(data=data, options=options, data.structure=data.structure)
+  ##  return(x)  
 
   x.df <- as.data.frame(x)
-  x.df <- reshape(x.df, v.names=names(x)[-c(1,2)], idvar=names(x)[1], timevar=names(x)[2], direction="wide")
+
+
+    ##check if idvar is missing that datevar define unique rows
+  if(idvar==""){
+    if(length(x.df[,1]) != length(unique(x.df[,1])))
+      message("Warning: The data appears to more than one entry for the same date.\n",
+              "Have you considered using the idvar variable?")
+    ## if idvar is missing no reshape is required.
+    return(x.df)
+  }
+  
+
+  groups <- factor(x.df[[idvar]])
+  ngroups <- nlevels(groups)
+
+  
+  n.varying.vars <- ncol(x.df)-2
+  varying.vars <- c(2, 4:(3+n.varying.vars))
+
+  print( varying.vars)
+  x.df <- reshape(x.df,
+                  v.names=names(x.df)[varying.vars], ##numvar , titlevar, annotationvar
+                  idvar=names(x.df)[1], ## datevar 
+                  timevar=names(x.df)[3], ## idvar
+                  direction="wide") 
+
+  names(x.df)[c(2:(ngroups+1))] <- levels(groups)
+
   return(x.df)
 }
 

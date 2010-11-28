@@ -24,7 +24,8 @@ gvisGeoMap <- function(data, locationvar="", numvar="", hovervar="", options=lis
 
   my.options <- list(gvis=modifyList(list(width = 600),options), 
                      dataName=dataName,
-                     data=list(locationvar=locationvar,numvar=numvar,hovervar=hovervar,
+                     data=list(locationvar=locationvar, numvar=numvar,
+                       hovervar=hovervar,  
                      allowed=c("number", "string")))
   
   checked.data <- gvisCheckGeoMapData(data, my.options)

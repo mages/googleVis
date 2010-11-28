@@ -22,7 +22,6 @@
 gvisChart <- function(type, checked.data, options){
   
   Chart = gvis(type=type, checked.data, options=options)
-  
   chartid <- Chart$chartid
   htmlChart <- Chart$jsChart
   
@@ -52,6 +51,7 @@ gvis <- function(type="", data, options, chartid=NULL){
   if(is.null(chartid)){
     chartid <- paste(type, format(Sys.time(), "%Y-%m-%d-%H-%M-%S"), sep="_")
   }
+
   
   output <- gvisFormat(data)
   data.type <- output$data.type
@@ -111,7 +111,6 @@ chart.draw(data,options);
   ## return json object and chart id
   
   output <- list(jsChart=jsChart, type=type, chartid=chartid)
-  
   return(output)
 }
 
@@ -202,32 +201,43 @@ check.num.pos <- function(x){
     y
 }
 
-gvisCheckData <- function(data="", options=list(),data.structure=list()){
+gvisCheckData <- function(data="", options=list(), data.structure=list()){
   ## Convert data.frame to list
   x <- as.list(data)
   varNames <- names(x)
   
   ## Check if required vars match columns in the data
-  vars.req <- names(grep(TRUE,lapply(data.structure,function(x){x$mode})=="required",value=T))
-  vars.opt <- names(grep(TRUE,lapply(data.structure,function(x){x$mode})=="optional",value=T))
-
+  vars.req <- names(grep(TRUE, lapply(data.structure,
+                                      function(x){x$mode})=="required", value=T)) 
+  vars.opt <- names(grep(TRUE, lapply(data.structure,
+                                      function(x){x$mode})=="optional", value=T)) 
+  
   # required and empty? fill with varNames in order given by data.structure
-  req.and.empty <- (names(options$data) %in% vars.req) & (options$data=="") 
-  options$data[req.and.empty] <- varNames[match(names(options$data[req.and.empty]),names(data.structure))]
-
-  vars.pos <- match(unlist(options$data[vars.req],use.names=F),varNames)
+  req.and.empty <- ((names(options$data) %in% vars.req) &
+                    (options$data==""))
+  
+  options$data[req.and.empty] <-
+    varNames[match(names(options$data[req.and.empty]),
+                   names(data.structure))]  
+  
+  vars.pos <- match(unlist(options$data[vars.req], use.names=F),
+                    varNames) 
   if(any(is.na(vars.pos)) & (length(varNames) < length(vars.req))){
     stop("There are not enough columns in your data.")
   }
-  x <- x[as.character(options$data[options$data!="" & names(options$data) != "allowed" & names(options$data) != "date.format"])]
-
-  sapply(names(options$data[options$data!="" & names(options$data) != "allowed" & names(options$data) != "date.format"]),
-          function(.x){ 
-            .x <- as.character(.x)
-            y <- x[[as.character(options$data[.x])]];
-            x[[as.character(options$data[.x])]] <<- data.structure[[.x]]$FUN(y);
-          })
-  x
+  x <- x[as.character(options$data[options$data!="" &
+                                   names(options$data) != "allowed" &
+                                   names(options$data) != "date.format"])]
+  
+  sapply(names(options$data[options$data!="" & names(options$data) !=
+                            "allowed" & names(options$data) != "date.format"]), 
+         function(.x){ 
+           .x <- as.character(.x)
+           y <- x[[as.character(options$data[.x])]];
+           x[[as.character(options$data[.x])]] <<- data.structure[[.x]]$FUN(y);
+         })
+  
+  return(x)
 }
 
 
@@ -305,13 +315,15 @@ infoString <- function(type=""){
     ECOMMENT <- " -->\n"
 
     result <- result + BCOMMENT + type + " generated in " +
-              info$language + " " + info$major + "." + info$minor + 
-              " by googleVis " + packageDescription('googleVis')$Version + " package" + ECOMMENT
+      info$language + " " + info$major + "." + info$minor + 
+        " by googleVis " +
+          packageDescription('googleVis')$Version + " package" +
+            ECOMMENT 
     result <- result + BCOMMENT + date() + ECOMMENT
     result$text
-}
+  }
 
-# define class string with nice '+' paste, taken from xtable.
+## define class string with nice '+' paste, taken from xtable.
 
 "+.string" <- function(x,y) {
   x$text <- paste(x$text,as.string(y)$text,sep="")
@@ -332,9 +344,9 @@ string <- function(text,file="",append=FALSE) {
 as.string <- function(x,file="",append=FALSE) {
   if (is.null(attr(x,"class",exact=TRUE)))
   switch(data.class(x),
-      character=return(string(x,file,append)),
-      numeric=return(string(as.character(x),file,append)),
-      stop("Cannot coerse argument to a string"))
+         character=return(string(x,file,append)),
+         numeric=return(string(as.character(x),file,append)),
+         stop("Cannot coerse argument to a string"))
   if (class(x)=="string")
     return(x)
   stop("Cannot coerse argument to a string")
