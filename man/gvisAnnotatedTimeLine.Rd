@@ -13,39 +13,43 @@
   annotations. The chart is rendered within the browser using Flash. 
 }
 \usage{
-gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "", titlevar="", annotationvar="",
-		      date.format = "\%Y/\%m/\%d", options = list())
+gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
+                      titlevar="", annotationvar="",
+                      date.format = "\%Y/\%m/\%d",
+                      options = list())
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{
     a \code{data.frame}. The data has to have at least two
     columns, one with date information (\code{datevar})
-    and one numerical variable. Further numerical and character
-    columns are allowed. Every numerical column can have two columns
-    followed in the data with character information containing an annotation title
-    and text. Missing information can be set to \code{NA}. See section
-    'Details' for more details.
+    and one numerical variable. 
   }
   \item{datevar}{
     column name of \code{data} which shows the date dimension. The
     information has to be of class \code{\link{Date}}.
   }
   \item{numvar}{
-    column name of \code{data} which shows the values. The
-    information has to be of class \code{\link{numeric}}.
+    column name of \code{data} which shows the values to be displayed
+    against \code{datevar}. The
+    information has to be \code{\link{numeric}}.
   }
   \item{idvar}{
-    column name of \code{data} which groups the data. The
-    information has to be of class \code{\link{character}}.
+    column name of \code{data} which identifies different groups of the data. The
+    information has to be of class \code{\link{character}} or
+    \code{\link{factor}}.
   }
   \item{titlevar}{
-    column name of \code{data} which shows the title. The
-    information has to be of class \code{\link{character}}.
+    column name of \code{data} which shows the title of the annotations. The
+    information has to be of class \code{\link{character}} or
+    \code{\link{factor}}.  Missing information can be set to \code{NA}. See section
+    'Details' for more details.
   }
   \item{annotationvar}{
-    column name of \code{data} which shows the text. The
-    information has to be of class \code{\link{character}}.
+    column name of \code{data} which shows the annotation text. The
+    information has to be of class \code{\link{character}} or
+    \code{\link{factor}}. Missing information can be set to \code{NA}. See section
+    'Details' for more details.
   }
   \item{date.format}{
     if \code{datevar} is of class \code{\link{Date}} then this argument
@@ -354,7 +358,7 @@ described by a set of one to three columns.
   }
 }
 \references{
-  Google Tree Map  API:
+  Google Annotated Time Line API:
   \url{http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html}
 
   Follow the link also for Google's Data Policy.  
@@ -372,8 +376,8 @@ described by a set of one to three columns.
 \seealso{
   
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods, \code{\link{gvisGeoMap}} for an 
-  alternative to \code{gvisMap}. 
+  printing and plotting methods. Further see \code{\link{reshape}} for
+  reshaping data, e.g. from a wide format into a long format.
   
 }
 \examples{
@@ -388,30 +392,10 @@ described by a set of one to three columns.
 ## to see the visualisation output, see also ?plot.gvis for further
 ## details.  
 
-## Create data as used by Google in their example
- Date <- as.Date(paste("2008-1-", 1:6, sep=""))
- Pencils <- c(3000, 14045, 5502, 75284, 41476, 333222)
- Pencils.titles <-c(rep(NA,4), 'Bought Penciles', NA)
- Pencils.annotation <-c(rep(NA,4), 'Bought 200k pencils', NA)
- Pens <- c(40645, 20374, 50766, 14334, 66467, 39463)
- Pens.titles <- c(rep(NA, 3), 'Out of stock', NA, NA)
- Pens.annotation <- c(rep(NA, 3), 'Ran of stock on pens at 4pm', NA, NA)
 
- original.df=data.frame(Date, Pencils, Pencils.titles,
-                        Pencils.annotation, Pens, Pens.titles,
-                        Pens.annotation)  
-
-
- my.df <- reshape(original.df, idvar="Date", times=c("Pencils", "Pens"), 
-                  timevar="Device",
-                  varying=list(c("Pencils", "Pens"),
-                               c("Pencils.titles", "Pens.titles"),
-                               c("Pencils.annotation", "Pens.annotation")), 
-                   v.names=c("Value", "Title", "Annotation"),
-                   direction="long")
-
-
-A1 <- gvisAnnotatedTimeLine(my.df, datevar="Date",
+data(Stock)
+Stock
+A1 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                            numvar="Value", idvar="Device",
                            titlevar="Title", annotationvar="Annotation",
                            options=list(displayAnnotations=TRUE,
@@ -424,7 +408,7 @@ plot(A1)
 ## Two Y-axis
 
 
-A2 <- gvisAnnotatedTimeLine(my.df, datevar="Date",
+A2 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                            numvar="Value", idvar="Device",
                            titlevar="Title", annotationvar="Annotation",
                            options=list(displayAnnotations=TRUE, 
@@ -436,7 +420,7 @@ plot(A2)
 }
 
 ## Zoom into the time window, no Y-axis ticks
-A3 <- gvisAnnotatedTimeLine(my.df, datevar="Date",
+A3 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                            numvar="Value", idvar="Device",
                            titlevar="Title", annotationvar="Annotation",
                            options=list(

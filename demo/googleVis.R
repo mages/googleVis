@@ -52,12 +52,12 @@ plot(Tree)
 pause()
 
 ## Annotated Time Line Chart
-AnnoTimeLine <- gvisAnnotatedTimeLine(Lehman[c("Date", "Adj.Close", "Title", "Annotation", "Volume")],
-                         datevar=Date,
-                         options=list(displayAnnotations=TRUE, 
-                           width=800, height=600, scaleColumns='[0,1]',
-                           scaleType='allmaximized')
-                         )
+AnnoTimeLine  <- gvisAnnotatedTimeLine(Stock, datevar="Date",
+                           numvar="Value", idvar="Device",
+                           titlevar="Title", annotationvar="Annotation",
+                           options=list(displayAnnotations=TRUE,
+                            width=600, height=350)
+                           )
 plot(AnnoTimeLine)
 pause()
 

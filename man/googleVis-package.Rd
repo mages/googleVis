@@ -19,7 +19,7 @@ Using the Google Visualisation API with R
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
 	Version: \tab 0.2.1\cr
-	Date: \tab 20010-11-24\cr
+	Date: \tab 20010-11-30\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
@@ -36,7 +36,7 @@ Using the Google Visualisation API with R
       (\url{http://www.braju.com/R/}) that allows us to display motion
       charts locally.
 
-      To find out more on how you can integrate googleVis charts into
+      To find out more about how you can integrate googleVis charts into
       rsp-pages type: \code{browseRsp()}.  
     } 
     \item{Duncan Temple Lang for providing the \code{RJSONIO} package

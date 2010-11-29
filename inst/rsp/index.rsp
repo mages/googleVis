@@ -80,21 +80,23 @@
     <p>
       For example 
       <pre>
-	&lt;%=gvisGeoMap(Exports, locationvar='Country', numvar='Profit',options=list(height=350, dataMode='regions'))$html$chart%&gt;
+&lt;%=gvisGeoMap(Exports, locationvar='Country',
+numvar='Profit',options=list(height=350,
+dataMode='regions'))$html$chart%&gt; 
       </pre> 
       gives you a <b>Geo Map</b>:
     </p>
     <p>
-      <%=gvisGeoMap(Exports, locationvar='Country',  numvar='Profit',options=list(height=350, dataMode='regions'))$html$chart%>
+      <%=gvisGeoMap(Exports, locationvar='Country', numvar='Profit',options=list(height=350, dataMode='regions'))$html$chart%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
       Geo Map API</a>  
     </p>
     <p>
       A Google <b>Map</b> can be create e.g. via 
       <pre>
-	&lt;%=gvisMap(Andrew, "LatLong" , "Tip", 
-      	      options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
-		      mapType='terrain', useMapTypeControl=TRUE))$html$chart&gt;
+&lt;%=gvisMap(Andrew, "LatLong" , "Tip", options=list(showTip=TRUE,
+showLine=TRUE, enableScrollWheel=TRUE,  mapType='terrain',
+useMapTypeControl=TRUE))$html$chart&gt;
      </pre> 
     </p>
     <p>
@@ -105,8 +107,8 @@
    <p>
       For a <b>Motion Chart</b> we would write something like 
       <pre>
-	&lt;%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
-	options=list(width=600, height=500))$html$chart%&gt;
+&lt;%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
+options=list(width=600, height=500))$html$chart%&gt;
       </pre> 
     </p>
     <p>
@@ -117,19 +119,20 @@
     <p>
       A <b>Tree Map</b> can be generated with 
       <pre>
-	&lt;%=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(width=600, height=500,
-	showScale=TRUE, fontSize=16))$html$chart%&gt;
+&lt;%=gvisTreeMap(Regions, idvar="Region", parentvar="Parent",
+sizevar="Val", colorvar="Fac", options=list(width=600, height=500,
+showScale=TRUE, fontSize=16))$html$chart%&gt;
       </pre> 
     </p>
     <p>
-      <%=gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$chart%>
+      <%=gvisTreeMap(Regions, "Region", "Parent", "Val", "Fac", options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$chart%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/treemap.html">Google
 	Tree Map API</a>  
     </p>
     <p>
       To display a <b>Table</b> we write 
       <pre>
-	&lt;%=gvisTable(Exports, options=list(width=600, height=300))$html$chart%&gt;
+&lt;%=gvisTable(Exports, options=list(width=600, height=300))$html$chart%&gt;
      </pre> 
     </p>
     <p>
@@ -142,13 +145,13 @@
     <p>
       For an <b>Annotated Time Line</b> an example could look like 
       <pre>
-	&lt;%=gvisAnnotatedTimeLine(Lehman[c("Date", "Adj.Close", "Volume")], 
-	datevar="Date",  options=list(scaleColumns='[0,1]',
-        scaleType='allmaximized'))$html$chart%&gt; 
+&lt;%=gvisAnnotatedTimeLine(Stock, datevar="Date", numvar="Value",
+idvar="Device",  titlevar="Title", annotationvar="Annotation",
+options=list(displayAnnotations=TRUE, width=600, height=350))$html$chart%&gt; 
      </pre> 
     </p>
     <p>
-      <%=gvisAnnotatedTimeLine(Lehman[c("Date", "Adj.Close", "Volume")],  datevar="Date",  options=list( scaleColumns='[0,1]', scaleType='allmaximized'))$html$chart%>
+      <%=gvisAnnotatedTimeLine(Stock, datevar="Date", numvar="Value",  idvar="Device", titlevar="Title", annotationvar="Annotation",  options=list(displayAnnotations=TRUE, width=600, height=350))$html$chart%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html">Google
       Annotated Time Line API</a>  
     </p>
