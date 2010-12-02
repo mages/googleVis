@@ -237,8 +237,14 @@ install.packages(c('R.rsp', 'RJSONIO', 'googleVis'),
 @
 The installation was successful if the
 command \texttt{library(googleVis)} gives you the following message:
-<<>>=
+<<echo=FALSE, quite=TRUE>>=
 library(googleVis)
+@ 
+<<eval=FALSE>>=
+library(googleVis)
+@ 
+<<echo=FALSE>>=
+cat(googleVis:::gvisWelcomeMessage())
 @ 
 Please note that by default the visualisation output files will be
 written into the \texttt{rsp/myAnlysis} folder of the \googleVis
@@ -390,7 +396,7 @@ example, we can embed the above motion chart into a rsp-page:
 You find a few examples a part of the \googleVis package. Those examples can be displayed
 via the following R command:
 <<eval=FALSE>>=
-browseRsp("http://127.0.0.1:8074/library/googleVis/rsp/")
+browseRsp()
 @
 The actual rsp-file is located within the \googleVis package directory, and again R
 allows you to find the file with the following R command: 
@@ -404,11 +410,11 @@ Please read also the documentation of the \rsp package.
 Obviously, the package is work in progress and there are many other functions of the Google
 Visualisation API which are still untouched. 
 
-Please feel free to send us an email
-\href{mailto:rvisualisation@gmail.com}{rvisualisation@gmail.com} 
-if you would like to be kept informed of new versions,
-or if you have any feedback, ideas, suggestions or would
-like to collaborate.
+Please feel free to send us an email if you would like to be kept
+informed of new versions, or if you have any feedback, ideas,
+suggestions or would like to collaborate, our address is
+\href{mailto:rvisualisation@gmail.com}{rvisualisation@gmail.com}. 
+
 
 \subsection{Citation}
 Please cite R and/or \googleVis if you use it in your work or publications. Use
