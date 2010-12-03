@@ -34,7 +34,7 @@
 
 gvisWelcomeMessage <- function(){
   
-       paste("\nWelcome to googleVis version", packageDescription("googleVis")$Version, "\n\n",
+       paste("\nWelcome to googleVis version ", packageDescription("googleVis")$Version, "\n\n",
       "Type ?googleVis to see the overall documentation and\n",
       "vignette('googleVis') to see the package vignette.\n",
       "You can see a demo of the package via: demo(googleVis)\n\n",  
