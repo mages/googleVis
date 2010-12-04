@@ -11,7 +11,7 @@ Using the Google Visualisation API with R
  The functions of the package allow the user to visualise data stored
  in R data frames with the Google Visualisation API.
 
- To view the output a browser with Flash and internet connection is required.
+ To view the output a browser with Flash and Internet connection is required.
  
 } 
 \details{

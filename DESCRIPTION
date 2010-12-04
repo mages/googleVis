@@ -10,7 +10,7 @@ Description: googleVis provides an interface between R and the Google
 	     The functions of the package allow the user to visualise
 	     data stored in R data frames with the Google
 	     Visualisation API. 
-	     To view the output a browser with Flash and internet
+	     To view the output a browser with Flash and Internet
 	     connection is required.
 Depends: RJSONIO (>= 0.3), R.rsp, methods
 Suggests: 

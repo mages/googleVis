@@ -100,7 +100,7 @@ M <- gvisMotionChart(Fruits, "Fruit", "Year")
 str(M)
 M
 \dontrun{
-## Web browser with internet connection and Flash required.
+## Web browser with Internet connection and Flash required.
 plot(M)
 }			
 
