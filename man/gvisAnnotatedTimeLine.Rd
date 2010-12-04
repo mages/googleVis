@@ -399,6 +399,7 @@ A1 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                            numvar="Value", idvar="Device",
                            titlevar="Title", annotationvar="Annotation",
                            options=list(displayAnnotations=TRUE,
+			    legendPosition='newRow',
                             width=600, height=350)
                            )
 \dontrun{
@@ -436,21 +437,22 @@ plot(A3)
 }
 \keyword{ hplot }
 
-%% ## Example with ChainLadder triangle
+%%## Example with ChainLadder triangle
+%% library(ChainLadder)
 %% lRAA=as.data.frame(RAA, na.rm=TRUE)
 %% lRAA$dev.year.end <- as.Date(with(lRAA, paste(dev,"-12-31", sep="")))
 %% lRAA$title <- NA
 %% lRAA$annotation <- NA
- 
+%% 
 %% lRAA$title[c(2,47)] <- c("Low first claim", "Negative development")
 %% lRAA$annotation[c(2,47)] <- c("Change in underlying claims process resulted in delayed reporting", 
 %%    "Joe Bloggs was on holiday and the person who covered for him
 %% mixed up the signs.")	
-%% wRAA=reshape(lRAA,  idvar="dev.year.end", v.names=c("value", "title",
-%% "annotation"), timevar="origin", direction="wide")
-%% A=gvisAnnotatedTimeLine(wRAA[,-1], "cal.year.end",
-%% options=list(legendPosition='newRow', width=800, height=400,
-%% displayAnnotations=TRUE))
-%% plot(A)
- 							   
- 							   
+%%  A <- gvisAnnotatedTimeLine(lRAA, datevar="dev.year.end", numvar="value", idvar="origin",
+%%                                   titlevar="title", annotationvar="annotation", 
+%%                                   options=list(legendPosition='newRow',
+%%				   width=800, height=400,
+%%				   displayAnnotations=TRUE))
+%% plot(A) 							   
+
+

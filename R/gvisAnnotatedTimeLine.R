@@ -83,15 +83,18 @@ gvisCheckAnnotatedTimeLineData <- function(data, options, idvar,
     else
       varying.vars <- 2
   }
+  var.names <- names(x.df)[varying.vars]
   
   x.df <- reshape(x.df,
-                  v.names=names(x.df)[varying.vars], ##numvar , titlevar, annotationvar
+                  v.names=var.names, ##numvar , titlevar, annotationvar
                   idvar=names(x.df)[1], ## datevar 
                   timevar=names(x.df)[3], ## idvar
                   direction="wide") 
 
  ## names(x.df)[c(2:(ngroups+1))] <- levels(groups)
 
+  names(x.df) <- gsub(paste(var.names[1], ".", sep=""), "", names(x.df))
+  
   return(x.df)
 }
 
