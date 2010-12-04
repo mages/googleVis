@@ -6,13 +6,13 @@
 \description{
   The gvisGeoMap function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
-  included into a web page, or as a standalone page.
+  included into a web page, or as a stand-alone page.
   
-  A geomap is a map of a country, continent, or region map, with colors
+  A Geo map is a map of a country, continent, or region map, with colors
   and values assigned to specific regions. Values are displayed as a color
-  scale, and you can specify optional hovertext for regions. The map is
+  scale, and you can specify optional hover-text for regions. The map is
   rendered in the browser using an embedded Flash player. Note that the
-  map is not scrollable or draggable, but can be configured to allow
+  map is not scroll-able or drag-gable, but can be configured to allow
   zooming.
 }
 \usage{

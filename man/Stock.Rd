@@ -14,7 +14,7 @@
     \item{\code{Date}}{a Date}
     \item{\code{Device}}{a character vector}
     \item{\code{Value}}{a numeric vector}
-    \item{\code{Title}}{a factor with levels \code{Bought Penciles} \code{Out of stock}}
+    \item{\code{Title}}{a factor with levels \code{Bought pencils} \code{Out of stock}}
     \item{\code{Annotation}}{a factor with levels \code{Bought 200k pencils} \code{Ran of stock on pens at 4pm}}
   }
 }
@@ -33,7 +33,7 @@
 
  Date <- as.Date(paste("2008-1-", 1:6, sep=""))
  Pencils <- c(3000, 14045, 5502, 75284, 41476, 333222)
- Pencils.titles <-c(rep(NA,4), 'Bought Penciles', NA)
+ Pencils.titles <-c(rep(NA,4), 'Bought pencils', NA)
  Pencils.annotation <-c(rep(NA,4), 'Bought 200k pencils', NA)
  Pens <- c(40645, 20374, 50766, 14334, 66467, 39463)
  Pens.titles <- c(rep(NA, 3), 'Out of stock', NA, NA)

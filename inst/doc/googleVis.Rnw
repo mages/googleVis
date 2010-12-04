@@ -53,7 +53,7 @@ Contact: rvisualisation@gmail.com}
 \section{Introduction}
 
 \subsection{Motivation}
-More and more data is becoming available and accesible, and yet
+More and more data is becoming available and accessible, and yet
 stories and insights are still often missed: we are lost in the data
 jungle and struggle to see the wood for the trees. 
 
@@ -176,7 +176,7 @@ Figure~\ref{MotionChartGUI}:
 \end{verbatim}
 You will notice that the above html-code has three generic parts:
 \begin{itemize}
-\item reference to a javascript function provided by Google, here 
+\item reference to a JavaScript function provided by Google, here 
 	\texttt{'motionchart'},
 
 \item data to visualise as a \texttt{DataTable}, 
@@ -378,7 +378,7 @@ Further examples are part of the \googleVis demo, including one
 example demonstrating how the output of several visualisations can
 be incorporated into a single page.
 
-\subsection{Using \texttt{googl{V}is} with \texttt{rsp}}\label{rspexample}
+\subsection{Using \texttt{google{V}is} with \texttt{rsp}}\label{rspexample}
 The \rsp package allows the user to integrate R code into html-code,
 which together with the \rsp web server are executed at run time.
 

@@ -14,7 +14,7 @@
     \item{\code{Date/Time UTC}}{a POSIXct}
     \item{\code{Lat}}{a numeric vector}
     \item{\code{Long}}{a numeric vector}
-    \item{\code{Presure_mb}}{a numeric vector}
+    \item{\code{Pressure_mb}}{a numeric vector}
     \item{\code{Speed_kt}}{a numeric vector}
     \item{\code{Category}}{a factor with levels \code{Hurricane} \code{Tropical Depression} \code{Tropical Storm}}
     \item{\code{LatLong}}{a character vector}

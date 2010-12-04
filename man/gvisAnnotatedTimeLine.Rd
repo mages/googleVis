@@ -7,7 +7,7 @@
 
   The gvisAnnotatedTimeLine function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
-  included into a web page, or as a standalone page.
+  included into a web page, or as a stand-alone page.
   
   An annotated time line is an interactive time series line chart with optional
   annotations. The chart is rendered within the browser using Flash. 
@@ -53,7 +53,7 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
   }
   \item{date.format}{
     if \code{datevar} is of class \code{\link{Date}} then this argument
-    specifies how the dates are reformatted to be used by javascript. 
+    specifies how the dates are reformatted to be used by JavaScript. 
   }
   \item{options}{list of configuration options for Google Annotated Time Line.
     The possible components are, taken from
@@ -150,7 +150,7 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
       \item{\code{fill}}{number. Default 0. A number from 0-100
 	(inclusive) specifying the alpha of the fill below each line in
 	the line graph. 100 means 100\% opaque fill, 0 means no fill at
-	all. The fill color is the same color asthe line above it.
+	all. The fill color is the same color as the line above it.
       }
       \item{\code{highlightDot}}{string. Default 'nearest'.
 	Which dot on the series to highlight, and corresponding values to
