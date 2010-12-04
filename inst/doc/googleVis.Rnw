@@ -217,7 +217,7 @@ Map~\cite{GoogleTreeMap}, see Figure~\ref{demos} for examples.
 
 \begin{figure}%%[!ht]
 \begin{center}
-\includegraphics[width=\textwidth]{googleVisDemoPlots.png}
+\includegraphics[width=\textwidth]{googleVisDemoPlots2.pdf}
 \caption{
   Screenshot of some of the outputs of \texttt{demo(googleVis)} with 
   \texttt{gvisMotionChart, gvisAnnotatedTimeLine,  gvisMap,
