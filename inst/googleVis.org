@@ -1,4 +1,4 @@
 * TASKS googleVis to-do list:
-** TODO Documentation of gvis-functions
-Document individual gvis-functions
-** TODO Vignette requires update
+** DONE Documentation of gvis-functions
+Document individual gvis-functions*
+** DONE Vignette requires update

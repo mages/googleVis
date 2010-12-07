@@ -40,8 +40,8 @@ Contact: rvisualisation@gmail.com}
   interactive charts which can be embedded into web pages. The most
   well known of those charts is probably the Motion Chart, popularised
   by Hans Rosling in his TED talks.  With the \googleVis package users
-  can create web pages with  interactive charts based on R data frames
-  easily and display them either via the \rsp package or
+  can create easily web pages with  interactive charts based on R data frames
+  and display them either via the \rsp package or
   within their own sites. Currently the package provides interfaces to
   Motion Charts, Annotated Time Lines, Maps, Geo Maps, Tables and Tree Maps. 
 \end{abstract}
@@ -53,14 +53,14 @@ Contact: rvisualisation@gmail.com}
 \section{Introduction}
 
 \subsection{Motivation}
-More and more data is becoming available and accessible, and yet
+More and more data is becoming available, and yet
 stories and insights are still often missed: we are lost in the data
 jungle and struggle to see the wood for the trees. 
 
 Hence new tools are required to bring data to life, to engage with
 users, to enable them to slice and dice the data, to view it from
 various angles and to find stories worth telling: outliers, trends or
-even the bleeding obvious. 
+even the obvious. 
 
 In 2006 Hans Rosling gave an inspiring talk at TED
 ~\cite{HansRoslingTedTalk} about social and economic developments in
@@ -102,8 +102,7 @@ there, e.g.
   (JavaScript)} \cite{OpenLayers}, 
 \href{http://processing.org/}{Processing (Java)} \cite{Processing}, 
 \href{http://simile.mit.edu/}{simile (AJAX)} \cite{Simile} and
-\href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare} to
-name but a few.
+\href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare}.
 
 \begin{figure}[!ht]
 \begin{center}
@@ -189,7 +188,7 @@ Those principles hold true for most of the interactive charts of the
 Google Visualisation API, see the examples in Figure~\ref{demos}.
 
 To display the visualisation, the html-page must be loaded from a
-web server in a browser with internet connection and Flash; it will not
+web server in a browser with Internet connection and Flash; it will not
 work when loaded as a local file. For more details see the Google
 Visualisation API documentation~\cite{GoogleMotionChart}.
 
@@ -206,8 +205,10 @@ taken by Sweave~\cite{Sweave2002} for \LaTeX. For more details see the
 The \googleVis package provides an interface between R and the Google
 Visualisation API.  The functions of the package allow the user to
 visualise data stored in R data frames with the Google  Visualisation
-API.  To view the output a browser with Flash and internet  connection
-is required.  
+API. The output of \googleVis functions is html code that contains the
+data and references to Google JavaScript functions. To view the output
+a browser with Flash and Internet  connection 
+is required, the actual chart a rendered in the browser.
 
 Currently the package provides interfaces to Motion
 Chart~\cite{GoogleMotionChart}, Annotated Time
@@ -264,7 +265,7 @@ detail in the help pages. Here we will cover only the principles of
 the package.
 
 As an example we will show how to generate a motion chart as displayed in   
-Figure~\ref{MotionChartGUI}. It works analogue for the other
+Figure~\ref{MotionChartGUI}. It works similarly for the other
 APIs. Further examples are covered in the demos of the \googleVis
 package, see also Figure~\ref{demos}. 
 
@@ -281,12 +282,12 @@ optional list. The options and data requirements follow those of the
 Google Visualisation API and are documented in the help pages, see
 \texttt{?gvisMotionChart}.  
 
-The output of a \googleVis function is a list of lists
+The output of a \googleVis function is a list of lists (a nested list)
 containing information about the chart type, chart id and the html
 code in a  sub-list with header, chart, caption and footer.
 
-The idea behind this concept is that users can get on one hand side a
-complete web page, but on the other hand can extract specific parts,
+The idea behind this concept is that users can get a
+complete web page and at the same time can extract specific parts,
 such as the chart. This is particular helpful if the package functions
 are used in solutions where the user wants to feed the visualisation
 output into other sites, or would like to embed them into rsp-pages,
@@ -294,19 +295,19 @@ see page~\pageref{rspexample}.
 
 The output of a \googleVis function will be of class \texttt{'gvis'}
 and \texttt{'list'}. Generic print (\texttt{print.gvis})  and plot
-(\texttt{plot.gvis}) functions exist to ease the handle of such objects. 
+(\texttt{plot.gvis}) functions exist to ease the handling of such objects. 
 
-To illustrate the concept we shall create a motion chart using the Fruits
-sample data set.
+To illustrate the concept we shall create a motion chart using the
+\texttt{Fruits} data set. 
 
 \subsection{Motion Chart Example}
 
 Following the documentation of the Google Motion Chart API we need a
 data set which has at least four columns; one identifying the
 variable we would like to plot, one time variable and at least two
-numerical variables. Further numerical and character columns are allowed.
+numerical variables, further numerical and character columns are allowed.
 
-As an example we shall use the \texttt{Fruits} data set:
+As an example we use the \texttt{Fruits} data set:
 <<>>=
 data(Fruits)
 Fruits
@@ -314,7 +315,7 @@ Fruits
 
 In this case we will use the columns \texttt{'Fruit'} and
 \texttt{'Year'} as id and time variable respectively. However we could
-heave used also \texttt{'Date'} instead of \texttt{'Year'}. 
+also heave used \texttt{'Date'} instead of \texttt{'Year'}. 
 
 <<>>=
  M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
@@ -334,16 +335,16 @@ type and date:
 M$type
 M$chartid
 @ 
-The html output list is then split into header, chart, caption and
+The html output is a list with header, chart, caption and
 footer. This allows the user to extract only certain parts
 of the page, or to create a complete html page. 
 
 The header part of the html page has only basic html tags and includes
-two rsp-files to provide a  simple layout framework.
+links to two rsp-files to provide a  simple layout.
 <<>>=
 cat(M$html$header)
 @ 
-The actual Google Visualisation is stored in the \texttt{chart} item
+The actual Google visualisation code is stored with the data in the \texttt{chart} item
 of the html list. 
 <<>>=
 cat(M$html$chart)
@@ -360,12 +361,15 @@ To display the page locally just type:
 <<eval=FALSE>>=
 plot(M)
 @
-The plot method for \texttt{gvis} object will automatically create by
-default a rsp-file in the \texttt{rsp/myAnalysis} folder of the \googleVis package
-using the type and chart id information of the object, and it will
-display the output using the local web server of the \rsp package.
 
-The following R-command will show you the path to this folder:
+The plot method for \texttt{gvis} object will by
+default automatically create a rsp-file in the \texttt{rsp/myAnalysis}
+folder of the \googleVis package using the type and chart id
+information of the object and it will display the output using the
+local web server of the \rsp package. 
+
+The following R-command will show you the path to the
+\texttt{rsp/myAnalysis} folder:
 <<eval=FALSE>>=
 system.file(file.path("rsp", "myAnalysis"), package="googleVis")
 @ 
@@ -374,13 +378,14 @@ e.g. your web server repository, then you can set the arguments for
 \texttt{filename} and \texttt{repos} (web server address of the
 repository) individually. 
 
-Further examples are part of the \googleVis demo, including one
+Further examples as part of the \googleVis demo, including one
 example demonstrating how the output of several visualisations can
 be incorporated into a single page.
 
 \subsection{Using \texttt{google{V}is} with \texttt{rsp}}\label{rspexample}
-The \rsp package allows the user to integrate R code into html-code,
-which together with the \rsp web server are executed at run time.
+The \rsp package allows the user to integrate R code into html-code.
+The R code is filtered by the \rsp web server and executed
+at run time. 
 
 As mentioned above the R.rsp package allows us to dynamically
 generate documents into static content using R Server Pages. This
