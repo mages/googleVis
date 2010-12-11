@@ -6,6 +6,11 @@
 \usepackage{url}
 \usepackage{hyperref}
 
+\hypersetup{
+  pdftitle={Using the Google Visualisation API with R},%
+  pdfauthor={Markus Gesmann},%
+}
+
 %\VignetteIndexEntry{Using the Google Visualisation with R}
 
 \SweaveOpts{engine=R, eps=FALSE, keep.source = TRUE}
@@ -287,7 +292,7 @@ containing information about the chart type, chart id and the html
 code in a  sub-list with header, chart, caption and footer.
 
 The idea behind this concept is that users can get a
-complete web page and at the same time can extract specific parts,
+complete web page while at the same time can extract specific parts,
 such as the chart. This is particular helpful if the package functions
 are used in solutions where the user wants to feed the visualisation
 output into other sites, or would like to embed them into rsp-pages,
@@ -378,7 +383,7 @@ e.g. your web server repository, then you can set the arguments for
 \texttt{filename} and \texttt{repos} (web server address of the
 repository) individually. 
 
-Further examples as part of the \googleVis demo, including one
+Further examples are part of the \googleVis demo, including one
 example demonstrating how the output of several visualisations can
 be incorporated into a single page.
 
@@ -394,17 +399,18 @@ example, we can embed the above motion chart into a rsp-page:
 \begin{verbatim}
 <html>
 <body>
+<%=library(googleVis)%>
 <%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")$html$Chart%>
 </body>
 </html>
 \end{verbatim}
-You find a few examples a part of the \googleVis package. Those examples can be displayed
+You find a few examples as part of the \googleVis package. Those examples can be displayed
 via the following R command:
 <<eval=FALSE>>=
 browseRsp()
 @
-The actual rsp-file is located within the \googleVis package directory, and again R
-allows you to find the file with the following R command: 
+The actual rsp-file is located within the \googleVis package directory
+and again R allows you to find the file with the following command: 
 <<eval=FALSE>>=
 filePath(system.file("rsp", package = "googleVis"), "index.rsp")
 @ 
