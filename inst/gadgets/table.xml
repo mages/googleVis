@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="Geo Map" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- Table generated in R 2.12.0 by googleVis 0.2.1-1 package -->
+<!-- Sat Dec 11 22:58:11 2010 -->
+
+
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+google.load("visualization", "1", { packages:["table"] });
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = new google.visualization.DataTable();
+var datajson = [
+ [
+ "Germany",
+     3,
+true 
+],
+[
+ "Brazil",
+     4,
+false 
+],
+[
+ "United States",
+     5,
+true 
+],
+[
+ "France",
+     4,
+true 
+],
+[
+ "Hungary",
+     3,
+false 
+],
+[
+ "India",
+     2,
+true 
+],
+[
+ "Iceland",
+     1,
+false 
+],
+[
+ "Norway",
+     4,
+true 
+],
+[
+ "Spain",
+     5,
+true 
+],
+[
+ "Turkey",
+     1,
+false 
+] 
+];
+data.addColumn('string','Country');
+data.addColumn('number','Profit');
+data.addColumn('boolean','Online');
+data.addRows(datajson);
+var chart = new google.visualization.Table(
+   document.getElementById('Table_2010-12-11-22-58-11')
+);
+var options ={};
+options["allowHtml"] = true;
+options["width"] =    400;
+options["height"] =    300;
+chart.draw(data,options);
+}
+</script>
+<div id="Table_2010-12-11-22-58-11" style="width: 400px; height: 300px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="Geo Map" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- TreeMap generated in R 2.12.0 by googleVis 0.2.1-1 package -->
+<!-- Sat Dec 11 22:58:12 2010 -->
+
+
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+google.load("visualization", "1", { packages:["treemap"] });
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = new google.visualization.DataTable();
+var datajson = [
+ [
+ "Global",
+null,
+    10,
+     2 
+],
+[
+ "America",
+"Global",
+     2,
+     4 
+],
+[
+ "Europe",
+"Global",
+    99,
+    11 
+],
+[
+ "Asia",
+"Global",
+    10,
+     8 
+],
+[
+ "France",
+"Europe",
+    71,
+     2 
+],
+[
+ "Sweden",
+"Europe",
+    89,
+     3 
+],
+[
+ "Germany",
+"Europe",
+    58,
+    10 
+],
+[
+ "Mexico",
+"America",
+     2,
+     9 
+],
+[
+ "USA",
+"America",
+    38,
+    11 
+],
+[
+ "China",
+"Asia",
+     5,
+     1 
+],
+[
+ "Japan",
+"Asia",
+    48,
+    11 
+] 
+];
+data.addColumn('string','Region');
+data.addColumn('string','Parent');
+data.addColumn('number','Val');
+data.addColumn('number','Fac');
+data.addRows(datajson);
+var chart = new google.visualization.TreeMap(
+   document.getElementById('TreeMap_2010-12-11-22-58-12')
+);
+var options ={};
+options["width"] =    600;
+options["height"] =    500;
+options["fontSize"] =     16;
+chart.draw(data,options);
+}
+</script>
+<div id="TreeMap_2010-12-11-22-58-12" style="width: 600px; height: 500px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

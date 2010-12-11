@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="Geo Map" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- MotionChart generated in R 2.12.0 by googleVis 0.2.1-1 package -->
+<!-- Sat Dec 11 22:58:11 2010 -->
+
+
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+google.load("visualization", "1", { packages:["motionchart"] });
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = new google.visualization.DataTable();
+var datajson = [
+ [
+ "Apples",
+  2008,
+"West",
+    98,
+    78,
+    20,
+"2008-12-31" 
+],
+[
+ "Apples",
+  2009,
+"West",
+   111,
+    79,
+    32,
+"2009-12-31" 
+],
+[
+ "Apples",
+  2010,
+"West",
+    89,
+    76,
+    13,
+"2010-12-31" 
+],
+[
+ "Oranges",
+  2008,
+"East",
+    96,
+    81,
+    15,
+"2008-12-31" 
+],
+[
+ "Bananas",
+  2008,
+"East",
+    85,
+    76,
+     9,
+"2008-12-31" 
+],
+[
+ "Oranges",
+  2009,
+"East",
+    93,
+    80,
+    13,
+"2009-12-31" 
+],
+[
+ "Bananas",
+  2009,
+"East",
+    94,
+    78,
+    16,
+"2009-12-31" 
+],
+[
+ "Oranges",
+  2010,
+"East",
+    98,
+    91,
+     7,
+"2010-12-31" 
+],
+[
+ "Bananas",
+  2010,
+"East",
+    81,
+    71,
+    10,
+"2010-12-31" 
+] 
+];
+data.addColumn('string','Fruit');
+data.addColumn('number','Year');
+data.addColumn('string','Location');
+data.addColumn('number','Sales');
+data.addColumn('number','Expenses');
+data.addColumn('number','Profit');
+data.addColumn('string','Date');
+data.addRows(datajson);
+var chart = new google.visualization.MotionChart(
+   document.getElementById('MotionChart_2010-12-11-22-58-11')
+);
+var options ={};
+options["width"] =    600;
+options["height"] =    500;
+chart.draw(data,options);
+}
+</script>
+<div id="MotionChart_2010-12-11-22-58-11" style="width: 600px; height: 500px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

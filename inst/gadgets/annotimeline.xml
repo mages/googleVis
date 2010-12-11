@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="Geo Map" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- AnnotatedTimeLine generated in R 2.12.0 by googleVis 0.2.1-1 package -->
+<!-- Sat Dec 11 22:58:12 2010 -->
+
+
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+google.load("visualization", "1", { packages:["annotatedtimeline"] });
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = new google.visualization.DataTable();
+var datajson = [
+ [
+ new Date(2008,01,01),
+  3000,
+null,
+null,
+ 40645,
+null,
+null 
+],
+[
+ new Date(2008,01,02),
+ 14045,
+null,
+null,
+ 20374,
+null,
+null 
+],
+[
+ new Date(2008,01,03),
+  5502,
+null,
+null,
+ 50766,
+null,
+null 
+],
+[
+ new Date(2008,01,04),
+ 75284,
+null,
+null,
+ 14334,
+"Out of stock",
+"Ran of stock on pens at 4pm" 
+],
+[
+ new Date(2008,01,05),
+ 41476,
+"Bought pencils",
+"Bought 200k pencils",
+ 66467,
+null,
+null 
+],
+[
+ new Date(2008,01,06),
+3.3322e+05,
+null,
+null,
+ 39463,
+null,
+null 
+] 
+];
+data.addColumn('date','Date');
+data.addColumn('number','Pencils');
+data.addColumn('string','Title.Pencils');
+data.addColumn('string','Annotation.Pencils');
+data.addColumn('number','Pens');
+data.addColumn('string','Title.Pens');
+data.addColumn('string','Annotation.Pens');
+data.addRows(datajson);
+var chart = new google.visualization.AnnotatedTimeLine(
+   document.getElementById('AnnotatedTimeLine_2010-12-11-22-58-12')
+);
+var options ={};
+options["width"] =    600;
+options["height"] =    350;
+options["displayAnnotations"] = true;
+chart.draw(data,options);
+}
+</script>
+<div id="AnnotatedTimeLine_2010-12-11-22-58-12" style="width: 600px; height: 350px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

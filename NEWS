@@ -1,9 +1,14 @@
-Version 0.2.1-1 [2010-12-05]
+Version 0.2.2 [2010-12-12]
 ==========================
 
 Changes
     
     o Fixed typos in documentation
+
+NEW FEATURES
+
+   o New function:
+     - createGoogleGadget to create Google Gadgets.
 
 
 Version 0.2.1 [2010-11-30]
