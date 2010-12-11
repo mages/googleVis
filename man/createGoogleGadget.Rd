@@ -35,7 +35,7 @@ Google Gadget can be embedded in various Google products, for example as part of
 
 
 \seealso{
-See also as \code{\link{print.gvis}, \code{\link{cat}}
+See also as \code{\link{print.gvis}}, \code{\link{cat}}
 }
 \examples{
 M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")

@@ -91,7 +91,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-See also \code{\link{cat}}, \code{\link{browseRsp}}
+See also \code{\link{cat}}, \code{\link{browseRsp}}, \code{\link{createGoogleGadget}}
 }
 \examples{
 

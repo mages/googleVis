@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="Geo Map" />
+  <ModulePrefs title="GeoMap_2010-12-11-23-44-22" />
   <Content type="html">
   <![CDATA[ 
-   <!-- GeoMap generated in R 2.12.0 by googleVis 0.2.1-1 package -->
-<!-- Sat Dec 11 22:58:11 2010 -->
+   <!-- GeoMap generated in R 2.12.0 by googleVis 0.2.2 package -->
+<!-- Sat Dec 11 23:44:23 2010 -->
 
 
 <script type="text/javascript" src="http://www.google.com/jsapi">
@@ -304,17 +304,17 @@ data.addColumn('number','Speed_kt');
 data.addColumn('string','Category');
 data.addRows(datajson);
 var chart = new google.visualization.GeoMap(
-   document.getElementById('GeoMap_2010-12-11-22-58-11')
+   document.getElementById('GeoMap_2010-12-11-23-44-22')
 );
 var options ={};
 options["dataMode"] = "markers";
-options["width"] =    600;
-options["height"] =    350;
+options["width"] =    400;
+options["height"] =    250;
 options["region"] = "US";
 chart.draw(data,options);
 }
 </script>
-<div id="GeoMap_2010-12-11-22-58-11" style="width: 600px; height: 350px;">
+<div id="GeoMap_2010-12-11-23-44-22" style="width: 400px; height: 250px;">
 </div>
 
   ]]> 

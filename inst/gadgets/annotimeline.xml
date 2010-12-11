@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="Geo Map" />
+  <ModulePrefs title="AnnotatedTimeLine_2010-12-11-23-44-23" />
   <Content type="html">
   <![CDATA[ 
-   <!-- AnnotatedTimeLine generated in R 2.12.0 by googleVis 0.2.1-1 package -->
-<!-- Sat Dec 11 22:58:12 2010 -->
+   <!-- AnnotatedTimeLine generated in R 2.12.0 by googleVis 0.2.2 package -->
+<!-- Sat Dec 11 23:44:23 2010 -->
 
 
 <script type="text/javascript" src="http://www.google.com/jsapi">
@@ -79,16 +79,17 @@ data.addColumn('string','Title.Pens');
 data.addColumn('string','Annotation.Pens');
 data.addRows(datajson);
 var chart = new google.visualization.AnnotatedTimeLine(
-   document.getElementById('AnnotatedTimeLine_2010-12-11-22-58-12')
+   document.getElementById('AnnotatedTimeLine_2010-12-11-23-44-23')
 );
 var options ={};
-options["width"] =    600;
-options["height"] =    350;
+options["width"] =    400;
+options["height"] =    250;
 options["displayAnnotations"] = true;
+options["legendPosition"] = "newRow";
 chart.draw(data,options);
 }
 </script>
-<div id="AnnotatedTimeLine_2010-12-11-22-58-12" style="width: 600px; height: 350px;">
+<div id="AnnotatedTimeLine_2010-12-11-23-44-23" style="width: 400px; height: 250px;">
 </div>
 
   ]]> 

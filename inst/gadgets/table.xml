@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="Geo Map" />
+  <ModulePrefs title="Table_2010-12-11-23-44-23" />
   <Content type="html">
   <![CDATA[ 
-   <!-- Table generated in R 2.12.0 by googleVis 0.2.1-1 package -->
-<!-- Sat Dec 11 22:58:11 2010 -->
+   <!-- Table generated in R 2.12.0 by googleVis 0.2.2 package -->
+<!-- Sat Dec 11 23:44:23 2010 -->
 
 
 <script type="text/javascript" src="http://www.google.com/jsapi">
@@ -71,7 +71,7 @@ data.addColumn('number','Profit');
 data.addColumn('boolean','Online');
 data.addRows(datajson);
 var chart = new google.visualization.Table(
-   document.getElementById('Table_2010-12-11-22-58-11')
+   document.getElementById('Table_2010-12-11-23-44-23')
 );
 var options ={};
 options["allowHtml"] = true;
@@ -80,7 +80,7 @@ options["height"] =    300;
 chart.draw(data,options);
 }
 </script>
-<div id="Table_2010-12-11-22-58-11" style="width: 400px; height: 300px;">
+<div id="Table_2010-12-11-23-44-23" style="width: 400px; height: 300px;">
 </div>
 
   ]]> 

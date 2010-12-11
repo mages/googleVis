@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="Geo Map" />
+  <ModulePrefs title="TreeMap_2010-12-11-23-44-23" />
   <Content type="html">
   <![CDATA[ 
-   <!-- TreeMap generated in R 2.12.0 by googleVis 0.2.1-1 package -->
-<!-- Sat Dec 11 22:58:12 2010 -->
+   <!-- TreeMap generated in R 2.12.0 by googleVis 0.2.2 package -->
+<!-- Sat Dec 11 23:44:23 2010 -->
 
 
 <script type="text/javascript" src="http://www.google.com/jsapi">
@@ -88,7 +88,7 @@ data.addColumn('number','Val');
 data.addColumn('number','Fac');
 data.addRows(datajson);
 var chart = new google.visualization.TreeMap(
-   document.getElementById('TreeMap_2010-12-11-22-58-12')
+   document.getElementById('TreeMap_2010-12-11-23-44-23')
 );
 var options ={};
 options["width"] =    600;
@@ -97,7 +97,7 @@ options["fontSize"] =     16;
 chart.draw(data,options);
 }
 </script>
-<div id="TreeMap_2010-12-11-22-58-12" style="width: 600px; height: 500px;">
+<div id="TreeMap_2010-12-11-23-44-23" style="width: 600px; height: 500px;">
 </div>
 
   ]]> 
