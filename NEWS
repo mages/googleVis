@@ -8,7 +8,7 @@ Changes
 NEW FEATURES
 
    o New function:
-     - createGoogleGadget allows the user to create Google Gadgets.
+     - createGoogleGadget which allows users to create Google Gadgets.
 
 
 Version 0.2.1 [2010-11-30]
