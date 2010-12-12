@@ -1,3 +1,4 @@
+## Move into the inst/gadget folder before you run this script!
 
 Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year", options=list(height=350, width=400))
 cat(createGoogleGadget(Motion), file="motionchart.xml")
