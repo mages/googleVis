@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="TreeMap_2010-12-11-23-44-23" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- TreeMap generated in R 2.12.0 by googleVis 0.2.2 package -->
+<!-- Sat Dec 11 23:44:23 2010 -->
+
+
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+google.load("visualization", "1", { packages:["treemap"] });
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+var data = new google.visualization.DataTable();
+var datajson = [
+ [
+ "USA",
+null,
+3.6184e+06,
+15.102 
+],
+[
+ "Northeast",
+"USA",
+1.6935e+05,
+ 12.04 
+],
+[
+ "South",
+"USA",
+8.9956e+05,
+ 13.71 
+],
+[
+ "North Central",
+"USA",
+7.6553e+05,
+13.548 
+],
+[
+ "West",
+"USA",
+1.784e+06,
+14.394 
+],
+[
+ "New England",
+"Northeast",
+ 66608,
+11.107 
+],
+[
+ "Middle Atlantic",
+"Northeast",
+1.0274e+05,
+ 11.54 
+],
+[
+ "South Atlantic",
+"South",
+2.7871e+05,
+12.538 
+],
+[
+ "East South Central",
+"South",
+1.8196e+05,
+12.112 
+],
+[
+ "West South Central",
+"South",
+4.3888e+05,
+12.992 
+],
+[
+ "East North Central",
+"North Central",
+2.4828e+05,
+12.422 
+],
+[
+ "West North Central",
+"North Central",
+5.1725e+05,
+13.156 
+],
+[
+ "Mountain",
+"West",
+8.6389e+05,
+13.669 
+],
+[
+ "Pacific",
+"West",
+9.2007e+05,
+13.732 
+],
+[
+ "Alabama",
+"East South Central",
+ 51609,
+10.851 
+],
+[
+ "Alaska",
+"Pacific",
+5.8976e+05,
+13.287 
+],
+[
+ "Arizona",
+"Mountain",
+1.1391e+05,
+11.643 
+],
+[
+ "Arkansas",
+"West South Central",
+ 53104,
+ 10.88 
+],
+[
+ "California",
+"Pacific",
+1.5869e+05,
+11.975 
+],
+[
+ "Colorado",
+"Mountain",
+1.0425e+05,
+11.555 
+],
+[
+ "Connecticut",
+"New England",
+  5009,
+ 8.519 
+],
+[
+ "Delaware",
+"South Atlantic",
+  2057,
+ 7.629 
+],
+[
+ "Florida",
+"South Atlantic",
+ 58560,
+10.978 
+],
+[
+ "Georgia",
+"South Atlantic",
+ 58876,
+10.983 
+],
+[
+ "Hawaii",
+"Pacific",
+  6450,
+8.7718 
+],
+[
+ "Idaho",
+"Mountain",
+ 83557,
+11.333 
+],
+[
+ "Illinois",
+"East North Central",
+ 56400,
+ 10.94 
+],
+[
+ "Indiana",
+"East North Central",
+ 36291,
+10.499 
+],
+[
+ "Iowa",
+"West North Central",
+ 56290,
+10.938 
+],
+[
+ "Kansas",
+"West North Central",
+ 82264,
+11.318 
+],
+[
+ "Kentucky",
+"East South Central",
+ 40395,
+10.606 
+],
+[
+ "Louisiana",
+"West South Central",
+ 48523,
+ 10.79 
+],
+[
+ "Maine",
+"New England",
+ 33215,
+10.411 
+],
+[
+ "Maryland",
+"South Atlantic",
+ 10577,
+9.2664 
+],
+[
+ "Massachusetts",
+"New England",
+  8257,
+9.0188 
+],
+[
+ "Michigan",
+"East North Central",
+ 58216,
+10.972 
+],
+[
+ "Minnesota",
+"West North Central",
+ 84068,
+11.339 
+],
+[
+ "Mississippi",
+"East South Central",
+ 47716,
+10.773 
+],
+[
+ "Missouri",
+"West North Central",
+ 69686,
+11.152 
+],
+[
+ "Montana",
+"Mountain",
+1.4714e+05,
+11.899 
+],
+[
+ "Nebraska",
+"West North Central",
+ 77227,
+11.255 
+],
+[
+ "Nevada",
+"Mountain",
+1.1054e+05,
+11.613 
+],
+[
+ "New Hampshire",
+"New England",
+  9304,
+9.1382 
+],
+[
+ "New Jersey",
+"Middle Atlantic",
+  7836,
+8.9665 
+],
+[
+ "New Mexico",
+"Mountain",
+1.2167e+05,
+11.709 
+],
+[
+ "New York",
+"Middle Atlantic",
+ 49576,
+10.811 
+],
+[
+ "North Carolina",
+"South Atlantic",
+ 52586,
+ 10.87 
+],
+[
+ "North Dakota",
+"West North Central",
+ 70665,
+11.166 
+],
+[
+ "Ohio",
+"East North Central",
+ 41222,
+10.627 
+],
+[
+ "Oklahoma",
+"West South Central",
+ 69919,
+11.155 
+],
+[
+ "Oregon",
+"Pacific",
+ 96981,
+11.482 
+],
+[
+ "Pennsylvania",
+"Middle Atlantic",
+ 45333,
+10.722 
+],
+[
+ "Rhode Island",
+"New England",
+  1214,
+7.1017 
+],
+[
+ "South Carolina",
+"South Atlantic",
+ 31055,
+10.344 
+],
+[
+ "South Dakota",
+"West North Central",
+ 77047,
+11.252 
+],
+[
+ "Tennessee",
+"East South Central",
+ 42244,
+10.651 
+],
+[
+ "Texas",
+"West South Central",
+2.6734e+05,
+12.496 
+],
+[
+ "Utah",
+"Mountain",
+ 84916,
+11.349 
+],
+[
+ "Vermont",
+"New England",
+  9609,
+9.1705 
+],
+[
+ "Virginia",
+"South Atlantic",
+ 40815,
+10.617 
+],
+[
+ "Washington",
+"Pacific",
+ 68192,
+ 11.13 
+],
+[
+ "West Virginia",
+"South Atlantic",
+ 24181,
+10.093 
+],
+[
+ "Wisconsin",
+"East North Central",
+ 56154,
+10.936 
+],
+[
+ "Wyoming",
+"Mountain",
+ 97914,
+11.492 
+] 
+];
+data.addColumn('string','regionid');
+data.addColumn('string','parentid');
+data.addColumn('number','state.area');
+data.addColumn('number','state.area.log');
+data.addRows(datajson);
+var chart = new google.visualization.TreeMap(
+   document.getElementById('TreeMap_2010-12-11-23-44-23')
+);
+var options ={};
+options["width"] =    400;
+options["height"] =    300;
+options["showScale"] = true;
+chart.draw(data,options);
+}
+</script>
+<div id="TreeMap_2010-12-11-23-44-23" style="width: 400px; height: 300px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>
