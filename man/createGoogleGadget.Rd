@@ -10,8 +10,7 @@ Create a Google Gadget based on a Google Visualisation Object
 createGoogleGadget(gvis)
 }
 \arguments{
-  \item{gvis}{an object of class 'gvis', e.g. output of a Google
-    Visualisation functions. 
+  \item{gvis}{an object of class 'gvis', e.g. output of a googleVis visualisation functions. 
 }
 }
 %\details{
@@ -22,13 +21,13 @@ createGoogleGadget(gvis)
 }
 \references{
   For more information about Google Gadgets see:
-  \url{http://code.google.com/apis/gadgets/docs/overview.html}
+  \url{http://www.google.com/webmasters/gadgets/}
 }
 \author{
 Markus Gesmann
 }
 \note{
-Google Gadget can be embedded in various Google products, for example as part of a Google Code wiki page, e.g.
+Google Gadgets can be embedded in various Google products, for example as part of a Google Code wiki page, e.g.
 
 <wiki:gadget url="http://example.com/gadget.xml" height="200" border="0" /> 
 }

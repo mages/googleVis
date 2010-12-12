@@ -11,7 +11,7 @@
   pdfauthor={Markus Gesmann},%
 }
 
-%\VignetteIndexEntry{Using the Google Visualisation with R}
+%\VignetteIndexEntry{Using the Google Visualisation API with R}
 
 \SweaveOpts{engine=R, eps=FALSE, keep.source = TRUE}
 <<options, echo=FALSE>>=
@@ -24,9 +24,9 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \setlength{\parindent}{0.0in}
 \setlength{\parskip}{2mm}
 
-\newcommand{\googleVis}{\texttt{googleVis} }
-\newcommand{\rsp}{\texttt{R.rsp }}
-\newcommand{\rjsonio}{\texttt{RJSONIO }}
+\newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
+\newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
+\newcommand{\rjsonio}{\textbf{\texttt{RJSONIO }}}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -67,9 +67,9 @@ users, to enable them to slice and dice the data, to view it from
 various angles and to find stories worth telling: outliers, trends or
 even the obvious. 
 
-In 2006 Hans Rosling gave an inspiring talk at TED
-~\cite{HansRoslingTedTalk} about social and economic developments in
-the world over the last 50 years, which challenged the views and
+In 2006 Hans Rosling gave an inspiring talk at
+TED~\cite{HansRoslingTedTalk} about social and economic developments
+in the world over the last 50 years, which challenged the views and
 perceptions of many listeners. Rosling had used extensive data analysis
 to come to his conclusions.  To visualise his talk, he and his team at
 Gapminder~\cite{Gapminder} had developed animated bubble charts, aka
@@ -80,7 +80,7 @@ charts, and as one result the software behind
 Gapminder was bought by Google and integrated as motion charts into
 their Visualisation API~\cite{GoogleVisApi} a few years later. 
 
-We also noticed that data journalism has grown over the recent
+We also notice that data journalism has grown over the recent
 years. The data blogs of the
 \href{http://www.guardian.co.uk/news/datablog}{Guardian (UK)}, and 
 \href{http://blogs.taz.de/open-data/}{taz.de (Die Tageszeitung,
@@ -192,10 +192,24 @@ You will notice that the above html-code has three generic parts:
 Those principles hold true for most of the interactive charts of the
 Google Visualisation API, see the examples in Figure~\ref{demos}.
 
-To display the visualisation, the html-page must be loaded from a
-web server in a browser with Internet connection and Flash; it will not
+To display the visualisation the html-page must be loaded from a
+web server in a browser with Internet connection and Flash; it may not
 work when loaded as a local file. For more details see the Google
 Visualisation API documentation~\cite{GoogleMotionChart}.
+
+\section{The \googleVis package}
+
+The \googleVis package provides an interface between R and the Google
+Visualisation API.  The functions of the package allow the user to
+visualise data stored in R data frames with the Google  Visualisation
+API. 
+
+The output of a \googleVis function is html code that contains the
+data and references to JavaScript functions hosted by Google. To view the output
+a browser with Flash and Internet  connection is required, the actual
+chart is rendered in the browser; it may not work when loaded as a
+local file. For more details see the Google Visualisation API
+documentation~\cite{GoogleMotionChart}. 
 
 Fortunately, the package \rsp~\cite{Rsp} provides an internal
 cross-platform web server which can be started from the R console; it
@@ -204,16 +218,6 @@ pages. Additionally the \rsp  web server has the capability
 to extract and execute R code from html code, similar to the approach
 taken by Sweave~\cite{Sweave2002} for \LaTeX. For more details see the
 \rsp documentation.
-
-\section{The \googleVis package}
-
-The \googleVis package provides an interface between R and the Google
-Visualisation API.  The functions of the package allow the user to
-visualise data stored in R data frames with the Google  Visualisation
-API. The output of \googleVis functions is html code that contains the
-data and references to Google JavaScript functions. To view the output
-a browser with Flash and Internet  connection 
-is required, the actual chart a rendered in the browser.
 
 Currently the package provides interfaces to Motion
 Chart~\cite{GoogleMotionChart}, Annotated Time
@@ -238,8 +242,7 @@ The \googleVis  package depends on the \rjsonio and
 \rsp packages, so we need to install those as well. 
 We can install \texttt{R.rsp, RJSONIO} and \googleVis in the usual way from CRAN, e.g.:
 <<eval=FALSE>>=
-install.packages(c('R.rsp', 'RJSONIO', 'googleVis'), 
-                    repos='http://cran.r-project.org') 
+install.packages(c('R.rsp', 'RJSONIO', 'googleVis')) 
 @
 The installation was successful if the
 command \texttt{library(googleVis)} gives you the following message:
@@ -260,8 +263,7 @@ system.file(file.path("rsp", "myAnalysis"), package="googleVis")
 @ 
 It is preferable that you have write-access to this directory. So you
 may want to install the package locally (e.g. in your home
-folder). Please contact your system administrator first if you need help. 
-
+folder). Please contact your system administrator if you need help. 
 
 \subsection{Using the  \googleVis package}
 
@@ -285,8 +287,9 @@ and \texttt{timevar} specify the column names of the id variable and
 time variable for the plot, while display options are set in an
 optional list. The options and data requirements follow those of the
 Google Visualisation API and are documented in the help pages, see
-\texttt{?gvisMotionChart}.  
-
+<<eval=FALSE>>=
+help('gvisMotionChart')
+@ 
 The output of a \googleVis function is a list of lists (a nested list)
 containing information about the chart type, chart id and the html
 code in a  sub-list with header, chart, caption and footer.
@@ -296,7 +299,7 @@ complete web page while at the same time can extract specific parts,
 such as the chart. This is particular helpful if the package functions
 are used in solutions where the user wants to feed the visualisation
 output into other sites, or would like to embed them into rsp-pages,
-see page~\pageref{rspexample}.  
+see page~\pageref{rspexample}, or Google Gadgets.  
 
 The output of a \googleVis function will be of class \texttt{'gvis'}
 and \texttt{'list'}. Generic print (\texttt{print.gvis})  and plot
@@ -318,14 +321,15 @@ data(Fruits)
 Fruits
 @
 
-In this case we will use the columns \texttt{'Fruit'} and
+Here we will use the columns \texttt{'Fruit'} and
 \texttt{'Year'} as id and time variable respectively. However we could
 also heave used \texttt{'Date'} instead of \texttt{'Year'}. 
 
 <<>>=
  M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 @
-The structural output of \texttt{gvisMotionChart} is a list of list as described above
+The structural output of \texttt{gvisMotionChart} is a list of list as
+described above 
 <<eval=FALSE>>=
  str(M)
 @ 
@@ -334,7 +338,7 @@ The structural output of \texttt{gvisMotionChart} is a list of list as described
 cat(paste(substring( capture.output( str(M) ) , 0, 66), sep="\n", collapse="\n"))
 @ 
 The first two items of the list contain information about the chart type
-used and an individual chart id generated at run time from the chart
+used and the individual chart id generated at run time from the chart
 type and date:
 <<>>=
 M$type
@@ -387,7 +391,7 @@ Further examples are part of the \googleVis demo, including one
 example demonstrating how the output of several visualisations can
 be incorporated into a single page.
 
-\subsection{Using \texttt{google{V}is} with \texttt{rsp}}\label{rspexample}
+\subsection{Using \googleVis with \rsp}\label{rspexample}
 The \rsp package allows the user to integrate R code into html-code.
 The R code is filtered by the \rsp web server and executed
 at run time. 
@@ -407,14 +411,14 @@ example, we can embed the above motion chart into a rsp-page:
 You find a few examples as part of the \googleVis package. Those examples can be displayed
 via the following R command:
 <<eval=FALSE>>=
-browseRsp()
+browseRsp() # In the browser follow the link for googleVis
 @
 The actual rsp-file is located within the \googleVis package directory
 and again R allows you to find the file with the following command: 
 <<eval=FALSE>>=
 filePath(system.file("rsp", package = "googleVis"), "index.rsp")
 @ 
-Please read also the documentation of the \rsp package.
+For more information read also the documentation of the \rsp package.
 
 \section{Contact}
 \subsection{Collaboration} 
