@@ -22,7 +22,12 @@
 {
   setMethod("toJSON", "Date",
             function(x, container = length(x) > 1 || length(names(x)) > 0, ...) {
-              tmp <- format(as.Date(x),"new Date(%Y,%m,%d)")
+				dt <- as.Date(x)
+				y <- format(dt,"%Y")
+				m <- as.numeric(format(dt,"%m")) -1
+				d <- as.numeric(format(dt,"%d"))
+				
+              tmp <- paste("new Date(",y,",",m,",",d,")",sep="")
               paste(tmp, collapse=", ")
             })
   
