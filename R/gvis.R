@@ -125,12 +125,16 @@ gvisFormat <- function(data){
   
   varTypes <- sapply(varNames,
                      function(.x){
-                       switch(class(x[[.x]]),"integer"="number",
-					     "numeric"="number",
-					     "character"="string",
-					     "factor"="string",
-					     "logical"="boolean",
-						"Date"="date")})
+                       switch(class(x[[.x]])[1],"integer"="number",
+                              "numeric"="number",
+                              "character"="string",
+                              "factor"="string",
+                              "logical"="boolean",
+                              "Date"="date",
+                              "POSIXct"="datetime",
+                              "POSIXlt"="datetime")
+                     }
+                     )
   
   ## factor to character
   x.df <- as.data.frame(
@@ -172,10 +176,10 @@ check.location <- function(x){
 }
 
 check.char <- function(x){
-    y = as.character(x)
-    if (! is.character(y))
-       stop(paste("The column has to be of character format. Currently it is", class(x)))
-    y
+  y = as.character(x)
+  if (! is.character(y))
+    stop(paste("The column has to be of character format. Currently it is", class(x)))
+  y
 }
 
 check.date <- function(x){
@@ -183,6 +187,12 @@ check.date <- function(x){
     if (class(y)!="Date")
        stop(paste("The column has to be of date format. Currently it is", class(x)))
     y
+}
+
+check.datetime <- function(x){
+  if(! any(class(x) %in% c("POSIXct", "POSIXlt")) )
+    stop(paste("The column has to be of datetime format (POSIXct or POSIXlt). Currently it is", class(x)))
+  x
 }
 
 check.num <- function(x){

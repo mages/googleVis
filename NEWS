@@ -1,3 +1,16 @@
+Version 0.2.3 [2010-12-19]
+==========================
+
+Changes
+    
+NEW FEATURES
+
+   o gvisAnnotatedTimeLine accepts date in POSIX* formats
+
+BUG FIXES
+
+   o The Google date objects treat January as 0 not 1
+
 Version 0.2.2 [2010-12-12]
 ==========================
 

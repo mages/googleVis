@@ -32,10 +32,10 @@ gvisAnnotatedTimeLine <- function(data, datevar="",
                      data=list(datevar=datevar, numvar=numvar,
                        idvar=idvar, titlevar=titlevar, annotationvar=annotationvar,
 		       date.format=date.format,
-                       allowed=c("number", "string", "date"))
+                       allowed=c("number", "string", "date", "datetime"))
                      )
   
-  checked.data <- gvisCheckAnnotatedTimeLineData(data, my.options,
+  checked.data <- gvisCheckAnnotatedTimeLineData(data, my.options, datevar=datevar,
                                                  idvar=idvar, titlevar=titlevar, annotationvar=annotationvar)
 
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
@@ -44,15 +44,24 @@ gvisAnnotatedTimeLine <- function(data, datevar="",
 }
 
 
-gvisCheckAnnotatedTimeLineData <- function(data, options, idvar,
+gvisCheckAnnotatedTimeLineData <- function(data, options, datevar,idvar,
                                            titlevar, annotationvar){
-  
-  data.structure <- list(
-                         datevar  = list(mode="required",FUN=check.date),
-                         numvar   =  list(mode="required",FUN=check.num),
-                         idvar  = list(mode="optional",FUN=check.char),                   
-                         titlevar = list(mode="optional",FUN=check.char),
-                         annotationvar  = list(mode="optional",FUN=check.char))
+
+  if( any(class(data[[datevar]]) %in% c("POSIXct", "POSIXlt")) ){   
+    data.structure <- list(
+                           datevar  = list(mode="required",FUN=check.datetime),
+                           numvar   =  list(mode="required",FUN=check.num),
+                           idvar  = list(mode="optional",FUN=check.char),                   
+                           titlevar = list(mode="optional",FUN=check.char),
+                           annotationvar  = list(mode="optional",FUN=check.char))
+  }else{
+    data.structure <- list(
+                           datevar  = list(mode="required",FUN=check.date),
+                           numvar   =  list(mode="required",FUN=check.num),
+                           idvar  = list(mode="optional",FUN=check.char),                   
+                           titlevar = list(mode="optional",FUN=check.char),
+                           annotationvar  = list(mode="optional",FUN=check.char))
+  }
   
   x <- gvisCheckData(data=data, options=options, data.structure=data.structure)
    
@@ -90,8 +99,6 @@ gvisCheckAnnotatedTimeLineData <- function(data, options, idvar,
                   idvar=names(x.df)[1], ## datevar 
                   timevar=names(x.df)[3], ## idvar
                   direction="wide") 
-
- ## names(x.df)[c(2:(ngroups+1))] <- levels(groups)
 
   names(x.df) <- gsub(paste(var.names[1], ".", sep=""), "", names(x.df))
   

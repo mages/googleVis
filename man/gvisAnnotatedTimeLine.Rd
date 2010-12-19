@@ -27,7 +27,7 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
   }
   \item{datevar}{
     column name of \code{data} which shows the date dimension. The
-    information has to be of class \code{\link{Date}}.
+    information has to be of class \code{\link{Date}} or \code{POSIX*}.
   }
   \item{numvar}{
     column name of \code{data} which shows the values to be displayed

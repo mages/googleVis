@@ -5,3 +5,4 @@ Thanks to:
 	o All the guys behind www.gapminder.org and Hans Rosling for telling everyone that data is not boring
 	o Deepayan Sarkar for showing us in the lattice package how to deal with lists of options 
 	o Google, who made the API available
+	o To Paul Cleary for a bug report on the handling of months: January needs to be set to 0 and not 1.
