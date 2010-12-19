@@ -78,7 +78,12 @@ Using the Google Visualisation API with R
   
   It is preferable that you have write-access to this directory; so you
   may want to install the package locally (e.g. in your home
-  folder). Please contact your system administrator if you need further
+  folder, via  
+  \code{install.packages(c("R.rsp", "googleVis"), lib=Sys.getenv("R_LIBS_USER"))}
+  )
+  Please see also the R Admin Manual
+  \url{http://cran.r-project.org/doc/manuals/R-admin.html#Managing-libraries}
+  or contact your system administrator if you need further
   help.
 }
 \examples{

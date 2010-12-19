@@ -238,11 +238,9 @@ Map~\cite{GoogleTreeMap}, see Figure~\ref{demos} for examples.
 
 
 \subsection{Installation}
-The \googleVis  package depends on the \rjsonio and
-\rsp packages, so we need to install those as well. 
-We can install \texttt{R.rsp, RJSONIO} and \googleVis in the usual way from CRAN, e.g.:
+We can install \googleVis in the usual way from CRAN, e.g.:
 <<eval=FALSE>>=
-install.packages(c('R.rsp', 'RJSONIO', 'googleVis')) 
+install.packages('googleVis') 
 @
 The installation was successful if the
 command \texttt{library(googleVis)} gives you the following message:
@@ -262,8 +260,10 @@ library. The following  R-command will show the path to this folder:
 system.file(file.path("rsp", "myAnalysis"), package="googleVis")
 @ 
 It is preferable that you have write-access to this directory. So you
-may want to install the package locally (e.g. in your home
-folder). Please contact your system administrator if you need help. 
+may want to install the package locally, e.g. in your home
+folder, via   \texttt{install.packages("googleVis", lib=Sys.getenv("R\_LIBS\_USER"))} .
+Please see also the \href{http://cran.r-project.org/doc/manuals/R-admin.html#Managing-libraries}{R Admin Manual}
+or contact your system administrator if you need further help.
 
 \subsection{Using the  \googleVis package}
 
