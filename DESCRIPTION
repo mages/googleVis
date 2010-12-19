@@ -2,7 +2,7 @@ Package: googleVis
 Type: Package
 Title: Using the Google Visualisation API with R
 Version: 0.2.3
-Date: 2010-12-12
+Date: 2010-12-19
 Author: Markus Gesmann, Diego de Castillo
 Maintainer: Markus Gesmann <markus.gesmann@gmail.com>
 Description: googleVis provides an interface between R and the Google
