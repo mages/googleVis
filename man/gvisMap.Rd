@@ -129,12 +129,15 @@ Diego de Castillo \email{decastillo@gmail.com}
   alternative to \code{gvisMap}. 
   
   Further the packages:
-  \itemize{   
+  \itemize{	
     \item R2GoogleMaps: Provides a mechanism to generate JavaScript code
     from R that displays data using Google Maps,  
     \url{http://www.omegahat.org/R2GoogleMaps/}. 
     \item RgoogleMaps:  Overlays on Google map tiles in R, 
-    \url{http://cran.r-project.org/web/packages/RgoogleMaps/index.html}.
+    \url{http://cran.r-project.org/web/packages/RgoogleMaps/index.html},
+    \item plotGoogleMaps: Plot HTML output with Google Maps API and
+    your own data,	       
+    \url{http://cran.r-project.org/web/packages/plotGoogleMaps/}.  
   } 
 }
 \examples{

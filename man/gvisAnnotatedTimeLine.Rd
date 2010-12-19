@@ -27,7 +27,8 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
   }
   \item{datevar}{
     column name of \code{data} which shows the date dimension. The
-    information has to be of class \code{\link{Date}} or \code{POSIX*}.
+    information has to be of class \code{\link{Date}} or \code{POSIX*}
+    time series.
   }
   \item{numvar}{
     column name of \code{data} which shows the values to be displayed
@@ -433,6 +434,16 @@ A3 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
 plot(A3)
 }
 
+
+## Data with POSIXct datetime variable
+A4 <- gvisAnnotatedTimeLine(Andrew, datevar="Date/Time UTC",
+                            numvar="Pressure_mb",
+                            options=list(scaleType='maximized')
+                            )
+
+\dontrun{
+plot(A4)
+}
 
 }
 \keyword{ hplot }
