@@ -68,9 +68,9 @@
 gvisWelcomeMessage <- function(){
   
        paste("\nWelcome to googleVis version ", packageDescription("googleVis")$Version, "\n\n",
-      "Type ?googleVis to see the overall documentation and\n",
-      "vignette('googleVis') to see the package vignette.\n",
-      "You can see a demo of the package via: demo(googleVis)\n\n",  
+      "Type ?googleVis to access the overall documentation and\n",
+      "vignette('googleVis') for the package vignette.\n",
+      "You can execute the demo of the package via: demo(googleVis)\n\n",  
       "More information is available on the googleVis project web-site:\n",
                         "http://code.google.com/p/google-motion-charts-with-r/\n\n",
       
