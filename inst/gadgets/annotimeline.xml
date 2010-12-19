@@ -16,7 +16,7 @@ function drawChart() {
 var data = new google.visualization.DataTable();
 var datajson = [
  [
- new Date(2008,01,01),
+ new Date(2008,0,1),
   3000,
 null,
 null,
@@ -25,7 +25,7 @@ null,
 null 
 ],
 [
- new Date(2008,01,02),
+ new Date(2008,0,2),
  14045,
 null,
 null,
@@ -34,7 +34,7 @@ null,
 null 
 ],
 [
- new Date(2008,01,03),
+ new Date(2008,0,3),
   5502,
 null,
 null,
@@ -43,7 +43,7 @@ null,
 null 
 ],
 [
- new Date(2008,01,04),
+ new Date(2008,0,4),
  75284,
 null,
 null,
@@ -52,7 +52,7 @@ null,
 "Ran of stock on pens at 4pm" 
 ],
 [
- new Date(2008,01,05),
+ new Date(2008,0,5),
  41476,
 "Bought pencils",
 "Bought 200k pencils",
@@ -61,7 +61,7 @@ null,
 null 
 ],
 [
- new Date(2008,01,06),
+ new Date(2008,0,6),
 3.3322e+05,
 null,
 null,
