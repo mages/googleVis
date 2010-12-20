@@ -400,7 +400,7 @@ A1 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                            numvar="Value", idvar="Device",
                            titlevar="Title", annotationvar="Annotation",
                            options=list(displayAnnotations=TRUE,
-			    legendPosition='newRow',
+                            legendPosition='newRow',
                             width=600, height=350)
                            )
 \dontrun{

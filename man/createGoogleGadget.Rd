@@ -17,7 +17,7 @@ createGoogleGadget(gvis)
 %%  ~~ If necessary, more details than the description above ~~
 %}
 \value{
-  createGoogleGadget returns a character XML string of a Google Gadget.
+  createGoogleGadget returns a Google Gadget XML string.
 }
 \references{
   For more information about Google Gadgets see:
