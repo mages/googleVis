@@ -23,7 +23,7 @@ gvisTable <- function(data, options=list()){
   dataName <- deparse(substitute(data))
 
   my.options <- list(gvis=modifyList(list(allowHtml=TRUE),options), dataName=dataName,
-                     data=list(allowed=c("number","string","date","boolean")))
+                     data=list(allowed=c("number","string","date","datetime","boolean")))
   
   checked.data <- gvisCheckTableData(data)
   
