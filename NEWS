@@ -1,3 +1,16 @@
+Version 0.2.4 [2010-01-08]
+==========================
+
+Changes
+    
+NEW FEATURES
+
+   o 
+
+BUG FIXES
+
+   o gvisTable didn't accept datetime columns.
+
 Version 0.2.3 [2010-12-19]
 ==========================
 

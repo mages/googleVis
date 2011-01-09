@@ -18,8 +18,8 @@ Using the Google Visualisation API with R
 \tabular{ll}{
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
-	Version: \tab 0.2.3\cr
-	Date: \tab 20010-12-19\cr
+	Version: \tab 0.2.4\cr
+	Date: \tab 20011-01-08\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}

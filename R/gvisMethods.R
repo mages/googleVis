@@ -48,3 +48,48 @@ plot.gvis <- function(x,
   invisible(output) 
   
 }
+
+plotTemp.gvis <- function(x,
+                     file,
+                     repos="http://127.0.0.1:8074/",
+                     ...){
+
+ require(R.rsp)
+
+ if (missing(file)) {
+   root.dir <- tempdir()
+   if (!file.exists(file.path(root.dir,"rsp"))) {
+     ## copy RSP/googleVis infrastructure
+     file.copy(system.file("rsp",package="googleVis"),
+               root.dir,recursive=TRUE)
+     file.create(file.path(root.dir,".rspPlugins"))
+   }
+   rdir <- file.path(root.dir,"rsp","myAnalysis")
+   filename <- filePath(rdir,paste(x$chartid ,".rsp", sep=""))
+
+   url <- file.path(repos, "rsp", "myAnalysis", basename(filename))
+   
+ }else{
+
+   ## if file is written into a folder without the rsp subfolder
+   ## don't use the .rsp file extension, use .html instead.
+   
+   root.dir <- dirname(file)
+   filename <- file
+   url <- file.path(repos, basename(filename))
+   
+ }
+
+ ## FIXME: should remove on exit? or is this harmless?
+ HttpDaemon$appendRootPaths(root.dir) 
+  
+ print.gvis(x, file=filename, ...)
+
+ browseRsp(url)
+
+ 
+ output <- list(file=filename, repos=repos)
+
+ invisible(output)
+
+}
