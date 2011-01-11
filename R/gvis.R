@@ -281,17 +281,50 @@ gvisHtmlWrapper <- function(title, dataName, chartid){
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
  "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
-<%%@include file="../src/simpleHead.rsp"%%>
+<head>
+<link media="screen" type="text/css" rel="StyleSheet" href="/css/R.css">
+<link media="screen" type="text/css" rel="StyleSheet" href="/css/rsp.css">
+<link media="screen" type="text/css" rel="StyleSheet" href="/css/figures.css"> 
+</head>
+
+<!-- 
+HTTP debug information: 
+<%=request%> 
+-->
 <body>
-<%%@include file="../src/simpleHeader.rsp"%%>
+
+<div class="PageHeader">
+ <div style="float: left;">
+  <a href="/">~</a> 
+ </div>
+ <div style="float: right;">
+  Admin: 
+  <a href="/admin/shutdown.rsp">shutdown</a>
+ </div>
+ <br>
+</div>
+
+<style type="text/css">  
+tt {  
+font-family: courier, monospace;  
+}  
+</style>  
 '
   
-  htmlHeader <- sprintf(htmlHeader,title)
+## htmlHeader <- sprintf(htmlHeader,title)
 
   htmlFooter <- '
-<%@include file="../src/simpleFooter.rsp"%>
+<%--     F o o t e r    --%>
+<address style="margin-top: 1ex; padding-top: 0.5ex; border-top: #000000 1px solid;">
+ <div style="float:left; font-size:smaller;">Generated on <%=date()%> with
+<a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis</a>.
+ </div>
+ <div style="float:right; font-size:smaller;" class="WebcutsHide">
+ Powered by <a href="http://www.braju.com/R/">R.rsp&nbsp;v<%=getVersion(R.rsp)%></a>.</div>
+</address>
 </body>
-</html>\n'
+</html>
+'
 
   googleTerms <- '<a href="http://code.google.com/apis/visualization/terms.html">\nGoogle Terms of Use</a>'
     

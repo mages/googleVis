@@ -11,10 +11,8 @@
 \usage{	
 \method{print}{gvis}(x, file = "", ...)
 		
-\method{plot}{gvis}(x, filename = NULL, 
-		    repos = paste("http://127.0.0.1:8074/", 
-		       	     basename(dirname(system.file(package = "googleVis"))), 
-			       		"/googleVis/rsp/myAnalysis/", sep = ""), 
+\method{plot}{gvis}(x, file, 
+		    repos = "http://127.0.0.1:8074/", 
 	     	     ...)
 }
 \arguments{
@@ -24,42 +22,32 @@
   \item{file}{
     file name to be used internally by \code{\link{cat}}. If "" (the
     default), output will be printed to the standard output connection, the console unless
-    redirected by \code{\link{sink}}. 
+    redirected by \code{\link{sink}}.
+
+    If no file name is provided for the plot function a temporary file
+    will be created. 
 }
-  \item{filename}{
-      If \code{filename=NULL} (Default) plot.gvis will create a
-      rsp-file, based on the chard id, in the \code{rsp/myAnalysis} folder of the
-      \code{googleVis} library folder, see Details for more information.      
-}
-  \item{repos}{repository for the output file. By default the
-    \code{rsp/myAnalysis} folder of the \code{googleVis} package will be
-    used. 
+  \item{repos}{repository for the output file. By default the directory
+    of the \code{file} will be used. 
 }
   \item{\dots}{arguments passed on to \code{\link{cat}}.
 }
 }
-\details{
-  You can find the path to your \code{googleVis} folder with the
-  following R command:
-  \code{filePath( system.file( file.path( "rsp", "myAnalysis" ), package
-		    = "googleVis" ))}.
-  The default \code{filename} of the plot command is build as:  
-  \code{filePath(system.file( file.path( "rsp", "myAnalysis" ), 
-    package = "googleVis"), paste( x$chartid, ".rsp", 
-    sep = "" ))}, 		  
-  where \code{x} is a \code{gvis} object.
-}
+%\details{
+%}
 \value{
 \item{\code{print.gvis}}{ None (invisible \code{NULL}).}
 
-\item{\code{plot.gvis}}{Returns an invisible list with filename and repos.}
+\item{\code{plot.gvis}}{Returns the file name invisibly.}
 }
 \references{
-  For more details on rps-pages type: \code{\link{browseRsp}()}, which
-  starts the internal web browser and opens the URL in the default web
-  browser. From this page you access not only help pages and demos on
-  how to use RSP, but also other package RSP pages, such as the
+  For more details on rps-pages type: \code{\link{browseRsp}()}.
+  From this page you access not only help pages and demos on
+  how to use RSP, but also other packages with RSP pages, such as the
   \code{googleVis} package. 
+
+  Please see also the package vignette for the usage of the googleVis
+  package with RApache.
 }
 \author{
 Markus Gesmann \email{markus.gesmann@gmail.com},
@@ -71,21 +59,6 @@ Diego de Castillo \email{decastillo@gmail.com}
   traditional way. Instead it uses the \code{R.rsp} package to display the output
   of a \code{googleVis} function in a browser using the local web server
   provided by \code{R.rsp}. 
-}
-\section{Warning }{
-  By default the visualisation files will be stored in the
-  \code{rsp/myAnlysis} folder of the googleVis library. The following
-  R-command will show the path to this folder:
-  
-  \code{system.file(file.path("rsp", "myAnalysis"), package="googleVis")}
-  
-  It is preferable that you have write-access to this directory, so you
-  may want to install the package locally (e.g. in your home
-  folder). Please contact your system administrator if you need further
-  help.
-
-  Therefore the \code{plot} commands are not executed automatically as
-  part of the examples.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~

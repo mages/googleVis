@@ -25,10 +25,11 @@ gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m
   dataName <- deparse(substitute(data))
 
   ## Combine options for other generic functions
-  my.options <- list(gvis=modifyList(list(width = 600, height=500),options),
+  my.options <- list(gvis=modifyList(list(width = 600, height=500), options),
                      dataName=dataName,
                      data=list(idvar=idvar, timevar=timevar,
-                       date.format=date.format, allowed=c("number","string","date"))
+                       date.format=date.format, allowed=c("number",
+                                                  "string", "date"))
                      )
   
   checked.data <- gvisCheckMotionChartData(data, my.options)
@@ -67,7 +68,7 @@ gvisCheckMotionChartData <- function(data, options){
                                                       ##ifelse(date.format %in% c("%YW%W","%YW%U"), "string",
                                                       "date")##)
   }else{
-    stop(paste("The timevar has to be of numeric or Date format. Currently it is", class(x[[options$data$timevar]])))
+    stop(paste("The timevar has to be of numeric or Date format. Currently it is ", class(x[[options$data$timevar]]) ))
   }
   
   ## idvar has to be a character, so lets try to convert it into a character
@@ -80,19 +81,26 @@ gvisCheckMotionChartData <- function(data, options){
   varOrder <- c(options$data$idvar, options$data$timevar, varOthers)
   x <- x[varOrder]
   
-  typeMotionChart[varOthers] <- sapply(varOthers, function(.x) ifelse(is.numeric(x[[.x]]), "number","string"))
+  typeMotionChart[varOthers] <- sapply(varOthers, function(.x)
+                                       ifelse(is.numeric(x[[.x]]), "number","string"))
+  
   typeMotionChart <- typeMotionChart[varOrder]
-  x[varOthers] <- lapply(varOthers,function(.x){ if(class(x[[.x]])=="Date") as.character(x[[.x]]) else x[[.x]]})
-
+  x[varOthers] <- lapply(varOthers,function(.x){
+    if(class(x[[.x]])=="Date") as.character(x[[.x]]) else x[[.x]]
+  }) 
+  
   
   ## check uniqueness of rows
 
   if( nrow(data) != nrow(unique(as.data.frame(x)[1:2]))  ){
-    stop(paste("Your data has to have rows which are unique by the combination of idvar and timevar.\n",
-               "Howerver, you data has ", nrow(data), "rows, but only idvar and timevar only define ",
-               nrow(unique(as.data.frame(x)[1:2])), "unique rows.", sep=""))
+    stop("The data must have rows with ",
+         "unique combinations of idvar and timevar.\n",
+         "Your data has ",
+         nrow(data),
+         " rows, but idvar and timevar only define ",
+         nrow(unique(as.data.frame(x)[1:2])),
+         " unique rows.")
   }
-
   
   return(data.frame(x))
 }
