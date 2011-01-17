@@ -3,7 +3,7 @@
 
 \title{ Google Motion Chart with R}
 \description{
-   The gvisMotionChart function reads a data.frame and
+  The gvisMotionChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
   included into a web page, or as a stand-alone page. The actual chart is
   rendered by the web browser in flash.
@@ -167,12 +167,10 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 }
 
 \examples{
-## Please note that by default the plot (better plot.gvis) command will
-## try to write the output into the rsp/myAnalysis folder of the
-## googleVis library. Further the plot command will open a
-## browser window and requires Flash and Internet connection to
-## display the visualisation.
-## Because of those requirements the plot commands are not executed
+## Please note that by default the plot (better plot.gvis) command
+## will open a browser window and requires Flash and Internet
+## connection to display the visualisation.
+## Because of this requirement the plot commands are not executed
 ## automatically as part of the example. 
 ## Please copy and paste the plot commands manually
 ## to see the visualisation output, see also ?plot.gvis for further

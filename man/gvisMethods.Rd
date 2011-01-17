@@ -41,6 +41,9 @@
 \item{\code{plot.gvis}}{Returns the file name invisibly.}
 }
 \references{
+  Please note that the temporary directory (see \code{\link{tempdir}})
+  will be added to the Http daemon root path (see \code{\link{HttpDaemon}}).
+
   For more details on rps-pages type: \code{\link{browseRsp}()}.
   From this page you access not only help pages and demos on
   how to use RSP, but also other packages with RSP pages, such as the
@@ -64,7 +67,8 @@ Diego de Castillo \email{decastillo@gmail.com}
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-See also \code{\link{cat}}, \code{\link{browseRsp}}, \code{\link{createGoogleGadget}}
+See also \code{\link{cat}}, \code{\link{browseRsp}},
+\code{\link{createGoogleGadget}},  \code{\link{tempdir}}, \code{\link{HttpDaemon}}
 }
 \examples{
 

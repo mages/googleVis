@@ -5,4 +5,5 @@ Thanks to:
 	o All the guys behind www.gapminder.org and Hans Rosling for telling everyone that data is not boring
 	o Deepayan Sarkar for showing us in the lattice package how to deal with lists of options 
 	o Google, who made the API available
-	o To Paul Cleary for a bug report on the handling of months: Google date objects expect the months Jan.- Dec. as 0 - 11 and not 1 - 12.
+	o Paul Cleary for a bug report on the handling of months: Google date objects expect the months Jan.- Dec. as 0 - 11 and not 1 - 12.
+	o Ben Bolker for comments on plot.gvis and the usage of temporary files

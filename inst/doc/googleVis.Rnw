@@ -253,17 +253,6 @@ library(googleVis)
 <<echo=FALSE>>=
 cat(googleVis:::gvisWelcomeMessage())
 @ 
-Please note that by default the visualisation output files will be
-written into the \texttt{rsp/myAnlysis} folder of the \googleVis
-library. The following  R-command will show the path to this folder: 
-<<eval=FALSE>>=
-system.file(file.path("rsp", "myAnalysis"), package="googleVis")
-@ 
-It is preferable that you have write-access to this directory. So you
-may want to install the package locally, e.g. in your home
-folder, via   \texttt{install.packages("googleVis", lib=Sys.getenv("R\_LIBS\_USER"))} .
-Please see also the \href{http://cran.r-project.org/doc/manuals/R-admin.html#Managing-libraries}{R Admin Manual}
-or contact your system administrator if you need further help.
 
 \subsection{Using the  \googleVis package}
 
@@ -372,19 +361,19 @@ plot(M)
 @
 
 The plot method for \texttt{gvis} object will by
-default automatically create a rsp-file in the \texttt{rsp/myAnalysis}
-folder of the \googleVis package using the type and chart id
+default automatically create a rsp-file in the \texttt{tempdir}
+folder using the type and chart id
 information of the object and it will display the output using the
 local web server of the \rsp package. 
 
 The following R-command will show you the path to the
-\texttt{rsp/myAnalysis} folder:
+\texttt{tempdir} folder:
 <<eval=FALSE>>=
-system.file(file.path("rsp", "myAnalysis"), package="googleVis")
+tempdir()
 @ 
 If you would like to write the output into a different directory,
 e.g. your web server repository, then you can set the arguments for 
-\texttt{filename} and \texttt{repos} (web server address of the
+\texttt{file} and \texttt{repos} (web server address of the
 repository) individually. 
 
 Further examples are part of the \googleVis demo, including one
