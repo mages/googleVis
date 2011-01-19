@@ -286,54 +286,39 @@ gvisHtmlWrapper <- function(title, dataName, chartid){
 <link media="screen" type="text/css" rel="StyleSheet" href="/css/rsp.css">
 <link media="screen" type="text/css" rel="StyleSheet" href="/css/figures.css"> 
 </head>
-
-<!-- 
-HTTP debug information: 
-<%=request%> 
--->
 <body>
-
-<div class="PageHeader">
- <div style="float: left;">
-  <a href="/">~</a> 
- </div>
- <div style="float: right;">
-  Admin: 
-  <a href="/admin/shutdown.rsp">shutdown</a>
- </div>
- <br>
-</div>
-
 <style type="text/css">  
 tt {  
-font-family: courier, monospace;  
+font-family: monospace, courier;  
 }  
 </style>  
 '
   
-## htmlHeader <- sprintf(htmlHeader,title)
-
-  htmlFooter <- '
-<%--     F o o t e r    --%>
-<address style="margin-top: 1ex; padding-top: 0.5ex; border-top: #000000 1px solid;">
- <div style="float:left; font-size:smaller;">Generated on <%=date()%> with
-<a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis</a>.
- </div>
- <div style="float:right; font-size:smaller;" class="WebcutsHide">
- Powered by <a href="http://www.braju.com/R/">R.rsp&nbsp;v<%=getVersion(R.rsp)%></a>.</div>
-</address>
-</body>
-</html>
-'
 
   googleTerms <- '<a href="http://code.google.com/apis/visualization/terms.html">\nGoogle Terms of Use</a>'
     
-  htmlCaption <- sprintf('Data: %s, Chart ID: %s\n<BR>\n%s,\n%s\n<BR>\n<BR>\n',
-                         dataName, chartid, R.Version()$version.string, googleTerms)
+  htmlFooter <- sprintf('
+<address style="margin-top: 1ex; padding-top: 0.5ex; border-top: #000000 1px solid;">
+ <div style="float:left; font-size:smaller;">Generated with
+<a href="http://www.r-project.org">%s</a> and 
+<a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>,
+<BR>
+using the <a href="http://code.google.com/apis/visualization/documentation/gallery.html">
+Google Visualisation API</a>.
+See also %s.
+ </div>
+</address>
+</body>
+</html>
+', R.Version()$version.string, packageDescription('googleVis')$Version, googleTerms)
+
+  htmlCaption <- sprintf('Data: %s, Chart ID: %s\n',
+                         dataName, chartid)
 
   return(list(htmlHeader=htmlHeader,
               htmlFooter=htmlFooter,
-              htmlCaption=htmlCaption))
+              htmlCaption=htmlCaption
+              ))
 }
 
 

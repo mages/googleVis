@@ -5,7 +5,11 @@ Changes
    
    o plot.gvis now longer writes into the package folder. Instead temporary files are created.
      This overcomes the need to install the package into a directory with write access.
-     Many thanks to Ben Bolker for this suggestion and code.
+     Many thanks to Ben Bolker for this suggestion and code. 
+     Further plot.gvis no longer requires the web server provided by
+     the R.rsp package to display the visualisation output. Instead ot
+     uses the R http help server. Many thanks to John Verzani for this
+     suggestion and code. 
    
 NEW FEATURES
 

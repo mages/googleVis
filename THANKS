@@ -1,9 +1,18 @@
 Thanks to:
 	o Henrik Bengtsson for providing the 'R.rsp: R Server Pages' package
 	o Duncan Temple Lang for providing the 'RJSONIO' package
-	o Sebastian Pérez Saaibi for his inspiring talk on 'Generator Tool for Google Motion Charts' at the R/RMETRICS conference 2010
-	o All the guys behind www.gapminder.org and Hans Rosling for telling everyone that data is not boring
-	o Deepayan Sarkar for showing us in the lattice package how to deal with lists of options 
+	o Sebastian Pérez Saaibi for his inspiring talk on 'Generator
+	  Tool for Google Motion Charts' at the R/RMETRICS conference
+	  2010
+	o All the guys behind www.gapminder.org and Hans Rosling for
+	  telling everyone that data is not boring 
+	o Deepayan Sarkar for showing us in the lattice package how to
+	  deal with lists of options  
 	o Google, who made the API available
-	o Paul Cleary for a bug report on the handling of months: Google date objects expect the months Jan.- Dec. as 0 - 11 and not 1 - 12.
-	o Ben Bolker for comments on plot.gvis and the usage of temporary files
+	o Paul Cleary for a bug report on the handling of months:
+	  Google date objects expect the months Jan.- Dec. as 0 - 11 and
+	  not 1 - 12.
+	o Ben Bolker for comments on plot.gvis and the usage of
+	  temporary files 
+	o John Verzani for pointing out how to use the R http help
+	  server

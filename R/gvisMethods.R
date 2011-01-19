@@ -20,56 +20,44 @@
 
 print.gvis <- function(x,file="",...){
 
-  ##cat(paste(unlist(x), "\n", sep=""), file=file, ...)
   cat(unlist(x$html), file=file, ...)
 
 }
 
-plotOld.gvis <- function(x,
-                      filename=NULL,
-                      repos=paste("http://127.0.0.1:8074/",
-                        basename(dirname(system.file(package="googleVis"))),
-                        "/googleVis/rsp/myAnalysis/", sep=""),
-                      ...){
 
-  require(R.rsp)
- 
-  if(is.null(filename)){
-    filename <- filePath(system.file(file.path("rsp", "myAnalysis"),
-                                     package = "googleVis"), paste(x$chartid ,".rsp", sep="")) 
+isServerRunning <- function() {
+  tools:::httpdPort > 0L
+}
+
+googlevis.httpd.handler <- function(path, query, ...) {
+  path <- gsub("^/custom/googleVis/", "", path)
+  f <- sprintf("%s%s%s",
+               tempdir(),
+               .Platform$file.sep,
+                 path) 
+  list(file=f,
+       "content-type"="text/html",
+       "status code"=200L)
+}
+
+plot.gvis <- function(x,...){
+  
+  if(!isServerRunning()) {
+    tools:::startDynamicHelp()
   }
 
-  print.gvis(x, file=filename, ...)
-
-  browseRsp(paste(repos, basename(filename), sep=""))
-
-  output <- list(filename=filename, repos=repos)
-
-  invisible(output) 
+  env <- get( ".httpd.handlers.env", asNamespace("tools"))
+  env[["googleVis"]] <- googlevis.httpd.handler
   
-}
-
-plot.gvis <- function(x,
-                          file,
-                          repos="http://127.0.0.1:8074/",
-                          ...){
-  require(R.rsp)
+  root.dir <- tempdir()
+  file <- filePath(root.dir, paste(x$chartid ,".rsp", sep=""))
   
+  print(x, file=file)
   
-  if (missing(file)) {
-    root.dir <- tempdir()
-    file <- filePath(root.dir, paste(x$chartid ,".rsp", sep=""))
-    file.create(file.path(root.dir,".rspPlugins"))
-  }  
-
-  url <- file.path(repos, basename(file))
-
-  HttpDaemon$appendRootPaths(dirname(file)) 
-  
-  print.gvis(x, file=file, ...)
-  
-  browseRsp(url)
-  
+  .url <- sprintf("http://127.0.0.1:%s/custom/googleVis/%s",
+                  tools:::httpdPort,
+                  basename(file))
+  browseURL(.url,...)
   invisible(file)
-  
 }
+  
