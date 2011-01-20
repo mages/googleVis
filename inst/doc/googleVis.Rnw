@@ -192,11 +192,6 @@ You will notice that the above html-code has three generic parts:
 Those principles hold true for most of the interactive charts of the
 Google Visualisation API, see the examples in Figure~\ref{demos}.
 
-To display the visualisation the html-page must be loaded from a
-web server in a browser with Internet connection and Flash; it may not
-work when loaded as a local file. For more details see the Google
-Visualisation API documentation~\cite{GoogleMotionChart}.
-
 \section{The \googleVis package}
 
 The \googleVis package provides an interface between R and the Google
@@ -211,13 +206,10 @@ chart is rendered in the browser; it may not work when loaded as a
 local file. For more details see the Google Visualisation API
 documentation~\cite{GoogleMotionChart}. 
 
-Fortunately, the package \rsp~\cite{Rsp} provides an internal
+Fortunately, R provides an internal
 cross-platform web server which can be started from the R console; it
 serves the \googleVis package as a tool to display web
-pages. Additionally the \rsp  web server has the capability 
-to extract and execute R code from html code, similar to the approach
-taken by Sweave~\cite{Sweave2002} for \LaTeX. For more details see the
-\rsp documentation.
+pages. 
 
 Currently the package provides interfaces to Motion
 Chart~\cite{GoogleMotionChart}, Annotated Time
@@ -235,7 +227,6 @@ Map~\cite{GoogleTreeMap}, see Figure~\ref{demos} for examples.
   right.   }\label{demos}
 \end{center}
 \end{figure}
-
 
 \subsection{Installation}
 We can install \googleVis in the usual way from CRAN, e.g.:
@@ -361,20 +352,10 @@ plot(M)
 @
 
 The plot method for \texttt{gvis} object will by
-default automatically create a rsp-file in the \texttt{tempdir}
+default automatically create a html in the \texttt{tempdir}
 folder using the type and chart id
 information of the object and it will display the output using the
-local web server of the \rsp package. 
-
-The following R-command will show you the path to the
-\texttt{tempdir} folder:
-<<eval=FALSE>>=
-tempdir()
-@ 
-If you would like to write the output into a different directory,
-e.g. your web server repository, then you can set the arguments for 
-\texttt{file} and \texttt{repos} (web server address of the
-repository) individually. 
+local  R help web server. 
 
 Further examples are part of the \googleVis demo, including one
 example demonstrating how the output of several visualisations can
@@ -385,7 +366,7 @@ The \rsp package allows the user to integrate R code into html-code.
 The R code is filtered by the \rsp web server and executed
 at run time. 
 
-As mentioned above the R.rsp package allows us to dynamically
+The R.rsp package allows us to dynamically
 generate documents into static content using R Server Pages. This
 means we can mix html and R code to create content on the fly.   As an
 example, we can embed the above motion chart into a rsp-page: 

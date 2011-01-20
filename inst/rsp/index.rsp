@@ -41,21 +41,7 @@
       as part of the demo; to execute the demo type into the R
       console: <tt>demo(googleVis)</tt>.
     </p>
-    By default the output of the <tt>googleVis</tt> functions will be
-    stored in the temp directory: 
-    <ul>
-      <tt><%=tempdir()%></tt>.
-    </ul>
-   For example the following R commands
-    <pre>
-      library(googleVis)
-      M &lt;- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
-      plot(M)
-    </pre>
-    would generate the
-    file <tt>MotionChart_<%=format(Sys.time(),"%Y-%m-%d-%H-%M-%S")%>.rsp</tt>
-    in the directory above. 
-   <h2>
+    <h2>
       Embedding googleVis charts into your web page with <a href="/">R.rsp</a>
     </h2>
     <p>

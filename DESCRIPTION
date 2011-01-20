@@ -15,8 +15,8 @@ Description: googleVis provides an interface between R and the Google
 	     a browser with Flash and Internet connection is required, the actual
 	     chart is rendered in the browser. 
 	     Please visit the project web site for more information and examples.    	     
-Depends: RJSONIO (>= 0.3), R.rsp, methods
-Suggests: 
+Depends: RJSONIO (>= 0.3), methods
+Suggests: R.rsp
 License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/
 LazyLoad: yes

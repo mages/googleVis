@@ -162,7 +162,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 \seealso{
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods, further \code{\link{browseRsp}}, and also the
+  printing and plotting methods, and also the
   \code{animation-package} and its function \code{Rosling.bubbles}.
 }
 
