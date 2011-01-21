@@ -49,7 +49,7 @@ gvis <- function(type="", data, options, chartid=NULL){
   ## we need a unique chart id to have more than one chart on the same page
   ## we use type and date to create the chart id
   if(is.null(chartid)){
-    chartid <- paste(type, format(Sys.time(), "%Y-%m-%d-%H-%M-%S"), sep="_")
+    chartid <- paste(type, format(Sys.time(), "%Y-%m-%d-%H-%M-%S"), sample(100000,1),sep="_")
   }
 
   
