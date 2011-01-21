@@ -26,6 +26,8 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 
 \newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
+\newcommand{\brew}{\textbf{\texttt{brew }}}
+\newcommand{\rapache}{\textbf{\texttt{rapache }}}
 \newcommand{\rjsonio}{\textbf{\texttt{RJSONIO }}}
 
 \renewcommand{\familydefault}{\sfdefault}
@@ -46,7 +48,7 @@ Contact: rvisualisation@gmail.com}
   well known of those charts is probably the Motion Chart, popularised
   by Hans Rosling in his TED talks.  With the \googleVis package users
   can create easily web pages with  interactive charts based on R data frames
-  and display them either via the \rsp package or
+  and display them either via the \rsp package, \rapache or
   within their own sites. Currently the package provides interfaces to
   Motion Charts, Annotated Time Lines, Maps, Geo Maps, Tables and Tree Maps. 
 \end{abstract}
@@ -279,7 +281,8 @@ complete web page while at the same time can extract specific parts,
 such as the chart. This is particular helpful if the package functions
 are used in solutions where the user wants to feed the visualisation
 output into other sites, or would like to embed them into rsp-pages,
-see page~\pageref{rspexample}, or Google Gadgets.  
+see page~\pageref{rspexample}, use \rapache (see page~\pageref{rapacheexample})
+or Google Gadgets.  
 
 The output of a \googleVis function will be of class \texttt{'gvis'}
 and \texttt{'list'}. Generic print (\texttt{print.gvis})  and plot
@@ -389,6 +392,49 @@ and again R allows you to find the file with the following command:
 filePath(system.file("rsp", package = "googleVis"), "index.rsp")
 @ 
 For more information read also the documentation of the \rsp package.
+
+\subsection{Using \googleVis with \rapache}\label{rapacheexample}
+The \rapache module~\cite{Rapache} for the Apache-Webserver 
+embeds the R interpreter into the apache web server. A detailed
+description, of how to install the module is presented in the
+\href{http://rapache.net/manual.html}{rapache manual}.
+
+The configuration is easy, just load the module and add some configurations:
+\begin{verbatim}
+LoadModule R_module /usr/lib/apache2/modules/mod_R.so
+ROutputErrors
+RSourceOnStartup "/var/www/rapache/R/startup.R"
+\end{verbatim}
+The \path{startup.R} file ist suitable for initial
+set up, like libraries and global variables:
+\begin{verbatim}
+library{googleVis}
+library{lattice}
+library{Cairo}
+MyGlobalVar <- 42
+\end{verbatim}
+
+After this, you may connect the RHandler with the function \path{brew}
+from the same-named template package \brew to a directory inside your \path{apache2.conf}:
+\begin{verbatim}
+<Directory /var/www/rapache/brew>
+      SetHandler r-script
+      RHandler brew::brew
+</Directory>
+\end{verbatim}
+
+Thats all! Now you can place an example file in the directory
+\path{/var/www/rapache/brew}, i.e. \path{fruits}:
+\begin{verbatim}
+<html>
+<body>
+<h1>Fruits</h1>
+<%= gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")$html$Chart %>
+</body>
+</html>
+\end{verbatim}
+
+For more information read also the documentation of the \rapache module.
 
 \section{Contact}
 \subsection{Collaboration} 
