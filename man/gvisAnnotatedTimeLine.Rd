@@ -384,9 +384,8 @@ described by a set of one to three columns.
 \examples{
 ## Please note that by default the plot (better plot.gvis) command
 ## will open a browser window and requires Flash and Internet
-## connection to display the visualisation.
-## Because of this requirement the plot commands are not executed
-## automatically as part of the example. 
+## connection to display the visualisation, hence the plot commands
+## are not executed automatically as part of the example. 
 ## Please copy and paste the plot commands manually
 ## to see the visualisation output, see also ?plot.gvis for further
 ## details.  

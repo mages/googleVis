@@ -142,7 +142,7 @@ options=list(displayAnnotations=TRUE, width=600, height=350))$html$chart%&gt;
 
     <p>
       We hope these examples show you how you can generate content
-      with functions from the <tt>R.rsp</tt> and <tt>googleVis</tt>
+      with functions from the <!-- <tt>R.rsp</tt> and --> <tt>googleVis</tt>
       packages.
     </p>
     <p>

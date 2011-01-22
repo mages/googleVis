@@ -88,4 +88,5 @@ pause()
 
 
 ## See how googleVis functions can be integrated into rsp-files:
-browseRsp() ## Click on googleVis in the Package section.
+if(require(R.rsp))
+  browseRsp() ## Click on googleVis in the Package section.

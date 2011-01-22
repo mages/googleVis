@@ -50,8 +50,10 @@ plot.gvis <- function(x,...){
   env[["googleVis"]] <- googlevis.httpd.handler
   
   root.dir <- tempdir()
-  file <- filePath(root.dir, paste(x$chartid ,".rsp", sep=""))
-  
+#  file <- filePath(root.dir, paste(x$chartid ,".rsp", sep=""))
+
+  file <- file.path(root.dir, paste(x$chartid ,".html", sep=""))
+ 
   print(x, file=file)
   
   .url <- sprintf("http://127.0.0.1:%s/custom/googleVis/%s",

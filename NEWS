@@ -3,13 +3,16 @@ Version 0.2.4 [2011-01-17]
 
 Changes
    
-   o plot.gvis now longer writes into the package folder. Instead temporary files are created.
+   o plot.gvis no longer writes into the package folder. Instead temporary files are created.
      This overcomes the need to install the package into a directory with write access.
      Many thanks to Ben Bolker for this suggestion and code. 
-     Further plot.gvis no longer requires the web server provided by
-     the R.rsp package to display the visualisation output. Instead ot
+  
+   o plot.gvis no longer requires the web server provided by
+     the R.rsp package to display the visualisation output. Instead it
      uses the R http help server. Many thanks to John Verzani for this
      suggestion and code. 
+  
+   o R >= 2.11.0 is required to plot googleVis output, as it uses the R http server.
    
 NEW FEATURES
 
