@@ -169,11 +169,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 \examples{
 ## Please note that by default the plot (better plot.gvis) command
 ## will open a browser window and requires Flash and Internet
-## connection to display the visualisation, hence the plot commands
-## are not executed automatically as part of the example. 
-## Please copy and paste the plot commands manually
-## to see the visualisation output, see also ?plot.gvis for further
-## details.  
+## connection to display the visualisation.
 
 Fruits	
 ## timevar Year
@@ -182,29 +178,20 @@ str(M1)
 ## print.gvis, will concatenate the list into a one long string
 M1
 
-## plot.gvis will create a file and open it in your browser.
-\dontrun{
 plot(M1)
-}
-
 \dontrun{
 ## Usage of date variable
 M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
                                date.format = "/%Y/%m/%d") 
 plot(M2)
-}
 ## Options: no side panel on the right
 M3 <- gvisMotionChart(Fruits,"Fruit","Year",
                  options=list(showSidePanel=FALSE))
-\dontrun{
 plot(M3)
-}
-
 ## Options: trails un-ticked
 M4 <- gvisMotionChart(Fruits, "Fruit", "Year",
                  options=list(state='{\"showTrails\":false};'))
 
-\dontrun{
 plot(M4)
 }
 }

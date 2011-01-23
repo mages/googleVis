@@ -67,10 +67,8 @@ M
 
 cat(M$html$chart)
 
-\dontrun{
 ## Web browser with Internet connection and Flash required.
 plot(M)
-}			
 
 }
 

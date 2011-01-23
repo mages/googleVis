@@ -10,15 +10,15 @@ Description: googleVis provides an interface between R and the Google
 	     The functions of the package allow the user to visualise
 	     data stored in R data frames with the Google
 	     Visualisation API without uploading their data to Google. 	     	     
-	     The output of a googleVis function is html code that contains the
-	     data and references to JavaScript functions hosted by
-	     Google. googleVis makes use of the internal R http
-	     server to display the output locally, yet a  browser with
+	     The output of a googleVis function is html code that
+	     contains the data and references to JavaScript
+	     functions hosted by Google and can be displayed locally
+	     with the R HTTP help server. A browser with
 	     Flash and Internet connection is required.   
 	     Please visit the project web site for more
 	     information and examples.
 Depends: R (>= 2.11.0), RJSONIO (>= 0.3), methods
-Suggests: R.rsp
+Suggests: R.rsp, brew
 License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/
 LazyLoad: yes

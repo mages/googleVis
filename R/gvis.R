@@ -49,7 +49,7 @@ gvis <- function(type="", data, options, chartid=NULL){
   ## we need a unique chart id to have more than one chart on the same page
   ## we use type and date to create the chart id
   if(is.null(chartid)){
-    chartid <- paste(type, format(Sys.time(), "%Y-%m-%d-%H-%M-%S"), sample(100000,1),sep="_")
+    chartid <- paste(type, format(Sys.time(), "%Y-%m-%d-%H-%M-%S"), basename(tempfile()),sep="_")
   }
 
   
@@ -87,7 +87,8 @@ var options ={};
 chart.draw(data,options);
 }
 </script>
-<div id="%s" style="width: %spx; height: %spx;">
+<div id="%s"
+  style="width: %spx; height: %spx;">
 </div>\n'
   
   jsChart <- sprintf(jsTableTemplate,
@@ -299,11 +300,12 @@ font-family: monospace, courier;
     
   htmlFooter <- sprintf('
 <address style="margin-top: 1ex; padding-top: 0.5ex; border-top: #000000 1px solid;">
- <div style="float:left; font-size:smaller;">Generated with
-<a href="http://www.r-project.org">%s</a> and 
+<div style="float:left; font-size:smaller;">Generated with
+<a href="/doc/html/index.html">%s</a> and 
 <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>,
 <BR>
-using the <a href="http://code.google.com/apis/visualization/documentation/gallery.html">
+using the
+<a href="http://code.google.com/apis/visualization/documentation/gallery.html">
 Google Visualisation API</a>.
 See also %s.
  </div>

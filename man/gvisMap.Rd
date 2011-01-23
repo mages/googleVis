@@ -143,24 +143,19 @@ Diego de Castillo \email{decastillo@gmail.com}
 \examples{
 ## Please note that by default the plot (better plot.gvis) command
 ## will open a browser window and requires Flash and Internet
-## connection to display the visualisation, hence the plot commands
-## are not executed automatically as part of the example. 
-## Please copy and paste the plot commands manually
-## to see the visualisation output, see also ?plot.gvis for further
-## details.  
+## connection to display the visualisation.
   
 ## Example with latitude and longitude information
 ## Plot Hurricane Andrew (1992) storm path:
 
 data(Andrew)
 
-M1 <- gvisMap(Andrew, "LatLong" , "Tip", 
-      	      options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
-		      mapType='terrain', useMapTypeControl=TRUE))
+M1 <- gvisMap(Andrew, "LatLong" , "Tip",
+              options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
+                           mapType='hybrid', useMapTypeControl=TRUE,
+                           width=800,height=400))
 
-\dontrun{
 plot(M1) 
-}
 
 
 ## Example with address, here UK post-code
@@ -172,9 +167,7 @@ M2 <- gvisMap(df, "Postcode", "Tip",
               options=list(showTip=TRUE, mapType='normal',
               enableScrollWheel=TRUE))
 
-\dontrun{
 plot(M2) 
-}
 
 }
 

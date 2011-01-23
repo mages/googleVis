@@ -217,24 +217,16 @@ Diego de Castillo \email{decastillo@gmail.com}
 \examples{
 ## Please note that by default the plot (better plot.gvis) command
 ## will open a browser window and requires Flash and Internet
-## connection to display the visualisation, hence the plot commands
-## are not executed automatically as part of the example. 
-## Please copy and paste the plot commands manually
-## to see the visualisation output, see also ?plot.gvis for further
-## details.  
+## connection to display the visualisation.
 
 ## Table with links to wikipedia (flags) 
 tbl1 <- gvisTable(Population)
-\dontrun{
 plot(tbl1)
-}
 
 ## Table with enabled paging
 tbl2 <- gvisTable(Population, options=list(page='enable', height=300))
 
-\dontrun{
 plot(tbl2)
-}
 }
 
 \keyword{ hplot }

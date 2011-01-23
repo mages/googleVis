@@ -191,11 +191,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 \examples{
 ## Please note that by default the plot (better plot.gvis) command
 ## will open a browser window and requires Flash and Internet
-## connection to display the visualisation, hence the plot commands
-## are not executed automatically as part of the example. 
-## Please copy and paste the plot commands manually
-## to see the visualisation output, see also ?plot.gvis for further
-## details.  
+## connection to display the visualisation.
 
 ## Regions Example
 ## The regions style fills entire regions (typically countries) with colors
@@ -205,9 +201,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 G1 <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
                  options=list(dataMode="regions")) 
 
-\dontrun{
 plot(G1)
-}
 
 ## Markers Example
 ## The "markers" style displays a circle, sized and colored to indicate
@@ -218,9 +212,7 @@ G2 <- gvisGeoMap(CityPopularity, locationvar='City', numvar='Popularity',
                               dataMode='markers',
                               colors='[0xFF8747, 0xFFB581, 0xc06000]'))	
 
-\dontrun{
 plot(G2) 
-}
 
 ## Example showing US data by state 
 
@@ -230,9 +222,7 @@ states <- data.frame(state.name, state.x77)
 G3 <- gvisGeoMap(states, "state.name", "Illiteracy",
                  options=list(region="US", dataMode="regions",
 		 width=600, height=400))
-\dontrun{
 plot(G3) 
-}
 
 ## Example with latitude and longitude information
 ## Show Hurricane Andrew (1992) storm track
@@ -240,9 +230,7 @@ G4 <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt",
       			 hovervar="Category", 
       		         options=list(height=350, region="US"))
 
-\dontrun{
 plot(G4) 
-}
 
 
 }

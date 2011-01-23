@@ -210,17 +210,12 @@ Diego de Castillo \email{decastillo@gmail.com}
 \examples{
 ## Please note that by default the plot (better plot.gvis) command
 ## will open a browser window and requires Flash and Internet
-## connection to display the visualisation, hence the plot commands
-## are not executed automatically as part of the example. 
-## Please copy and paste the plot commands manually
-## to see the visualisation output, see also ?plot.gvis for further
-## details.  
+## connection to display the visualisation.
 
 Tree <- gvisTreeMap(Regions,  idvar="Region", parentvar="Parent",
                     sizevar="Val", colorvar="Fac")
-\dontrun{
 plot(Tree)
-}
+
 
 Tree2 <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
                     options=list(width=600, height=500,
@@ -232,9 +227,7 @@ Tree2 <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
                                  fontColor='black',
                                  showScale=TRUE))
 
-\dontrun{
 plot(Tree2)
-}
 
 ## Simple static treemap with no drill down options based on US states
 ## and their area. However we still have to create a parent id to use
@@ -255,9 +248,7 @@ my.states$parent[my.states$state.name=="USA"] <- NA
 my.states$state.area.log=log(my.states$state.area)
 statesTree <- gvisTreeMap(my.states, "state.name", "parent",
                           "state.area", "state.area.log")
-\dontrun{
 plot(statesTree)
-}
 
 
 ## We add US regions to the above data set to enable drill down capabilities
@@ -280,9 +271,7 @@ my.states2$state.area.log=log(my.states2$state.area)
 statesTree2 <- gvisTreeMap(my.states2, "regionid", "parentid",
                            "state.area", "state.area.log")
 
-\dontrun{
 plot(statesTree2)
-}
 
 ## Now we add another layer with US divisions
 
@@ -312,9 +301,7 @@ my.states3$state.area.log=log(my.states3$state.area)
 statesTree3 <- gvisTreeMap(my.states3, "regionid", "parentid",
                            "state.area", "state.area.log")
 
-\dontrun{
 plot(statesTree3)
-}
 
 
 }

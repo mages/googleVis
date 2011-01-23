@@ -34,8 +34,8 @@ Using the Google Visualisation API with R
   For examples using the Google Visualisation API see the Google
   Public Data Explorer: \url{http://www.google.com/publicdata/home}
 
-  Of course there are many alternative visualisation toolkits out there, to
-  name but a few:
+  Of course there are many alternative visualisation toolkits out
+  there, e.g. 
   \itemize{
     \item Many Eyes:
     \url{http://services.alphaworks.ibm.com/manyeyes/page/Create_a_Visualization.html}    

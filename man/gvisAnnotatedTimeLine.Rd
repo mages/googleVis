@@ -384,11 +384,7 @@ described by a set of one to three columns.
 \examples{
 ## Please note that by default the plot (better plot.gvis) command
 ## will open a browser window and requires Flash and Internet
-## connection to display the visualisation, hence the plot commands
-## are not executed automatically as part of the example. 
-## Please copy and paste the plot commands manually
-## to see the visualisation output, see also ?plot.gvis for further
-## details.  
+## connection to display the visualisation.
 
 
 data(Stock)
@@ -400,9 +396,7 @@ A1 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                             legendPosition='newRow',
                             width=600, height=350)
                            )
-\dontrun{
 plot(A1)
-}
 
 ## Two Y-axis
 
@@ -414,9 +408,7 @@ A2 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                             width=600, height=350, scaleColumns='[0,1]',
                             scaleType='allmaximized')
                           )
-\dontrun{
 plot(A2)
-}
 
 ## Zoom into the time window, no Y-axis ticks
 A3 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
@@ -427,9 +419,7 @@ A3 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                             zoomStartTime=as.Date("2008-01-04"),
                             zoomEndTime=as.Date("2008-01-05")) 
                           )
-\dontrun{
 plot(A3)
-}
 
 
 ## Data with POSIXct datetime variable
@@ -438,9 +428,7 @@ A4 <- gvisAnnotatedTimeLine(Andrew, datevar="Date/Time UTC",
                             options=list(scaleType='maximized')
                             )
 
-\dontrun{
 plot(A4)
-}
 
 }
 \keyword{ hplot }
