@@ -50,12 +50,11 @@ Contact: rvisualisation@gmail.com}
  
   The functions of the \googleVis package allow the user to visualise
   data stored in R data frames with the Google Visualisation API
-  without uploading their data to Google. 
-  The output of a \googleVis function is html code that contains the
-  data and references to JavaScript functions hosted by
-  Google and can be displayed locally with the R HTTP
-  help server.
-  
+  without uploading their data to Google. The output of a \googleVis
+  function is html code that contains the data and references to
+  JavaScript functions hosted by Google and can be displayed via a
+  browser. 
+
   Currently the package provides interfaces to
   Motion Charts, Annotated Time Lines, Maps, Geo Maps, Tables and Tree Maps. 
 \end{abstract}
@@ -361,7 +360,7 @@ plot(M)
 The plot method for \texttt{gvis} object will by
 default automatically create a html file in a temporary folder using
 the type and chart id information of the object and it will display
-the output using the R HTTP web server.  The R command
+the output using the local R HTTP help web server.  The R command
 \texttt{tempdir()}  will show you the path of the per-session
 temporary directory.  
 
