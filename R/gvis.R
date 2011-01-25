@@ -298,7 +298,7 @@ font-family: monospace, courier;
 
   googleTerms <- '<a href="http://code.google.com/apis/visualization/terms.html">\nGoogle Terms of Use</a>'
     
-  htmlFooter <- sprintf('
+  htmlFooter <- sprintf('<font face="arial">
 <address style="margin-top: 1ex; padding-top: 0.5ex; border-top: #000000 1px solid;">
 <div style="float:left; font-size:smaller;">Generated with
 <a href="/doc/html/index.html">%s</a> and 
@@ -310,12 +310,14 @@ Google Visualisation API</a>.
 See also %s.
  </div>
 </address>
+</font>
 </body>
 </html>
 ', R.Version()$version.string, packageDescription('googleVis')$Version, googleTerms)
 
-  htmlCaption <- sprintf('Data: %s, Chart ID: %s\n',
-                         dataName, chartid)
+  htmlCaption <- sprintf('<font face="arial">
+  Data: %s, Chart ID: %s, <a href="Chart_%s.html">HTML code</a>
+  </font>' , dataName, chartid, chartid)
 
   return(list(htmlHeader=htmlHeader,
               htmlFooter=htmlFooter,

@@ -44,8 +44,8 @@ Contact: rvisualisation@gmail.com}
 \begin{abstract}
   The \googleVis package provides an interface between R and the
   Google Visualisation API.  The Google Visualisation API offers
-  interactive charts which can be embedded into web pages. The most
-  well known of those charts is probably the Motion Chart, popularised
+  interactive charts which can be embedded into web pages. The best
+  known of these charts is probably the Motion Chart, popularised 
   by Hans Rosling in his TED talks. 
  
   The functions of the \googleVis package allow the user to visualise
@@ -79,7 +79,7 @@ In 2006 Hans Rosling gave an inspiring talk at
 TED~\cite{HansRoslingTedTalk} about social and economic developments
 in the world over the last 50 years, which challenged the views and
 perceptions of many listeners. Rosling had used extensive data analysis
-to come to his conclusions.  To visualise his talk, he and his team at
+to reach his conclusions.  To visualise his talk, he and his team at
 Gapminder~\cite{Gapminder} had developed animated bubble charts, aka
 motion charts, see Figure~\ref{MotionChartGUI}. 
 
@@ -141,15 +141,15 @@ help to analyse data. Please note, that most of those charts are rendered
 within a browser using Adobe Flash~\cite{Flash}.
 
 The charting data can either be embedded into the html file or read
-dynamically. Key to the Google Visualisation API is that the data is
+dynamically. The key to the Google Visualisation API is that the data is
 structured in a DataTable~\cite{DataTable}, and this is where the \googleVis
 package helps, as it uses the functionality of the \rjsonio
 package~\cite{RJSONIO} to transform R data frames into
 JSON~\cite{json} objects as the basis for a DataTable.
 
-As an example we shall look at the html-code of a motion chart from Google's visualisation 
-gallery~\cite{GoogleMotionChart}, which generates output similar to
-Figure~\ref{MotionChartGUI}:
+As an example we shall look at the html-code of a motion chart from
+Google's visualisation gallery~\cite{GoogleMotionChart}, which
+generates output similar to Figure~\ref{MotionChartGUI}:
 
 \begin{verbatim}
 <html>
@@ -186,18 +186,18 @@ Figure~\ref{MotionChartGUI}:
   </body>
 </html>
 \end{verbatim}
-You will notice that the above html-code has three generic parts:
+You will notice that the above html code has three generic parts:
 \begin{itemize}
-\item reference to a JavaScript function provided by Google, here 
+\item reference to a JavaScript function provided by Google. Shown here as
 	\texttt{'motionchart'},
 
 \item data to visualise as a \texttt{DataTable}, 
 
-\item chart with chart id (\texttt{'chart\_div'}) and options, here width
-  and height. 
+\item chart with chart id (\texttt{'chart\_div'}) and options, shown
+  here as width and height. 
 \end{itemize}
 
-Those principles hold true for most of the interactive charts of the
+These principles hold true for most of the interactive charts of the
 Google Visualisation API, see the examples in Figure~\ref{demos}.
 
 \section{The \googleVis package}
@@ -221,7 +221,7 @@ Currently the package provides interfaces to Motion
 Chart~\cite{GoogleMotionChart}, Annotated Time
 Line~\cite{GoogleAnnotatedTimeLine}, Geo Map~\cite{GoogleGeoMap}, 
 Map~\cite{GoogleMap}, Table~\cite{GoogleTable} and Tree
-Map~\cite{GoogleTreeMap}, see Figure~\ref{demos} for examples.  
+Map~\cite{GoogleTreeMap}; see Figure~\ref{demos} for examples.  
 
 \begin{figure}%%[!ht]
 \begin{center}
@@ -281,7 +281,7 @@ containing information about the chart type, chart id and the html
 code in a  sub-list with header, chart, caption and footer.
 
 The idea behind this concept is that users can get a
-complete web page while at the same time can extract specific parts,
+complete web page while at the same time extracting specific parts,
 such as the chart. This is particular helpful if the package functions
 are used in solutions where the user wants to feed the visualisation
 output into other sites, or would like to embed them into rsp-pages
@@ -298,7 +298,7 @@ To illustrate the concept we shall create a motion chart using the
 \subsection{Motion Chart Example}
 
 Following the documentation of the Google Motion Chart API we need a
-data set which has at least four columns; one identifying the
+data set which has at least four columns: one identifying the
 variable we would like to plot, one time variable and at least two
 numerical variables, further numerical and character columns are allowed.
 
@@ -310,12 +310,12 @@ Fruits
 
 Here we will use the columns \texttt{'Fruit'} and
 \texttt{'Year'} as id and time variable respectively. However we could
-also heave used \texttt{'Date'} instead of \texttt{'Year'}. 
+heave used \texttt{'Date'} instead of \texttt{'Year'}. 
 
 <<>>=
  M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 @
-The structural output of \texttt{gvisMotionChart} is a list of list as
+The structural output of \texttt{gvisMotionChart} is a list of lists as
 described above 
 <<eval=FALSE>>=
  str(M)
@@ -339,8 +339,8 @@ The header part of the html page has only basic html tags:
 <<>>=
 cat(M$html$header)
 @ 
-The actual Google visualisation code is stored with the data in the \texttt{chart} item
-of the html list. 
+The actual Google visualisation code is stored with the data in the
+\texttt{chart} item of the html list. 
 <<>>=
 cat(M$html$chart)
 @
@@ -352,7 +352,7 @@ cat(M$html$footer)
 @ 
 \subsection{Displaying \texttt{gvis} objects locally}
 
-To display the page locally just type:
+To display the page locally, type:
 <<eval=FALSE>>=
 plot(M)
 @

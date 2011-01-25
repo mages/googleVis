@@ -50,8 +50,15 @@ plot.gvis <- function(x,...){
   env[["googleVis"]] <- googlevis.httpd.handler
   
   root.dir <- tempdir()
-#  file <- filePath(root.dir, paste(x$chartid ,".rsp", sep=""))
 
+  ## Write the pure chart html code into a separate file
+  chart.txt <- sprintf('<html><body><font face="arial">
+ You can copy and paste the code below into an existing HTML page.</font><P> 
+ <textarea rows="50" name="html" cols="80"
+  %s\n</textarea></P></body></html>', x$html$chart)  
+  cat(chart.txt, file=file.path(root.dir, paste("Chart_", x$chartid, ".html", sep="")))
+
+  ## Write the whole visualisation into a html file
   file <- file.path(root.dir, paste(x$chartid ,".html", sep=""))
  
   print(x, file=file)

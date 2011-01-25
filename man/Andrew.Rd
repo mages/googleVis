@@ -49,12 +49,11 @@ AndrewTable <- gvisTable(Andrew,options=list(width=800))
 AndrewVis <- list(type='GeoMapTable',
 		chartid=format(Sys.time(), 'Hurricane-Andrew-\%Y-\%m-\%d-\%H-\%M-\%S'), 
 		 html=list(Header=AndrewGeoMap$html$header,
-		 		Chart1=AndrewGeoMap$html$chart,
-				Caption1=AndrewGeoMap$html$caption,
-				Chart2=AndrewMap$html$chart,
-				Caption2=AndrewMap$html$caption,
-				Chart3=AndrewTable$html$chart,
-				Caption3=AndrewTable$html$caption,
+		 		Chart=paste(AndrewGeoMap$html$chart,
+				             AndrewMap$html$chart,				          
+                                             AndrewTable$html$chart,
+    		                             sep="\n<BR>\n"),
+                                Caption="Combination of visualisations", 
 				Footer=AndrewGeoMap$html$footer)
             )			
 		
