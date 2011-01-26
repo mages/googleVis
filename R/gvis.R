@@ -278,46 +278,37 @@ checkSquareBracketOps <- function(char){
 
 gvisHtmlWrapper <- function(title, dataName, chartid){
 
-  htmlHeader <- '
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
- "http://www.w3.org/TR/REC-html40/loose.dtd">
-<html>
+  htmlHeader <- '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<link media="screen" type="text/css" rel="StyleSheet" href="/css/R.css">
-<link media="screen" type="text/css" rel="StyleSheet" href="/css/rsp.css">
-<link media="screen" type="text/css" rel="StyleSheet" href="/css/figures.css"> 
+  <title>%s</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+    body {
+          color: #444444;
+          font-family: Arial,Helvetica,sans-serif;
+          font-size: 75%%;
+    }
+    a {
+          color: #4D87C7;
+          text-decoration: none;
+    }
+  </style>
 </head>
 <body>
-<style type="text/css">  
-tt {  
-font-family: monospace, courier;  
-}  
-</style>  
 '
-  
-
-  googleTerms <- '<a href="http://code.google.com/apis/visualization/terms.html">\nGoogle Terms of Use</a>'
-    
-  htmlFooter <- sprintf('<font face="arial">
-<address style="margin-top: 1ex; padding-top: 0.5ex; border-top: #000000 1px solid;">
-<div style="float:left; font-size:smaller;">Generated with
-<a href="/doc/html/index.html">%s</a> and 
-<a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>,
-<BR>
-using the
-<a href="http://code.google.com/apis/visualization/documentation/gallery.html">
-Google Visualisation API</a>.
-See also %s.
- </div>
-</address>
-</font>
+  htmlHeader <- sprintf(htmlHeader,chartid)
+  htmlFooter <- '<span><a href="Chart_%s.html">HTML code</a> &#8226; 
+ %s &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>
+&#8226; <a href="http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a>
+</span></div>
 </body>
 </html>
-', R.Version()$version.string, packageDescription('googleVis')$Version, googleTerms)
-
-  htmlCaption <- sprintf('<font face="arial">
-  Data: %s, Chart ID: %s, <a href="Chart_%s.html">HTML code</a>
-  </font>' , dataName, chartid, chartid)
+'
+  htmlFooter <- sprintf(htmlFooter,chartid,R.Version()$version.string,
+		        packageDescription('googleVis')$Version,chartid)  
+  htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: %s</span><br />' , dataName, chartid)
 
   return(list(htmlHeader=htmlHeader,
               htmlFooter=htmlFooter,
