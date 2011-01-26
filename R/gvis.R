@@ -298,17 +298,18 @@ gvisHtmlWrapper <- function(title, dataName, chartid){
 </head>
 <body>
 '
-  htmlHeader <- sprintf(htmlHeader,chartid)
-  htmlFooter <- '<span><a href="Chart_%s.html">HTML code</a> &#8226; 
+  htmlHeader <- sprintf(htmlHeader,chartid) 
+  htmlFooter <- '<span> 
  %s &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>
 &#8226; <a href="http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a>
 </span></div>
 </body>
 </html>
 '
-  htmlFooter <- sprintf(htmlFooter,chartid,R.Version()$version.string,
+  htmlFooter <- sprintf(htmlFooter, R.Version()$version.string,
 		        packageDescription('googleVis')$Version,chartid)  
-  htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: %s</span><br />' , dataName, chartid)
+  htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: <a href="Chart_%s.html">%s</span></a><br />' ,
+                         dataName, chartid, chartid)
 
   return(list(htmlHeader=htmlHeader,
               htmlFooter=htmlFooter,
