@@ -52,10 +52,34 @@ plot.gvis <- function(x,...){
   root.dir <- tempdir()
 
   ## Write the pure chart html code into a separate file
-  chart.txt <- sprintf('<html><body><font face="arial">
- You can copy and paste the code below into an existing HTML page.</font><P> 
- <textarea rows="50" name="html" cols="80"
-  %s\n</textarea></P></body></html>', x$html$chart)  
+  chart.txt <- '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>%s</title>
+  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <style type="text/css">
+    body {
+          color: #444444;
+          font-family: Arial,Helvetica,sans-serif;
+          font-size: 75%%;
+    }
+    a {
+          color: #4D87C7;
+          text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+<p>You can copy and paste the code below into an existing HTML page.</p>
+<p><textarea rows="50" name="html" cols="80">
+%s
+</textarea>
+</p>
+</body>
+</html>
+'
+  chart.txt <- sprintf(chart.txt, x$chartid,gsub(">","&gt;",gsub("<","&lt;",x$html$chart)))  
   cat(chart.txt, file=file.path(root.dir, paste("Chart_", x$chartid, ".html", sep="")))
 
   ## Write the whole visualisation into a html file

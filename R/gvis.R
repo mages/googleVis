@@ -308,7 +308,7 @@ gvisHtmlWrapper <- function(title, dataName, chartid){
 '
   htmlFooter <- sprintf(htmlFooter, R.Version()$version.string,
 		        packageDescription('googleVis')$Version,chartid)  
-  htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: <a href="Chart_%s.html">%s</span></a><br />' ,
+  htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: <a href="Chart_%s.html">%s</a></span><br />' ,
                          dataName, chartid, chartid)
 
   return(list(htmlHeader=htmlHeader,
