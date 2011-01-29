@@ -189,7 +189,7 @@ generates output similar to Figure~\ref{MotionChartGUI}:
 You will notice that the above html code has three generic parts:
 \begin{itemize}
 \item reference to a JavaScript function provided by Google. Shown here as
-	\texttt{'motionchart'},
+	\texttt{'motion\-chart'},
 
 \item data to visualise as a \texttt{DataTable}, 
 
@@ -342,14 +342,27 @@ cat(M$html$header)
 The actual Google visualisation code is stored with the data in the
 \texttt{chart} item of the html list. 
 <<>>=
-cat(M$html$chart)
+cat(unlist(M$html$chart))
 @
 
 A basic chart caption and html footer are the final items of the html list:
-<<>>=
+
+<<eval=FALSE>>=
 cat(M$html$caption)
+@ 
+<<echo=FALSE>>=
+## This statement avoids truncation
+cat(paste(substring( capture.output( cat(M$html$caption) ) , 0, 66), sep="\n", collapse="\n"))
+@ 
+
+<<eval=FALSE>>=
 cat(M$html$footer)
 @ 
+<<echo=FALSE>>=
+## This statement avoids truncation
+cat(paste(substring( capture.output( cat(M$html$footer) ) , 0, 66), sep="\n", collapse="\n"))
+@
+
 \subsection{Displaying \texttt{gvis} objects locally}
 
 To display the page locally, type:
@@ -379,7 +392,7 @@ In this case you only need the chart output from
 \texttt{gvisMotionChart}.  So you can either copy and paste the output
 from the R console directly 
 <<eval=FALSE>>=
-cat(M$html$chart)
+cat(unlist(M$html$chart))
 @
 into your existing html page, or write the content directly into a file
 <<eval=FALSE>>=
@@ -411,7 +424,7 @@ example, we can embed the above motion chart into a rsp-page:
 <body>
 <% library(googleVis)%>
 <% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
-<%= M$html$Chart %>
+<%= M$html$chart %>
 </body>
 </html>
 \end{verbatim}
@@ -421,8 +434,8 @@ R output into the html code we have to add an equal sign,
 \texttt{<\%=$\dots$\%>}, which acts as a \texttt{cat} statement. In the 
 example above the chart code is embedded into the html code.
 
-You find an example as part of the \googleVis package. This example can be displayed
-via the following R command:
+You find an example as part of the \googleVis package. This example
+can be displayed via the following R command:
 <<eval=FALSE>>=
 library(R.rsp) 
 browseRsp() 
@@ -513,7 +526,7 @@ the \brew directory and access the via
 <h1>Fruits</h1>
 <% library(googleVis)%>
 <% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
-<%= M$html$Chart %>
+<%= unlist(M$html$chart) %>
 </body>
 </html>
 \end{verbatim}

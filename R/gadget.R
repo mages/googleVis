@@ -12,6 +12,6 @@ sprintf('<?xml version="1.0" encoding="UTF-8" ?>
   ]]> 
   </Content>
 </Module>
-',  gvis$chartid, gvis$html$chart ) 
+',  gvis$chartid, paste(gvis$html$chart, collapse="\n") ) 
   
 }

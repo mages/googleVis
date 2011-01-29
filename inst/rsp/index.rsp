@@ -62,63 +62,63 @@
     <p>
       For example 
       <pre>
-&lt;%=gvisGeoMap(Exports, locationvar='Country',
+&lt;%=unlist(gvisGeoMap(Exports, locationvar='Country',
 numvar='Profit',options=list(height=350,
-dataMode='regions'))$html$chart%&gt; 
+dataMode='regions'))$html$chart)%&gt; 
       </pre> 
       gives you a <b>Geo Map</b>:
     </p>
     <p>
-      <%=gvisGeoMap(Exports, locationvar='Country', numvar='Profit',options=list(height=350, dataMode='regions'))$html$chart%>
+      <%=unlist(gvisGeoMap(Exports, locationvar='Country', numvar='Profit',options=list(height=350, dataMode='regions'))$html$chart)%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
       Geo Map API</a>  
     </p>
     <p>
       A Google <b>Map</b> can be create e.g. via 
       <pre>
-&lt;%=gvisMap(Andrew, "LatLong" , "Tip", options=list(showTip=TRUE,
+&lt;%=unlist(gvisMap(Andrew, "LatLong" , "Tip", options=list(showTip=TRUE,
 showLine=TRUE, enableScrollWheel=TRUE,  mapType='terrain',
-useMapTypeControl=TRUE))$html$chart&gt;
+useMapTypeControl=TRUE))$html$chart)%&gt;
      </pre> 
     </p>
     <p>
-<%=gvisMap(as.list(Andrew), "LatLong" , "Tip",  options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE, mapType='terrain', useMapTypeControl=TRUE))$html$chart%>
+<%=unlist(gvisMap(as.list(Andrew), "LatLong" , "Tip",  options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE, mapType='terrain', useMapTypeControl=TRUE))$html$chart)%>
      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/map.html">Google
 	Map API</a>  
     </p>
    <p>
       For a <b>Motion Chart</b> we would write something like 
       <pre>
-&lt;%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
-options=list(width=600, height=500))$html$chart%&gt;
+&lt;%=unlist(gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
+options=list(width=600, height=500))$html$chart)%&gt;
       </pre> 
     </p>
     <p>
-      <%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",  options=list(width=600, height=500))$html$chart%>
+      <%=unlist(gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",  options=list(width=600, height=500))$html$chart)%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/motionchart.html">Google
 	Motion Chart API</a>  
     </p>
     <p>
       A <b>Tree Map</b> can be generated with 
       <pre>
-&lt;%=gvisTreeMap(Regions, idvar="Region", parentvar="Parent",
+&lt;%=unlist(gvisTreeMap(Regions, idvar="Region", parentvar="Parent",
 sizevar="Val", colorvar="Fac", options=list(width=600, height=500,
-showScale=TRUE, fontSize=16))$html$chart%&gt;
+showScale=TRUE, fontSize=16))$html$chart)%&gt;
       </pre> 
     </p>
     <p>
-      <%=gvisTreeMap(Regions, "Region", "Parent", "Val", "Fac", options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$chart%>
+      <%=unlist(gvisTreeMap(Regions, "Region", "Parent", "Val", "Fac", options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$chart)%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/treemap.html">Google
 	Tree Map API</a>  
     </p>
     <p>
       To display a <b>Table</b> we write 
       <pre>
-&lt;%=gvisTable(Exports, options=list(width=600, height=300))$html$chart%&gt;
+&lt;%=unlist(gvisTable(Exports, options=list(width=600, height=300))$html$chart)%&gt;
      </pre> 
     </p>
     <p>
-      <%=gvisTable(Exports, options=list(width=600, height=300))$html$chart%>
+      <%=unlist(gvisTable(Exports, options=list(width=600, height=300))$html$chart)%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/table.html">Google
       Table API</a>  
     </p>
@@ -127,13 +127,13 @@ showScale=TRUE, fontSize=16))$html$chart%&gt;
     <p>
       For an <b>Annotated Time Line</b> an example could look like 
       <pre>
-&lt;%=gvisAnnotatedTimeLine(Stock, datevar="Date", numvar="Value",
+&lt;%=unlist(gvisAnnotatedTimeLine(Stock, datevar="Date", numvar="Value",
 idvar="Device",  titlevar="Title", annotationvar="Annotation",
-options=list(displayAnnotations=TRUE, width=600, height=350))$html$chart%&gt; 
+options=list(displayAnnotations=TRUE, width=600, height=350))$html$chart)%&gt; 
      </pre> 
     </p>
     <p>
-      <%=gvisAnnotatedTimeLine(Stock, datevar="Date", numvar="Value",  idvar="Device", titlevar="Title", annotationvar="Annotation",  options=list(displayAnnotations=TRUE, width=600, height=350))$html$chart%>
+      <%=unlist(gvisAnnotatedTimeLine(Stock, datevar="Date", numvar="Value",  idvar="Device", titlevar="Title", annotationvar="Annotation",  options=list(displayAnnotations=TRUE, width=600, height=350))$html$chart)%>
       See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html">Google
       Annotated Time Line API</a>  
     </p>

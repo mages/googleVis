@@ -47,7 +47,7 @@ aapl <- gvisAnnotatedTimeLine(AAPL, datevar="Date",
 
 %>
 <hr>
-<%= aapl$html$chart %>
+<%= unlist(aapl$html$chart) %>
 <hr>
 </body>
 </html>

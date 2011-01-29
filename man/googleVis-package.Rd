@@ -12,7 +12,7 @@ Using the Google Visualisation API with R
  in R data frames with the Google Visualisation API.
  
  googleVis makes use of the internal R http server to display the
- output locally, yet a  browser with Flash and Internet connection is
+ output locally. A browser with Flash and Internet connection is
  required.
 } 
 \details{
@@ -20,7 +20,7 @@ Using the Google Visualisation API with R
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
 	Version: \tab 0.2.4\cr
-	Date: \tab 20011-01-22\cr
+	Date: \tab 20011-01-31\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}

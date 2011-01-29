@@ -26,11 +26,10 @@
       (\code{print.gvis}) or \code{\link{browseURL}} (\code{plot.gvis}).
   }
 }
-\details{
-  The plot function uses the R http help server to display the Google
-  Visualisation locally, yet a  browser with Flash and Internet
-  connection is required.	    
-}
+
+%%\details{
+%%  The plot function creates two temporary fi
+%%}
 \value{
   \item{\code{print.gvis}}{ None (invisible \code{NULL}).}
   
@@ -47,8 +46,13 @@
 }
 \note{
   The \code{plot} command does not open a graphics device in the
-  traditional way. Instead it uses the R http server to display the output
-  of a \code{googleVis} function in a browser. 
+  traditional way. Instead it creates HTML files in a temporary
+  directory and uses the R HTTP server to display the output  
+  of a \code{googleVis} function locally. 
+  A browser with Flash and Internet connection is required.
+  The displayed page includes a link (click on the chart id) to a
+  further page which shows the code of the chart for the user to copy
+  and paste in her/his own page.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
@@ -59,13 +63,11 @@
 }
 \examples{
 
-
 M <- gvisMotionChart(Fruits, "Fruit", "Year")
 str(M)
 M
 ## access only the plot
-
-cat(M$html$chart)
+cat(unlist(M$html$chart))
 
 ## Web browser with Internet connection and Flash required.
 plot(M)

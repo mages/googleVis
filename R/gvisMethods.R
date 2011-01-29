@@ -18,8 +18,8 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-print.gvis <- function(x,file="",...){
-
+print.gvis <- function(x, file="",...){
+  
   cat(unlist(x$html), file=file, ...)
 
 }
@@ -79,7 +79,9 @@ plot.gvis <- function(x,...){
 </body>
 </html>
 '
-  chart.txt <- sprintf(chart.txt, x$chartid,gsub(">","&gt;",gsub("<","&lt;",x$html$chart)))  
+  chart.txt <- sprintf(chart.txt, x$chartid,gsub(">","&gt;",gsub("<","&lt;",
+                                                                 paste(unlist(x$html$chart), collapse="\n")))
+                       )
   cat(chart.txt, file=file.path(root.dir, paste("Chart_", x$chartid, ".html", sep="")))
 
   ## Write the whole visualisation into a html file

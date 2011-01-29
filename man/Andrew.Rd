@@ -47,15 +47,15 @@ AndrewTable <- gvisTable(Andrew,options=list(width=800))
 ## Combine the outputs into one page:
 
 AndrewVis <- list(type='GeoMapTable',
-		chartid=format(Sys.time(), 'Hurricane-Andrew-\%Y-\%m-\%d-\%H-\%M-\%S'), 
-		 html=list(Header=AndrewGeoMap$html$header,
-		 		Chart=paste(AndrewGeoMap$html$chart,
-				             AndrewMap$html$chart,				          
-                                             AndrewTable$html$chart,
-    		                             sep="\n<BR>\n"),
-                                Caption="Combination of visualisations", 
-				Footer=AndrewGeoMap$html$footer)
-            )			
+		chartid="chart123", ##format(Sys.time(),  'Hurricane-Andrew-\%Y-\%m-\%d-\%H-\%M-\%S'), 
+		 html=list(header=AndrewGeoMap$html$header,
+		 		chart=list(AndrewGeoMap$html$chart,
+				           AndrewMap$html$chart, 
+                                           AndrewTable$html$chart
+    		                           ),
+                                caption="Combination of visualisations", 
+				footer=AndrewGeoMap$html$footer)
+            )
 		
 class(AndrewVis) <- list('gvis',class(AndrewVis))
 
