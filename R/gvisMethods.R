@@ -18,10 +18,16 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-print.gvis <- function(x, file="",...){
-  
-  cat(unlist(x$html), file=file, ...)
+print.gvis <- function(x, tag="html", file="", ...){
 
+
+  tag <- ifelse( tag %in% c("chartid", "type", "html"), tag, paste(".", tag, sep=""))
+
+  output <- unlist(x)
+  tag.names <- names(output)
+  .id <- apply(t(tag), 2, function(y) grep(paste("\\", y, sep=""), tag.names))
+  cat(output[.id], file=file, ...)
+  
 }
 
 
@@ -71,7 +77,10 @@ plot.gvis <- function(x,...){
   </style>
 </head>
 <body>
-<p>You can copy and paste the code below into an existing HTML page.</p>
+<p>
+  You find below the HTML code of the visualisation.
+  You can copy and paste the code into an existing HTML page.
+  For more information see also <a href="/library/googleVis/html/gvisMethods.html">?print.gvis</a></p>
 <p><textarea rows="50" name="html" cols="80">
 %s
 </textarea>

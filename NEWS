@@ -1,4 +1,4 @@
-Version 0.2.4 [2011-01-17]
+Version 0.2.4 [2011-02-01]
 ==========================
 
 Changes
@@ -6,24 +6,32 @@ Changes
    o plot.gvis no longer writes into the package folder. Instead
      temporary files are created. This overcomes the need to install
      the package into a directory with write access. Many thanks to
-     Ben Bolker for this suggestion and code.  
+     Ben Bolker for this suggestion and code contribution.  
   
    o plot.gvis no longer requires the web server provided by
      the R.rsp package to display the visualisation output. Instead it
      uses the internal R HTTP help server. Many thanks to John Verzani
-     for this suggestion and code. 
+     for this suggestion and code contribution. 
   
    o R >= 2.11.0 is required to plot googleVis output, as it uses the
-     internal R HTTP help server. 
-   
+     internal R HTTP help server.
+  
    o Updated vignette with a section on how to use googleVis with
-     RApache 
+     RApache and brew
  
 NEW FEATURES
 
    o The plot function generates a web page which includes a link
      to the HTML code of the chart. Many thanks to Henrik Bengtsson
      for this suggestion.
+
+   o gvis functions return more details about the visualisation chart
+     in a structured way. Suppose x is a 'gvis' object, than
+     x$html$chart is a list of the chart's JavaScript building
+     blocks and html tags. 
+
+   o print.gvis has a new argument 'tag', which gives the user more
+     control about the output
 
 BUG FIXES
 

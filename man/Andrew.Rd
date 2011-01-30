@@ -38,7 +38,8 @@ AndrewGeoMap <- gvisGeoMap(Andrew, locationvar='LatLong', numvar='Speed_kt',
                           options=list(width=800,height=400, region='US'))
 
 AndrewMap <- gvisMap(Andrew, 'LatLong' , 'Tip',
-                           options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
+                           options=list(showTip=TRUE, showLine=TRUE,
+                           enableScrollWheel=TRUE,
                            mapType='hybrid', useMapTypeControl=TRUE,
 			   width=800,height=400))
 
@@ -47,14 +48,14 @@ AndrewTable <- gvisTable(Andrew,options=list(width=800))
 ## Combine the outputs into one page:
 
 AndrewVis <- list(type='GeoMapTable',
-		chartid="chart123", ##format(Sys.time(),  'Hurricane-Andrew-\%Y-\%m-\%d-\%H-\%M-\%S'), 
+		chartid='Hurricane-Andrew', 
 		 html=list(header=AndrewGeoMap$html$header,
-		 		chart=list(AndrewGeoMap$html$chart,
-				           AndrewMap$html$chart, 
-                                           AndrewTable$html$chart
-    		                           ),
-                                caption="Combination of visualisations", 
-				footer=AndrewGeoMap$html$footer)
+		      chart=list(AndrewGeoMap$html$chart,
+			         AndrewMap$html$chart, 
+			         AndrewTable$html$chart
+				),
+                 caption="Combination of various googleVis outputs <BR />", 
+                 footer=AndrewGeoMap$html$footer)
             )
 		
 class(AndrewVis) <- list('gvis',class(AndrewVis))

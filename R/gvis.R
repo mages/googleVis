@@ -71,6 +71,7 @@ gvis <- function(type="", data, options, chartid=NULL){
   }  
 
   jsHeader <- '
+<!-- jsHeader -->
 <script type="text/javascript\" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
@@ -78,7 +79,8 @@ gvis <- function(type="", data, options, chartid=NULL){
 '
   jsHeader  <- paste(infoString(type),   jsHeader , sep="\n")
 
- jsData <- '  
+ jsData <- '
+<!-- jsData -->
 function gvisData%s ()
 {
   var data = new google.visualization.DataTable();
@@ -95,6 +97,7 @@ return(data);
                                  names(data.type), "');", sep=""), collapse="\n"))
   
   jsDisplayChart <- '
+<!-- jsDisplayChart -->
 function displayChart%s()
 {
   google.load("visualization", "1", { packages:["%s"] %s}); 
@@ -111,52 +114,54 @@ function displayChart%s()
 
 
   jsDrawChart <- '
+<!-- jsDrawChart -->
 function drawChart%s() {
   var data = gvisData%s()
   var chart = new google.visualization.%s(
    document.getElementById(\'%s\')
   );
   var options ={};
-  %s
+%s
   chart.draw(data,options);
 }
 '
-jsDrawChart <- sprintf(jsDrawChart, chartid,  chartid, type, chartid,
+  jsDrawChart <- sprintf(jsDrawChart, chartid,  chartid, type, chartid,
                      paste(gvisOptions(options), collapse="\n")
                      )
 
 
+
+  jsChart <- '
+<!-- jsChart -->
+displayChart%s()
+'
+   jsChart <- sprintf(jsChart, chartid )
+
   jsFooter <- '
+<!-- jsFooter -->  
 //-->
 </script>
 '
 
-  jsChart <- '
-<script type="text/javascript">
-<!--  
-   displayChart%s()
-//-->
-</script>
-
+divChart <- '
+<!-- divChart -->
 <div id="%s"
   style="width: %spx; height: %spx;">
 </div>
 '
-
-   jsChart <- sprintf(jsChart, chartid,
+  divChart <- sprintf(divChart, 
 		     chartid,
                      ifelse(!(is.null(options$gvis$width) || (options$gvis$width == "")),options$gvis$width,600),
                      ifelse(!(is.null(options$gvis$height) || (options$gvis$height == "")),options$gvis$height,500)
                      )
 
-  ## return json object and chart id
-  
-  output <- list(chart=list(jsHeader=jsHeader,
+   output <- list(chart=list(jsHeader=jsHeader,
                                    jsData=jsData,
                                    jsDrawChart=jsDrawChart,
                                    jsDisplayChart=jsDisplayChart,
+                                   jsChart=jsChart,
                                    jsFooter=jsFooter,
-                                   jsChart=jsChart),
+                                   divChart=divChart),
                      type=type, chartid=chartid)
   return(output)
 }
@@ -347,27 +352,17 @@ gvisHtmlWrapper <- function(title, dataName, chartid){
   htmlHeader <- sprintf(htmlHeader,chartid) 
 
  htmlFooter <- '
-<div><span> 
- %s &#8226;
-<a href="http://code.google.com/p/google-motion-charts-with-r/">
-  googleVis-%s</a>
-&#8226;
-<a href="http://code.google.com/apis/visualization/terms.html">
-  Google Terms of Use</a>
+<!-- htmlFooter -->
+<span> 
+%s &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>
+&#8226; <a href="http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a>
 </span></div>
 </body>
 </html>
 '
   htmlFooter <- sprintf(htmlFooter, R.Version()$version.string,
 		        packageDescription('googleVis')$Version,chartid)  
-
-  htmlCaption <- sprintf('
-<div><span>Data: %s &#8226;
-Chart ID: <a href="Chart_%s.html">
-  %s</a>
-</span></div>
-<br />
-' ,
+  htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: <a href="Chart_%s.html">%s</a></span><br />' ,
                          dataName, chartid, chartid)
 
   return(list(htmlHeader=htmlHeader,

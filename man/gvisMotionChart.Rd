@@ -100,43 +100,45 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   following components:
   \item{\code{type}}{Google visualisation type, here 'MotionChart'}
   \item{\code{chartid}}{character id of the chart object. The string is build
-    at run time from chart type and \code{\link{tempfile}} when the
-    function is executed. Unique chart ids are required to place several
-    charts on the same page.
+    at run time from chart type and \code{\link{tempfile}}. Unique chart
+    ids are required to place several charts on the same page.
   }
   \item{\code{html}}{a list with the building blocks for a page
     \describe{
       \item{\code{header}}{a character string of a html page header:
 	\code{<html>...<body>},}
-      \item{\code{chart}}{a list of the building blocks of the chart:
+      \item{\code{chart}}{a list of the chart building blocks:
       	\describe{
-	  \item{\code{jsHeader}}{opening \code{<script>} tag and
-	    reference to Google's JavaScript library,
+	  \item{\code{jsHeader}}{Opening \code{<script>} tag and
+	    reference to Google's JavaScript library.
 	  }
 	  \item{\code{jsData}}{JavaScript function defining the input
-	    \code{data} as a \code{DataTable},
+	    \code{data} as a JSON object.
 	  } 
-	  \item{\code{jsDrawChart}}{JavaScript function combing the data
-	    with the visualisation API and user options,
+	  \item{\code{jsDrawChart}}{JavaScript function
+	    combing the data with the visualisation API and user
+	    options.
 	  }
-	  \item{\code{jsDisplayChart}}{
-	    JavaScript function calling the handler to display the chart,
+	  \item{\code{jsDisplayChart}}{JavaScript function calling the
+	    handler to display the chart.
 	  }
-	  \item{\code{jsFooter}}{end tag \code{</script>},
+	  \item{\code{jsChart}}{Call of the \code{jsDisplayChart} 
+	    function.
 	  }
-	  \item{\code{jsChart}}{call of the \code{jsDisplayChart} 
-	    function, wrapped in \code{<div>} tag to embed the chart
+	  \item{\code{jsFooter}}{End tag \code{</script>}.
+	  }
+	  \item{\code{divChart}}{\code{<div>} tag to embed the chart
 	    into the page.
 	  }
 	}   
 	The string \code{cat(unlist(x$html$chart))} is sufficient to
 	embed the chart into pages, see also the examples in the googleVis
-	demo, 
+	demo.
       }
-      \item{\code{caption}}{a character string of a standard caption,
-	including data set and chart id.
+      \item{\code{caption}}{character string of a standard caption,
+	including data name and chart id.
       }	
-      \item{\code{footer}}{a character string of a html page footer:
+      \item{\code{footer}}{character string of a html page footer:
 	\code{</body>...</html>}, including the used R and googleVis version
 	and link to Google's Terms of Use.}
     }
@@ -159,7 +161,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
   about social and economic developments in  the world over the last 50
   years, which challenged the views and perceptions of many
-  listeners. Rosling had used extensive data analysis to come to his
+  listeners. Rosling had used extensive data analysis to reach his
   conclusions.  To visualise his talk, he and his team at
   Gapminder \url{http://www.gapminder.org} had developed animated bubble charts, aka
   motion charts.

@@ -9,7 +9,7 @@
   Methods to print and plot \code{gvis} objects
 }
 \usage{	
-\method{print}{gvis}(x, file = "", ...)
+\method{print}{gvis}(x, tag="html", file = "", ...)
 		
 \method{plot}{gvis}(x,...)
 }
@@ -17,19 +17,74 @@
   \item{x}{
     An object of class \code{gvis}.
   }
+  \item{tag}{name tag of the objects to be extracted from gvis objects. The
+    default tag "html" will show a complete web page with the
+    visualisation. The tag "chart" will present all code for the
+    visualisation chart only. For more information see the details section.
+  }	
   \item{file}{
     file name to be used internally by \code{\link{cat}}. If "" (the
-    default), output will be printed to the standard output connection, the console unless
-    redirected by \code{\link{sink}}.
+    default), output will be printed to the standard output connection,
+    the console unless redirected by \code{\link{sink}}.
   }
   \item{\dots}{arguments passed on to \code{\link{cat}}
       (\code{print.gvis}) or \code{\link{browseURL}} (\code{plot.gvis}).
   }
 }
 
-%%\details{
-%%  The plot function creates two temporary fi
-%%}
+\details{
+
+  An object of class "\code{gvis}" is a list containing at least the
+  following components (tags):
+  \describe{
+    \item{\code{type}}{Google visualisation type, e.g. 'MotionChart'}
+    \item{\code{chartid}}{character id of the chart object. The string is build
+      at run time from chart type and \code{\link{tempfile}}. Unique chart
+      ids are required to place several charts on the same page.
+    }
+  \item{\code{html}}{a list with the building blocks for a page
+    \describe{
+      \item{\code{header}}{a character string of a html page header:
+	\code{<html>...<body>},}
+      \item{\code{chart}}{a list of the chart building blocks:
+      	\describe{
+	  \item{\code{jsHeader}}{Opening \code{<script>} tag and
+	    reference to Google's JavaScript library.
+	  }
+	  \item{\code{jsData}}{JavaScript function defining the input
+	    \code{data} as a JSON object.
+	  } 
+	  \item{\code{jsDrawChart}}{JavaScript function
+	    combing the data with the visualisation API and user
+	    options.
+	  }
+	  \item{\code{jsDisplayChart}}{JavaScript function calling the
+	    handler to display the chart.
+	  }
+	  \item{\code{jsChart}}{Call of the \code{jsDisplayChart} 
+	    function.
+	  }
+	  \item{\code{jsFooter}}{End tag \code{</script>}.
+	  }
+	  \item{\code{divChart}}{\code{<div>} tag to embed the chart
+	    into the page.
+	  }
+	}   
+	The string \code{cat(unlist(x$html$chart))} is sufficient to
+	embed the chart into pages, see also the examples in the googleVis
+	demo.
+      }
+      \item{\code{caption}}{character string of a standard caption,
+	including data name and chart id.
+      }	
+      \item{\code{footer}}{character string of a html page footer:
+	\code{</body>...</html>}, including the used R and googleVis version
+	and link to Google's Terms of Use.}
+    }
+  }
+}
+}
+
 \value{
   \item{\code{print.gvis}}{ None (invisible \code{NULL}).}
   
@@ -65,13 +120,24 @@
 
 M <- gvisMotionChart(Fruits, "Fruit", "Year")
 str(M)
+## The output for a complete web page
 M
-## access only the plot
+
+## Access only the plot,
+M$html$chart
+
+## wrap it in cat and it becomes more readable,
 cat(unlist(M$html$chart))
 
-## Web browser with Internet connection and Flash required.
-plot(M)
+## or use the print function.
+print(M, "chart")
 
+## Extract the data as a JavaScript function.
+print(M, "jsData")
+
+## Display the visualisation.
+## A web browser with Internet connection and Flash is required.
+plot(M)
 }
 
 % Add one or more standard keywords, see file 'KEYWORDS' in the

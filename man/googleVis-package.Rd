@@ -11,7 +11,7 @@ Using the Google Visualisation API with R
  The functions of the package allow the user to visualise data stored
  in R data frames with the Google Visualisation API.
  
- googleVis makes use of the internal R http server to display the
+ googleVis makes use of the internal R HTTP server to display the
  output locally. A browser with Flash and Internet connection is
  required.
 } 
@@ -20,7 +20,7 @@ Using the Google Visualisation API with R
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
 	Version: \tab 0.2.4\cr
-	Date: \tab 20011-01-31\cr
+	Date: \tab 20011-02-01\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
@@ -31,9 +31,6 @@ Using the Google Visualisation API with R
   See \code{vignette("googleVis")} for an introduction to the
   \code{googleVis} package. 
   
-  For examples using the Google Visualisation API see the Google
-  Public Data Explorer: \url{http://www.google.com/publicdata/home}
-
   Of course there are many alternative visualisation toolkits out
   there, e.g. 
   \itemize{
@@ -46,6 +43,10 @@ Using the Google Visualisation API with R
     \item simile (AJAX): \url{http://simile.mit.edu/}
     \item FLARE (ActionScript): \url{http://flare.prefuse.org/}
   }
+
+  For examples using the Google Visualisation API see the Google
+  Public Data Explorer: \url{http://www.google.com/publicdata/home}
+
 }
 
 \references{

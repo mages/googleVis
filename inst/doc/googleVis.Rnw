@@ -1,6 +1,6 @@
 
 \documentclass{article}
-
+\usepackage[T1]{fontenc}
 \usepackage{Sweave}
 \usepackage{thumbpdf}
 \usepackage{url}
@@ -86,7 +86,7 @@ motion charts, see Figure~\ref{MotionChartGUI}.
 Rosling's presentation popularised the idea and use of interactive
 charts, and as one result the software behind
 Gapminder was bought by Google and integrated as motion charts into
-their Visualisation API~\cite{GoogleVisApi} a few years later. 
+their Visualisation API~\cite{GoogleVisApi} one year later. 
 
 We also notice that data journalism has grown over the recent
 years. The data blogs of the
@@ -133,7 +133,7 @@ there, e.g.
 The Google Visualisation API~\cite{GoogleVisApi}, \cite{GoogleTerms}
 allows users to create interactive charts as part of Google
 documents, spreadsheets and web pages. In this text we will focus 
-on the usage of the API as part of web sites.
+on the usage of the API as part of web pages.
 
 The Google Public Data Explorer~\cite{GooglePublicData} provides a
 good example, demonstrating the use of motion charts and how they can
@@ -262,7 +262,7 @@ Figure~\ref{MotionChartGUI}. It works similarly for the other
 APIs. Further examples are covered in the demos of the \googleVis
 package, see also Figure~\ref{demos}. 
 
-The design of the visualisation functions are fairly generic. The name
+The design of the visualisation functions is fairly generic. The name
 of the visualisation function is \texttt{'gvis' + ChartType}. So for
 the Motion Chart we have: 
 \begin{verbatim}
@@ -326,7 +326,7 @@ cat(paste(substring( capture.output( str(M) ) , 0, 66), sep="\n", collapse="\n")
 @ 
 The first two items of the list contain information about the chart type
 used and the individual chart id generated at run time from the chart
-type and date:
+type and \texttt{tempfile(pattern=\textquotesingle\textquotesingle)}:
 <<>>=
 M$type
 M$chartid
@@ -335,33 +335,42 @@ The html output is a list with header, chart, caption and
 footer. This allows the user to extract only certain parts
 of the page, or to create a complete html page. 
 
-The header part of the html page has only basic html tags: 
+The header part of the html page has only basic html and formatting tags: 
 <<>>=
-cat(M$html$header)
+print(M, tag='header')
 @ 
+Here we use the \texttt{print} statement with the tag
+\texttt{'header'} instead of \texttt{M\$html\$header} to achieve
+a formatted screen output.
+
 The actual Google visualisation code is stored with the data in the
-\texttt{chart} item of the html list. 
+as a list in the \texttt{chart} item of the html list. This
+concept allows us to either get all the chart code directly or only
+specific parts. The chart is made up of several JavaScript and one
+HTML statements:
 <<>>=
-cat(unlist(M$html$chart))
+names(M$html$chart)
+@ 
+The complete chart can be displayed via:
+<<>>=
+print(M, tag='chart')
 @
 
 A basic chart caption and html footer are the final items of the html list:
 
 <<eval=FALSE>>=
-cat(M$html$caption)
+print(M, tag='caption')
 @ 
 <<echo=FALSE>>=
-## This statement avoids truncation
 cat(paste(substring( capture.output( cat(M$html$caption) ) , 0, 66), sep="\n", collapse="\n"))
 @ 
 
 <<eval=FALSE>>=
-cat(M$html$footer)
+print(M, tag='footer')
 @ 
 <<echo=FALSE>>=
-## This statement avoids truncation
 cat(paste(substring( capture.output( cat(M$html$footer) ) , 0, 66), sep="\n", collapse="\n"))
-@
+@ 
 
 \subsection{Displaying \texttt{gvis} objects locally}
 
@@ -371,11 +380,15 @@ plot(M)
 @
 
 The plot method for \texttt{gvis} object will by
-default automatically create a html file in a temporary folder using
+default automatically create html files in a temporary folder using
 the type and chart id information of the object and it will display
-the output using the local R HTTP help web server.  The R command
-\texttt{tempdir()}  will show you the path of the per-session
-temporary directory.  
+the output using the local R HTTP help web server.  
+
+Please note that the chart caption provides a link to the chart code via
+the chart id for easy copy and paste. 
+
+The R command \texttt{tempdir()}  will show you the path of the
+per-session temporary directory.  
 
 Further examples are part of the \googleVis demo, including one
 example demonstrating how the output of several visualisations can
@@ -390,15 +403,16 @@ Suppose you have an existing web page and would like to integrate the
 output of a \googleVis function, such as \texttt{gvisMotionChart}. 
 In this case you only need the chart output from
 \texttt{gvisMotionChart}.  So you can either copy and paste the output
-from the R console directly 
+from the R console
 <<eval=FALSE>>=
-cat(unlist(M$html$chart))
-@
+print(M, 'chart')
+@ or the browse, see previous section, 
 into your existing html page, or write the content directly into a file
 <<eval=FALSE>>=
-cat(M$html$chart, file='myfilename')
+print(M, 'chart', file='myfilename')
 @
 and process it from there.
+
 
 \subsection{Embedding \googleVis in web sites dynamically}
 
@@ -411,28 +425,25 @@ the \rapache~\cite{Rapache} module installed. Please note that
 currently the \rapache module only runs on UNIX/Linux and Mac OS X.  
 
 \subsubsection{Using \googleVis with \rsp}\label{rspexample}
-The \rsp package allows the user to integrate R code into html-code.
+The \rsp package allows the user to integrate R code into html code.
 The R code is filtered by the \rsp web server and executed
 at run time. 
 
-The \rsp package allows us to dynamically
-generate documents into static content using R Server Pages. This
-means we can mix html and R code to create content on the fly.   As an
-example, we can embed the above motion chart into a rsp-page: 
+As an example, we can embed the above motion chart into a rsp-page: 
 \begin{verbatim}
 <html>
 <body>
 <% library(googleVis)%>
 <% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
-<%= M$html$chart %>
+<%= unlist(M$html$chart) %>
 </body>
 </html>
 \end{verbatim}
 The R code included in \texttt{<\%$\dots$\%>} is executed when read by
 the R.rsp HTTP server, but no R output will be displayed. To embed the
 R output into the html code we have to add an equal sign,
-\texttt{<\%=$\dots$\%>}, which acts as a \texttt{cat} statement. In the 
-example above the chart code is embedded into the html code.
+\texttt{<\%=$\dots$\%>}, which acts as a \texttt{cat} statement. Hence
+in the example above the chart code is embedded into the html code.
 
 You find an example as part of the \googleVis package. This example
 can be displayed via the following R command:
@@ -453,14 +464,14 @@ For more information read the documentation of the \rsp package.
 \rapache supports web application development using
 R and the Apache HTTP server. The  \rapache module
 embeds the R interpreter into the Apache web server.  However, as we
-would like to mix R and html code with we also need a parser and
+would like to mix R and html code we also need a parser and
 this is where the R package \brew comes into place. 
 
 Files sitting in a dedicated \brew folder of the HTTP repository are
 parsed by \brew when opened in the browser. The R code is 
 executed with \rapache and the output is embedded into the site.
 Hence the approach is similar to \rsp with the difference that the
-two tasks are splited. This has the advantage that R does't have to
+two tasks are split. This has the advantage that R does not have to
 run in a separate window.
 
 Detailed installation instructions for \rapache are available on the
@@ -487,7 +498,7 @@ started, the second line deals with error handling, while
 the \path{startup.R} file is suitable for initial
 set ups, e.g. libraries and global variables:
 \begin{verbatim}
-## ensure the packages are installed so that mod_R 
+## Ensure the packages are installed so that mod_R 
 ## has access to them, e.g. not in your home folder
 library{googleVis} 
 library{lattice}
@@ -518,7 +529,7 @@ should be parsed by \textbf{\texttt{brew}}. Again we edit the \path{apache2.conf
 \end{verbatim}
 
 That's all. Restart the HTTP daemon and you can start placing files in
-the \brew directory and access the via
+the \brew directory and access them via
 \path{http://localhost/rapache/brew/filename}, e.g. a file containing:  
 \begin{verbatim}
 <html>
