@@ -19,7 +19,7 @@
   of events corresponding to user interaction.
 }
 \usage{
-gvisTable(data, options = list())
+gvisTable(data, options = list(), chartid)
 }
 \arguments{
   \item{data}{a \code{\link{data.frame}} to be displayed as a table
@@ -164,6 +164,9 @@ gvisTable(data, options = list())
       }
     }
   }
+  \item{chartid}{character. If missing (default) a random chart id will be generated based on
+    chart type and \code{\link{tempfile}}
+  }
 }
 
 %%\details{
@@ -175,8 +178,7 @@ gvisTable(data, options = list())
   
   An object of class "\code{gvis}" is a list containing at least the following components:
   \item{\code{type}}{Google visualisation type, here 'Table'}
-  \item{\code{chartid}}{character id of the chart object. The string is build
-    at run time from chart type and \code{\link{tempfile}}. Unique chart
+  \item{\code{chartid}}{character id of the chart object. Unique chart
     ids are required to place several charts on the same page.
   }
   \item{\code{html}}{a list with the building blocks for a page

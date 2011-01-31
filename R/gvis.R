@@ -19,9 +19,9 @@
 ### MA 02110-1301, USA
 
 
-gvisChart <- function(type, checked.data, options){
+gvisChart <- function(type, checked.data, options, chartid){
   
-  Chart = gvis(type=type, checked.data, options=options)
+  Chart = gvis(type=type, checked.data, options=options, chartid=chartid)
   chartid <- Chart$chartid
   htmlChart <- Chart$chart
   
@@ -40,7 +40,7 @@ gvisChart <- function(type, checked.data, options){
   return(output)
 }
 
-gvis <- function(type="", data, options, chartid=NULL){
+gvis <- function(type="", data, options, chartid){
 
   if( ! is.data.frame(data) ){
     stop("Data has to be a data.frame. See ?data.frame for more details.")
@@ -48,7 +48,7 @@ gvis <- function(type="", data, options, chartid=NULL){
 
   ## we need a unique chart id to have more than one chart on the same page
   ## we use type and date to create the chart id
-  if(is.null(chartid)){
+  if(missing(chartid)){
     ##    chartid <- paste(type, format(Sys.time(), "%Y-%m-%d-%H-%M-%S"), basename(tempfile(pattern="")),sep="_")
     chartid <- paste(type, basename(tempfile(pattern="")),sep="ID")
  

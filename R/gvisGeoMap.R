@@ -17,7 +17,7 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisGeoMap <- function(data, locationvar="", numvar="", hovervar="", options=list()){
+gvisGeoMap <- function(data, locationvar="", numvar="", hovervar="", options=list(), chartid){
 
   my.type <- "GeoMap"
   dataName <- deparse(substitute(data))
@@ -33,7 +33,7 @@ gvisGeoMap <- function(data, locationvar="", numvar="", hovervar="", options=lis
   if(any("numeric" %in% lapply(checked.data[,c(1,2)],class))){
     my.options <- modifyList(list(gvis=list(dataMode = "markers")), my.options)
   }
-  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid=chartid)
   
   return(output)
 }

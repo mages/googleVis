@@ -266,7 +266,8 @@ The design of the visualisation functions is fairly generic. The name
 of the visualisation function is \texttt{'gvis' + ChartType}. So for
 the Motion Chart we have: 
 \begin{verbatim}
-gvisMotionChart(data, idvar='id', timevar='date', options=list())
+gvisMotionChart(data, idvar='id', timevar='date', 
+                options=list(), chartid)
 \end{verbatim}
 Here \texttt{data} is the input \texttt{data.frame} and \texttt{idvar}
 and \texttt{timevar} specify the column names of the id variable and
@@ -276,6 +277,11 @@ Google Visualisation API and are documented in the help pages, see
 <<eval=FALSE>>=
 help('gvisMotionChart')
 @ 
+The argument \texttt{chartid}  allows the user to set a chart id of the
+output chart manually. If the argument is missing a random id using 
+\texttt{tempfile(pattern=\textquotesingle\textquotesingle)}  
+will be generated. Unique chart ids are required to place more than one chart into a page.
+
 The output of a \googleVis function is a list of lists (a nested list)
 containing information about the chart type, chart id and the html
 code in a  sub-list with header, chart, caption and footer.
@@ -325,8 +331,8 @@ described above
 cat(paste(substring( capture.output( str(M) ) , 0, 66), sep="\n", collapse="\n"))
 @ 
 The first two items of the list contain information about the chart type
-used and the individual chart id generated at run time from the chart
-type and \texttt{tempfile(pattern=\textquotesingle\textquotesingle)}:
+used and the individual chart id: %generated at run time from the chart
+%type and \texttt{tempfile(pattern=\textquotesingle\textquotesingle)}:
 <<>>=
 M$type
 M$chartid
@@ -435,7 +441,7 @@ As an example, we can embed the above motion chart into a rsp-page:
 <body>
 <% library(googleVis)%>
 <% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
-<%= unlist(M$html$chart) %>
+<%= print(M,'chart') %>
 </body>
 </html>
 \end{verbatim}
@@ -537,7 +543,7 @@ the \brew directory and access them via
 <h1>Fruits</h1>
 <% library(googleVis)%>
 <% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
-<%= unlist(M$html$chart) %>
+<%= print(M, 'chart') %>
 </body>
 </html>
 \end{verbatim}

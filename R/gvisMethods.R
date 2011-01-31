@@ -20,12 +20,13 @@
 
 print.gvis <- function(x, tag="html", file="", ...){
 
-
   tag <- ifelse( tag %in% c("chartid", "type", "html"), tag, paste(".", tag, sep=""))
 
   output <- unlist(x)
   tag.names <- names(output)
-  .id <- apply(t(tag), 2, function(y) grep(paste("\\", y, sep=""), tag.names))
+  .id <- apply(t(tag), 2, function(y)
+               grep(paste("\\", y, sep=""), tag.names)
+               )
   cat(output[.id], file=file, ...)
   
 }

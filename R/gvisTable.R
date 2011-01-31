@@ -17,7 +17,7 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisTable <- function(data, options=list()){
+gvisTable <- function(data, options=list(), chartid){
 
   my.type <- "Table"
   dataName <- deparse(substitute(data))
@@ -27,7 +27,7 @@ gvisTable <- function(data, options=list()){
   
   checked.data <- gvisCheckTableData(data)
   
-  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options) 
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid=chartid) 
   
   return(output)
 }

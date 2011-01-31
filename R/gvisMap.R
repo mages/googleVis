@@ -17,7 +17,7 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisMap <- function(data, locationvar="", tipvar="",options=list()){
+gvisMap <- function(data, locationvar="", tipvar="",options=list(), chartid){
 
   my.type <- "Map"
   dataName <- deparse(substitute(data))
@@ -29,7 +29,7 @@ gvisMap <- function(data, locationvar="", tipvar="",options=list()){
   
   checked.data <- gvisCheckMapData(data, my.options)
 
-  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid=chartid)
   
   return(output)
 }

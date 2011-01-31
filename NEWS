@@ -25,6 +25,9 @@ NEW FEATURES
      to the HTML code of the chart. Many thanks to Henrik Bengtsson
      for this suggestion.
 
+   o gvis visualisation functions have a new argument 'chart id', to
+     set the chart id of the exhibit manually. 	         
+
    o gvis functions return more details about the visualisation chart
      in a structured way. Suppose x is a 'gvis' object, than
      x$html$chart is a list of the chart's JavaScript building
@@ -35,7 +38,7 @@ NEW FEATURES
 
 BUG FIXES
 
-   o gvisTable didn't accept datetime columns.
+   o gvisTable did not accept datetime columns.
 
 Version 0.2.3 [2010-12-19]
 ==========================

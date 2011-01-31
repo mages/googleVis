@@ -17,7 +17,7 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisTreeMap <- function(data, idvar="", parentvar="", sizevar="", colorvar="",options=list()){
+gvisTreeMap <- function(data, idvar="", parentvar="", sizevar="", colorvar="",options=list(), chartid){
 
   my.type <- "TreeMap"
   dataName <- deparse(substitute(data))
@@ -29,7 +29,7 @@ gvisTreeMap <- function(data, idvar="", parentvar="", sizevar="", colorvar="",op
   
   checked.data <- gvisCheckTreeMapData(data, my.options)
 
-  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid)
   
   return(output)
 }

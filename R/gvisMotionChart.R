@@ -19,7 +19,7 @@
 
 
 gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m/%d",
-                            options=list()){
+                            options=list(), chartid){
 
   my.type <- "MotionChart"
   dataName <- deparse(substitute(data))
@@ -34,7 +34,7 @@ gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m
   
   checked.data <- gvisCheckMotionChartData(data, my.options)
    
-  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid)
 
   return(output)
 }

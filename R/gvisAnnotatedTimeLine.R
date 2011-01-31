@@ -21,7 +21,7 @@ gvisAnnotatedTimeLine <- function(data, datevar="",
                                   numvar="", idvar="", titlevar="", 
                                   annotationvar="", 
                                   date.format="%Y/%m/%d",
-                                  options=list()){
+                                  options=list(), chartid){
   
   
   my.type <- "AnnotatedTimeLine"
@@ -38,7 +38,7 @@ gvisAnnotatedTimeLine <- function(data, datevar="",
   checked.data <- gvisCheckAnnotatedTimeLineData(data, my.options, datevar=datevar,
                                                  idvar=idvar, titlevar=titlevar, annotationvar=annotationvar)
 
-  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options)
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid=chartid)
   
   return(output)
 }
