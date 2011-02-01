@@ -47,7 +47,16 @@ aapl <- gvisAnnotatedTimeLine(AAPL, datevar="Date",
 
 %>
 <hr>
-<%= unlist(aapl$html$chart) %>
+
+<%= aapl$html$chart$jsHeader %>
+<%= aapl$html$chart$jsData %>
+<%= aapl$html$chart$jsDrawChart %>
+<%= aapl$html$chart$jsDisplayChart %>
+<%= aapl$html$chart$jsChart %>
+<%= aapl$html$chart$jsFooter %>
+<%= aapl$html$chart$divChart %>
+
+
 <hr>
 </body>
 </html>
