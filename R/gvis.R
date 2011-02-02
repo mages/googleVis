@@ -30,7 +30,7 @@ gvisChart <- function(type, checked.data, options, chartid){
   output <- list(type=Chart$type,
                  chartid=Chart$chartid,
                  html=list(header=htmlScaffold[["htmlHeader"]],
-                   chart=htmlChart,
+                   chart=unlist(htmlChart),
                    caption=htmlScaffold[["htmlCaption"]],
                    footer=htmlScaffold[["htmlFooter"]]
                    ))

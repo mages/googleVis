@@ -347,10 +347,12 @@ print(M, tag='header')
 @ 
 Here we use the \texttt{print} statement with the tag
 \texttt{'header'} instead of \texttt{M\$html\$header} to achieve
-a formatted screen output.
+a formatted screen output. This is the same output as \texttt{cat(
+  M\$html\$vhart )}.
 
-The actual Google visualisation code is stored with the data in the
-as a list in the \texttt{chart} item of the html list. This
+
+The actual Google visualisation code is stored with the data
+as a named character vector in the \texttt{chart} item of the html list. This
 concept allows us to either get all the chart code directly or only
 specific parts. The chart is made up of several JavaScript and one
 HTML statements:
@@ -359,7 +361,7 @@ names(M$html$chart)
 @ 
 The complete chart can be displayed via:
 <<>>=
-print(M, tag='chart')
+print(M, tag='chart')  ## or cat(M$html$chart)
 @
 
 A basic chart caption and html footer are the final items of the html list:
@@ -388,13 +390,13 @@ plot(M)
 The plot method for \texttt{gvis} object will by
 default automatically create html files in a temporary folder using
 the type and chart id information of the object and it will display
-the output using the local R HTTP help web server.  
+the output using the R HTTP help web server locally.  
 
 Please note that the chart caption provides a link to the chart code via
 the chart id for easy copy and paste. 
 
 The R command \texttt{tempdir()}  will show you the path of the
-per-session temporary directory.  
+per-session temporary directory, in which the files were written.  
 
 Further examples are part of the \googleVis demo, including one
 example demonstrating how the output of several visualisations can
@@ -411,7 +413,7 @@ In this case you only need the chart output from
 \texttt{gvisMotionChart}.  So you can either copy and paste the output
 from the R console
 <<eval=FALSE>>=
-print(M, 'chart')
+print(M, 'chart')  ## or cat(M$html$chart) 
 @ or the browse, see previous section, 
 into your existing html page, or write the content directly into a file
 <<eval=FALSE>>=
@@ -441,7 +443,7 @@ As an example, we can embed the above motion chart into a rsp-page:
 <body>
 <% library(googleVis)%>
 <% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
-<%= print(M,'chart') %>
+<%= M$html$chart %>
 </body>
 </html>
 \end{verbatim}
@@ -543,7 +545,7 @@ the \brew directory and access them via
 <h1>Fruits</h1>
 <% library(googleVis)%>
 <% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
-<%= print(M, 'chart') %>
+<%= M$html$chart) %>
 </body>
 </html>
 \end{verbatim}

@@ -93,7 +93,7 @@ gvisMap(data, locationvar='', tipvar='',
     \describe{
       \item{\code{header}}{a character string of a html page header:
 	\code{<html>...<body>},}
-      \item{\code{chart}}{a list of the chart building blocks:
+      \item{\code{chart}}{a named character vector of the chart's building blocks:
       	\describe{
 	  \item{\code{jsHeader}}{Opening \code{<script>} tag and
 	    reference to Google's JavaScript library.
@@ -113,13 +113,10 @@ gvisMap(data, locationvar='', tipvar='',
 	  }
 	  \item{\code{jsFooter}}{End tag \code{</script>}.
 	  }
-	  \item{\code{divChart}}{\code{<div>} tag to embed the chart
+	  \item{\code{divChart}}{\code{<div>} container to embed the chart
 	    into the page.
 	  }
 	}   
-	The string \code{cat(unlist(x$html$chart))} is sufficient to
-	embed the chart into pages, see also the examples in the googleVis
-	demo.
       }
       \item{\code{caption}}{character string of a standard caption,
 	including data name and chart id.

@@ -30,8 +30,8 @@ NEW FEATURES
 
    o gvis functions return more details about the visualisation chart
      in a structured way. Suppose x is a 'gvis' object, than
-     x$html$chart is a list of the chart's JavaScript building
-     blocks and html tags. 
+     x$html$chart is a named character vector of the chart's
+     JavaScript building blocks and html tags. 
 
    o print.gvis has a new argument 'tag', which gives the user more
      control about the output
