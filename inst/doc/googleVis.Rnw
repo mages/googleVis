@@ -545,7 +545,7 @@ the \brew directory and access them via
 <h1>Fruits</h1>
 <% library(googleVis)%>
 <% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
-<%= M$html$chart) %>
+<%= M$html$chart %>
 </body>
 </html>
 \end{verbatim}
