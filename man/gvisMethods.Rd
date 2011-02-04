@@ -38,8 +38,7 @@
   following components (tags):
   \describe{
     \item{\code{type}}{Google visualisation type, e.g. 'MotionChart'}
-    \item{\code{chartid}}{character id of the chart object. The string is build
-      at run time from chart type and \code{\link{tempfile}}. Unique chart
+    \item{\code{chartid}}{character id of the chart object. Unique chart
       ids are required to place several charts on the same page.
     }
   \item{\code{html}}{a list with the building blocks for a page

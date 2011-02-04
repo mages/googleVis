@@ -188,8 +188,7 @@ generates output similar to Figure~\ref{MotionChartGUI}:
 \end{verbatim}
 You will notice that the above html code has three generic parts:
 \begin{itemize}
-\item reference to a JavaScript function provided by Google. Shown here as
-	\texttt{'motion\-chart'},
+\item references to JavaScript functions provided by Google.
 
 \item data to visualise as a \texttt{DataTable}, 
 
@@ -316,7 +315,7 @@ Fruits
 
 Here we will use the columns \texttt{'Fruit'} and
 \texttt{'Year'} as id and time variable respectively. However we could
-heave used \texttt{'Date'} instead of \texttt{'Year'}. 
+heave used \texttt{'Date'} instead of \texttt{'Year'} as well. 
 
 <<>>=
  M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
@@ -345,16 +344,16 @@ The header part of the html page has only basic html and formatting tags:
 <<>>=
 print(M, tag='header')
 @ 
-Here we use the \texttt{print} statement with the tag
+Here we used the \texttt{print} statement with the tag
 \texttt{'header'} instead of \texttt{M\$html\$header} to achieve
-a formatted screen output. This is the same output as \texttt{cat(
-  M\$html\$vhart )}.
+a formatted screen output. This is the same output as
+\texttt{cat(M\$html\$chart)}. 
 
 
 The actual Google visualisation code is stored with the data
 as a named character vector in the \texttt{chart} item of the html list. This
 concept allows us to either get all the chart code directly or only
-specific parts. The chart is made up of several JavaScript and one
+specific parts. The chart is made up of several JavaScript and 
 HTML statements:
 <<>>=
 names(M$html$chart)
@@ -363,8 +362,13 @@ The complete chart can be displayed via:
 <<>>=
 print(M, tag='chart')  ## or cat(M$html$chart)
 @
+Similarly you can also access also components of the chart, e.g.
+<<>>=
+cat(M$html$chart['jsChart']) # or print(M, 'jsChart')
+@ 
 
-A basic chart caption and html footer are the final items of the html list:
+A basic chart caption and html footer are the final items of the html
+list (output is truncated):
 
 <<eval=FALSE>>=
 print(M, tag='caption')
@@ -450,8 +454,7 @@ As an example, we can embed the above motion chart into a rsp-page:
 The R code included in \texttt{<\%$\dots$\%>} is executed when read by
 the R.rsp HTTP server, but no R output will be displayed. To embed the
 R output into the html code we have to add an equal sign,
-\texttt{<\%=$\dots$\%>}, which acts as a \texttt{cat} statement. Hence
-in the example above the chart code is embedded into the html code.
+\texttt{<\%=$\dots$\%>}, which acts as a \texttt{cat} statement.
 
 You find an example as part of the \googleVis package. This example
 can be displayed via the following R command:
@@ -463,7 +466,7 @@ browseRsp()
 The actual rsp-file is located within the \googleVis package directory
 and again R allows you to find the file with the following command: 
 <<eval=FALSE>>=
-filePath(system.file("rsp", package = "googleVis"), "index.rsp")
+file.path(system.file("rsp", package = "googleVis"), "index.rsp")
 @ 
 For more information read the documentation of the \rsp package.
 
@@ -529,7 +532,7 @@ should be parsed by \textbf{\texttt{brew}}. Again we edit the \path{apache2.conf
 \path{httpd.conf}  and add the connection of the RHandler with the function \path{brew}:
 \begin{verbatim}
 <Directory /var/www/rapache/brew>
-## On Mac OS more likely to something like:
+## On Mac OS more likely to be something like:
 ## <Directory /Library/WebServer/Documents/rapache/brew>
       SetHandler r-script
       RHandler brew::brew

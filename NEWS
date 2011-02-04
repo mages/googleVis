@@ -18,7 +18,7 @@ Changes
   
    o Updated vignette with a section on how to use googleVis with
      RApache and brew
- 
+
 NEW FEATURES
 
    o The plot function generates a web page which includes a link
@@ -35,6 +35,9 @@ NEW FEATURES
 
    o print.gvis has a new argument 'tag', which gives the user more
      control about the output
+
+   o Brew example files in: 
+     system.file("brew", package = "googleVis")  
 
 BUG FIXES
 

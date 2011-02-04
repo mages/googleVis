@@ -21,8 +21,7 @@ sprintf('http://ichart.finance.yahoo.com/table.csv?s=AAPL&a=08&b=7&c=1984&d=%s&e
 month, current.day, current.year)
 
 ## Get Data from Yahoo Finance
-data <- read.csv('http://ichart.finance.yahoo.com/table.csv?s=AAPL&a=08&b=7&c=1984&d=00&e=22&f=2011&g=w&ignore=.csv',
-  colClasses=c("Date", rep("numeric",6)))
+data <- read.csv(fn, colClasses=c("Date", rep("numeric",6)))
 
 AAPL <- reshape(data[,c("Date", "Close", "Volume")], idvar="Date", times=c("Close", "Volume"), 
                   timevar="Type",
