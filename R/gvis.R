@@ -75,12 +75,11 @@ gvis <- function(type="", data, options, chartid){
 <script type="text/javascript\" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
-<!--
 '
   jsHeader  <- paste(infoString(type),   jsHeader , sep="\n")
 
  jsData <- '
-<!-- jsData -->
+// jsData 
 function gvisData%s ()
 {
   var data = new google.visualization.DataTable();
@@ -97,7 +96,7 @@ return(data);
                                  names(data.type), "');", sep=""), collapse="\n"))
   
   jsDisplayChart <- '
-<!-- jsDisplayChart -->
+// jsDisplayChart 
 function displayChart%s()
 {
   google.load("visualization", "1", { packages:["%s"] %s}); 
@@ -114,7 +113,7 @@ function displayChart%s()
 
 
   jsDrawChart <- '
-<!-- jsDrawChart -->
+// jsDrawChart
 function drawChart%s() {
   var data = gvisData%s()
   var chart = new google.visualization.%s(
@@ -132,7 +131,7 @@ function drawChart%s() {
 
 
   jsChart <- '
-<!-- jsChart -->
+// jsChart 
 displayChart%s()
 '
    jsChart <- sprintf(jsChart, chartid )
