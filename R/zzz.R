@@ -18,7 +18,7 @@
 ### MA 02110-1301, USA
 
 
-.onLoad<- function(lib, pkg,...)
+.onLoad<- function(lib, pkg, quietly=FALSE,...)
 {
   setMethod("toJSON", "Date",
             function(x, container = length(x) > 1 || length(names(x)) > 0, ...) {
@@ -60,25 +60,30 @@
             })
 
   library(utils)
-  packageStartupMessage(gvisWelcomeMessage())    
+  if(!quietly)
+    packageStartupMessage(gvisWelcomeMessage())    
   
   invisible()
 }
 
 gvisWelcomeMessage <- function(){
   
-       paste("\nWelcome to googleVis version ", packageDescription("googleVis")$Version, "\n\n",
-      "Type ?googleVis to access the overall documentation and\n",
-      "vignette('googleVis') for the package vignette.\n",
-      "You can execute the demo of the package via: demo(googleVis)\n\n",  
-      "More information is available on the googleVis project web-site:\n",
-                        "http://code.google.com/p/google-motion-charts-with-r/\n\n",
-      
-      "Please read also the Google Visualisation API Terms of Use:\n",
-      "http://code.google.com/apis/visualization/terms.html\n\n",
-      
-      "Feel free to send us an email <rvisualisation@gmail.com>\n",
-      "if you would like to be keept informed of new versions,\n",
-      "or if you have any feedback, ideas, suggestions or would\n",
-      "like to collaborate.\n\n", sep="")
+  paste("\nWelcome to googleVis version ", packageDescription("googleVis")$Version, "\n\n",
+        "Type ?googleVis to access the overall documentation and\n",
+        "vignette('googleVis') for the package vignette.\n",
+        "You can execute the demo of the package via: demo(googleVis)\n\n",  
+        "More information is available on the googleVis project web-site:\n",
+        "http://code.google.com/p/google-motion-charts-with-r/\n\n",
+        
+        "Please read also the Google Visualisation API Terms of Use:\n",
+        "http://code.google.com/apis/visualization/terms.html\n\n",
+        
+        "Feel free to send us an email <rvisualisation@gmail.com>\n",
+        "if you would like to be keept informed of new versions,\n",
+        "or if you have any feedback, ideas, suggestions or would\n",
+        "like to collaborate.\n\n",
+        
+        "To suppress this message load the package with the following statement:\n",
+        "suppressPackageStartupMessages(library(googleVis))\n",       
+        sep="")
 }
