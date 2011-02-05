@@ -18,7 +18,7 @@
 ### MA 02110-1301, USA
 
 
-.onLoad<- function(lib, pkg, quietly=FALSE,...)
+.onLoad<- function(lib, pkg,...)
 {
   setMethod("toJSON", "Date",
             function(x, container = length(x) > 1 || length(names(x)) > 0, ...) {
@@ -60,8 +60,6 @@
             })
 
   library(utils)
-  if(!quietly)
-    packageStartupMessage(gvisWelcomeMessage())    
   
   invisible()
 }
