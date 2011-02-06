@@ -138,16 +138,16 @@ plot(M)
 
 \dontrun{
 
-  ## This example show how the output can be written into several files.
+  ## This example shows how the output can be written into several files.
   ## Suppose you have an existing web page in which you embedded a
   ## motion chart with the id "mtnc".
   ## Now you have a new set of data, but you would like to avoid
   ## touching the html file again.
-  ## The idea is to write the data and JavaScript function into separate
-  ## files and have references to those file in the html page.
+  ## The idea is to write the data and JavaScript functions into separate
+  ## files and have references to those files in the html page.
 
-  ## In this example we will call the chart id "mtnc"
-  ## To display the example we will use the R HTTP server again, and
+  ## In this example we call the chart id "mtnc"
+  ## To display the example we use the R HTTP server again, and
   ## write the files into a temp directory
 
   myChartID <- "mtnc"

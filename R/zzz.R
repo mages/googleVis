@@ -60,7 +60,7 @@
             })
 
   library(utils)
-  
+  packageStartupMessage(gvisWelcomeMessage())
   invisible()
 }
 
@@ -81,7 +81,7 @@ gvisWelcomeMessage <- function(){
         "or if you have any feedback, ideas, suggestions or would\n",
         "like to collaborate.\n\n",
         
-        "To suppress this message load the package with the following statement:\n",
+        "To suppress this message use the following statement:\n",
         "suppressPackageStartupMessages(library(googleVis))\n",       
         sep="")
 }

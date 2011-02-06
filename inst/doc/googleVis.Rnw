@@ -351,12 +351,13 @@ a formatted screen output. This is the same output as
 
 
 The actual Google visualisation code is stored with the data
-as a named character vector in the \texttt{chart} item of the html list. This
-concept allows us to either get all the chart code directly or only
-specific parts; see the examples in the help page of \texttt{print.gvis}
-for more details. The chart is made up of several JavaScript and 
-HTML statements. Please notice that the JavaScript functions are 
+as a named character vector in the \texttt{chart} item of the html
+list. The chart is made up of several JavaScript and  HTML
+statements. Please notice that the JavaScript functions are  
 uniquely named with the information of the chart id.
+This concept allows the user get all the chart code directly or only
+specific parts; see the examples in the help page of \texttt{print.gvis}
+for more details.
 <<>>=
 names(M$html$chart)
 @ 
@@ -364,7 +365,7 @@ The complete chart can be displayed via:
 <<>>=
 print(M, tag='chart')  ## or cat(M$html$chart)
 @
-Similarly you can also access also components of the chart, e.g.
+Similarly you can also access specific components of the chart, e.g.
 <<>>=
 cat(M$html$chart['jsChart']) # or print(M, 'jsChart')
 @ 
@@ -593,7 +594,7 @@ Please contact us if you would like to discuss tailored training or
 consultancy: \href{mailto:rvisualisation@gmail.com?subject=Training-and-consultancy}{rvisualisation@gmail.com} 
 
 
-\clearpage
+%%\clearpage
 
 \bibliographystyle{alpha}
 \bibliography{googleVis}
