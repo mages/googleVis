@@ -353,8 +353,10 @@ a formatted screen output. This is the same output as
 The actual Google visualisation code is stored with the data
 as a named character vector in the \texttt{chart} item of the html list. This
 concept allows us to either get all the chart code directly or only
-specific parts. The chart is made up of several JavaScript and 
-HTML statements:
+specific parts; see the examples in the help page of \texttt{print.gvis}
+for more details. The chart is made up of several JavaScript and 
+HTML statements. Please notice that the JavaScript functions are 
+uniquely named with the information of the chart id.
 <<>>=
 names(M$html$chart)
 @ 

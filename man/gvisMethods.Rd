@@ -134,8 +134,81 @@ print(M, "jsData")
 ## Display the visualisation.
 ## A web browser with Internet connection and Flash is required.
 plot(M)
-}
 
+
+\dontrun{
+
+  ## This example show how the output can be written into several files.
+  ## Suppose you have an existing web page in which you embedded a
+  ## motion chart with the id "mtnc".
+  ## Now you have a new set of data, but you would like to avoid
+  ## touching the html file again.
+  ## The idea is to write the data and JavaScript function into separate
+  ## files and have references to those file in the html page.
+
+  ## In this example we will call the chart id "mtnc"
+  ## To display the example we will use the R HTTP server again, and
+  ## write the files into a temp directory
+
+  myChartID <- "mtnc"
+  baseURL <- sprintf("http://127.0.0.1:%s/custom/googleVis", tools:::httpdPort)
+  wwwdir <- tempdir()
+
+  
+  ## We create a motion chart
+  M=gvisMotionChart(Fruits, "Fruit", "Year", chartid=myChartID)
+
+  ## Here is our plot again
+  plot(M)
+
+  ## We write the data and functions into separate files:
+  cat(M$html$chart['jsData'], file=file.path(wwwdir, "gvisData.js"))
+  cat(M$html$chart[c('jsDrawChart', 'jsDisplayChart', 'jsChart')], 
+	file=file.path(dr, "gvisFunctions.js"))
+
+  
+  ## We create a html page with reference to the above
+  ## JavaScript files
+  
+  html <- sprintf('
+  <html>
+  <head>
+  <script type="text/javascript" src="http://www.google.com/jsapi">
+  </script>
+  <script type="text/javascript" src="%s/gvisFunctions.js"></script>
+  <script type="text/javascript" src="%s/gvisData.js"></script>
+  <script type="text/javascript">
+  displayChart%s()
+  </script>
+  </head>
+  <body>
+  <div id="%s" style="width: 600px; height: 500px;"></div>
+  </body>
+  </html>
+  ', baseURL, baseURL, myChartID, myChartID)
+  
+  ## Write html scaffold into a file
+  cat(html, file=file.path(wwwdir, paste("Chart", myChartID, ".html", sep="")))
+
+  ## We can display the result
+  URL <- paste(baseURL,"/Chart", myChartID, ".html", sep="")
+  browseURL(URL)
+
+  ## If we only want to display updated data, say the data should
+  ## have shown North and South instead of East and West as a location 
+  FruitsUpdate <- Fruits
+  levels(FruitsUpdate$Location)=c("North", "South")
+
+  Mupdate=gvisMotionChart(FruitsUpdate, "Fruit", "Year", chartid=myChartID)
+
+  ## Than we write the data and functions into separate files:
+  cat(Mupdate$html$chart['jsData'], file=file.path(wwwdir, "gvisData.js"))
+
+  ## We did not have to touch the html page, yet the new data will be displayed
+  browseURL(URL)
+
+}
+}
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
 \keyword{ hplot }
