@@ -138,36 +138,35 @@ plot(M)
 
 \dontrun{
 
-  ## This example shows how the output can be written into several files.
   ## Suppose you have an existing web page in which you embedded a
   ## motion chart with the id "mtnc".
   ## Now you have a new set of data, but you would like to avoid
   ## touching the html file again.
   ## The idea is to write the data and JavaScript functions into separate
-  ## files and have references to those files in the html page.
+  ## files and to have references to these files in the html page.
 
   ## In this example we call the chart id "mtnc"
   ## To display the example we use the R HTTP server again, and
   ## write the files into a temp directory
 
   myChartID <- "mtnc"
-  baseURL <- sprintf("http://127.0.0.1:%s/custom/googleVis", tools:::httpdPort)
+  baseURL <- sprintf("http://127.0.0.1:\%s/custom/googleVis", tools:::httpdPort)
   wwwdir <- tempdir()
 
   
-  ## We create a motion chart
+  ## Create a motion chart
   M=gvisMotionChart(Fruits, "Fruit", "Year", chartid=myChartID)
 
   ## Here is our plot again
   plot(M)
 
-  ## We write the data and functions into separate files:
+  ## Write the data and functions into separate files:
   cat(M$html$chart['jsData'], file=file.path(wwwdir, "gvisData.js"))
   cat(M$html$chart[c('jsDrawChart', 'jsDisplayChart', 'jsChart')], 
-	file=file.path(dr, "gvisFunctions.js"))
+  				    file=file.path(dr, "gvisFunctions.js"))
 
   
-  ## We create a html page with reference to the above
+  ## Create a html page with reference to the above
   ## JavaScript files
   
   html <- sprintf('
@@ -175,14 +174,14 @@ plot(M)
   <head>
   <script type="text/javascript" src="http://www.google.com/jsapi">
   </script>
-  <script type="text/javascript" src="%s/gvisFunctions.js"></script>
-  <script type="text/javascript" src="%s/gvisData.js"></script>
+  <script type="text/javascript" src="\%s/gvisFunctions.js"></script>
+  <script type="text/javascript" src="\%s/gvisData.js"></script>
   <script type="text/javascript">
-  displayChart%s()
+  displayChart\%s()
   </script>
   </head>
   <body>
-  <div id="%s" style="width: 600px; height: 500px;"></div>
+  <div id="\%s" style="width: 600px; height: 500px;"></div>
   </body>
   </html>
   ', baseURL, baseURL, myChartID, myChartID)
@@ -190,21 +189,21 @@ plot(M)
   ## Write html scaffold into a file
   cat(html, file=file.path(wwwdir, paste("Chart", myChartID, ".html", sep="")))
 
-  ## We can display the result
+  ## Display the result via
   URL <- paste(baseURL,"/Chart", myChartID, ".html", sep="")
   browseURL(URL)
 
-  ## If we only want to display updated data, say the data should
-  ## have shown North and South instead of East and West as a location 
+  ## Update the data, say the data should have shown North and South
+  ## instead of East and West as a location  
   FruitsUpdate <- Fruits
   levels(FruitsUpdate$Location)=c("North", "South")
 
   Mupdate=gvisMotionChart(FruitsUpdate, "Fruit", "Year", chartid=myChartID)
 
-  ## Than we write the data and functions into separate files:
+  ## Only update the file gvisData.js:
   cat(Mupdate$html$chart['jsData'], file=file.path(wwwdir, "gvisData.js"))
 
-  ## We did not have to touch the html page, yet the new data will be displayed
+  ## Redisplay the chart with the updated data
   browseURL(URL)
 
 }

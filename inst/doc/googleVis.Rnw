@@ -394,8 +394,7 @@ To display the page locally, type:
 plot(M)
 @
 
-The plot method for \texttt{gvis} object will by
-default automatically create html files in a temporary folder using
+The plot method for \texttt{gvis}-objects creates html files in a temporary folder using
 the type and chart id information of the object and it will display
 the output using the R HTTP help web server locally.  
 
@@ -504,7 +503,7 @@ LoadModule R_module /usr/lib/apache2/modules/mod_R.so
 ## LoadModule R_module libexec/apache2/mod_R.so
 ROutputErrors
 RSourceOnStartup "/var/www/rapache/R/startup.R"
-## On Mac OS X the www folder is often located in:
+## On Mac OS X the www folder is often equivalent to:
 ## /Library/WebServer/Documents/
 \end{verbatim}
 The first line loads the R module when the Apache web server is

@@ -459,24 +459,24 @@ plot(A4)
 
 \dontrun{
 
-## Plot Apple monthly stock prices since 1984
-## Data source from Yahoo! Finance
+## Plot Apple's monthly stock prices since 1984
 
-d <- Sys.time() ## get current date and time
-current.year <- format(d, "%Y")
-current.month <- format(d, "%m")
-current.day <- format(Sys.time(), "%d")
-##Yahoo finance sets January to 00 hence: 
+## Get current date
+d <- Sys.time() 
+current.year <- format(d, "\%Y")
+current.month <- format(d, "\%m")
+current.day <- format(d, "\%d")
+
+## Yahoo finance sets January to 00 hence: 
 month <- as.numeric(current.month)  - 1
 month <- ifelse(month < 10, paste("0",month, sep=""), m)
 
-## weekly stock prices from Apple Inc.
+## Get weekly stock prices from Apple Inc.
 tckr <- 'AAPL'
-fn <-
-sprintf('http://ichart.finance.yahoo.com/table.csv?s=%s&a=08&b=7&c=1984&d=%s&e=%s&f=%s&g=w&ignore=.csv',
-tckr, month, current.day, current.year)
+fn <- sprintf('http://ichart.finance.yahoo.com/table.csv?s=\%s&a=08&b=7&c=1984&d=%s&e=%s&f=%s&g=w&ignore=.csv',
+      tckr, month, current.day, current.year)
 
-## Get Data from Yahoo Finance
+## Get data from Yahoo! Finance
 data <- read.csv(fn, colClasses=c("Date", rep("numeric",6)))
 
 AAPL <- reshape(data[,c("Date", "Close", "Volume")], idvar="Date", times=c("Close", "Volume"), 
@@ -485,7 +485,7 @@ AAPL <- reshape(data[,c("Date", "Close", "Volume")], idvar="Date", times=c("Clos
                   v.names="Value", "Type",
                    direction="long")
 
-## calculate date last year for zoom start time
+## Calculate last year for zoom start time
 lyd <- as.POSIXlt(as.Date(d))
 lyd$year <- lyd$year-1
 lyd <- as.Date(lyd)

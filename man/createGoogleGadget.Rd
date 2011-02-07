@@ -30,6 +30,10 @@ Markus Gesmann
 Google Gadgets can be embedded in various Google products, for example as part of a Google Code wiki page, e.g.
 
 <wiki:gadget url="http://example.com/gadget.xml" height="200" border="0" /> 
+
+You find examples on the googleVis project site: 
+
+\url{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}
 }
 
 
