@@ -34,7 +34,7 @@ NEW FEATURES
      JavaScript building blocks and html tags. 
 
    o print.gvis has a new argument 'tag', which gives the user more
-     control about the output
+     control over the output
 
    o Brew example files in: 
      system.file("brew", package = "googleVis")  
