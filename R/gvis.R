@@ -19,9 +19,9 @@
 ### MA 02110-1301, USA
 
 
-gvisChart <- function(type, checked.data, options, chartid){
+gvisChart <- function(type, checked.data, options, chartid, package){
   
-  Chart = gvis(type=type, checked.data, options=options, chartid=chartid)
+  Chart = gvis(type=type, checked.data, options=options, chartid=chartid, package)
   chartid <- Chart$chartid
   htmlChart <- Chart$chart
   
@@ -40,7 +40,7 @@ gvisChart <- function(type, checked.data, options, chartid){
   return(output)
 }
 
-gvis <- function(type="", data, options, chartid){
+gvis <- function(type="", data, options, chartid, package){
 
   if( ! is.data.frame(data) ){
     stop("Data has to be a data.frame. See ?data.frame for more details.")
@@ -52,6 +52,9 @@ gvis <- function(type="", data, options, chartid){
     ##    chartid <- paste(type, format(Sys.time(), "%Y-%m-%d-%H-%M-%S"), basename(tempfile(pattern="")),sep="_")
     chartid <- paste(type, basename(tempfile(pattern="")),sep="ID")
  
+  }
+  if(missing(package)){
+    package <- type
   }
 
   
@@ -104,7 +107,7 @@ function displayChart%s()
 }
 '
   jsDisplayChart <- sprintf(jsDisplayChart, chartid,
-                     tolower(type),
+                     tolower(package),
                      ifelse(!is.null(options$gvis$gvis.language),
                             paste(",'language':'",
                                   options$gvis$gvis.language, "'", sep=""), ''),
@@ -269,9 +272,9 @@ gvisCheckData <- function(data="", options=list(), data.structure=list()){
   
   ## Check if required vars match columns in the data
   vars.req <- names(grep(TRUE, lapply(data.structure,
-                                      function(x){x$mode})=="required", value=T)) 
+                                      function(x){x$mode})=="required", value=TRUE)) 
   vars.opt <- names(grep(TRUE, lapply(data.structure,
-                                      function(x){x$mode})=="optional", value=T)) 
+                                      function(x){x$mode})=="optional", value=TRUE)) 
   
   # required and empty? fill with varNames in order given by data.structure
   req.and.empty <- ((names(options$data) %in% vars.req) &
@@ -281,7 +284,7 @@ gvisCheckData <- function(data="", options=list(), data.structure=list()){
     varNames[match(names(options$data[req.and.empty]),
                    names(data.structure))]  
   
-  vars.pos <- match(unlist(options$data[vars.req], use.names=F),
+  vars.pos <- match(unlist(options$data[vars.req], use.names=FALSE),
                     varNames) 
   if(any(is.na(vars.pos)) & (length(varNames) < length(vars.req))){
     stop("There are not enough columns in your data.")
@@ -308,7 +311,7 @@ gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
     options[grep("^gvis.",names(options))] <- NULL
     .par <- sapply(names(options), function(x)
                    paste("options[\"", x,"\"] = ",
-                                ifelse(checkSquareBracketOps(options[[x]]),
+                                ifelse(checkSquareCurlBracketOps(options[[x]]),
                                        options[[x]],                                       
                                        toJSON(options[[x]])
                                        ),
@@ -318,12 +321,12 @@ gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
 }
 
 
-checkSquareBracketOps <- function(char){
+checkSquareCurlBracketOps <- function(char){
 
   first <- substr(char, 1,1)
   n <- nchar(char)
   last <- substr(char, n, n)
-  ifelse(first == "[" & last == "]", TRUE, FALSE)
+  ifelse(first %in% c("{","[") & last %in% c("}", "]"), TRUE, FALSE)
 }
 
 gvisHtmlWrapper <- function(title, dataName, chartid){
