@@ -53,7 +53,6 @@ gvisScatterChart <- function(data, options=list(), chartid){
   return(output)
 }
 
-## plot(gvisSparkline(iris[,1:4], options=list(showAxisLines=FALSE,  showValueLabels=FALSE, labelPosition='left', width=200, height=100)))
 
 
 ## plot(gvisScatterChart(women, options=list(legend="none", lineWidth=2, pointSize=0, hAxis.title="weight", title="Women", vAxis="{title:'height'}", hAxis="{title: 'weight'}")))

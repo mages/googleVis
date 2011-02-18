@@ -150,8 +150,9 @@ plot(M)
   ## write the files into a temp directory
 
   myChartID <- "mtnc"
+  ## baseURL should reflect your web address, e.g. http://myHomePage.com
   baseURL <- sprintf("http://127.0.0.1:\%s/custom/googleVis", tools:::httpdPort)
-  wwwdir <- tempdir()
+  wwwdir <- tempdir() ## the www repository on you computer
 
   
   ## Create a motion chart
@@ -163,7 +164,7 @@ plot(M)
   ## Write the data and functions into separate files:
   cat(M$html$chart['jsData'], file=file.path(wwwdir, "gvisData.js"))
   cat(M$html$chart[c('jsDrawChart', 'jsDisplayChart', 'jsChart')], 
-  				    file=file.path(dr, "gvisFunctions.js"))
+  				    file=file.path(wwwdir, "gvisFunctions.js"))
 
   
   ## Create a html page with reference to the above

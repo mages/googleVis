@@ -1,4 +1,18 @@
 * TASKS googleVis to-do list:
-** DONE Documentation of gvis-functions
-Document individual gvis-functions*
-** DONE Vignette requires update
+** TODO Vignette requires update
+Update new gvis functions
+** TODO Update demo file
+** TODO Update screenshot
+** TODO Update overview article
+** TODO Update web site
+** TODO Document new gvis functions
+   gvisSparkline
+   gvisScatterChart
+   gvisPieChart
+   gvisOrgChart
+   gvisIntensityMap
+   gvisLineChart
+   gvisAreaChart
+   gvisBarChart
+   gvisColumnChart
+   gvisGauge

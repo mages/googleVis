@@ -30,12 +30,36 @@ gvisPieChart <- function(data, labelvar="", numvar="", options=list(), chartid){
  
   checked.data <- gvisCheckPieChartData(data, my.options)
   
-  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid=chartid, package="corechart") 
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options,
+                      chartid=chartid, package="corechart") 
   
   return(output)
 }
 
 ## plot(gvisPieChart(CityPopularity))
+
+gvisGauge <- function(data, labelvar="", numvar="", options=list(), chartid){
+
+  my.type <- "Gauge"
+  dataName <- deparse(substitute(data))
+
+  my.options <- list(gvis=modifyList(list(allowHtml=TRUE),options), dataName=dataName,
+                     data=list(locationvar=labelvar, numvar=numvar,
+                       allowed=c("number", "string"))
+                     )
+
+ 
+  checked.data <- gvisCheckPieChartData(data, my.options)
+  
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options,
+                      chartid=chartid, package="gauge") 
+  
+  return(output)
+}
+
+
+## plot(gvisGauge(CityPopularity, options=list(min=0, max=800, greenFrom=500,
+##         greenTo=800, yellowFrom=300, yellowTo=500, redFrom=0, redTo=300)))
 
 gvisCheckPieChartData <- function(data, options){
 
@@ -47,3 +71,4 @@ gvisCheckPieChartData <- function(data, options){
 
   return(data)
 }
+

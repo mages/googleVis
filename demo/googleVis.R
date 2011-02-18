@@ -5,8 +5,66 @@ pause <- function(){
 }
 
 ## For the demo a web browser with internet connection and Flash is required.
-## Further you need write access to the following directory
-system.file(file.path("rsp", "myAnalysis"), package="googleVis")
+
+df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
+
+## Line chart
+Line <- gvisLineChart(df)
+plot(Line)
+pause()
+
+## Bar chart
+Bar <- gvisBarChart(df)
+plot(Bar)
+pause()
+
+## Column chart
+Column <- gvisColumnChart(df)
+plot(Column)
+pause(Column)
+
+## Area chart
+Area <- gvisAreaChart(df)
+plot(Area)
+pause(Area)
+
+## Intensity Map
+Intensity <- gvisIntensityMap(df)
+plot(Intensity)
+pause()
+
+## Scatter chart
+Scatter <-  gvisScatterChart(women, options=list(legend="none", lineWidth=2,
+                                      pointSize=7, hAxis.title="weight", title="Women",
+                                      vAxis="{title:'height'}", hAxis="{title: 'weight'}"))
+plot(Scatter)
+pause()
+
+## Pie chart
+Pie <- gvisPieChart(CityPopularity)
+plot(Pie)
+pause()
+
+## Gauge
+Gauge <-  gvisGauge(CityPopularity, options=list(min=0, max=800, greenFrom=500,
+                                      greenTo=800, yellowFrom=300, yellowTo=500,
+                                      redFrom=0, redTo=300))
+plot(Gauge)
+pause()
+
+## Org chart
+Org <- gvisOrgChart(Regions, options=list(width=600, height=400,
+                               size='large', allowCollapse=TRUE))
+plot(Org)
+pause()
+
+## Spark lines
+Spark <- gvisSparkline(iris[,1:4], options=list(showAxisLines=FALSE,
+                                     showValueLabels=FALSE, labelPosition='left',
+                                     width=200, height=100))  
+plot(Spark)
+pause()
+
 
 ## Motion Chart
 Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
@@ -79,7 +137,6 @@ Page <- list(type="MotionGeoTableTree",
 class(Page) <- list("gvis", class(Page))
 plot(Page)
 pause()
-
 
 ## See how googleVis functions can be integrated into rsp-files:
 if(require(R.rsp))
