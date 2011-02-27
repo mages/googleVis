@@ -91,14 +91,14 @@ gvisCheckCoreChartData <- function(data, xvar, yvar){
     stop("Error: data has to be a data.frame.")
   }
   if(xvar=="")
-    xvar <- 1
-  data[[xvar]] <- as.character(data[[xvar]])
+    xvar <- names(data)[1]
+  data[,xvar] <- as.character(data[,xvar])
 
    if("" %in% yvar){
      yvar <- sapply(data, is.numeric)
      yvar <- names(yvar[yvar])
    }
-  data <-  data[c(xvar, yvar)]
+  data <-  data[,c(xvar, yvar)]
   
   return(data)
 }
