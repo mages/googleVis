@@ -257,7 +257,14 @@ G4 <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt",
       		         options=list(height=350, region="US"))
 
 plot(G4) 
-
+\dontrun{
+library(XML)
+## Get earthquake data of the last 30 days
+eq=readHTMLTable("http://www.iris.edu/seismon/last30.html")
+eq <- eq[[2]] ## extract the eq table
+eq$loc=paste(eq$LAT, eq$LON, sep=":") ## create a lat:long location variable
+plot(gvisGeoMap(eq, "loc", "MAG","DATE"))
+}
 
 }
 
