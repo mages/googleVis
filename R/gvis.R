@@ -311,9 +311,9 @@ gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
     options[grep("^gvis.",names(options))] <- NULL
     .par <- sapply(names(options), function(x)
                    paste("options[\"", x,"\"] = ",
-                                ifelse(checkSquareCurlBracketOps(options[[x]]),
-                                       options[[x]],                                       
-                                       toJSON(options[[x]])
+                                ifelse(any(checkSquareCurlBracketOps(options[[x]])),
+                                       paste(options[[x]], collapse="\n"),                                       
+                                       paste(toJSON(options[[x]]), collapse="\n")
                                        ),
                          ";",sep="" )
                    )
