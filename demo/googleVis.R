@@ -21,12 +21,12 @@ pause()
 ## Column chart
 Column <- gvisColumnChart(df)
 plot(Column)
-pause(Column)
+pause()
 
 ## Area chart
 Area <- gvisAreaChart(df)
 plot(Area)
-pause(Area)
+pause()
 
 ## Intensity Map
 Intensity <- gvisIntensityMap(df)

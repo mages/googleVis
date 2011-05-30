@@ -215,9 +215,7 @@ gvisFormat <- function(data){
                  json = toJSON(x.array)
                  )
 
- if(packageDescription("RJSONIO")$Version>= "0.7" ){
-      output$json <-gsub("\\\\\\\\", "\\\\",  output$json)
-  }
+  output$json <-fixBackslash(output$json)
 
   ## if we have have only one row of data we have to add additional "[" around the json output
   if(nrow(data)==1){
@@ -225,6 +223,15 @@ gvisFormat <- function(data){
   }
   return(output)
 }
+
+
+fixBackslash <- function(x){
+   if(packageDescription("RJSONIO")$Version>= "0.7" ){
+      x <-  gsub("\\\\\\\\", "\\\\", x)
+      }
+return(x)
+}
+
 
 check.location <- function(x){
     y = as.character(x)
@@ -316,12 +323,12 @@ gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
     .par <- sapply(names(options), function(x)
                    paste("options[\"", x,"\"] = ",
                                 ifelse(any(checkSquareCurlBracketOps(options[[x]])),
-                                       paste(options[[x]], collapse="\n"),                                       
-                                       paste(toJSON(options[[x]], FALSE), collapse="\n")
+                                       paste(options[[x]], collapse="\n"),
+                                       paste(toJSON(options[[x]], FALSE), collapse="\n")                                       
                                        ),
                          ";",sep="" )
                    )
-    return(.par)
+    return(fixBackslash(.par))
 }
 
 
