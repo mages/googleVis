@@ -215,6 +215,10 @@ gvisFormat <- function(data){
                  json = toJSON(x.array)
                  )
 
+ if(packageDescription("RJSONIO")$Version>= "0.7" ){
+      output$json <-gsub("\\\\\\\\", "\\\\",  output$json)
+  }
+
   ## if we have have only one row of data we have to add additional "[" around the json output
   if(nrow(data)==1){
     output$json <- paste("[", output$json ,"]", sep="\n")
