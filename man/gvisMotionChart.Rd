@@ -1,7 +1,7 @@
 \name{gvisMotionChart}
 \alias{gvisMotionChart}
 
-\title{ Google Motion Chart with R}
+\title{Google Motion Chart with R}
 \description{
   The gvisMotionChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
@@ -221,7 +221,7 @@ M3 <- gvisMotionChart(Fruits,"Fruit","Year",
 plot(M3)
 ## Options: trails un-ticked
 M4 <- gvisMotionChart(Fruits, "Fruit", "Year",
-                 options=list(state='{\"showTrails\":false};'))
+                 options=list(state='{"showTrails":false};'))
 
 plot(M4)
 
