@@ -1,7 +1,7 @@
 \name{gvisGauge}
 \alias{gvisGauge}
 \title{
-Google Gauge Chart with R
+Google Gauge with R
 }
 \description{
   The gvisGauge function reads a data.frame and
@@ -17,7 +17,7 @@ gvisGauge(data, labelvar = "", numvar = "", options = list(), chartid)
 \arguments{
   \item{data}{a \code{\link{data.frame}} to be displayed as a gauge
   }
-  \item{lablevar}{
+  \item{labelvar}{
     Name of the character column which contains the category labels for
     the slice labels.
   }

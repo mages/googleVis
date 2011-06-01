@@ -139,7 +139,7 @@ gvisColumnChart(data, xvar = "", yvar = "", options = list(), chartid)
 	axis; if false, draw horizontal axis text upright. Default behavior is
 	to slant text if it cannot all fit when drawn upright.
       }
-      \item{\code{hAxis.slantedTextAngle}}{A number, 1—90. Default 30. The angle
+      \item{\code{hAxis.slantedTextAngle}}{A number, 1-90. Default 30. The angle
 	of the horizontal axis text, if it's drawn slanted. Ignored if
 	\code{hAxis.slantedText} is false, or is in auto mode, and the chart
 	decided to draw the text horizontally.
