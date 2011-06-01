@@ -1,33 +1,28 @@
-\name{gvisLineChart}
-\alias{gvisLineChart}
+\name{gvisScatterChart}
+\alias{gvisScatterChart}
+%- Also NEED an '\alias' for EACH other topic documented here.
 \title{
-Google Line Chart with R
+  Google Scatter Chart with R
 }
 \description{
-  The gvisLineChart function reads a data.frame and
+  The gvisScatterChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
   included into a web page, or as a stand-alone page. The actual chart is
   rendered by the web browser using SVG or
-  VML. 
-}
+  VML. }
 \usage{
-gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
+gvisScatterChart(data, options = list(), chartid)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{data}{a \code{\link{data.frame}} to be displayed as a line chart
+  \item{data}{a \code{\link{data.frame}} to be displayed as a scatter
+    chart. Two or more columns are required, all must be numeric. The
+    values in the first column are used for the X-axis. The values in
+    following columns are used for the Y-axis. Each column is displayed
+    with a separate color.
   }
-  \item{xvar}{
-    Name of the character column which contains the category labels for
-    the x-axes.
-  }
-  \item{yvar}{a vector of column names of the numerical variables to be
-    plotted. 
-    Each column is displayed as a separate line.
-  }
-  \item{options}{list of configuration options for Google Line Chart.
+  \item{options}{list of configuration options for Google Scatter Chart.
     The possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/linechart.html#Configuration_Options}:
+    \url{http://code.google.com/apis/visualization/documentation/gallery/scatterchart.html#Configuration_Options}:
     \describe{
       \item{axisTitlesPosition}{a string. Default 'out'. Where to place
 	the axis titles, compared to the chart area. Supported values:
@@ -103,11 +98,30 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	%}
 	%}
       }
+      \item{\code{hAxis.baseline}}{A number. Default automatic.
+	\code{hAxis} property that specifies the baseline for the
+	horizontal axis. If the baseline is smaller than the highest grid
+	line or smaller than the lowest grid line, it will be rounded to
+	the closest gridline.
+      }
+      \item{\code{hAxis.baselineColor}}{A string. Default
+	'black'. \code{hAxis} property that specifies the color of the
+	baseline for the horizontal axis. Can be any HTML color string, for
+	example: \code{'red'} or \code{'#00cc00'}.
+      }
       \item{\code{hAxis.direction}}{1 or -1. Default 1. The direction in which the
 	values along the horizontal axis grow. Specify -1 to reverse the
 	order of the values.
       }
-      
+      \item{\code{hAxis.format}}{A string. Default auto. A format string for
+	numeric axis labels. This is a subset of the ICU pattern set. For
+	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
+	and 50\% for values 10, 7.5, and 0.5.
+      }
+      \item{\code{hAxis.logScale}}{Boolean. Default \code{FALSE}. \code{vAxis} property that
+	makes the vertical axis a logarithmic scale (requires all values to
+	be positive). Set to \code{TRUE} for yes.
+      }
       \item{\code{hAxis.textPosition}}{A string. Default \code{'out'} Position of the
 	horizontal axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
@@ -130,35 +144,18 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{hAxis.slantedText}}{Boolean. Default automatic. If \code{TRUE}, draw the
-	horizontal axis text at an angle, to help fit more text along the
-	axis; if false, draw horizontal axis text upright. Default behavior is
-	to slant text if it cannot all fit when drawn upright.
+      \item{\code{hAxis.maxValue}}{A number. Default automatic. \code{hAxis} property
+	that specifies the highest vertical axis grid line. The actual grid
+	line will be the greater of two values: the maxValue option value,
+	or the highest data value, rounded up to the next higher grid mark.
       }
-      \item{\code{hAxis.slantedTextAngle}}{A number, 1—90. Default 30. The angle
-	of the horizontal axis text, if it's drawn slanted. Ignored if
-	\code{hAxis.slantedText} is false, or is in auto mode, and the chart
-	decided to draw the text horizontally.
-      }
-      \item{\code{hAxis.maxAlternation}}{A number. Default 2. Maximum number of
-	levels of horizontal axis text. If axis text labels become too
-	crowded, the server might shift neighboring labels up or down in
-	order to fit labels closer together. This value specifies the
-	most number of levels to use; the server can use fewer levels, if
-	labels can fit without overlapping.
-      }
-      \item{\code{hAxis.showTextEvery}}{A number. Default automatic. How many
-	horizontal axis labels to show, where 1 means show every label, 2
-	means show every other label, and so on. Default is to try to
-	show as many labels as possible without overlapping.
+      \item{\code{hAxis.minValue}}{A number. Default automatic. \code{hAxis} property that
+	specifies the lowest vertical axis grid line. The actual grid line
+	will be the lower of two values: the minValue option value, or the
+	lowest data value, rounded down to the next lower grid mark.
       }
       \item{\code{height}}{A number. Default height of the containing
 	element. Height of the chart, in pixels.
-      }
-      \item{\code{interpolateNulls}}{Boolean. Default \code{FALSE}. Whether to guess the
-	value of missing points. If true, it will guess the value of any
-	missing data based on neighboring points. If false, it will leave a
-	break in the line at the unknown point.
       }
       \item{\code{legend}}{A string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
@@ -186,10 +183,6 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       }
       \item{\code{pointSize}}{A number. Default 0. Diameter of data points, in pixels. Use
 	zero to hide all points.
-      }
-      \item{\code{reverseCategories}}{Boolean. Default \code{FALSE}. If set to true, will
-	draw series from right to left. The default is to draw
-	left-to-right.
       }
       \item{\code{title}}{A string. Default no title. Text to display above the chart.
       }
@@ -294,12 +287,12 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 %%  ~~ If necessary, more details than the description above ~~
 %%}
 \value{
-  \code{gvisLineChart} returns list of \code{\link{class}}
+  \code{gvisScatterChart} returns list of \code{\link{class}}
   "\code{gvis}" and "\code{list}".   
   
   An object of class "\code{gvis}" is a list containing at least the
   following components:
-  \item{\code{type}}{Google visualisation type, here 'LineChart'}
+  \item{\code{type}}{Google visualisation type, here 'ScatterChart'}
   \item{\code{chartid}}{character id of the chart object. Unique chart
     ids are required to place several charts on the same page.
   }
@@ -342,8 +335,8 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
   }
 }
 \references{
-  Google Line Chart API:
-  \url{http://code.google.com/apis/chart/interactive/docs/gallery/linechart.html} 
+  Google Scatter Chart API:
+  \url{http://code.google.com/apis/chart/interactive/docs/gallery/scatterchart.html} 
 
   Follow the link also for Google's Data Policy.
 
@@ -354,7 +347,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
   Diego de Castillo \email{decastillo@gmail.com}
 }
 \section{Warning}{
-  Google Visualisation API: You cannot load both linechart and corechart
+  Google Visualisation API: You cannot load both scatterchart and corechart
   packages at the same time on the same page.
 }
 
@@ -369,25 +362,20 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 ## will open a browser window and requires an internet
 ## connection to display the visualisation.
 
-df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
 
-## Line chart
-Line1 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"))
-plot(Line1)
+## Scatter chart
+Scatter1 <- gvisScatterChart(women)
+plot(Scatter1)
 
+## Using optional arguments
+Scatter2 <- gvisScatterChart(women, options=list(legend="none",
+                 lineWidth=2, pointSize=0, hAxis.title="weight",
+                 title="Women", vAxis="{title:'height'}",
+                 hAxis="{title:'weight'}")
+                 )
 
-## Add a customised title and smoothed curve
-Line2 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
-             options=list(title="Hello World",
-                          titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}",
-                          curveType='function'))
-plot(Line2)
+plot(Scatter2)
 
-\dontrun{
-## Change y-axis to percentages
-Line3 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
-                       options=list(vAxis="{format:'#,###\%'}"))
-plot(Line3)
 }
-}
+
 \keyword{ hplot }

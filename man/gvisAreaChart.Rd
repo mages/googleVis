@@ -1,19 +1,19 @@
-\name{gvisLineChart}
-\alias{gvisLineChart}
+\name{gvisAreaChart}
+\alias{gvisAreaChart}
 \title{
-Google Line Chart with R
+Google Area Chart with R
 }
 \description{
-  The gvisLineChart function reads a data.frame and
+  The gvisAreaChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
-  included into a web page, or as a stand-alone page. The actual chart is
-  rendered by the web browser using SVG or
-  VML. 
+  included into a web page, or as a stand-alone page.
+  
+  The area chart is rendered within the browser using SVG or VML and
+  displays tips when hovering over points.
 }
 \usage{
-gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
+gvisAreaChart(data, xvar = "", yvar = "", options = list(), chartid)
 }
-%- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{a \code{\link{data.frame}} to be displayed as a line chart
   }
@@ -25,9 +25,9 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
     plotted. 
     Each column is displayed as a separate line.
   }
-  \item{options}{list of configuration options for Google Line Chart.
+  \item{options}{list of configuration options for Google Area Chart.
     The possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/linechart.html#Configuration_Options}:
+    \url{http://code.google.com/apis/visualization/documentation/gallery/areachart.html#Configuration_Options}:
     \describe{
       \item{axisTitlesPosition}{a string. Default 'out'. Where to place
 	the axis titles, compared to the chart area. Supported values:
@@ -74,13 +74,6 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{colors}}{An array of strings. Default 'colors'. The colors to
 	use for the chart elements. An array of strings, where each element is
 	an HTML color string, for example: \code{colors:['red','#004411']}.
-      }
-      \item{\code{curveType}}{A string. Default \code{'none'}. Controls the curve of the
-	lines. Can be one of the following:      
-	\describe{
-	  \item{\code{'none'}}{Straight lines without curve.}
-	  \item{\code{'function'}}{The angles of the line will be smoothed.}
-	}
       }
       \item{\code{fontSize}}{A number. Default automatic. The default font
 	size, in pixels, of all text in the chart. You can override this
@@ -155,10 +148,8 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{height}}{A number. Default height of the containing
 	element. Height of the chart, in pixels.
       }
-      \item{\code{interpolateNulls}}{Boolean. Default \code{FALSE}. Whether to guess the
-	value of missing points. If true, it will guess the value of any
-	missing data based on neighboring points. If false, it will leave a
-	break in the line at the unknown point.
+      \item{\code{isStacked}}{Boolean. Default \code{FALSE}. If set to
+	\code{TRUE}, bar values are stacked (accumulated).
       }
       \item{\code{legend}}{A string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
@@ -294,12 +285,12 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 %%  ~~ If necessary, more details than the description above ~~
 %%}
 \value{
-  \code{gvisLineChart} returns list of \code{\link{class}}
+  \code{gvisAreaChart} returns list of \code{\link{class}}
   "\code{gvis}" and "\code{list}".   
   
   An object of class "\code{gvis}" is a list containing at least the
   following components:
-  \item{\code{type}}{Google visualisation type, here 'LineChart'}
+  \item{\code{type}}{Google visualisation type, here 'AreaChart'}
   \item{\code{chartid}}{character id of the chart object. Unique chart
     ids are required to place several charts on the same page.
   }
@@ -342,8 +333,8 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
   }
 }
 \references{
-  Google Line Chart API:
-  \url{http://code.google.com/apis/chart/interactive/docs/gallery/linechart.html} 
+  Google Area Chart API:
+  \url{http://code.google.com/apis/chart/interactive/docs/gallery/areachart.html} 
 
   Follow the link also for Google's Data Policy.
 
@@ -354,7 +345,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
   Diego de Castillo \email{decastillo@gmail.com}
 }
 \section{Warning}{
-  Google Visualisation API: You cannot load both linechart and corechart
+  Google Visualisation API: You cannot load both areachart and corechart
   packages at the same time on the same page.
 }
 
@@ -371,23 +362,28 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 
 df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
 
-## Line chart
-Line1 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"))
-plot(Line1)
+## Area chart
+Area1 <- gvisAreaChart(df, xvar="country", yvar=c("val1", "val2"))
+plot(Area1)
+
+## Stacked chart
+Area2 <- gvisAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+      options=list(isStacked=TRUE))
+plot(Area2)
 
 
 ## Add a customised title and smoothed curve
-Line2 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
+Area3 <- gvisAreaChart(df, xvar="country", yvar=c("val1", "val2"),
              options=list(title="Hello World",
                           titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}",
                           curveType='function'))
-plot(Line2)
+plot(Area3)
 
 \dontrun{
 ## Change y-axis to percentages
-Line3 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
+Area3 <- gvisAreaChart(df, xvar="country", yvar=c("val1", "val2"),
                        options=list(vAxis="{format:'#,###\%'}"))
-plot(Line3)
+plot(Area3)
 }
 }
 \keyword{ hplot }

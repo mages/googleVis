@@ -28,11 +28,6 @@ Area <- gvisAreaChart(df)
 plot(Area)
 pause()
 
-## Intensity Map
-Intensity <- gvisIntensityMap(df)
-plot(Intensity)
-pause()
-
 ## Scatter chart
 Scatter <-  gvisScatterChart(women, options=list(legend="none", lineWidth=2,
                                       pointSize=7, hAxis.title="weight", title="Women",
@@ -50,6 +45,11 @@ Gauge <-  gvisGauge(CityPopularity, options=list(min=0, max=800, greenFrom=500,
                                       greenTo=800, yellowFrom=300, yellowTo=500,
                                       redFrom=0, redTo=300))
 plot(Gauge)
+pause()
+
+## Intensity Map
+Intensity <- gvisIntensityMap(df)
+plot(Intensity)
 pause()
 
 ## Org chart

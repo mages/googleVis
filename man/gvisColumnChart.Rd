@@ -1,21 +1,21 @@
-\name{gvisLineChart}
-\alias{gvisLineChart}
+\name{gvisColumnChart}
+\alias{gvisColumnChart}
 \title{
-Google Line Chart with R
+Google Column Chart with R
 }
 \description{
-  The gvisLineChart function reads a data.frame and
+  The gvisColumnChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
   included into a web page, or as a stand-alone page. The actual chart is
   rendered by the web browser using SVG or
   VML. 
 }
 \usage{
-gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
+gvisColumnChart(data, xvar = "", yvar = "", options = list(), chartid)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{data}{a \code{\link{data.frame}} to be displayed as a line chart
+    \item{data}{a \code{\link{data.frame}} to be displayed as a column chart
   }
   \item{xvar}{
     Name of the character column which contains the category labels for
@@ -23,11 +23,11 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
   }
   \item{yvar}{a vector of column names of the numerical variables to be
     plotted. 
-    Each column is displayed as a separate line.
+    Each column is displayed as a separate bar/column.
   }
-  \item{options}{list of configuration options for Google Line Chart.
+  \item{options}{list of configuration options for Google Column Chart.
     The possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/linechart.html#Configuration_Options}:
+    \url{http://code.google.com/apis/visualization/documentation/gallery/columnchart.html#Configuration_Options}:
     \describe{
       \item{axisTitlesPosition}{a string. Default 'out'. Where to place
 	the axis titles, compared to the chart area. Supported values:
@@ -75,13 +75,6 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	use for the chart elements. An array of strings, where each element is
 	an HTML color string, for example: \code{colors:['red','#004411']}.
       }
-      \item{\code{curveType}}{A string. Default \code{'none'}. Controls the curve of the
-	lines. Can be one of the following:      
-	\describe{
-	  \item{\code{'none'}}{Straight lines without curve.}
-	  \item{\code{'function'}}{The angles of the line will be smoothed.}
-	}
-      }
       \item{\code{fontSize}}{A number. Default automatic. The default font
 	size, in pixels, of all text in the chart. You can override this
 	using properties for specific chart elements.
@@ -102,6 +95,17 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	\code{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
 	%}
 	%}
+      }
+      \item{\code{hAxis.baseline}}{A number. Default automatic.
+	\code{hAxis} property that specifies the baseline for the
+	horizontal axis. If the baseline is smaller than the highest grid
+	line or smaller than the lowest grid line, it will be rounded to
+	the closest gridline.
+      }
+      \item{\code{hAxis.baselineColor}}{A string. Default
+	'black'. \code{hAxis} property that specifies the color of the
+	baseline for the horizontal axis. Can be any HTML color string, for
+	example: \code{'red'} or \code{'#00cc00'}.
       }
       \item{\code{hAxis.direction}}{1 or -1. Default 1. The direction in which the
 	values along the horizontal axis grow. Specify -1 to reverse the
@@ -146,19 +150,18 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	order to fit labels closer together. This value specifies the
 	most number of levels to use; the server can use fewer levels, if
 	labels can fit without overlapping.
-      }
-      \item{\code{hAxis.showTextEvery}}{A number. Default automatic. How many
-	horizontal axis labels to show, where 1 means show every label, 2
-	means show every other label, and so on. Default is to try to
-	show as many labels as possible without overlapping.
+      }	
+      \item{\code{hAxis.showTextEvery}}{A number. Default
+      	automatic. How many horizontal axis labels to show, where 1
+	means show every label, 2 means show every other label, and so
+	on. Default is to try to show as many labels as possible
+	without overlapping.
       }
       \item{\code{height}}{A number. Default height of the containing
 	element. Height of the chart, in pixels.
       }
-      \item{\code{interpolateNulls}}{Boolean. Default \code{FALSE}. Whether to guess the
-	value of missing points. If true, it will guess the value of any
-	missing data based on neighboring points. If false, it will leave a
-	break in the line at the unknown point.
+      \item{\code{isStacked}}{Boolean. Default \code{FALSE}. If set to
+	\code{TRUE}, column values are stacked (accumulated).
       }
       \item{\code{legend}}{A string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
@@ -180,12 +183,6 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	    <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
-      }
-      \item{\code{lineWidth}}{A number. Default 2. Line width in pixels. Use zero to
-	hide all lines and show only the points.
-      }
-      \item{\code{pointSize}}{A number. Default 0. Diameter of data points, in pixels. Use
-	zero to hide all points.
       }
       \item{\code{reverseCategories}}{Boolean. Default \code{FALSE}. If set to true, will
 	draw series from right to left. The default is to draw
@@ -283,23 +280,21 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       }
       \item{\code{width}}{A number. Default width of the containing element. Width of the chart, in
 	pixels.
-      }
-    }
-  } 
+      } 
+    }    
+  }
   \item{chartid}{character. If missing (default) a random chart id will be generated based on
     chart type and \code{\link{tempfile}}
   }
 }
-%%\details{
-%%  ~~ If necessary, more details than the description above ~~
-%%}
+
 \value{
-  \code{gvisLineChart} returns list of \code{\link{class}}
+  \code{gvisColumnChart} returns a list of \code{\link{class}}
   "\code{gvis}" and "\code{list}".   
   
   An object of class "\code{gvis}" is a list containing at least the
   following components:
-  \item{\code{type}}{Google visualisation type, here 'LineChart'}
+  \item{\code{type}}{Google visualisation type, here 'ColumnChart'}
   \item{\code{chartid}}{character id of the chart object. Unique chart
     ids are required to place several charts on the same page.
   }
@@ -342,8 +337,8 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
   }
 }
 \references{
-  Google Line Chart API:
-  \url{http://code.google.com/apis/chart/interactive/docs/gallery/linechart.html} 
+  Google Column Chart API:
+  \url{http://code.google.com/apis/chart/interactive/docs/gallery/barchart.html} 
 
   Follow the link also for Google's Data Policy.
 
@@ -354,7 +349,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
   Diego de Castillo \email{decastillo@gmail.com}
 }
 \section{Warning}{
-  Google Visualisation API: You cannot load both linechart and corechart
+  Google Visualisation API: You cannot load both barchart/columnchart and corechart
   packages at the same time on the same page.
 }
 
@@ -364,6 +359,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
   printing and plotting methods
 }
+
 \examples{
 ## Please note that by default the plot (better plot.gvis) command
 ## will open a browser window and requires an internet
@@ -371,23 +367,30 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 
 df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
 
-## Line chart
-Line1 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"))
-plot(Line1)
+## Column chart
+Col1 <- gvisColumnChart(df, xvar="country", yvar=c("val1", "val2"))
+plot(Col1)
+
+## Stacked column chart
+Col2 <- gvisColumnChart(df, xvar="country", yvar=c("val1", "val2"),
+     options=list(isStacked=TRUE))
+plot(Col2)
 
 
 ## Add a customised title and smoothed curve
-Line2 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
+Col3 <- gvisColumnChart(df, xvar="country", yvar=c("val1", "val2"),
              options=list(title="Hello World",
                           titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}",
                           curveType='function'))
-plot(Line2)
+plot(Col3)
 
 \dontrun{
 ## Change y-axis to percentages
-Line3 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
+Col4 <- gvisColumnChart(df, xvar="country", yvar=c("val1", "val2"),
                        options=list(vAxis="{format:'#,###\%'}"))
-plot(Line3)
+plot(Col4)
 }
+
 }
 \keyword{ hplot }
+

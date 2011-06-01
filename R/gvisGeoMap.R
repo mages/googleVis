@@ -59,3 +59,25 @@ gvisCheckGeoMapData <- function(data, options){
 
   return(data.frame(x))
 }
+
+
+gvisGeoChart <- function(data, locationvar="", numvar="", hovervar="", options=list(), chartid){
+
+  my.type <- "GeoChart"
+  dataName <- deparse(substitute(data))
+
+  my.options <- list(gvis=modifyList(list(width = 600),options), 
+                     dataName=dataName,
+                     data=list(locationvar=locationvar, numvar=numvar,
+                       hovervar=hovervar,  
+                     allowed=c("number", "string")))
+  
+  checked.data <- gvisCheckGeoMapData(data, my.options)
+
+  if(any("numeric" %in% lapply(checked.data[,c(1,2)],class))){
+    my.options <- modifyList(list(gvis=list(dataMode = "markers")), my.options)
+  }
+  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid=chartid)
+  
+  return(output)
+}
