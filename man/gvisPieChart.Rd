@@ -17,7 +17,7 @@ gvisPieChart(data, labelvar = "", numvar = "", options = list(), chartid)
 \arguments{
   \item{data}{a \code{\link{data.frame}} to be displayed as a pie chart
   }
-  \item{lablevar}{
+  \item{labelvar}{
     Name of the character column which contains the category labels for
     the slice labels.
   }

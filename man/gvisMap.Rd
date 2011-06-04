@@ -150,7 +150,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 \seealso{
 
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods, \code{\link{gvisGeoMap}} for an 
+  printing and plotting methods, \code{\link{gvisGeoMap}} and \code{\link{gvisIntensityMap}} for an 
   alternative to \code{gvisMap}. 
   
   Further the packages:

@@ -1,7 +1,7 @@
 \name{gvisGeoMap}
 \alias{gvisGeoMap}
 \title{
-  Google Geo Map/Chart with R
+  Google Geo Map with R
 }
 \description{
   The gvisGeoMap function reads a data.frame and
@@ -18,8 +18,6 @@
 }
 \usage{
 gvisGeoMap(data, locationvar='', numvar='', hovervar='',
-           options = list(), chartid)
-gvisGeoChart(data, locationvar='', numvar='', hovervar='',
            options = list(), chartid)
 }
 \arguments{
@@ -63,7 +61,7 @@ gvisGeoChart(data, locationvar='', numvar='', hovervar='',
     \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html#Configuration_Options}:
   
     \describe{
-      \item{region}{string, default \code{'world'}.	
+      \item{\code{region}}{string, default \code{'world'}.	
 	The area to display on the map. (Surrounding areas will be
 	displayed as well.) Can be either a country code (in uppercase
 	ISO-3166 format), or a one of the following strings
@@ -213,7 +211,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 \seealso{
 
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods, \code{\link{gvisMap}} for an
+  printing and plotting methods, \code{\link{gvisMap}} and \code{\link{gvisIntensityMap}} for an
   alternative to \code{gvisGeoMap}.  
   
 }
