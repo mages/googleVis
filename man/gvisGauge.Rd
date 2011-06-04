@@ -27,51 +27,51 @@ gvisGauge(data, labelvar = "", numvar = "", options = list(), chartid)
     The possible components are, taken from
     \url{http://code.google.com/apis/visualization/documentation/gallery/gauge.html#Configuration_Options}:
     \describe{
-      \item{\code{greenColor}}{A string. Default \code{'#109618'}. The color
+      \item{\code{greenColor}}{a string. Default \code{'#109618'}. The color
 	to use for the green section, in HTML color notation.
       }
-      \item{\code{greenFrom}}{A	number. Default	none. The lowest value
+      \item{\code{greenFrom}}{a	number. Default	none. The lowest value
 	for a range marked by a green color.
       }
-      \item{\code{greenTo}}{A	number. Default	none. The highest value
+      \item{\code{greenTo}}{a number. Default	none. The highest value
 	for a range marked by a green color.
       }
-      \item{\code{height}}{A number. Default container's width.	Height
+      \item{\code{height}}{a number. Default container's width.	Height
 	of the chart in pixels.
       }
-      \item{\code{majorTicks}}{An json array of strings. Default none.
+      \item{\code{majorTicks}}{an json array of strings. Default none.
 	Labels for major tick marks. The number of labels define the
 	number of major ticks in all gauges. The default is five major
 	ticks, with the labels of the minimal and maximal gauge value.
 	}
-	\item{\code{max}}{A number. Default 100. The maximal
+	\item{\code{max}}{a number. Default 100. The maximal
 	  value of a gauge.
 	}
-	\item{\code{min}}{A number. Default 0. The minimal value of a
+	\item{\code{min}}{a number. Default 0. The minimal value of a
 	  gauge.
 	}
-	\item{\code{minorTicks}}{A number. Default 2. The number of
+	\item{\code{minorTicks}}{a number. Default 2. The number of
 	  minor tick section in each major tick section.
 	}
-	\item{\code{redColor}}{A string. Default \code{'#DC3912'}. The
+	\item{\code{redColor}}{a string. Default \code{'#DC3912'}. The
 	  color to use for the red section, in HTML color notation.
 	}
-	\item{\code{redFrom}}{A	number. Default	none. The lowest value
+	\item{\code{redFrom}}{a number. Default	none. The lowest value
 	  for a range marked by a red color.
 	}
-	\item{\code{redTo}}{A number. Default none. The highest value
+	\item{\code{redTo}}{a number. Default none. The highest value
 	  for a range marked by a red color.
 	}
-	\item{\code{width}}{A number. Default container's width.
+	\item{\code{width}}{a number. Default container's width.
 	  Width of the chart in pixels.
 	}
-	\item{\code{yellowColor}}{A string. Default '#FF9900'.	The
+	\item{\code{yellowColor}}{a string. Default '#FF9900'.	The
 	  color to use for the yellow section, in HTML color notation.
 	}
-	\item{\code{yellowFrom}}{A number. Default none.	The
+	\item{\code{yellowFrom}}{a number. Default none.	The
 	  lowest value for a range marked by a yellow color.
 	}
-	\item{\code{yellowTo}}{A number/ Default none. The highest value
+	\item{\code{yellowTo}}{a number/ Default none. The highest value
 	  for a range marked by a yellow color.
 	}
       }
@@ -85,7 +85,7 @@ gvisGauge(data, labelvar = "", numvar = "", options = list(), chartid)
 %%  ~~ If necessary, more details than the description above ~~
 %%}
 \value{
-  \code{gvisGuage} returns list of \code{\link{class}}
+  \code{gvisGauge} returns list of \code{\link{class}}
   "\code{gvis}" and "\code{list}".   
   
   An object of class "\code{gvis}" is a list containing at least the

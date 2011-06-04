@@ -80,3 +80,49 @@ AnnoTimeLine  <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                            )
 cat(createGoogleGadget(AnnoTimeLine), file="annotimeline.xml")
 
+## Sample data
+df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
+
+## Line chart
+Line <- gvisLineChart(df)
+cat(createGoogleGadget(Line), file="linechart.xml")
+
+
+## Bar chart
+Bar <- gvisBarChart(df)
+cat(createGoogleGadget(Bar), file="barchart.xml")
+
+## Column chart
+Column <- gvisColumnChart(df)
+cat(createGoogleGadget(Column), file="columnchart.xml")
+
+## Area chart
+Area <- gvisAreaChart(df)
+cat(createGoogleGadget(Area), file="areachart.xml")
+
+## Scatter chart
+Scatter <- gvisScatterChart(women, options=list(legend="none",
+                 lineWidth=2, pointSize=0, hAxis.title="weight",
+                 title="Women", vAxis="{title:'height'}",
+                 hAxis="{title:'weight'}")
+                 )
+cat(createGoogleGadget(Scatter), file="scatterchart.xml")
+
+## Pie chart
+Pie <- gvisPieChart(CityPopularity)
+cat(createGoogleGadget(Pie), file="piechart.xml")
+
+## Gauge
+Gauge <-  gvisGauge(CityPopularity, options=list(min=0, max=800, greenFrom=500,
+                                      greenTo=800, yellowFrom=300, yellowTo=500,
+                                      redFrom=0, redTo=300))
+cat(createGoogleGadget(Gauge), file="gauge.xml")
+
+## Intensity Map
+Intensity <- gvisIntensityMap(df)
+cat(createGoogleGadget(Intensity), file="intensitymap.xml")
+
+## Org chart
+Org <- gvisOrgChart(Regions, options=list(width=600, height=400,
+                               size='large', allowCollapse=TRUE))
+cat(createGoogleGadget(Org), file="orgchart.xml")

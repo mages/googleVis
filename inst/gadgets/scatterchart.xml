@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="ScatterChartID3feedd95" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- ScatterChart generated in R 2.13.0 by googleVis 0.2.5 package -->
+<!-- Sat Jun  4 21:14:33 2011 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataScatterChartID3feedd95 ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+     58,
+   115 
+],
+[
+     59,
+   117 
+],
+[
+     60,
+   120 
+],
+[
+     61,
+   123 
+],
+[
+     62,
+   126 
+],
+[
+     63,
+   129 
+],
+[
+     64,
+   132 
+],
+[
+     65,
+   135 
+],
+[
+     66,
+   139 
+],
+[
+     67,
+   142 
+],
+[
+     68,
+   146 
+],
+[
+     69,
+   150 
+],
+[
+     70,
+   154 
+],
+[
+     71,
+   159 
+],
+[
+     72,
+   164 
+] 
+];
+data.addColumn('number','height');
+data.addColumn('number','weight');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartScatterChartID3feedd95() {
+  var data = gvisDataScatterChartID3feedd95()
+  var chart = new google.visualization.ScatterChart(
+   document.getElementById('ScatterChartID3feedd95')
+  );
+  var options ={};
+options["allowHtml"] = true;
+options["legend"] = "none";
+options["lineWidth"] =      2;
+options["pointSize"] =      0;
+options["hAxis.title"] = "weight";
+options["title"] = "Women";
+options["vAxis"] = {title:'height'};
+options["hAxis"] = {title:'weight'};
+  chart.draw(data,options);
+}
+
+
+// jsDisplayChart 
+function displayChartScatterChartID3feedd95()
+{
+  google.load("visualization", "1", { packages:["corechart"] }); 
+  google.setOnLoadCallback(drawChartScatterChartID3feedd95);
+}
+
+
+// jsChart 
+displayChartScatterChartID3feedd95()
+
+
+<!-- jsFooter -->  
+//-->
+</script>
+
+
+<!-- divChart -->
+<div id="ScatterChartID3feedd95"
+  style="width: 600px; height: 500px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

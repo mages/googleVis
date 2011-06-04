@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="PieChartID5b1581fd" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- PieChart generated in R 2.13.0 by googleVis 0.2.5 package -->
+<!-- Sat Jun  4 21:14:33 2011 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataPieChartID5b1581fd ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "New York",
+   200 
+],
+[
+ "Boston",
+   300 
+],
+[
+ "Miami",
+   400 
+],
+[
+ "Chicago",
+   500 
+],
+[
+ "Los Angeles",
+   600 
+],
+[
+ "Houston",
+   700 
+] 
+];
+data.addColumn('string','City');
+data.addColumn('number','Popularity');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartPieChartID5b1581fd() {
+  var data = gvisDataPieChartID5b1581fd()
+  var chart = new google.visualization.PieChart(
+   document.getElementById('PieChartID5b1581fd')
+  );
+  var options ={};
+options["allowHtml"] = true;
+  chart.draw(data,options);
+}
+
+
+// jsDisplayChart 
+function displayChartPieChartID5b1581fd()
+{
+  google.load("visualization", "1", { packages:["corechart"] }); 
+  google.setOnLoadCallback(drawChartPieChartID5b1581fd);
+}
+
+
+// jsChart 
+displayChartPieChartID5b1581fd()
+
+
+<!-- jsFooter -->  
+//-->
+</script>
+
+
+<!-- divChart -->
+<div id="PieChartID5b1581fd"
+  style="width: 600px; height: 500px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

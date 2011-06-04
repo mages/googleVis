@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="OrgChartID393f00b2" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- OrgChart generated in R 2.13.0 by googleVis 0.2.5 package -->
+<!-- Sat Jun  4 21:14:33 2011 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataOrgChartID393f00b2 ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Global",
+null,
+"10" 
+],
+[
+ "America",
+"Global",
+"2" 
+],
+[
+ "Europe",
+"Global",
+"99" 
+],
+[
+ "Asia",
+"Global",
+"10" 
+],
+[
+ "France",
+"Europe",
+"71" 
+],
+[
+ "Sweden",
+"Europe",
+"89" 
+],
+[
+ "Germany",
+"Europe",
+"58" 
+],
+[
+ "Mexico",
+"America",
+"2" 
+],
+[
+ "USA",
+"America",
+"38" 
+],
+[
+ "China",
+"Asia",
+"5" 
+],
+[
+ "Japan",
+"Asia",
+"48" 
+] 
+];
+data.addColumn('string','Region');
+data.addColumn('string','Parent');
+data.addColumn('string','Val');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartOrgChartID393f00b2() {
+  var data = gvisDataOrgChartID393f00b2()
+  var chart = new google.visualization.OrgChart(
+   document.getElementById('OrgChartID393f00b2')
+  );
+  var options ={};
+options["width"] =    600;
+options["height"] =    400;
+options["size"] = "large";
+options["allowCollapse"] = true;
+  chart.draw(data,options);
+}
+
+
+// jsDisplayChart 
+function displayChartOrgChartID393f00b2()
+{
+  google.load("visualization", "1", { packages:["orgchart"] }); 
+  google.setOnLoadCallback(drawChartOrgChartID393f00b2);
+}
+
+
+// jsChart 
+displayChartOrgChartID393f00b2()
+
+
+<!-- jsFooter -->  
+//-->
+</script>
+
+
+<!-- divChart -->
+<div id="OrgChartID393f00b2"
+  style="width: 600px; height: 400px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

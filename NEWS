@@ -1,5 +1,23 @@
-Version 0.2.5 [2011-02-07]
+Version 0.2.5 [2011-06-04]
 ==========================
+
+NEW FEATURES
+
+   o New interfaces to more interactive Google charts:
+     - gvisLineChart
+     - gvisBarChart
+     - gvisColumnChart
+     - gvisAreaChart
+     - gvisScatterChart
+     - gvisPieChart
+     - gvisGauge
+     - gvisOrgChart
+     - gvisIntensityMap 
+
+BUG FIXES
+
+   o The way RJSONIO treats backslashes changed in version 0.7.1 and
+     as a result some Google charts were no longer displayed.
 
 Version 0.2.4 [2011-02-07]
 ==========================

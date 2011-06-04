@@ -29,9 +29,11 @@ plot(Area)
 pause()
 
 ## Scatter chart
-Scatter <-  gvisScatterChart(women, options=list(legend="none", lineWidth=2,
-                                      pointSize=7, hAxis.title="weight", title="Women",
-                                      vAxis="{title:'height'}", hAxis="{title: 'weight'}"))
+Scatter <- gvisScatterChart(women, options=list(legend="none",
+                 lineWidth=2, pointSize=0, hAxis.title="weight",
+                 title="Women", vAxis="{title:'height'}",
+                 hAxis="{title:'weight'}")
+                 )
 plot(Scatter)
 pause()
 
@@ -57,14 +59,6 @@ Org <- gvisOrgChart(Regions, options=list(width=600, height=400,
                                size='large', allowCollapse=TRUE))
 plot(Org)
 pause()
-
-## Spark lines
-Spark <- gvisSparkline(iris[,1:4], options=list(showAxisLines=FALSE,
-                                     showValueLabels=FALSE, labelPosition='left',
-                                     width=200, height=100))  
-plot(Spark)
-pause()
-
 
 ## Motion Chart
 Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")

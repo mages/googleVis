@@ -47,6 +47,7 @@ gvisPieChart(data, labelvar = "", numvar = "", options = list(), chartid)
 	excluding axis and legends). Two formats are supported: a number, or a
 	number followed by \code{\%}. A simple number is a value in pixels; a number
 	followed by \code{\%} is a percentage. Example:
+	
 	\code{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
       }
       \item{\code{chartArea.left}}{A number or string. Default auto. How far to draw
@@ -176,7 +177,7 @@ gvisPieChart(data, labelvar = "", numvar = "", options = list(), chartid)
   
   An object of class "\code{gvis}" is a list containing at least the
   following components:
-  \item{\code{type}}{Google visualisation type, here 'Piechart'}
+  \item{\code{type}}{Google visualisation type, here 'PieChart'}
   \item{\code{chartid}}{character id of the chart object. Unique chart
     ids are required to place several charts on the same page.
   }

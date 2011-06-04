@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="BarChartID7937231c" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- BarChart generated in R 2.13.0 by googleVis 0.2.5 package -->
+<!-- Sat Jun  4 21:14:33 2011 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataBarChartID7937231c ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "US",
+     1,
+    23 
+],
+[
+ "GB",
+     3,
+    12 
+],
+[
+ "BR",
+     4,
+    32 
+] 
+];
+data.addColumn('string','country');
+data.addColumn('number','val1');
+data.addColumn('number','val2');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartBarChartID7937231c() {
+  var data = gvisDataBarChartID7937231c()
+  var chart = new google.visualization.BarChart(
+   document.getElementById('BarChartID7937231c')
+  );
+  var options ={};
+options["allowHtml"] = true;
+  chart.draw(data,options);
+}
+
+
+// jsDisplayChart 
+function displayChartBarChartID7937231c()
+{
+  google.load("visualization", "1", { packages:["corechart"] }); 
+  google.setOnLoadCallback(drawChartBarChartID7937231c);
+}
+
+
+// jsChart 
+displayChartBarChartID7937231c()
+
+
+<!-- jsFooter -->  
+//-->
+</script>
+
+
+<!-- divChart -->
+<div id="BarChartID7937231c"
+  style="width: 600px; height: 500px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

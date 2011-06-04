@@ -4,7 +4,7 @@
 Google Intensity Map with R
 }
 \description{
-  An intensity map highlights regions or countries based on relative values
+  An intensity map highlights regions or countries based on relative values.
 
   The gvisIntesnityMap function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
@@ -32,17 +32,17 @@ gvisIntensityMap(data, locationvar = "", numvar = "", options = list(), chartid)
     
     \describe{
       
-      \item{\code{colors}}{A json array of strings. The colors to use for each
+      \item{\code{colors}}{a json array of strings. The colors to use for each
 	tab. An array of strings. Each element is a string in the format
 	\code{#rrggbb}. For example \code{'#00cc00'}.
       }      
-      \item{\code{height}}{A number. Default 220. Height of the map in
+      \item{\code{height}}{a number. Default 220. Height of the map in
 	pixels. The maximum height of the visualization is 220. Note
 	that this height assumes a one-row tab. If your tab text is
 	long, it will wrap the tab to multiple lines, and the extra
 	lines will exceed the specified height.
       }
-      \item{\code{region}}{A string. Default \code{'world'}. The required
+      \item{\code{region}}{a string. Default \code{'world'}. The required
 	region. Possible values are: \code{'world', 'africa', 'asia',
 	  'europe', 'middle_east', 'south_america', and 'usa'}.
       }
@@ -53,7 +53,7 @@ gvisIntensityMap(data, locationvar = "", numvar = "", options = list(), chartid)
 	only one numeric column, the tabs are not displayed. To display
 	tabs even for a single numeric column, set this option to \code{TRUE}.
       }
-      \item{\code{width}}{A number. Default 440. Width of the map in
+      \item{\code{width}}{a number. Default 440. Width of the map in
 	pixels. Note: The maximum width of the visualization is 440.
       }
     }

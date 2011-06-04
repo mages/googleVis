@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="AreaChartID443629bf" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- AreaChart generated in R 2.13.0 by googleVis 0.2.5 package -->
+<!-- Sat Jun  4 21:14:33 2011 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataAreaChartID443629bf ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "US",
+     1,
+    23 
+],
+[
+ "GB",
+     3,
+    12 
+],
+[
+ "BR",
+     4,
+    32 
+] 
+];
+data.addColumn('string','country');
+data.addColumn('number','val1');
+data.addColumn('number','val2');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartAreaChartID443629bf() {
+  var data = gvisDataAreaChartID443629bf()
+  var chart = new google.visualization.AreaChart(
+   document.getElementById('AreaChartID443629bf')
+  );
+  var options ={};
+options["allowHtml"] = true;
+  chart.draw(data,options);
+}
+
+
+// jsDisplayChart 
+function displayChartAreaChartID443629bf()
+{
+  google.load("visualization", "1", { packages:["corechart"] }); 
+  google.setOnLoadCallback(drawChartAreaChartID443629bf);
+}
+
+
+// jsChart 
+displayChartAreaChartID443629bf()
+
+
+<!-- jsFooter -->  
+//-->
+</script>
+
+
+<!-- divChart -->
+<div id="AreaChartID443629bf"
+  style="width: 600px; height: 500px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="GaugeID610937c2" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- Gauge generated in R 2.13.0 by googleVis 0.2.5 package -->
+<!-- Sat Jun  4 21:14:33 2011 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataGaugeID610937c2 ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "New York",
+   200 
+],
+[
+ "Boston",
+   300 
+],
+[
+ "Miami",
+   400 
+],
+[
+ "Chicago",
+   500 
+],
+[
+ "Los Angeles",
+   600 
+],
+[
+ "Houston",
+   700 
+] 
+];
+data.addColumn('string','City');
+data.addColumn('number','Popularity');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartGaugeID610937c2() {
+  var data = gvisDataGaugeID610937c2()
+  var chart = new google.visualization.Gauge(
+   document.getElementById('GaugeID610937c2')
+  );
+  var options ={};
+options["allowHtml"] = true;
+options["min"] =      0;
+options["max"] =    800;
+options["greenFrom"] =    500;
+options["greenTo"] =    800;
+options["yellowFrom"] =    300;
+options["yellowTo"] =    500;
+options["redFrom"] =      0;
+options["redTo"] =    300;
+  chart.draw(data,options);
+}
+
+
+// jsDisplayChart 
+function displayChartGaugeID610937c2()
+{
+  google.load("visualization", "1", { packages:["gauge"] }); 
+  google.setOnLoadCallback(drawChartGaugeID610937c2);
+}
+
+
+// jsChart 
+displayChartGaugeID610937c2()
+
+
+<!-- jsFooter -->  
+//-->
+</script>
+
+
+<!-- divChart -->
+<div id="GaugeID610937c2"
+  style="width: 600px; height: 500px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

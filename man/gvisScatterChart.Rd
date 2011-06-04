@@ -47,49 +47,51 @@ gvisScatterChart(data, options = list(), chartid)
       \item{\code{backgroundColor.fill}}{a string. Default \code{'white'}. The chart
 	fill color, as an HTML color string.
       }
-      \item{\code{chartArea}}{A string. Default \code{'null'}. An object with members to configure the
+      \item{\code{chartArea}}{a string. Default \code{'null'}. An object with members to configure the
 	placement and size of the chart area (where the chart itself is drawn,
 	excluding axis and legends). Two formats are supported: a number, or a
 	number followed by \code{\%}. A simple number is a value in pixels; a number
 	followed by \code{\%} is a percentage. Example:
+	
 	\code{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
       }
-      \item{\code{chartArea.left}}{A number or string. Default auto. How far to draw
+      \item{\code{chartArea.left}}{a number or string. Default auto. How far to draw
 	the chart from the left border.
       }
-      \item{\code{chartArea.top}}{A number or string. Default auto. How far to
+      \item{\code{chartArea.top}}{a number or string. Default auto. How far to
 	draw the chart from the top border.
       }
-      \item{\code{chartArea.width}}{A number or string. Default auto.	Chart
+      \item{\code{chartArea.width}}{a number or string. Default auto.	Chart
 	area width.
       }
-      \item{\code{chartArea.height}}{A number or string. Default auto.	Chart
+      \item{\code{chartArea.height}}{a number or string. Default auto.	Chart
 	area height.
       }
       \item{\code{colors}}{An array of strings. Default 'colors'. The colors to
 	use for the chart elements. An array of strings, where each element is
 	an HTML color string, for example: \code{colors:['red','#004411']}.
       }
-      \item{\code{curveType}}{A string. Default \code{'none'}. Controls the curve of the
+      \item{\code{curveType}}{a string. Default \code{'none'}. Controls the curve of the
 	lines. Can be one of the following:      
 	\describe{
 	  \item{\code{'none'}}{Straight lines without curve.}
 	  \item{\code{'function'}}{The angles of the line will be smoothed.}
 	}
       }
-      \item{\code{fontSize}}{A number. Default automatic. The default font
+      \item{\code{fontSize}}{a number. Default automatic. The default font
 	size, in pixels, of all text in the chart. You can override this
 	using properties for specific chart elements.
       }
-      \item{\code{fontName}}{A string. Default \code{'Arial'}. The default font face for
+      \item{\code{fontName}}{a string. Default \code{'Arial'}. The default font face for
 	all text in the chart. You can override this using properties for
 	specific chart elements.
       }
-      \item{\code{gridlineColor}}{A string. Default \code{'#CCC'}. The color of the
+      \item{\code{gridlineColor}}{a string. Default \code{'#CCC'}. The color of the
 	gridlines inside the chart area. Specify a valid HTML color
 	string.
       }
-      \item{\code{hAxis}}{A json object. Default \code{'null'}. An object with members to configure
+      \item{\code{hAxis}}{a json object. Default \code{'null'}. An
+	object with members to configure	
 	various horizontal axis elements. To specify properties of this
 	object, you can use object literal notation, as shown here:
 	%\describe{
@@ -98,13 +100,13 @@ gvisScatterChart(data, options = list(), chartid)
 	%}
 	%}
       }
-      \item{\code{hAxis.baseline}}{A number. Default automatic.
+      \item{\code{hAxis.baseline}}{a number. Default automatic.
 	\code{hAxis} property that specifies the baseline for the
 	horizontal axis. If the baseline is smaller than the highest grid
 	line or smaller than the lowest grid line, it will be rounded to
 	the closest gridline.
       }
-      \item{\code{hAxis.baselineColor}}{A string. Default
+      \item{\code{hAxis.baselineColor}}{a string. Default
 	'black'. \code{hAxis} property that specifies the color of the
 	baseline for the horizontal axis. Can be any HTML color string, for
 	example: \code{'red'} or \code{'#00cc00'}.
@@ -113,7 +115,7 @@ gvisScatterChart(data, options = list(), chartid)
 	values along the horizontal axis grow. Specify -1 to reverse the
 	order of the values.
       }
-      \item{\code{hAxis.format}}{A string. Default auto. A format string for
+      \item{\code{hAxis.format}}{a string. Default auto. a format string for
 	numeric axis labels. This is a subset of the ICU pattern set. For
 	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
@@ -122,21 +124,21 @@ gvisScatterChart(data, options = list(), chartid)
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
       }
-      \item{\code{hAxis.textPosition}}{A string. Default \code{'out'} Position of the
+      \item{\code{hAxis.textPosition}}{a string. Default \code{'out'} Position of the
 	horizontal axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
       }
-      \item{\code{hAxis.textStyle}}{A json object. Default \code{\{color: 'black',
+      \item{\code{hAxis.textStyle}}{a json object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the horizontal axis text style. The object has this format:
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{hAxis.title}}{A string. Default \code{'null'}. \code{hAxis} property that
+      \item{\code{hAxis.title}}{a string. Default \code{'null'}. \code{hAxis} property that
 	specifies the title of the horizontal axis.
       }
-      \item{\code{hAxis.titleTextStyle}}{A json object. Default \code{\{color: 'black',
+      \item{\code{hAxis.titleTextStyle}}{a json object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
 	object that specifies the horizontal axis title text style. The object
 	has this format:
@@ -144,20 +146,20 @@ gvisScatterChart(data, options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{hAxis.maxValue}}{A number. Default automatic. \code{hAxis} property
+      \item{\code{hAxis.maxValue}}{a number. Default automatic. \code{hAxis} property
 	that specifies the highest vertical axis grid line. The actual grid
 	line will be the greater of two values: the maxValue option value,
 	or the highest data value, rounded up to the next higher grid mark.
       }
-      \item{\code{hAxis.minValue}}{A number. Default automatic. \code{hAxis} property that
+      \item{\code{hAxis.minValue}}{a number. Default automatic. \code{hAxis} property that
 	specifies the lowest vertical axis grid line. The actual grid line
 	will be the lower of two values: the minValue option value, or the
 	lowest data value, rounded down to the next lower grid mark.
       }
-      \item{\code{height}}{A number. Default height of the containing
+      \item{\code{height}}{a number. Default height of the containing
 	element. Height of the chart, in pixels.
       }
-      \item{\code{legend}}{A string. Default \code{'right'}. Position of the legend. Can
+      \item{\code{legend}}{a string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
 	\describe{
 	  \item{\code{'right'}}{To the right of the chart.
@@ -170,7 +172,7 @@ gvisScatterChart(data, options = list(), chartid)
 	  }
 	}
       }
-      \item{\code{legendTextStyle}}{A json object. Default \code{\{color: 'black',
+      \item{\code{legendTextStyle}}{a json object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the legend text style. The object has this format:
 	  \code{\{color: <string>, fontName: <string>, fontSize:
@@ -178,15 +180,15 @@ gvisScatterChart(data, options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{lineWidth}}{A number. Default 2. Line width in pixels. Use zero to
+      \item{\code{lineWidth}}{a number. Default 2. Line width in pixels. Use zero to
 	hide all lines and show only the points.
       }
-      \item{\code{pointSize}}{A number. Default 0. Diameter of data points, in pixels. Use
+      \item{\code{pointSize}}{a number. Default 0. Diameter of data points, in pixels. Use
 	zero to hide all points.
       }
-      \item{\code{title}}{A string. Default no title. Text to display above the chart.
+      \item{\code{title}}{a string. Default no title. Text to display above the chart.
       }
-      \item{\code{titlePosition}}{A string. Default \code{'out'}.
+      \item{\code{titlePosition}}{a string. Default \code{'out'}.
 	Where to place the chart title, compared to the chart
 	area. Supported values:
 	\describe{
@@ -198,7 +200,7 @@ gvisScatterChart(data, options = list(), chartid)
 	  }
 	}
       }
-      \item{\code{titleTextStyle}}{A json object. Default
+      \item{\code{titleTextStyle}}{a json object. Default
 	\code{\{color:'black',fontName:<global-font-name>,fontSize:<global-font-size>\}}. An
 	object that specifies the title text
 	style. The object has this format:
@@ -206,25 +208,25 @@ gvisScatterChart(data, options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{tooltipTextStyle}}{A json object. Default \code{\{color: 'black',
+      \item{\code{tooltipTextStyle}}{a json object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{vAxis}}{A json object. Default \code{'null'}.
+      \item{\code{vAxis}}{a json object. Default \code{'null'}.
 	An object with members to configure various vertical axis
 	elements. To specify properties of this object, you can use object
 	literal notation, as shown here:
 	\code{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
 	}
-      \item{\code{vAxis.baseline}}{A number. Default automatic. \code{vAxis} property
+      \item{\code{vAxis.baseline}}{a number. Default automatic. \code{vAxis} property
 	that specifies the baseline for the vertical axis. If the
 	baseline is smaller than the highest grid line or smaller than
 	the lowest grid line, it will be rounded tothe closest gridline.
       }
-      \item{\code{vAxis.baselineColor}}{A string. Default \code{'black'}. \code{vAxis} property
+      \item{\code{vAxis.baselineColor}}{a string. Default \code{'black'}. \code{vAxis} property
 	that specifies the color of the baseline for the vertical axis. Can be
 	any HTML color string, for example: \code{'red'} or \code{'#00cc00'}.
       }
@@ -232,7 +234,7 @@ gvisScatterChart(data, options = list(), chartid)
 	values along the vertical axis grow. Specify -1 to reverse the
 	order of the values.
       }
-      \item{\code{vAxis.format}}{A string. Default auto. A format string for
+      \item{\code{vAxis.format}}{a string. Default auto. A format string for
 	numeric axis labels. This is a subset of the ICU pattern set. For
 	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
@@ -241,11 +243,11 @@ gvisScatterChart(data, options = list(), chartid)
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
       }
-      \item{\code{vAxis.textPosition}}{A string. Default \code{'out'}. Position of the
+      \item{\code{vAxis.textPosition}}{a string. Default \code{'out'}. Position of the
 	vertical axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
       }
-      \item{\code{vAxis.textStyle}}{A json object. Default
+      \item{\code{vAxis.textStyle}}{a json object. Default
 	\code{\{color: 'black',fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
 	object that specifies the vertical axis text style. The object has
 	this format:
@@ -253,10 +255,10 @@ gvisScatterChart(data, options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{vAxis.title}}{A string. Default no title. \code{vAxis} property that
+      \item{\code{vAxis.title}}{a string. Default no title. \code{vAxis} property that
 	specifies a title for the vertical axis.
       }
-      \item{\code{vAxis.titleTextStyle}}{A json object. Default \code{\{color: 'black',
+      \item{\code{vAxis.titleTextStyle}}{a json object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
 	object that specifies the vertical axis title text style. The
 	object has this format:
@@ -264,17 +266,17 @@ gvisScatterChart(data, options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{vAxis.maxValue}}{A number. Default automatic. vAxis property
+      \item{\code{vAxis.maxValue}}{a number. Default automatic. vAxis property
 	that specifies the highest vertical axis grid line. The actual grid
 	line will be the greater of two values: the maxValue option value,
 	or the highest data value, rounded up to the next higher grid mark.
       }
-      \item{\code{vAxis.minValue}}{A number. Default automatic. \code{vAxis} property that
+      \item{\code{vAxis.minValue}}{a number. Default automatic. \code{vAxis} property that
 	specifies the lowest vertical axis grid line. The actual grid line
 	will be the lower of two values: the minValue option value, or the
 	lowest data value, rounded down to the next lower grid mark.
       }
-      \item{\code{width}}{A number. Default width of the containing element. Width of the chart, in
+      \item{\code{width}}{a number. Default width of the containing element. Width of the chart, in
 	pixels.
       }
     }
@@ -375,6 +377,18 @@ Scatter2 <- gvisScatterChart(women, options=list(legend="none",
                  )
 
 plot(Scatter2)
+
+
+df=data.frame(x=sin(1:100/3), 
+              Circle=cos(1:100/3), 
+ 	      Ellipse=cos(1:100/3)*0.5)
+
+## Plot several variables as smooth curves
+Scatter3 <- gvisScatterChart(df, 
+	    		options=list(curveType='function', 
+				     pointSize=0, 
+				     lineWidth=2))
+plot(Scatter3)
 
 }
 

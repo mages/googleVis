@@ -56,7 +56,9 @@ Contact: rvisualisation@gmail.com}
   browser. 
 
   Currently the package provides interfaces to
-  Motion Charts, Annotated Time Lines, Maps, Geo Maps, Tables and Tree Maps. 
+  motion chart, line chart, bar chart, column chart, area chart,
+  scatter chart, pie chart, and org chart, further annotated time
+  line, map, geo map, table, tree map, intensity map, and gauge. 
 \end{abstract}
 
 \clearpage
@@ -136,9 +138,9 @@ documents, spreadsheets and web pages. In this text we will focus
 on the usage of the API as part of web pages.
 
 The Google Public Data Explorer~\cite{GooglePublicData} provides a
-good example, demonstrating the use of motion charts and how they can
+good example, demonstrating the use of interactive charts and how they can
 help to analyse data. Please note, that most of those charts are rendered
-within a browser using Adobe Flash~\cite{Flash}.
+within a browser.
 
 The charting data can either be embedded into the html file or read
 dynamically. The key to the Google Visualisation API is that the data is
@@ -216,20 +218,25 @@ API documentation~\cite{GoogleMotionChart}.
 Fortunately, R comes with an internal HTTP server which 
 allows the \googleVis package to display pages locally. 
 
-Currently the package provides interfaces to Motion
-Chart~\cite{GoogleMotionChart}, Annotated Time
-Line~\cite{GoogleAnnotatedTimeLine}, Geo Map~\cite{GoogleGeoMap}, 
-Map~\cite{GoogleMap}, Table~\cite{GoogleTable} and Tree
-Map~\cite{GoogleTreeMap}; see Figure~\ref{demos} for examples.  
-
+Currently the package provides interfaces to
+motion chart, line chart, bar chart, column chart, area chart,
+scatter chart, pie chart, and org chart, further annotated time
+line, map, geo map, table, tree map, intensity map, and
+gauge~\cite{GoogleVisApi}.
+See Figure~\ref{demos} for some examples, for more see the 
+\href{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}{project
+  site}\footnote{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}.
+ 
+  
 \begin{figure}%%[!ht]
 \begin{center}
 \includegraphics[width=\textwidth]{googleVisDemoPlots2.pdf}
 \caption{
-  Screenshot of some of the outputs of \texttt{demo(googleVis)} with 
-  \texttt{gvisMotionChart, gvisAnnotatedTimeLine,  gvisMap,
-    gvisGeoMap,  gvisTable and gvisTreeMap} from  top left to bottom
-  right.   }\label{demos}
+  Screenshot of some of the outputs of \texttt{demo(googleVis)}, with
+  \texttt{gvisMotionChart, gvisAnnotatedTimeLine,  gvisMap,     
+    gvisGeoMap,  gvisTable and gvisTreeMap} from top left to bottom
+  right.   
+}\label{demos}
 \end{center}
 \end{figure}
 
@@ -279,7 +286,8 @@ help('gvisMotionChart')
 The argument \texttt{chartid}  allows the user to set a chart id of the
 output chart manually. If the argument is missing a random id using 
 \texttt{tempfile(pattern=\textquotesingle\textquotesingle)}  
-will be generated. Unique chart ids are required to place more than one chart into a page.
+will be generated. Unique chart ids are required to place more than
+one chart into a page. 
 
 The output of a \googleVis function is a list of lists (a nested list)
 containing information about the chart type, chart id and the html
@@ -348,7 +356,6 @@ Here we used the \texttt{print} statement with the tag
 \texttt{'header'} instead of \texttt{M\$html\$header} to achieve
 a formatted screen output. This is the same output as
 \texttt{cat(M\$html\$chart)}. 
-
 
 The actual Google visualisation code is stored with the data
 as a named character vector in the \texttt{chart} item of the html
