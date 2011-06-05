@@ -265,6 +265,16 @@ eq=readHTMLTable("http://www.iris.edu/seismon/last30.html")
 eq <- eq[[2]] ## extract the eq table
 eq$loc=paste(eq$LAT, eq$LON, sep=":") ## create a lat:long location variable
 plot(gvisGeoMap(eq, "loc", "MAG","DATE"))
+
+
+## The demo 'AnimatedGeoMap' shows how a Geo Map can be animated
+## with additional JavaScript. 
+## Thanks to Manoj Ananthapadmanabhan and Anand Ramalingam, who
+## provided the idea and initial code.
+## Please note: This demo requires the package 'pscl' for its data set
+## 'presidentalElections'.
+
+demo(AnimatedGeoMap)
 }
 
 }

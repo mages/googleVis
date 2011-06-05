@@ -1,0 +1,4491 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="PresdentialElection" />
+  <Content type="html">
+  <![CDATA[ 
+   
+var gvisData = {};
+
+var Animation = {};
+Animation.startYear = 1;
+Animation.endYear = 20;
+Animation.currentYear = Animation.startYear;
+Animation.divCharts = {};
+
+Animation.playAnimation = function() {
+  if (Animation.currentYear > Animation.endYear) {
+   	return;
+  }
+  document.getElementById('chart-header').innerHTML = 'Percent of the vote for president won by the Democratic candidate in year: '+ (1928 + 4*Animation.currentYear);
+  if (Animation.currentYear > Animation.startYear) {
+  	Animation.divCharts[Animation.currentYear-1].style.display = 'none';
+  }
+  Animation.divCharts[Animation.currentYear++].style.visibility = 'visible';
+  setTimeout(Animation.playAnimation, 2000);
+};
+
+
+
+// jsData 
+gvisData[1932] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 84.76 
+],
+[
+ "Arizona",
+ 67.03 
+],
+[
+ "Arkansas",
+ 86.27 
+],
+[
+ "California",
+ 58.41 
+],
+[
+ "Colorado",
+ 54.81 
+],
+[
+ "Connecticut",
+  47.4 
+],
+[
+ "Delaware",
+ 48.11 
+],
+[
+ "Florida",
+ 74.49 
+],
+[
+ "Georgia",
+  91.6 
+],
+[
+ "Idaho",
+  58.7 
+],
+[
+ "Illinois",
+ 55.23 
+],
+[
+ "Indiana",
+ 54.67 
+],
+[
+ "Iowa",
+ 57.69 
+],
+[
+ "Kansas",
+ 53.56 
+],
+[
+ "Kentucky",
+ 59.06 
+],
+[
+ "Louisiana",
+ 92.79 
+],
+[
+ "Maine",
+ 43.19 
+],
+[
+ "Maryland",
+  61.5 
+],
+[
+ "Massachusetts",
+ 50.64 
+],
+[
+ "Michigan",
+ 52.36 
+],
+[
+ "Minnesota",
+ 59.91 
+],
+[
+ "Mississippi",
+ 95.98 
+],
+[
+ "Missouri",
+ 63.69 
+],
+[
+ "Montana",
+  58.8 
+],
+[
+ "Nebraska",
+ 62.98 
+],
+[
+ "Nevada",
+ 69.41 
+],
+[
+ "New Hampshire",
+ 48.99 
+],
+[
+ "New Jersey",
+ 49.48 
+],
+[
+ "New Mexico",
+ 62.72 
+],
+[
+ "New York",
+ 54.07 
+],
+[
+ "North Carolina",
+ 69.93 
+],
+[
+ "North Dakota",
+ 69.59 
+],
+[
+ "Ohio",
+ 49.88 
+],
+[
+ "Oklahoma",
+  73.3 
+],
+[
+ "Oregon",
+    58 
+],
+[
+ "Pennsylvania",
+ 45.33 
+],
+[
+ "Rhode Island",
+ 55.08 
+],
+[
+ "South Carolina",
+ 98.03 
+],
+[
+ "South Dakota",
+ 63.62 
+],
+[
+ "Tennessee",
+ 66.48 
+],
+[
+ "Texas",
+ 88.19 
+],
+[
+ "Utah",
+ 56.52 
+],
+[
+ "Vermont",
+ 41.08 
+],
+[
+ "Virginia",
+ 68.46 
+],
+[
+ "Washington",
+ 57.46 
+],
+[
+ "West Virginia",
+ 54.47 
+],
+[
+ "Wisconsin",
+ 63.46 
+],
+[
+ "Wyoming",
+ 56.07 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1936] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 86.38 
+],
+[
+ "Arizona",
+ 69.85 
+],
+[
+ "Arkansas",
+ 81.79 
+],
+[
+ "California",
+ 66.95 
+],
+[
+ "Colorado",
+ 60.37 
+],
+[
+ "Connecticut",
+ 55.32 
+],
+[
+ "Delaware",
+ 54.62 
+],
+[
+ "Florida",
+ 76.08 
+],
+[
+ "Georgia",
+  87.1 
+],
+[
+ "Idaho",
+ 62.96 
+],
+[
+ "Illinois",
+  57.7 
+],
+[
+ "Indiana",
+ 56.63 
+],
+[
+ "Iowa",
+ 54.41 
+],
+[
+ "Kansas",
+ 53.67 
+],
+[
+ "Kentucky",
+ 58.51 
+],
+[
+ "Louisiana",
+ 88.82 
+],
+[
+ "Maine",
+ 41.52 
+],
+[
+ "Maryland",
+ 62.35 
+],
+[
+ "Massachusetts",
+ 51.22 
+],
+[
+ "Michigan",
+ 56.33 
+],
+[
+ "Minnesota",
+ 61.84 
+],
+[
+ "Mississippi",
+ 97.03 
+],
+[
+ "Missouri",
+ 60.76 
+],
+[
+ "Montana",
+ 69.28 
+],
+[
+ "Nebraska",
+ 57.14 
+],
+[
+ "Nevada",
+ 72.81 
+],
+[
+ "New Hampshire",
+ 49.73 
+],
+[
+ "New Jersey",
+ 59.54 
+],
+[
+ "New Mexico",
+ 62.69 
+],
+[
+ "New York",
+ 58.85 
+],
+[
+ "North Carolina",
+  73.4 
+],
+[
+ "North Dakota",
+  59.6 
+],
+[
+ "Ohio",
+ 57.99 
+],
+[
+ "Oklahoma",
+ 66.83 
+],
+[
+ "Oregon",
+ 64.41 
+],
+[
+ "Pennsylvania",
+ 56.88 
+],
+[
+ "Rhode Island",
+ 52.96 
+],
+[
+ "South Carolina",
+ 98.57 
+],
+[
+ "South Dakota",
+ 54.02 
+],
+[
+ "Tennessee",
+ 68.77 
+],
+[
+ "Texas",
+ 87.08 
+],
+[
+ "Utah",
+ 69.34 
+],
+[
+ "Vermont",
+ 43.24 
+],
+[
+ "Virginia",
+ 70.23 
+],
+[
+ "Washington",
+ 66.38 
+],
+[
+ "West Virginia",
+ 60.56 
+],
+[
+ "Wisconsin",
+  63.8 
+],
+[
+ "Wyoming",
+ 60.58 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1940] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 85.22 
+],
+[
+ "Arizona",
+ 63.49 
+],
+[
+ "Arkansas",
+ 78.44 
+],
+[
+ "California",
+ 57.44 
+],
+[
+ "Colorado",
+ 48.37 
+],
+[
+ "Connecticut",
+ 53.44 
+],
+[
+ "Delaware",
+  54.7 
+],
+[
+ "Florida",
+ 73.99 
+],
+[
+ "Georgia",
+ 84.81 
+],
+[
+ "Idaho",
+ 54.36 
+],
+[
+ "Illinois",
+ 50.97 
+],
+[
+ "Indiana",
+ 49.03 
+],
+[
+ "Iowa",
+ 47.62 
+],
+[
+ "Kansas",
+  42.4 
+],
+[
+ "Kentucky",
+ 57.45 
+],
+[
+ "Louisiana",
+ 85.88 
+],
+[
+ "Maine",
+ 48.77 
+],
+[
+ "Maryland",
+ 58.26 
+],
+[
+ "Massachusetts",
+ 53.11 
+],
+[
+ "Michigan",
+ 49.52 
+],
+[
+ "Minnesota",
+ 51.49 
+],
+[
+ "Mississippi",
+  95.7 
+],
+[
+ "Missouri",
+ 52.27 
+],
+[
+ "Montana",
+ 58.78 
+],
+[
+ "Nebraska",
+ 42.81 
+],
+[
+ "Nevada",
+ 60.08 
+],
+[
+ "New Hampshire",
+ 53.22 
+],
+[
+ "New Jersey",
+ 51.55 
+],
+[
+ "New Mexico",
+ 56.59 
+],
+[
+ "New York",
+  51.6 
+],
+[
+ "North Carolina",
+ 74.03 
+],
+[
+ "North Dakota",
+ 44.18 
+],
+[
+ "Ohio",
+  52.2 
+],
+[
+ "Oklahoma",
+ 57.41 
+],
+[
+ "Oregon",
+  53.7 
+],
+[
+ "Pennsylvania",
+ 53.23 
+],
+[
+ "Rhode Island",
+ 56.73 
+],
+[
+ "South Carolina",
+ 95.63 
+],
+[
+ "South Dakota",
+ 42.59 
+],
+[
+ "Tennessee",
+ 67.25 
+],
+[
+ "Texas",
+ 80.93 
+],
+[
+ "Utah",
+ 62.25 
+],
+[
+ "Vermont",
+ 44.92 
+],
+[
+ "Virginia",
+ 68.08 
+],
+[
+ "Washington",
+ 58.22 
+],
+[
+ "West Virginia",
+  57.1 
+],
+[
+ "Wisconsin",
+ 50.15 
+],
+[
+ "Wyoming",
+ 52.82 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1944] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 81.28 
+],
+[
+ "Arizona",
+  58.8 
+],
+[
+ "Arkansas",
+ 69.95 
+],
+[
+ "California",
+ 56.48 
+],
+[
+ "Colorado",
+  46.4 
+],
+[
+ "Connecticut",
+  52.3 
+],
+[
+ "Delaware",
+ 54.38 
+],
+[
+ "Florida",
+ 70.29 
+],
+[
+ "Georgia",
+ 81.73 
+],
+[
+ "Idaho",
+ 51.55 
+],
+[
+ "Illinois",
+ 51.52 
+],
+[
+ "Indiana",
+ 46.73 
+],
+[
+ "Iowa",
+ 47.49 
+],
+[
+ "Kansas",
+ 39.18 
+],
+[
+ "Kentucky",
+ 54.45 
+],
+[
+ "Louisiana",
+ 80.59 
+],
+[
+ "Maine",
+ 47.45 
+],
+[
+ "Maryland",
+ 51.85 
+],
+[
+ "Massachusetts",
+  52.8 
+],
+[
+ "Michigan",
+ 50.19 
+],
+[
+ "Minnesota",
+ 52.41 
+],
+[
+ "Mississippi",
+ 93.56 
+],
+[
+ "Missouri",
+ 51.37 
+],
+[
+ "Montana",
+ 54.28 
+],
+[
+ "Nebraska",
+ 41.42 
+],
+[
+ "Nevada",
+ 54.62 
+],
+[
+ "New Hampshire",
+ 52.11 
+],
+[
+ "New Jersey",
+ 50.31 
+],
+[
+ "New Mexico",
+ 53.47 
+],
+[
+ "New York",
+ 52.31 
+],
+[
+ "North Carolina",
+ 66.71 
+],
+[
+ "North Dakota",
+ 45.48 
+],
+[
+ "Ohio",
+ 49.82 
+],
+[
+ "Oklahoma",
+ 55.57 
+],
+[
+ "Oregon",
+ 51.78 
+],
+[
+ "Pennsylvania",
+ 51.14 
+],
+[
+ "Rhode Island",
+ 58.59 
+],
+[
+ "South Carolina",
+ 87.64 
+],
+[
+ "South Dakota",
+ 41.67 
+],
+[
+ "Tennessee",
+ 60.45 
+],
+[
+ "Texas",
+ 71.42 
+],
+[
+ "Utah",
+ 60.44 
+],
+[
+ "Vermont",
+ 42.93 
+],
+[
+ "Virginia",
+ 62.36 
+],
+[
+ "Washington",
+ 56.84 
+],
+[
+ "West Virginia",
+ 54.89 
+],
+[
+ "Wisconsin",
+ 48.57 
+],
+[
+ "Wyoming",
+ 48.77 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1948] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Arizona",
+ 53.79 
+],
+[
+ "Arkansas",
+ 61.72 
+],
+[
+ "California",
+ 47.57 
+],
+[
+ "Colorado",
+ 51.88 
+],
+[
+ "Connecticut",
+ 47.91 
+],
+[
+ "Delaware",
+ 48.76 
+],
+[
+ "Florida",
+ 48.82 
+],
+[
+ "Georgia",
+  60.8 
+],
+[
+ "Idaho",
+ 49.98 
+],
+[
+ "Illinois",
+ 50.07 
+],
+[
+ "Indiana",
+ 48.78 
+],
+[
+ "Iowa",
+ 50.31 
+],
+[
+ "Kansas",
+ 44.61 
+],
+[
+ "Kentucky",
+ 56.74 
+],
+[
+ "Louisiana",
+ 32.75 
+],
+[
+ "Maine",
+ 42.27 
+],
+[
+ "Maryland",
+ 48.01 
+],
+[
+ "Massachusetts",
+ 54.66 
+],
+[
+ "Michigan",
+ 47.57 
+],
+[
+ "Minnesota",
+ 57.16 
+],
+[
+ "Mississippi",
+ 10.09 
+],
+[
+ "Missouri",
+ 58.11 
+],
+[
+ "Montana",
+ 53.09 
+],
+[
+ "Nebraska",
+ 45.85 
+],
+[
+ "Nevada",
+ 50.37 
+],
+[
+ "New Hampshire",
+ 46.66 
+],
+[
+ "New Jersey",
+ 45.93 
+],
+[
+ "New Mexico",
+ 56.38 
+],
+[
+ "New York",
+ 45.01 
+],
+[
+ "North Carolina",
+ 58.02 
+],
+[
+ "North Dakota",
+ 43.41 
+],
+[
+ "Ohio",
+ 49.48 
+],
+[
+ "Oklahoma",
+ 62.75 
+],
+[
+ "Oregon",
+  46.4 
+],
+[
+ "Pennsylvania",
+ 46.91 
+],
+[
+ "Rhode Island",
+ 57.59 
+],
+[
+ "South Carolina",
+ 24.14 
+],
+[
+ "South Dakota",
+ 47.04 
+],
+[
+ "Tennessee",
+ 49.14 
+],
+[
+ "Texas",
+ 65.96 
+],
+[
+ "Utah",
+ 53.98 
+],
+[
+ "Vermont",
+ 36.92 
+],
+[
+ "Virginia",
+ 47.89 
+],
+[
+ "Washington",
+ 52.61 
+],
+[
+ "West Virginia",
+ 57.32 
+],
+[
+ "Wisconsin",
+  50.7 
+],
+[
+ "Wyoming",
+ 51.62 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1952] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 64.55 
+],
+[
+ "Arizona",
+ 41.65 
+],
+[
+ "Arkansas",
+  55.9 
+],
+[
+ "California",
+ 42.74 
+],
+[
+ "Colorado",
+ 38.96 
+],
+[
+ "Connecticut",
+ 43.91 
+],
+[
+ "Delaware",
+ 47.88 
+],
+[
+ "Florida",
+ 44.97 
+],
+[
+ "Georgia",
+ 69.66 
+],
+[
+ "Idaho",
+ 34.42 
+],
+[
+ "Illinois",
+ 44.94 
+],
+[
+ "Indiana",
+ 40.99 
+],
+[
+ "Iowa",
+ 35.59 
+],
+[
+ "Kansas",
+  30.5 
+],
+[
+ "Kentucky",
+ 49.91 
+],
+[
+ "Louisiana",
+ 52.92 
+],
+[
+ "Maine",
+ 33.77 
+],
+[
+ "Maryland",
+ 43.83 
+],
+[
+ "Massachusetts",
+ 45.46 
+],
+[
+ "Michigan",
+ 43.97 
+],
+[
+ "Minnesota",
+ 44.11 
+],
+[
+ "Mississippi",
+ 60.44 
+],
+[
+ "Missouri",
+ 49.14 
+],
+[
+ "Montana",
+ 40.07 
+],
+[
+ "Nebraska",
+ 30.85 
+],
+[
+ "Nevada",
+ 38.55 
+],
+[
+ "New Hampshire",
+ 39.08 
+],
+[
+ "New Jersey",
+    42 
+],
+[
+ "New Mexico",
+ 44.28 
+],
+[
+ "New York",
+ 43.55 
+],
+[
+ "North Carolina",
+ 53.91 
+],
+[
+ "North Dakota",
+ 28.39 
+],
+[
+ "Ohio",
+ 43.24 
+],
+[
+ "Oklahoma",
+ 45.41 
+],
+[
+ "Oregon",
+ 38.93 
+],
+[
+ "Pennsylvania",
+ 46.85 
+],
+[
+ "Rhode Island",
+ 49.05 
+],
+[
+ "South Carolina",
+ 50.72 
+],
+[
+ "South Dakota",
+ 30.73 
+],
+[
+ "Tennessee",
+ 49.71 
+],
+[
+ "Texas",
+ 46.69 
+],
+[
+ "Utah",
+ 41.07 
+],
+[
+ "Vermont",
+ 28.23 
+],
+[
+ "Virginia",
+ 43.36 
+],
+[
+ "Washington",
+ 44.69 
+],
+[
+ "West Virginia",
+ 51.92 
+],
+[
+ "Wisconsin",
+ 38.71 
+],
+[
+ "Wyoming",
+ 37.09 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1956] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 56.52 
+],
+[
+ "Arizona",
+  38.9 
+],
+[
+ "Arkansas",
+ 52.46 
+],
+[
+ "California",
+ 44.27 
+],
+[
+ "Colorado",
+ 39.26 
+],
+[
+ "Connecticut",
+ 36.26 
+],
+[
+ "Delaware",
+ 44.62 
+],
+[
+ "Florida",
+ 42.67 
+],
+[
+ "Georgia",
+ 66.41 
+],
+[
+ "Idaho",
+ 38.78 
+],
+[
+ "Illinois",
+ 40.29 
+],
+[
+ "Indiana",
+  39.7 
+],
+[
+ "Iowa",
+ 40.65 
+],
+[
+ "Kansas",
+ 34.21 
+],
+[
+ "Kentucky",
+ 45.21 
+],
+[
+ "Louisiana",
+ 39.51 
+],
+[
+ "Maine",
+ 29.13 
+],
+[
+ "Maryland",
+ 39.94 
+],
+[
+ "Massachusetts",
+ 40.37 
+],
+[
+ "Michigan",
+ 44.15 
+],
+[
+ "Minnesota",
+ 46.08 
+],
+[
+ "Mississippi",
+ 58.22 
+],
+[
+ "Missouri",
+ 50.11 
+],
+[
+ "Montana",
+ 42.87 
+],
+[
+ "Nebraska",
+ 34.49 
+],
+[
+ "Nevada",
+ 42.03 
+],
+[
+ "New Hampshire",
+ 33.84 
+],
+[
+ "New Jersey",
+ 34.23 
+],
+[
+ "New Mexico",
+ 41.78 
+],
+[
+ "New York",
+ 38.73 
+],
+[
+ "North Carolina",
+ 50.66 
+],
+[
+ "North Dakota",
+ 38.09 
+],
+[
+ "Ohio",
+ 38.89 
+],
+[
+ "Oklahoma",
+ 44.87 
+],
+[
+ "Oregon",
+ 44.72 
+],
+[
+ "Pennsylvania",
+  43.3 
+],
+[
+ "Rhode Island",
+ 41.74 
+],
+[
+ "South Carolina",
+ 45.37 
+],
+[
+ "South Dakota",
+ 41.61 
+],
+[
+ "Tennessee",
+  48.6 
+],
+[
+ "Texas",
+ 43.98 
+],
+[
+ "Utah",
+ 35.44 
+],
+[
+ "Vermont",
+ 27.81 
+],
+[
+ "Virginia",
+ 38.36 
+],
+[
+ "Washington",
+ 45.44 
+],
+[
+ "West Virginia",
+ 45.92 
+],
+[
+ "Wisconsin",
+ 37.84 
+],
+[
+ "Wyoming",
+ 39.92 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1960] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 56.83 
+],
+[
+ "Alaska",
+ 49.06 
+],
+[
+ "Arizona",
+ 44.36 
+],
+[
+ "Arkansas",
+ 50.19 
+],
+[
+ "California",
+ 49.55 
+],
+[
+ "Colorado",
+ 44.91 
+],
+[
+ "Connecticut",
+ 53.73 
+],
+[
+ "Delaware",
+ 50.63 
+],
+[
+ "Florida",
+ 48.49 
+],
+[
+ "Georgia",
+ 62.54 
+],
+[
+ "Hawaii",
+ 50.03 
+],
+[
+ "Idaho",
+ 46.22 
+],
+[
+ "Illinois",
+ 49.98 
+],
+[
+ "Indiana",
+  44.6 
+],
+[
+ "Iowa",
+ 43.22 
+],
+[
+ "Kansas",
+  39.1 
+],
+[
+ "Kentucky",
+ 46.41 
+],
+[
+ "Louisiana",
+ 50.42 
+],
+[
+ "Maine",
+ 42.95 
+],
+[
+ "Maryland",
+ 53.61 
+],
+[
+ "Massachusetts",
+ 60.22 
+],
+[
+ "Michigan",
+ 50.85 
+],
+[
+ "Minnesota",
+ 50.58 
+],
+[
+ "Mississippi",
+ 36.34 
+],
+[
+ "Missouri",
+ 50.26 
+],
+[
+ "Montana",
+  48.6 
+],
+[
+ "Nebraska",
+ 37.93 
+],
+[
+ "Nevada",
+ 51.16 
+],
+[
+ "New Hampshire",
+ 46.58 
+],
+[
+ "New Jersey",
+ 49.96 
+],
+[
+ "New Mexico",
+ 50.15 
+],
+[
+ "New York",
+ 52.53 
+],
+[
+ "North Carolina",
+ 52.11 
+],
+[
+ "North Dakota",
+ 44.52 
+],
+[
+ "Ohio",
+ 46.72 
+],
+[
+ "Oklahoma",
+ 40.98 
+],
+[
+ "Oregon",
+ 47.32 
+],
+[
+ "Pennsylvania",
+ 51.06 
+],
+[
+ "Rhode Island",
+ 63.63 
+],
+[
+ "South Carolina",
+ 51.24 
+],
+[
+ "South Dakota",
+ 41.79 
+],
+[
+ "Tennessee",
+ 45.77 
+],
+[
+ "Texas",
+ 50.52 
+],
+[
+ "Utah",
+ 45.17 
+],
+[
+ "Vermont",
+ 41.35 
+],
+[
+ "Virginia",
+ 46.97 
+],
+[
+ "Washington",
+ 48.27 
+],
+[
+ "West Virginia",
+ 52.73 
+],
+[
+ "Wisconsin",
+ 48.05 
+],
+[
+ "Wyoming",
+ 44.99 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1964] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alaska",
+ 65.91 
+],
+[
+ "Arizona",
+ 49.45 
+],
+[
+ "Arkansas",
+ 56.06 
+],
+[
+ "California",
+ 59.11 
+],
+[
+ "Colorado",
+ 61.27 
+],
+[
+ "Connecticut",
+ 67.81 
+],
+[
+ "Delaware",
+ 60.95 
+],
+[
+ "DC",
+  85.5 
+],
+[
+ "Florida",
+ 51.15 
+],
+[
+ "Georgia",
+ 45.87 
+],
+[
+ "Hawaii",
+ 78.76 
+],
+[
+ "Idaho",
+ 50.92 
+],
+[
+ "Illinois",
+ 59.47 
+],
+[
+ "Indiana",
+ 55.98 
+],
+[
+ "Iowa",
+ 61.88 
+],
+[
+ "Kansas",
+ 54.09 
+],
+[
+ "Kentucky",
+ 64.01 
+],
+[
+ "Louisiana",
+ 43.19 
+],
+[
+ "Maine",
+ 68.84 
+],
+[
+ "Maryland",
+ 65.47 
+],
+[
+ "Massachusetts",
+ 76.19 
+],
+[
+ "Michigan",
+  66.7 
+],
+[
+ "Minnesota",
+ 63.76 
+],
+[
+ "Mississippi",
+ 12.86 
+],
+[
+ "Missouri",
+ 64.05 
+],
+[
+ "Montana",
+ 58.95 
+],
+[
+ "Nebraska",
+ 52.61 
+],
+[
+ "Nevada",
+ 58.58 
+],
+[
+ "New Hampshire",
+ 63.89 
+],
+[
+ "New Jersey",
+ 65.61 
+],
+[
+ "New Mexico",
+ 59.03 
+],
+[
+ "New York",
+ 68.56 
+],
+[
+ "North Carolina",
+ 56.15 
+],
+[
+ "North Dakota",
+ 57.97 
+],
+[
+ "Ohio",
+ 62.94 
+],
+[
+ "Oklahoma",
+ 55.75 
+],
+[
+ "Oregon",
+ 63.72 
+],
+[
+ "Pennsylvania",
+ 64.92 
+],
+[
+ "Rhode Island",
+ 80.87 
+],
+[
+ "South Carolina",
+ 41.11 
+],
+[
+ "South Dakota",
+ 55.61 
+],
+[
+ "Tennessee",
+  55.5 
+],
+[
+ "Texas",
+ 63.32 
+],
+[
+ "Utah",
+ 54.71 
+],
+[
+ "Vermont",
+  66.3 
+],
+[
+ "Virginia",
+ 53.54 
+],
+[
+ "Washington",
+ 61.97 
+],
+[
+ "West Virginia",
+ 67.94 
+],
+[
+ "Wisconsin",
+ 62.09 
+],
+[
+ "Wyoming",
+ 56.56 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1968] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 18.72 
+],
+[
+ "Alaska",
+ 42.65 
+],
+[
+ "Arizona",
+ 35.02 
+],
+[
+ "Arkansas",
+ 30.36 
+],
+[
+ "California",
+ 44.74 
+],
+[
+ "Colorado",
+ 41.32 
+],
+[
+ "Connecticut",
+ 49.48 
+],
+[
+ "Delaware",
+ 41.61 
+],
+[
+ "DC",
+ 81.82 
+],
+[
+ "Florida",
+ 30.93 
+],
+[
+ "Georgia",
+ 26.75 
+],
+[
+ "Hawaii",
+ 59.83 
+],
+[
+ "Idaho",
+ 30.66 
+],
+[
+ "Illinois",
+ 44.15 
+],
+[
+ "Indiana",
+ 37.99 
+],
+[
+ "Iowa",
+ 40.82 
+],
+[
+ "Kansas",
+ 34.72 
+],
+[
+ "Kentucky",
+ 37.65 
+],
+[
+ "Louisiana",
+ 28.21 
+],
+[
+ "Maine",
+  55.3 
+],
+[
+ "Maryland",
+ 43.59 
+],
+[
+ "Massachusetts",
+ 63.01 
+],
+[
+ "Michigan",
+ 48.18 
+],
+[
+ "Minnesota",
+    54 
+],
+[
+ "Mississippi",
+ 23.02 
+],
+[
+ "Missouri",
+ 43.74 
+],
+[
+ "Montana",
+ 41.59 
+],
+[
+ "Nebraska",
+ 31.81 
+],
+[
+ "Nevada",
+ 39.29 
+],
+[
+ "New Hampshire",
+ 43.93 
+],
+[
+ "New Jersey",
+ 43.97 
+],
+[
+ "New Mexico",
+ 39.74 
+],
+[
+ "New York",
+ 49.74 
+],
+[
+ "North Carolina",
+ 29.24 
+],
+[
+ "North Dakota",
+ 38.23 
+],
+[
+ "Ohio",
+ 42.95 
+],
+[
+ "Oklahoma",
+ 31.99 
+],
+[
+ "Oregon",
+ 43.78 
+],
+[
+ "Pennsylvania",
+ 47.59 
+],
+[
+ "Rhode Island",
+ 64.03 
+],
+[
+ "South Carolina",
+ 29.61 
+],
+[
+ "South Dakota",
+ 41.96 
+],
+[
+ "Tennessee",
+ 28.13 
+],
+[
+ "Texas",
+ 41.14 
+],
+[
+ "Utah",
+ 37.07 
+],
+[
+ "Vermont",
+ 43.53 
+],
+[
+ "Virginia",
+ 32.49 
+],
+[
+ "Washington",
+ 47.23 
+],
+[
+ "West Virginia",
+  49.6 
+],
+[
+ "Wisconsin",
+ 44.27 
+],
+[
+ "Wyoming",
+ 35.51 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1972] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 25.54 
+],
+[
+ "Alaska",
+ 34.62 
+],
+[
+ "Arizona",
+ 31.87 
+],
+[
+ "Arkansas",
+ 30.69 
+],
+[
+ "California",
+ 41.54 
+],
+[
+ "Colorado",
+ 34.59 
+],
+[
+ "Connecticut",
+ 40.13 
+],
+[
+ "Delaware",
+ 39.18 
+],
+[
+ "DC",
+  78.1 
+],
+[
+ "Florida",
+  27.8 
+],
+[
+ "Georgia",
+ 24.65 
+],
+[
+ "Hawaii",
+ 37.52 
+],
+[
+ "Idaho",
+ 26.04 
+],
+[
+ "Illinois",
+ 40.51 
+],
+[
+ "Indiana",
+ 33.34 
+],
+[
+ "Iowa",
+ 40.48 
+],
+[
+ "Kansas",
+  29.5 
+],
+[
+ "Kentucky",
+ 34.77 
+],
+[
+ "Louisiana",
+ 28.35 
+],
+[
+ "Maine",
+ 38.51 
+],
+[
+ "Maryland",
+ 37.36 
+],
+[
+ "Massachusetts",
+  54.2 
+],
+[
+ "Michigan",
+ 41.82 
+],
+[
+ "Minnesota",
+ 46.07 
+],
+[
+ "Mississippi",
+ 19.63 
+],
+[
+ "Missouri",
+ 37.57 
+],
+[
+ "Montana",
+ 37.85 
+],
+[
+ "Nebraska",
+  29.5 
+],
+[
+ "Nevada",
+ 36.32 
+],
+[
+ "New Hampshire",
+ 34.86 
+],
+[
+ "New Jersey",
+ 36.77 
+],
+[
+ "New Mexico",
+ 36.53 
+],
+[
+ "New York",
+ 41.18 
+],
+[
+ "North Carolina",
+ 28.89 
+],
+[
+ "North Dakota",
+ 35.79 
+],
+[
+ "Ohio",
+ 38.07 
+],
+[
+ "Oklahoma",
+    24 
+],
+[
+ "Oregon",
+ 42.33 
+],
+[
+ "Pennsylvania",
+ 39.13 
+],
+[
+ "Rhode Island",
+ 46.81 
+],
+[
+ "South Carolina",
+ 27.72 
+],
+[
+ "South Dakota",
+ 45.52 
+],
+[
+ "Tennessee",
+ 29.75 
+],
+[
+ "Texas",
+ 33.25 
+],
+[
+ "Utah",
+ 26.39 
+],
+[
+ "Vermont",
+ 36.47 
+],
+[
+ "Virginia",
+ 30.12 
+],
+[
+ "Washington",
+ 38.64 
+],
+[
+ "West Virginia",
+ 36.39 
+],
+[
+ "Wisconsin",
+ 43.72 
+],
+[
+ "Wyoming",
+ 30.47 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1976] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 55.73 
+],
+[
+ "Alaska",
+ 35.65 
+],
+[
+ "Arizona",
+  39.8 
+],
+[
+ "Arkansas",
+ 64.96 
+],
+[
+ "California",
+ 47.57 
+],
+[
+ "Colorado",
+ 42.56 
+],
+[
+ "Connecticut",
+  46.9 
+],
+[
+ "Delaware",
+ 51.98 
+],
+[
+ "DC",
+ 81.63 
+],
+[
+ "Florida",
+ 51.93 
+],
+[
+ "Georgia",
+ 66.74 
+],
+[
+ "Hawaii",
+ 50.59 
+],
+[
+ "Idaho",
+ 36.78 
+],
+[
+ "Illinois",
+ 48.13 
+],
+[
+ "Indiana",
+  45.7 
+],
+[
+ "Iowa",
+ 48.46 
+],
+[
+ "Kansas",
+ 44.94 
+],
+[
+ "Kentucky",
+ 52.75 
+],
+[
+ "Louisiana",
+ 51.73 
+],
+[
+ "Maine",
+ 48.07 
+],
+[
+ "Maryland",
+ 52.75 
+],
+[
+ "Massachusetts",
+ 56.11 
+],
+[
+ "Michigan",
+ 46.44 
+],
+[
+ "Minnesota",
+  54.9 
+],
+[
+ "Mississippi",
+ 49.56 
+],
+[
+ "Missouri",
+  51.1 
+],
+[
+ "Montana",
+  45.4 
+],
+[
+ "Nebraska",
+ 38.46 
+],
+[
+ "Nevada",
+ 45.81 
+],
+[
+ "New Hampshire",
+ 43.47 
+],
+[
+ "New Jersey",
+ 47.92 
+],
+[
+ "New Mexico",
+ 48.07 
+],
+[
+ "New York",
+ 51.87 
+],
+[
+ "North Carolina",
+ 55.24 
+],
+[
+ "North Dakota",
+ 45.79 
+],
+[
+ "Ohio",
+ 48.92 
+],
+[
+ "Oklahoma",
+ 48.75 
+],
+[
+ "Oregon",
+ 47.62 
+],
+[
+ "Pennsylvania",
+  50.4 
+],
+[
+ "Rhode Island",
+ 55.36 
+],
+[
+ "South Carolina",
+ 56.17 
+],
+[
+ "South Dakota",
+ 48.91 
+],
+[
+ "Tennessee",
+ 55.94 
+],
+[
+ "Texas",
+ 51.14 
+],
+[
+ "Utah",
+ 33.65 
+],
+[
+ "Vermont",
+ 43.11 
+],
+[
+ "Virginia",
+ 47.96 
+],
+[
+ "Washington",
+ 46.11 
+],
+[
+ "West Virginia",
+ 58.05 
+],
+[
+ "Wisconsin",
+ 49.44 
+],
+[
+ "Wyoming",
+ 39.81 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1980] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 47.45 
+],
+[
+ "Alaska",
+ 26.41 
+],
+[
+ "Arizona",
+ 28.24 
+],
+[
+ "Arkansas",
+ 47.52 
+],
+[
+ "California",
+ 35.91 
+],
+[
+ "Colorado",
+ 31.07 
+],
+[
+ "Connecticut",
+ 38.52 
+],
+[
+ "Delaware",
+ 44.83 
+],
+[
+ "DC",
+ 74.82 
+],
+[
+ "Florida",
+  38.5 
+],
+[
+ "Georgia",
+ 55.79 
+],
+[
+ "Hawaii",
+  44.8 
+],
+[
+ "Idaho",
+ 25.19 
+],
+[
+ "Illinois",
+ 41.72 
+],
+[
+ "Indiana",
+ 37.65 
+],
+[
+ "Iowa",
+  38.6 
+],
+[
+ "Kansas",
+ 33.29 
+],
+[
+ "Kentucky",
+ 47.61 
+],
+[
+ "Louisiana",
+ 45.75 
+],
+[
+ "Maine",
+ 42.25 
+],
+[
+ "Maryland",
+ 47.14 
+],
+[
+ "Massachusetts",
+ 41.75 
+],
+[
+ "Michigan",
+  42.5 
+],
+[
+ "Minnesota",
+  46.5 
+],
+[
+ "Mississippi",
+ 48.09 
+],
+[
+ "Missouri",
+ 44.35 
+],
+[
+ "Montana",
+ 32.43 
+],
+[
+ "Nebraska",
+ 26.04 
+],
+[
+ "Nevada",
+ 26.89 
+],
+[
+ "New Hampshire",
+ 28.35 
+],
+[
+ "New Jersey",
+ 38.56 
+],
+[
+ "New Mexico",
+ 36.73 
+],
+[
+ "New York",
+ 43.99 
+],
+[
+ "North Carolina",
+ 47.18 
+],
+[
+ "North Dakota",
+ 26.26 
+],
+[
+ "Ohio",
+ 40.91 
+],
+[
+ "Oklahoma",
+ 34.97 
+],
+[
+ "Oregon",
+ 38.67 
+],
+[
+ "Pennsylvania",
+ 42.48 
+],
+[
+ "Rhode Island",
+ 47.67 
+],
+[
+ "South Carolina",
+ 48.14 
+],
+[
+ "South Dakota",
+ 31.69 
+],
+[
+ "Tennessee",
+ 48.41 
+],
+[
+ "Texas",
+ 41.42 
+],
+[
+ "Utah",
+ 20.57 
+],
+[
+ "Vermont",
+ 38.42 
+],
+[
+ "Virginia",
+ 40.31 
+],
+[
+ "Washington",
+ 37.32 
+],
+[
+ "West Virginia",
+ 49.81 
+],
+[
+ "Wisconsin",
+ 43.18 
+],
+[
+ "Wyoming",
+ 27.97 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1984] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 38.28 
+],
+[
+ "Alaska",
+ 29.87 
+],
+[
+ "Arizona",
+ 32.54 
+],
+[
+ "Arkansas",
+ 38.29 
+],
+[
+ "California",
+ 41.27 
+],
+[
+ "Colorado",
+ 35.12 
+],
+[
+ "Connecticut",
+ 38.83 
+],
+[
+ "Delaware",
+ 39.93 
+],
+[
+ "DC",
+ 85.38 
+],
+[
+ "Florida",
+ 34.66 
+],
+[
+ "Georgia",
+ 39.78 
+],
+[
+ "Hawaii",
+ 43.82 
+],
+[
+ "Idaho",
+ 26.39 
+],
+[
+ "Illinois",
+  43.3 
+],
+[
+ "Indiana",
+ 37.68 
+],
+[
+ "Iowa",
+ 45.89 
+],
+[
+ "Kansas",
+  32.6 
+],
+[
+ "Kentucky",
+  39.4 
+],
+[
+ "Louisiana",
+ 38.18 
+],
+[
+ "Maine",
+ 38.78 
+],
+[
+ "Maryland",
+ 47.02 
+],
+[
+ "Massachusetts",
+ 48.43 
+],
+[
+ "Michigan",
+ 40.24 
+],
+[
+ "Minnesota",
+ 49.72 
+],
+[
+ "Mississippi",
+ 37.42 
+],
+[
+ "Missouri",
+ 39.98 
+],
+[
+ "Montana",
+ 38.18 
+],
+[
+ "Nebraska",
+ 28.81 
+],
+[
+ "Nevada",
+ 31.97 
+],
+[
+ "New Hampshire",
+ 30.94 
+],
+[
+ "New Jersey",
+  39.2 
+],
+[
+ "New Mexico",
+ 39.23 
+],
+[
+ "New York",
+ 45.83 
+],
+[
+ "North Carolina",
+ 37.89 
+],
+[
+ "North Dakota",
+  33.8 
+],
+[
+ "Ohio",
+ 40.14 
+],
+[
+ "Oklahoma",
+ 30.67 
+],
+[
+ "Oregon",
+ 43.74 
+],
+[
+ "Pennsylvania",
+ 45.99 
+],
+[
+ "Rhode Island",
+ 48.02 
+],
+[
+ "South Carolina",
+ 35.57 
+],
+[
+ "South Dakota",
+ 36.53 
+],
+[
+ "Tennessee",
+ 41.57 
+],
+[
+ "Texas",
+ 36.11 
+],
+[
+ "Utah",
+ 24.68 
+],
+[
+ "Vermont",
+ 40.81 
+],
+[
+ "Virginia",
+ 37.09 
+],
+[
+ "Washington",
+ 42.86 
+],
+[
+ "West Virginia",
+  44.6 
+],
+[
+ "Wisconsin",
+ 45.02 
+],
+[
+ "Wyoming",
+ 28.24 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1988] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 39.86 
+],
+[
+ "Alaska",
+ 36.27 
+],
+[
+ "Arizona",
+ 38.74 
+],
+[
+ "Arkansas",
+ 42.19 
+],
+[
+ "California",
+ 47.56 
+],
+[
+ "Colorado",
+ 45.28 
+],
+[
+ "Connecticut",
+ 46.87 
+],
+[
+ "Delaware",
+ 43.48 
+],
+[
+ "DC",
+ 82.65 
+],
+[
+ "Florida",
+ 38.51 
+],
+[
+ "Georgia",
+  39.5 
+],
+[
+ "Hawaii",
+ 54.27 
+],
+[
+ "Idaho",
+ 36.01 
+],
+[
+ "Illinois",
+  48.6 
+],
+[
+ "Indiana",
+ 39.69 
+],
+[
+ "Iowa",
+ 54.71 
+],
+[
+ "Kansas",
+ 42.56 
+],
+[
+ "Kentucky",
+ 43.88 
+],
+[
+ "Louisiana",
+ 44.06 
+],
+[
+ "Maine",
+ 43.88 
+],
+[
+ "Maryland",
+  48.2 
+],
+[
+ "Massachusetts",
+ 53.23 
+],
+[
+ "Michigan",
+ 45.67 
+],
+[
+ "Minnesota",
+ 52.91 
+],
+[
+ "Mississippi",
+ 39.07 
+],
+[
+ "Missouri",
+ 47.84 
+],
+[
+ "Montana",
+  46.2 
+],
+[
+ "Nebraska",
+  39.2 
+],
+[
+ "Nevada",
+ 37.92 
+],
+[
+ "New Hampshire",
+ 36.29 
+],
+[
+ "New Jersey",
+  42.6 
+],
+[
+ "New Mexico",
+  46.9 
+],
+[
+ "New York",
+ 51.62 
+],
+[
+ "North Carolina",
+ 41.71 
+],
+[
+ "North Dakota",
+ 42.97 
+],
+[
+ "Ohio",
+ 44.15 
+],
+[
+ "Oklahoma",
+ 41.28 
+],
+[
+ "Oregon",
+ 51.28 
+],
+[
+ "Pennsylvania",
+ 48.39 
+],
+[
+ "Rhode Island",
+ 55.64 
+],
+[
+ "South Carolina",
+ 37.58 
+],
+[
+ "South Dakota",
+ 46.51 
+],
+[
+ "Tennessee",
+ 41.55 
+],
+[
+ "Texas",
+ 43.35 
+],
+[
+ "Utah",
+ 32.05 
+],
+[
+ "Vermont",
+ 47.58 
+],
+[
+ "Virginia",
+ 39.23 
+],
+[
+ "Washington",
+ 50.05 
+],
+[
+ "West Virginia",
+  52.2 
+],
+[
+ "Wisconsin",
+ 51.41 
+],
+[
+ "Wyoming",
+ 38.01 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1992] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 40.88 
+],
+[
+ "Alaska",
+ 30.29 
+],
+[
+ "Arizona",
+ 36.52 
+],
+[
+ "Arkansas",
+ 53.21 
+],
+[
+ "California",
+ 46.01 
+],
+[
+ "Colorado",
+ 40.13 
+],
+[
+ "Connecticut",
+ 42.21 
+],
+[
+ "Delaware",
+ 43.51 
+],
+[
+ "DC",
+ 84.64 
+],
+[
+ "Florida",
+    39 
+],
+[
+ "Georgia",
+ 43.47 
+],
+[
+ "Hawaii",
+ 48.09 
+],
+[
+ "Idaho",
+ 28.42 
+],
+[
+ "Illinois",
+ 48.58 
+],
+[
+ "Indiana",
+ 36.79 
+],
+[
+ "Iowa",
+ 43.29 
+],
+[
+ "Kansas",
+ 33.74 
+],
+[
+ "Kentucky",
+ 44.55 
+],
+[
+ "Louisiana",
+ 45.58 
+],
+[
+ "Maine",
+ 38.77 
+],
+[
+ "Maryland",
+  49.8 
+],
+[
+ "Massachusetts",
+ 47.54 
+],
+[
+ "Michigan",
+ 43.77 
+],
+[
+ "Minnesota",
+ 43.48 
+],
+[
+ "Mississippi",
+ 40.77 
+],
+[
+ "Missouri",
+ 44.07 
+],
+[
+ "Montana",
+ 37.63 
+],
+[
+ "Nebraska",
+  29.4 
+],
+[
+ "Nevada",
+ 37.36 
+],
+[
+ "New Hampshire",
+ 38.86 
+],
+[
+ "New Jersey",
+ 42.95 
+],
+[
+ "New Mexico",
+  45.9 
+],
+[
+ "New York",
+ 49.73 
+],
+[
+ "North Carolina",
+ 42.65 
+],
+[
+ "North Dakota",
+ 32.18 
+],
+[
+ "Ohio",
+ 40.18 
+],
+[
+ "Oklahoma",
+ 34.02 
+],
+[
+ "Oregon",
+ 42.48 
+],
+[
+ "Pennsylvania",
+ 45.15 
+],
+[
+ "Rhode Island",
+ 47.04 
+],
+[
+ "South Carolina",
+ 39.88 
+],
+[
+ "South Dakota",
+ 37.14 
+],
+[
+ "Tennessee",
+ 47.08 
+],
+[
+ "Texas",
+ 37.08 
+],
+[
+ "Utah",
+ 24.65 
+],
+[
+ "Vermont",
+ 46.11 
+],
+[
+ "Virginia",
+ 40.59 
+],
+[
+ "Washington",
+  43.4 
+],
+[
+ "West Virginia",
+ 48.41 
+],
+[
+ "Wisconsin",
+ 41.13 
+],
+[
+ "Wyoming",
+ 33.98 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[1996] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 43.16 
+],
+[
+ "Alaska",
+ 33.27 
+],
+[
+ "Arizona",
+ 46.52 
+],
+[
+ "Arkansas",
+ 53.74 
+],
+[
+ "California",
+  51.1 
+],
+[
+ "Colorado",
+ 44.43 
+],
+[
+ "Connecticut",
+ 52.83 
+],
+[
+ "Delaware",
+ 51.82 
+],
+[
+ "DC",
+ 85.19 
+],
+[
+ "Florida",
+ 48.02 
+],
+[
+ "Georgia",
+ 45.84 
+],
+[
+ "Hawaii",
+ 56.93 
+],
+[
+ "Idaho",
+ 33.65 
+],
+[
+ "Illinois",
+ 54.32 
+],
+[
+ "Indiana",
+ 41.55 
+],
+[
+ "Iowa",
+ 50.26 
+],
+[
+ "Kansas",
+ 36.08 
+],
+[
+ "Kentucky",
+ 45.84 
+],
+[
+ "Louisiana",
+ 52.01 
+],
+[
+ "Maine",
+ 51.62 
+],
+[
+ "Maryland",
+ 54.25 
+],
+[
+ "Massachusetts",
+ 61.47 
+],
+[
+ "Michigan",
+ 51.69 
+],
+[
+ "Minnesota",
+  51.1 
+],
+[
+ "Mississippi",
+ 44.08 
+],
+[
+ "Missouri",
+ 47.54 
+],
+[
+ "Montana",
+ 41.23 
+],
+[
+ "Nebraska",
+ 34.95 
+],
+[
+ "Nevada",
+ 43.93 
+],
+[
+ "New Hampshire",
+ 49.32 
+],
+[
+ "New Jersey",
+ 53.72 
+],
+[
+ "New Mexico",
+ 49.18 
+],
+[
+ "New York",
+ 59.47 
+],
+[
+ "North Carolina",
+ 44.04 
+],
+[
+ "North Dakota",
+ 40.13 
+],
+[
+ "Ohio",
+ 47.38 
+],
+[
+ "Oklahoma",
+ 40.45 
+],
+[
+ "Oregon",
+ 47.15 
+],
+[
+ "Pennsylvania",
+ 49.17 
+],
+[
+ "Rhode Island",
+ 59.71 
+],
+[
+ "South Carolina",
+ 43.96 
+],
+[
+ "South Dakota",
+ 43.03 
+],
+[
+ "Tennessee",
+    48 
+],
+[
+ "Texas",
+ 43.83 
+],
+[
+ "Utah",
+  33.3 
+],
+[
+ "Vermont",
+ 53.35 
+],
+[
+ "Virginia",
+ 45.15 
+],
+[
+ "Washington",
+ 49.84 
+],
+[
+ "West Virginia",
+ 51.51 
+],
+[
+ "Wisconsin",
+ 48.81 
+],
+[
+ "Wyoming",
+ 36.84 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[2000] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 41.59 
+],
+[
+ "Alaska",
+ 27.67 
+],
+[
+ "Arizona",
+ 44.67 
+],
+[
+ "Arkansas",
+ 45.86 
+],
+[
+ "California",
+ 53.45 
+],
+[
+ "Colorado",
+ 42.39 
+],
+[
+ "Connecticut",
+ 55.91 
+],
+[
+ "Delaware",
+ 54.96 
+],
+[
+ "DC",
+ 85.16 
+],
+[
+ "Florida",
+ 48.84 
+],
+[
+ "Georgia",
+ 42.98 
+],
+[
+ "Hawaii",
+ 55.79 
+],
+[
+ "Idaho",
+ 27.64 
+],
+[
+ "Illinois",
+  54.6 
+],
+[
+ "Indiana",
+ 41.01 
+],
+[
+ "Iowa",
+ 48.54 
+],
+[
+ "Kansas",
+ 37.24 
+],
+[
+ "Kentucky",
+ 41.37 
+],
+[
+ "Louisiana",
+ 44.88 
+],
+[
+ "Maine",
+ 49.09 
+],
+[
+ "Maryland",
+ 56.57 
+],
+[
+ "Massachusetts",
+  59.8 
+],
+[
+ "Michigan",
+ 51.28 
+],
+[
+ "Minnesota",
+ 47.91 
+],
+[
+ "Mississippi",
+  40.7 
+],
+[
+ "Missouri",
+ 47.08 
+],
+[
+ "Montana",
+ 33.36 
+],
+[
+ "Nebraska",
+ 33.25 
+],
+[
+ "Nevada",
+ 45.98 
+],
+[
+ "New Hampshire",
+  46.8 
+],
+[
+ "New Jersey",
+ 56.13 
+],
+[
+ "New Mexico",
+ 47.91 
+],
+[
+ "New York",
+ 60.21 
+],
+[
+ "North Carolina",
+  43.2 
+],
+[
+ "North Dakota",
+ 33.05 
+],
+[
+ "Ohio",
+ 46.46 
+],
+[
+ "Oklahoma",
+ 38.43 
+],
+[
+ "Oregon",
+ 46.96 
+],
+[
+ "Pennsylvania",
+  50.6 
+],
+[
+ "Rhode Island",
+ 60.99 
+],
+[
+ "South Carolina",
+ 40.91 
+],
+[
+ "South Dakota",
+ 37.56 
+],
+[
+ "Tennessee",
+ 47.28 
+],
+[
+ "Texas",
+ 37.98 
+],
+[
+ "Utah",
+ 26.34 
+],
+[
+ "Vermont",
+ 50.63 
+],
+[
+ "Virginia",
+ 44.44 
+],
+[
+ "Washington",
+ 50.13 
+],
+[
+ "West Virginia",
+ 45.59 
+],
+[
+ "Wisconsin",
+ 47.83 
+],
+[
+ "Wyoming",
+  27.7 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[2004] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 36.84 
+],
+[
+ "Alaska",
+ 35.52 
+],
+[
+ "Arizona",
+  44.4 
+],
+[
+ "Arkansas",
+ 44.55 
+],
+[
+ "California",
+ 54.31 
+],
+[
+ "Colorado",
+ 47.02 
+],
+[
+ "Connecticut",
+ 54.31 
+],
+[
+ "Delaware",
+ 53.35 
+],
+[
+ "DC",
+ 89.18 
+],
+[
+ "Florida",
+ 47.09 
+],
+[
+ "Georgia",
+ 41.37 
+],
+[
+ "Hawaii",
+ 54.01 
+],
+[
+ "Idaho",
+ 30.26 
+],
+[
+ "Illinois",
+ 54.82 
+],
+[
+ "Indiana",
+ 39.26 
+],
+[
+ "Iowa",
+ 49.23 
+],
+[
+ "Kansas",
+ 36.62 
+],
+[
+ "Kentucky",
+ 39.69 
+],
+[
+ "Louisiana",
+ 42.22 
+],
+[
+ "Maine",
+ 53.57 
+],
+[
+ "Maryland",
+ 55.91 
+],
+[
+ "Massachusetts",
+ 61.94 
+],
+[
+ "Michigan",
+ 51.23 
+],
+[
+ "Minnesota",
+ 51.09 
+],
+[
+ "Mississippi",
+ 39.75 
+],
+[
+ "Missouri",
+  46.1 
+],
+[
+ "Montana",
+ 38.56 
+],
+[
+ "Nebraska",
+ 32.68 
+],
+[
+ "Nevada",
+ 47.88 
+],
+[
+ "New Hampshire",
+ 50.24 
+],
+[
+ "New Jersey",
+ 52.92 
+],
+[
+ "New Mexico",
+ 49.05 
+],
+[
+ "New York",
+ 58.37 
+],
+[
+ "North Carolina",
+ 43.58 
+],
+[
+ "North Dakota",
+  35.5 
+],
+[
+ "Ohio",
+ 48.71 
+],
+[
+ "Oklahoma",
+ 34.43 
+],
+[
+ "Oregon",
+ 51.35 
+],
+[
+ "Pennsylvania",
+ 50.92 
+],
+[
+ "Rhode Island",
+ 59.42 
+],
+[
+ "South Carolina",
+  40.9 
+],
+[
+ "South Dakota",
+ 38.44 
+],
+[
+ "Tennessee",
+ 42.53 
+],
+[
+ "Texas",
+ 38.22 
+],
+[
+ "Utah",
+    26 
+],
+[
+ "Vermont",
+ 58.94 
+],
+[
+ "Virginia",
+ 45.48 
+],
+[
+ "Washington",
+ 52.82 
+],
+[
+ "West Virginia",
+  43.2 
+],
+[
+ "Wisconsin",
+  49.7 
+],
+[
+ "Wyoming",
+ 29.07 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsData 
+gvisData[2008] = function ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Alabama",
+ 38.74 
+],
+[
+ "Alaska",
+ 37.89 
+],
+[
+ "Arizona",
+ 44.91 
+],
+[
+ "Arkansas",
+ 38.86 
+],
+[
+ "California",
+ 60.94 
+],
+[
+ "Colorado",
+ 53.66 
+],
+[
+ "Connecticut",
+ 60.59 
+],
+[
+ "Delaware",
+ 61.91 
+],
+[
+ "DC",
+ 92.46 
+],
+[
+ "Florida",
+ 50.91 
+],
+[
+ "Georgia",
+  46.9 
+],
+[
+ "Hawaii",
+ 71.85 
+],
+[
+ "Idaho",
+ 35.91 
+],
+[
+ "Illinois",
+ 61.85 
+],
+[
+ "Indiana",
+ 49.86 
+],
+[
+ "Iowa",
+ 53.93 
+],
+[
+ "Kansas",
+ 41.57 
+],
+[
+ "Kentucky",
+ 41.15 
+],
+[
+ "Louisiana",
+ 39.93 
+],
+[
+ "Maine",
+ 57.71 
+],
+[
+ "Maryland",
+ 61.92 
+],
+[
+ "Massachusetts",
+  61.8 
+],
+[
+ "Michigan",
+ 57.33 
+],
+[
+ "Minnesota",
+ 54.06 
+],
+[
+ "Mississippi",
+    43 
+],
+[
+ "Missouri",
+ 49.23 
+],
+[
+ "Montana",
+ 47.11 
+],
+[
+ "Nebraska",
+  41.6 
+],
+[
+ "Nevada",
+ 55.15 
+],
+[
+ "New Hampshire",
+ 54.13 
+],
+[
+ "New Jersey",
+ 57.14 
+],
+[
+ "New Mexico",
+ 56.91 
+],
+[
+ "New York",
+ 62.88 
+],
+[
+ "North Carolina",
+  49.7 
+],
+[
+ "North Dakota",
+  44.5 
+],
+[
+ "Ohio",
+ 51.38 
+],
+[
+ "Oklahoma",
+ 34.35 
+],
+[
+ "Oregon",
+ 56.75 
+],
+[
+ "Pennsylvania",
+ 54.47 
+],
+[
+ "Rhode Island",
+ 62.86 
+],
+[
+ "South Carolina",
+  44.9 
+],
+[
+ "South Dakota",
+ 44.75 
+],
+[
+ "Tennessee",
+ 41.79 
+],
+[
+ "Texas",
+ 43.63 
+],
+[
+ "Utah",
+ 34.22 
+],
+[
+ "Vermont",
+ 67.46 
+],
+[
+ "Virginia",
+ 52.63 
+],
+[
+ "Washington",
+ 57.34 
+],
+[
+ "West Virginia",
+ 42.51 
+],
+[
+ "Wisconsin",
+ 56.22 
+],
+[
+ "Wyoming",
+ 32.54 
+],
+[
+ "Min",
+     0 
+],
+[
+ "Max",
+   100 
+] 
+];
+data.addColumn('string','state');
+data.addColumn('number','demVote');
+data.addRows(datajson);
+return(data);
+}
+
+
+
+// jsDrawChart
+function drawChart() {
+	var chart = {};
+	var options ={};
+	options["dataMode"] = "regions";
+	options["width"] =   600;
+	options["region"] = "US";
+	options["height"] =  400;
+	options["colors"] = [0xFFFFFF, 0x00000FF];
+	
+	for (var i = Animation.startYear; i<=Animation.endYear; i++) {
+	   Animation.divCharts[i] = document.createElement("div");
+	   Animation.divCharts[i].className = "pop-chart";
+	   document.body.appendChild(Animation.divCharts[i]);
+	   chart[i] = new google.visualization.GeoMap(Animation.divCharts[i]);
+	   
+	   var data = gvisData[(1928+4*i)]();
+	   options["title"] = i;
+	   chart[i].draw(data,options);
+	}
+		
+	// Animation.playAnimation();
+	setTimeout(Animation.playAnimation, 5000);
+}
+
+ 
+// jsDisplayChart 
+function displayChart() {
+  google.load("visualization", "1", { packages:["geomap"] }); 
+  google.setOnLoadCallback(drawChart);
+}
+// jsChart 
+displayChart()
+
+
+  ]]> 
+  </Content>
+</Module>

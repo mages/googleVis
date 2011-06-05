@@ -30,12 +30,12 @@ gvisAreaChart(data, xvar = "", yvar = "", options = list(), chartid)
     The possible components are, taken from
     \url{http://code.google.com/apis/visualization/documentation/gallery/areachart.html#Configuration_Options}:
     \describe{
-      \item{axisTitlesPosition}{a string. Default 'out'. Where to place
+      \item{\code{axisTitlesPosition}}{a string. Default 'out'. Where to place
 	the axis titles, compared to the chart area. Supported values:
 	\describe{      
-	  \item{in}{Draw the axis titles inside the the chart area.}
-	  \item{out}{Draw the axis titles outside the chart area.}
-	  \item{none}{Omit the axis titles.}
+	  \item{\code{'in'}}{Draw the axis titles inside the the chart area.}
+	  \item{\code{'out'}}{Draw the axis titles outside the chart area.}
+	  \item{\code{'none'}}{Omit the axis titles.}
 	}
       }
       \item{\code{backgroundColor}}{a string or object. Default \code{'white'}. The

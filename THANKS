@@ -9,7 +9,7 @@ Thanks to:
 	  telling everyone that data is not boring 
 	o Deepayan Sarkar for showing us in the lattice package how to
 	  deal with lists of options  
-	o Google, who made the API available
+	o Google, who make the visualisation API available
 	o Paul Cleary for a bug report on the handling of months:
 	  Google date objects expect the months Jan.- Dec. as 0 - 11 and
 	  not 1 - 12.
@@ -17,3 +17,9 @@ Thanks to:
 	  temporary files 
 	o John Verzani for pointing out how to use the R http help
 	  server
+	o Cornelius Puschmann and Jeffrey Breen for highlighting an
+	  dependency issue with RJONSIO version 0.7-1
+	o Manoj Ananthapadmanabhan and Anand Ramalingam for providing
+	  idea and code to animate a Google Geo Map
+
+  

@@ -14,6 +14,11 @@ NEW FEATURES
      - gvisOrgChart
      - gvisIntensityMap 
 
+   o New demo 'AnimatedGeoMap'. The demo shows how a Geo Map can be animated
+     with additional JavaScript. 
+     Thanks to Manoj Ananthapadmanabhan and Anand Ramalingam, who
+     provided the idea and initial code.
+     
 BUG FIXES
 
    o The way RJSONIO treats backslashes changed in version 0.7.1 and
