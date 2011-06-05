@@ -6,7 +6,7 @@ Google Intensity Map with R
 \description{
   An intensity map highlights regions or countries based on relative values.
 
-  The gvisIntesnityMap function reads a data.frame and
+  The gvisIntensityMap function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
   included into a web page, or as a stand-alone page.
 }
@@ -66,7 +66,7 @@ gvisIntensityMap(data, locationvar = "", numvar = "", options = list(), chartid)
   \code{gvisIntensityMap} returns list of \code{\link{class}} "\code{gvis}" and "\code{list}". 
   
   An object of class "\code{gvis}" is a list containing at least the following components:
-  \item{\code{type}}{Google visualisation type, here 'IntesnityMap'}
+  \item{\code{type}}{Google visualisation type, here 'IntensityMap'}
   \item{\code{chartid}}{character id of the chart object. Unique chart
     ids are required to place several charts on the same page.
   }

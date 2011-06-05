@@ -183,7 +183,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   Diego de Castillo \email{decastillo@gmail.com}
 }
 \note{
-  Please notice that a \code{timevar} with values less than 100 will be
+  Please note that a \code{timevar} with values less than 100 will be
   shown as years 19xx.
 
   
