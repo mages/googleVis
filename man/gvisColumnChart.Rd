@@ -341,7 +341,7 @@ gvisColumnChart(data, xvar = "", yvar = "", options = list(), chartid)
   Google Column Chart API:
   \url{http://code.google.com/apis/chart/interactive/docs/gallery/columnchart.html} 
 
-  Follow the link also for Google's Data Policy.
+  Follow the link for Google's data policy.
 
 }
 \author{
@@ -362,7 +362,7 @@ gvisColumnChart(data, xvar = "", yvar = "", options = list(), chartid)
 }
 
 \examples{
-## Please note that by default the plot (better plot.gvis) command
+## Please note that by default the googleVis plot command
 ## will open a browser window and requires an internet
 ## connection to display the visualisation.
 

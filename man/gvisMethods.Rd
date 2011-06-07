@@ -143,7 +143,7 @@ plot(M)
   ## Now you have a new set of data, but you would like to avoid
   ## touching the html file again.
   ## The idea is to write the data and JavaScript functions into separate
-  ## files and to have references to these files in the html page.
+  ## files and to refer to these in the html page.
 
   ## In this example we call the chart id "mtnc"
   ## To display the example we use the R HTTP server again, and

@@ -17,8 +17,7 @@ gvisGauge(data, labelvar = "", numvar = "", options = list(), chartid)
 \arguments{
   \item{data}{a \code{\link{data.frame}} to be displayed as a gauge
   }
-  \item{labelvar}{
-    Name of the character column which contains the category labels for
+  \item{labelvar}{name of the character column which contains the category labels for
     the slice labels.
   }
   \item{numvar}{a vector of column names of the numerical variables of the slice values. 
@@ -136,7 +135,7 @@ gvisGauge(data, labelvar = "", numvar = "", options = list(), chartid)
   Google Gauge API:
   \url{http://code.google.com/apis/chart/interactive/docs/gallery/gauge.html} 
 
-  Follow the link also for Google's Data Policy.
+  Follow the link for Google's data policy.
 
 }
 \author{
@@ -152,7 +151,7 @@ gvisGauge(data, labelvar = "", numvar = "", options = list(), chartid)
   printing and plotting methods
 }
 \examples{
-## Please note that by default the plot (better plot.gvis) command
+## Please note that by default the googleVis plot command
 ## will open a browser window and requires an internet
 ## connection to display the visualisation.
 

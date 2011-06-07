@@ -211,7 +211,7 @@ gvisTreeMap(data,
   Google Tree Map  API:
   \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html}
 
-  Follow the link also for Google's Data Policy.  
+  Follow the link for Google's data policy.  
 }
 \author{
 Markus Gesmann \email{markus.gesmann@gmail.com},
@@ -234,7 +234,7 @@ Diego de Castillo \email{decastillo@gmail.com}
 
 }
 \examples{
-## Please note that by default the plot (better plot.gvis) command
+## Please note that by default the googleVis plot command
 ## will open a browser window and requires Internet
 ## connection to display the visualisation.
 

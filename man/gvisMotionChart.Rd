@@ -147,7 +147,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   Google Motion Chart API:
   \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html} 
 
-  Follow the link also for Google's Data Policy.
+  Follow the link for Google's data policy.
 
   In 2006 Hans Rosling gave an inspiring talk at TED
   \url{http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen.html}
@@ -197,7 +197,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 }
 
 \examples{
-## Please note that by default the plot (better plot.gvis) command
+## Please note that by default the googleVis plot command
 ## will open a browser window and requires Flash and Internet
 ## connection to display the visualisation.
 

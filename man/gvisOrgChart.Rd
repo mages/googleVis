@@ -117,7 +117,7 @@ gvisOrgChart(data, idvar = "", parentvar = "", tipvar = "",
   Google Org Chart  API:
   \url{http://code.google.com/apis/visualization/documentation/gallery/orgchart.html}
 
-  Follow the link also for Google's Data Policy.  
+  Follow the link for Google's data policy.  
 }
 \author{
 Markus Gesmann \email{markus.gesmann@gmail.com},
@@ -131,17 +131,20 @@ Diego de Castillo \email{decastillo@gmail.com}
   printing and plotting methods. 
 }
 \examples{
-## Please note that by default the plot (better plot.gvis) command
+## Please note that by default the googleVis plot command
 ## will open a browser window and requires Internet
 ## connection to display the visualisation.
 
 Regions
-Org1 <- gvisOrgChart(Regions)
+Org1 <- gvisOrgChart(Regions, idvar = "Region", parentvar = "Parent", 
+     			      tipvar="Val")
 plot(Org1)
 
 ## Set a few options
-Org2 <- gvisOrgChart(Regions, options=list(width=600, height=400,
-                               size='large', allowCollapse=TRUE))
+Org2 <- gvisOrgChart(Regions, idvar = "Region", parentvar = "Parent", 
+     			      tipvar="Val", 
+     		     options=list(width=600, height=400,
+                     	          size='large', allowCollapse=TRUE))
 plot(Org2)
 
 }

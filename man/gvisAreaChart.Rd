@@ -73,7 +73,7 @@ gvisAreaChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{chartArea.height}}{a number or string. Default auto.	Chart
 	area height.
       }
-      \item{\code{colors}}{An array of strings. Default 'colors'. The colors to
+      \item{\code{colors}}{an array of strings. Default 'colors'. The colors to
 	use for the chart elements. An array of strings, where each element is
 	an HTML color string, for example: \code{colors:['red','#004411']}.
       }
@@ -338,7 +338,7 @@ gvisAreaChart(data, xvar = "", yvar = "", options = list(), chartid)
   Google Area Chart API:
   \url{http://code.google.com/apis/chart/interactive/docs/gallery/areachart.html} 
 
-  Follow the link also for Google's Data Policy.
+  Follow the link for Google's data policy.
 
 }
 \author{
@@ -358,7 +358,7 @@ gvisAreaChart(data, xvar = "", yvar = "", options = list(), chartid)
   printing and plotting methods
 }
 \examples{
-## Please note that by default the plot (better plot.gvis) command
+## Please note that by default the googleVis plot command
 ## will open a browser window and requires an internet
 ## connection to display the visualisation.
 
