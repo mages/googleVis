@@ -115,20 +115,19 @@ pause()
 
 
 ## Several charts on one page
-Page <- list(type="MotionGeoTableTree", 
-             chartid=format(Sys.time(), "MotionGeoTableTree-%Y-%m-%d-%H-%M-%S"), 
-             html=list(header=Motion$html$header,
-               chart=list(Motion$html$chart,
-                 Geo$html$chart, 
-                 Table$html$chart,
-                 Tree$html$chart, 
-                 AndrewMap$html$chart, 
-                 AnnoTimeLine$html$chart),
-               footer=Tree$html$footer)
-             )
-		
-
-class(Page) <- list("gvis", class(Page))
+Page <- structure(
+                  list(type="MotionGeoTableTree", 
+                       chartid=format(Sys.time(), "MotionGeoTableTree-%Y-%m-%d-%H-%M-%S"), 
+                       html=list(header=Motion$html$header,
+                         chart=list(Motion$html$chart,
+                           Geo$html$chart, 
+                           Table$html$chart,
+                           Tree$html$chart, 
+                           AndrewMap$html$chart, 
+                           AnnoTimeLine$html$chart),
+                         footer=Tree$html$footer)),
+                  class=c("gvis", "list")
+                  )
 plot(Page)
 pause()
 

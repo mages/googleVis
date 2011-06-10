@@ -258,6 +258,16 @@ G4 <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt",
       		         options=list(height=350, region="US"))
 
 plot(G4) 
+
+## World population
+WorldPopulation=data.frame(Country=Population$Country, 
+			   Population.in.millions=round(Population$Population/1e6,0),
+			   Rank=paste(Population$Country, "Rank:", Population$Rank))
+
+G5 <- gvisGeoMap(WorldPopulation, "Country", "Population.in.millions", "Rank", 
+      		      options=list(dataMode="Regions", width=600, height=300))
+plot(G5)
+
 \dontrun{
 library(XML)
 ## Get earthquake data of the last 30 days

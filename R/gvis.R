@@ -27,15 +27,15 @@ gvisChart <- function(type, checked.data, options, chartid, package){
   
   htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, dataName=options$dataName)
   
-  output <- list(type=Chart$type,
-                 chartid=Chart$chartid,
-                 html=list(header=htmlScaffold[["htmlHeader"]],
-                   chart=unlist(htmlChart),
-                   caption=htmlScaffold[["htmlCaption"]],
-                   footer=htmlScaffold[["htmlFooter"]]
-                   ))
-  
-  class(output) <- c("gvis", class(output))
+  output <- structure(
+                      list(type=Chart$type,
+                           chartid=Chart$chartid,
+                           html=list(header=htmlScaffold[["htmlHeader"]],
+                             chart=unlist(htmlChart),
+                             caption=htmlScaffold[["htmlCaption"]],
+                             footer=htmlScaffold[["htmlFooter"]])),
+                      class=c("gvis", "list")
+                      )
   
   return(output)
 }

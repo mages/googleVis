@@ -127,14 +127,15 @@ htmlFoot <-'
 
 '
 
-page <- list()
-page$type="AnimatedGeoMap"
-page$chartid="presidentialElections"
-page$html$header <- htmlHead
-page$html$chart <- c(animation, gvisData, gvisChart)
-
-page$html$caption <- ""
-page$html$footer <- htmlFoot
-class(page) <- c("gvis", "list")
-
+page <- structure(
+                  list(type="AnimatedGeoMap",
+                       chartid="presidentialElections",
+                       html=list(
+                         header=htmlHead,
+                         chart=c(animation, gvisData, gvisChart),
+                         caption="",
+                         footer=htmlFoot)
+                       ),
+                  class = c("gvis", "list")
+                  )
 plot(page)
