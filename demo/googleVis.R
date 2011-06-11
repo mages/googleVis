@@ -1,12 +1,11 @@
 ## googleVis demo
-
 pause <- function(){  
   invisible(readline("\nPress <return> to continue: ")) 
 }
 
 ## For the demo a web browser with internet connection and Flash is required.
 
-df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
+df=data.frame(country=c("US", "GB", "BR"), val1=c(10,13,14), val2=c(23,12,32))
 
 ## Line chart
 Line <- gvisLineChart(df)
@@ -26,6 +25,14 @@ pause()
 ## Area chart
 Area <- gvisAreaChart(df)
 plot(Area)
+pause()
+
+## Combo chart
+Combo <- gvisComboChart(df, xvar="country",
+                                     yvar=c("val1", "val2"),
+                                   options=list(seriesType="bars",
+                                                series='{1: {type:"line"}}'))
+plot(Combo)
 pause()
 
 ## Scatter chart
@@ -49,23 +56,29 @@ Gauge <-  gvisGauge(CityPopularity, options=list(min=0, max=800, greenFrom=500,
 plot(Gauge)
 pause()
 
-## Intensity Map
-Intensity <- gvisIntensityMap(df)
-plot(Intensity)
-pause()
-
 ## Org chart
 Org <- gvisOrgChart(Regions, options=list(width=600, height=400,
                                size='large', allowCollapse=TRUE))
 plot(Org)
 pause()
 
-## Motion Chart
+## Motion chart, requires Flash
 Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 plot(Motion)
 pause()
 
-## Geo Map with coloured regions
+## Intensity Map
+Intensity <- gvisIntensityMap(df)
+plot(Intensity)
+pause()
+
+
+## Geo chart
+Geo=gvisGeoChart(Exports, locationvar="Country", numvar="Profit")
+plot(Geo)
+pause()
+
+## Geo Map, requires Flash
 Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit",
                        options=list(height=350, dataMode='regions'))
 plot(Geo)
@@ -88,7 +101,7 @@ plot(AndrewMap)
 pause()
 
 
-## Table. Click on the column header to sort the rows 
+## Table, click on the column header to sort the rows 
 Table <- gvisTable(Exports, options=list(width=400, height=300))
 plot(Table)
 pause()
@@ -103,7 +116,7 @@ Tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(fon
 plot(Tree)
 pause()
 
-## Annotated Time Line Chart
+## Annotated time line chart, requires Flash
 AnnoTimeLine  <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                            numvar="Value", idvar="Device",
                            titlevar="Title", annotationvar="Annotation",
@@ -115,7 +128,6 @@ pause()
 
 
 ## gvisMerge: multiple charts on one page
-
 G <- gvisGeoChart(Exports, "Country", "Profit", 
                   options=list(width=200, height=100))
 T <- gvisTable(Exports, 

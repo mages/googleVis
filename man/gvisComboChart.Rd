@@ -387,8 +387,15 @@ gvisComboChart(data, xvar = "", yvar = "", options = list(), chartid)
 ## will open a browser window and requires an internet
 ## connection to display the visualisation.
 
-mydata <- aggregate(iris[,-5], list(x=iris$Species), mean)
-C1 <- gvisComboChart(mydata, options=list(seriesType="bars", series='{0: {type:"line"}}'))
+CityPopularity
+## Add the mean
+CityPopularity$Mean=mean(CityPopularity$Popularity)
+
+C1 <- gvisComboChart(CityPopularity, xvar="City",
+                                     yvar=c("Mean", "Popularity"),
+                                   options=list(seriesType="bars",
+                                                title="City Popularity",
+                                                series='{0: {type:"line"}}'))
 plot(C1)
 
 }

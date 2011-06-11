@@ -220,7 +220,7 @@ allows the \googleVis package to display pages locally.
 
 Currently the package provides interfaces to
 motion chart, line chart, bar chart, column chart, area chart,
-scatter chart, , combo chart, pie chart, geo chart
+scatter chart, combo chart, pie chart, geo chart
 and org chart, further annotated time line, map, geo map, table, tree
 map, intensity map, and gauge~\cite{GoogleVisApi}.
 See Figure~\ref{demos} for some examples, for more see the 
