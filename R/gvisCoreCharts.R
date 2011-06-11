@@ -38,6 +38,18 @@ gvisColumnChart <- function(data, xvar="", yvar="", options=list(), chartid){
   }
 
 
+gvisComboChart <- function(data, xvar="", yvar="", options=list(), chartid){
+
+      gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="ComboChart")
+  }
+## plot(gvisComboChart(iris[,c(5,1:4)], options=list(seriesType="bars", series='{0: {type:"line"}}')))
+
+gvisCandlestickChart<- function(data, xvar="", yvar="", options=list(), chartid){
+
+      gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="CandlestickChart")
+  }
+## plot(gvisCandlestickChart(aggregate(iris[,-5], list(x=iris$Species), sum)))
+
 gvisScatterChart <- function(data, options=list(), chartid){
 
   my.type <- "ScatterChart"

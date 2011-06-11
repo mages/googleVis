@@ -1,6 +1,6 @@
 ### File R/gvisMethods.R
 ### Part of the R package googleVis
-### Copyright 2010 Markus Gesmann, Diego de Castillo
+### Copyright 2010, 2011 Markus Gesmann, Diego de Castillo
 ### Distributed under GPL 2 or later
 
 ### It is made available under the terms of the GNU General Public
@@ -106,3 +106,45 @@ plot.gvis <- function(x,...){
   invisible(file)
 }
   
+gvisMerge <- function(x, y, horizontal=FALSE, tableOptions='border="0"',
+                      chartid){
+
+  type="gvisMerge"
+
+  if(any(c(missing(x), missing(y))))
+    stop("Please provide two gvis-objects as input parameters.\n")
+     
+  ## test x and y are givs objects
+  if(!any(c(inherits(x, "gvis"),   inherits(y, "gvis"))))
+    stop("x and y have to be gvis objects\n")
+  
+  if(missing(chartid)){   
+    chartid <- paste(type, basename(tempfile(pattern="")),sep="ID")
+  }
+
+  htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, dataName="various")
+  
+  output <- structure(
+                 list(type=type,
+                      chartid=chartid, 
+                      html=list(header=htmlScaffold[["htmlHeader"]],
+                        chart=c(jsHeader=x$html$chart["jsHeader"],
+                          jsData=paste(x$html$chart["jsData"], y$html$chart["jsData"], sep="\n"),
+                          jsDrawChart=paste(x$html$chart["jsDrawChart"], y$html$chart["jsDrawChart"], sep="\n"),
+                          jsDisplayChart=paste(x$html$chart["jsDisplayChart"], y$html$chart["jsDisplayChart"], sep="\n"),
+                          jsChart=paste(x$html$chart["jsChart"], y$html$chart["jsChart"], sep="\n"),
+                          jsFooter=x$html$chart["jsFooter"],
+                          divChart= paste("<table", tableOptions, ">\n<tr>\n<td>\n",x$html$chart["divChart"], "</td>\n",
+                            ifelse(horizontal,"<td>\n","</tr>\n<tr>\n<td>\n"), y$html$chart["divChart"],
+                            "</td>\n</tr>\n</table>\n", sep="")
+                          ),
+                        caption=htmlScaffold[["htmlCaption"]],
+                        footer=htmlScaffold[["htmlFooter"]]
+                        )
+                      ),
+                      class=c("gvis", "list")
+                      )
+  return(output) 
+}
+
+

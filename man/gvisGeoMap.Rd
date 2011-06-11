@@ -22,7 +22,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
 }
 \arguments{
   \item{data}{
-    a \code{data.frame}. The data has to have at least three
+    a \code{data.frame}. The data has to have at least two
     columns with location name (\code{locationvar}), value to be mapped
     to location (\code{numvar}) and an optional variable to display any
     text while the mouse hovers over the location (\code{hovervar}).
@@ -211,8 +211,8 @@ Diego de Castillo \email{decastillo@gmail.com}
 \seealso{
 
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods, \code{\link{gvisMap}} and \code{\link{gvisIntensityMap}} for an
-  alternative to \code{gvisGeoMap}.  
+  printing and plotting methods, \code{\link{gvisGeoChart}} and
+  \code{\link{gvisIntensityMap}} for an alternative to \code{gvisGeoMap}.  
   
 }
 \examples{

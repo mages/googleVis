@@ -4,7 +4,10 @@ importFrom("RJSONIO", "toJSON")
 export(gvisMotionChart, gvisTable, gvisGeoMap,gvisTreeMap,gvisMap, gvisAnnotatedTimeLine)
 export(gvisScatterChart, gvisPieChart, gvisOrgChart, gvisIntensityMap)
 export(gvisLineChart, gvisAreaChart, gvisBarChart, gvisColumnChart, gvisGauge)
-## export(gvisGeoChart, gvisSparkline)
+export(gvisGeoChart, gvisComboChart)
+## export(gvisCandlestickChart)
+export(gvisMerge)
+## export(gvisSparkline)
 export(createGoogleGadget)
 
 #Methods

@@ -1,6 +1,6 @@
 ### File R/gvisGeoMap.R
 ### Part of the R package googleVis
-### Copyright 2010 Markus Gesmann, Diego de Castillo
+### Copyright 2010, 2011 Markus Gesmann, Diego de Castillo
 
 ### It is made available under the terms of the GNU General Public
 ### License, version 2, or at your option, any later version,
@@ -22,7 +22,7 @@ gvisGeoMap <- function(data, locationvar="", numvar="", hovervar="", options=lis
   my.type <- "GeoMap"
   dataName <- deparse(substitute(data))
 
-  my.options <- list(gvis=modifyList(list(width = 600),options), 
+  my.options <- list(gvis=modifyList(list(width = 556, height=347),options), 
                      dataName=dataName,
                      data=list(locationvar=locationvar, numvar=numvar,
                        hovervar=hovervar,  
@@ -60,24 +60,3 @@ gvisCheckGeoMapData <- function(data, options){
   return(data.frame(x))
 }
 
-
-gvisGeoChart <- function(data, locationvar="", numvar="", hovervar="", options=list(), chartid){
-
-  my.type <- "GeoChart"
-  dataName <- deparse(substitute(data))
-
-  my.options <- list(gvis=modifyList(list(width = 600),options), 
-                     dataName=dataName,
-                     data=list(locationvar=locationvar, numvar=numvar,
-                       hovervar=hovervar,  
-                     allowed=c("number", "string")))
-  
-  checked.data <- gvisCheckGeoMapData(data, my.options)
-
-  if(any("numeric" %in% lapply(checked.data[,c(1,2)],class))){
-    my.options <- modifyList(list(gvis=list(dataMode = "markers")), my.options)
-  }
-  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid=chartid)
-  
-  return(output)
-}

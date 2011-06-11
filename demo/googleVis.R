@@ -114,21 +114,23 @@ plot(AnnoTimeLine)
 pause()
 
 
-## Several charts on one page
-Page <- structure(
-                  list(type="MotionGeoTableTree", 
-                       chartid=format(Sys.time(), "MotionGeoTableTree-%Y-%m-%d-%H-%M-%S"), 
-                       html=list(header=Motion$html$header,
-                         chart=list(Motion$html$chart,
-                           Geo$html$chart, 
-                           Table$html$chart,
-                           Tree$html$chart, 
-                           AndrewMap$html$chart, 
-                           AnnoTimeLine$html$chart),
-                         footer=Tree$html$footer)),
-                  class=c("gvis", "list")
-                  )
-plot(Page)
+## gvisMerge: multiple charts on one page
+
+G <- gvisGeoChart(Exports, "Country", "Profit", 
+                  options=list(width=200, height=100))
+T <- gvisTable(Exports, 
+                  options=list(width=200, height=260))
+
+GT <- gvisMerge(G,T, horizontal=FALSE) 
+plot(GT)
+pause()
+
+M <- gvisMotionChart(Fruits, "Fruit", "Year",
+                     options=list(width=400, height=360))
+GTM <- gvisMerge(GT, M, horizontal=TRUE,
+                 tableOptions="bgcolor=\"#CCCCCC\" cellspacing=10")
+plot(GTM)
+
 pause()
 
 ## See how googleVis functions can be integrated into rsp-files:

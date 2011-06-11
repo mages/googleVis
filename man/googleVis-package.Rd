@@ -19,8 +19,8 @@ Using the Google Visualisation API with R
 \tabular{ll}{
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
-	Version: \tab 0.2.5\cr
-	Date: \tab 2011-06-04\cr
+	Version: \tab 0.2.6\cr
+	Date: \tab 2011-06-11\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
