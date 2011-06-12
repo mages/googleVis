@@ -1,4 +1,4 @@
-Version 0.2.6 [2011-06-11]
+Version 0.2.6 [2011-06-12]
 ==========================
 
 Changes
@@ -7,7 +7,7 @@ Changes
 
 NEW FEATURES
 
-   o New interfaces to two more interactive Google charts:
+   o New interfaces to three more interactive Google charts:
      - gvisComboChart
      - gvisGeoChart
      - gvisCandlestickChart
