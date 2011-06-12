@@ -26,17 +26,17 @@ cat(createGoogleGadget(AndrewMap), file="andrewmap.xml")
 
 
 ## Table. Click on the column header to sort the rows 
-Table <- gvisTable(Exports, options=list(width=400, height=270))#
+Table <- gvisTable(Exports, options=list(width=400, height=270))
 cat(createGoogleGadget(Table), file="table.xml")
 
 ## Table with embedded links
-PopTable <- gvisTable(Population, options=list(width=600, height=300, page='enable'))#
+PopTable <- gvisTable(Population, options=list(width=600, height=300, page='enable'))
 
 cat(createGoogleGadget(PopTable), file="poptable.xml")
 
 ## Tree Map. Left mouse-click to drill down, right mouse-click to move up a hierarchy
 Tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
-                    options=list(fontSize=16, width=400, height=300)) #
+                    options=list(fontSize=16, width=400, height=300)) 
 
 cat(createGoogleGadget(Tree), file="treemap.xml")
 
@@ -140,6 +140,6 @@ Candle <- gvisCandlestickChart(OpenClose, xvar="Weekday", low="Low",
                                       open="Open", close="Close",
                                       high="High",
                                       options=list(legend='none',
-                                        with=300, height=250))
+                                        width=300, height=250))
 
 cat(createGoogleGadget(Candle), file="candlestickchart.xml")

@@ -413,17 +413,13 @@ per-session temporary directory, in which the files were written.
 Suppose you would like to show more than one interactive chart on the 
 same page. 
 
-The function \texttt{gvisMerge} facilitates just this.  
-
-\texttt{gvisMerge} takes two \texttt{gvis}-objects and merges the underlying
-components into one to align the charts either horizontally or vertically next to
-each other in an HTML table. 
+The function \texttt{gvisMerge} takes two \texttt{gvis}-objects 
+and merges the underlying components into one to align the charts either 
+horizontally or vertically next to each other in an HTML table. 
 
 The output of \texttt{gvisMerge} is a \texttt{gvis}-object again.
 This allows us to apply the same function iteratively to create more complex
-chart layouts. 
-
-The following example, see Figure~\ref{gvisMerge}, aligns a geo chart
+chart layouts.  The following example, see Figure~\ref{gvisMerge}, aligns a geo chart
 and table below each other, and combines the output with a motion chart to the right:
 <<>>=
 G <- gvisGeoChart(Exports, "Country", "Profit", 
