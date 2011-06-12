@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="TreeMap_2010-12-11-23-44-23" />
+  <ModulePrefs title="TreeMapID4a732e50" />
   <Content type="html">
   <![CDATA[ 
-   <!-- TreeMap generated in R 2.12.0 by googleVis 0.2.2 package -->
-<!-- Sat Dec 11 23:44:23 2010 -->
+   <!-- TreeMap generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
 
 
+<!-- jsHeader -->
 <script type="text/javascript" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
-google.load("visualization", "1", { packages:["treemap"] });
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = new google.visualization.DataTable();
-var datajson = [
+
+
+// jsData 
+function gvisDataTreeMapID4a732e50 ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
  [
  "USA",
 null,
@@ -405,17 +409,44 @@ data.addColumn('string','parentid');
 data.addColumn('number','state.area');
 data.addColumn('number','state.area.log');
 data.addRows(datajson);
-var chart = new google.visualization.TreeMap(
-   document.getElementById('TreeMap_2010-12-11-23-44-23')
-);
-var options ={};
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartTreeMapID4a732e50() {
+  var data = gvisDataTreeMapID4a732e50()
+  var chart = new google.visualization.TreeMap(
+   document.getElementById('TreeMapID4a732e50')
+  );
+  var options ={};
 options["width"] =    400;
 options["height"] =    300;
 options["showScale"] = true;
-chart.draw(data,options);
+  chart.draw(data,options);
 }
+
+
+// jsDisplayChart 
+function displayChartTreeMapID4a732e50()
+{
+  google.load("visualization", "1", { packages:["treemap"] }); 
+  google.setOnLoadCallback(drawChartTreeMapID4a732e50);
+}
+
+
+// jsChart 
+displayChartTreeMapID4a732e50()
+
+
+<!-- jsFooter -->  
+//-->
 </script>
-<div id="TreeMap_2010-12-11-23-44-23" style="width: 400px; height: 300px;">
+
+
+<!-- divChart -->
+<div id="TreeMapID4a732e50"
+  style="width: 400px; height: 300px;">
 </div>
 
   ]]> 

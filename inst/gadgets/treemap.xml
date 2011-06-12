@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="TreeMap_2010-12-11-23-44-23" />
+  <ModulePrefs title="TreeMapID2601f4de" />
   <Content type="html">
   <![CDATA[ 
-   <!-- TreeMap generated in R 2.12.0 by googleVis 0.2.2 package -->
-<!-- Sat Dec 11 23:44:23 2010 -->
+   <!-- TreeMap generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
 
 
+<!-- jsHeader -->
 <script type="text/javascript" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
-google.load("visualization", "1", { packages:["treemap"] });
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = new google.visualization.DataTable();
-var datajson = [
+
+
+// jsData 
+function gvisDataTreeMapID2601f4de ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
  [
  "Global",
 null,
@@ -87,17 +91,44 @@ data.addColumn('string','Parent');
 data.addColumn('number','Val');
 data.addColumn('number','Fac');
 data.addRows(datajson);
-var chart = new google.visualization.TreeMap(
-   document.getElementById('TreeMap_2010-12-11-23-44-23')
-);
-var options ={};
-options["width"] =    600;
-options["height"] =    500;
-options["fontSize"] =     16;
-chart.draw(data,options);
+return(data);
 }
+
+
+// jsDrawChart
+function drawChartTreeMapID2601f4de() {
+  var data = gvisDataTreeMapID2601f4de()
+  var chart = new google.visualization.TreeMap(
+   document.getElementById('TreeMapID2601f4de')
+  );
+  var options ={};
+options["width"] =    400;
+options["height"] =    300;
+options["fontSize"] =     16;
+  chart.draw(data,options);
+}
+
+
+// jsDisplayChart 
+function displayChartTreeMapID2601f4de()
+{
+  google.load("visualization", "1", { packages:["treemap"] }); 
+  google.setOnLoadCallback(drawChartTreeMapID2601f4de);
+}
+
+
+// jsChart 
+displayChartTreeMapID2601f4de()
+
+
+<!-- jsFooter -->  
+//-->
 </script>
-<div id="TreeMap_2010-12-11-23-44-23" style="width: 600px; height: 500px;">
+
+
+<!-- divChart -->
+<div id="TreeMapID2601f4de"
+  style="width: 400px; height: 300px;">
 </div>
 
   ]]> 

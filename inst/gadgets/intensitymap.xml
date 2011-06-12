@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="IntensityMapID242bd353" />
+  <ModulePrefs title="IntensityMapID2a28a435" />
   <Content type="html">
   <![CDATA[ 
-   <!-- IntensityMap generated in R 2.13.0 by googleVis 0.2.5 package -->
-<!-- Sat Jun  4 21:14:33 2011 -->
+   <!-- IntensityMap generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
 
 
 <!-- jsHeader -->
@@ -14,7 +14,7 @@
 
 
 // jsData 
-function gvisDataIntensityMapID242bd353 ()
+function gvisDataIntensityMapID2a28a435 ()
 {
   var data = new google.visualization.DataTable();
   var datajson =
@@ -44,10 +44,10 @@ return(data);
 
 
 // jsDrawChart
-function drawChartIntensityMapID242bd353() {
-  var data = gvisDataIntensityMapID242bd353()
+function drawChartIntensityMapID2a28a435() {
+  var data = gvisDataIntensityMapID2a28a435()
   var chart = new google.visualization.IntensityMap(
-   document.getElementById('IntensityMapID242bd353')
+   document.getElementById('IntensityMapID2a28a435')
   );
   var options ={};
 options["width"] =    600;
@@ -56,15 +56,15 @@ options["width"] =    600;
 
 
 // jsDisplayChart 
-function displayChartIntensityMapID242bd353()
+function displayChartIntensityMapID2a28a435()
 {
   google.load("visualization", "1", { packages:["intensitymap"] }); 
-  google.setOnLoadCallback(drawChartIntensityMapID242bd353);
+  google.setOnLoadCallback(drawChartIntensityMapID2a28a435);
 }
 
 
 // jsChart 
-displayChartIntensityMapID242bd353()
+displayChartIntensityMapID2a28a435()
 
 
 <!-- jsFooter -->  
@@ -73,7 +73,7 @@ displayChartIntensityMapID242bd353()
 
 
 <!-- divChart -->
-<div id="IntensityMapID242bd353"
+<div id="IntensityMapID2a28a435"
   style="width: 600px; height: 500px;">
 </div>
 

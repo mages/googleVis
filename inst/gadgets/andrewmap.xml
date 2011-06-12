@@ -1,273 +1,304 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="Map_2010-12-11-23-44-23" />
+  <ModulePrefs title="MapID29d613bb" />
   <Content type="html">
   <![CDATA[ 
-   <!-- Map generated in R 2.12.0 by googleVis 0.2.2 package -->
-<!-- Sat Dec 11 23:44:23 2010 -->
+   <!-- Map generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:38 2011 -->
 
 
+<!-- jsHeader -->
 <script type="text/javascript" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
-google.load("visualization", "1", { packages:["map"] });
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = new google.visualization.DataTable();
-var datajson = [
+
+
+// jsData 
+function gvisDataMapID29d613bb ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
  [
    10.8,
  -35.5,
-"Tropical Depression<BR>Pressure=1010<BR>Speed=25" 
+"Tropical Depression<BR>Presure=1010<BR>Speed=25" 
 ],
 [
    11.2,
  -37.4,
-"Tropical Depression<BR>Pressure=1009<BR>Speed=30" 
+"Tropical Depression<BR>Presure=1009<BR>Speed=30" 
 ],
 [
    11.7,
  -39.6,
-"Tropical Depression<BR>Pressure=1008<BR>Speed=30" 
+"Tropical Depression<BR>Presure=1008<BR>Speed=30" 
 ],
 [
    12.3,
    -42,
-"Tropical Storm<BR>Pressure=1006<BR>Speed=35" 
+"Tropical Storm<BR>Presure=1006<BR>Speed=35" 
 ],
 [
    13.1,
  -44.2,
-"Tropical Storm<BR>Pressure=1003<BR>Speed=35" 
+"Tropical Storm<BR>Presure=1003<BR>Speed=35" 
 ],
 [
    13.6,
  -46.2,
-"Tropical Storm<BR>Pressure=1002<BR>Speed=40" 
+"Tropical Storm<BR>Presure=1002<BR>Speed=40" 
 ],
 [
    14.1,
    -48,
-"Tropical Storm<BR>Pressure=1001<BR>Speed=45" 
+"Tropical Storm<BR>Presure=1001<BR>Speed=45" 
 ],
 [
    14.6,
  -49.9,
-"Tropical Storm<BR>Pressure=1000<BR>Speed=45" 
+"Tropical Storm<BR>Presure=1000<BR>Speed=45" 
 ],
 [
    15.4,
  -51.8,
-"Tropical Storm<BR>Pressure=1000<BR>Speed=45" 
+"Tropical Storm<BR>Presure=1000<BR>Speed=45" 
 ],
 [
    16.3,
  -53.5,
-"Tropical Storm<BR>Pressure=1001<BR>Speed=45" 
+"Tropical Storm<BR>Presure=1001<BR>Speed=45" 
 ],
 [
    17.2,
  -55.3,
-"Tropical Storm<BR>Pressure=1002<BR>Speed=45" 
+"Tropical Storm<BR>Presure=1002<BR>Speed=45" 
 ],
 [
      18,
  -56.9,
-"Tropical Storm<BR>Pressure=1005<BR>Speed=45" 
+"Tropical Storm<BR>Presure=1005<BR>Speed=45" 
 ],
 [
    18.8,
  -58.3,
-"Tropical Storm<BR>Pressure=1007<BR>Speed=45" 
+"Tropical Storm<BR>Presure=1007<BR>Speed=45" 
 ],
 [
    19.8,
  -59.3,
-"Tropical Storm<BR>Pressure=1011<BR>Speed=40" 
+"Tropical Storm<BR>Presure=1011<BR>Speed=40" 
 ],
 [
    20.7,
    -60,
-"Tropical Storm<BR>Pressure=1013<BR>Speed=40" 
+"Tropical Storm<BR>Presure=1013<BR>Speed=40" 
 ],
 [
    21.7,
  -60.7,
-"Tropical Storm<BR>Pressure=1015<BR>Speed=40" 
+"Tropical Storm<BR>Presure=1015<BR>Speed=40" 
 ],
 [
    22.5,
  -61.5,
-"Tropical Storm<BR>Pressure=1014<BR>Speed=40" 
+"Tropical Storm<BR>Presure=1014<BR>Speed=40" 
 ],
 [
    23.2,
  -62.4,
-"Tropical Storm<BR>Pressure=1014<BR>Speed=45" 
+"Tropical Storm<BR>Presure=1014<BR>Speed=45" 
 ],
 [
    23.9,
  -63.3,
-"Tropical Storm<BR>Pressure=1010<BR>Speed=45" 
+"Tropical Storm<BR>Presure=1010<BR>Speed=45" 
 ],
 [
    24.4,
  -64.2,
-"Tropical Storm<BR>Pressure=1007<BR>Speed=50" 
+"Tropical Storm<BR>Presure=1007<BR>Speed=50" 
 ],
 [
    24.8,
  -64.9,
-"Tropical Storm<BR>Pressure=1004<BR>Speed=50" 
+"Tropical Storm<BR>Presure=1004<BR>Speed=50" 
 ],
 [
    25.3,
  -65.9,
-"Tropical Storm<BR>Pressure=1000<BR>Speed=55" 
+"Tropical Storm<BR>Presure=1000<BR>Speed=55" 
 ],
 [
    25.6,
    -67,
-"Tropical Storm<BR>Pressure=994<BR>Speed=60" 
+"Tropical Storm<BR>Presure=994<BR>Speed=60" 
 ],
 [
    25.8,
  -68.3,
-"Hurricane<BR>Pressure=981<BR>Speed=70" 
+"Hurricane<BR>Presure=981<BR>Speed=70" 
 ],
 [
    25.7,
  -69.7,
-"Hurricane<BR>Pressure=969<BR>Speed=80" 
+"Hurricane<BR>Presure=969<BR>Speed=80" 
 ],
 [
    25.6,
  -71.1,
-"Hurricane<BR>Pressure=961<BR>Speed=90" 
+"Hurricane<BR>Presure=961<BR>Speed=90" 
 ],
 [
    25.5,
  -72.5,
-"Hurricane<BR>Pressure=947<BR>Speed=105" 
+"Hurricane<BR>Presure=947<BR>Speed=105" 
 ],
 [
    25.4,
  -74.2,
-"Hurricane<BR>Pressure=933<BR>Speed=120" 
+"Hurricane<BR>Presure=933<BR>Speed=120" 
 ],
 [
    25.4,
  -75.8,
-"Hurricane<BR>Pressure=922<BR>Speed=135" 
+"Hurricane<BR>Presure=922<BR>Speed=135" 
 ],
 [
    25.4,
  -77.5,
-"Hurricane<BR>Pressure=930<BR>Speed=125" 
+"Hurricane<BR>Presure=930<BR>Speed=125" 
 ],
 [
    25.4,
  -79.3,
-"Hurricane<BR>Pressure=937<BR>Speed=120" 
+"Hurricane<BR>Presure=937<BR>Speed=120" 
 ],
 [
    25.6,
  -81.2,
-"Hurricane<BR>Pressure=951<BR>Speed=110" 
+"Hurricane<BR>Presure=951<BR>Speed=110" 
 ],
 [
    25.8,
  -83.1,
-"Hurricane<BR>Pressure=947<BR>Speed=115" 
+"Hurricane<BR>Presure=947<BR>Speed=115" 
 ],
 [
    26.2,
    -85,
-"Hurricane<BR>Pressure=943<BR>Speed=115" 
+"Hurricane<BR>Presure=943<BR>Speed=115" 
 ],
 [
    26.6,
  -86.7,
-"Hurricane<BR>Pressure=948<BR>Speed=115" 
+"Hurricane<BR>Presure=948<BR>Speed=115" 
 ],
 [
    27.2,
  -88.2,
-"Hurricane<BR>Pressure=946<BR>Speed=115" 
+"Hurricane<BR>Presure=946<BR>Speed=115" 
 ],
 [
    27.8,
  -89.6,
-"Hurricane<BR>Pressure=941<BR>Speed=120" 
+"Hurricane<BR>Presure=941<BR>Speed=120" 
 ],
 [
    28.5,
  -90.5,
-"Hurricane<BR>Pressure=937<BR>Speed=120" 
+"Hurricane<BR>Presure=937<BR>Speed=120" 
 ],
 [
    29.2,
  -91.3,
-"Hurricane<BR>Pressure=955<BR>Speed=115" 
+"Hurricane<BR>Presure=955<BR>Speed=115" 
 ],
 [
    30.1,
  -91.7,
-"Tropical Storm<BR>Pressure=973<BR>Speed=80" 
+"Tropical Storm<BR>Presure=973<BR>Speed=80" 
 ],
 [
    30.9,
  -91.6,
-"Tropical Storm<BR>Pressure=991<BR>Speed=50" 
+"Tropical Storm<BR>Presure=991<BR>Speed=50" 
 ],
 [
    31.5,
  -91.1,
-"Tropical Depression<BR>Pressure=995<BR>Speed=35" 
+"Tropical Depression<BR>Presure=995<BR>Speed=35" 
 ],
 [
    32.1,
  -90.5,
-"Tropical Depression<BR>Pressure=997<BR>Speed=30" 
+"Tropical Depression<BR>Presure=997<BR>Speed=30" 
 ],
 [
    32.8,
  -89.6,
-"Tropical Depression<BR>Pressure=998<BR>Speed=30" 
+"Tropical Depression<BR>Presure=998<BR>Speed=30" 
 ],
 [
    33.6,
  -88.4,
-"Tropical Depression<BR>Pressure=999<BR>Speed=25" 
+"Tropical Depression<BR>Presure=999<BR>Speed=25" 
 ],
 [
    34.4,
  -86.7,
-"Tropical Depression<BR>Pressure=1000<BR>Speed=20" 
+"Tropical Depression<BR>Presure=1000<BR>Speed=20" 
 ],
 [
    35.4,
    -84,
-"Tropical Depression<BR>Pressure=1000<BR>Speed=20" 
+"Tropical Depression<BR>Presure=1000<BR>Speed=20" 
 ] 
 ];
 data.addColumn('number','Latitude');
 data.addColumn('number','Longitude');
 data.addColumn('string','Tip');
 data.addRows(datajson);
-var chart = new google.visualization.Map(
-   document.getElementById('Map_2010-12-11-23-44-23')
-);
-var options ={};
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartMapID29d613bb() {
+  var data = gvisDataMapID29d613bb()
+  var chart = new google.visualization.Map(
+   document.getElementById('MapID29d613bb')
+  );
+  var options ={};
 options["showTip"] = true;
 options["showLine"] = true;
 options["enableScrollWheel"] = true;
 options["mapType"] = "terrain";
 options["useMapTypeControl"] = true;
-chart.draw(data,options);
+  chart.draw(data,options);
 }
+
+
+// jsDisplayChart 
+function displayChartMapID29d613bb()
+{
+  google.load("visualization", "1", { packages:["map"] }); 
+  google.setOnLoadCallback(drawChartMapID29d613bb);
+}
+
+
+// jsChart 
+displayChartMapID29d613bb()
+
+
+<!-- jsFooter -->  
+//-->
 </script>
-<div id="Map_2010-12-11-23-44-23" style="width: 600px; height: 500px;">
+
+
+<!-- divChart -->
+<div id="MapID29d613bb"
+  style="width: 600px; height: 500px;">
 </div>
 
   ]]> 

@@ -107,18 +107,10 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{hAxis.direction}}{1 or -1. Default 1. The direction in which the
 	values along the horizontal axis grow. Specify -1 to reverse the
 	order of the values.
-      }
-      
+      }      
       \item{\code{hAxis.textPosition}}{a string. Default \code{'out'} Position of the
 	horizontal axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
-      }
-      \item{\code{hAxis.textStyle}}{a json object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}
-	An object that specifies the horizontal axis text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
-	The color can be any HTML color string, for example: \code{'red'} or
-	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
       \item{\code{hAxis.title}}{a string. Default \code{'null'}. \code{hAxis} property that
 	specifies the title of the horizontal axis.
@@ -391,4 +383,4 @@ Line3 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
 plot(Line3)
 }
 }
-\keyword{ hplot }
+\keyword{ iplot }

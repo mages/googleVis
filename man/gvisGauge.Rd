@@ -161,4 +161,4 @@ Gauge1 <- gvisGauge(CityPopularity, options=list(min=0, max=800, greenFrom=500,
 
 plot(Gauge1)
 }
-\keyword{ hplot }
+\keyword{ iplot }

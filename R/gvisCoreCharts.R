@@ -18,43 +18,44 @@
 ### MA 02110-1301, USA
 
 gvisLineChart <- function(data, xvar="", yvar="", options=list(), chartid){
-
-      gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="LineChart")
-  }
+  
+  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="LineChart")
+}
 
 gvisAreaChart <- function(data, xvar="", yvar="", options=list(), chartid){
-
-      gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="AreaChart")
-  }
+  
+  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="AreaChart")
+}
 
 gvisBarChart <- function(data, xvar="", yvar="", options=list(), chartid){
-
-      gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="BarChart")
-  }
+  
+  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="BarChart")
+}
 
 gvisColumnChart <- function(data, xvar="", yvar="", options=list(), chartid){
-
-      gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="ColumnChart")
-  }
+  
+  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="ColumnChart")
+}
 
 
 gvisComboChart <- function(data, xvar="", yvar="", options=list(), chartid){
 
-      gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="ComboChart")
-  }
-## plot(gvisComboChart(iris[,c(5,1:4)], options=list(seriesType="bars", series='{0: {type:"line"}}')))
+  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="ComboChart")
+}
 
-gvisCandlestickChart<- function(data, xvar="", yvar="", options=list(), chartid){
 
-      gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="CandlestickChart")
-  }
-## plot(gvisCandlestickChart(aggregate(iris[,-5], list(x=iris$Species), sum)))
+gvisCandlestickChart<- function(data, xvar="", low="", open="", close="", high="", options=list(), chartid){
+  
+  data <- gvisCheckCandestickChartData(data)
+  
+  gvisCoreChart(data, xvar, yvar=c(low, open, close, high), options, chartid, chart.type="CandlestickChart")
+}
 
 gvisScatterChart <- function(data, options=list(), chartid){
-
+  
   my.type <- "ScatterChart"
   dataName <- deparse(substitute(data))
-
+  
   my.options <- list(gvis=modifyList(list(allowHtml=TRUE),options), dataName=dataName,
                      data=list(allowed=c("number")))
   
@@ -66,27 +67,31 @@ gvisScatterChart <- function(data, options=list(), chartid){
 }
 
 
-
-## plot(gvisScatterChart(women, options=list(legend="none", lineWidth=2, pointSize=0, hAxis.title="weight", title="Women", vAxis="{title:'height'}", hAxis="{title: 'weight'}")))
+gvisCheckCandestickChartData <- function(data){
+  if(ncol(data) < 5)
+    stop(paste("The input data requires 5 columns, for xvar, low, open, close, high.\n",
+               "However, your data set has only:", ncol(data)))          
+  return(data)
+}
 
 gvisCheckScatterChartData <- function(data){
-
-  # nothing to check at the moment here
+  
+                                        # nothing to check at the moment here
   return(data)
 }
 
 
 
 gvisCoreChart <- function(data, xvar="", yvar="", options=list(), chartid, chart.type){
-
-   dataName <- deparse(substitute(data))
-
+  
+  dataName <- deparse(substitute(data))
+  
   my.options <- list(gvis=modifyList(list(allowHtml=TRUE),options), dataName=dataName,
                      data=list(xvar=xvar, yvar=yvar,
                        allowed=c("string", "number"))
                      )
-
- 
+  
+  
   checked.data <- gvisCheckCoreChartData(data, xvar=xvar, yvar=yvar)
 
   
@@ -96,20 +101,19 @@ gvisCoreChart <- function(data, xvar="", yvar="", options=list(), chartid, chart
 }
 
 
-
 gvisCheckCoreChartData <- function(data, xvar, yvar){
-
+  
   if(class(data) != "data.frame"){
     stop("Error: data has to be a data.frame.")
   }
   if(xvar=="")
     xvar <- names(data)[1]
   data[,xvar] <- as.character(data[,xvar])
-
-   if("" %in% yvar){
-     yvar <- sapply(data, is.numeric)
-     yvar <- names(yvar[yvar])
-   }
+  
+  if("" %in% yvar){
+    yvar <- sapply(data, is.numeric)
+    yvar <- names(yvar[yvar])
+  }
   data <-  data[,c(xvar, yvar)]
   
   return(data)

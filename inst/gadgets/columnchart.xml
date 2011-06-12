@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="ColumnChartID12e24170" />
+  <ModulePrefs title="ColumnChartID1dc6d80f" />
   <Content type="html">
   <![CDATA[ 
-   <!-- ColumnChart generated in R 2.13.0 by googleVis 0.2.5 package -->
-<!-- Sat Jun  4 21:14:33 2011 -->
+   <!-- ColumnChart generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
 
 
 <!-- jsHeader -->
@@ -14,7 +14,7 @@
 
 
 // jsData 
-function gvisDataColumnChartID12e24170 ()
+function gvisDataColumnChartID1dc6d80f ()
 {
   var data = new google.visualization.DataTable();
   var datajson =
@@ -44,27 +44,30 @@ return(data);
 
 
 // jsDrawChart
-function drawChartColumnChartID12e24170() {
-  var data = gvisDataColumnChartID12e24170()
+function drawChartColumnChartID1dc6d80f() {
+  var data = gvisDataColumnChartID1dc6d80f()
   var chart = new google.visualization.ColumnChart(
-   document.getElementById('ColumnChartID12e24170')
+   document.getElementById('ColumnChartID1dc6d80f')
   );
   var options ={};
 options["allowHtml"] = true;
+options["legend"] = "none";
+options["width"] =    300;
+options["height"] =    200;
   chart.draw(data,options);
 }
 
 
 // jsDisplayChart 
-function displayChartColumnChartID12e24170()
+function displayChartColumnChartID1dc6d80f()
 {
   google.load("visualization", "1", { packages:["corechart"] }); 
-  google.setOnLoadCallback(drawChartColumnChartID12e24170);
+  google.setOnLoadCallback(drawChartColumnChartID1dc6d80f);
 }
 
 
 // jsChart 
-displayChartColumnChartID12e24170()
+displayChartColumnChartID1dc6d80f()
 
 
 <!-- jsFooter -->  
@@ -73,8 +76,8 @@ displayChartColumnChartID12e24170()
 
 
 <!-- divChart -->
-<div id="ColumnChartID12e24170"
-  style="width: 600px; height: 500px;">
+<div id="ColumnChartID1dc6d80f"
+  style="width: 300px; height: 200px;">
 </div>
 
   ]]> 

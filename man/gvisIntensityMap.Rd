@@ -11,7 +11,8 @@ Google Intensity Map with R
   included into a web page, or as a stand-alone page.
 }
 \usage{
-gvisIntensityMap(data, locationvar = "", numvar = "", options = list(), chartid)
+gvisIntensityMap(data, locationvar = "", numvar = "",
+                       options = list(), chartid)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -152,4 +153,4 @@ plot(Intensity2)
 
 
 }
-\keyword{ hplot }
+\keyword{ iplot }

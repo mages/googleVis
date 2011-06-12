@@ -79,8 +79,8 @@ plot.gvis <- function(x,...){
 </head>
 <body>
 <p>
-  You find below the HTML code of the visualisation.
-  You can copy and paste the code into an existing HTML page.
+  You find below the HTML code of the visualisation.<br />
+  You can copy and paste the code into an existing HTML page.<br />
   For more information see also <a href="/library/googleVis/html/gvisMethods.html">?print.gvis</a></p>
 <p><textarea rows="50" name="html" cols="80">
 %s

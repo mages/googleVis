@@ -1,13 +1,14 @@
 ## Move into the inst/gadget folder before you run this script!
 
-Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year", options=list(height=350, width=400))
+Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
+  options=list(height=350, width=400)) 
 cat(createGoogleGadget(Motion), file="motionchart.xml")
 
 ## Geo Map with coloured regions
 Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit",
-                       options=list(height=350, dataMode='regions'))
-cat(createGoogleGadget(Geo), file="geomap.xml")
+                       options=list(dataMode='regions'))
 
+cat(createGoogleGadget(Geo), file="geomap.xml")#
 
 ## Show Hurricane Andrew (1992) storm track with Geo Map
 AndrewGeo <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt", 
@@ -25,16 +26,17 @@ cat(createGoogleGadget(AndrewMap), file="andrewmap.xml")
 
 
 ## Table. Click on the column header to sort the rows 
-Table <- gvisTable(Exports, options=list(width=400, height=300))
+Table <- gvisTable(Exports, options=list(width=400, height=270))#
 cat(createGoogleGadget(Table), file="table.xml")
 
 ## Table with embedded links
-PopTable <- gvisTable(Population, options=list(width=600, height=300, page='enable'))
+PopTable <- gvisTable(Population, options=list(width=600, height=300, page='enable'))#
 
 cat(createGoogleGadget(PopTable), file="poptable.xml")
 
 ## Tree Map. Left mouse-click to drill down, right mouse-click to move up a hierarchy
-Tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac", options=list(fontSize=16))
+Tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
+                    options=list(fontSize=16, width=400, height=300)) #
 
 cat(createGoogleGadget(Tree), file="treemap.xml")
 
@@ -84,45 +86,60 @@ cat(createGoogleGadget(AnnoTimeLine), file="annotimeline.xml")
 df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
 
 ## Line chart
-Line <- gvisLineChart(df)
+Line <- gvisLineChart(df,
+                options=list(legend='none', width=300, height=200))
 cat(createGoogleGadget(Line), file="linechart.xml")
 
 
 ## Bar chart
-Bar <- gvisBarChart(df)
+Bar <- gvisBarChart(df,
+                    options=list(legend='none', width=300, height=200))
 cat(createGoogleGadget(Bar), file="barchart.xml")
 
 ## Column chart
-Column <- gvisColumnChart(df)
+Column <- gvisColumnChart(df,
+                          options=list(legend='none', width=300, height=200))
 cat(createGoogleGadget(Column), file="columnchart.xml")
 
 ## Area chart
-Area <- gvisAreaChart(df)
+Area <- gvisAreaChart(df,
+                      options=list(legend='none', width=300, height=300))
 cat(createGoogleGadget(Area), file="areachart.xml")
 
 ## Scatter chart
 Scatter <- gvisScatterChart(women, options=list(legend="none",
                  lineWidth=2, pointSize=0, hAxis.title="weight",
                  title="Women", vAxis="{title:'height'}",
-                 hAxis="{title:'weight'}")
-                 )
+                 hAxis="{title:'weight'}", width=300, height=300))
+                 
 cat(createGoogleGadget(Scatter), file="scatterchart.xml")
 
 ## Pie chart
-Pie <- gvisPieChart(CityPopularity)
+Pie <- gvisPieChart(CityPopularity,
+                    options=list(width=400, height=200))
 cat(createGoogleGadget(Pie), file="piechart.xml")
 
 ## Gauge
 Gauge <-  gvisGauge(CityPopularity, options=list(min=0, max=800, greenFrom=500,
                                       greenTo=800, yellowFrom=300, yellowTo=500,
-                                      redFrom=0, redTo=300))
+                                      redFrom=0, redTo=300, width=300, height=220))
 cat(createGoogleGadget(Gauge), file="gauge.xml")
 
 ## Intensity Map
 Intensity <- gvisIntensityMap(df)
+
 cat(createGoogleGadget(Intensity), file="intensitymap.xml")
 
 ## Org chart
-Org <- gvisOrgChart(Regions, options=list(width=600, height=400,
+Org <- gvisOrgChart(Regions, options=list(width=600, height=210,
                                size='large', allowCollapse=TRUE))
 cat(createGoogleGadget(Org), file="orgchart.xml")
+
+## Candlestick chart
+Candle <- gvisCandlestickChart(OpenClose, xvar="Weekday", low="Low",
+                                      open="Open", close="Close",
+                                      high="High",
+                                      options=list(legend='none',
+                                        with=300, height=250))
+
+cat(createGoogleGadget(Candle), file="candlestickchart.xml")

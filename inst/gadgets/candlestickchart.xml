@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="CandlestickChartID7f503bc7" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- CandlestickChart generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataCandlestickChartID7f503bc7 ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Mon",
+20,
+28,
+38,
+45 
+],
+[
+ "Tues",
+31,
+38,
+55,
+66 
+],
+[
+ "Wed",
+50,
+55,
+77,
+80 
+],
+[
+ "Thurs",
+50,
+77,
+66,
+77 
+],
+[
+ "Fri",
+15,
+66,
+22,
+68 
+] 
+];
+data.addColumn('string','Weekday');
+data.addColumn('number','Low');
+data.addColumn('number','Open');
+data.addColumn('number','Close');
+data.addColumn('number','High');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartCandlestickChartID7f503bc7() {
+  var data = gvisDataCandlestickChartID7f503bc7()
+  var chart = new google.visualization.CandlestickChart(
+   document.getElementById('CandlestickChartID7f503bc7')
+  );
+  var options ={};
+options["allowHtml"] = true;
+options["legend"] = "none";
+options["with"] =    300;
+options["height"] =    250;
+  chart.draw(data,options);
+}
+
+
+// jsDisplayChart 
+function displayChartCandlestickChartID7f503bc7()
+{
+  google.load("visualization", "1", { packages:["corechart"] }); 
+  google.setOnLoadCallback(drawChartCandlestickChartID7f503bc7);
+}
+
+
+// jsChart 
+displayChartCandlestickChartID7f503bc7()
+
+
+<!-- jsFooter -->  
+//-->
+</script>
+
+
+<!-- divChart -->
+<div id="CandlestickChartID7f503bc7"
+  style="width: 600px; height: 250px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

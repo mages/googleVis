@@ -388,4 +388,4 @@ Area3 <- gvisAreaChart(df, xvar="country", yvar=c("val1", "val2"),
 plot(Area3)
 }
 }
-\keyword{ hplot }
+\keyword{ iplot }

@@ -254,4 +254,4 @@ tbl2 <- gvisTable(Population, options=list(page='enable', height=300))
 plot(tbl2)
 }
 
-\keyword{ hplot }
+\keyword{ iplot }

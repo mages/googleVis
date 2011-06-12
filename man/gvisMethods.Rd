@@ -110,7 +110,7 @@
 
 \seealso{
   See also \code{\link{cat}}, \code{\link{browseURL}},
-  \code{\link{createGoogleGadget}}
+  \code{\link{createGoogleGadget}} and \code{\link{gvisMerge}} for combining charts.
 }
 \examples{
 
@@ -135,6 +135,10 @@ print(M, "jsData")
 ## A web browser with Internet connection and Flash is required.
 plot(M)
 
+## Combine with another chart, e.g. table
+tbl <- gvisTable(Fruits, options=list(height=220))
+Mtbl <- gvisMerge(M, tbl)
+plot(Mtbl)
 
 \dontrun{
 
@@ -211,6 +215,6 @@ plot(M)
 }
 % Add one or more standard keywords, see file 'KEYWORDS' in the
 % R documentation directory.
-\keyword{ hplot }
+\keyword{ iplot }
 \keyword{ methods }
 \keyword{ print }

@@ -196,4 +196,4 @@ plot(M2)
 
 }
 
-\keyword{ hplot }
+\keyword{ iplot }

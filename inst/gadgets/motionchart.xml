@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="MotionChart_2010-12-11-23-44-22" />
+  <ModulePrefs title="MotionChartID14ffe432" />
   <Content type="html">
   <![CDATA[ 
-   <!-- MotionChart generated in R 2.12.0 by googleVis 0.2.2 package -->
-<!-- Sat Dec 11 23:44:22 2010 -->
+   <!-- MotionChart generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:38 2011 -->
 
 
+<!-- jsHeader -->
 <script type="text/javascript" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
-google.load("visualization", "1", { packages:["motionchart"] });
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = new google.visualization.DataTable();
-var datajson = [
+
+
+// jsData 
+function gvisDataMotionChartID14ffe432 ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
  [
  "Apples",
   2008,
@@ -105,16 +109,43 @@ data.addColumn('number','Expenses');
 data.addColumn('number','Profit');
 data.addColumn('string','Date');
 data.addRows(datajson);
-var chart = new google.visualization.MotionChart(
-   document.getElementById('MotionChart_2010-12-11-23-44-22')
-);
-var options ={};
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartMotionChartID14ffe432() {
+  var data = gvisDataMotionChartID14ffe432()
+  var chart = new google.visualization.MotionChart(
+   document.getElementById('MotionChartID14ffe432')
+  );
+  var options ={};
 options["width"] =    400;
 options["height"] =    350;
-chart.draw(data,options);
+  chart.draw(data,options);
 }
+
+
+// jsDisplayChart 
+function displayChartMotionChartID14ffe432()
+{
+  google.load("visualization", "1", { packages:["motionchart"] }); 
+  google.setOnLoadCallback(drawChartMotionChartID14ffe432);
+}
+
+
+// jsChart 
+displayChartMotionChartID14ffe432()
+
+
+<!-- jsFooter -->  
+//-->
 </script>
-<div id="MotionChart_2010-12-11-23-44-22" style="width: 400px; height: 350px;">
+
+
+<!-- divChart -->
+<div id="MotionChartID14ffe432"
+  style="width: 400px; height: 350px;">
 </div>
 
   ]]> 

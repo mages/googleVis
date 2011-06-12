@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="AnnotatedTimeLine_2010-12-11-23-44-23" />
+  <ModulePrefs title="AnnotatedTimeLineID4fe5ac5f" />
   <Content type="html">
   <![CDATA[ 
-   <!-- AnnotatedTimeLine generated in R 2.12.0 by googleVis 0.2.2 package -->
-<!-- Sat Dec 11 23:44:23 2010 -->
+   <!-- AnnotatedTimeLine generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
 
 
+<!-- jsHeader -->
 <script type="text/javascript" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
-google.load("visualization", "1", { packages:["annotatedtimeline"] });
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = new google.visualization.DataTable();
-var datajson = [
+
+
+// jsData 
+function gvisDataAnnotatedTimeLineID4fe5ac5f ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
  [
  new Date(2008,0,1),
   3000,
@@ -78,18 +82,45 @@ data.addColumn('number','Pens');
 data.addColumn('string','Title.Pens');
 data.addColumn('string','Annotation.Pens');
 data.addRows(datajson);
-var chart = new google.visualization.AnnotatedTimeLine(
-   document.getElementById('AnnotatedTimeLine_2010-12-11-23-44-23')
-);
-var options ={};
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartAnnotatedTimeLineID4fe5ac5f() {
+  var data = gvisDataAnnotatedTimeLineID4fe5ac5f()
+  var chart = new google.visualization.AnnotatedTimeLine(
+   document.getElementById('AnnotatedTimeLineID4fe5ac5f')
+  );
+  var options ={};
 options["width"] =    400;
 options["height"] =    250;
 options["displayAnnotations"] = true;
 options["legendPosition"] = "newRow";
-chart.draw(data,options);
+  chart.draw(data,options);
 }
+
+
+// jsDisplayChart 
+function displayChartAnnotatedTimeLineID4fe5ac5f()
+{
+  google.load("visualization", "1", { packages:["annotatedtimeline"] }); 
+  google.setOnLoadCallback(drawChartAnnotatedTimeLineID4fe5ac5f);
+}
+
+
+// jsChart 
+displayChartAnnotatedTimeLineID4fe5ac5f()
+
+
+<!-- jsFooter -->  
+//-->
 </script>
-<div id="AnnotatedTimeLine_2010-12-11-23-44-23" style="width: 400px; height: 250px;">
+
+
+<!-- divChart -->
+<div id="AnnotatedTimeLineID4fe5ac5f"
+  style="width: 400px; height: 250px;">
 </div>
 
   ]]> 

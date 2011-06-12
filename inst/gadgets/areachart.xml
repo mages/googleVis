@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="AreaChartID443629bf" />
+  <ModulePrefs title="AreaChartID6992d00e" />
   <Content type="html">
   <![CDATA[ 
-   <!-- AreaChart generated in R 2.13.0 by googleVis 0.2.5 package -->
-<!-- Sat Jun  4 21:14:33 2011 -->
+   <!-- AreaChart generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
 
 
 <!-- jsHeader -->
@@ -14,7 +14,7 @@
 
 
 // jsData 
-function gvisDataAreaChartID443629bf ()
+function gvisDataAreaChartID6992d00e ()
 {
   var data = new google.visualization.DataTable();
   var datajson =
@@ -44,27 +44,30 @@ return(data);
 
 
 // jsDrawChart
-function drawChartAreaChartID443629bf() {
-  var data = gvisDataAreaChartID443629bf()
+function drawChartAreaChartID6992d00e() {
+  var data = gvisDataAreaChartID6992d00e()
   var chart = new google.visualization.AreaChart(
-   document.getElementById('AreaChartID443629bf')
+   document.getElementById('AreaChartID6992d00e')
   );
   var options ={};
 options["allowHtml"] = true;
+options["legend"] = "none";
+options["width"] =    300;
+options["height"] =    300;
   chart.draw(data,options);
 }
 
 
 // jsDisplayChart 
-function displayChartAreaChartID443629bf()
+function displayChartAreaChartID6992d00e()
 {
   google.load("visualization", "1", { packages:["corechart"] }); 
-  google.setOnLoadCallback(drawChartAreaChartID443629bf);
+  google.setOnLoadCallback(drawChartAreaChartID6992d00e);
 }
 
 
 // jsChart 
-displayChartAreaChartID443629bf()
+displayChartAreaChartID6992d00e()
 
 
 <!-- jsFooter -->  
@@ -73,8 +76,8 @@ displayChartAreaChartID443629bf()
 
 
 <!-- divChart -->
-<div id="AreaChartID443629bf"
-  style="width: 600px; height: 500px;">
+<div id="AreaChartID6992d00e"
+  style="width: 300px; height: 300px;">
 </div>
 
   ]]> 

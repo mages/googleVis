@@ -53,12 +53,8 @@ Contact: rvisualisation@gmail.com}
   without uploading their data to Google. The output of a \googleVis
   function is html code that contains the data and references to
   JavaScript functions hosted by Google and can be displayed via a
-  browser. 
+  browser via the R HTTP help server. 
 
-  Currently the package provides interfaces to
-  motion chart, line chart, bar chart, column chart, area chart, combo
-  chart,  scatter chart, pie chart, and org chart, further annotated time
-  line, map, geo map, geo chart, table, tree map, intensity map, and gauge. 
 \end{abstract}
 
 \clearpage
@@ -220,10 +216,11 @@ allows the \googleVis package to display pages locally.
 
 Currently the package provides interfaces to
 motion chart, line chart, bar chart, column chart, area chart,
-scatter chart, combo chart, pie chart, geo chart
-and org chart, further annotated time line, map, geo map, table, tree
-map, intensity map, and gauge~\cite{GoogleVisApi}.
-See Figure~\ref{demos} for some examples, for more see the 
+scatter chart, combo chart, pie chart, geo chart, candlestick chart,
+and org chart, further annotated time line, map,
+geo map, table, tree map, intensity map, and
+gauge~\cite{GoogleVisApi}. See Figure~\ref{demos} for some examples,
+for more see the  
 \href{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}{project
   site}\footnote{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}.
  
@@ -416,7 +413,7 @@ per-session temporary directory, in which the files were written.
 Suppose you would like to show more than one interactive chart on the 
 same page. 
 
-The function \texttt{gvisMerge} just does this.  
+The function \texttt{gvisMerge} facilitates just this.  
 
 \texttt{gvisMerge} takes two \texttt{gvis}-objects and merges the underlying
 components into one to align the charts either horizontally or vertically next to
@@ -427,7 +424,7 @@ This allows us to apply the same function iteratively to create more complex
 chart layouts. 
 
 The following example, see Figure~\ref{gvisMerge}, aligns a geo chart
-and table below each other, and combines this output with a motion chart to the right:
+and table below each other, and combines the output with a motion chart to the right:
 <<>>=
 G <- gvisGeoChart(Exports, "Country", "Profit", 
                   options=list(width=200, height=100))

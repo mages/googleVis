@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="Table_2010-12-11-23-44-23" />
+  <ModulePrefs title="TableID25a96f72" />
   <Content type="html">
   <![CDATA[ 
-   <!-- Table generated in R 2.12.0 by googleVis 0.2.2 package -->
-<!-- Sat Dec 11 23:44:23 2010 -->
+   <!-- Table generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:38 2011 -->
 
 
+<!-- jsHeader -->
 <script type="text/javascript" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
-google.load("visualization", "1", { packages:["table"] });
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = new google.visualization.DataTable();
-var datajson = [
+
+
+// jsData 
+function gvisDataTableID25a96f72 ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
  [
  "Germany",
      3,
@@ -70,17 +74,44 @@ data.addColumn('string','Country');
 data.addColumn('number','Profit');
 data.addColumn('boolean','Online');
 data.addRows(datajson);
-var chart = new google.visualization.Table(
-   document.getElementById('Table_2010-12-11-23-44-23')
-);
-var options ={};
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartTableID25a96f72() {
+  var data = gvisDataTableID25a96f72()
+  var chart = new google.visualization.Table(
+   document.getElementById('TableID25a96f72')
+  );
+  var options ={};
 options["allowHtml"] = true;
 options["width"] =    400;
-options["height"] =    300;
-chart.draw(data,options);
+options["height"] =    270;
+  chart.draw(data,options);
 }
+
+
+// jsDisplayChart 
+function displayChartTableID25a96f72()
+{
+  google.load("visualization", "1", { packages:["table"] }); 
+  google.setOnLoadCallback(drawChartTableID25a96f72);
+}
+
+
+// jsChart 
+displayChartTableID25a96f72()
+
+
+<!-- jsFooter -->  
+//-->
 </script>
-<div id="Table_2010-12-11-23-44-23" style="width: 400px; height: 300px;">
+
+
+<!-- divChart -->
+<div id="TableID25a96f72"
+  style="width: 400px; height: 270px;">
 </div>
 
   ]]> 

@@ -4,7 +4,15 @@
   Google Combo Chart with R
 }
 \description{
-  A chart that lets you render each series as a different marker type from the following list: columns, lines, and area lines.
+  A chart that lets you render each series as a different marker type
+  from the following list: columns, lines, and area lines.
+
+  The gvisComboChart function reads a data.frame and
+  creates text output referring to the Google Visualisation API which can be
+  included into a web page, or as a stand-alone page. The actual chart is
+  rendered by the web browser using SVG or
+  VML. 
+
 }
 \usage{
 gvisComboChart(data, xvar = "", yvar = "", options = list(), chartid)
@@ -399,4 +407,4 @@ C1 <- gvisComboChart(CityPopularity, xvar="City",
 plot(C1)
 
 }
-\keyword{ hplot }
+\keyword{ iplot }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="LineChartID36dd465f" />
+  <ModulePrefs title="LineChartID6f97b9f3" />
   <Content type="html">
   <![CDATA[ 
-   <!-- LineChart generated in R 2.13.0 by googleVis 0.2.5 package -->
-<!-- Sat Jun  4 21:14:33 2011 -->
+   <!-- LineChart generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
 
 
 <!-- jsHeader -->
@@ -14,7 +14,7 @@
 
 
 // jsData 
-function gvisDataLineChartID36dd465f ()
+function gvisDataLineChartID6f97b9f3 ()
 {
   var data = new google.visualization.DataTable();
   var datajson =
@@ -44,27 +44,30 @@ return(data);
 
 
 // jsDrawChart
-function drawChartLineChartID36dd465f() {
-  var data = gvisDataLineChartID36dd465f()
+function drawChartLineChartID6f97b9f3() {
+  var data = gvisDataLineChartID6f97b9f3()
   var chart = new google.visualization.LineChart(
-   document.getElementById('LineChartID36dd465f')
+   document.getElementById('LineChartID6f97b9f3')
   );
   var options ={};
 options["allowHtml"] = true;
+options["legend"] = "none";
+options["width"] =    300;
+options["height"] =    200;
   chart.draw(data,options);
 }
 
 
 // jsDisplayChart 
-function displayChartLineChartID36dd465f()
+function displayChartLineChartID6f97b9f3()
 {
   google.load("visualization", "1", { packages:["corechart"] }); 
-  google.setOnLoadCallback(drawChartLineChartID36dd465f);
+  google.setOnLoadCallback(drawChartLineChartID6f97b9f3);
 }
 
 
 // jsChart 
-displayChartLineChartID36dd465f()
+displayChartLineChartID6f97b9f3()
 
 
 <!-- jsFooter -->  
@@ -73,8 +76,8 @@ displayChartLineChartID36dd465f()
 
 
 <!-- divChart -->
-<div id="LineChartID36dd465f"
-  style="width: 600px; height: 500px;">
+<div id="LineChartID6f97b9f3"
+  style="width: 300px; height: 200px;">
 </div>
 
   ]]> 

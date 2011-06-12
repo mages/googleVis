@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="GaugeID610937c2" />
+  <ModulePrefs title="GaugeID6b035e5e" />
   <Content type="html">
   <![CDATA[ 
-   <!-- Gauge generated in R 2.13.0 by googleVis 0.2.5 package -->
-<!-- Sat Jun  4 21:14:33 2011 -->
+   <!-- Gauge generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
 
 
 <!-- jsHeader -->
@@ -14,7 +14,7 @@
 
 
 // jsData 
-function gvisDataGaugeID610937c2 ()
+function gvisDataGaugeID6b035e5e ()
 {
   var data = new google.visualization.DataTable();
   var datajson =
@@ -52,10 +52,10 @@ return(data);
 
 
 // jsDrawChart
-function drawChartGaugeID610937c2() {
-  var data = gvisDataGaugeID610937c2()
+function drawChartGaugeID6b035e5e() {
+  var data = gvisDataGaugeID6b035e5e()
   var chart = new google.visualization.Gauge(
-   document.getElementById('GaugeID610937c2')
+   document.getElementById('GaugeID6b035e5e')
   );
   var options ={};
 options["allowHtml"] = true;
@@ -67,20 +67,22 @@ options["yellowFrom"] =    300;
 options["yellowTo"] =    500;
 options["redFrom"] =      0;
 options["redTo"] =    300;
+options["width"] =    300;
+options["height"] =    220;
   chart.draw(data,options);
 }
 
 
 // jsDisplayChart 
-function displayChartGaugeID610937c2()
+function displayChartGaugeID6b035e5e()
 {
   google.load("visualization", "1", { packages:["gauge"] }); 
-  google.setOnLoadCallback(drawChartGaugeID610937c2);
+  google.setOnLoadCallback(drawChartGaugeID6b035e5e);
 }
 
 
 // jsChart 
-displayChartGaugeID610937c2()
+displayChartGaugeID6b035e5e()
 
 
 <!-- jsFooter -->  
@@ -89,8 +91,8 @@ displayChartGaugeID610937c2()
 
 
 <!-- divChart -->
-<div id="GaugeID610937c2"
-  style="width: 600px; height: 500px;">
+<div id="GaugeID6b035e5e"
+  style="width: 300px; height: 220px;">
 </div>
 
   ]]> 

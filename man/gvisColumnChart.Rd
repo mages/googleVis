@@ -393,5 +393,5 @@ plot(Col4)
 }
 
 }
-\keyword{ hplot }
+\keyword{ iplot }
 

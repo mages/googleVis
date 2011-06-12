@@ -209,6 +209,12 @@ str(M1)
 M1
 
 plot(M1)
+
+## Combine with another chart, e.g. table
+tbl <- gvisTable(Fruits, options=list(height=220))
+Mtbl <- gvisMerge(M1, tbl)
+plot(Mtbl)
+
 \dontrun{
 ## Usage of date variable
 M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
@@ -249,4 +255,4 @@ plot(M5)
 ## http://code.google.com/apis/chart/interactive/docs/gallery/motionchart.html#Motion_Chart_initial_state
 
 }
-\keyword{ hplot }
+\keyword{ iplot }

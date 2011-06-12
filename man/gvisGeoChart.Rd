@@ -201,4 +201,4 @@ G2 <- gvisGeoChart(Exports, "Country", "Profit",
 plot(G2)
 
 }
-\keyword{ hplot }
+\keyword{ iplot }

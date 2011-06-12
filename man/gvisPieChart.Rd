@@ -251,4 +251,4 @@ Pie1 <- gvisPieChart(CityPopularity)
 plot(Pie1)
 
 }
-\keyword{ hplot }
+\keyword{ iplot }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="PieChartID5b1581fd" />
+  <ModulePrefs title="PieChartID7ff01540" />
   <Content type="html">
   <![CDATA[ 
-   <!-- PieChart generated in R 2.13.0 by googleVis 0.2.5 package -->
-<!-- Sat Jun  4 21:14:33 2011 -->
+   <!-- PieChart generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
 
 
 <!-- jsHeader -->
@@ -14,7 +14,7 @@
 
 
 // jsData 
-function gvisDataPieChartID5b1581fd ()
+function gvisDataPieChartID7ff01540 ()
 {
   var data = new google.visualization.DataTable();
   var datajson =
@@ -52,27 +52,29 @@ return(data);
 
 
 // jsDrawChart
-function drawChartPieChartID5b1581fd() {
-  var data = gvisDataPieChartID5b1581fd()
+function drawChartPieChartID7ff01540() {
+  var data = gvisDataPieChartID7ff01540()
   var chart = new google.visualization.PieChart(
-   document.getElementById('PieChartID5b1581fd')
+   document.getElementById('PieChartID7ff01540')
   );
   var options ={};
 options["allowHtml"] = true;
+options["width"] =    400;
+options["height"] =    200;
   chart.draw(data,options);
 }
 
 
 // jsDisplayChart 
-function displayChartPieChartID5b1581fd()
+function displayChartPieChartID7ff01540()
 {
   google.load("visualization", "1", { packages:["corechart"] }); 
-  google.setOnLoadCallback(drawChartPieChartID5b1581fd);
+  google.setOnLoadCallback(drawChartPieChartID7ff01540);
 }
 
 
 // jsChart 
-displayChartPieChartID5b1581fd()
+displayChartPieChartID7ff01540()
 
 
 <!-- jsFooter -->  
@@ -81,8 +83,8 @@ displayChartPieChartID5b1581fd()
 
 
 <!-- divChart -->
-<div id="PieChartID5b1581fd"
-  style="width: 600px; height: 500px;">
+<div id="PieChartID7ff01540"
+  style="width: 400px; height: 200px;">
 </div>
 
   ]]> 

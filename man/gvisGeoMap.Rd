@@ -289,4 +289,4 @@ demo(AnimatedGeoMap)
 
 }
 
-\keyword{ hplot }
+\keyword{ iplot }

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="BarChartID7937231c" />
+  <ModulePrefs title="BarChartID523139c1" />
   <Content type="html">
   <![CDATA[ 
-   <!-- BarChart generated in R 2.13.0 by googleVis 0.2.5 package -->
-<!-- Sat Jun  4 21:14:33 2011 -->
+   <!-- BarChart generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
 
 
 <!-- jsHeader -->
@@ -14,7 +14,7 @@
 
 
 // jsData 
-function gvisDataBarChartID7937231c ()
+function gvisDataBarChartID523139c1 ()
 {
   var data = new google.visualization.DataTable();
   var datajson =
@@ -44,27 +44,30 @@ return(data);
 
 
 // jsDrawChart
-function drawChartBarChartID7937231c() {
-  var data = gvisDataBarChartID7937231c()
+function drawChartBarChartID523139c1() {
+  var data = gvisDataBarChartID523139c1()
   var chart = new google.visualization.BarChart(
-   document.getElementById('BarChartID7937231c')
+   document.getElementById('BarChartID523139c1')
   );
   var options ={};
 options["allowHtml"] = true;
+options["legend"] = "none";
+options["width"] =    300;
+options["height"] =    200;
   chart.draw(data,options);
 }
 
 
 // jsDisplayChart 
-function displayChartBarChartID7937231c()
+function displayChartBarChartID523139c1()
 {
   google.load("visualization", "1", { packages:["corechart"] }); 
-  google.setOnLoadCallback(drawChartBarChartID7937231c);
+  google.setOnLoadCallback(drawChartBarChartID523139c1);
 }
 
 
 // jsChart 
-displayChartBarChartID7937231c()
+displayChartBarChartID523139c1()
 
 
 <!-- jsFooter -->  
@@ -73,8 +76,8 @@ displayChartBarChartID7937231c()
 
 
 <!-- divChart -->
-<div id="BarChartID7937231c"
-  style="width: 600px; height: 500px;">
+<div id="BarChartID523139c1"
+  style="width: 300px; height: 200px;">
 </div>
 
   ]]> 

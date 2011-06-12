@@ -10,6 +10,7 @@ NEW FEATURES
    o New interfaces to two more interactive Google charts:
      - gvisComboChart
      - gvisGeoChart
+     - gvisCandlestickChart
 
    o New function 'gvisMerge' to align two charts next to each other
 

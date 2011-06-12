@@ -44,6 +44,11 @@ Scatter <- gvisScatterChart(women, options=list(legend="none",
 plot(Scatter)
 pause()
 
+## Candlestick chart
+Candle <- gvisCandlestickChart(OpenClose, options=list(legend='none'))
+plot(Candle)
+pause()
+
 ## Pie chart
 Pie <- gvisPieChart(CityPopularity)
 plot(Pie)
@@ -52,12 +57,12 @@ pause()
 ## Gauge
 Gauge <-  gvisGauge(CityPopularity, options=list(min=0, max=800, greenFrom=500,
                                       greenTo=800, yellowFrom=300, yellowTo=500,
-                                      redFrom=0, redTo=300))
+                                      redFrom=0, redTo=300, width=400, height=300))
 plot(Gauge)
 pause()
 
 ## Org chart
-Org <- gvisOrgChart(Regions, options=list(width=600, height=400,
+Org <- gvisOrgChart(Regions, options=list(width=600, height=250,
                                size='large', allowCollapse=TRUE))
 plot(Org)
 pause()

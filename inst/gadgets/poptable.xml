@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="Table_2010-12-11-23-44-23" />
+  <ModulePrefs title="TableID16d3b8af" />
   <Content type="html">
   <![CDATA[ 
-   <!-- Table generated in R 2.12.0 by googleVis 0.2.2 package -->
-<!-- Sat Dec 11 23:44:23 2010 -->
+   <!-- Table generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:39 2011 -->
 
 
+<!-- jsHeader -->
 <script type="text/javascript" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
-google.load("visualization", "1", { packages:["table"] });
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = new google.visualization.DataTable();
-var datajson = [
+
+
+// jsData 
+function gvisDataTableID16d3b8af ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
  [
  "1",
 "China",
@@ -22,7 +26,7 @@ var datajson = [
   19.5,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/22px-Flag_of_the_People%27s_Republic_of_China.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "2",
@@ -31,7 +35,7 @@ new Date(2010,10,09)
   17.3,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_India.svg/22px-Flag_of_India.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "3",
@@ -40,7 +44,7 @@ new Date(2010,10,09)
   4.52,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Flag_of_the_United_States.svg/22px-Flag_of_the_United_States.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "4",
@@ -49,7 +53,7 @@ new Date(2010,10,09)
   3.46,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Indonesia.svg/22px-Flag_of_Indonesia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "5",
@@ -58,7 +62,7 @@ new Date(2010,10,09)
   2.82,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Brazil.svg/22px-Flag_of_Brazil.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "6",
@@ -67,7 +71,7 @@ new Date(2010,10,09)
   2.48,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Flag_of_Pakistan.svg/22px-Flag_of_Pakistan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "7",
@@ -76,7 +80,7 @@ new Date(2010,10,09)
   2.39,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/22px-Flag_of_Bangladesh.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "8",
@@ -85,7 +89,7 @@ new Date(2010,10,09)
    2.3,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Flag_of_Nigeria.svg/22px-Flag_of_Nigeria.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "9",
@@ -94,7 +98,7 @@ new Date(2010,10,09)
   2.06,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Russia.svg/22px-Flag_of_Russia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "10",
@@ -103,7 +107,7 @@ new Date(2010,10,09)
   1.85,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/22px-Flag_of_Japan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "11",
@@ -112,7 +116,7 @@ new Date(2010,10,09)
   1.58,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Flag_of_Mexico.svg/22px-Flag_of_Mexico.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "12",
@@ -121,7 +125,7 @@ new Date(2010,10,09)
   1.37,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_the_Philippines.svg/22px-Flag_of_the_Philippines.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "13",
@@ -130,7 +134,7 @@ new Date(2010,10,09)
   1.25,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Vietnam.svg/22px-Flag_of_Vietnam.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "14",
@@ -139,7 +143,7 @@ new Date(2010,10,09)
   1.24,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Flag_of_Ethiopia.svg/22px-Flag_of_Ethiopia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "15",
@@ -148,7 +152,7 @@ new Date(2010,10,09)
   1.19,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Germany.svg/22px-Flag_of_Germany.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "16",
@@ -157,7 +161,7 @@ new Date(2010,10,09)
   1.15,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/22px-Flag_of_Egypt.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "17",
@@ -166,7 +170,7 @@ new Date(2010,10,09)
   1.09,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Flag_of_Iran.svg/22px-Flag_of_Iran.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "18",
@@ -175,7 +179,7 @@ new Date(2010,10,09)
   1.06,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Flag_of_Turkey.svg/22px-Flag_of_Turkey.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "19",
@@ -184,7 +188,7 @@ new Date(2010,10,09)
   0.99,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Democratic_Republic_of_the_Congo.svg/22px-Flag_of_the_Democratic_Republic_of_the_Congo.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "20",
@@ -193,7 +197,7 @@ new Date(2010,10,09)
      1,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Flag_of_Thailand.svg/22px-Flag_of_Thailand.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "21",
@@ -202,7 +206,7 @@ new Date(2010,10,09)
   0.95,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Flag_of_France.svg/22px-Flag_of_France.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "22",
@@ -211,7 +215,7 @@ new Date(2010,10,09)
    0.9,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Flag_of_the_United_Kingdom.svg/22px-Flag_of_the_United_Kingdom.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "23",
@@ -220,7 +224,7 @@ new Date(2010,10,09)
   0.88,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Flag_of_Italy.svg/22px-Flag_of_Italy.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "24",
@@ -229,7 +233,7 @@ new Date(2010,10,09)
   0.73,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Myanmar.svg/22px-Flag_of_Myanmar.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "25",
@@ -238,7 +242,7 @@ new Date(2010,10,09)
   0.73,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Flag_of_South_Africa.svg/22px-Flag_of_South_Africa.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "26",
@@ -247,7 +251,7 @@ new Date(2010,10,09)
   0.72,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Flag_of_South_Korea.svg/22px-Flag_of_South_Korea.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "27",
@@ -256,7 +260,7 @@ new Date(2010,10,09)
   0.67,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Spain.svg/22px-Flag_of_Spain.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "28",
@@ -265,7 +269,7 @@ new Date(2010,10,09)
   0.67,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Ukraine.svg/22px-Flag_of_Ukraine.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "29",
@@ -274,7 +278,7 @@ new Date(2010,10,09)
   0.66,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Flag_of_Colombia.svg/22px-Flag_of_Colombia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "30",
@@ -283,7 +287,7 @@ new Date(2010,10,09)
   0.66,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tanzania.svg/22px-Flag_of_Tanzania.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "31",
@@ -292,7 +296,7 @@ new Date(2010,10,09)
   0.63,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Sudan.svg/22px-Flag_of_Sudan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "32",
@@ -301,7 +305,7 @@ new Date(2010,10,09)
   0.59,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Flag_of_Argentina.svg/22px-Flag_of_Argentina.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "33",
@@ -310,7 +314,7 @@ new Date(2010,10,09)
   0.56,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Flag_of_Kenya.svg/22px-Flag_of_Kenya.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "34",
@@ -319,7 +323,7 @@ new Date(2010,10,09)
   0.56,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Flag_of_Poland.svg/22px-Flag_of_Poland.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "35",
@@ -328,7 +332,7 @@ new Date(2010,10,09)
   0.52,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Algeria.svg/22px-Flag_of_Algeria.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "36",
@@ -337,7 +341,7 @@ new Date(2010,10,09)
    0.5,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Canada.svg/22px-Flag_of_Canada.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "37",
@@ -346,7 +350,7 @@ new Date(2010,10,09)
   0.49,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Flag_of_Uganda.svg/22px-Flag_of_Uganda.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "38",
@@ -355,7 +359,7 @@ new Date(2010,10,09)
   0.46,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Morocco.svg/22px-Flag_of_Morocco.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "39",
@@ -364,7 +368,7 @@ new Date(2010,10,09)
   0.46,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Flag_of_Iraq.svg/22px-Flag_of_Iraq.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "40",
@@ -373,7 +377,7 @@ new Date(2010,10,09)
   0.43,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Flag_of_Nepal.svg/16px-Flag_of_Nepal.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "41",
@@ -382,7 +386,7 @@ new Date(2010,10,09)
   0.43,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Flag_of_Peru.svg/22px-Flag_of_Peru.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "42",
@@ -391,7 +395,7 @@ new Date(2010,10,09)
   0.42,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Afghanistan.svg/22px-Flag_of_Afghanistan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "43",
@@ -400,7 +404,7 @@ new Date(2010,10,09)
   0.42,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Venezuela.svg/22px-Flag_of_Venezuela.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "44",
@@ -409,7 +413,7 @@ new Date(2010,10,09)
   0.41,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Flag_of_Malaysia.svg/22px-Flag_of_Malaysia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "45",
@@ -418,7 +422,7 @@ new Date(2010,10,09)
    0.4,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Uzbekistan.svg/22px-Flag_of_Uzbekistan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "46",
@@ -427,7 +431,7 @@ new Date(2010,10,09)
   0.39,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Flag_of_Saudi_Arabia.svg/22px-Flag_of_Saudi_Arabia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "47",
@@ -436,7 +440,7 @@ new Date(2010,10,09)
   0.35,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Ghana.svg/22px-Flag_of_Ghana.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "48",
@@ -445,7 +449,7 @@ new Date(2010,10,09)
   0.35,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Yemen.svg/22px-Flag_of_Yemen.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "49",
@@ -454,7 +458,7 @@ new Date(2010,10,09)
   0.35,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Flag_of_North_Korea.svg/22px-Flag_of_North_Korea.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "50",
@@ -463,7 +467,7 @@ new Date(2010,10,09)
   0.34,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Mozambique.svg/22px-Flag_of_Mozambique.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "52",
@@ -472,7 +476,7 @@ new Date(2010,10,09)
   0.33,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Flag_of_Syria.svg/22px-Flag_of_Syria.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "53",
@@ -481,7 +485,7 @@ new Date(2010,10,09)
   0.33,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Flag_of_Australia.svg/22px-Flag_of_Australia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "54",
@@ -490,7 +494,7 @@ new Date(2010,10,09)
   0.31,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Flag_of_Cote_d%27Ivoire.svg/22px-Flag_of_Cote_d%27Ivoire.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "55",
@@ -499,7 +503,7 @@ new Date(2010,10,09)
   0.31,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Romania.svg/22px-Flag_of_Romania.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "56",
@@ -508,7 +512,7 @@ new Date(2010,10,09)
    0.3,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Sri_Lanka.svg/22px-Flag_of_Sri_Lanka.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "57",
@@ -517,7 +521,7 @@ new Date(2010,10,09)
   0.29,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Madagascar.svg/22px-Flag_of_Madagascar.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "58",
@@ -526,7 +530,7 @@ new Date(2010,10,09)
   0.29,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Cameroon.svg/22px-Flag_of_Cameroon.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "59",
@@ -535,7 +539,7 @@ new Date(2010,10,09)
   0.28,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9d/Flag_of_Angola.svg/22px-Flag_of_Angola.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "60",
@@ -544,7 +548,7 @@ new Date(2010,10,09)
   0.25,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Flag_of_Chile.svg/22px-Flag_of_Chile.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "61",
@@ -553,7 +557,7 @@ new Date(2010,10,09)
  0.242,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Flag_of_the_Netherlands.svg/22px-Flag_of_the_Netherlands.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "62",
@@ -562,7 +566,7 @@ new Date(2010,10,09)
   0.24,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Burkina_Faso.svg/22px-Flag_of_Burkina_Faso.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "63",
@@ -571,7 +575,7 @@ new Date(2010,10,09)
   0.24,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Kazakhstan.svg/22px-Flag_of_Kazakhstan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "64",
@@ -580,7 +584,7 @@ new Date(2010,10,09)
   0.23,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Flag_of_Niger.svg/22px-Flag_of_Niger.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "65",
@@ -589,7 +593,7 @@ new Date(2010,10,09)
   0.23,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Flag_of_Malawi.svg/22px-Flag_of_Malawi.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "66",
@@ -598,7 +602,7 @@ new Date(2010,10,09)
   0.21,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Mali.svg/22px-Flag_of_Mali.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "67",
@@ -607,7 +611,7 @@ new Date(2010,10,09)
   0.21,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Flag_of_Guatemala.svg/22px-Flag_of_Guatemala.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "68",
@@ -616,7 +620,7 @@ new Date(2010,10,09)
   0.21,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Flag_of_Ecuador.svg/22px-Flag_of_Ecuador.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "69",
@@ -625,7 +629,7 @@ new Date(2010,10,09)
   0.19,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_Cambodia.svg/22px-Flag_of_Cambodia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "70",
@@ -634,7 +638,7 @@ new Date(2010,10,09)
   0.19,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Flag_of_Zambia.svg/22px-Flag_of_Zambia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "71",
@@ -643,7 +647,7 @@ new Date(2010,10,09)
   0.19,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Flag_of_Senegal.svg/22px-Flag_of_Senegal.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "72",
@@ -652,7 +656,7 @@ new Date(2010,10,09)
   0.18,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Flag_of_Zimbabwe.svg/22px-Flag_of_Zimbabwe.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "73",
@@ -661,7 +665,7 @@ new Date(2010,10,09)
   0.17,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Flag_of_Chad.svg/22px-Flag_of_Chad.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "74",
@@ -670,7 +674,7 @@ new Date(2010,10,09)
   0.16,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Greece.svg/22px-Flag_of_Greece.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "75",
@@ -679,7 +683,7 @@ new Date(2010,10,09)
   0.16,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Flag_of_Cuba.svg/22px-Flag_of_Cuba.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "76",
@@ -688,7 +692,7 @@ new Date(2010,10,09)
   0.16,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_Belgium_%28civil%29.svg/22px-Flag_of_Belgium_%28civil%29.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "77",
@@ -697,7 +701,7 @@ new Date(2010,10,09)
   0.15,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Flag_of_Portugal.svg/22px-Flag_of_Portugal.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "78",
@@ -706,7 +710,7 @@ new Date(2010,10,09)
   0.15,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_Czech_Republic.svg/22px-Flag_of_the_Czech_Republic.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "79",
@@ -715,7 +719,7 @@ new Date(2010,10,09)
   0.15,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Tunisia.svg/22px-Flag_of_Tunisia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "80",
@@ -724,7 +728,7 @@ new Date(2010,10,09)
   0.15,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Flag_of_Guinea.svg/22px-Flag_of_Guinea.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "81",
@@ -733,7 +737,7 @@ new Date(2010,10,09)
   0.15,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Rwanda.svg/22px-Flag_of_Rwanda.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "82",
@@ -742,7 +746,7 @@ new Date(2010,10,09)
   0.15,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_the_Dominican_Republic.svg/22px-Flag_of_the_Dominican_Republic.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "83",
@@ -751,7 +755,7 @@ new Date(2010,10,09)
   0.15,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Haiti.svg/22px-Flag_of_Haiti.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "84",
@@ -760,7 +764,7 @@ new Date(2010,10,09)
   0.15,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Bolivia.svg/22px-Flag_of_Bolivia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "85",
@@ -769,7 +773,7 @@ new Date(2010,10,09)
   0.15,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c1/Flag_of_Hungary.svg/22px-Flag_of_Hungary.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "86",
@@ -778,7 +782,7 @@ new Date(2010,10,09)
   0.14,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Flag_of_Serbia.svg/22px-Flag_of_Serbia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "87",
@@ -787,7 +791,7 @@ new Date(2010,10,09)
   0.14,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Flag_of_Belarus.svg/22px-Flag_of_Belarus.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "88",
@@ -796,7 +800,7 @@ new Date(2010,10,09)
   0.14,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Sweden.svg/22px-Flag_of_Sweden.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "89",
@@ -805,7 +809,7 @@ new Date(2010,10,09)
   0.14,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Flag_of_Somalia.svg/22px-Flag_of_Somalia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "90",
@@ -814,7 +818,7 @@ new Date(2010,10,09)
   0.13,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Benin.svg/22px-Flag_of_Benin.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "91",
@@ -823,7 +827,7 @@ new Date(2010,10,09)
   0.13,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Azerbaijan.svg/22px-Flag_of_Azerbaijan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "92",
@@ -832,7 +836,7 @@ new Date(2010,10,09)
   0.12,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Flag_of_Burundi.svg/22px-Flag_of_Burundi.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "93",
@@ -841,7 +845,7 @@ new Date(2010,10,09)
   0.12,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Flag_of_Austria.svg/22px-Flag_of_Austria.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "94",
@@ -850,7 +854,7 @@ new Date(2010,10,09)
   0.11,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Flag_of_Switzerland.svg/20px-Flag_of_Switzerland.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "95",
@@ -859,7 +863,7 @@ new Date(2010,10,09)
   0.11,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Israel.svg/22px-Flag_of_Israel.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "96",
@@ -868,7 +872,7 @@ new Date(2010,10,09)
   0.11,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Flag_of_Honduras.svg/22px-Flag_of_Honduras.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "97",
@@ -877,7 +881,7 @@ new Date(2010,10,09)
   0.11,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Bulgaria.svg/22px-Flag_of_Bulgaria.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "98",
@@ -886,7 +890,7 @@ new Date(2010,10,09)
  0.103,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Flag_of_Tajikistan.svg/22px-Flag_of_Tajikistan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "100",
@@ -895,7 +899,7 @@ new Date(2010,10,09)
    0.1,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Flag_of_Papua_New_Guinea.svg/22px-Flag_of_Papua_New_Guinea.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "101",
@@ -904,7 +908,7 @@ new Date(2010,10,09)
  0.099,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Flag_of_Togo.svg/22px-Flag_of_Togo.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "102",
@@ -913,7 +917,7 @@ new Date(2010,10,09)
  0.095,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Flag_of_Libya.svg/22px-Flag_of_Libya.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "103",
@@ -922,7 +926,7 @@ new Date(2010,10,09)
  0.094,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/Flag_of_Jordan.svg/22px-Flag_of_Jordan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "104",
@@ -931,7 +935,7 @@ new Date(2010,10,09)
  0.094,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Paraguay.svg/22px-Flag_of_Paraguay.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "105",
@@ -940,7 +944,7 @@ new Date(2010,10,09)
  0.094,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Flag_of_Laos.svg/22px-Flag_of_Laos.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "106",
@@ -949,7 +953,7 @@ new Date(2010,10,09)
   0.09,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_El_Salvador.svg/22px-Flag_of_El_Salvador.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "107",
@@ -958,7 +962,7 @@ new Date(2010,10,09)
  0.085,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Flag_of_Sierra_Leone.svg/22px-Flag_of_Sierra_Leone.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "108",
@@ -967,7 +971,7 @@ new Date(2010,10,09)
  0.085,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Nicaragua.svg/22px-Flag_of_Nicaragua.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "109",
@@ -976,7 +980,7 @@ new Date(2010,10,09)
  0.081,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c7/Flag_of_Kyrgyzstan.svg/22px-Flag_of_Kyrgyzstan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "110",
@@ -985,7 +989,7 @@ new Date(2010,10,09)
   0.08,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Denmark.svg/22px-Flag_of_Denmark.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "111",
@@ -994,7 +998,7 @@ new Date(2010,10,09)
  0.079,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Flag_of_Slovakia.svg/22px-Flag_of_Slovakia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "112",
@@ -1003,7 +1007,7 @@ new Date(2010,10,09)
  0.078,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Finland.svg/22px-Flag_of_Finland.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "113",
@@ -1012,7 +1016,7 @@ new Date(2010,10,09)
  0.076,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Flag_of_Eritrea.svg/22px-Flag_of_Eritrea.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "114",
@@ -1021,7 +1025,7 @@ new Date(2010,10,09)
  0.075,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Turkmenistan.svg/22px-Flag_of_Turkmenistan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "115",
@@ -1030,7 +1034,7 @@ new Date(2010,10,09)
  0.074,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Singapore.svg/22px-Flag_of_Singapore.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "116",
@@ -1039,7 +1043,7 @@ new Date(2010,10,09)
  0.071,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Flag_of_Norway.svg/22px-Flag_of_Norway.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "117",
@@ -1048,7 +1052,7 @@ new Date(2010,10,09)
  0.068,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Flag_of_the_United_Arab_Emirates.svg/22px-Flag_of_the_United_Arab_Emirates.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "118",
@@ -1057,7 +1061,7 @@ new Date(2010,10,09)
  0.068,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Flag_of_Costa_Rica.svg/22px-Flag_of_Costa_Rica.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "119",
@@ -1066,7 +1070,7 @@ new Date(2010,10,09)
  0.066,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Flag_of_the_Central_African_Republic.svg/22px-Flag_of_the_Central_African_Republic.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "120",
@@ -1075,7 +1079,7 @@ new Date(2010,10,09)
  0.064,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/45/Flag_of_Ireland.svg/22px-Flag_of_Ireland.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "121",
@@ -1084,7 +1088,7 @@ new Date(2010,10,09)
  0.065,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Georgia.svg/22px-Flag_of_Georgia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "122",
@@ -1093,7 +1097,7 @@ new Date(2010,10,09)
  0.065,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Flag_of_Croatia.svg/22px-Flag_of_Croatia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "123",
@@ -1102,7 +1106,7 @@ new Date(2010,10,09)
  0.064,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Flag_of_New_Zealand.svg/22px-Flag_of_New_Zealand.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "124",
@@ -1111,7 +1115,7 @@ new Date(2010,10,09)
  0.062,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/5/59/Flag_of_Lebanon.svg/22px-Flag_of_Lebanon.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "125",
@@ -1120,7 +1124,7 @@ new Date(2010,10,09)
   0.06,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Flag_of_Liberia.svg/22px-Flag_of_Liberia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "127",
@@ -1129,7 +1133,7 @@ new Date(2010,10,09)
  0.055,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Palestine.svg/22px-Flag_of_Palestine.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "128",
@@ -1138,7 +1142,7 @@ new Date(2010,10,09)
  0.055,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Flag_of_Bosnia_and_Herzegovina.svg/22px-Flag_of_Bosnia_and_Herzegovina.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "129",
@@ -1147,7 +1151,7 @@ new Date(2010,10,09)
  0.055,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_the_Republic_of_the_Congo.svg/22px-Flag_of_the_Republic_of_the_Congo.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "130",
@@ -1156,7 +1160,7 @@ new Date(2010,10,09)
  0.052,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Flag_of_Moldova.svg/22px-Flag_of_Moldova.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "131",
@@ -1165,7 +1169,7 @@ new Date(2010,10,09)
  0.049,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Uruguay.svg/22px-Flag_of_Uruguay.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "132",
@@ -1174,7 +1178,7 @@ new Date(2010,10,09)
  0.049,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Flag_of_Mauritania.svg/22px-Flag_of_Mauritania.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "133",
@@ -1183,7 +1187,7 @@ new Date(2010,10,09)
  0.048,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Flag_of_Lithuania.svg/22px-Flag_of_Lithuania.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "134",
@@ -1192,7 +1196,7 @@ new Date(2010,10,09)
  0.048,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Flag_of_Panama.svg/22px-Flag_of_Panama.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "135",
@@ -1201,7 +1205,7 @@ new Date(2010,10,09)
  0.047,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Flag_of_Armenia.svg/22px-Flag_of_Armenia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "136",
@@ -1210,7 +1214,7 @@ new Date(2010,10,09)
  0.046,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/36/Flag_of_Albania.svg/22px-Flag_of_Albania.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "137",
@@ -1219,7 +1223,7 @@ new Date(2010,10,09)
  0.044,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Flag_of_Kuwait.svg/22px-Flag_of_Kuwait.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "138",
@@ -1228,7 +1232,7 @@ new Date(2010,10,09)
  0.042,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/dd/Flag_of_Oman.svg/22px-Flag_of_Oman.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "139",
@@ -1237,7 +1241,7 @@ new Date(2010,10,09)
   0.04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Mongolia.svg/22px-Flag_of_Mongolia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "140",
@@ -1246,7 +1250,7 @@ new Date(2010,10,09)
   0.04,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Flag_of_Jamaica.svg/22px-Flag_of_Jamaica.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "141",
@@ -1255,7 +1259,7 @@ new Date(2010,10,09)
  0.033,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/84/Flag_of_Latvia.svg/22px-Flag_of_Latvia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "142",
@@ -1264,7 +1268,7 @@ new Date(2010,10,09)
  0.032,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_Namibia.svg/22px-Flag_of_Namibia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "143",
@@ -1273,7 +1277,7 @@ new Date(2010,10,09)
   0.03,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Flag_of_Lesotho.svg/22px-Flag_of_Lesotho.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "144",
@@ -1282,7 +1286,7 @@ new Date(2010,10,09)
   0.03,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Flag_of_Slovenia.svg/22px-Flag_of_Slovenia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "145",
@@ -1291,7 +1295,7 @@ new Date(2010,10,09)
   0.03,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/Flag_of_Macedonia.svg/22px-Flag_of_Macedonia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "146",
@@ -1300,7 +1304,7 @@ new Date(2010,10,09)
  0.029,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_Botswana.svg/22px-Flag_of_Botswana.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "147",
@@ -1309,7 +1313,7 @@ new Date(2010,10,09)
  0.025,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_The_Gambia.svg/22px-Flag_of_The_Gambia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "148",
@@ -1318,7 +1322,7 @@ new Date(2010,10,09)
  0.025,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Flag_of_Qatar.svg/22px-Flag_of_Qatar.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "149",
@@ -1327,7 +1331,7 @@ new Date(2010,10,09)
  0.024,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/01/Flag_of_Guinea-Bissau.svg/22px-Flag_of_Guinea-Bissau.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "150",
@@ -1336,7 +1340,7 @@ new Date(2010,10,09)
  0.022,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Flag_of_Gabon.svg/22px-Flag_of_Gabon.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "151",
@@ -1345,7 +1349,7 @@ new Date(2010,10,09)
   0.02,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Flag_of_Trinidad_and_Tobago.svg/22px-Flag_of_Trinidad_and_Tobago.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "152",
@@ -1354,7 +1358,7 @@ new Date(2010,10,09)
  0.019,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Flag_of_Estonia.svg/22px-Flag_of_Estonia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "153",
@@ -1363,7 +1367,7 @@ new Date(2010,10,09)
  0.019,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/77/Flag_of_Mauritius.svg/22px-Flag_of_Mauritius.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "154",
@@ -1372,7 +1376,7 @@ new Date(2010,10,09)
  0.017,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Flag_of_Swaziland.svg/22px-Flag_of_Swaziland.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "155",
@@ -1381,7 +1385,7 @@ new Date(2010,10,09)
  0.017,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Flag_of_East_Timor.svg/22px-Flag_of_East_Timor.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "156",
@@ -1390,7 +1394,7 @@ new Date(2010,10,09)
  0.013,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Flag_of_Djibouti.svg/22px-Flag_of_Djibouti.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "157",
@@ -1399,7 +1403,7 @@ new Date(2010,10,09)
  0.012,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Flag_of_Fiji.svg/22px-Flag_of_Fiji.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "158",
@@ -1408,7 +1412,7 @@ new Date(2010,10,09)
  0.012,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Flag_of_Bahrain.svg/22px-Flag_of_Bahrain.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "159",
@@ -1417,7 +1421,7 @@ new Date(2010,10,09)
  0.012,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/Flag_of_Cyprus.svg/22px-Flag_of_Cyprus.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "160",
@@ -1426,7 +1430,7 @@ new Date(2010,10,09)
  0.011,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Flag_of_Guyana.svg/22px-Flag_of_Guyana.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "161",
@@ -1435,7 +1439,7 @@ new Date(2010,10,09)
   0.01,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Flag_of_Bhutan.svg/22px-Flag_of_Bhutan.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "162",
@@ -1444,7 +1448,7 @@ new Date(2010,10,09)
   0.01,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Equatorial_Guinea.svg/22px-Flag_of_Equatorial_Guinea.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "163",
@@ -1453,7 +1457,7 @@ new Date(2010,10,09)
   0.01,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Flag_of_the_Comoros.svg/22px-Flag_of_the_Comoros.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "164",
@@ -1462,7 +1466,7 @@ new Date(2010,10,09)
  0.009,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Flag_of_Montenegro.svg/22px-Flag_of_Montenegro.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "166",
@@ -1471,7 +1475,7 @@ new Date(2010,10,09)
  0.008,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Flag_of_the_Solomon_Islands.svg/22px-Flag_of_the_Solomon_Islands.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "167",
@@ -1480,7 +1484,7 @@ new Date(2010,10,09)
  0.008,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Flag_of_Western_Sahara.svg/22px-Flag_of_Western_Sahara.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "168",
@@ -1489,7 +1493,7 @@ new Date(2010,10,09)
  0.008,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Flag_of_Suriname.svg/22px-Flag_of_Suriname.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "169",
@@ -1498,7 +1502,7 @@ new Date(2010,10,09)
  0.007,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Cape_Verde.svg/22px-Flag_of_Cape_Verde.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "170",
@@ -1507,7 +1511,7 @@ new Date(2010,10,09)
  0.007,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/da/Flag_of_Luxembourg.svg/22px-Flag_of_Luxembourg.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "171",
@@ -1516,7 +1520,7 @@ new Date(2010,10,09)
  0.006,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/7/73/Flag_of_Malta.svg/22px-Flag_of_Malta.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "172",
@@ -1525,7 +1529,7 @@ new Date(2010,10,09)
  0.006,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9c/Flag_of_Brunei.svg/22px-Flag_of_Brunei.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "173",
@@ -1534,7 +1538,7 @@ new Date(2010,10,09)
  0.005,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Flag_of_the_Bahamas.svg/22px-Flag_of_the_Bahamas.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "174",
@@ -1543,7 +1547,7 @@ new Date(2010,10,09)
  0.005,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Flag_of_Belize.svg/22px-Flag_of_Belize.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "175",
@@ -1552,7 +1556,7 @@ new Date(2010,10,09)
  0.005,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Flag_of_Iceland.svg/22px-Flag_of_Iceland.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "176",
@@ -1561,7 +1565,7 @@ new Date(2010,10,09)
  0.005,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Flag_of_Maldives.svg/22px-Flag_of_Maldives.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "177",
@@ -1570,7 +1574,7 @@ new Date(2010,10,09)
  0.004,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Flag_of_Barbados.svg/22px-Flag_of_Barbados.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "178",
@@ -1579,7 +1583,7 @@ new Date(2010,10,09)
  0.004,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Vanuatu.svg/22px-Flag_of_Vanuatu.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "181",
@@ -1588,7 +1592,7 @@ new Date(2010,10,09)
  0.003,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Flag_of_Samoa.svg/22px-Flag_of_Samoa.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "182",
@@ -1597,7 +1601,7 @@ new Date(2010,10,09)
  0.003,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9f/Flag_of_Saint_Lucia.svg/22px-Flag_of_Saint_Lucia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "183",
@@ -1606,7 +1610,7 @@ new Date(2010,10,09)
  0.002,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Flag_of_Sao_Tome_and_Principe.svg/22px-Flag_of_Sao_Tome_and_Principe.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "184",
@@ -1615,7 +1619,7 @@ new Date(2010,10,09)
  0.002,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Flag_of_Federated_States_of_Micronesia.svg/22px-Flag_of_Federated_States_of_Micronesia.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "186",
@@ -1624,7 +1628,7 @@ new Date(2010,10,09)
  0.002,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Flag_of_Saint_Vincent_and_the_Grenadines.svg/22px-Flag_of_Saint_Vincent_and_the_Grenadines.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "188",
@@ -1633,7 +1637,7 @@ new Date(2010,10,09)
  0.002,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Flag_of_Grenada.svg/22px-Flag_of_Grenada.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "189",
@@ -1642,7 +1646,7 @@ new Date(2010,10,09)
  0.002,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Tonga.svg/22px-Flag_of_Tonga.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "190",
@@ -1651,7 +1655,7 @@ new Date(2010,10,09)
  0.001,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Flag_of_Kiribati.svg/22px-Flag_of_Kiribati.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "192",
@@ -1660,7 +1664,7 @@ new Date(2010,10,09)
  0.001,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Antigua_and_Barbuda.svg/22px-Flag_of_Antigua_and_Barbuda.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "194",
@@ -1669,7 +1673,7 @@ new Date(2010,10,09)
  0.001,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Flag_of_the_Seychelles.svg/22px-Flag_of_the_Seychelles.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "195",
@@ -1678,7 +1682,7 @@ new Date(2010,10,09)
  0.001,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Flag_of_Andorra.svg/22px-Flag_of_Andorra.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "198",
@@ -1687,7 +1691,7 @@ new Date(2010,10,09)
  0.001,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Flag_of_Dominica.svg/22px-Flag_of_Dominica.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "200",
@@ -1696,7 +1700,7 @@ new Date(2010,10,09)
  0.001,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Flag_of_the_Marshall_Islands.svg/22px-Flag_of_the_Marshall_Islands.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "204",
@@ -1705,7 +1709,7 @@ new Date(2010,10,09)
  0.001,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Saint_Kitts_and_Nevis.svg/22px-Flag_of_Saint_Kitts_and_Nevis.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "206",
@@ -1714,7 +1718,7 @@ new Date(2010,10,09)
 0.0005,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Flag_of_Liechtenstein.svg/22px-Flag_of_Liechtenstein.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "207",
@@ -1723,7 +1727,7 @@ new Date(2010,10,09)
 0.0005,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Flag_of_Monaco.svg/22px-Flag_of_Monaco.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "209",
@@ -1732,7 +1736,7 @@ new Date(2010,10,09)
 0.0005,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Flag_of_San_Marino.svg/22px-Flag_of_San_Marino.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "213",
@@ -1741,7 +1745,7 @@ new Date(2010,10,09)
 0.0003,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Flag_of_Palau.svg/22px-Flag_of_Palau.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "215",
@@ -1750,7 +1754,7 @@ new Date(2010,10,09)
 0.0001,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/38/Flag_of_Tuvalu.svg/22px-Flag_of_Tuvalu.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "216",
@@ -1759,7 +1763,7 @@ new Date(2010,10,09)
 0.0001,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Flag_of_Nauru.svg/22px-Flag_of_Nauru.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ],
 [
  "222",
@@ -1768,7 +1772,7 @@ new Date(2010,10,09)
  2e-05,
 "<img src=\"http://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Flag_of_the_Vatican_City.svg/20px-Flag_of_the_Vatican_City.svg.png\">",
 true,
-new Date(2010,10,09) 
+new Date(2010,9,9) 
 ] 
 ];
 data.addColumn('string','Rank');
@@ -1779,18 +1783,45 @@ data.addColumn('string','Flag');
 data.addColumn('boolean','Mode');
 data.addColumn('date','Date');
 data.addRows(datajson);
-var chart = new google.visualization.Table(
-   document.getElementById('Table_2010-12-11-23-44-23')
-);
-var options ={};
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartTableID16d3b8af() {
+  var data = gvisDataTableID16d3b8af()
+  var chart = new google.visualization.Table(
+   document.getElementById('TableID16d3b8af')
+  );
+  var options ={};
 options["allowHtml"] = true;
 options["width"] =    600;
 options["height"] =    300;
 options["page"] = "enable";
-chart.draw(data,options);
+  chart.draw(data,options);
 }
+
+
+// jsDisplayChart 
+function displayChartTableID16d3b8af()
+{
+  google.load("visualization", "1", { packages:["table"] }); 
+  google.setOnLoadCallback(drawChartTableID16d3b8af);
+}
+
+
+// jsChart 
+displayChartTableID16d3b8af()
+
+
+<!-- jsFooter -->  
+//-->
 </script>
-<div id="Table_2010-12-11-23-44-23" style="width: 600px; height: 300px;">
+
+
+<!-- divChart -->
+<div id="TableID16d3b8af"
+  style="width: 600px; height: 300px;">
 </div>
 
   ]]> 

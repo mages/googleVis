@@ -1,20 +1,24 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="GeoMap_2010-12-11-23-44-22" />
+  <ModulePrefs title="GeoMapID2bde9963" />
   <Content type="html">
   <![CDATA[ 
-   <!-- GeoMap generated in R 2.12.0 by googleVis 0.2.2 package -->
-<!-- Sat Dec 11 23:44:22 2010 -->
+   <!-- GeoMap generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Sun Jun 12 15:48:38 2011 -->
 
 
+<!-- jsHeader -->
 <script type="text/javascript" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
-google.load("visualization", "1", { packages:["geomap"] });
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = new google.visualization.DataTable();
-var datajson = [
+
+
+// jsData 
+function gvisDataGeoMapID2bde9963 ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
  [
  "Germany",
      3 
@@ -59,17 +63,44 @@ var datajson = [
 data.addColumn('string','Country');
 data.addColumn('number','Profit');
 data.addRows(datajson);
-var chart = new google.visualization.GeoMap(
-   document.getElementById('GeoMap_2010-12-11-23-44-22')
-);
-var options ={};
-options["dataMode"] = "regions";
-options["width"] =    600;
-options["height"] =    350;
-chart.draw(data,options);
+return(data);
 }
+
+
+// jsDrawChart
+function drawChartGeoMapID2bde9963() {
+  var data = gvisDataGeoMapID2bde9963()
+  var chart = new google.visualization.GeoMap(
+   document.getElementById('GeoMapID2bde9963')
+  );
+  var options ={};
+options["dataMode"] = "regions";
+options["width"] =    556;
+options["height"] =    347;
+  chart.draw(data,options);
+}
+
+
+// jsDisplayChart 
+function displayChartGeoMapID2bde9963()
+{
+  google.load("visualization", "1", { packages:["geomap"] }); 
+  google.setOnLoadCallback(drawChartGeoMapID2bde9963);
+}
+
+
+// jsChart 
+displayChartGeoMapID2bde9963()
+
+
+<!-- jsFooter -->  
+//-->
 </script>
-<div id="GeoMap_2010-12-11-23-44-22" style="width: 600px; height: 350px;">
+
+
+<!-- divChart -->
+<div id="GeoMapID2bde9963"
+  style="width: 556px; height: 347px;">
 </div>
 
   ]]> 

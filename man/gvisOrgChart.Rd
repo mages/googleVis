@@ -148,4 +148,4 @@ Org2 <- gvisOrgChart(Regions, idvar = "Region", parentvar = "Parent",
 plot(Org2)
 
 }
-\keyword{ hplot }
+\keyword{ iplot }

@@ -505,7 +505,7 @@ plot(aapl)
 
 }
 }
-\keyword{ hplot }
+\keyword{ iplot }
 
 %%## Example with ChainLadder triangle
 %% library(ChainLadder)

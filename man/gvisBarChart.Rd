@@ -361,4 +361,4 @@ plot(Bar4)
 }
 
 }
-\keyword{ hplot }
+\keyword{ iplot }
