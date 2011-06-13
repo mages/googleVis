@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="GeoChartID7dd0ebf" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- GeoChart generated in R 2.13.0 by googleVis 0.2.6 package -->
+<!-- Mon Jun 13 19:47:26 2011 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataGeoChartID7dd0ebf ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "Germany",
+     3 
+],
+[
+ "Brazil",
+     4 
+],
+[
+ "United States",
+     5 
+],
+[
+ "France",
+     4 
+],
+[
+ "Hungary",
+     3 
+],
+[
+ "India",
+     2 
+],
+[
+ "Iceland",
+     1 
+],
+[
+ "Norway",
+     4 
+],
+[
+ "Spain",
+     5 
+],
+[
+ "Turkey",
+     1 
+] 
+];
+data.addColumn('string','Country');
+data.addColumn('number','Profit');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+function drawChartGeoChartID7dd0ebf() {
+  var data = gvisDataGeoChartID7dd0ebf()
+  var chart = new google.visualization.GeoChart(
+   document.getElementById('GeoChartID7dd0ebf')
+  );
+  var options ={};
+options["width"] =    556;
+options["height"] =    347;
+options["region"] = "150";
+  chart.draw(data,options);
+}
+
+
+// jsDisplayChart 
+function displayChartGeoChartID7dd0ebf()
+{
+  google.load("visualization", "1", { packages:["geochart"] }); 
+  google.setOnLoadCallback(drawChartGeoChartID7dd0ebf);
+}
+
+
+// jsChart 
+displayChartGeoChartID7dd0ebf()
+
+
+<!-- jsFooter -->  
+//-->
+</script>
+
+
+<!-- divChart -->
+<div id="GeoChartID7dd0ebf"
+  style="width: 556px; height: 347px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>

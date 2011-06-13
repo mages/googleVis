@@ -24,6 +24,11 @@ AndrewMap <- gvisMap(Andrew, "LatLong" , "Tip",
 
 cat(createGoogleGadget(AndrewMap), file="andrewmap.xml")
 
+## Geo Chart
+GeoChart <- gvisGeoChart(Exports, "Country", "Profit",
+                         options=list(region="150"))
+cat(createGoogleGadget(GeoChart), file="geochart.xml")
+
 
 ## Table. Click on the column header to sort the rows 
 Table <- gvisTable(Exports, options=list(width=400, height=270))
