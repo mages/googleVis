@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>
-  <ModulePrefs title="ScatterChartID25997d48" />
+  <ModulePrefs title="ScatterChartID621ffa0" />
   <Content type="html">
   <![CDATA[ 
-   <!-- ScatterChart generated in R 2.13.0 by googleVis 0.2.6 package -->
-<!-- Sun Jun 12 15:48:39 2011 -->
+   <!-- ScatterChart generated in R 2.13.0 by googleVis 0.2.7 package -->
+<!-- Sat Jun 25 22:34:03 2011 -->
 
 
 <!-- jsHeader -->
@@ -14,7 +14,7 @@
 
 
 // jsData 
-function gvisDataScatterChartID25997d48 ()
+function gvisDataScatterChartID621ffa0 ()
 {
   var data = new google.visualization.DataTable();
   var datajson =
@@ -88,20 +88,19 @@ return(data);
 
 
 // jsDrawChart
-function drawChartScatterChartID25997d48() {
-  var data = gvisDataScatterChartID25997d48()
+function drawChartScatterChartID621ffa0() {
+  var data = gvisDataScatterChartID621ffa0()
   var chart = new google.visualization.ScatterChart(
-   document.getElementById('ScatterChartID25997d48')
+   document.getElementById('ScatterChartID621ffa0')
   );
   var options ={};
 options["allowHtml"] = true;
 options["legend"] = "none";
 options["lineWidth"] =      2;
 options["pointSize"] =      0;
-options["hAxis.title"] = "weight";
 options["title"] = "Women";
-options["vAxis"] = {title:'height'};
-options["hAxis"] = {title:'weight'};
+options["vAxis"] = {title:'weight (lbs)'};
+options["hAxis"] = {title:'height (in)'};
 options["width"] =    300;
 options["height"] =    300;
   chart.draw(data,options);
@@ -109,15 +108,15 @@ options["height"] =    300;
 
 
 // jsDisplayChart 
-function displayChartScatterChartID25997d48()
+function displayChartScatterChartID621ffa0()
 {
   google.load("visualization", "1", { packages:["corechart"] }); 
-  google.setOnLoadCallback(drawChartScatterChartID25997d48);
+  google.setOnLoadCallback(drawChartScatterChartID621ffa0);
 }
 
 
 // jsChart 
-displayChartScatterChartID25997d48()
+displayChartScatterChartID621ffa0()
 
 
 <!-- jsFooter -->  
@@ -126,7 +125,7 @@ displayChartScatterChartID25997d48()
 
 
 <!-- divChart -->
-<div id="ScatterChartID25997d48"
+<div id="ScatterChartID621ffa0"
   style="width: 300px; height: 300px;">
 </div>
 

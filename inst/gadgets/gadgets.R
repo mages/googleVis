@@ -113,9 +113,9 @@ cat(createGoogleGadget(Area), file="areachart.xml")
 
 ## Scatter chart
 Scatter <- gvisScatterChart(women, options=list(legend="none",
-                 lineWidth=2, pointSize=0, hAxis.title="weight",
-                 title="Women", vAxis="{title:'height'}",
-                 hAxis="{title:'weight'}", width=300, height=300))
+                 lineWidth=2, pointSize=0, 
+                 title="Women", vAxis="{title:'weight (lbs)'}",
+                 hAxis="{title:'height (in)'}", width=300, height=300))
                  
 cat(createGoogleGadget(Scatter), file="scatterchart.xml")
 
