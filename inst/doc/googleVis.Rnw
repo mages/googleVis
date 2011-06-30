@@ -463,6 +463,24 @@ print(M, 'chart', file='myfilename')
 @
 and process it from there.
 
+\subsection{Use \texttt{gvis} objects in blogs}
+
+It is easy to post your results in a blog.
+For example, the blog software \href{http://wordpress.org/}{wordpress} 
+needs little effort to be set up. 
+After installing the software, you only need the additional
+plugin \href{http://wordpress.org/extend/plugins/custom-fields-shortcode/}{custom fields shortcode};
+in fact, this plugin is one of many ways to insert javascript inside a post.
+You may copy your \texttt{gvis} object to your clipboard in the following way:
+<<eval=FALSE>>=
+M <- gvisMotionChart(Fruits, "Fruit", "Year",
+		     options=list(width=400, height=370))
+writeClipboard(M$html$chart)
+@
+While working on the article, create a custom field with
+for instance name \texttt{Fruits} and paste your clipboard inside the value textarea.
+Inside the article, add \texttt{[cf]Fruits[/cf]} where your Motion Chart should appear.
+That's all.
 
 \subsection{Embedding \googleVis in web sites dynamically}
 
