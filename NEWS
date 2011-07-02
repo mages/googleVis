@@ -1,16 +1,24 @@
-Version 0.2.7 [2011-06-25]
+Version 0.2.7 [2011-07-03]
 ==========================
 
 Changes
+
+   o The vignette includes a new section describing how the output of
+     the googleVis package can be included into WordPress pages.
 
    o Clarified documentation for Flash based charts in help files (motion chart, geo
      map, annotated time line): Because of Flash security settings the
      chart might not work correctly when accessed from a file location
      in the browser (e.g., file:///c:/webhost/myhost/myviz.html)
      rather than from a web server URL
-     (e.g. http://www.myhost.com/myviz.html). See the Macromedia web
-     site for more details.
+     (e.g. http://www.myhost.com/myviz.html). 
 
+BUG FIXES
+
+    o gvisGeoMap documentation stated that the default dataMode is
+      'regions', but the function actually used 'markers'. The default
+      for dataMode is now 'regions' and therefore in line with the
+      help file.   
 
 Version 0.2.6 [2011-06-12]
 ==========================

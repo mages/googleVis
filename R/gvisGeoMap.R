@@ -31,7 +31,7 @@ gvisGeoMap <- function(data, locationvar="", numvar="", hovervar="", options=lis
   checked.data <- gvisCheckGeoMapData(data, my.options)
 
   if(any("numeric" %in% lapply(checked.data[,c(1,2)],class))){
-    my.options <- modifyList(list(gvis=list(dataMode = "markers")), my.options)
+    my.options <- modifyList(list(gvis=list(dataMode = "regions")), my.options)
   }
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid=chartid)
   

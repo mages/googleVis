@@ -156,7 +156,7 @@ plot(Mtbl)
   myChartID <- "mtnc"
   ## baseURL should reflect your web address, e.g. http://myHomePage.com
   baseURL <- sprintf("http://127.0.0.1:\%s/custom/googleVis", tools:::httpdPort)
-  wwwdir <- tempdir() ## the www repository on you computer
+  wwwdir <- tempdir() ## the www repository on your computer
 
   
   ## Create a motion chart

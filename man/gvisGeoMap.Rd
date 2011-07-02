@@ -274,7 +274,7 @@ WorldPopulation=data.frame(Country=Population$Country,
 			   Rank=paste(Population$Country, "Rank:", Population$Rank))
 
 G5 <- gvisGeoMap(WorldPopulation, "Country", "Population.in.millions", "Rank", 
-      		      options=list(dataMode="Regions", width=600, height=300))
+      		      options=list(dataMode="regions", width=600, height=300))
 plot(G5)
 
 \dontrun{
