@@ -75,7 +75,7 @@ even the obvious.
 
 In 2006 Hans Rosling gave an inspiring talk at
 TED~\cite{HansRoslingTedTalk} about social and economic developments
-in the world over the last 50 years, which challenged the views and
+in the world over the past 50 years, which challenged the views and
 perceptions of many listeners. Rosling had used extensive data analysis
 to reach his conclusions.  To visualise his talk, he and his team at
 Gapminder~\cite{Gapminder} had developed animated bubble charts, aka
@@ -96,7 +96,7 @@ audience.
 In 2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented at the 
 R/Rmetrics Workshop on  Computational Finance and Financial
 Engineering, the idea to use Google motion charts to visualise R
-output using the \rsp package~\cite{Rsp}. 
+output with the \rsp package~\cite{Rsp}. 
 
 Inspired by those talks and the desire to use interactive data
 visualisation tools to foster the dialogue between data analysts and
