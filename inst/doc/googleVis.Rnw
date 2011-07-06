@@ -463,15 +463,24 @@ a select event listener. This parameter is available in
 It is possible to add javascript code and access the build in
 method \texttt{getSelection()}.
 
-The following code shows an example:
+The following code shows two examples:
 <<>>=
   jscode <- "window.open('http://en.wikipedia.org/wiki/'+data.getValue(chart.getSelection()[0].row,0));  "
-  G1 <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
+  J1 <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
                                        options=list(dataMode="regions",gvis.listener.jscode=jscode))
+
+    jscode <- "
+       var sel = chart.getSelection();
+       var row = sel[0].row;
+       var text = data.getValue(row,1);
+       alert(text);
+"
+   J2 <- gvisTable(Population,options(gvis.listener.jscode=jscode))
 
 @ 
 <<eval=FALSE>>=
-plot(G1)
+plot(J1)
+plot(J2)
 @ 
 
 For more details see \url{http://code.google.com/intl/de-DE/apis/chart/interactive/docs/reference.html#events}.
