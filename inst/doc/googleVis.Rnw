@@ -455,6 +455,27 @@ plot(GTM)
 \end{figure}
 
 
+\subsection{Use select event with Listener}
+
+The parameter \texttt{gvis.listener.jscode} embeds code inside
+a select event listener. This parameter is available in
+\texttt{gvisTable} and \texttt{gvisGeoMap}. 
+It is possible to add javascript code and access the build in
+method \texttt{getSelection()}.
+
+The following code shows an example:
+<<>>=
+  jscode <- "window.open('http://en.wikipedia.org/wiki/'+data.getValue(chart.getSelection()[0].row,0));  "
+  G1 <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
+                                       options=list(dataMode="regions",gvis.listener.jscode=jscode))
+
+@ 
+<<eval=FALSE>>=
+plot(G1)
+@ 
+
+For more details see \url{http://code.google.com/intl/de-DE/apis/chart/interactive/docs/reference.html#events}.
+
 \section{Embedding \googleVis in web sites}
 
 \subsection{Integrating \texttt{gvis} objects in existing sites}

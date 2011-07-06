@@ -125,10 +125,12 @@ function drawChart%s() {
   var options ={};
 %s
   chart.draw(data,options);
+  %s
 }
 '
   jsDrawChart <- sprintf(jsDrawChart, chartid,  chartid, type, chartid,
-                     paste(gvisOptions(options), collapse="\n")
+                     paste(gvisOptions(options), collapse="\n"),
+                     gvisListener(chartid,type,options)
                      )
 
 
@@ -313,6 +315,23 @@ gvisCheckData <- function(data="", options=list(), data.structure=list()){
          })
   
   return(x)
+}
+
+gvisListener <- function(chartid, type, options=list(gvis=list(gvis.listener.jscode = NULL))){
+    event <- "select"
+    jscode <- options$gvis$gvis.listener.jscode
+    jsListener <- ""
+    # not all types support Listener and select event
+    if(!is.null(jscode) & (tolower(type) %in% c("table", "geomap"))){
+        jsListener <- "
+  google.visualization.events.addListener(chart, '%s',gvisListener%s);
+  function gvisListener%s() {
+      %s
+  }
+"
+        jsListener <- sprintf(jsListener,event,chartid,chartid,jscode)
+    }
+    jsListener
 }
 
 

@@ -61,6 +61,11 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
     \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html#Configuration_Options}:
   
     \describe{
+      \item{\code{gvis.listener.jscode}}{ character string which will be
+	placed inside select event. A valid value is
+	\code{alert('a region was selected');}.
+	You may also use the method \code{getSelection}.
+      } 
       \item{\code{region}}{string, default \code{'world'}.	
 	The area to display on the map. (Surrounding areas will be
 	displayed as well.) Can be either a country code (in uppercase
