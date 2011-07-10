@@ -455,36 +455,6 @@ plot(GTM)
 \end{figure}
 
 
-\subsection{Use select event with Listener}
-
-The parameter \texttt{gvis.listener.jscode} embeds code inside
-a select event listener. This parameter is available in
-\texttt{gvisTable} and \texttt{gvisGeoMap}. 
-It is possible to add javascript code and access the build in
-method \texttt{getSelection()}.
-
-The following code shows two examples:
-<<>>=
-  jscode <- "window.open('http://en.wikipedia.org/wiki/'+data.getValue(chart.getSelection()[0].row,0));  "
-  J1 <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
-                                       options=list(dataMode="regions",gvis.listener.jscode=jscode))
-
-    jscode <- "
-       var sel = chart.getSelection();
-       var row = sel[0].row;
-       var text = data.getValue(row,1);
-       alert(text);
-"
-   J2 <- gvisTable(Population,options(gvis.listener.jscode=jscode))
-
-@ 
-<<eval=FALSE>>=
-plot(J1)
-plot(J2)
-@ 
-
-For more details see \url{http://code.google.com/intl/de-DE/apis/chart/interactive/docs/reference.html#events}.
-
 \section{Embedding \googleVis in web sites}
 
 \subsection{Integrating \texttt{gvis} objects in existing sites}
@@ -677,7 +647,70 @@ folder path:
 system.file("brew", package = "googleVis")
 @ 
 
+\section{Beyond R}
+In this section we present ideas which go beyond the usual coding in
+R and are somewhat experimental.
 
+\subsection{Registering to catch events}
+
+Google visualisations can fire and receive
+events~\footnote{\url{http://code.google.com/apis/chart/interactive/docs/reference.html\#addlistener}}. 
+It exposes the following two methods: 
+\begin{itemize}
+\item \texttt{google.visualization.events.trigger()} fires an event,
+\item \texttt{google.visualization.events.addListener()} listens for events.
+\end{itemize}
+
+Here is an example of registering to receive the selection event from
+the Google documentation:
+\begin{verbatim}
+var table = new google.visualization.Table(document.getElementById('table_div'));
+table.draw(data, options);
+google.visualization.events.addListener(table, 'select', selectHandler);
+
+function selectHandler() {
+  alert('A table row was selected');
+}
+\end{verbatim}
+
+We will only deal with this special case of a 'select' event of the
+'addListner' method. This event is available for most visualisations
+and acts on user interactions, e.g. user selection clicks.
+
+The 'addListner' method expects JavaScript code, which can be embedded
+into a gvis-object as a (undocumented) parameter
+\texttt{gvis.listener.jscode} of the options list. 
+
+Here are some examples:
+
+Look up the selected item in wikipedia:
+<<eval=FALSE>>=
+jscode <- "window.open('http://en.wikipedia.org/wiki/' 
+                  + data.getValue(chart.getSelection()[0].row,0)); "
+
+J1 <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
+                 options=list(dataMode="regions", gvis.listener.jscode=jscode))
+plot(J1)
+@ 
+In the same way we could use the code in other charts, e.g. org- or line chart:                 
+<<eval=FALSE>>=
+plot(gvisOrgChart(Regions,  options=list(gvis.listener.jscode=jscode)))
+plot(gvisLineChart(Regions[,c(1,3)], options=list(gvis.listener.jscode=jscode)))
+@
+In the following more advanced example the selected value of a table is
+displayed in a message box:
+<<eval=FALSE>>=
+jscode <- "
+       var sel = chart.getSelection();
+       var row = sel[0].row;
+       var text = data.getValue(row,1);
+       alert(text);
+"
+J2 <- gvisTable(Population, options=list(gvis.listener.jscode=jscode))
+plot(J2)
+@ 
+For more details see the \texttt{demo(EventListner)} and \href{http://code.google.com/apis/chart/interactive/docs/reference.html}{Google Visualisation API Reference}.
+ 
 \section{Contact}
 \subsection{Collaboration} 
 Obviously, the package is work in progress and there are many other functions of the Google

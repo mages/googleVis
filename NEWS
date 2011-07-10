@@ -3,8 +3,10 @@ Version 0.2.7 [2011-07-03]
 
 Changes
 
-   o The vignette includes a new section describing how the output of
-     the googleVis package can be included into WordPress pages.
+   o The vignette includes new sections describing how the output of
+     the googleVis package can be included into WordPress pages and
+     examples demonstrating how JavaScript event handlers can be
+     added. 
 
    o Clarified documentation for Flash based charts in help files (motion chart, geo
      map, annotated time line): Because of Flash security settings the
@@ -12,6 +14,11 @@ Changes
      in the browser (e.g., file:///c:/webhost/myhost/myviz.html)
      rather than from a web server URL
      (e.g. http://www.myhost.com/myviz.html). 
+
+NEW FEATURES
+ 
+    o New demo 'EventLisnter' showcasing how a 'Listener' event can be
+    added to charts  
 
 BUG FIXES
 

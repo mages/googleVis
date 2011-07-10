@@ -1,2 +1,3 @@
-googleVis		Examples of various gvis functions and plots
-AnimatedGeoMap		Idea of how to animate a geo map
+googleVis		Examples of various googleVis functions and plots
+AnimatedGeoMap		Prototype of an animate a geo map with JavaScript
+EventListner		Examples of basic JavaScript event handlers

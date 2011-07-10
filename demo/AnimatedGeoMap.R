@@ -139,3 +139,6 @@ page <- structure(
                   class = c("gvis", "list")
                   )
 plot(page)
+
+
+## See demo(package='googleVis') for other available demos.

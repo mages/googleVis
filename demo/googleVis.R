@@ -93,7 +93,7 @@ pause()
 ## Show Hurricane Andrew (1992) storm track with Geo Map
 AndrewGeo <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt", 
       			 hovervar="Category", 
-      		         options=list(height=350, region="US"))
+      		         options=list(height=350, region="US", dataMode="markers"))
 
 plot(AndrewGeo)
 pause()
@@ -153,3 +153,5 @@ pause()
 ## See how googleVis functions can be integrated into rsp-files:
 if(require(R.rsp))
   browseRsp() ## Click on googleVis in the Package section.
+
+## See demo(package='googleVis') for other available demos.

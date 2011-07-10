@@ -130,7 +130,7 @@ function drawChart%s() {
 '
   jsDrawChart <- sprintf(jsDrawChart, chartid,  chartid, type, chartid,
                      paste(gvisOptions(options), collapse="\n"),
-                     gvisListener(chartid,type,options)
+                     gvisListener(chartid, type, options)
                      )
 
 
@@ -322,7 +322,7 @@ gvisListener <- function(chartid, type, options=list(gvis=list(gvis.listener.jsc
     jscode <- options$gvis$gvis.listener.jscode
     jsListener <- ""
     # not all types support Listener and select event
-    if(!is.null(jscode) & (tolower(type) %in% c("table", "geomap"))){
+    if(!is.null(jscode)){## this actually works in most & (tolower(type) %in% c("table", "geomap"))){
         jsListener <- "
   google.visualization.events.addListener(chart, '%s',gvisListener%s);
   function gvisListener%s() {

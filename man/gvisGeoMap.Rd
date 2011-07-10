@@ -61,11 +61,6 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
     \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html#Configuration_Options}:
   
     \describe{
-      \item{\code{gvis.listener.jscode}}{ character string which will be
-	placed inside select event. A valid value is
-	\code{alert('a region was selected');}.
-	You may also use the method \code{getSelection}.
-      } 
       \item{\code{region}}{string, default \code{'world'}.	
 	The area to display on the map. (Surrounding areas will be
 	displayed as well.) Can be either a country code (in uppercase
@@ -133,7 +128,17 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
 	}
 	\item{\code{zoomOutLabel}}{string, default 'Zoom Out'. Label for
 	  the zoom button. 
-	}	            
+	}	                  
+	\item{\code{gvis.listener.jscode}}{ character string which will be
+	  placed inside select event. A valid value is
+	  \code{alert('a region was selected');}.
+	  You may also use the method \code{getSelection}.
+	}      
+	%%	\item{\code{gvis.listener.jscode}}{ character string which will be
+	%%	  placed inside select event. A valid value is
+	%%	  \code{alert('a table row was selected');}.
+	%%	  You may also use the method \code{getSelection}.
+	%%	}
       }
     }
     \item{chartid}{character. If missing (default) a random chart id will be generated based on
@@ -269,7 +274,7 @@ plot(G3)
 ## Show Hurricane Andrew (1992) storm track
 G4 <- gvisGeoMap(Andrew, locationvar="LatLong", numvar="Speed_kt", 
       			 hovervar="Category", 
-      		         options=list(height=350, region="US"))
+      		         options=list(height=350, region="US", dataMode="markers"))
 
 plot(G4) 
 

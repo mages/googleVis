@@ -29,11 +29,6 @@ gvisTable(data, options = list(), chartid)
     \url{http://code.google.com/apis/visualization/documentation/gallery/table.html#Configuration_Options}:
   
     \describe{
-      \item{\code{gvis.listener.jscode}}{ character string which will be
-	placed inside select event. A valid value is
-	\code{alert('a table row was selected');}.
-	You may also use the method \code{getSelection}.
-      } 
       \item{\code{allowHtml}}{boolean. Default \code{FALSE}.
 	If set to \code{TRUE}, formatted values of cells that include HTML
 	tags will be rendered as HTML. If set to \code{FALSE},
@@ -167,6 +162,11 @@ gvisTable(data, options = list(), chartid)
 	automatically to fit the table; if set smaller than the size required by
 	the table, will add a horizontal scroll bar.
       }
+      %%   \item{\code{gvis.listener.jscode}}{ character string which will be
+      %%	placed inside select event. A valid value is
+      %%	\code{alert('a table row was selected');}.
+      %%	You may also use the method \code{getSelection}.
+      %%     }             
     }
   }
   \item{chartid}{character. If missing (default) a random chart id will be generated based on
