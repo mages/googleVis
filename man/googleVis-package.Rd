@@ -20,7 +20,7 @@ Using the Google Visualisation API with R
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
 	Version: \tab 0.2.7\cr
-	Date: \tab 2011-07-09\cr
+	Date: \tab 2011-07-10\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
@@ -53,7 +53,7 @@ Using the Google Visualisation API with R
   \itemize{
 	\item googleVis project site: \url{http://code.google.com/p/google-motion-charts-with-r/}
 	\item Google Visualisation API: \url{http://code.google.com/apis/visualization/interactive_charts.html}
-	\item Google Terms of Use: \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html}
+	\item Google Terms of Use: \url{http://code.google.com/apis/chart/interactive/terms.html}
 	}
 }
 \examples{

@@ -1,4 +1,4 @@
-Version 0.2.7 [2011-07-03]
+Version 0.2.7 [2011-07-10]
 ==========================
 
 Changes
@@ -8,12 +8,12 @@ Changes
      examples demonstrating how JavaScript event handlers can be
      added. 
 
-   o Clarified documentation for Flash based charts in help files (motion chart, geo
-     map, annotated time line): Because of Flash security settings the
-     chart might not work correctly when accessed from a file location
-     in the browser (e.g., file:///c:/webhost/myhost/myviz.html)
-     rather than from a web server URL
-     (e.g. http://www.myhost.com/myviz.html). 
+   o Clarified documentation for Flash based charts in help files
+     (motion chart, geo map, annotated time line): Because of Flash
+     security settings the chart might not work correctly when
+     accessed from a file location in the browser (e.g.,
+     file:///c:/webhost/myhost/myviz.html) rather than from a web
+     server URL (e.g. http://www.myhost.com/myviz.html). 
 
 NEW FEATURES
  
