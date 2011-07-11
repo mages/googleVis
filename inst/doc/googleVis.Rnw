@@ -25,6 +25,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \setlength{\parskip}{2mm}
 
 \newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
+\newcommand{\googleVisVersion}{0.2.7}
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
 \newcommand{\brew}{\textbf{\texttt{brew }}}
 \newcommand{\rapache}{\emph{{RApache }}}
@@ -212,40 +213,40 @@ Google Visualisation API, see the examples in Figure~\ref{demos}.
 
 \section{The \googleVis package}
 
+
 The \googleVis package provides an interface between R and the Google
 Visualisation API.  The functions of the package allow the user to
-visualise data stored in R data frames with the Google  Visualisation
-API. 
+visualise data stored in R data frames with the Google Visualisation
+API. Version (\googleVisVersion) of the package
+provides interfaces to  Motion Charts, Annotated Time Lines, 
+Geo Maps, Maps, Geo Charts, Intensity Maps, Tables, Gauges, 
+Tree Maps, further Line-, Bar-, Column-, Area-, Combo-, Scatter-, Candlestick-,
+Pie- and Org Charts; see Figure~\ref{demos} for some examples
+for more see the  \href{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}{project
+  site}\footnote{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}.
 
 The output of a \googleVis function is html code that contains the
-data and references to JavaScript functions hosted by Google. To view
-the output a browser with Flash and Internet connection is required,
-the actual chart is rendered in the browser; it may not work when
-loaded as a local file. For more details see the Google Visualisation
-API documentation~\cite{GoogleMotionChart}. 
+data and references to JavaScript functions hosted by Google. A
+browser with an Internet connection is required to view
+the output, and for Motion Charts, Geo Maps and Annotated Time Lines
+also Flash. The actual chart is rendered in the browser. 
 
+Please note that Flash charts may not not
+work when loaded as a local file due to security settings, and
+therefore require to be displayed via a web server. 
+%% For more details see the Google Visualisation API documentation. 
 Fortunately, R comes with an internal HTTP server which 
 allows the \googleVis package to display pages locally. 
 
-Currently the package provides interfaces to
-motion chart, line chart, bar chart, column chart, area chart,
-scatter chart, combo chart, pie chart, geo chart, candlestick chart,
-and org chart, further annotated time line, map,
-geo map, table, tree map, intensity map, and
-gauge~\cite{GoogleVisApi}. See Figure~\ref{demos} for some examples,
-for more see the  
-\href{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}{project
-  site}\footnote{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}.
  
-  
 \begin{figure}%%[!ht]
 \begin{center}
 \includegraphics[width=\textwidth]{googleVisDemoPlots2.pdf}
 \caption{
-  Screenshot of some of the outputs of \texttt{demo(googleVis)}, with
-  \texttt{gvisMotionChart, gvisAnnotatedTimeLine,  gvisMap,     
-    gvisGeoMap,  gvisTable and gvisTreeMap} from top left to bottom
-  right.   
+  Screenshot of some of the outputs of \texttt{demo(googleVis)}.
+  Clockwise from top left:
+  \texttt{gvisMotionChart}, \texttt{gvisAnnotatedTimeLine}, 
+  \texttt{gvisGeoMap}, \texttt{gvisTreeMap}, \texttt{gvisTable}, and \texttt{gvisMap}.
 }\label{demos}
 \end{center}
 \end{figure}
@@ -655,7 +656,7 @@ R and are somewhat experimental.
 
 Google visualisations can fire and receive
 events~\footnote{\url{http://code.google.com/apis/chart/interactive/docs/reference.html\#addlistener}}. 
-It exposes the following two methods: 
+It exposes the following two JavaScript methods: 
 \begin{itemize}
 \item \texttt{google.visualization.events.trigger()} fires an event,
 \item \texttt{google.visualization.events.addListener()} listens for events.
@@ -678,12 +679,12 @@ We will only deal with this special case of a 'select' event of the
 and acts on user interactions, e.g. user selection clicks.
 
 The 'addListner' method expects JavaScript code, which can be embedded
-into a gvis-object as a (undocumented) parameter
-\texttt{gvis.listener.jscode} of the options list. 
+into a gvis-object via \texttt{options} as (undocumented) parameter
+\texttt{gvis.listener.jscode}. 
 
 Here are some examples:
 
-Look up the selected item in wikipedia:
+Look up the selected item in Wikipedia:
 <<eval=FALSE>>=
 jscode <- "window.open('http://en.wikipedia.org/wiki/' 
                   + data.getValue(chart.getSelection()[0].row,0)); "
@@ -692,7 +693,7 @@ J1 <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
                  options=list(dataMode="regions", gvis.listener.jscode=jscode))
 plot(J1)
 @ 
-In the same way we could use the code in other charts, e.g. org- or line chart:                 
+In the same way we can use the code in other charts, e.g. org- or line chart:                 
 <<eval=FALSE>>=
 plot(gvisOrgChart(Regions,  options=list(gvis.listener.jscode=jscode)))
 plot(gvisLineChart(Regions[,c(1,3)], options=list(gvis.listener.jscode=jscode)))
