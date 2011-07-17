@@ -1,3 +1,17 @@
+Version 0.2.8 [2011-07-17]
+==========================
+
+Changes
+
+   o Update package welcome message. The message asks the user to read Google's
+     Visualisation and Maps API Terms of Use before she uses the functions of the
+     googleVis package. 
+	
+   o gvis-objects contain a link to Google's data policy in the html footer
+
+   o New example for gvisBarChart using the XML package to chart online data from Wikipedia
+
+
 Version 0.2.7 [2011-07-10]
 ==========================
 

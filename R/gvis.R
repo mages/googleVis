@@ -25,7 +25,8 @@ gvisChart <- function(type, checked.data, options, chartid, package){
   chartid <- Chart$chartid
   htmlChart <- Chart$chart
   
-  htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, dataName=options$dataName)
+  htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, dataName=options$dataName,
+                                  type=tolower(type))
   
   output <- structure(
                       list(type=Chart$type,
@@ -359,7 +360,7 @@ checkSquareCurlBracketOps <- function(char){
   ifelse(first %in% c("{","[") & last %in% c("}", "]"), TRUE, FALSE)
 }
 
-gvisHtmlWrapper <- function(title, dataName, chartid){
+gvisHtmlWrapper <- function(title, dataName, chartid, type){
 
   htmlHeader <- '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -387,13 +388,20 @@ gvisHtmlWrapper <- function(title, dataName, chartid){
 <!-- htmlFooter -->
 <span> 
 %s &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>
-&#8226; <a href="http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a>
+&#8226; <a href="http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a> &#8226; %s
 </span></div>
 </body>
 </html>
 '
+
+if(type %in% "gvisMerge"){
+  policy <- "Data Policy: See individual charts"
+}else{
+  policy <- sprintf('<a href="http://code.google.com/apis/chart/interactive/docs/gallery/%s.html#Data_Policy">Data Policy</a>', type)
+}
+
   htmlFooter <- sprintf(htmlFooter, R.Version()$version.string,
-		        packageDescription('googleVis')$Version,chartid)  
+		        packageDescription('googleVis')$Version, policy)  
   htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: <a href="Chart_%s.html">%s</a></span><br />' ,
                          dataName, chartid, chartid)
 

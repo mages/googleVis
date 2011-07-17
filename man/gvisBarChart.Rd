@@ -358,7 +358,30 @@ plot(Bar3)
 Bar4 <- gvisBarChart(df, xvar="country", yvar=c("val1", "val2"),
                        options=list(hAxis="{format:'#,###\%'}"))
 plot(Bar4)
-}
+
+## The following example reads data from a Wikipedia table and displays
+## the information in a bar chart.
+## We use the readHMLTable function of the XML package to get the data
+library(XML)
+## Get the data of the biggest ISO container companies from Wikipedia
+##(table 3):
+df=readHTMLTable(readLines("http://en.wikipedia.org/wiki/Intermodal_freight_transport"))[[3]][,1:2]
+## Rename the second column
+names(df)[2]="TEU capacity"
+## The numbers are displayed with commas to separate thousands, so let's
+## get rid of them:
+df[,2]=as.numeric(gsub(",", "", as.character(df[,2])))
+
+## Finally we can create a nice bar chart:
+Bar5 <- gvisBarChart(df, options=list(
+                    chartArea="{left:250,top:50,width:\"50\%\",height:\"75\%\"}",
+                    legend="bottom", 
+                    title="Top 20 container shipping companies in order of TEU capacity"))
+
+plot(Bar5)
 
 }
+}
+
+
 \keyword{ iplot }

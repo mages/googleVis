@@ -152,6 +152,21 @@ gvisPieChart(data, labelvar = "", numvar = "", options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
+      \item{tooltipText}{A string. Default \code{'both'}. What information to
+	display when the user hovers over a pie slice. The following
+	values are supported:
+	\describe{
+	  \item{\code{'both'}}{[Default] Display both the absolute value of the
+	    slice and the percentage of thewhole.
+	  }
+	  \item{\code{'value'}}{Display only the absolute value of the
+	    slice.
+	  }
+	  \item{\code{'percentage'}}{
+	    Display only the percentage of the whole represented by the slice.
+	  }
+	}
+      }
       \item{\code{tooltipTextStyle}}{A json object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:

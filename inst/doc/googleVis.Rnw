@@ -25,7 +25,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \setlength{\parskip}{2mm}
 
 \newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
-\newcommand{\googleVisVersion}{0.2.7}
+\newcommand{\googleVisVersion}{0.2.8}
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
 \newcommand{\brew}{\textbf{\texttt{brew }}}
 \newcommand{\rapache}{\emph{{RApache }}}
@@ -190,6 +190,10 @@ generates output similar to Figure~\ref{MotionChartGUI}:
 36 </html>
 \end{verbatim}
 \end{small}
+The code and data are processed and rendered in the browser and is
+not submitted to any server\footnote{
+\url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html\#Data\_Policy}}. 
+
 You will notice that the above html code has five generic
 parts\footnote{For more details see
 \url{http://code.google.com/apis/chart/interactive/docs/adding\_charts.html}}:
@@ -217,7 +221,12 @@ Google Visualisation API, see the examples in Figure~\ref{demos}.
 The \googleVis package provides an interface between R and the Google
 Visualisation API.  The functions of the package allow the user to
 visualise data stored in R data frames with the Google Visualisation
-API. Version (\googleVisVersion) of the package
+API.  Before you use the package read the
+\href{http://code.google.com/apis/visualization/terms.html}{Google
+  Visualization API Terms of Service}  and the \href{http://code.google.com/apis/maps/terms.html}{Google  
+Maps/Google Earth APIs Terms of Service}.
+
+Version (\googleVisVersion) of the package
 provides interfaces to  Motion Charts, Annotated Time Lines, 
 Geo Maps, Maps, Geo Charts, Intensity Maps, Tables, Gauges, 
 Tree Maps, further Line-, Bar-, Column-, Area-, Combo-, Scatter-, Candlestick-,

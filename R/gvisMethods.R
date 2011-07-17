@@ -119,10 +119,10 @@ gvisMerge <- function(x, y, horizontal=FALSE, tableOptions='border="0"',
     stop("x and y have to be gvis objects\n")
   
   if(missing(chartid)){   
-    chartid <- paste(type, basename(tempfile(pattern="")),sep="ID")
+    chartid <- paste("Merged", basename(tempfile(pattern="")),sep="ID")
   }
 
-  htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, dataName="various")
+  htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, dataName="various", type=type)
   
   output <- structure(
                  list(type=type,
