@@ -1,9 +1,9 @@
-Version 0.2.8 [2011-07-17]
+Version 0.2.8 [2011-07-27]
 ==========================
 
 Changes
 
-   o Update package welcome message. The message asks the user to read Google's
+   o Updated package welcome message. The message asks the user to read Google's
      Visualisation and Maps API Terms of Use before she uses the functions of the
      googleVis package. 
 	
