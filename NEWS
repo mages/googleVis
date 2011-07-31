@@ -1,4 +1,4 @@
-Version 0.2.8 [2011-07-27]
+Version 0.2.8 [2011-07-31]
 ==========================
 
 Changes
@@ -7,7 +7,7 @@ Changes
      Visualisation and Maps API Terms of Use before she uses the functions of the
      googleVis package. 
 	
-   o gvis-objects contain a link to Google's data policy in the html footer
+   o The caption gvis-plots contain an additional link to Google's data policy.
 
    o New example for gvisBarChart using the XML package to chart online data from Wikipedia
 

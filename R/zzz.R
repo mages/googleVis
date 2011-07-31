@@ -66,8 +66,7 @@
 
 gvisWelcomeMessage <- function(){
   
-  paste("To suppress the following message use the statement:\n",
-        "suppressPackageStartupMessages(library(googleVis))\n\n",       
+  paste("\n",     
         "Welcome to googleVis version ", packageDescription("googleVis")$Version, "\n",
         "\n",
         "Please read the Google Visualisation & Maps API Terms of Use\n",
@@ -86,5 +85,8 @@ gvisWelcomeMessage <- function(){
         "if you would like to be keept informed of new versions,\n",
         "or if you have any feedback, ideas, suggestions or would\n",
         "like to collaborate.\n",
+        "\n",
+        "To suppress the this message use:\n",
+        "suppressPackageStartupMessages(library(googleVis))\n",  
           sep="")
 }

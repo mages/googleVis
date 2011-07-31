@@ -51,11 +51,14 @@ Contact: rvisualisation@gmail.com}
  
   The functions of the \googleVis package allow the user to visualise
   data stored in R data frames with the Google Visualisation API
-  without uploading their data to Google. The output of a \googleVis
+  without uploading the data to Google. The output of a \googleVis
   function is html code that contains the data and references to
-  JavaScript functions hosted by Google and can be displayed via a
-  browser via the R HTTP help server. 
-
+  JavaScript functions hosted by Google.
+  
+  googleVis makes use of the internal R HTTP server to display the
+  output locally. A browser with Flash and Internet connection is
+  required.
+	     
 \end{abstract}
 
 \clearpage
