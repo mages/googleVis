@@ -225,6 +225,11 @@ Diego de Castillo \email{decastillo@gmail.com}
 %%}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
+\section{Warning }{
+  Please note that the
+
+  0 is not shown, NA
+}
 
 \seealso{
 
