@@ -312,6 +312,7 @@ gvisCheckData <- function(data="", options=list(), data.structure=list()){
          function(.x){ 
            .x <- as.character(.x)
            y <- x[[as.character(options$data[.x])]];
+           # is <<- really necessary?
            x[[as.character(options$data[.x])]] <<- data.structure[[.x]]$FUN(y);
          })
   

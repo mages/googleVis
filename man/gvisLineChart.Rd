@@ -211,14 +211,63 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	An object that specifies the tooltip text style. The object has this format:
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
-	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
+	\code{'#00cc00'}. Also see \code{fontName} and \code{f##ontSize}.
       }
+      \item{\code{series}}{an array of objects, or object with nested
+	objects. Default \{\}.	
+	An array of objects, each describing the format of the
+	corresponding series in the chart. To use default values for a
+	series, specify an empty object {}. If a series or a value is not
+	specified, the global value will be used. Each object supports the
+	following properties:
+	\describe{
+	  \item{\code{color}}{The color to use for this series. Specify a valid
+	    HTML color string.
+	  }
+	  \item{\code{targetAxisIndex}}{Which axis to assign this series
+	    to, where 0 is the default axis, and 1 is the opposite
+	    axis. Default value is 0; set to 1 to define a chart where
+	    different series are rendered against different axes. You can
+	    define a different scale for different axes.
+	  }
+	  \item{\code{pointSize}}{Overrides the global pointSize value
+	    for this series.
+	  }
+	  \item{\code{lineWidth}}{Overrides the global lineWidth value
+	    for this series.
+	  }
+	  \item{\code{curveType}}{Overrides the global curveType value
+	    for this series.
+	    }
+	    \item{\code{visibleInLegend}}{A boolean value, where true
+	      means that the series should have a legend entry, and false means
+	      that it should not. Default is \code{TRUE}.
+	    }
+	  }
+	  You can specify either an array of objects, each of which
+	  applies to the series in the order given, or you can specify an
+	  object where each child has a numeric key indicating which series
+	  it applies to. For example, the following two declarations are
+	  identical, and declare the first series as black and absent from
+	  the legend, and the fourth as red and absent from the legend:
+	  
+	  \code{
+	    series: [\{color: 'black', visibleInLegend: false\},\{\}, \{\}, \{color:
+	    'red', visibleInLegend: false\}]
+	  }
+
+	  \code{
+	    series: \{0:\{color: 'black', visibleInLegend: false\}, 3:\{color: 'red',
+	    visibleInLegend: false\}\}
+	  }
+	}
+      
       \item{\code{vAxis}}{a json object. Default \code{'null'}.
 	An object with members to configure various vertical axis
 	elements. To specify properties of this object, you can use object
 	literal notation, as shown here:
 	\code{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
-	}
+      }
       \item{\code{vAxis.baseline}}{a number. Default automatic. \code{vAxis} property
 	that specifies the baseline for the vertical axis. If the
 	baseline is smaller than the highest grid line or smaller than
@@ -381,6 +430,13 @@ plot(Line2)
 Line3 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
                        options=list(vAxis="{format:'#,###\%'}"))
 plot(Line3)
+
 }
+
+## Create a chart with two y-axis:
+Line4 <-  gvisLineChart(Fruits, "Year", c("Sales","Expenses"),
+                        options=list(series='[{targetAxisIndex: 1},
+                                     {targetAxisIndex:0}]'))
+plot(Line4)
 }
 \keyword{ iplot }
