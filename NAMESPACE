@@ -6,7 +6,7 @@ export(gvisScatterChart, gvisPieChart, gvisOrgChart, gvisIntensityMap)
 export(gvisLineChart, gvisAreaChart, gvisBarChart, gvisColumnChart, gvisGauge)
 export(gvisGeoChart, gvisComboChart)
 export(gvisCandlestickChart)
-export(gvisMerge)
+export(gvisMerge,gvisChartEditor)
 ## export(gvisSparkline)
 export(createGoogleGadget)
 
