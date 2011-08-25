@@ -51,21 +51,20 @@ gvisCheckTreeMapData <- function(data, options){
   }
   x  <- data.frame(x)
 
-  less.equal.zero <- sum(x[['sizevar']] <= 0) 
-  infinite <- sum(is.infinite(x[['sizevar']]))
+##  less.equal.zero <- sum(x[['sizevar']] <= 0) 
+##  infinite <- sum(is.infinite(x[['sizevar']]))
 
-  print(names(x))
 
-  if(less.equal.zero > 0){
-    warning(paste("Values in column sizevar should be greater than 0,\n",
-                  "however, your data has ", less.equal.zero, "values less or equal to 0.\n",
-                  sep=""))
-  }
-  if(infinite>0){
-    warning(paste("Values in column sizevar have to be greater than 0 and finite,\n",
-                  "however, your data has", infinite, "infinite values.",
-                  sep=""))
-  }
+##  if(less.equal.zero > 0){
+##    warning(paste("Values in column sizevar should be greater than 0,\n",
+##                  "however, your data has ", less.equal.zero, "values less or equal to 0.\n",
+##                  sep=""))
+##  }
+##  if(infinite>0){
+##    warning(paste("Values in column sizevar have to be greater than 0 and finite,\n",
+##                  "however, your data has", infinite, "infinite values.",
+##                  sep=""))
+##  }
 
      
   return(x)

@@ -52,7 +52,8 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{backgroundColor.fill}}{a string. Default \code{'white'}. The chart
 	fill color, as an HTML color string.
       }
-      \item{\code{chartArea}}{a string. Default \code{'null'}. An object with members to configure the
+      \item{\code{chartArea}}{a string. Default \code{'null'}. An object
+	with members to configure the 
 	placement and size of the chart area (where the chart itself is drawn,
 	excluding axis and legends). Two formats are supported: a number, or a
 	number followed by \code{\%}. A simple number is a value in pixels; a number
@@ -61,7 +62,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	\code{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
       }
       \item{\code{chartArea.left}}{a number or string. Default auto. How far to draw
-	the chart from the left border.
+        the chart from the left border.
       }
       \item{\code{chartArea.top}}{a number or string. Default auto. How far to
 	draw the chart from the top border.
@@ -83,6 +84,12 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	  \item{\code{'function'}}{The angles of the line will be smoothed.}
 	}
       }
+      \item{\code{enableInteractivity}}{Boolean. Default \code{TRUE}. Whether
+	the chart throws user-based events or reacts to user interaction. If
+	false, the chart will not throw 'select' or other interaction-based
+	events (but will throw ready or error events), and will not display
+	hovertext or otherwise change depending on user input.
+      }
       \item{\code{fontSize}}{a number. Default automatic. The default font
 	size, in pixels, of all text in the chart. You can override this
 	using properties for specific chart elements.
@@ -91,10 +98,10 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	all text in the chart. You can override this using properties for
 	specific chart elements.
       }
-      \item{\code{gridlineColor}}{a string. Default \code{'#CCC'}. The color of the
-	gridlines inside the chart area. Specify a valid HTML color
-	string.
-      }
+     %% \item{\code{gridlineColor}}{a string. Default \code{'#CCC'}. The color of the
+     %%	gridlines inside the chart area. Specify a valid HTML color
+     %%	string.
+     %% }
       \item{\code{hAxis}}{a json object. Default \code{'null'}. An object with members to configure
 	various horizontal axis elements. To specify properties of this
 	object, you can use object literal notation, as shown here:
@@ -111,6 +118,14 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{hAxis.textPosition}}{a string. Default \code{'out'} Position of the
 	horizontal axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
+      }
+      \item{\code{hAxis.textStyle}}{a json object. Default \code{\{color: 'black',
+	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
+	object that specifies the horizontal axis title text style. The object
+	has this format:
+	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	The color can be any HTML color string, for example: \code{'red'} or
+	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
       \item{\code{hAxis.title}}{a string. Default \code{'null'}. \code{hAxis} property that
 	specifies the title of the horizontal axis.
@@ -184,35 +199,6 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	draw series from right to left. The default is to draw
 	left-to-right.
       }
-      \item{\code{title}}{a string. Default no title. Text to display above the chart.
-      }
-      \item{\code{titlePosition}}{a string. Default \code{'out'}.
-	Where to place the chart title, compared to the chart
-	area. Supported values:
-	\describe{
-	  \item{\code{'in'}}{Draw the title inside the chart area.
-	  }
-	  \item{\code{'out'}}{Draw the title outside the chart area.
-	  }
-	  \item{\code{'none'}}{Omit the title.
-	  }
-	}
-      }
-      \item{\code{titleTextStyle}}{a json object. Default
-	\code{\{color:'black',fontName:<global-font-name>,fontSize:<global-font-size>\}}. An
-	object that specifies the title text
-	style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
-	The color can be any HTML color string, for example: \code{'red'} or
-	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
-      }
-      \item{\code{tooltipTextStyle}}{a json object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}
-	An object that specifies the tooltip text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
-	The color can be any HTML color string, for example: \code{'red'} or
-	\code{'#00cc00'}. Also see \code{fontName} and \code{f##ontSize}.
-      }
       \item{\code{series}}{an array of objects, or object with nested
 	objects. Default \{\}.	
 	An array of objects, each describing the format of the
@@ -261,13 +247,72 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	    visibleInLegend: false\}\}
 	  }
 	}
+      \item{\code{title}}{a string. Default no title. Text to display above the chart.
+      }     
+      \item{\code{titlePosition}}{a string. Default \code{'out'}.
+	Where to place the chart title, compared to the chart
+	area. Supported values:
+	\describe{
+	  \item{\code{'in'}}{Draw the title inside the chart area.
+	  }
+	  \item{\code{'out'}}{Draw the title outside the chart area.
+	  }
+	  \item{\code{'none'}}{Omit the title.
+	  }
+	}
+      }
+      \item{\code{titleTextStyle}}{a json object. Default
+	\code{\{color:'black',fontName:<global-font-name>,fontSize:<global-font-size>\}}. An
+	object that specifies the title text
+	style. The object has this format:
+	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	The color can be any HTML color string, for example: \code{'red'} or
+	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
+      }
+      \item{\code{tooltipTextStyle}}{a json object. Default \code{\{color: 'black',
+	fontName: <global-font-name>, fontSize: <global-font-size>\}}
+	An object that specifies the tooltip text style. The object has this format:
+	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	The color can be any HTML color string, for example: \code{'red'} or
+	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
+      }
       
+
+      \item{\code{vAxes}}{Array of object, or object with child objects
+	null. Specifies properties for individual vertical axes, if the
+	chart has multiple vertical axes. Each child object is a \code{vAxis}
+	object, and can contain all the properties supported by
+	\code{vAxis}. These property values override any global settings for
+	the same property.
+
+	To specify a chart with multiple vertical axes, first define a
+	new axis using \code{series.targetAxisIndex}, then configure the axis
+	using \code{vAxes}. The following example assigns series 2 to the right
+	axis and specifies a custom title and text style for it:
+	
+	\code{ series:\{2:\{targetAxisIndex:1\}\},
+	  vAxes:\{1:\{title:'Losses',textStyle:\{color: 'red'\}\}\}
+	  }
+	  This property can be either an object or an array: the object is a
+	  collection of objects, each with a numeric label that
+	  specifies the axis that it defines--this is the format shown
+	  above; the array is an array of objects, one per axis. For
+	  example, the following array-style notation is identical to
+	  the \code{vAxis} object shown above:
+
+	  \code{
+	    vAxes:[
+	    \{\}, // Nothing specified for axis 0
+	    \{title:'Losses',textStyle:\{color: 'red'\}\} // Axis 1
+	    ]
+	  }
+	}
       \item{\code{vAxis}}{a json object. Default \code{'null'}.
 	An object with members to configure various vertical axis
 	elements. To specify properties of this object, you can use object
 	literal notation, as shown here:
 	\code{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
-      }
+	}
       \item{\code{vAxis.baseline}}{a number. Default automatic. \code{vAxis} property
 	that specifies the baseline for the vertical axis. If the
 	baseline is smaller than the highest grid line or smaller than
@@ -286,6 +331,11 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
       }
+      \item{\code{vAxis.gridlineColor}}{a string. Default
+	\code{'#CCC'}. The color of the vertical gridlines inside the
+	chart area. Specify a valid HTML color string.
+      }
+  
       \item{\code{vAxis.logScale}}{Boolean. Default \code{FALSE}. \code{vAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
@@ -323,9 +373,41 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	will be the lower of two values: the minValue option value, or the
 	lowest data value, rounded down to the next lower grid mark.
       }
-      \item{\code{width}}{a number. Default width of the containing element. Width of the chart, in
-	pixels.
+      \item{\code{vAxis.viewWindowMode}}{a string. Default
+	\code{"pretty"} if \code{vAxis.viewWindow} is null,
+	\code{"explicit"} otherwise. Specifies how to scale the vertical
+	axis to render the values within the chart area. The following
+	string values are supported:
+	\describe{
+	  \item{\code{'pretty'}}{Scale the vertical values so that the
+	    maximum and minimum data values are rendered a bit inside the
+	    top and bottom of the chart area.
+	  }
+	  \item{\code{'maximized'}}{Scale the vertical values so that
+	    the maximum and minimum data values touch the top and bottom of
+	    the chart area.
+	  }
+	  \item{code{'explicit'}}{Specify the top and bottom scale
+	    values of the chart area. Data values outside these values will
+	    be cropped. You must specify a \code{vAxis.viewWindow} object
+	    describing the maximum and minimum values to show.
+	  }
+	}
       }
+      \item{\code{vAxis.viewWindow}}{Object. Default
+	\code{NULL}. Specifies the maximum and minimum data values to
+	show on the vertical axis. Present only if
+	\code{vAxis.viewWindowMode='explicit'}
+      }
+      \item{\code{vAxis.viewWindow.max}}{A number. Default 0.	The
+	maximum vertical data value to render.
+      }
+      \item{\code{vAxis.viewWindow.min}}{A number. Default 0. The
+	minimum vertical data value to render.
+      }
+      \item{\code{width}}{a number. Default width of the containing
+	element. Width of the chart, in pixels.
+      } 
     }
   } 
   \item{chartid}{character. If missing (default) a random chart id will be generated based on
@@ -434,9 +516,12 @@ plot(Line3)
 }
 
 ## Create a chart with two y-axis:
-Line4 <-  gvisLineChart(Fruits, "Year", c("Sales","Expenses"),
-                        options=list(series='[{targetAxisIndex: 1},
-                                     {targetAxisIndex:0}]'))
+
+Line4 <-  gvisLineChart(df, "country", c("val1","val2"),
+                        options=list(series="[{targetAxisIndex: 0},
+                                                    {targetAxisIndex:1}]",
+                          vAxes="[{title:'val1'}, {title:'val2'}]"
+                          ))
 plot(Line4)
 }
 \keyword{ iplot }

@@ -12,6 +12,16 @@ Line <- gvisLineChart(df)
 plot(Line)
 pause()
 
+## Line chart with two axis
+Line2 <- gvisLineChart(df, "country", c("val1","val2"),
+                        options=list(series="[{targetAxisIndex: 0},
+                                                    {targetAxisIndex:1}]",
+                          vAxes="[{title:'val1'}, {title:'val2'}]"
+                          ))
+plot(Line2)
+pause()
+
+
 ## Bar chart
 Bar <- gvisBarChart(df)
 plot(Bar)

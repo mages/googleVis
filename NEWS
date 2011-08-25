@@ -3,8 +3,19 @@ Version 0.2.9 [2011-08-10]
 
 Changes
 
-   o Updated documentation for gvisTreeMap
-   o Add news from Google Update
+   o The documentation of googleVis has been update to reflect a new
+     version of the Google Visualisation API which was published on 
+     13 July, see
+     http://code.google.com/apis/chart/interactive/docs/release_notes.html#72011. 
+     Here are some of the most interesting features:   
+     - Support for dual Y axes
+     - Ability to crop and zoom chart area to specific ranges
+     - Ability to set different properties for each series
+     - Ability to enable or disable chart interactivity
+     - Performance improvements in GeoChart
+
+   o Updated warning section for gvisTreeMap
+
 
 Version 0.2.8 [2011-07-31]
 ==========================

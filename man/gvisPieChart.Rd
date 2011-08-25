@@ -42,7 +42,8 @@ gvisPieChart(data, labelvar = "", numvar = "", options = list(), chartid)
       \item{\code{backgroundColor.fill}}{a string. Default \code{'white'}. The chart
 	fill color, as an HTML color string.
       }
-      \item{\code{chartArea}}{A string. Default \code{'null'}. An object with members to configure the
+      \item{\code{chartArea}}{A string. Default \code{'null'}. An object
+	with members to configure the 
 	placement and size of the chart area (where the chart itself is drawn,
 	excluding axis and legends). Two formats are supported: a number, or a
 	number followed by \code{\%}. A simple number is a value in pixels; a number
@@ -117,7 +118,8 @@ gvisPieChart(data, labelvar = "", numvar = "", options = list(), chartid)
       }
       \item{\code{pieSliceTextStyle}}{A json object. Default
 	\code{\{color: 'black', fontName: <global-font-name>, fontSize:
-	  <global-font-size>\}}. An object that specifies the slice text style. The object has this format:
+	  <global-font-size>\}}. An object that specifies the slice text
+      style. The object has this format: 
 	\code{\{color: <string>, fontName: <string>, fontSize:
 	  <number>\}}. The color can be any HTML color string, for
 	example: \code{'red'} or \code{'#00cc00'}. Also see \code{fontName} and
@@ -174,8 +176,8 @@ gvisPieChart(data, labelvar = "", numvar = "", options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{width}}{A number. Default width of the containing element. Width of the chart, in
-	pixels.
+      \item{\code{width}}{A number. Default width of the containing
+      element. Width of the chart, in pixels.
       }
     }
   } 

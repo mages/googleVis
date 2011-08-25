@@ -52,7 +52,8 @@ gvisBarChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{backgroundColor.fill}}{a string. Default \code{'white'}. The chart
 	fill color, as an HTML color string.
       }
-      \item{\code{chartArea}}{a string. Default \code{'null'}. An object with members to configure the
+      \item{\code{chartArea}}{a string. Default \code{'null'}. An object
+	with members to configure the 
 	placement and size of the chart area (where the chart itself is drawn,
 	excluding axis and legends). Two formats are supported: a number, or a
 	number followed by \code{\%}. A simple number is a value in pixels; a number
@@ -60,8 +61,11 @@ gvisBarChart(data, xvar = "", yvar = "", options = list(), chartid)
 	
 	\code{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
       }
+      \item{\code{chartArea.height}}{a number or string. Default auto.	Chart
+	area height.
+      }
       \item{\code{chartArea.left}}{a number or string. Default auto. How far to draw
-	the chart from the left border.
+      	the chart from the left border.
       }
       \item{\code{chartArea.top}}{a number or string. Default auto. How far to
 	draw the chart from the top border.
@@ -69,12 +73,15 @@ gvisBarChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{chartArea.width}}{a number or string. Default auto.	Chart
 	area width.
       }
-      \item{\code{chartArea.height}}{a number or string. Default auto.	Chart
-	area height.
-      }
       \item{\code{colors}}{An array of strings. Default 'colors'. The colors to
 	use for the chart elements. An array of strings, where each element is
 	an HTML color string, for example: \code{colors:['red','#004411']}.
+      }
+      \item{\code{enableInteractivity}}{Boolean. Default \code{TRUE}. Whether
+	the chart throws user-based events or reacts to user interaction. If
+	false, the chart will not throw 'select' or other interaction-based
+	events (but will throw ready or error events), and will not display
+	hovertext or otherwise change depending on user input.
       }
       \item{\code{fontSize}}{a number. Default automatic. The default font
 	size, in pixels, of all text in the chart. You can override this
@@ -84,11 +91,41 @@ gvisBarChart(data, xvar = "", yvar = "", options = list(), chartid)
 	all text in the chart. You can override this using properties for
 	specific chart elements.
       }
-      \item{\code{gridlineColor}}{a string. Default \code{'#CCC'}. The color of the
-	gridlines inside the chart area. Specify a valid HTML color
-	string.
-      }
-      \item{\code{hAxis}}{a json object. Default \code{'null'}. An object with members to configure
+      %%  \item{\code{gridlineColor}}{a string. Default \code{'#CCC'}. The color of the
+      %%	gridlines inside the chart area. Specify a valid HTML color
+      %%	string.
+      %%    }
+      \item{\code{hAxes}}{Array of object, or object with child objects
+	null. Specifies properties for individual horizontal axes, if the
+	chart has multiple horizontal axes. Each child object is a \code{hAxis}
+	object, and can contain all the properties supported by
+	\code{hAxis}. These property values override any global settings for
+	the same property.
+
+	To specify a chart with multiple horizontal axes, first define a
+	new axis using \code{series.targetAxisIndex}, then configure the axis
+	using \code{vAxes}. The following example assigns series 2 to the bottom
+	axis and specifies a custom title and text style for it:
+	
+	\code{ series:\{2:\{targetAxisIndex:1\}\},
+	  vAxes:\{1:\{title:'Losses',textStyle:\{color: 'red'\}\}\}
+	  }
+	  This property can be either an object or an array: the object is a
+	  collection of objects, each with a numeric label that
+	  specifies the axis that it defines--this is the format shown
+	  above; the array is an array of objects, one per axis. For
+	  example, the following array-style notation is identical to
+	  the \code{hAxis} object shown above:
+
+	  \code{
+	    hAxes:[
+	    \{\}, // Nothing specified for axis 0
+	    \{title:'Losses',textStyle:\{color: 'red'\}\} // Axis 1
+	    ]
+	  }
+	}
+      \item{\code{hAxis}}{a json object. Default \code{'null'}. An
+	object with members to configure
 	various horizontal axis elements. To specify properties of this
 	object, you can use object literal notation, as shown here:
 	%\describe{
@@ -116,6 +153,10 @@ gvisBarChart(data, xvar = "", yvar = "", options = list(), chartid)
 	numeric axis labels. This is a subset of the ICU pattern set. For
 	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
+      }
+      \item{\code{hAxis.gridlineColor}}{a string. Default
+	\code{'#CCC'}. The color of the horizontal gridlines inside the
+	chart area. Specify a valid HTML color string.
       }
       \item{\code{hAxis.logScale}}{Boolean. Default \code{FALSE}. \code{vAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
@@ -154,6 +195,39 @@ gvisBarChart(data, xvar = "", yvar = "", options = list(), chartid)
 	will be the lower of two values: the minValue option value, or the
 	lowest data value, rounded down to the next lower grid mark.
       }
+
+      \item{\code{hAxis.viewWindowMode}}{a string. Default
+	\code{"pretty"} if \code{hAxis.viewWindow} is null,
+	\code{"explicit"} otherwise. Specifies how to scale the horizontal
+	axis to render the values within the chart area. The following
+	string values are supported:
+	\describe{
+	  \item{\code{'pretty'}}{Scale the horizontal values so that the
+	    maximum and minimum data values are rendered a bit inside the
+	    left and right of the chart area.
+	  }
+	  \item{\code{'maximized'}}{Scale the horizontal values so that
+	    the maximum and minimum data values touch the left and right of
+	    the chart area.
+	  }
+	  \item{code{'explicit'}}{Specify the left and right scale
+	    values of the chart area. Data values outside these values will
+	    be cropped. You must specify a \code{hAxis.viewWindow} object
+	    describing the maximum and minimum values to show.
+	  }
+	}
+      }
+      \item{\code{hAxis.viewWindow}}{Object. Default
+	\code{NULL}. Specifies the maximum and minimum data values to
+	show on the horizontal axis. Present only if
+	\code{vAxis.viewWindowMode='explicit'}
+      }
+      \item{\code{hAxis.viewWindow.max}}{A number. Default 0.	The
+	maximum vertical data value to render.
+      }
+      \item{\code{hAxis.viewWindow.min}}{A number. Default 0. The
+	minimum vertical data value to render.
+      }    
       \item{\code{height}}{a number. Default height of the containing
 	element. Height of the chart, in pixels.
       }
@@ -185,6 +259,56 @@ gvisBarChart(data, xvar = "", yvar = "", options = list(), chartid)
 	draw series from right to left. The default is to draw
 	left-to-right.
       }
+      \item{\code{series}}{an array of objects, or object with nested
+	objects. Default \{\}.	
+	An array of objects, each describing the format of the
+	corresponding series in the chart. To use default values for a
+	series, specify an empty object {}. If a series or a value is not
+	specified, the global value will be used. Each object supports the
+	following properties:
+	\describe{
+	  \item{\code{color}}{The color to use for this series. Specify a valid
+	    HTML color string.
+	  }
+	  \item{\code{targetAxisIndex}}{Which axis to assign this series
+	    to, where 0 is the default axis, and 1 is the opposite
+	    axis. Default value is 0; set to 1 to define a chart where
+	    different series are rendered against different axes. You can
+	    define a different scale for different axes.
+	  }
+	  \item{\code{pointSize}}{Overrides the global pointSize value
+	    for this series.
+	  }
+	  \item{\code{lineWidth}}{Overrides the global lineWidth value
+	    for this series.
+	  }
+	  \item{\code{curveType}}{Overrides the global curveType value
+	    for this series.
+	    }
+	    \item{\code{visibleInLegend}}{A boolean value, where true
+	      means that the series should have a legend entry, and false means
+	      that it should not. Default is \code{TRUE}.
+	    }
+	  }
+	  You can specify either an array of objects, each of which
+	  applies to the series in the order given, or you can specify an
+	  object where each child has a numeric key indicating which series
+	  it applies to. For example, the following two declarations are
+	  identical, and declare the first series as black and absent from
+	  the legend, and the fourth as red and absent from the legend:
+	  
+	  \code{
+	    series: [\{color: 'black', visibleInLegend: false\},\{\}, \{\}, \{color:
+	    'red', visibleInLegend: false\}]
+	  }
+
+	  \code{
+	    series: \{0:\{color: 'black', visibleInLegend: false\}, 3:\{color: 'red',
+	    visibleInLegend: false\}\}
+	  }
+	}
+
+      
       \item{\code{title}}{a string. Default no title. Text to display above the chart.
       }
       \item{\code{titlePosition}}{a string. Default \code{'out'}.
@@ -247,11 +371,9 @@ gvisBarChart(data, xvar = "", yvar = "", options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{width}}{a number. Default width of the containing element. Width of the chart, in
-	pixels.
-      }
-
-      
+      \item{\code{width}}{a number. Default width of the containing
+	element. Width of the chart, in	pixels.
+      }      
     }    
   }
   \item{chartid}{character. If missing (default) a random chart id will be generated based on

@@ -47,7 +47,8 @@ gvisScatterChart(data, options = list(), chartid)
       \item{\code{backgroundColor.fill}}{a string. Default \code{'white'}. The chart
 	fill color, as an HTML color string.
       }
-      \item{\code{chartArea}}{a string. Default \code{'null'}. An object with members to configure the
+      \item{\code{chartArea}}{a string. Default \code{'null'}. An object
+	with members to configure the 
 	placement and size of the chart area (where the chart itself is drawn,
 	excluding axis and legends). Two formats are supported: a number, or a
 	number followed by \code{\%}. A simple number is a value in pixels; a number
@@ -78,6 +79,12 @@ gvisScatterChart(data, options = list(), chartid)
 	  \item{\code{'function'}}{The angles of the line will be smoothed.}
 	}
       }
+      \item{\code{enableInteractivity}}{Boolean. Default \code{TRUE}. Whether
+	the chart throws user-based events or reacts to user interaction. If
+	false, the chart will not throw 'select' or other interaction-based
+	events (but will throw ready or error events), and will not display
+	hovertext or otherwise change depending on user input.
+      }      
       \item{\code{fontSize}}{a number. Default automatic. The default font
 	size, in pixels, of all text in the chart. You can override this
 	using properties for specific chart elements.
@@ -120,6 +127,11 @@ gvisScatterChart(data, options = list(), chartid)
 	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
       }
+     \item{\code{hAxis.gridlineColor}}{a string. Default
+	\code{'#CCC'}. The color of the horizontal gridlines inside the
+	chart area. Specify a valid HTML color string.
+      }
+     
       \item{\code{hAxis.logScale}}{Boolean. Default \code{FALSE}. \code{vAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
@@ -156,6 +168,39 @@ gvisScatterChart(data, options = list(), chartid)
 	will be the lower of two values: the minValue option value, or the
 	lowest data value, rounded down to the next lower grid mark.
       }
+          \item{\code{hAxis.viewWindowMode}}{a string. Default
+	\code{"pretty"} if \code{hAxis.viewWindow} is null,
+	\code{"explicit"} otherwise. Specifies how to scale the horizontal
+	axis to render the values within the chart area. The following
+	string values are supported:
+	\describe{
+	  \item{\code{'pretty'}}{Scale the horizontal values so that the
+	    maximum and minimum data values are rendered a bit inside the
+	    left and right of the chart area.
+	  }
+	  \item{\code{'maximized'}}{Scale the horizontal values so that
+	    the maximum and minimum data values touch the left and right of
+	    the chart area.
+	  }
+	  \item{code{'explicit'}}{Specify the left and right scale
+	    values of the chart area. Data values outside these values will
+	    be cropped. You must specify a \code{hAxis.viewWindow} object
+	    describing the maximum and minimum values to show.
+	  }
+	}
+      }
+      \item{\code{hAxis.viewWindow}}{Object. Default
+	\code{NULL}. Specifies the maximum and minimum data values to
+	show on the horizontal axis. Present only if
+	\code{vAxis.viewWindowMode='explicit'}
+      }
+      \item{\code{hAxis.viewWindow.max}}{A number. Default 0.	The
+	maximum vertical data value to render.
+      }
+      \item{\code{hAxis.viewWindow.min}}{A number. Default 0. The
+	minimum vertical data value to render.
+      }    
+  
       \item{\code{height}}{a number. Default height of the containing
 	element. Height of the chart, in pixels.
       }
@@ -186,6 +231,55 @@ gvisScatterChart(data, options = list(), chartid)
       \item{\code{pointSize}}{a number. Default 0. Diameter of data points, in pixels. Use
 	zero to hide all points.
       }
+      \item{\code{series}}{an array of objects, or object with nested
+	objects. Default \{\}.	
+	An array of objects, each describing the format of the
+	corresponding series in the chart. To use default values for a
+	series, specify an empty object {}. If a series or a value is not
+	specified, the global value will be used. Each object supports the
+	following properties:
+	\describe{
+	  \item{\code{color}}{The color to use for this series. Specify a valid
+	    HTML color string.
+	  }
+	  \item{\code{targetAxisIndex}}{Which axis to assign this series
+	    to, where 0 is the default axis, and 1 is the opposite
+	    axis. Default value is 0; set to 1 to define a chart where
+	    different series are rendered against different axes. You can
+	    define a different scale for different axes.
+	  }
+	  \item{\code{pointSize}}{Overrides the global pointSize value
+	    for this series.
+	  }
+	  \item{\code{lineWidth}}{Overrides the global lineWidth value
+	    for this series.
+	  }
+	  \item{\code{curveType}}{Overrides the global curveType value
+	    for this series.
+	    }
+	    \item{\code{visibleInLegend}}{A boolean value, where true
+	      means that the series should have a legend entry, and false means
+	      that it should not. Default is \code{TRUE}.
+	    }
+	  }
+	  You can specify either an array of objects, each of which
+	  applies to the series in the order given, or you can specify an
+	  object where each child has a numeric key indicating which series
+	  it applies to. For example, the following two declarations are
+	  identical, and declare the first series as black and absent from
+	  the legend, and the fourth as red and absent from the legend:
+	  
+	  \code{
+	    series: [\{color: 'black', visibleInLegend: false\},\{\}, \{\}, \{color:
+	    'red', visibleInLegend: false\}]
+	  }
+
+	  \code{
+	    series: \{0:\{color: 'black', visibleInLegend: false\}, 3:\{color: 'red',
+	    visibleInLegend: false\}\}
+	  }
+	}
+      
       \item{\code{title}}{a string. Default no title. Text to display above the chart.
       }
       \item{\code{titlePosition}}{a string. Default \code{'out'}.
@@ -239,6 +333,10 @@ gvisScatterChart(data, options = list(), chartid)
 	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
       }
+      \item{\code{vAxis.gridlineColor}}{a string. Default
+	\code{'#CCC'}. The color of the vertical gridlines inside the
+	chart area. Specify a valid HTML color string.
+      }
       \item{\code{vAxis.logScale}}{Boolean. Default \code{FALSE}. \code{vAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
@@ -258,11 +356,18 @@ gvisScatterChart(data, options = list(), chartid)
       \item{\code{vAxis.title}}{a string. Default no title. \code{vAxis} property that
 	specifies a title for the vertical axis.
       }
-      \item{\code{vAxis.titleTextStyle}}{a json object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
+      \item{\code{vAxis.titleTextStyle}}{a json object. Default
+
+	\code{\{color: 'black',
+	  fontName: <global-font-name>, fontSize: <global-font-size>\}}.
+
+	An
 	object that specifies the vertical axis title text style. The
 	object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	
+	\code{\{color: <string>, fontName: <string>, fontSize:
+	  <number>\}}
+	
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -276,8 +381,41 @@ gvisScatterChart(data, options = list(), chartid)
 	will be the lower of two values: the minValue option value, or the
 	lowest data value, rounded down to the next lower grid mark.
       }
-      \item{\code{width}}{a number. Default width of the containing element. Width of the chart, in
-	pixels.
+    \item{\code{vAxis.viewWindowMode}}{a string. Default
+	\code{"pretty"} if \code{vAxis.viewWindow} is null,
+	\code{"explicit"} otherwise. Specifies how to scale the vertical
+	axis to render the values within the chart area. The following
+	string values are supported:
+	\describe{
+	  \item{\code{'pretty'}}{Scale the vertical values so that the
+	    maximum and minimum data values are rendered a bit inside the
+	    top and bottom of the chart area.
+	  }
+	  \item{\code{'maximized'}}{Scale the vertical values so that
+	    the maximum and minimum data values touch the top and bottom of
+	    the chart area.
+	  }
+	  \item{code{'explicit'}}{Specify the top and bottom scale
+	    values of the chart area. Data values outside these values will
+	    be cropped. You must specify a \code{vAxis.viewWindow} object
+	    describing the maximum and minimum values to show.
+	  }
+	}
+      }
+      \item{\code{vAxis.viewWindow}}{Object. Default
+	\code{NULL}. Specifies the maximum and minimum data values to
+	show on the vertical axis. Present only if
+	\code{vAxis.viewWindowMode='explicit'}
+      }
+      \item{\code{vAxis.viewWindow.max}}{A number. Default 0.	The
+	maximum vertical data value to render.
+      }
+      \item{\code{vAxis.viewWindow.min}}{A number. Default 0. The
+	minimum vertical data value to render.
+      }
+      
+      \item{\code{width}}{a number. Default width of the containing
+      element. Width of the chart, in pixels.
       }
     }
   } 

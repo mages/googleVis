@@ -17,14 +17,19 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisChartEditor <- function(type="Table",options=list(),...){
+gvisChartEditor <- function(data, type="Table",options=list(),...){
+
+  ## myCall <- paste("gvis", type, "options=modifyList(list(gvis.editor='Editor'),options),...)", sep="")
+  ## eval(parse(text=mvCall)
+ 
+  
   if (type=="Table"){
     
-    gvis.object <- gvisTable(
+    gvis.object <- gvisTable(data,
          options=modifyList(list(gvis.editor="Editor"),options),...)
   }
   if (type=="LineChart"){
-    gvis.object <- gvisLineChart(
+    gvis.object <- gvisLineChart(data,
          options=modifyList(list(gvis.editor="Editor"),options),...)
   }
   gvis.object

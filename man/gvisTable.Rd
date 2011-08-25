@@ -145,7 +145,8 @@ gvisTable(data, options = list(), chartid)
       }
       
       \item{\code{sortAscending}}{boolean. Default \code{TRUE}. The order in
-	which the initial sort column is sorted. True for ascending, false for descending. Ignored if
+	which the initial sort column is sorted. True for ascending,
+	false for descending. Ignored if 
 	\code{sortColumn} is not specified.
       }
       \item{\code{sortColumn}}{number. Default -1.	An index of a column in

@@ -59,7 +59,6 @@
               paste(tmp, collapse=", ")
             })
 
-  library(utils)
   packageStartupMessage(gvisWelcomeMessage())
   invisible()
 }

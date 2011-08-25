@@ -18,7 +18,7 @@ Description: googleVis provides an interface between R and the Google
 	     required.
 	     Please visit the project web site for more
 	     information and examples.
-Depends: R (>= 2.11.0), RJSONIO (>= 0.3), methods
+Depends: R (>= 2.11.0), RJSONIO (>= 0.3), methods, utils
 Suggests: R.rsp, brew, pscl
 License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/
