@@ -26,7 +26,14 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
     Each column is displayed as a separate line.
   }
   \item{options}{list of configuration options for Google Line Chart.
-    The possible components are, taken from
+    \describe{
+      \item{\code{gvis.editor}}{a character label for an
+	on-page button which opens an in-page dialog box that enables
+	users to edit, change and customise the chart. By default no
+	value is given and therefore no button is displayed. 
+      }
+    }
+    Further possible components are, taken from
     \url{http://code.google.com/apis/visualization/documentation/gallery/linechart.html#Configuration_Options}:
     \describe{
       \item{\code{axisTitlesPosition}}{a string. Default 'out'. Where to place
@@ -275,9 +282,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
-      }
-      
-
+      }      
       \item{\code{vAxes}}{Array of object, or object with child objects
 	null. Specifies properties for individual vertical axes, if the
 	chart has multiple vertical axes. Each child object is a \code{vAxis}
@@ -516,12 +521,17 @@ plot(Line3)
 }
 
 ## Create a chart with two y-axis:
-
 Line4 <-  gvisLineChart(df, "country", c("val1","val2"),
                         options=list(series="[{targetAxisIndex: 0},
-                                                    {targetAxisIndex:1}]",
+                                              {targetAxisIndex:1}]",
                           vAxes="[{title:'val1'}, {title:'val2'}]"
                           ))
 plot(Line4)
+
+## Line chart with edit button
+Line5 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
+                       options=list(gvis.editor="Edit me!"))
+plot(Line5)
+
 }
 \keyword{ iplot }

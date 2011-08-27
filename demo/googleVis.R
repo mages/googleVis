@@ -21,7 +21,7 @@ Line2 <- gvisLineChart(df, "country", c("val1","val2"),
 plot(Line2)
 pause()
 
-## Setting options
+## Setting options, it works similar for other charts
 Line3 <-  gvisLineChart(df, "country", c("val1","val2"),
                         options=list(
                           title="Hello World",
@@ -39,6 +39,13 @@ Line3 <-  gvisLineChart(df, "country", c("val1","val2"),
                           height=300                         
                           ))
 plot(Line3)
+
+## Add edit button for on the fly customisation
+## The same option is available for all other charts
+Line4 <-  gvisLineChart(df, "country", c("val1","val2"),
+                        options=list(gvis.editor="Edit me!"))
+plot(Line4)
+
 ## Bar chart
 Bar <- gvisBarChart(df)
 plot(Bar)

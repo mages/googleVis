@@ -473,8 +473,8 @@ plot(GTM)
 Setting the various options of a \googleVis objects can be a bit
 cumbersome at first. The options follow those of the Google
 Visualisation API and can be set via a named list using the argument \texttt{options}.
-In the following example we create a line chart with various options
-set, see the output in figure~\ref{Options}.
+In the following example we create a line chart and set various
+options, see the output in Figure~\ref{Options}. 
 \begin{figure}%%[!ht]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{Options.pdf}
@@ -501,7 +501,7 @@ Line <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
                                    {targetAxisIndex:1}]",
                           vAxes="[{title:'val1'}, {title:'val2'}]",
                           legend="bottom",
-                          curveType='function',
+                          curveType="function",
                           width=500,
                           height=300                         
                           ))
@@ -515,11 +515,11 @@ axes, use square brackets [ ].
 \subsubsection{Chart Editor}
 A special option for all charts is \texttt{gvis.editor}, which puts a
 button onto the page allowing the user to edit, change and customise the chart in
-a browser window, see the following example and figure~\ref{Editor}.
+a browser window, see the following example and Figure~\ref{Editor}.
 The content of the list item \texttt{gvis.editor} describes the label
-of the browser button.
+of the browser button\footnote{See also \url{http://code.google.com/apis/chart/interactive/docs/reference.html\#google\_visualization\_charteditor}}.
 <<eval=FALSE>>=
-Editor <- gvisLineChart(df, options=list(gvis.editor="Editor"))
+Editor <- gvisLineChart(df, options=list(gvis.editor='Edit me!'))
 plot(Editor)
 @ 
 \begin{figure}%%[!ht]
@@ -527,7 +527,7 @@ plot(Editor)
 \includegraphics[width=0.8\textwidth]{Editor.pdf}
 \caption{
 Example of \googleVis chart with \texttt{options = list (gvis.editor =
-  'Editor')}.
+  'Edit me!')}.
 }\label{Editor}
 \end{center}
 \end{figure}
