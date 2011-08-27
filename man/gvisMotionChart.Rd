@@ -37,13 +37,20 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
     specifies how the dates are reformatted to be used by JavaScript. 
   }
   \item{options}{list of configuration options for Google Motion Chart.
-    The possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html#Configuration_Options}: 
     \describe{
+      \item{\code{gvis.editor}}{a character label for an
+	on-page button which opens an in-page dialog box that enables
+	users to edit, change and customise the chart. By default no
+	value is given and therefore no button is displayed. 
+      }
       \item{\code{gvis.language}}{values may be 'ca', 'da', 'de', 'en', 'en_GB', 'en_IE', 'es', 
 	'es_419', 'fi', 'fr', 'id', 'in', 'is', 'it', 'nl', 'no', 'pt', 'pt_BR', 'pt_PT', 'sv'. If not set the API
 	detects the language settings of the browser.
-      } 
+      }   
+    }
+    Further possible components are, taken from
+    \url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html#Configuration_Options}: 
+    \describe{
       \item{\code{height}}{height of the chart in pixels.
       }
       \item{\code{width}}{width of the chart in pixels.

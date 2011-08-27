@@ -32,7 +32,14 @@ gvisGeoChart(data, locationvar = "", numvar = "", options = list(), chartid)
     displayed when the user hovers over this region.
   }
   \item{options}{list of configuration options for Google Geo Chart.
-    The possible components are, taken from
+        \describe{
+\item{\code{gvis.editor}}{a character label for an
+ on-page button which opens an in-page dialog box that enables
+users to edit, change and customise the chart. By default no
+value is given and therefore no button is displayed. 
+      }
+    }
+    Further possible components are, taken from
     \url{http://code.google.com/apis/visualization/documentation/gallery/geochart.html#Configuration_Options}:
     
     \describe{

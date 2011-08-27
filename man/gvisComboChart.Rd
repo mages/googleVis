@@ -31,7 +31,14 @@ gvisComboChart(data, xvar = "", yvar = "", options = list(), chartid)
     Each column is displayed as a separate column, line or area series.
   }
   \item{options}{list of configuration options for Google Combo Chart.
-    The possible components are, taken from
+        \describe{
+\item{\code{gvis.editor}}{a character label for an
+ on-page button which opens an in-page dialog box that enables
+users to edit, change and customise the chart. By default no
+value is given and therefore no button is displayed. 
+      }
+    }
+    Further possible components are, taken from
     \url{http://code.google.com/apis/visualization/documentation/gallery/combochart.html#Configuration_Options}:
     \describe{
       \item{\code{areaOpacity}}{a number. Default 0.0 - 1.0. The default

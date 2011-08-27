@@ -24,7 +24,14 @@ gvisPieChart(data, labelvar = "", numvar = "", options = list(), chartid)
   \item{numvar}{a vector of column names of the numerical variables of the slice values. 
   }
   \item{options}{list of configuration options for Google Pie Chart.
-    The possible components are, taken from
+        \describe{
+\item{\code{gvis.editor}}{a character label for an
+ on-page button which opens an in-page dialog box that enables
+users to edit, change and customise the chart. By default no
+value is given and therefore no button is displayed. 
+      }
+    }
+    Further possible components are, taken from
     \url{http://code.google.com/apis/visualization/documentation/gallery/piechart.html#Configuration_Options}:
     \describe{
       \item{\code{backgroundColor}}{a string or object. Default \code{'white'}. The
