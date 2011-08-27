@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>
+  <ModulePrefs title="LineChartID12df9ccc" />
+  <Content type="html">
+  <![CDATA[ 
+   <!-- LineChart generated in R 2.14.0 by googleVis 0.2.9 package -->
+<!-- Sat Aug 27 16:14:20 2011 -->
+
+
+<!-- jsHeader -->
+<script type="text/javascript" src="http://www.google.com/jsapi">
+</script>
+<script type="text/javascript">
+
+
+// jsData 
+function gvisDataLineChartID12df9ccc ()
+{
+  var data = new google.visualization.DataTable();
+  var datajson =
+[
+ [
+ "US",
+     1,
+    23 
+],
+[
+ "GB",
+     3,
+    12 
+],
+[
+ "BR",
+     4,
+    32 
+] 
+];
+data.addColumn('string','country');
+data.addColumn('number','val1');
+data.addColumn('number','val2');
+data.addRows(datajson);
+return(data);
+}
+
+
+// jsDrawChart
+var chart;
+function drawChartLineChartID12df9ccc() {
+  var data = gvisDataLineChartID12df9ccc();
+  var options = {};
+options["allowHtml"] = true;
+options["title"] = "Hello World";
+options["titleTextStyle"] = {color:'red', 
+                                           fontName:'Courier', 
+                                           fontSize:16};
+options["backgroundColor"] = "#D3D3D3";
+options["vAxis"] = {gridlineColor:'#FFFFFF'};
+options["hAxis"] = {title:'Country', 
+                                  titleTextStyle:{color:'blue'}};
+options["series"] = [{targetAxisIndex: 0},
+                                   {targetAxisIndex:1}];
+options["vAxes"] = [{title:'val1'}, {title:'val2'}];
+options["legend"] = "bottom";
+options["curveType"] = "function";
+options["width"] =    500;
+options["height"] =    300;
+
+    chart = new google.visualization.LineChart(
+     document.getElementById('LineChartID12df9ccc')
+    );
+    
+  chart.draw(data,options);
+  
+}
+  
+
+
+// jsDisplayChart 
+function displayChartLineChartID12df9ccc()
+{
+  google.load("visualization", "1", { packages:["corechart"] }); 
+  google.setOnLoadCallback(drawChartLineChartID12df9ccc);
+}
+
+
+// jsChart 
+displayChartLineChartID12df9ccc()
+
+
+<!-- jsFooter -->  
+//-->
+</script>
+
+
+<!-- divChart -->
+  
+<div id="LineChartID12df9ccc"
+  style="width: 500px; height: 300px;">
+</div>
+
+  ]]> 
+  </Content>
+</Module>
