@@ -468,6 +468,69 @@ plot(GTM)
 \end{center}
 \end{figure}
 
+\subsection{Setting options}
+
+Setting the various options of a \googleVis objects can be a bit
+cumbersome at first. The options follow those of the Google
+Visualisation API and can be set via a named list using the argument \texttt{options}.
+In the following example we create a line chart with various options
+set, see the output in figure~\ref{Options}.
+\begin{figure}%%[!ht]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Options.pdf}
+\caption{
+  A line chart with various options set.
+}\label{Options}
+\end{center}
+\end{figure}
+<<eval=FALSE>>=
+df <- data.frame(country=c("US", "GB", "BR"), 
+                        val1=c(1,3,4), val2=c(23,12,32))
+
+Line <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
+                        options=list(
+                          title="Hello World",
+                          titleTextStyle="{color:'red', 
+                                           fontName:'Courier', 
+                                           fontSize:16}",                         
+                          backgroundColor="#D3D3D3",                          
+                          vAxis="{gridlineColor:'#FFFFFF'}",
+                          hAxis="{title:'Country', 
+                                  titleTextStyle:{color:'blue'}}",
+                          series="[{targetAxisIndex: 0},
+                                   {targetAxisIndex:1}]",
+                          vAxes="[{title:'val1'}, {title:'val2'}]",
+                          legend="bottom",
+                          curveType='function',
+                          width=500,
+                          height=300                         
+                          ))
+plot(Line)
+@
+As you can see some from the example above, the simpler options can be set by name=value,
+e.g. width=500, while the more complex options with sub-components are
+listed in curly brackets \{\}, and arrays, e.g. to define the two
+axes, use square brackets [ ].
+
+\subsubsection{Chart Editor}
+A special option for all charts is \texttt{gvis.editor}, which puts a
+button onto the page allowing the user to edit, change and customise the chart in
+a browser window, see the following example and figure~\ref{Editor}.
+The content of the list item \texttt{gvis.editor} describes the label
+of the browser button.
+<<eval=FALSE>>=
+Editor <- gvisLineChart(df, options=list(gvis.editor="Editor"))
+plot(Editor)
+@ 
+\begin{figure}%%[!ht]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{Editor.pdf}
+\caption{
+Example of \googleVis chart with \texttt{options = list (gvis.editor =
+  'Editor')}.
+}\label{Editor}
+\end{center}
+\end{figure}
 
 \section{Embedding \googleVis in web sites}
 
@@ -523,6 +586,53 @@ an illustration.
   \caption{Including \googleVis output in a WordPress blog entry.}
   \label{wordpress}
 \end{figure}
+
+
+\subsection{Using \googleVis output with Google Sites, Blogger, etc.}
+
+Google Charts can be used with other Google products such as Google
+Sites, Blogger or Google Code wiki pages. 
+However, in most cases the chart has to be embedded as a Google Gadget.
+Google Gadgets are written in XML and can have HTML and Javascript components.
+Here is an example of a Hello World program written using Google
+Gadget technology take from \href{http://en.wikipedia.org/wiki/Google_Gadgets}{Wikipedia}.
+\begin{verbatim}
+<?xml version="1.0" encoding="UTF-8" ?> 
+<Module>  
+<ModulePrefs title="simple hello world example" />   
+<Content type="html">     
+     <![CDATA[ 
+       Hello, world!
+     ]]>
+</Content> 
+</Module>
+\end{verbatim}
+The \googleVis package comes with the function
+\texttt{createGoogleGadget}, which takes a gvis-object and
+wraps it into an XML gadget file. Here is an example with a motion chart:
+<<>>=
+M <- gvisMotionChart(Fruits, "Fruit", "Year")
+G <- createGoogleGadget(M)
+@ 
+<<eval=FALSE>>=
+cat(G, file="myGadget.xml")
+@ 
+In order to use the gadget, the file \texttt{myGadget.xml} has to be
+hosted online, e.g. using Google Docs. 
+Suppose the URL to the gadget is
+\texttt{http://example.com/myGadget.xml}, than you can embed  the gadget
+
+\begin{itemize}
+
+\item in Blogger via the design tab,
+\item in a Google Site via the menu:
+  
+  "Insert" -> "More gadgets ..." -> "Add gadget URL",
+\item in a Google Code wiki via the \texttt{wiki:gadget} tag, e.g.: 
+  
+  \texttt{<wiki:gadget url="http://example.com/gadget.xml" />}.
+
+\end{itemize}
 
 \subsection{Embedding \googleVis in web sites dynamically}
 

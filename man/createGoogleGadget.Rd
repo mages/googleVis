@@ -27,12 +27,18 @@ createGoogleGadget(gvis)
 Markus Gesmann
 }
 \note{
-Google Gadgets can be embedded in various Google products, for example as part of a Google Code wiki page, e.g.
+Google Gadgets can be embedded in various Google products, for example
+as part of a Google Code wiki page, Blogger or Google Site.
+In all cases the XML gadget file has to be hosted online, e.g. using Google Docs.
 
-<wiki:gadget url="http://example.com/gadget.xml" height="200" border="0" /> 
+In Blogger the gadgets can be embedded via the design tab, and in a Google Sites via
+the menu "Insert" -> "More gadgets ..." -> "Add gadget ULR".  
+
+In a Google Code wiki the gadget can be embedded via
+
+\code{<wiki:gadget url="http://example.com/gadget.xml" height="200" border="0" />}
 
 You find examples on the googleVis project site: 
-
 \url{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}
 }
 

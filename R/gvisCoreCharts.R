@@ -17,8 +17,11 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-gvisLineChart <- function(data, xvar="", yvar="", options=list(), chartid){
-  
+gvisLineChart <- function(data, xvar="", yvar="", options=list(), chartid){##, editor
+
+  ##  if(!missing(editor)){
+  ##   options=list(options, gvis.editor=editor) 
+  ## }
   gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="LineChart")
 }
 

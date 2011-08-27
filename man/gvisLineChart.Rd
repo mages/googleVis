@@ -493,7 +493,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 ## will open a browser window and requires an internet
 ## connection to display the visualisation.
 
-df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
+df <- data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
 
 ## Line chart
 Line1 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"))

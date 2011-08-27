@@ -1,4 +1,4 @@
-Version 0.2.9 [2011-08-10]
+Version 0.2.9 [2011-08-28]
 ==========================
 
 Changes
@@ -14,7 +14,18 @@ Changes
      - Ability to enable or disable chart interactivity
      - Performance improvements in GeoChart
 
+   o Updated vignette with new sections on
+     - Setting options
+     - How to use the Chart Editor
+     - Using googleVis via Gadgets in other Google products such as
+       Blogger and Sites 
+
    o Updated warning section for gvisTreeMap
+
+NEW FEATURES
+ 
+    o New gvis.editor argument in options, allowing users to change
+      the chart type and settings via web interface
 
 
 Version 0.2.8 [2011-07-31]
