@@ -4,6 +4,7 @@
 \usepackage{Sweave}
 \usepackage{thumbpdf}
 \usepackage{url}
+\usepackage{wrapfig}
 \usepackage{hyperref}
 
 \hypersetup{
@@ -25,7 +26,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \setlength{\parskip}{2mm}
 
 \newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
-\newcommand{\googleVisVersion}{0.2.8}
+\newcommand{\googleVisVersion}{0.2.9}
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
 \newcommand{\brew}{\textbf{\texttt{brew }}}
 \newcommand{\rapache}{\emph{{RApache }}}
@@ -119,7 +120,7 @@ there, e.g.
 \href{http://simile.mit.edu/}{simile (AJAX)} \cite{Simile} and
 \href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare}.
 
-\begin{figure}[!ht]
+\begin{figure}%%[!ht]
 \begin{center}
 \includegraphics[width=\textwidth]{MotionChart.pdf}
 \caption{
@@ -128,7 +129,7 @@ there, e.g.
 }\label{MotionChartGUI}
 \end{center}
 \end{figure}
-\clearpage
+%\clearpage
 
 \subsection{Google Visualisation API}
 
@@ -302,11 +303,22 @@ gvisMotionChart(data, idvar='id', timevar='date',
 Here \texttt{data} is the input \texttt{data.frame} and \texttt{idvar}
 and \texttt{timevar} specify the column names of the id variable and
 time variable for the plot, while display options are set in an
-optional list. The options and data requirements follow those of the
-Google Visualisation API and are documented in the help pages, see
+optional list, which we discuss in more detail on
+page~\pageref{settingoptions}. The options and data requirements
+follow those of the Google Visualisation API and are documented in the
+help pages, see 
 <<eval=FALSE>>=
 help('gvisMotionChart')
 @ 
+
+\begin{wrapfigure}{r}{0.35\textwidth}
+\begin{center}
+\includegraphics[width=0.34\textwidth]{gvisObject.pdf}
+\caption{Schematic structure of a gvis list object.
+}\label{gvisObject}
+\end{center}
+\end{wrapfigure}
+
 The argument \texttt{chartid}  allows the user to set a chart id of the
 output chart manually. If the argument is missing a random id using 
 \texttt{tempfile(pattern=\textquotesingle\textquotesingle)}  
@@ -315,7 +327,7 @@ one chart into a page.
 
 The output of a \googleVis function is a list of lists (a nested list)
 containing information about the chart type, chart id and the html
-code in a  sub-list with header, chart, caption and footer.
+code in a  sub-list with header, chart, caption and footer, see Figure~\ref{gvisObject}.
 
 The idea behind this concept is that users can get a
 complete web page while at the same time extracting specific parts,
@@ -427,7 +439,8 @@ plot(M)  # returns invisibly the file name
 
 The plot method for \texttt{gvis}-objects creates html files in a temporary folder using
 the type and chart id information of the object and it will display
-the output using the R HTTP help web server locally.  
+the output using the R HTTP help web server locally, usually under
+http://127.0.0.1.   
 
 Please note that the chart caption provides a link to the chart code via
 the chart id for easy copy and paste. 
@@ -468,7 +481,7 @@ plot(GTM)
 \end{center}
 \end{figure}
 
-\subsection{Setting options}
+\subsection{Setting options}\label{settingoptions}
 
 Setting the various options of a \googleVis objects can be a bit
 cumbersome at first. The options follow those of the Google
@@ -513,11 +526,12 @@ listed in curly brackets \{\}, and arrays, e.g. to define the two
 axes, use square brackets [ ].
 
 \subsubsection{Chart Editor}
-A special option for all charts is \texttt{gvis.editor}, which puts a
-button onto the page allowing the user to edit, change and customise the chart in
-a browser window, see the following example and Figure~\ref{Editor}.
-The content of the list item \texttt{gvis.editor} describes the label
-of the browser button\footnote{See also \url{http://code.google.com/apis/chart/interactive/docs/reference.html\#google\_visualization\_charteditor}}.
+A special option for all charts is \texttt{gvis.editor}, which adds an
+edit  button to the page, allowing the user to edit, change and
+customise the chart on the fly, see the following example and
+Figure~\ref{Editor}. The content of the list item \texttt{gvis.editor}
+describes the label of the browser button\footnote{See also
+  \url{http://code.google.com/apis/chart/interactive/docs/reference.html\#google\_visualization\_charteditor}}. 
 <<eval=FALSE>>=
 Editor <- gvisLineChart(df, options=list(gvis.editor='Edit me!'))
 plot(Editor)
@@ -649,12 +663,12 @@ The \rsp package allows the user to integrate R code into html code.
 The R code is filtered by the \rsp web server and executed
 at run time. 
 
-As an example, we can embed the above motion chart into a rsp-page: 
+As an example, we embed a motion chart into a rsp-page: 
 \begin{verbatim}
 <html>
 <body>
-<% library(googleVis)%>
-<% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
+<% library(googleVis)
+   M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
 <%= M$html$chart %>
 </body>
 </html>
@@ -754,8 +768,8 @@ the \brew directory and access them via
 <html>
 <body>
 <h1>Fruits</h1>
-<% library(googleVis)%>
-<% M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
+<% library(googleVis)
+   M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year") %>
 <%= M$html$chart %>
 </body>
 </html>

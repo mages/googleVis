@@ -16,17 +16,17 @@ Changes
 
    o Updated vignette with new sections on
      - Setting options
-     - How to use the Chart Editor
-     - Using googleVis via Gadgets in other Google products such as
-       Blogger and Sites 
+     - How to use the on-page chart editor
+     - Using googleVis with other Google products such as
+       Blogger and Google Sites 
 
    o Updated warning section for gvisTreeMap
 
 NEW FEATURES
  
-    o New gvis.editor argument in options, allowing users to change
-      the chart type and settings via web interface
-
+    o New gvis.editor argument in options, which adds an edit
+      button to the page, allowing the user to edit, change and
+      customise the chart on the fly.
 
 Version 0.2.8 [2011-07-31]
 ==========================
