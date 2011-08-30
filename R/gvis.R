@@ -219,7 +219,7 @@ gvisFormat <- function(data){
   
   output <- list(
                  data.type = unlist(varTypes),
-                 json = toJSON(x.array)
+                 json = toJSON(x.array, digits = 10)
                  )
 
   output$json <-fixBackslash(output$json)
