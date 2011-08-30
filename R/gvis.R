@@ -118,14 +118,12 @@ function displayChart%s()
   
   jsDrawChart <- '
 // jsDrawChart
-var chart;
 function drawChart%s() {
   var data = gvisData%s();
   var options = {};
 %s
 %s
-  chart.draw(data,options);
-  %s
+%s
 }
 %s  
 '
@@ -159,8 +157,8 @@ divChart <- '
 '
   divChart <- sprintf(divChart,
                      ifelse(!is.null(options$gvis$gvis.editor),
-                     paste("<input type='button' onclick='openEditor()' value='",
-                           as.character(options$gvis$gvis.editor),"'>"),''),
+                     sprintf("<input type='button' onclick='openEditor%s()' value='%s'>",
+                           chartid,as.character(options$gvis$gvis.editor)),''),
 		                 chartid,
                      ifelse(!(is.null(options$gvis$width) || (options$gvis$width == "")),options$gvis$width,600),
                      ifelse(!(is.null(options$gvis$height) || (options$gvis$height == "")),options$gvis$height,500)
@@ -329,37 +327,39 @@ gvisEditor <- function(chartid,type,options){
   if(is.null(options$gvis$gvis.editor))
     return('')
   jseditor <- "
-  function openEditor() {
+  function openEditor%s() {
       var editor = new google.visualization.ChartEditor();
       google.visualization.events.addListener(editor, 'ok',
         function() { 
-          chart = editor.getChartWrapper();  
-          chart.draw(document.getElementById('%s')); 
+          chart%s = editor.getChartWrapper();  
+          chart%s.draw(document.getElementById('%s')); 
       }); 
-      editor.openDialog(chart);
+      editor.openDialog(chart%s);
   }
   "
-  sprintf(jseditor,chartid)
+  sprintf(jseditor,chartid,chartid,chartid,chartid,chartid)
 }
 
 gvisNewChart <- function(chartid,type,options){
   if(is.null(options$gvis$gvis.editor)){
     jsnewchart <- "
-    chart = new google.visualization.%s(
-     document.getElementById(\'%s\')
-    );
+     chart = new google.visualization.%s(
+       document.getElementById(\'%s\')
+     );
+     chart.draw(data,options);
     "
   } else {
     jsnewchart <- "
-    chart = new google.visualization.ChartWrapper({
+    chart%s = new google.visualization.ChartWrapper({
          dataTable: data,       
          chartType: '%s',
          containerId: '%s',
          options: options
     });
+    chart%s.draw();
     "
   }
-  sprintf(jsnewchart,type,chartid)  
+  sprintf(jsnewchart,chartid,type,chartid,chartid)  
 }
 
 gvisListener <- function(chartid, type, options=list(gvis=list(gvis.listener.jscode = NULL))){
