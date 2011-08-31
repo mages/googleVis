@@ -21,5 +21,6 @@ Thanks to:
 	  dependency issue with RJONSIO version 0.7-1
 	o Manoj Ananthapadmanabhan and Anand Ramalingam for providing
 	  ideas and code to animate a Google Geo Map
+	o Rahul Premraj for pointing out a rounding issue with Google Maps  
 
   

@@ -5,22 +5,45 @@ Version: 0.2.9
 Date: 2011-08-28
 Author: Markus Gesmann, Diego de Castillo
 Maintainer: Markus Gesmann <markus.gesmann@gmail.com>
-Description: googleVis provides an interface between R and the Google
-             Visualisation API to create interactive charts for web pages. 
-	     The functions of the package allow the user to visualise
-	     data stored in R data frames with the Google
-	     Visualisation API without uploading the data to Google. 	     	     
-	     The output of a googleVis function is html code that
-	     contains the data and references to JavaScript
-	     functions hosted by Google.
-	     googleVis makes use of the internal R HTTP server to display the
-	     output locally. A browser with Flash and Internet connection is
-	     required.
-	     Please visit the project web site for more
-	     information and examples.
-Depends: R (>= 2.11.0), RJSONIO (>= 0.3), methods, utils
-Suggests: R.rsp, brew, pscl
+Description: googleVis provides an interface between R and
+    the Google Visualisation API to create interactive
+    charts for web pages. The functions of the package
+    allow the user to visualise data stored in R data
+    frames with the Google Visualisation API without
+    uploading the data to Google. The output of a googleVis
+    function is html code that contains the data and
+    references to JavaScript functions hosted by Google.
+    googleVis makes use of the internal R HTTP server to
+    display the output locally. A browser with Flash and
+    Internet connection is required. Please visit the
+    project web site for more information and examples.
+Depends:
+    R (>= 2.11.0),
+    RJSONIO (>= 0.3),
+    methods,
+    utils
+Suggests:
+    R.rsp,
+    brew,
+    pscl
 License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/
 LazyLoad: yes
 LazyData: yes
+Collate:
+    'gadget.R'
+    'gvis.R'
+    'gvisAnnotatedTimeLine.R'
+    'gvisChartEditor.R'
+    'gvisCoreCharts.R'
+    'gvisGeoChart.R'
+    'gvisGeoMap.R'
+    'gvisIntensityMap.R'
+    'gvisMap.R'
+    'gvisMethods.R'
+    'gvisMotionChart.R'
+    'gvisOrgChart.R'
+    'gvisPieGaugeChart.R'
+    'gvisTable.R'
+    'gvisTreeMap.R'
+    'zzz.R'
