@@ -35,7 +35,8 @@ data(Andrew)
 
 AndrewGeoMap <- gvisGeoMap(Andrew, locationvar='LatLong', numvar='Speed_kt',
                           hovervar='Category',
-                          options=list(width=800,height=400, region='US'))
+                          options=list(width=800,height=400,
+                          region='US', dataMode='Markers'))
 
 AndrewMap <- gvisMap(Andrew, 'LatLong' , 'Tip',
                            options=list(showTip=TRUE, showLine=TRUE,
