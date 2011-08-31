@@ -341,13 +341,16 @@ gvisEditor <- function(chartid,type,options){
 }
 
 gvisNewChart <- function(chartid,type,options){
+  ret <- ""
   if(is.null(options$gvis$gvis.editor)){
     jsnewchart <- "
-     chart = new google.visualization.%s(
+     var chart = new google.visualization.%s(
        document.getElementById(\'%s\')
      );
      chart.draw(data,options);
     "
+    ret <- sprintf(jsnewchart,type,chartid)  
+
   } else {
     jsnewchart <- "
     chart%s = new google.visualization.ChartWrapper({
@@ -358,8 +361,9 @@ gvisNewChart <- function(chartid,type,options){
     });
     chart%s.draw();
     "
+    ret <- sprintf(jsnewchart,chartid,type,chartid,chartid)
   }
-  sprintf(jsnewchart,chartid,type,chartid,chartid)  
+  ret
 }
 
 gvisListener <- function(chartid, type, options=list(gvis=list(gvis.listener.jscode = NULL))){
