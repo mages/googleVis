@@ -30,20 +30,3 @@ License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/
 LazyLoad: yes
 LazyData: yes
-Collate:
-    'gadget.R'
-    'gvis.R'
-    'gvisAnnotatedTimeLine.R'
-    'gvisChartEditor.R'
-    'gvisCoreCharts.R'
-    'gvisGeoChart.R'
-    'gvisGeoMap.R'
-    'gvisIntensityMap.R'
-    'gvisMap.R'
-    'gvisMethods.R'
-    'gvisMotionChart.R'
-    'gvisOrgChart.R'
-    'gvisPieGaugeChart.R'
-    'gvisTable.R'
-    'gvisTreeMap.R'
-    'zzz.R'
