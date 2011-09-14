@@ -440,8 +440,6 @@ A1 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
 plot(A1)
 
 ## Two Y-axis
-
-
 A2 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                            numvar="Value", idvar="Device",
                            titlevar="Title", annotationvar="Annotation",
@@ -463,13 +461,27 @@ A3 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
 plot(A3)
 
 
+
+## Colouring the area below the lines to create an area chart
+A4 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
+                           numvar="Value", idvar="Device",
+                           titlevar="Title", annotationvar="Annotation",
+                           options=list(
+                             width=600, height=350,
+                             fill=10, displayExactValues=TRUE,
+                             colors="['#0000ff','#00ff00']")
+                           )
+                          
+plot(A4)
+
+
 ## Data with POSIXct datetime variable
-A4 <- gvisAnnotatedTimeLine(Andrew, datevar="Date/Time UTC",
+A5 <- gvisAnnotatedTimeLine(Andrew, datevar="Date/Time UTC",
                             numvar="Pressure_mb",
                             options=list(scaleType='maximized')
                             )
 
-plot(A4)
+plot(A5)
 
 
 \dontrun{

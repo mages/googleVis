@@ -638,7 +638,7 @@ Suppose the URL to the gadget is
 
 \begin{itemize}
 
-\item in Blogger via the design tab,
+\item in Blogger via the design tab, for site gadget
 \item in a Google Site via the menu:
   
   "Insert" -> "More gadgets ..." -> "Add gadget URL",
@@ -647,6 +647,10 @@ Suppose the URL to the gadget is
   \texttt{<wiki:gadget url="http://example.com/gadget.xml" />}.
 
 \end{itemize}
+
+Situation is again different if you want to include the \googleVis
+output into a blog post.  Here a gadget doesn't seem to work and an
+\texttt{<iframe>} tag has to be used. With the 
 
 \subsection{Embedding \googleVis in web sites dynamically}
 
