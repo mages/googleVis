@@ -106,6 +106,29 @@ Motion=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
 plot(Motion)
 pause()
 
+## You can change some of displaying settings via the browser,
+## e.g. the level of opacity of non-selected items, or the chart type.
+## The state string from the 'Advanced' tab can be used to set those
+## settings via R. Just copy and past the string from the browser into
+## the argument state of the options list.
+## Here is an example of a motion chart, with an initial line chart
+## displayed. 
+myStateSettings <-'
+{"xZoomedDataMin":1199145600000,"colorOption":"2",
+"duration":{"timeUnit":"Y","multiplier":1},"yLambda":1,
+"yAxisOption":"4","sizeOption":"_UNISIZE",
+"iconKeySettings":[],"xLambda":1,"nonSelectedAlpha":0,
+"xZoomedDataMax":1262304000000,"iconType":"LINE",
+"dimensions":{"iconDimensions":["dim0"]},
+"showTrails":false,"uniColorForNonSelected":false,
+"xAxisOption":"_TIME","orderedByX":false,"playDuration":15000,
+"xZoomedIn":false,"time":"2010","yZoomedDataMin":0,
+"yZoomedIn":false,"orderedByY":false,"yZoomedDataMax":100}
+'
+M <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
+plot(M)
+
+
 ## Intensity Map
 Intensity <- gvisIntensityMap(df)
 plot(Intensity)

@@ -29,7 +29,7 @@ Using the Google Visualisation API with R
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
 	Version: \tab 0.2.10\cr
-	Date: \tab 2011-09-06\cr
+	Date: \tab 2011-09-24\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}

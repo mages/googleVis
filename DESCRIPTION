@@ -2,20 +2,19 @@ Package: googleVis
 Type: Package
 Title: Interface between R and the Google Visualisation API
 Version: 0.2.10
-Date: 2011-09-06
+Date: 2011-09-24
 Author: Markus Gesmann, Diego de Castillo
 Maintainer: Markus Gesmann <markus.gesmann@gmail.com>
 Description: googleVis provides an interface between R and
     the Google Visualisation API to create interactive
-    charts for web pages. The functions of the package
-    allow the user to visualise data stored in R data
-    frames with the Google Visualisation API without
-    uploading the data to Google. The output of a googleVis
-    function is html code that contains the data and
+    charts. The functions of the package allow the user to visualise
+    data stored in R data frames with the Google Visualisation API in
+    a web browser, without uploading the data to Google. The output of
+    a googleVis function is html code that contains the data and
     references to JavaScript functions hosted by Google.
     googleVis makes use of the internal R HTTP server to
-    display the output locally. A browser with Flash and
-    Internet connection is required. Please visit the
+    display the output locally, e.g. http://localhost/. A browser with
+    Flash and Internet connection is required. Please visit the
     project web site for more information and examples.
 Depends:
     R (>= 2.11.0),

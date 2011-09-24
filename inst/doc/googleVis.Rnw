@@ -1,4 +1,3 @@
-
 \documentclass{article}
 \usepackage[T1]{fontenc}
 \usepackage{Sweave}
@@ -638,19 +637,32 @@ Suppose the URL to the gadget is
 
 \begin{itemize}
 
-\item in Blogger via the design tab, for site gadget
 \item in a Google Site via the menu:
   
   "Insert" -> "More gadgets ..." -> "Add gadget URL",
+  
 \item in a Google Code wiki via the \texttt{wiki:gadget} tag, e.g.: 
   
-  \texttt{<wiki:gadget url="http://example.com/gadget.xml" />}.
+  \texttt{<wiki:gadget url="http://example.com/gadget.xml" />},
 
+ \item in Blogger via the design tab, see site gadget.
 \end{itemize}
 
-Situation is again different if you want to include the \googleVis
-output into a blog post.  Here a gadget doesn't seem to work and an
-\texttt{<iframe>} tag has to be used. With the 
+However, the situation is different again, if you would like to include the \googleVis
+output into a blogger post.  In this case a gadget does not
+work and one has to use an indirect approach. This means that the \googleVis
+chart has to be hosted on a separate page and is embedded into the blog
+post by using the \texttt{<iframe>} tag, e.g.:
+\begin{verbatim}
+<iframe width="100%" height="400px" frameborder="0" 
+src="http://example.com/myGoogleVisChart.html">
+</iframe>
+\end{verbatim}
+For an example see the following blog entry:
+\href{http://lamages.blogspot.com/2011/09/including-googlevis-output-into-blogger.html}
+{http://lamages.blogspot.com/2011/09/including-googlevis-output-into-blogger.html}.
+
+
 
 \subsection{Embedding \googleVis in web sites dynamically}
 

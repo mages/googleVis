@@ -1,8 +1,21 @@
-Version 0.2.9 [2011-09-06]
+Version 0.2.9 [2011-09-24]
 ==========================
 
 Changes
 
+   o Updated section 'Using googleVis output with Google Sites,
+     Blogger, etc.' vignette
+
+   o Updated example for gvisMotionChart, showing how the initial
+     chart setting can be changed, e.g to display a line chart.
+   
+NEW FEATURES
+ 
+    o New demo WorldBank. It demonstrates how country level data can
+      be accessed from the World Bank via their API and displayed with a
+      Motion Chart. Inspired by Google's Public Data Explorer, see
+      http://www.google.com/publicdata/home
+  
 
 Version 0.2.9 [2011-09-01]
 ==========================

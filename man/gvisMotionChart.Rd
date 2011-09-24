@@ -249,28 +249,35 @@ M4 <- gvisMotionChart(Fruits, "Fruit", "Year",
 
 plot(M4)
 
-## Using information from the advanced state settings
-##
-## In the browser window you can change some of displaying settings,
-## e.g. the level of opacity of not selected items.
-## Copy and paste the state string from the 'Advanced' tab into R
-## and you can add it to your list of options:
+## You can change some of displaying settings via the browser,
+## e.g. the level of opacity of non-selected items, or the chart type.
+## The state string from the 'Advanced' tab can be used to set those
+## settings via R. Just copy and past the string from the browser into
+## the argument state of the options list.
+## Here is an example of a motion chart, with an initial line chart
+## displayed. 
 
 myStateSettings <-'
-{"xZoomedDataMax":111,"dimensions":{"iconDimensions":["dim0"]},
-"colorOption":"2","xZoomedIn":false,"yZoomedDataMax":91,
-"sizeOption":"5","yZoomedIn":false,"xLambda":1,"time":"2008",
-"yZoomedDataMin":71,"iconType":"BUBBLE","showTrails":true,
-"xAxisOption":"3","duration":{"timeUnit":"Y","multiplier":1},
-"playDuration":15000,"nonSelectedAlpha":0,"iconKeySettings":[],
-"orderedByY":false,"uniColorForNonSelected":false,"orderedByX":false,
-"xZoomedDataMin":81,"yLambda":1,"yAxisOption":"4"}
+{"xZoomedDataMin":1199145600000,"colorOption":"2",
+"duration":{"timeUnit":"Y","multiplier":1},"yLambda":1,
+"yAxisOption":"4","sizeOption":"_UNISIZE",
+"iconKeySettings":[],"xLambda":1,"nonSelectedAlpha":0,
+"xZoomedDataMax":1262304000000,"iconType":"LINE",
+"dimensions":{"iconDimensions":["dim0"]},
+"showTrails":false,"uniColorForNonSelected":false,
+"xAxisOption":"_TIME","orderedByX":false,"playDuration":15000,
+"xZoomedIn":false,"time":"2010","yZoomedDataMin":0,
+"yZoomedIn":false,"orderedByY":false,"yZoomedDataMax":100}
 '
-
 M5 <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
 plot(M5)
 ## For more information see:
 ## http://code.google.com/apis/chart/interactive/docs/gallery/motionchart.html#Motion_Chart_initial_state
+
+## See also the demo(WorldBank). It demonstrates how you can access
+## country level data from the World Bank to create Gapminder-like
+## plots.
+
 
 }
 \keyword{ iplot }
