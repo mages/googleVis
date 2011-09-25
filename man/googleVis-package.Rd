@@ -6,22 +6,22 @@
 Using the Google Visualisation API with R
 }
 \description{
+  googleVis provides an interface between R and the Google Visualisation
+  API to create interactive charts. The functions of the package allow
+  the user to visualise data stored in R data frames with the Google
+  Visualisation API in a web browser, without uploading the data to
+  Google. 
 
-  googleVis provides an interface between R and the Google
-  Visualisation API to create interactive charts for web pages. 
-  The functions of the package allow the user to visualise
-  data stored in R data frames with the Google
-  Visualisation API without uploading the data to Google.
-  
-  The output of a googleVis function is html code that
-  contains the data and references to JavaScript
-  functions hosted by Google.
-  googleVis makes use of the internal R HTTP server to display the
-  output locally. A browser with Flash and Internet connection is
-  required.
+  The output of a googleVis function is html code that contains the data
+  and references to JavaScript functions hosted by Google. 
+  googleVis makes use of the internal R HTTP server to
+  display the output locally, e.g. http://localhost/. A browser with 
+  Flash and Internet connection is required. Please visit the
+  project web site for more information and examples.
      
   Please visit the project web site for more
-  information and examples.     
+  information and examples:
+  \url{http://code.google.com/p/google-motion-charts-with-r/}.
  
 } 
 \details{

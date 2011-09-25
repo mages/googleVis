@@ -22,7 +22,8 @@ Thanks to:
 	o Manoj Ananthapadmanabhan and Anand Ramalingam for providing
 	  ideas and code to animate a Google Geo Map
 	o Rahul Premraj for pointing out a rounding issue with Google Maps 
-	o Mike Silberbauer for an example showing how to create area
-	  charts with annotated time lines  
+	o Mike Silberbauer for an example showing how to shade the
+	  areas in annotated time line charts
+  
 
   

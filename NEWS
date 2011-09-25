@@ -8,6 +8,9 @@ Changes
 
    o Updated example for gvisMotionChart, showing how the initial
      chart setting can be changed, e.g to display a line chart.
+
+   o New example for gvisAnnotatedTimeLine, showing how to shade
+     areas. Thanks to Mike Silberbauer for providing the initial code.    
    
 NEW FEATURES
  
