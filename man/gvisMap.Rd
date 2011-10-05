@@ -139,7 +139,10 @@ value is given and therefore no button is displayed.
   The Lat-Long pairs option loads maps much faster, especially with
   large data. We recommend that you use this option for large data
   sets. Please visit Google Maps API to find out how to transform your
-  addresses to lat-long points.
+  addresses to lat-long points.  The map can display a maximum of 400
+  entries; if your data holds more than 400 rows, only the first 400
+  will be shown. 
+
 }
 \references{
   Google Map  API: \url{http://code.google.com/apis/visualization/documentation/gallery/map.html}
