@@ -25,7 +25,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \setlength{\parskip}{2mm}
 
 \newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
-\newcommand{\googleVisVersion}{0.2.9}
+\newcommand{\googleVisVersion}{0.2.11}
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
 \newcommand{\brew}{\textbf{\texttt{brew }}}
 \newcommand{\rapache}{\emph{{RApache }}}
@@ -244,14 +244,6 @@ browser with an Internet connection is required to view
 the output, and for Motion Charts, Geo Maps and Annotated Time Lines
 also Flash. The actual chart is rendered in the browser. 
 
-Please note that Flash charts may not not
-work when loaded as a local file due to security settings, and
-therefore require to be displayed via a web server. 
-%% For more details see the Google Visualisation API documentation. 
-Fortunately, R comes with an internal HTTP server which 
-allows the \googleVis package to display pages locally. 
-
- 
 \begin{figure}%%[!ht]
 \begin{center}
 \includegraphics[width=\textwidth]{googleVisDemoPlots2.pdf}
@@ -441,11 +433,36 @@ the type and chart id information of the object and it will display
 the output using the R HTTP help web server locally, usually under
 http://127.0.0.1.   
 
-Please note that the chart caption provides a link to the chart code via
+The chart caption provides a link to the chart code via
 the chart id for easy copy and paste. 
 
 The R command \texttt{tempdir()}  will show you the path of the
 per-session temporary directory, in which the files were written.  
+You can write the chart into a local html file via the \texttt{print}
+command with the file argument, e.g.
+<<eval=FALSE>>=
+print(M, file="myGoogleVisChart.html")
+@ 
+
+Please note that Flash charts\footnote{Currently the following charts
+  require Flash: motion chart, geo map and
+  annotated time line} may not work when loaded as a local file
+due to security settings, and therefore require to be displayed via a
+web server.  However, you can overcame this issue by changing your Flash security
+settings. Tony Breyal posted the following solution on
+\href{http://stackoverflow.com/questions/8009825/cannot-view-gvismotionchart-from-printed-html-file 
+}{stackoverflow.com}: 
+
+\begin{enumerate}\label{breyal}
+\item Go to \url{http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html}
+\item Click on the dropbox which says 'Edit location' and choose 'add location'
+\item Click 'browse for folder'
+\item Choose the folder in which you saved your html file
+\item Click OK
+\end{enumerate}
+
+Now open your googleVis html file and it should display
+successfully. 
 
 \subsection{Combing charts with \texttt{gvisMerge}}
 
@@ -486,7 +503,9 @@ Setting the various options of a \googleVis objects can be a bit
 cumbersome at first. The options follow those of the Google
 Visualisation API and can be set via a named list using the argument \texttt{options}.
 In the following example we create a line chart and set various
-options, see the output in Figure~\ref{Options}. 
+options\footnote{Please refer to the help file of the individual
+  \googleVis functions, as the options can vary from chart to chart.},
+see the output in Figure~\ref{Options}.  
 \begin{figure}%%[!ht]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{Options.pdf}
@@ -556,7 +575,7 @@ In this case you only need the chart output from
 from the R console
 <<eval=FALSE>>=
 print(M, 'chart')  ## or cat(M$html$chart) 
-@ or the browse, see previous section, 
+@ or the browser, see previous section, 
 into your existing html page, or write the content directly into a file
 <<eval=FALSE>>=
 print(M, 'chart', file='myfilename')
@@ -650,9 +669,12 @@ Suppose the URL to the gadget is
 
 However, the situation is different again, if you would like to include the \googleVis
 output into a blogger post.  In this case a gadget does not
-work and one has to use an indirect approach. This means that the \googleVis
-chart has to be hosted on a separate page and is embedded into the blog
-post by using the \texttt{<iframe>} tag, e.g.:
+work. You can either copy and paste the chart directly into your
+post, but then it does not seem to work with MS Internet Explorer, or
+you use an indirect approach. This means that the \googleVis
+chart has to be hosted on a separate page (e.g. in a public Dropbox
+folder) and is embedded into the blog post by using the
+\texttt{<iframe>} tag, e.g.: 
 \begin{verbatim}
 <iframe width="100%" height="400px" frameborder="0" 
 src="http://example.com/myGoogleVisChart.html">

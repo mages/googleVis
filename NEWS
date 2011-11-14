@@ -3,6 +3,11 @@ Version 0.2.11 [2011-10-05]
 
 Changes
 
+   o Improved check for input data is a data.frame
+   o Updated vignette and documentation with instructions on changing
+     the Flash security settings to display Flash charts locally. 
+     Thanks to Tony Breyal.
+
 Version 0.2.10 [2011-09-24]
 ==========================
 

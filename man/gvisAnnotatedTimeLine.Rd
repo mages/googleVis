@@ -408,7 +408,8 @@ described by a set of one to three columns.
   Because of Flash security settings the chart might not work correctly when accessed from a file
   location in the browser (e.g., file:///c:/webhost/myhost/myviz.html)
   rather than from a web server URL
-  (e.g. http://www.myhost.com/myviz.html). See the Macromedia web 
+  (e.g. http://www.myhost.com/myviz.html). See the googleVis package
+  vignette and the Macromedia web 
   site (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/})
   for more details.
 

@@ -106,7 +106,7 @@ gvisCoreChart <- function(data, xvar="", yvar="", options=list(), chartid, chart
 
 gvisCheckCoreChartData <- function(data, xvar, yvar){
   
-  if(class(data) != "data.frame"){
+  if(!is.data.frame(data)){
     stop("Error: data has to be a data.frame.")
   }
   if(xvar=="")
