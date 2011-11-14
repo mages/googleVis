@@ -239,16 +239,22 @@ plot(Mtbl)
 M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
                                date.format = "\%Y\%m\%d") 
 plot(M2)
+
+## Display weekly data:
+M3 <- gvisMotionChart(Fruits, "Fruit", "Date", date.format="\%YW\%W")
+
+plot(M3) 
 }
 ## Options: no side panel on the right
-M3 <- gvisMotionChart(Fruits,"Fruit","Year",
+M4 <- gvisMotionChart(Fruits,"Fruit","Year",
                  options=list(showSidePanel=FALSE))
-plot(M3)
+plot(M4)
+
 ## Options: trails un-ticked
-M4 <- gvisMotionChart(Fruits, "Fruit", "Year",
+M5 <- gvisMotionChart(Fruits, "Fruit", "Year",
                  options=list(state='{"showTrails":false};'))
 
-plot(M4)
+plot(M5)
 
 ## You can change some of displaying settings via the browser,
 ## e.g. the level of opacity of non-selected items, or the chart type.
@@ -270,8 +276,8 @@ myStateSettings <-'
 "xZoomedIn":false,"time":"2010","yZoomedDataMin":0,
 "yZoomedIn":false,"orderedByY":false,"yZoomedDataMax":100}
 '
-M5 <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
-plot(M5)
+M6 <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
+plot(M6)
 ## For more information see:
 ## http://code.google.com/apis/chart/interactive/docs/gallery/motionchart.html#Motion_Chart_initial_state
 

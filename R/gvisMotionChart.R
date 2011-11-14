@@ -61,15 +61,17 @@ gvisCheckMotionChartData <- function(data, options){
   if(sum(!is.na(idvar.timevar.pos)) < 2){
     stop("There is a missmatch between the idvar and timevar specified and the colnames of your data.")
   }
-  
-  ## Check if timevar is either a numeric or date
-  if( is.numeric(x[[options$data$timevar]]) | class(x[[options$data$timevar]])=="Date" ){
-    typeMotionChart[[options$data$timevar]] <- ifelse(is.numeric(x[[options$data$timevar]]), "number",
-                                                      ##ifelse(date.format %in% c("%YW%W","%YW%U"), "string",
-                                                      "date")##)
-  }else{
-    stop(paste("The timevar has to be of numeric or Date format. Currently it is ", class(x[[options$data$timevar]]) ))
+
+
+  typeMotionChart[[options$data$timevar]] <-
+    testTimevar(x[[options$data$timevar]], options$data$date.format)
+
+  if(typeMotionChart[[options$data$timevar]] == "string"){
+  ## only true for quarterly or weekly data
+    x[[options$data$timevar]] <- format.Date(x[[options$data$timevar]],
+                                             options$data$date.format) 
   }
+    
   
   ## idvar has to be a character, so lets try to convert it into a character
   if( ! is.character(x[[options$data$idvar]]) ){
@@ -105,3 +107,18 @@ gvisCheckMotionChartData <- function(data, options){
   return(data.frame(x))
 }
 
+testTimevar <- function(x, date.format){
+  ## Check if timevar is either a numeric or date
+  if( is.numeric(x) )
+    return("number")  
+  
+  if(class(x)=="Date"& date.format %in% c("%YW%W","%YW%U"))
+    return("string") 
+
+  if(class(x)=="Date")
+    return("date")
+  
+  stop(paste("The timevar has to be of numeric or Date format. Currently it is ", class(x)))
+
+}
+  
