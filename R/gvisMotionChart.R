@@ -67,7 +67,7 @@ gvisCheckMotionChartData <- function(data, options){
     testTimevar(x[[options$data$timevar]], options$data$date.format)
 
   if(typeMotionChart[[options$data$timevar]] == "string"){
-  ## only true for quarterly or weekly data
+  ## only true for weekly data
     x[[options$data$timevar]] <- format.Date(x[[options$data$timevar]],
                                              options$data$date.format) 
   }

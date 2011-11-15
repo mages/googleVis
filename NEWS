@@ -1,4 +1,4 @@
-Version 0.2.11 [2011-10-05]
+Version 0.2.11 [2011-11-15]
 ==========================
 
 Changes
@@ -7,7 +7,9 @@ Changes
    o Updated vignette and documentation with instructions on changing
      the Flash security settings to display Flash charts locally. 
      Thanks to Tony Breyal.
-   o New example to plot weekly data with gvisMotionChart   
+   o New example to plot weekly data with gvisMotionChart
+   o Removed local copies of gadget files. Kept local R file to
+     reproduce them if needed.    
 
 Version 0.2.10 [2011-09-24]
 ==========================
