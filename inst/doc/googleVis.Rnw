@@ -886,7 +886,7 @@ J2 <- gvisTable(Population, options=list(gvis.listener.jscode=jscode))
 plot(J2)
 @ 
 For more details see the \texttt{demo(EventListner)} and \href{http://code.google.com/apis/chart/interactive/docs/reference.html}{Google Visualisation API Reference}.
- 
+
 \section{Contact}
 \subsection{Collaboration} 
 Obviously, the package is work in progress and there are many other functions of the Google

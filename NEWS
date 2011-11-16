@@ -1,15 +1,15 @@
-Version 0.2.11 [2011-11-15]
+Version 0.2.11 [2011-11-16]
 ==========================
 
 Changes
 
-   o Improved check for input data is a data.frame
    o Updated vignette and documentation with instructions on changing
      the Flash security settings to display Flash charts locally. 
      Thanks to Tony Breyal.
    o New example to plot weekly data with gvisMotionChart
-   o Removed local copies of gadget files. Kept local R file to
-     reproduce them if needed.    
+   o Removed local copies of gadget files to reduce package file
+     size. A local copy of the R script to generate the original gadget
+     files is still included in inst/gadgets 
 
 Version 0.2.10 [2011-09-24]
 ==========================

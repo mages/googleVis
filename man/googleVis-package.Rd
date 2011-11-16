@@ -29,7 +29,7 @@ Using the Google Visualisation API with R
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
 	Version: \tab 0.2.11\cr
-	Date: \tab 2011-11-15\cr
+	Date: \tab 2011-11-16\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
@@ -56,8 +56,18 @@ Using the Google Visualisation API with R
   For examples using the Google Visualisation API see the Google
   Public Data Explorer: \url{http://www.google.com/publicdata/home}
 
+  Other R packages of interest to you might be:
+  \itemize{
+    \item plotGoogleMaps: Plot HTML output with Google Maps API and your own data. \url{http://cran.r-project.org/web/packages/plotGoogleMaps/}
+    \item R2GoogleMaps: Provides a mechanism to generate JavaScript code from R that displays data using Google Maps. \url{http://www.omegahat.org/R2GoogleMaps/}
+    \item RgoogleMaps: Overlays on Google map tiles in R. \url{http://cran.r-project.org/web/packages/RgoogleMaps/index.html}
+    \item animation: A Gallery of Animations in Statistics and Utilities to Create Animations. \url{http://cran.r-project.org/web/packages/animation/}
+    \item gridSVG: Export grid graphics as SVG/ \url{http://cran.r-project.org/web/packages/gridSVG/}
+    \item SVGAnnotation: Tools for Post-Processing SVG Plots Created in R \url{http://www.omegahat.org/SVGAnnotation/}
+    \item RSVGTipsDevice: An R SVG graphics device with dynamic tips and hyperlinks. \url{http://cran.r-project.org/web/packages/RSVGTipsDevice/}
+    \item iWebPlots: Interactive web-based plots. \url{http://cran.r-project.org/web/packages/iWebPlots/}
+  }   
 }
-
 \references{
   \itemize{
 	\item googleVis project site: \url{http://code.google.com/p/google-motion-charts-with-r/}
@@ -69,6 +79,8 @@ Using the Google Visualisation API with R
 \examples{
 \dontrun{
   demo(googleVis)
+  ## For other demos see
+  demo(package='googleVis')	
   }
 }
 \keyword{ package }
