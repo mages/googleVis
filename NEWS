@@ -1,3 +1,12 @@
+Version 0.2.12 [2011-12-07]
+==========================
+
+Bug Fixes
+
+    o gvisMotionChart didn't display data with special characters,
+      e.g. spaces, &, %, in column names correctly. 
+      Thanks to Alexander Holcroft for reporting this issue.
+
 Version 0.2.11 [2011-11-16]
 ==========================
 

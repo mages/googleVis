@@ -25,7 +25,11 @@ Thanks to:
 	o Mike Silberbauer for an example showing how to shade the
 	  areas in annotated time line charts
 	o Tony Breyal for providing instructions on changing the Flash
-	  security settings to display Flash charts locally  
+	  security settings to display Flash charts locally 
+	o Alexander Holcroft for reporting a bug in gvisMotionChart
+	  when displaying data with special characters in column names
+
+
   
 
   

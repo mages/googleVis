@@ -103,8 +103,10 @@ gvisCheckMotionChartData <- function(data, options){
          nrow(unique(as.data.frame(x)[1:2])),
          " unique rows.")
   }
-  
-  return(data.frame(x))
+
+  X <- data.frame(x)
+  names(X) <- varNames
+  return(X)
 }
 
 testTimevar <- function(x, date.format){
