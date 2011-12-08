@@ -1,3 +1,10 @@
+Version 0.2.13 [2011-12-08]
+==========================
+
+Changes
+
+    o Renamed demo EventListner to EventListener
+
 Version 0.2.12 [2011-12-07]
 ==========================
 

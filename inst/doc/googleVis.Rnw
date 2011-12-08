@@ -853,7 +853,7 @@ We will only deal with this special case of a 'select' event of the
 'addListner' method. This event is available for most visualisations
 and acts on user interactions, e.g. user selection clicks.
 
-The 'addListner' method expects JavaScript code, which can be embedded
+The 'addListener' method expects JavaScript code, which can be embedded
 into a gvis-object via \texttt{options} as (undocumented) parameter
 \texttt{gvis.listener.jscode}. 
 
@@ -885,7 +885,7 @@ jscode <- "
 J2 <- gvisTable(Population, options=list(gvis.listener.jscode=jscode))
 plot(J2)
 @ 
-For more details see the \texttt{demo(EventListner)} and \href{http://code.google.com/apis/chart/interactive/docs/reference.html}{Google Visualisation API Reference}.
+For more details see the \texttt{demo(EventListener)} and \href{http://code.google.com/apis/chart/interactive/docs/reference.html}{Google Visualisation API Reference}.
 
 \section{Contact}
 \subsection{Collaboration} 
