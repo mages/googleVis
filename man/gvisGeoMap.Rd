@@ -219,7 +219,7 @@ Diego de Castillo \email{decastillo@gmail.com}
   shown. The fastest modes are \code{dataMode='regions'} with locations
   specified as ISO codes, and \code{dataMode='markers'} with lat/long
   entries. The slowest mode is \code{dataMode='markers'} with a string
-  address. 
+  address.
 }
 
 \section{Warnings}{

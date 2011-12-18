@@ -61,6 +61,11 @@ Area <- gvisAreaChart(df)
 plot(Area)
 pause()
 
+## Stepped Area chart
+SteppedArea <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+      options=list(isStacked=TRUE))
+plot(SteppedArea)
+
 ## Combo chart
 Combo <- gvisComboChart(df, xvar="country",
                                      yvar=c("val1", "val2"),
@@ -135,13 +140,18 @@ plot(Intensity)
 pause()
 
 
-## Geo chart
-Geo=gvisGeoChart(Exports, locationvar="Country", numvar="Profit")
+## Geo Chart
+Geo=gvisGeoChart(Exports, locationvar="Country", colorvar="Profit")
 plot(Geo)
 pause()
 
+## Show Hurricane Andrew (1992) storm track with Geo Chart
+GeoMarker <- gvisGeoChart(Andrew, "LatLong", sizevar='Speed_kt',
+                   colorvar="Pressure_mb", options=list(region="US"))
+plot(GeoMarker)
+
 ## Geo Map, requires Flash
-Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit",
+Geo=gvisGeoMap(Exports, locationvar="Country", colorvar="Profit",
                        options=list(height=350, dataMode='regions'))
 plot(Geo)
 pause()

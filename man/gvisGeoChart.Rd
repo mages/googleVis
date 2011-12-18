@@ -7,30 +7,46 @@
   The gvisGeoChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
   included into a web page, or as a stand-alone page.
-
-  A geo chart is an SVG-based map of a country, continent, or region map,
-  with colours and values assigned to specific regions. Values are
-  displayed as a color scale, and you can specify optional hovertext for
-  regions. Note that the
-  map is not scrollable or draggable.
   
+  A Geochart is a map of a country, a continent, or a region with two modes:
+  The region mode colorizes whole regions, such as countries, provinces,
+  or states. The marker mode marks designated regions using bubbles that
+  are scaled according to a value that you specify.
+
+  A Geochart is rendered within the browser using
+  SVG or VML. Note that the map is not scrollable or draggable.
 }
 \usage{
-gvisGeoChart(data, locationvar = "", numvar = "", options = list(), chartid)
+gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), chartid)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{
-    a \code{data.frame}. The data has to have at least two
-    columns with location name (\code{locationvar}), value to be mapped
-    to location (\code{numvar}).
+    a \code{data.frame}.
+    The format of the DataTable varies depending on which display mode that
+    you use: Regions or Markers.
+
+    The data has to have at least one
+    column with location name (\code{locationvar}), value to be mapped
+    to location (\code{colorvar}). The format of the data varies depending
+    on which display mode that you use: Regions or Markers
   }
   \item{locationvar}{column name of \code{data} with the country name,
     or an uppercase ISO-3166 code.    
   }
-  \item{numvar}{column name of \code{data} with the numeric value
-    displayed when the user hovers over this region.
+  \item{colorvar}{The next column is an optional numeric column used to
+    assign a color to this marker, based on the scale specified in the
+    colorAxis.colors property. If this column is not present, all
+    markers will be the same color. If the column is present, null
+    values are not allowed. Values are scaled relative to each other, or
+    absolutely to values specified in the colorAxis.values property.
   }
+  \item{sizevar}{An optional numeric column used to assign the marker
+    size, relative to the other marker sizes. If this column is not
+    present, the value from the previous column will be used (or default
+    size, if no color column is provided as well). If the column is
+    present, null valuesare not allowed.
+    }
   \item{options}{list of configuration options for Google Geo Chart.
         \describe{
 \item{\code{gvis.editor}}{a character label for an
@@ -43,6 +59,98 @@ value is given and therefore no button is displayed.
     \url{http://code.google.com/apis/visualization/documentation/gallery/geochart.html#Configuration_Options}:
     
     \describe{
+
+      \item{\code{backgroundColor}}{a string or object. Default
+	\code{white}. The background color for the main area of the
+	chart. Can be either a simple HTML color string, for example:
+	\code{'red'} or \code{'#00cc00'}, or an object with the following properties.
+      }
+      \item{\code{backgroundColor.fill}}{a string. Default
+	\code{white}. The chart fill color, as an HTML color string.
+      }
+      \item{\code{backgroundColor.stroke}}{a string. Default
+	\code{'#666'}. The color of the chart border, as an HTML color
+	string.
+      }
+      \item{\code{backgroundColor.strokeWidth}}{a number. Default
+	0. The border width, in pixels.
+      }
+      \item{\code{colorAxis}}{a string. Default \code{'null'}	An object that
+	specifies a mapping between colors and color column values. To
+	specify properties of this object, you can use object literal
+	notation, as shown here:
+	
+	\code{\{minValue: 0,  colors: ['#FF0000', '#00FF00']\}}
+	}
+	\item{\code{colorAxis.minValue}}{a number. Default minimum value
+	of color column in chart data.	If present, specifies a minimum
+	value for chart color data. Color data values of this value and
+	lower will be rendered as the first color in the
+	\code{colorAxis.colors} range.
+	}
+	\item{\code{colorAxis.maxValue}}{a number. Default maximum value
+	of color column in chart data	If present, specifies a maximum
+	value for chart color data. Color data values of this value and
+	higher will be rendered as the last color in the
+	\code{colorAxis.colors} range.
+	}
+	\item{\code{colorAxis.values}}{an array of numbers. Default
+	\code{'null'}. Controls how values are associated with
+	colors. Each value is associated with the corresponding color in
+	the \code{colorAxis.colors} array. These values apply to the color
+	value for a region or marker. Regions are colored according to a
+	gradient of the values specified here. Not specifying a value
+	for this option is equivalent to specifying \code{[minValue,
+	maxValue]}.
+	}
+	\item{\code{colorAxis.colors}}{an array of color
+	strings. Default \code{'null'}.	Colors to assign to values in
+	the visualization. An array of strings, where each element is an
+	HTML color string, for example: colorAxis:
+	\code{\{colors:['red','#004411']\}}. You must have at least two values;
+	the gradient will include all your values, plus calculated
+	intermediary values, with the first color as the smallest value,
+	and the last color as the highest.
+	}
+	\item{\code{datalessRegionColor}}{a string. Default
+	\code{'F5F5F5'}. Colors to assign to regions with no associated
+	data.
+	}
+	\item{\code{displayMode}}{a string. Default \code{'auto'}. Which
+	  type of map this is. The DataTable format must match the value
+	  specified. The following values are supported:
+
+	  \code{'auto'}: Choose based on the format of the DataTable.
+	  \code{'regions'}: This is a region map
+	  \code{'markers'}: This is a marker map.
+	}
+
+      \item{\code{height}}{number, default 347. Height of the
+	visualization. If no units are given, the default unit is
+	pixels. 
+      }
+
+      \item{\code{legend}}{an object / \code{'none'}. Default \code{'null'}.	
+	An object with members to configure various aspects of the legend, or
+	\code{'none'}, if no legend should appear. To specify properties of this
+	object, you can use object literal notation, as shown here:
+	
+	\code{\{textStyle: \{color: 'blue', fontSize: 16\}\}}
+      }
+      \item{\code{legend.numberFormat}}{a string. Default
+	\code{'auto'}. A format string for numeric axis labels. This is
+	a subset of the ICU pattern set. For instance,
+	\code{\{numberFormat:'.##'\}} will display values "10.66", "10.6", and
+	"10.0" for values 10.666, 10.6, and 10.
+      }
+      \item{\code{legend.textStyle}}{an object. Default \code{\{color:
+	  'black', fontName: <global-font-name>, fontSize:
+	  <global-font-size>\}}.  An object that specifies the legend text
+	style. The object has this format:
+	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	The color can be any HTML color string, for example: \code{'red'} or
+	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
+      }
       \item{\code{region}}{string, default \code{'world'}.
 	The area to display on the map. (Surrounding areas will be
 	displayed as well.) Can be either a country code (in uppercase
@@ -68,36 +176,7 @@ value is given and therefore no button is displayed.
 	  039 \tab (Southern Europe)
 	}
       }
-      \item{\code{width}}{number, default 556. Width of the
-	visualization. If no units are given, the default unit is pixels.
-      }
-      \item{\code{height}}{number, default 347. Height of the
-	visualization. If no units are given, the default unit is
-	pixels. 
-      }
-      \item{\code{backgroundColor}}{a string or object. Default
-	\code{white}. The background color for the main area of the
-	chart. Can be either a simple HTML color string, for example:
-	\code{'red'} or \code{'#00cc00'}, or an object with the following properties.
-      }
-      \item{\code{backgroundColor.stroke}}{a string. Default
-	\code{'#666'}. The color of the chart border, as an HTML color
-	string.
-      }
-      \item{\code{backgroundColor.strokeWidth}}{a number. Default
-	0. The border width, in pixels.
-      }
-      \item{\code{backgroundColor.fill}}{a string. Default
-	\code{white}. The chart fill color, as an HTML color string.
-      }
-      \item{\code{colors}}{a json array of strings. Default
-	colors. Color gradient to assign to values in the
-	visualization. An array of strings, where each element is an HTML
-	color string, for example: \code{colors:['red','#004411']}. You must have
-	at least two values; the gradient will include all your values,
-	plus calculated intermediary values, with the first color as the
-	smallest value, and the last color as the highest.
-      }
+
       \item{\code{resolution}}{a string. Default \code{'countries'}
 	The resolution of the map borders. Choose one of the following values:
 	\describe{
@@ -106,9 +185,52 @@ value is given and therefore no button is displayed.
 	  \item{\code{'provinces'}}{ Not supported for all countries;
 	    please test a country to see whether this option is supported.
 	  }
-	  \item{\code{'metros'}}{USA only.
+	  \item{\code{'metros'}}{Supported for the US country region and
+	    US state regions only.
 	  }
 	}
+      }
+      \item{\code{sizeAxis}}{an object. Default \code{'null'}. An object with
+	members to configure how values are associated with bubble
+	size. To specify properties of this object, you can use object
+	literal notation, as shown here:
+	
+	\code{\{minValue: 0,  maxSize: 20\}}
+      }
+      \item{\code{sizeAxis.maxSize}}{a number. Default 30. Maximum size
+	of the largest marker, in pixels.
+      }
+      \item{\code{sizeAxis.maxValue}}{a	number. Default	maximum value of
+	size column in chart data	Maximum size column value. Larger values
+	will be cropped to this value.
+      }
+      \item{\code{sizeAxis.minSize}}{a number. Default 2.	
+	Mininum size of the smallest marker, in pixels.
+      }
+      \item{\code{sizeAxis.minValue}}{a	number. Default	minimum value of
+	size column in chart data	Minimum size column value. Smaller
+	values will be clamped to this value.
+      }
+      \item{\code{tooltip}}{an object. Default	\code{'null'}.	
+	An object with members to configure various tooltip elements. To specify
+	properties of this object, you can use object literal notation, as
+	shown here:
+ 
+
+	\code{\{textStyle: \{color: '#FF0000'\}, showColorCode: true\}}
+      }
+      \item{\code{tooltip.textStyle}}{an object. Default \code{\{color:
+	  'black', fontName: <global-font-name>, fontSize:
+	  <global-font-size>\}}
+	An object that specifies the tooltip text style. The object has this format:
+	
+	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+    
+	The color can be any HTML color string, for example: \code{'red'} or \code{'#00cc00'}.
+      }
+      
+      \item{\code{width}}{number, default 556. Width of the
+	visualization. If no units are given, the default unit is pixels.
       }	
     }
   }
@@ -179,25 +301,28 @@ Markus Gesmann \email{markus.gesmann@gmail.com},
 
 Diego de Castillo \email{decastillo@gmail.com}
 }
-%\note{
-%}
+\note{
+  This is the new version of the GeoMap chart. 
+}
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
 
   See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods, \code{\link{gvisGeoMap}} and \code{\link{gvisIntensityMap}} for an
-  alternative to \code{gvisGeoChart}.  
-  
+  printing and plotting methods, \code{\link{gvisGeoMap}} and
+  \code{\link{gvisIntensityMap}} for an alternative to \code{gvisGeoChart}.  
 }
 \examples{
 ## Please note that by default the googleVis plot command
 ## will open a browser window and requires Internet
 ## connection to display the visualisation.
 
+## Regions examples
+## The regions style fills entire regions (typically countries) with
+## colors corresponding to the values that you assign
 
-G1 <- gvisGeoChart(Exports, locationvar='Country', numvar='Profit') 
+G1 <- gvisGeoChart(Exports, locationvar='Country', colorvar='Profit') 
 
 plot(G1)
 
@@ -206,6 +331,25 @@ G2 <- gvisGeoChart(Exports, "Country", "Profit",
                    options=list(region="150"))
 
 plot(G2)
+
+## Markers Example
+## A marker style map renders bubble-shaped markers at specified
+## locations with the color and size that you specify.
+
+G3 <- gvisGeoChart(CityPopularity, locationvar='City', colorvar='Popularity',
+                      options=list(region='US', height=350, 
+                                   displayMode='markers',
+				   colorAxis="{colors: ['orange','blue']}") )
+plot(G3) 
+
+G4 <- gvisGeoChart(Andrew, "LatLong", colorvar='Speed_kt',
+                   options=list(region="US"))
+plot(G4)
+
+
+G5 <- gvisGeoChart(Andrew, "LatLong", sizevar='Speed_kt',
+                   colorvar="Pressure_mb", options=list(region="US"))
+plot(G5)
 
 }
 \keyword{ iplot }

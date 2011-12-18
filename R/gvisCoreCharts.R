@@ -30,6 +30,12 @@ gvisAreaChart <- function(data, xvar="", yvar="", options=list(), chartid){
   gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="AreaChart")
 }
 
+
+gvisSteppedAreaChart <- function(data, xvar="", yvar="", options=list(), chartid){
+  
+  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="SteppedAreaChart")
+}
+
 gvisBarChart <- function(data, xvar="", yvar="", options=list(), chartid){
   
   gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="BarChart")

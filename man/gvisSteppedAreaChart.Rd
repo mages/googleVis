@@ -1,19 +1,19 @@
-\name{gvisAreaChart}
-\alias{gvisAreaChart}
+\name{gvisSteppedAreaChart}
+\alias{gvisSteppedAreaChart}
 \title{
-Google Area Chart with R
+Google Stepped Area Chart with R
 }
 \description{
 
-  The gvisAreaChart function reads a data.frame and
+  The gvisSteppedAreaChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
   included into a web page, or as a stand-alone page.
   
-  The area chart is rendered within the browser using SVG or VML and
+  The stepped area chart is rendered within the browser using SVG or VML and
   displays tips when hovering over points.
 }
 \usage{
-gvisAreaChart(data, xvar = "", yvar = "", options = list(), chartid)
+gvisSteppedAreaChart(data, xvar = "", yvar = "", options = list(), chartid)
 }
 \arguments{
   \item{data}{a \code{\link{data.frame}} to be displayed as a line chart
@@ -26,7 +26,7 @@ gvisAreaChart(data, xvar = "", yvar = "", options = list(), chartid)
     plotted. 
     Each column is displayed as a separate line.
   }
-  \item{options}{list of configuration options for Google Area Chart.
+  \item{options}{list of configuration options for Google Stepped Area Chart.
         \describe{
 \item{\code{gvis.editor}}{a character label for an
  on-page button which opens an in-page dialog box that enables
@@ -35,7 +35,7 @@ value is given and therefore no button is displayed.
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/areachart.html#Configuration_Options}:
+    \url{http://code.google.com/apis/visualization/documentation/gallery/steppedareachart.html#Configuration_Options}:
     \describe{
 
      \item{\code{areaOpacity}}{a number between 0.0 - 1.0. Default
@@ -53,9 +53,9 @@ value is given and therefore no button is displayed.
 	  \item{\code{'none'}}{Omit the axis titles.}
 	}
       }
-      \item{\code{backgroundColor}}{a string or object. Default \code{'white'}. The
-	background color for the main area of the chart. Can be either a
-	simple HTML color string, for example: \code{'red'} or
+      \item{\code{backgroundColor}}{a string or object. Default
+       \code{'white'}. The background color for the main area of the
+       chart. Can be either a simple HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}, or an
 	object with the following properties.
       }
@@ -93,12 +93,32 @@ value is given and therefore no button is displayed.
 	use for the chart elements. An array of strings, where each element is
 	an HTML color string, for example: \code{colors:[red','#004411']}.
       }
-      \item{\code{enableInteractivity}}{Boolean. Default \code{TRUE}. Whether
+      \item{\code{connectSteps}}{boolean. Default \code{TRUE}. If set to
+	\code{TRUE}, will connect the steps to form a stepped
+	line. Otherwise, only a top line appears. The default is to
+	connect the steps. 
+      }
+      \item{\code{enableInteractivity}}{boolean. Default \code{TRUE}. Whether
 	the chart throws user-based events or reacts to user interaction. If
 	false, the chart will not throw 'select' or other interaction-based
 	events (but will throw ready or error events), and will not display
 	hovertext or otherwise change depending on user input.
       }
+      \item{\code{focusTarget}}{a string. Default 'datum'. The type of
+	the entity that receives focus on mouse hover. Also affects which
+	entity is selected by mouse click, and which data table element is
+	associated with events. Can be one of the following:
+
+	\code{'datum'} Focus on a single data point. Correlates to a
+	cell in the data table.
+	
+	\code{'category'} Focus on a grouping of all data points along
+	the major axis. Correlates to a row in the data table.
+	
+	In focusTarget \code{'category'} the tooltip displays all the
+	category values. This may be useful for comparing values of
+	different series.
+	}
       \item{\code{fontSize}}{a number. Default automatic. The default font
 	size, in pixels, of all text in the chart. You can override this
 	using properties for specific chart elements.
@@ -173,7 +193,7 @@ value is given and therefore no button is displayed.
       \item{\code{height}}{a number. Default height of the containing
 	element. Height of the chart, in pixels.
       }
-      \item{\code{isStacked}}{Boolean. Default \code{FALSE}. If set to
+      \item{\code{isStacked}}{boolean. Default \code{FALSE}. If set to
 	\code{TRUE}, bar values are stacked (accumulated).
       }
       \item{\code{legend}}{a string. Default \code{'right'}. Position of the legend. Can
@@ -425,12 +445,12 @@ value is given and therefore no button is displayed.
 %%  ~~ If necessary, more details than the description above ~~
 %%}
 \value{
-  \code{gvisAreaChart} returns list of \code{\link{class}}
+  \code{gvisSteppedAreaChart} returns list of \code{\link{class}}
   "\code{gvis}" and "\code{list}".   
   
   An object of class "\code{gvis}" is a list containing at least the
   following components:
-  \item{\code{type}}{Google visualisation type, here 'AreaChart'}
+  \item{\code{type}}{Google visualisation type, here 'SteppedAreaChart'}
   \item{\code{chartid}}{character id of the chart object. Unique chart
     ids are required to place several charts on the same page.
   }
@@ -473,8 +493,8 @@ value is given and therefore no button is displayed.
   }
 }
 \references{
-  Google Area Chart API:
-  \url{http://code.google.com/apis/chart/interactive/docs/gallery/areachart.html} 
+  Google Stepped Area Chart API:
+  \url{http://code.google.com/apis/chart/interactive/docs/gallery/steppedareachart.html} 
 
   Follow the link for Google's data policy.
 
@@ -485,7 +505,7 @@ value is given and therefore no button is displayed.
   Diego de Castillo \email{decastillo@gmail.com}
 }
 \section{Warning}{
-  Google Visualisation API: You cannot load both areachart and corechart
+  Google Visualisation API: You cannot load both steppedareachart and corechart
   packages at the same time on the same page.
 }
 
@@ -502,28 +522,28 @@ value is given and therefore no button is displayed.
 
 df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
 
-## Area chart
-Area1 <- gvisAreaChart(df, xvar="country", yvar=c("val1", "val2"))
-plot(Area1)
+## Stepped Area chart
+SteppedArea1 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"))
+plot(SteppedArea1)
 
 ## Stacked chart
-Area2 <- gvisAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+SteppedArea2 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
       options=list(isStacked=TRUE))
-plot(Area2)
+plot(SteppedArea2)
 
 
 ## Add a customised title and smoothed curve
-Area3 <- gvisAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+SteppedArea3 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
              options=list(title="Hello World",
                           titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}",
                           curveType='function'))
-plot(Area3)
+plot(SteppedArea3)
 
 \dontrun{
 ## Change y-axis to percentages
-Area3 <- gvisAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+SteppedArea3 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
                        options=list(vAxis="{format:'#,###\%'}"))
-plot(Area3)
+plot(SteppedArea3)
 }
 }
 \keyword{ iplot }

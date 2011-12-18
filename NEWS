@@ -1,9 +1,24 @@
-Version 0.2.13 [2011-12-08]
+Version 0.2.13 [2011-12-16]
 ==========================
 
 Changes
 
+    o The list of arguments for gvisGeoChart changed:
+      - the argument 'numvar' has been renamed to 'colorvar' to
+        reflect the updated Google API. Additionally gvisGeoChart
+    	gained a new argument 'sizevar'.
+    o Updated googleVis vignette with a section on using googleVis 
+      output in presentations  
     o Renamed demo EventListner to EventListener
+
+NEW FEATURES
+
+    o Google published a new version of their Visualisation API on 7
+      December 2011. Some of the new features have been implemented
+      into googleVis already:
+      - New stepped area chart function gvisSteppedAreaChart
+      - gvisGeoChart has a new marker mode, similar to the mode in
+      	gvisGeoMap. 
 
 Version 0.2.12 [2011-12-07]
 ==========================

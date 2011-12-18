@@ -25,7 +25,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \setlength{\parskip}{2mm}
 
 \newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
-\newcommand{\googleVisVersion}{0.2.11}
+\newcommand{\googleVisVersion}{0.2.13}
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
 \newcommand{\brew}{\textbf{\texttt{brew }}}
 \newcommand{\rapache}{\emph{{RApache }}}
@@ -233,10 +233,9 @@ API.
 Version (\googleVisVersion) of the package
 provides interfaces to  Motion Charts, Annotated Time Lines, 
 Geo Maps, Maps, Geo Charts, Intensity Maps, Tables, Gauges, 
-Tree Maps, further Line-, Bar-, Column-, Area-, Combo-, Scatter-, Candlestick-,
-Pie- and Org Charts; see Figure~\ref{demos} for some examples
-for more see the  \href{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}{project
-  site}\footnote{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}.
+Tree Maps, further Line-, Bar-, Column-, Area-, Stepped Area-, 
+Combo-, Scatter-, Candlestick-, Pie- and Org Charts; see 
+Figure~\ref{demos} for some examples for more see the  \href{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}{project site}\footnote{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}.
 
 The output of a \googleVis function is html code that contains the
 data and references to JavaScript functions hosted by Google. A
@@ -626,8 +625,8 @@ Google Charts can be used with other Google products such as Google
 Sites, Blogger or Google Code wiki pages. 
 However, in most cases the chart has to be embedded as a Google Gadget.
 Google Gadgets are written in XML and can have HTML and Javascript components.
-Here is an example of a Hello World program written using Google
-Gadget technology take from \href{http://en.wikipedia.org/wiki/Google_Gadgets}{Wikipedia}.
+Here is an example of a 'Hello World' program written using Google
+Gadget technology from \href{http://en.wikipedia.org/wiki/Google_Gadgets}{Wikipedia}.
 \begin{verbatim}
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>  
@@ -822,6 +821,38 @@ folder path:
 <<eval=FALSE>>=
 system.file("brew", package = "googleVis")
 @ 
+
+\section{Using \googleVis in presentations}
+The Google Visualisation API is designed for web pages, so it should
+be no surprise that it can be difficult or impossible to embed \googleVis output in
+traditional presentation software like MS PowerPoint\footnote{For MS
+  PowerPoint on MS Windows the pulg-in
+  \href{http://skp.mvps.org/liveweb.htm}{liveweb} provides the
+  functionality to insert web pages into a PowerPoint slide and
+  refresh the pages real-time during slide show.}, Google Docs,
+OpenOffice Impress or Apple Keynote. 
+
+The easiest way is to include screen shots into the slide with links to
+the live web pages. But this approach requires the presenter to switch
+between applications during her talk. This can be fun, but quite often
+it is not. 
+
+An alternative would be to build the presentation as a web page it
+self.  The JavaScript library deck.js~\cite{deck.js}, a j{Q}uery
+framework for creating {HTML} presentations by Caleb  Troughton,
+provides an elegant way of combining the slide paradigm with web content 
+such as YouTube videos or \googleVis output. You find an example with
+\googleVis charts on mages's blog:
+\url{http://lamages.blogspot.com/2011/11/interactive-presentations.html} .
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{GettingStartedWithGoogleVis.png}
+  \caption{\googleVis presentation with deck.js:
+    \url{http://dl.dropbox.com/u/7586336/blogger/deck.js/googleVis/index.html}} 
+  \label{fig:deck.js}
+\end{figure}
+
 
 \section{Beyond R}
 In this section we present ideas which go beyond the usual coding in
