@@ -91,7 +91,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	  \item{\code{'function'}}{The angles of the line will be smoothed.}
 	}
       }
-      \item{\code{enableInteractivity}}{Boolean. Default \code{TRUE}. Whether
+      \item{\code{enableInteractivity}}{boolean. Default \code{TRUE}. Whether
 	the chart throws user-based events or reacts to user interaction. If
 	false, the chart will not throw 'select' or other interaction-based
 	events (but will throw ready or error events), and will not display
@@ -109,7 +109,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
      %%	gridlines inside the chart area. Specify a valid HTML color
      %%	string.
      %% }
-      \item{\code{hAxis}}{a json object. Default \code{'null'}. An object with members to configure
+      \item{\code{hAxis}}{a JSON object. Default \code{'null'}. An object with members to configure
 	various horizontal axis elements. To specify properties of this
 	object, you can use object literal notation, as shown here:
 	%\describe{
@@ -126,7 +126,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	horizontal axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
       }
-      \item{\code{hAxis.textStyle}}{a json object. Default \code{\{color: 'black',
+      \item{\code{hAxis.textStyle}}{a JSON object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
 	object that specifies the horizontal axis title text style. The object
 	has this format:
@@ -137,7 +137,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{hAxis.title}}{a string. Default \code{'null'}. \code{hAxis} property that
 	specifies the title of the horizontal axis.
       }
-      \item{\code{hAxis.titleTextStyle}}{a json object. Default \code{\{color: 'black',
+      \item{\code{hAxis.titleTextStyle}}{a JSON object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
 	object that specifies the horizontal axis title text style. The object
 	has this format:
@@ -145,7 +145,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{hAxis.slantedText}}{Boolean. Default automatic. If \code{TRUE}, draw the
+      \item{\code{hAxis.slantedText}}{boolean. Default automatic. If \code{TRUE}, draw the
 	horizontal axis text at an angle, to help fit more text along the
 	axis; if false, draw horizontal axis text upright. Default behavior is
 	to slant text if it cannot all fit when drawn upright.
@@ -170,9 +170,9 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{height}}{a number. Default height of the containing
 	element. Height of the chart, in pixels.
       }
-      \item{\code{interpolateNulls}}{Boolean. Default \code{FALSE}. Whether to guess the
+      \item{\code{interpolateNulls}}{boolean. Default \code{FALSE}. Whether to guess the
 	value of missing points. If true, it will guess the value of any
-	missing data based on neighboring points. If false, it will leave a
+	missing data based on neighbouring points. If false, it will leave a
 	break in the line at the unknown point.
       }
       \item{\code{legend}}{a string. Default \code{'right'}. Position of the legend. Can
@@ -188,7 +188,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	  }
 	}
       }
-      \item{\code{legendTextStyle}}{a json object. Default \code{\{color: 'black',
+      \item{\code{legendTextStyle}}{a JSON object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the legend text style. The object has this format:
 	  \code{\{color: <string>, fontName: <string>, fontSize:
@@ -202,11 +202,11 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{pointSize}}{a number. Default 0. Diameter of data points, in pixels. Use
 	zero to hide all points.
       }
-      \item{\code{reverseCategories}}{Boolean. Default \code{FALSE}. If set to true, will
+      \item{\code{reverseCategories}}{boolean. Default \code{FALSE}. If set to true, will
 	draw series from right to left. The default is to draw
 	left-to-right.
       }
-      \item{\code{series}}{an array of objects, or object with nested
+      \item{\code{series}}{a JSON array of objects, or object with nested
 	objects. Default \{\}.	
 	An array of objects, each describing the format of the
 	corresponding series in the chart. To use default values for a
@@ -268,7 +268,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	  }
 	}
       }
-      \item{\code{titleTextStyle}}{a json object. Default
+      \item{\code{titleTextStyle}}{a JSON object. Default
 	\code{\{color:'black',fontName:<global-font-name>,fontSize:<global-font-size>\}}. An
 	object that specifies the title text
 	style. The object has this format:
@@ -276,14 +276,14 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{tooltipTextStyle}}{a json object. Default \code{\{color: 'black',
+      \item{\code{tooltipTextStyle}}{a JSON object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }      
-      \item{\code{vAxes}}{Array of object, or object with child objects
+      \item{\code{vAxes}}{a JSON array of objects, or object with child objects
 	null. Specifies properties for individual vertical axes, if the
 	chart has multiple vertical axes. Each child object is a \code{vAxis}
 	object, and can contain all the properties supported by
@@ -312,7 +312,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	    ]
 	  }
 	}
-      \item{\code{vAxis}}{a json object. Default \code{'null'}.
+      \item{\code{vAxis}}{a JSON object. Default \code{'null'}.
 	An object with members to configure various vertical axis
 	elements. To specify properties of this object, you can use object
 	literal notation, as shown here:
@@ -341,7 +341,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	chart area. Specify a valid HTML color string.
       }
   
-      \item{\code{vAxis.logScale}}{Boolean. Default \code{FALSE}. \code{vAxis} property that
+      \item{\code{vAxis.logScale}}{boolean. Default \code{FALSE}. \code{vAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
       }
@@ -349,7 +349,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	vertical axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
       }
-      \item{\code{vAxis.textStyle}}{a json object. Default
+      \item{\code{vAxis.textStyle}}{a JSON object. Default
 	\code{\{color: 'black',fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
 	object that specifies the vertical axis text style. The object has
 	this format:
@@ -360,7 +360,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{vAxis.title}}{a string. Default no title. \code{vAxis} property that
 	specifies a title for the vertical axis.
       }
-      \item{\code{vAxis.titleTextStyle}}{a json object. Default \code{\{color: 'black',
+      \item{\code{vAxis.titleTextStyle}}{a JSON object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
 	object that specifies the vertical axis title text style. The
 	object has this format:

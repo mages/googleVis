@@ -40,7 +40,7 @@ value is given and therefore no button is displayed.
     
     \describe{
       
-      \item{\code{colors}}{a json array of strings. The colors to use for each
+      \item{\code{colors}}{a JSON array of strings. The colors to use for each
 	tab. An array of strings. Each element is a string in the format
 	\code{#rrggbb}. For example \code{'#00cc00'}.
       }      
@@ -54,7 +54,7 @@ value is given and therefore no button is displayed.
 	region. Possible values are: \code{'world', 'africa', 'asia',
 	  'europe', 'middle_east', 'south_america', and 'usa'}.
       }
-      \item{\code{showOneTab}}{Boolean. Default \code{FALSE}. The
+      \item{\code{showOneTab}}{boolean. Default \code{FALSE}. The
 	intensity map can display one or more numeric columns. Each
 	column is displayed as a separate map, and tabs on top enable
 	selection of which map to show. When the data table contains

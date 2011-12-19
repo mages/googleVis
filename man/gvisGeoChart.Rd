@@ -22,44 +22,56 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 %- maybe also 'usage' for other objects documented here.
 \arguments{
   \item{data}{
-    a \code{data.frame}.
-    The format of the DataTable varies depending on which display mode that
-    you use: Regions or Markers.
-
-    The data has to have at least one
+    a \code{data.frame}. The data has to have at least one
     column with location name (\code{locationvar}), value to be mapped
-    to location (\code{colorvar}). The format of the data varies depending
-    on which display mode that you use: Regions or Markers
+    to location. The format of the data varies depending on which display mode that
+    you use: Regions or Markers.
   }
-  \item{locationvar}{column name of \code{data} with the country name,
-    or an uppercase ISO-3166 code.    
-  }
-  \item{colorvar}{The next column is an optional numeric column used to
-    assign a color to this marker, based on the scale specified in the
-    colorAxis.colors property. If this column is not present, all
-    markers will be the same color. If the column is present, null
-    values are not allowed. Values are scaled relative to each other, or
-    absolutely to values specified in the colorAxis.values property.
-  }
-  \item{sizevar}{An optional numeric column used to assign the marker
-    size, relative to the other marker sizes. If this column is not
-    present, the value from the previous column will be used (or default
-    size, if no color column is provided as well). If the column is
-    present, null valuesare not allowed.
+  \item{locationvar}{column name of \code{data} with the geo locations to be
+    analysed. The locations can be provide in two formats:
+    \describe{	    
+      \item{Format 1}{'latitude:longitude'. See the example below.}
+      \item{Format 2}{Address, country name, region name locations, or
+	US metropolitan area codes, see
+	\url{http://code.google.com/apis/adwords/docs/developer/adwords_api_us_metros.html}. This
+	format works with the \code{dataMode} option set to either
+	'markers' or 'regions'. The following formats are accepted: A
+	specific address (for example, "1600 Pennsylvania Ave"). A
+	country name as a string (for example, "England"), or an uppercase ISO-3166 code
+	or its English text equivalent (for example, "GB" or "United Kingdom").
+	An uppercase ISO-3166-2 region code name or its English text
+	equivalent (for example, "US-NJ" or "New Jersey"). 
+      }
     }
+  }
+  \item{colorvar}{column name of \code{data} with the optional numeric
+    column used to assign a color to this marker, based on the scale
+    specified in the \code{colorAxis.colors} property. If this column is
+    not present, all markers will be the same color. If the column is
+    present, null values are not allowed. Values are scaled relative to
+    each other, or absolutely to values specified in the
+    \code{colorAxis.values} property. 
+  }
+  \item{sizevar}{only used for \code{displayMode='markers'}. Column name of \code{data} with the optional numeric
+    column used to assign the marker size, relative to the other marker
+    sizes. If this column is not present, the value from the previous
+    column will be used (or default `size, if no color column is
+    provided as well). If the column is present, null valuesare not
+    allowed. 
+  }
   \item{options}{list of configuration options for Google Geo Chart.
-        \describe{
-\item{\code{gvis.editor}}{a character label for an
- on-page button which opens an in-page dialog box that enables
-users to edit, change and customise the chart. By default no
-value is given and therefore no button is displayed. 
+    \describe{
+      \item{\code{gvis.editor}}{a character label for an
+	on-page button which opens an in-page dialog box that enables
+	users to edit, change and customise the chart. By default no
+	value is given and therefore no button is displayed. 
       }
     }
     Further possible components are, taken from
     \url{http://code.google.com/apis/visualization/documentation/gallery/geochart.html#Configuration_Options}:
     
     \describe{
-
+      
       \item{\code{backgroundColor}}{a string or object. Default
 	\code{white}. The background color for the main area of the
 	chart. Can be either a simple HTML color string, for example:
@@ -94,7 +106,7 @@ value is given and therefore no button is displayed.
 	higher will be rendered as the last color in the
 	\code{colorAxis.colors} range.
 	}
-	\item{\code{colorAxis.values}}{an array of numbers. Default
+	\item{\code{colorAxis.values}}{a JSON array of numbers. Default
 	\code{'null'}. Controls how values are associated with
 	colors. Each value is associated with the corresponding color in
 	the \code{colorAxis.colors} array. These values apply to the color
@@ -103,7 +115,7 @@ value is given and therefore no button is displayed.
 	for this option is equivalent to specifying \code{[minValue,
 	maxValue]}.
 	}
-	\item{\code{colorAxis.colors}}{an array of color
+	\item{\code{colorAxis.colors}}{a JSON array of color
 	strings. Default \code{'null'}.	Colors to assign to values in
 	the visualization. An array of strings, where each element is an
 	HTML color string, for example: colorAxis:
@@ -130,7 +142,7 @@ value is given and therefore no button is displayed.
 	pixels. 
       }
 
-      \item{\code{legend}}{an object / \code{'none'}. Default \code{'null'}.	
+      \item{\code{legend}}{a JSON object / \code{'none'}. Default \code{'null'}.	
 	An object with members to configure various aspects of the legend, or
 	\code{'none'}, if no legend should appear. To specify properties of this
 	object, you can use object literal notation, as shown here:
@@ -143,7 +155,7 @@ value is given and therefore no button is displayed.
 	\code{\{numberFormat:'.##'\}} will display values "10.66", "10.6", and
 	"10.0" for values 10.666, 10.6, and 10.
       }
-      \item{\code{legend.textStyle}}{an object. Default \code{\{color:
+      \item{\code{legend.textStyle}}{a JSON object. Default \code{\{color:
 	  'black', fontName: <global-font-name>, fontSize:
 	  <global-font-size>\}}.  An object that specifies the legend text
 	style. The object has this format:
@@ -190,7 +202,7 @@ value is given and therefore no button is displayed.
 	  }
 	}
       }
-      \item{\code{sizeAxis}}{an object. Default \code{'null'}. An object with
+      \item{\code{sizeAxis}}{a JSON object. Default \code{'null'}. An object with
 	members to configure how values are associated with bubble
 	size. To specify properties of this object, you can use object
 	literal notation, as shown here:
@@ -211,7 +223,7 @@ value is given and therefore no button is displayed.
 	size column in chart data	Minimum size column value. Smaller
 	values will be clamped to this value.
       }
-      \item{\code{tooltip}}{an object. Default	\code{'null'}.	
+      \item{\code{tooltip}}{a JSON object. Default	\code{'null'}.	
 	An object with members to configure various tooltip elements. To specify
 	properties of this object, you can use object literal notation, as
 	shown here:
@@ -219,7 +231,7 @@ value is given and therefore no button is displayed.
 
 	\code{\{textStyle: \{color: '#FF0000'\}, showColorCode: true\}}
       }
-      \item{\code{tooltip.textStyle}}{an object. Default \code{\{color:
+      \item{\code{tooltip.textStyle}}{a JSON object. Default \code{\{color:
 	  'black', fontName: <global-font-name>, fontSize:
 	  <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
@@ -332,24 +344,34 @@ G2 <- gvisGeoChart(Exports, "Country", "Profit",
 
 plot(G2)
 
+
+## Example showing US data by state 
+require(datasets)
+
+states <- data.frame(state.name, state.x77)
+G3 <- gvisGeoChart(states, "state.name", "Illiteracy",
+                 options=list(region="US", displayMode="regions", resolution="provinces",
+ 		 width=600, height=400))
+plot(G3)
+
 ## Markers Example
 ## A marker style map renders bubble-shaped markers at specified
 ## locations with the color and size that you specify.
 
-G3 <- gvisGeoChart(CityPopularity, locationvar='City', colorvar='Popularity',
+G4 <- gvisGeoChart(CityPopularity, locationvar='City', colorvar='Popularity',
                       options=list(region='US', height=350, 
                                    displayMode='markers',
 				   colorAxis="{colors: ['orange','blue']}") )
-plot(G3) 
+plot(G4) 
 
-G4 <- gvisGeoChart(Andrew, "LatLong", colorvar='Speed_kt',
+G5 <- gvisGeoChart(Andrew, "LatLong", colorvar='Speed_kt',
                    options=list(region="US"))
-plot(G4)
-
-
-G5 <- gvisGeoChart(Andrew, "LatLong", sizevar='Speed_kt',
-                   colorvar="Pressure_mb", options=list(region="US"))
 plot(G5)
+
+
+G6 <- gvisGeoChart(Andrew, "LatLong", sizevar='Speed_kt',
+                   colorvar="Pressure_mb", options=list(region="US"))
+plot(G6)
 
 }
 \keyword{ iplot }

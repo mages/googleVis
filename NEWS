@@ -1,4 +1,4 @@
-Version 0.2.13 [2011-12-16]
+Version 0.2.13 [2011-12-19]
 ==========================
 
 Changes
@@ -18,7 +18,8 @@ NEW FEATURES
       into googleVis already:
       - New stepped area chart function gvisSteppedAreaChart
       - gvisGeoChart has a new marker mode, similar to the mode in
-      	gvisGeoMap. 
+      	gvisGeoMap. See example(gvisGeoChart) for the new
+        functionalities.
 
 Version 0.2.12 [2011-12-07]
 ==========================

@@ -45,7 +45,7 @@ value is given and therefore no button is displayed.
       \item{\code{height}}{a number. Default container's width.	Height
 	of the chart in pixels.
       }
-      \item{\code{majorTicks}}{an json array of strings. Default none.
+      \item{\code{majorTicks}}{an JSON array of strings. Default none.
 	Labels for major tick marks. The number of labels define the
 	number of major ticks in all gauges. The default is five major
 	ticks, with the labels of the minimal and maximal gauge value.

@@ -104,7 +104,7 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
 	percent) of the annotations area, out of the entire chart area. Must
 	be a number in the range 5-80.
       }
-      \item{\code{colors}}{Array of strings. Default colors. The colors to
+      \item{\code{colors}}{a JSON array of strings. Default colors. The colors to
 	use for the chart lines and labels. An array of strings. Each element
 	is a string in a valid HTML color format. For example 'red' or
 	'#00cc00'.
@@ -189,7 +189,7 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
 	point. This will take precedence over the Y axis minimum
 	determined by \code{scaleType}.
       }
-      \item{\code{numberFormats}}{String, or a map of number:String
+      \item{\code{numberFormats}}{string, or a map of number:String
 	pairs. Default automatic. Specifies the number format patterns to
 	be used to format the values at the top of the graph.
 	
@@ -211,7 +211,7 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
 	  option is ignored.
 	}
       }
-      \item{\code{scaleColumns}}{Array of numbers. Default automatic.	
+      \item{\code{scaleColumns}}{a JSON array of numbers. Default automatic.	
 	Specifies which values to show on the Y axis tick marks in the
 	graph. The default is to have a single scale on the right
 	side, which applies to both series; but you can have different

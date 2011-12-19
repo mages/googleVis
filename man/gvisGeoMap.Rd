@@ -112,7 +112,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
 	  visualization. If no units are given, the default unit is
 	  pixels. 
 	}
-	\item{\code{colors}}{Array of RGB numbers in the format 0xRRGGBB 
+	\item{\code{colors}}{a JSON array of RGB numbers in the format 0xRRGGBB 
 	  [0xE0FFD4, 0xA5EF63, 0x50AA00, 0x267114]. Color gradient
 	  to assign to values in the visualization. You must have at least	  
 	  two values; the gradient will include all your values, plus
@@ -220,6 +220,9 @@ Diego de Castillo \email{decastillo@gmail.com}
   specified as ISO codes, and \code{dataMode='markers'} with lat/long
   entries. The slowest mode is \code{dataMode='markers'} with a string
   address.
+
+  \code{gvisGeoMap} requires Flash, see \code{\link{gvisGeoChart}} for a
+  geo map based on SVG.
 }
 
 \section{Warnings}{

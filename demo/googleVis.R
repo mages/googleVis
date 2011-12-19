@@ -145,13 +145,23 @@ Geo=gvisGeoChart(Exports, locationvar="Country", colorvar="Profit")
 plot(Geo)
 pause()
 
+
+## Example showing US data by state 
+require(datasets)
+states <- data.frame(state.name, state.x77)
+GeoStates <- gvisGeoChart(states, "state.name", "Illiteracy",
+                 options=list(region="US", displayMode="regions", resolution="provinces",
+ 		 width=600, height=400))
+plot(GeoStates)
+
 ## Show Hurricane Andrew (1992) storm track with Geo Chart
 GeoMarker <- gvisGeoChart(Andrew, "LatLong", sizevar='Speed_kt',
                    colorvar="Pressure_mb", options=list(region="US"))
 plot(GeoMarker)
+pause()
 
 ## Geo Map, requires Flash
-Geo=gvisGeoMap(Exports, locationvar="Country", colorvar="Profit",
+Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit",
                        options=list(height=350, dataMode='regions'))
 plot(Geo)
 pause()

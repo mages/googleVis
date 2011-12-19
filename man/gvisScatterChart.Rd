@@ -75,7 +75,7 @@ value is given and therefore no button is displayed.
       \item{\code{chartArea.height}}{a number or string. Default auto.	Chart
 	area height.
       }
-      \item{\code{colors}}{An array of strings. Default 'colors'. The colors to
+      \item{\code{colors}}{a JSON array of strings. Default 'colors'. The colors to
 	use for the chart elements. An array of strings, where each element is
 	an HTML color string, for example: \code{colors:['red','#004411']}.
       }
@@ -86,7 +86,7 @@ value is given and therefore no button is displayed.
 	  \item{\code{'function'}}{The angles of the line will be smoothed.}
 	}
       }
-      \item{\code{enableInteractivity}}{Boolean. Default \code{TRUE}. Whether
+      \item{\code{enableInteractivity}}{boolean. Default \code{TRUE}. Whether
 	the chart throws user-based events or reacts to user interaction. If
 	false, the chart will not throw 'select' or other interaction-based
 	events (but will throw ready or error events), and will not display
@@ -104,7 +104,7 @@ value is given and therefore no button is displayed.
 	gridlines inside the chart area. Specify a valid HTML color
 	string.
       }
-      \item{\code{hAxis}}{a json object. Default \code{'null'}. An
+      \item{\code{hAxis}}{a JSON object. Default \code{'null'}. An
 	object with members to configure	
 	various horizontal axis elements. To specify properties of this
 	object, you can use object literal notation, as shown here:
@@ -139,7 +139,7 @@ value is given and therefore no button is displayed.
 	chart area. Specify a valid HTML color string.
       }
      
-      \item{\code{hAxis.logScale}}{Boolean. Default \code{FALSE}. \code{vAxis} property that
+      \item{\code{hAxis.logScale}}{boolean. Default \code{FALSE}. \code{vAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
       }
@@ -147,7 +147,7 @@ value is given and therefore no button is displayed.
 	horizontal axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
       }
-      \item{\code{hAxis.textStyle}}{a json object. Default \code{\{color: 'black',
+      \item{\code{hAxis.textStyle}}{a JSON object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the horizontal axis text style. The object has this format:
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
@@ -157,7 +157,7 @@ value is given and therefore no button is displayed.
       \item{\code{hAxis.title}}{a string. Default \code{'null'}. \code{hAxis} property that
 	specifies the title of the horizontal axis.
       }
-      \item{\code{hAxis.titleTextStyle}}{a json object. Default \code{\{color: 'black',
+      \item{\code{hAxis.titleTextStyle}}{a JSON object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
 	object that specifies the horizontal axis title text style. The object
 	has this format:
@@ -224,7 +224,7 @@ value is given and therefore no button is displayed.
 	  }
 	}
       }
-      \item{\code{legendTextStyle}}{a json object. Default \code{\{color: 'black',
+      \item{\code{legendTextStyle}}{a JSON object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the legend text style. The object has this format:
 	  \code{\{color: <string>, fontName: <string>, fontSize:
@@ -238,7 +238,7 @@ value is given and therefore no button is displayed.
       \item{\code{pointSize}}{a number. Default 0. Diameter of data points, in pixels. Use
 	zero to hide all points.
       }
-      \item{\code{series}}{an array of objects, or object with nested
+      \item{\code{series}}{a JSON array of objects, or object with nested
 	objects. Default \{\}.	
 	An array of objects, each describing the format of the
 	corresponding series in the chart. To use default values for a
@@ -301,7 +301,7 @@ value is given and therefore no button is displayed.
 	  }
 	}
       }
-      \item{\code{titleTextStyle}}{a json object. Default
+      \item{\code{titleTextStyle}}{a JSON object. Default
 	\code{\{color:'black',fontName:<global-font-name>,fontSize:<global-font-size>\}}. An
 	object that specifies the title text
 	style. The object has this format:
@@ -309,14 +309,14 @@ value is given and therefore no button is displayed.
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{tooltipTextStyle}}{a json object. Default \code{\{color: 'black',
+      \item{\code{tooltipTextStyle}}{a JSON object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{vAxis}}{a json object. Default \code{'null'}.
+      \item{\code{vAxis}}{a JSON object. Default \code{'null'}.
 	An object with members to configure various vertical axis
 	elements. To specify properties of this object, you can use object
 	literal notation, as shown here:
@@ -344,7 +344,7 @@ value is given and therefore no button is displayed.
 	\code{'#CCC'}. The color of the vertical gridlines inside the
 	chart area. Specify a valid HTML color string.
       }
-      \item{\code{vAxis.logScale}}{Boolean. Default \code{FALSE}. \code{vAxis} property that
+      \item{\code{vAxis.logScale}}{boolean. Default \code{FALSE}. \code{vAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
       }
@@ -352,7 +352,7 @@ value is given and therefore no button is displayed.
 	vertical axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
       }
-      \item{\code{vAxis.textStyle}}{a json object. Default
+      \item{\code{vAxis.textStyle}}{a JSON object. Default
 	\code{\{color: 'black',fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
 	object that specifies the vertical axis text style. The object has
 	this format:
@@ -363,7 +363,7 @@ value is given and therefore no button is displayed.
       \item{\code{vAxis.title}}{a string. Default no title. \code{vAxis} property that
 	specifies a title for the vertical axis.
       }
-      \item{\code{vAxis.titleTextStyle}}{a json object. Default
+      \item{\code{vAxis.titleTextStyle}}{a JSON object. Default
 
 	\code{\{color: 'black',
 	  fontName: <global-font-name>, fontSize: <global-font-size>\}}.
