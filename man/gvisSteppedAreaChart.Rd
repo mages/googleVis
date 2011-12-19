@@ -532,11 +532,10 @@ SteppedArea2 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
 plot(SteppedArea2)
 
 
-## Add a customised title and smoothed curve
+## Add a customised title
 SteppedArea3 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
              options=list(title="Hello World",
-                          titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}",
-                          curveType='function'))
+                          titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}"))
 plot(SteppedArea3)
 
 \dontrun{

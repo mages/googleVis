@@ -111,6 +111,12 @@ Area <- gvisAreaChart(df,
                       options=list(legend='none', width=300, height=300))
 cat(createGoogleGadget(Area), file="areachart.xml")
 
+## Stepped Area Chart
+SteppedArea <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+      options=list(isStacked=TRUE, width=300, height=290))
+plot(SteppedArea)
+cat(createGoogleGadget(Area), file="steppedareachart.xml")
+
 ## Scatter chart
 Scatter <- gvisScatterChart(women, options=list(legend="none",
                  lineWidth=2, pointSize=0, 

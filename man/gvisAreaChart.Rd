@@ -512,11 +512,10 @@ Area2 <- gvisAreaChart(df, xvar="country", yvar=c("val1", "val2"),
 plot(Area2)
 
 
-## Add a customised title and smoothed curve
+## Add a customised title
 Area3 <- gvisAreaChart(df, xvar="country", yvar=c("val1", "val2"),
              options=list(title="Hello World",
-                          titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}",
-                          curveType='function'))
+                          titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}"))
 plot(Area3)
 
 \dontrun{
