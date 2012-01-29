@@ -12,6 +12,10 @@
 }
 
 %\VignetteIndexEntry{Using the Google Visualisation API with R}
+% \VignetteDepends{googleVis}
+%\VignetteKeywords{google, visualisation, api}
+%\VignettePackage{googleVis}
+
 
 \SweaveOpts{engine=R, eps=FALSE, keep.source = TRUE}
 <<options, echo=FALSE>>=
@@ -19,13 +23,12 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 @
 
 
-%\keywords{google, visualisation, api, statistical software, \proglang{R}}
+%\keywords{google, visualisation, api, \proglang{R}}
 
 \setlength{\parindent}{0.0in}
 \setlength{\parskip}{2mm}
 
 \newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
-\newcommand{\googleVisVersion}{0.2.13}
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
 \newcommand{\brew}{\textbf{\texttt{brew }}}
 \newcommand{\rapache}{\emph{{RApache }}}
@@ -230,7 +233,7 @@ Visualisation API.  The functions of the package allow the user to
 visualise data stored in R data frames with the Google Visualisation
 API.
 
-Version (\googleVisVersion) of the package
+Version (\Sexpr{packageDescription("googleVis")[['Version']]}) of the package
 provides interfaces to  Motion Charts, Annotated Time Lines, 
 Geo Maps, Maps, Geo Charts, Intensity Maps, Tables, Gauges, 
 Tree Maps, further Line-, Bar-, Column-, Area-, Stepped Area-, 
@@ -321,7 +324,7 @@ code in a  sub-list with header, chart, caption and footer, see Figure~\ref{gvis
 
 The idea behind this concept is that users can get a
 complete web page while at the same time extracting specific parts,
-such as the chart. This is particular helpful if the package functions
+such as the chart. This is particularly helpful if the package functions
 are used in solutions where the user wants to feed the visualisation
 output into other sites, or would like to embed them into rsp-pages
 (see page~\pageref{rspexample}),  or use \rapache (see
@@ -349,7 +352,7 @@ Fruits
 
 Here we will use the columns \texttt{'Fruit'} and
 \texttt{'Year'} as id and time variable respectively. However we could
-heave used \texttt{'Date'} instead of \texttt{'Year'} as well. 
+have used \texttt{'Date'} instead of \texttt{'Year'} as well. 
 
 <<>>=
  M <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
@@ -463,7 +466,7 @@ settings. Tony Breyal posted the following solution on
 Now open your googleVis html file and it should display
 successfully. 
 
-\subsection{Combing charts with \texttt{gvisMerge}}
+\subsection{Combining charts with \texttt{gvisMerge}}
 
 The function \texttt{gvisMerge} takes two \texttt{gvis}-objects 
 and merges the underlying components into one page. The charts are
