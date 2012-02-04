@@ -87,8 +87,15 @@ value is given and therefore no button is displayed.
       }
       \item{\code{is3D}}{Boolean. Default \code{FALSE}.	If set to
 	\code{TRUE}, displays a three-dimensional chart.
-	}
-      \item{\code{legend}}{A string. Default \code{'right'}. Position of the legend. Can
+      }
+      \item{\code{legend}}{a JSON object. Default \code{NULL}.
+	An object with members to configure various aspects of the
+	legend. To specify properties of this object, you can use object
+	literal notation, as shown here:
+	
+	\code{\{position: 'top', textStyle: \{color: 'blue', fontSize: 16\}\}}
+      }
+      \item{\code{legend.position}}{a string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
 	\describe{
 	  \item{\code{'right'}}{To the right of the chart.
@@ -101,14 +108,42 @@ value is given and therefore no button is displayed.
 	  }
 	}
       }
-      \item{\code{legendTextStyle}}{A json object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}
+      \item{\code{legend.textStyle}}{a JSON object. Default \code{\{color: 'black',
+	  fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the legend text style. The object has this format:
-	  \code{\{color: <string>, fontName: <string>, fontSize:
-	    <number>\}}
+	\code{\{color: <string>, fontName: <string>, fontSize:
+	  <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
+      \item{\code{slices}}{a JOSN array of objects, or object with
+	nested objects. Default \code{\{\}}. A JSON array of objects, each
+	describing the format of the corresponding slice in the pie. To
+	use default values for a slice, specify an empty object \code{\{\}}. If a
+	slice or a value is not specified, the global value will be
+	used. Each object supports the following properties:
+	\describe{
+	  \item{\code{color}}{The color to use for this slice. Specify a
+	    valid HTML color string.
+	  }
+	  \item{\code{textStyle}}{Overrides the global pieSliceTextSlice
+	    for this slice.
+	  }
+	}
+	You can specify either an array of objects, each of which applies
+	to the slice in the order given, or you can specify an object
+	where each child has a numeric key indicating which slice it
+	applies to. For example, the following two declarations are
+	identical, and declare the first slice as black and the fourth as
+	red:
+	\code{
+	  slices: [\{color: 'black', \{\}, \{\}, \{color: 'red'\}]
+	  slices: \{0: \{color: 'black'\}, 3: \{color: 'red'\}\}
+	}
+      }
+      \item{\code{pieSliceBorderColor}}{a string. Default \code{'white'}.
+	The color of the slices border.
+      }      
       \item{\code{pieSliceText}}{A string. Default 'percentage'.
 	The content of the text displayed on the slice. Can be one of
 	the following:
@@ -126,7 +161,7 @@ value is given and therefore no button is displayed.
       \item{\code{pieSliceTextStyle}}{A json object. Default
 	\code{\{color: 'black', fontName: <global-font-name>, fontSize:
 	  <global-font-size>\}}. An object that specifies the slice text
-      style. The object has this format: 
+	style. The object has this format: 
 	\code{\{color: <string>, fontName: <string>, fontSize:
 	  <number>\}}. The color can be any HTML color string, for
 	example: \code{'red'} or \code{'#00cc00'}. Also see \code{fontName} and
@@ -161,27 +196,33 @@ value is given and therefore no button is displayed.
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{tooltipText}{A string. Default \code{'both'}. What information to
-	display when the user hovers over a pie slice. The following
-	values are supported:
-	\describe{
-	  \item{\code{'both'}}{[Default] Display both the absolute value of the
-	    slice and the percentage of thewhole.
-	  }
-	  \item{\code{'value'}}{Display only the absolute value of the
-	    slice.
-	  }
-	  \item{\code{'percentage'}}{
-	    Display only the percentage of the whole represented by the slice.
-	  }
-	}
+      \item{\code{tooltip}}{a JSON object. Default \code{NULL}.
+	An object with members to configure various tooltip elements. To
+	specify properties of this object, you can use object
+	literal notation, as shown here:
+	
+	\code{\{textStyle: {color: '#FF0000'}, showColorCode: true\}}
       }
-      \item{\code{tooltipTextStyle}}{A json object. Default \code{\{color: 'black',
+      \item{\code{tooltip.showColorCode}}{boolean. Default automatic.
+	If true, show colored squares next to the series information in
+	the tooltip. The default is true when \code{focusTarget} is set to
+	\code{'category'}, otherwise the default is \code{FALSE}.
+      }
+      \item{\code{tooltip.textStyle}}{a JSON object. Default \code{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
+      }
+      \item{\code{tooltip.trigger}}{
+	The user interaction that causes the tooltip to be displayed:
+	\describe{
+	  \item{\code{'hover'}}{ The tooltip will be displayed when the user hovers over an element.
+	  }
+	  \item{\code{'none'}}{The tooltip will not be displayed.
+	  }	  
+	}
       }
       \item{\code{width}}{A number. Default width of the containing
       element. Width of the chart, in pixels.

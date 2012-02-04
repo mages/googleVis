@@ -22,8 +22,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
     the x-axes.
   }
   \item{yvar}{a vector of column names of the numerical variables to be
-    plotted. 
-    Each column is displayed as a separate line.
+    plotted. Each column is displayed as a separate line.
   }
   \item{options}{list of configuration options for Google Line Chart.
     \describe{
@@ -97,6 +96,23 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	events (but will throw ready or error events), and will not display
 	hovertext or otherwise change depending on user input.
       }
+     \item{\code{focusTarget}}{a string. Default \code{'datum'	}.
+	The type of the entity that receives focus on mouse hover. Also affects
+	which entity is selected by mouse click, and which data table
+	element is associated with events. Can be one of the following:
+	\describe{
+	  \item{\code{'datum'}}{Focus on a single data point. Correlates
+	    to a cell in the data.
+	  }
+	  \item{\code{'category'}}{Focus on a grouping of all data
+	    points along the major axis. Correlates to a row in the data
+	    table.
+	  }
+	}
+	In focusTarget \code{'category'} the tooltip displays all the
+	category values. This may be useful for comparing values of
+	different series.
+      }                
       \item{\code{fontSize}}{a number. Default automatic. The default font
 	size, in pixels, of all text in the chart. You can override this
 	using properties for specific chart elements.
@@ -105,11 +121,8 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	all text in the chart. You can override this using properties for
 	specific chart elements.
       }
-     %% \item{\code{gridlineColor}}{a string. Default \code{'#CCC'}. The color of the
-     %%	gridlines inside the chart area. Specify a valid HTML color
-     %%	string.
-     %% }
-      \item{\code{hAxis}}{a JSON object. Default \code{'null'}. An object with members to configure
+      \item{\code{hAxis}}{a JSON object. Default \code{'null'}. An
+	object with members to configure 
 	various horizontal axis elements. To specify properties of this
 	object, you can use object literal notation, as shown here:
 	%\describe{
@@ -118,18 +131,64 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	%}
 	%}
       }
+      \item{\code{hAxis.baseline}}{a number. Default automatic. The baseline for the horizontal axis.
+	This option is only supported for a continuous axis.	
+      }
+      \item{\code{hAxis.baselineColor}}{a string. Default
+	\code{'black'}. The color of the baseline for the horizontal
+	axis. Can be any HTML color string, for example: \code{'red'} or
+	\code{'#00cc00'}.
+	This option is only supported for a continuous axis.
+      }
       \item{\code{hAxis.direction}}{1 or -1. Default 1. The direction in which the
-	values along the horizontal axis grow. Specify -1 to reverse the
+	values along the vertical axis grow. Specify -1 to reverse the
 	order of the values.
-      }      
+      }
+      \item{\code{hAxis.format}}{a string. Default auto.
+	A format string for numeric or date axis labels.
+	
+	For number axis labels, this is a subset of the decimal
+	formatting ICU pattern set. For instance, \code{\{format:'#,###\%'\}} will
+	display values \code{"1,000\%", "750\%"}, and \code{"50\%"} for values 10,
+	7.5, and 0.5.
+	
+	For date axis labels, this is a subset of the date formatting
+	ICU pattern set. For instance, \code{\{format:'MMM d, y'\}} will
+	display the value "Jul 1, 2011" for the date of July first in
+	2011.
+	
+	The actual formatting applied to the label is derived from the
+	locale the API has been loaded with. For more details, see
+	loading charts with a specific locale.
+
+	This option is only supported for a continuous axis.
+      }
+      \item{\code{hAxis.gridlines}}{a JSON object. Default null. An
+	object with members to configure the gridlines on the horizontal
+	axis. To specify properties of this object, you can use object
+	literal notation, as shown here:      
+	\code{\{color: '#333', count: 4\}}
+	This option is only supported for a continuous axis.
+      }
+      \item{\code{hAxis.gridlines.color}}{a string. Default
+	\code{'#CCC'}. The color of the vertical gridlines inside the
+	chart area. Specify a valid HTML color string.
+      }
+      \item{\code{hAxis.gridlines.count}}{a number. Default 5.The number
+       of vertical gridlines inside the chart area. Minimum value is 2.       
+      }
+      \item{\code{hAxis.logScale}}{boolean. Default \code{FALSE}. \code{vAxis} property that
+	makes the vertical axis a logarithmic scale (requires all values to
+	be positive). Set to \code{TRUE} for yes.
+	This option is only supported for a continuous axis.
+      }
       \item{\code{hAxis.textPosition}}{a string. Default \code{'out'} Position of the
 	horizontal axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
       }
       \item{\code{hAxis.textStyle}}{a JSON object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
-	object that specifies the horizontal axis title text style. The object
-	has this format:
+	fontName: <global-font-name>, fontSize: <global-font-size>\}}
+	An object that specifies the horizontal axis text style. The object has this format:
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
@@ -145,15 +204,21 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{hAxis.slantedText}}{boolean. Default automatic. If \code{TRUE}, draw the
-	horizontal axis text at an angle, to help fit more text along the
-	axis; if false, draw horizontal axis text upright. Default behavior is
-	to slant text if it cannot all fit when drawn upright.
+      \item{\code{hAxis.slantedText}}{boolean. Default automatic. If
+	true, draw the horizontal axis text at an angle, to help fit more
+	text along the axis; if false, draw horizontal axis text
+	upright. Default behavior is to slant text if it cannot all fit
+	when drawn upright. Notice that this option is available only when
+	the \code{hAxis.textPosition} is set to \code{'out'} (which is the default).      
+
+	This option is only supported for a discrete axis.
       }
       \item{\code{hAxis.slantedTextAngle}}{a number, 1-90. Default 30. The angle
 	of the horizontal axis text, if it's drawn slanted. Ignored if
 	\code{hAxis.slantedText} is false, or is in auto mode, and the chart
 	decided to draw the text horizontally.
+
+	This option is only supported for a discrete axis.
       }
       \item{\code{hAxis.maxAlternation}}{a number. Default 2. Maximum number of
 	levels of horizontal axis text. If axis text labels become too
@@ -161,12 +226,94 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	order to fit labels closer together. This value specifies the
 	most number of levels to use; the server can use fewer levels, if
 	labels can fit without overlapping.
+
+	This option is only supported for a discrete axis.
       }
       \item{\code{hAxis.showTextEvery}}{a number. Default automatic. How many
 	horizontal axis labels to show, where 1 means show every label, 2
 	means show every other label, and so on. Default is to try to
 	show as many labels as possible without overlapping.
+
+	This option is only supported for a discrete axis.
       }
+      \item{\code{hAxis.maxValue}}{a number. Default automatic. \code{hAxis} property
+	that specifies the highest vertical axis grid line. The actual grid
+	line will be the greater of two values: the maxValue option value,
+	or the highest data value, rounded up to the next higher grid
+	mark.
+
+	This option is only supported for a continuous axis.
+      }
+      \item{\code{hAxis.minValue}}{a number. Default automatic. \code{hAxis} property that
+	specifies the lowest vertical axis grid line. The actual grid line
+	will be the lower of two values: the minValue option value, or the
+	lowest data value, rounded down to the next lower grid mark.
+
+	This option is only supported for a continuous axis.
+      }
+      \item{\code{hAxis.viewWindowMode}}{a string. Default
+	\code{"pretty"} if \code{hAxis.viewWindow} is null,
+	\code{"explicit"} otherwise. Specifies how to scale the horizontal
+	axis to render the values within the chart area. The following
+	string values are supported:
+	\describe{
+	  \item{\code{'pretty'}}{Scale the horizontal values so that the
+	    maximum and minimum data values are rendered a bit inside the
+	    left and right of the chart area.
+	  }
+	  \item{\code{'maximized'}}{Scale the horizontal values so that
+	    the maximum and minimum data values touch the left and right of
+	    the chart area.
+	  }
+	  \item{\code{'explicit'}}{Specify the left and right scale
+	    values of the chart area. Data values outside these values will
+	    be cropped. You must specify a \code{hAxis.viewWindow} object
+	    describing the maximum and minimum values to show.
+	  }
+	}
+	This option is only supported for a continuous axis.
+      }
+      \item{\code{hAxis.viewWindow}}{Object. Default
+	\code{NULL}. Specifies the cropping range of the horizontal axis.
+      }
+      
+      \item{\code{hAxis.viewWindow.max}}{A number. Default auto.
+	
+	\describe{
+	  
+	  \item{For a continuous axis}{
+	    
+	    The maximum horizontal data value to render. Has an effect
+	    only if \code{hAxis.viewWindowMode='explicit'}.	    
+	  }
+	  \item{For a discrete axis}{
+	    
+	    The zero-based row index where the cropping window ends. Data points at
+	    this index and higher will be cropped out. In conjunction with
+	    \code{vAxis.viewWindowMode.min}, it defines a half-opened range \code{[min, max)} that
+	    denotes the element indices to display. In other words, every index such
+	    that \code{min <= index < max} will be displayed.
+	  }
+	}	
+      }
+      \item{\code{hAxis.viewWindow.min}}{A number. Default auto.
+	\describe{
+	  
+	  \item{For a continuous axis}{
+	    The minimum horizontal data value to render. Has an effect
+	    only if \code{hAxis.viewWindowMode='explicit'}.	    
+	  }
+	  \item{For a discrete axis}{
+	    The zero-based row index where the cropping window
+	    begins. Data points at indices lower than this will be
+	    cropped out. In conjunction with \code{vAxis.viewWindowMode.max},
+	    it defines a half-opened range \code{[min, max)} that denotes the
+	    element indices to display. In other words, every index such
+	    that \code{min <= index < max} will be displayed.	    
+	  }
+	}	
+      }    
+            
       \item{\code{height}}{a number. Default height of the containing
 	element. Height of the chart, in pixels.
       }
@@ -175,7 +322,14 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	missing data based on neighbouring points. If false, it will leave a
 	break in the line at the unknown point.
       }
-      \item{\code{legend}}{a string. Default \code{'right'}. Position of the legend. Can
+      \item{\code{legend}}{a JSON object. Default \code{NULL}.
+	An object with members to configure various aspects of the
+	legend. To specify properties of this object, you can use object
+	literal notation, as shown here:
+	
+	\code{\{position: 'top', textStyle: \{color: 'blue', fontSize: 16\}\}}
+      }
+      \item{\code{legend.position}}{a string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
 	\describe{
 	  \item{\code{'right'}}{To the right of the chart.
@@ -188,14 +342,15 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	  }
 	}
       }
-      \item{\code{legendTextStyle}}{a JSON object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}
+      \item{\code{legend.textStyle}}{a JSON object. Default \code{\{color: 'black',
+	  fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the legend text style. The object has this format:
-	  \code{\{color: <string>, fontName: <string>, fontSize:
-	    <number>\}}
+	\code{\{color: <string>, fontName: <string>, fontSize:
+	  <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
-      }
+      }      
+
       \item{\code{lineWidth}}{a number. Default 2. Line width in pixels. Use zero to
 	hide all lines and show only the points.
       }
@@ -254,6 +409,23 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	    visibleInLegend: false\}\}
 	  }
 	}
+      \item{\code{theme}}{a string. Default \code{NULL}.
+	A theme is a set of predefined option values that work together
+	to achieve a specific chart behavior or visual effect. Currently
+	only one theme is available:
+	\describe{
+	  \item{\code{maximized}}{Maximizes the area of the chart, and
+	    draws the legend and all of the labels inside the chart area. Sets
+	    the following options:	    
+	    \code{
+	      chartArea: \{width: '100\%', height: '100\%'\},
+	      legend: \{position: 'in'\},
+	      titlePosition: 'in', axisTitlesPosition: 'in',
+	      hAxis: \{textPosition: 'in'\}, vAxis: \{textPosition: 'in'\}
+	    }
+	  }
+	}
+      }      	
       \item{\code{title}}{a string. Default no title. Text to display above the chart.
       }     
       \item{\code{titlePosition}}{a string. Default \code{'out'}.
@@ -276,13 +448,34 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{tooltipTextStyle}}{a JSON object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}
+      \item{\code{tooltip}}{a JSON object. Default \code{NULL}.
+	An object with members to configure various tooltip elements. To
+	specify properties of this object, you can use object
+	literal notation, as shown here:
+	
+	\code{\{textStyle: {color: '#FF0000'}, showColorCode: true\}}
+      }
+      \item{\code{tooltip.showColorCode}}{boolean. Default automatic.
+	If true, show colored squares next to the series information in
+	the tooltip. The default is true when \code{focusTarget} is set to
+	\code{'category'}, otherwise the default is \code{FALSE}.
+      }
+      \item{\code{tooltip.TextStyle}}{a JSON object. Default \code{\{color: 'black',
+	  fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
 	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
-      }      
+      }
+      \item{\code{tooltip.trigger}}{
+	The user interaction that causes the tooltip to be displayed:
+	\describe{
+	  \item{\code{'hover'}}{ The tooltip will be displayed when the user hovers over an element.
+	  }
+	  \item{\code{'none'}}{The tooltip will not be displayed.
+	  }	  
+	}
+      }
       \item{\code{vAxes}}{a JSON array of objects, or object with child objects
 	null. Specifies properties for individual vertical axes, if the
 	chart has multiple vertical axes. Each child object is a \code{vAxis}
@@ -336,11 +529,22 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
       }
-      \item{\code{vAxis.gridlineColor}}{a string. Default
+      \item{\code{vAxis.gridlines}}{a JSON object. Default
+	\code{NULL}.
+	An object with members to configure the gridlines on the
+	vertical axis. To specify properties of this object, you can use
+	object literal notation, as shown here:
+	\code{
+	  \{color: '#333', count: 4\}
+	}
+      }      
+      \item{\code{vAxis.gridlines.color}}{a string. Default
 	\code{'#CCC'}. The color of the vertical gridlines inside the
 	chart area. Specify a valid HTML color string.
       }
-  
+      \item{\code{vAxis.gridlines.count}}{a number. Default 5.The number
+       of vertical gridlines inside the chart area. Minimum value is 2.       
+     }
       \item{\code{vAxis.logScale}}{boolean. Default \code{FALSE}. \code{vAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
@@ -392,7 +596,7 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
 	    the maximum and minimum data values touch the top and bottom of
 	    the chart area.
 	  }
-	  \item{code{'explicit'}}{Specify the top and bottom scale
+	  \item{\code{'explicit'}}{Specify the top and bottom scale
 	    values of the chart area. Data values outside these values will
 	    be cropped. You must specify a \code{vAxis.viewWindow} object
 	    describing the maximum and minimum values to show.
@@ -532,6 +736,7 @@ plot(Line4)
 Line5 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
                        options=list(gvis.editor="Edit me!"))
 plot(Line5)
+
 
 }
 \keyword{ iplot }

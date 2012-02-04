@@ -1,9 +1,19 @@
-Version 0.2.14 [2012-01-07]
+Version 0.2.14 [2012-02-04]
 ==========================
 
 Changes
 
-Bug Fixes
+   o Updated help files to be in line with the Google Visualisation
+     API pages
+   o Updated example in section "Setting options" of the package
+     vignette and new section on dealing with apostrophes in
+     column names
+   o Fixed typos in vignette. Thanks to Pat Burns for pointing them
+     out
+
+NEW FEATURES
+
+    o New bubble chart function gvisBubbleChart
 
 
 Version 0.2.13 [2011-12-19]

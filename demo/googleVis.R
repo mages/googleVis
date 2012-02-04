@@ -22,19 +22,20 @@ plot(Line2)
 pause()
 
 ## Setting options, it works similar for other charts
-Line3 <-  gvisLineChart(df, "country", c("val1","val2"),
+Line3 <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
                         options=list(
                           title="Hello World",
-                          titleTextStyle="{color:'red', fontName:'Courier', 
-                                                 fontSize:16}",                         
+                          titleTextStyle="{color:'red', 
+                                           fontName:'Courier', 
+                                           fontSize:16}",                         
                           backgroundColor="#D3D3D3",                          
-                          vAxis="{gridlineColor:'#FFFFFF'}",
+                          vAxis="{gridlines:{color:'red', count:3}}",
                           hAxis="{title:'Country', titleTextStyle:{color:'blue'}}",
-                          series="[{targetAxisIndex: 0},
-                                       {targetAxisIndex:1}]",
+		          series="[{color:'green', targetAxisIndex: 0},	
+                                   {color: 'orange',targetAxisIndex:1}]",
                           vAxes="[{title:'val1'}, {title:'val2'}]",
                           legend="bottom",
-                          curveType='function',
+                          curveType="function",
                           width=500,
                           height=300                         
                           ))
@@ -82,6 +83,12 @@ Scatter <- gvisScatterChart(women, options=list(legend="none",
                  
 plot(Scatter)
 pause()
+
+## Bubble chart
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses",
+                           colorvar="Year", sizevar="Profit",
+                           options=list(hAxis='{minValue:75, maxValue:125}'))
+plot(Bubble)
 
 ## Candlestick chart
 Candle <- gvisCandlestickChart(OpenClose, options=list(legend='none'))

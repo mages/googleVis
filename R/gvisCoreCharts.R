@@ -85,7 +85,7 @@ gvisCheckCandestickChartData <- function(data){
 
 gvisCheckScatterChartData <- function(data){
   
-                                        # nothing to check at the moment here
+  ## nothing to check at the moment here
   return(data)
 }
 

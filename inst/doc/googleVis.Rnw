@@ -108,7 +108,7 @@ output with the \rsp package~\cite{Rsp}.
 Inspired by those talks and the desire to use interactive data
 visualisation tools to foster the dialogue between data analysts and
 others the authors of this vignette started the development of the
-\googleVis package~\cite{googleVis}. 
+\googleVis package~\cite{googleVis}, \cite{RJournal:2011-2:GesmannCastillo}. 
 
 Of course there are many other alternative visualisation toolkits out
 there, e.g.  
@@ -122,7 +122,7 @@ there, e.g.
 \href{http://simile.mit.edu/}{simile (AJAX)} \cite{Simile} and
 \href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare}.
 
-\begin{figure}%%[!ht]
+\begin{figure}[t]
 \begin{center}
 \includegraphics[width=\textwidth]{MotionChart.pdf}
 \caption{
@@ -156,7 +156,7 @@ As an example we shall look at the html-code of a motion chart from
 Google's visualisation gallery~\cite{GoogleMotionChart}, which
 generates output similar to Figure~\ref{MotionChartGUI}:
 
-\begin{small}
+\begin{small}\label{motionchartcodeexample}
 \begin{verbatim}
  1 <html>
  2  <head>
@@ -235,10 +235,13 @@ API.
 
 Version (\Sexpr{packageDescription("googleVis")[['Version']]}) of the package
 provides interfaces to  Motion Charts, Annotated Time Lines, 
-Geo Maps, Maps, Geo Charts, Intensity Maps, Tables, Gauges, 
-Tree Maps, further Line-, Bar-, Column-, Area-, Stepped Area-, 
-Combo-, Scatter-, Candlestick-, Pie- and Org Charts; see 
-Figure~\ref{demos} for some examples for more see the  \href{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}{project site}\footnote{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}.
+Maps, Geo Maps, Geo Charts, Intensity Maps, Tables, Gauges, 
+Tree Maps, further Line, Bar, Bubble, Column, Area, Stepped Area, 
+Combo, Scatter, Candlestick, Pie and Org Charts; see 
+Figure~\ref{demos} for some examples. All available charts types are
+listed on the
+\href{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}{project
+  site}\footnote{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}. 
 
 The output of a \googleVis function is html code that contains the
 data and references to JavaScript functions hosted by Google. A
@@ -246,9 +249,45 @@ browser with an Internet connection is required to view
 the output, and for Motion Charts, Geo Maps and Annotated Time Lines
 also Flash. The actual chart is rendered in the browser. 
 
-\begin{figure}%%[!ht]
+<<eval=FALSE, echo=FALSE>>=
+## Code for screen shot
+MC <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(width=500, height=300))
+ATL <- gvisAnnotatedTimeLine(Stock, datevar="Date",
+                           numvar="Value", idvar="Device",
+                           titlevar="Title", annotationvar="Annotation",
+                           options=list(
+                             width=300, height=300,
+                             fill=10, displayExactValues=TRUE,
+                             colors="['#0000ff','#00ff00']")
+                           )
+                          
+Map <- gvisMap(Andrew, "LatLong" , "Tip",
+              options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
+                           mapType='hybrid', useMapTypeControl=TRUE,
+                           width=400, height=200))
+Geo <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
+                 options=list(dataMode="regions", width=400,height=200)) 
+
+## Table with enabled paging
+Table <- gvisTable(Population, options=list(page='enable', height=200, width=500))
+
+Tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
+                    options=list(width=300, height=200,
+                                 fontSize=16,
+                                 minColor='#EDF8FB',
+                                 midColor='#66C2A4',
+                                 maxColor='#006D2C',
+                                 headerHeight=20,
+                                 fontColor='black',
+                                 showScale=TRUE))
+
+M <- gvisMerge(gvisMerge(gvisMerge(MC, ATL, TRUE), gvisMerge(Map, Geo, TRUE)), gvisMerge(Table, Tree, TRUE))
+
+
+@ 
+\begin{figure}[t]
 \begin{center}
-\includegraphics[width=\textwidth]{googleVisDemoPlots2.pdf}
+\includegraphics[width=\textwidth]{googleVisDemoPlots.png}
 \caption{
   Screenshot of some of the outputs of \texttt{demo(googleVis)}.
   Clockwise from top left:
@@ -527,9 +566,8 @@ Line <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
                                            fontName:'Courier', 
                                            fontSize:16}",                         
                           backgroundColor="#D3D3D3",                          
-                          vAxis="{gridlineColor:'#FFFFFF'}",
-                          hAxis="{title:'Country', 
-                                  titleTextStyle:{color:'blue'}}",
+                          vAxis="{gridlines:{color:'red', count:3}}",
+                          hAxis="{title:'Country', titleTextStyle:{color:'blue'}}",
 		          series="[{color:'green', targetAxisIndex: 0},	
                                    {color: 'orange',targetAxisIndex:1}]",
                           vAxes="[{title:'val1'}, {title:'val2'}]",
@@ -564,6 +602,34 @@ Example of \googleVis chart with \texttt{options = list (gvis.editor =
   'Edit me!')}.
 }\label{Editor}
 \end{center}
+\end{figure}
+
+\subsubsection{Dealing with apostrophes in column names}
+The \googleVis package converts data frame into JSON objects.
+The column names of the resulting JSON tables are encapsulated with
+single speech marks, see lines 12 -- 16 of the code example on
+page~\pageref{motionchartcodeexample}. 
+
+Hence apostrophes in column names of your input data frame have
+to be encapsulate by a double backslash.
+
+Here is a little example, see the output in Figure~\ref{fig:apostrophes}.
+<<>>=
+df <- data.frame("Year"=c(2010,2011), "Lloyd\\'s"=c(86.1, 93.3), 
+                 "Munich Re\\'s R/I"=c(95.3, 100.5),
+                 check.names=FALSE) 
+CR <- gvisColumnChart(df, options=list(vAxis='{baseline:0}', 
+                            title="Combined Ratio %",
+                            legend="{position:'bottom'}"))
+@ 
+<<eval=FALSE>>=
+plot(CR)
+@ 
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.5\textwidth]{Apostrophe.png}
+  \caption{Visualising data with apostrophes in column names.}
+  \label{fig:apostrophes}
 \end{figure}
 
 \section{Embedding \googleVis in web sites}
@@ -614,7 +680,7 @@ with instance name \texttt{Fruits}.  To include the motion chart into your artic
 \texttt{[cf]Fruits[/cf]} into the post, see Figure~\ref{wordpress} for
 an illustration.
 
-\begin{figure}[h]
+\begin{figure}[t]
   \centering
   \includegraphics[width=0.8\textwidth]{CreatePost.png}
   \caption{Including \googleVis output in a WordPress blog entry.}
@@ -933,15 +999,15 @@ suggestions or would like to collaborate, our address is
 
 
 \subsection{Citation}
-Please cite R and/or \googleVis if you use it in your work or publications. Use
-<<eval=FALSE>>=
-citation()
-@
-or
+Please cite R and \googleVis if you use it in your work or publications. Use
 <<eval=FALSE>>=
 citation("googleVis")
 @
-for information on how to cite the software.
+and
+<<eval=FALSE>>=
+citation()
+@ 
+for  bib-entries and information on how to cite the software.
 
 \subsection{Training and consultancy}
 Please contact us if you would like to discuss tailored training or

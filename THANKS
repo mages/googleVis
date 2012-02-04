@@ -28,6 +28,7 @@ Thanks to:
 	  security settings to display Flash charts locally 
 	o Alexander Holcroft for reporting a bug in gvisMotionChart
 	  when displaying data with special characters in column names
+	o Pat Burns for pointing out typos in the vignette  
 
 
   

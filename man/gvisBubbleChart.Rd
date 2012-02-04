@@ -1,26 +1,44 @@
-\name{gvisScatterChart}
-\alias{gvisScatterChart}
-%- Also NEED an '\alias' for EACH other topic documented here.
+\name{gvisBubbleChart}
+\alias{gvisBubbleChart}
 \title{
-  Google Scatter Chart with R
+Google Bubble Chart with R
 }
 \description{
-  The gvisScatterChart function reads a data.frame and
+
+  The gvisBubbleChart function reads a data.frame and
   creates text output referring to the Google Visualisation API which can be
-  included into a web page, or as a stand-alone page. The actual chart is
-  rendered by the web browser using SVG or
-  VML. }
+  included into a web page, or as a stand-alone page.
+  
+  The area chart is rendered within the browser using SVG or VML and
+  displays tips when hovering over points.
+}
 \usage{
-gvisScatterChart(data, options = list(), chartid)
+gvisBubbleChart(data, idvar = "", xvar = "", yvar = "",
+                      colorvar = "", sizevar = "",
+                      options = list(), chartid)
 }
 \arguments{
-  \item{data}{a \code{\link{data.frame}} to be displayed as a scatter
-    chart. Two or more columns are required, all must be numeric. The
-    values in the first column are used for the X-axis. The values in
-    following columns are used for the Y-axis. Each column is displayed
-    with a separate color.
+  \item{data}{a \code{\link{data.frame}} to be displayed as a bubble
+  chart. The data has to have at least three columns for \code{idvar,
+  xvar}, and \code{yvar}. 
+}
+  \item{idvar}{column name of \code{data} with the bubble
+}
+\item{xvar}{
+  column name of a numerical vector in \code{data} to be plotted on the x-axis.
+}
+  \item{yvar}{
+  column name of a numerical vector in \code{data} to be plotted on the y-axis.
+}
+\item{colorvar}{column name of data that identifies bubbles in the same
+  series. Use the same value to identify all bubbles that belong to the
+  same series; bubbles in the same series will be assigned the same
+  color. Series can be configured using the \code{series} option.
+}
+  \item{sizevar}{values in this column are mapped to actual pixel values
+    using the \code{sizeAxis} option.
   }
-  \item{options}{list of configuration options for Google Scatter Chart.
+  \item{options}{list of configuration options for Google Bubble Chart.
     \describe{
       \item{\code{gvis.editor}}{a character label for an
 	on-page button which opens an in-page dialog box that enables
@@ -29,8 +47,9 @@ gvisScatterChart(data, options = list(), chartid)
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/scatterchart.html#Configuration_Options}:
+    \url{http://code.google.com/apis/visualization/documentation/gallery/bubblechart.html#Configuration_Options}:
     \describe{
+
       \item{\code{axisTitlesPosition}}{a string. Default 'out'. Where to place
 	the axis titles, compared to the chart area. Supported values:
 	\describe{      
@@ -54,14 +73,38 @@ gvisScatterChart(data, options = list(), chartid)
       \item{\code{backgroundColor.fill}}{a string. Default \code{'white'}. The chart
 	fill color, as an HTML color string.
       }
+      \item{\code{bubble}}{a JSON object. Default \code{NULL}.
+	An object with members to configure the visual properties of the bubbles.
+     }
+     \item{\code{bubble.opacity}}{a number between 0.0 - 1.0. Default
+       0.8. The opacity of the bubbles, where 0 is fully transparent and 1 is fully opaque.
+     }
+     \item{\code{bubble.stroke}}{a string. Default \code{'#ccc'}.
+       The color of the bubbles' stroke.
+     }
+     \item{\code{bubble.textStyle}}{a JSON object. Default
+	\code{\{color: 'black', fontName: <global-font-name>, fontSize:
+	  <global-font-size>\}}.
+	
+	An object that specifies the bubble text style. The object has this format:
+	\code{
+	  \{color: <string>, fontName: <string>, fontSize: <number>\}
+	  }
+	  The color can be any HTML color string, for example:
+	\code{'red'} or \code{'#00cc00'}. Also see \code{fontName} and
+	\code{fontSize}.	
+      }     
       \item{\code{chartArea}}{a string. Default \code{'null'}. An object
-	with members to configure the 
+	with members to configure the
 	placement and size of the chart area (where the chart itself is drawn,
 	excluding axis and legends). Two formats are supported: a number, or a
 	number followed by \code{\%}. A simple number is a value in pixels; a number
 	followed by \code{\%} is a percentage. Example:
-	
+
 	\code{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
+      }
+      \item{\code{chartArea.height}}{a number or string. Default auto.	Chart
+	area height.
       }
       \item{\code{chartArea.left}}{a number or string. Default auto. How far to draw
 	the chart from the left border.
@@ -72,26 +115,16 @@ gvisScatterChart(data, options = list(), chartid)
       \item{\code{chartArea.width}}{a number or string. Default auto.	Chart
 	area width.
       }
-      \item{\code{chartArea.height}}{a number or string. Default auto.	Chart
-	area height.
-      }
       \item{\code{colors}}{a JSON array of strings. Default 'colors'. The colors to
 	use for the chart elements. An array of strings, where each element is
-	an HTML color string, for example: \code{colors:['red','#004411']}.
-      }
-      \item{\code{curveType}}{a string. Default \code{'none'}. Controls the curve of the
-	lines. Can be one of the following:      
-	\describe{
-	  \item{\code{'none'}}{Straight lines without curve.}
-	  \item{\code{'function'}}{The angles of the line will be smoothed.}
-	}
+	an HTML color string, for example: \code{colors:[red','#004411']}.
       }
       \item{\code{enableInteractivity}}{boolean. Default \code{TRUE}. Whether
 	the chart throws user-based events or reacts to user interaction. If
 	false, the chart will not throw 'select' or other interaction-based
 	events (but will throw ready or error events), and will not display
 	hovertext or otherwise change depending on user input.
-      }      
+      }
       \item{\code{fontSize}}{a number. Default automatic. The default font
 	size, in pixels, of all text in the chart. You can override this
 	using properties for specific chart elements.
@@ -100,12 +133,12 @@ gvisScatterChart(data, options = list(), chartid)
 	all text in the chart. You can override this using properties for
 	specific chart elements.
       }
-      \item{\code{gridlineColor}}{a string. Default \code{'#CCC'}. The color of the
-	gridlines inside the chart area. Specify a valid HTML color
-	string.
-      }
+      %%\item{\code{gridlineColor}}{a string. Default \code{'#CCC'}. The color of the
+      %% gridlines inside the chart area. Specify a valid HTML color
+      %%string.
+      %%}
       \item{\code{hAxis}}{a JSON object. Default \code{'null'}. An
-	object with members to configure	
+	object with members to configure 
 	various horizontal axis elements. To specify properties of this
 	object, you can use object literal notation, as shown here:
 	%\describe{
@@ -114,25 +147,37 @@ gvisScatterChart(data, options = list(), chartid)
 	%}
 	%}
       }
-      \item{\code{hAxis.baseline}}{a number. Default automatic.
-	\code{hAxis} property that specifies the baseline for the
-	horizontal axis. If the baseline is smaller than the highest grid
-	line or smaller than the lowest grid line, it will be rounded to
-	the closest gridline.
+      \item{\code{hAxis.baseline}}{a number. Default automatic. The baseline for the horizontal axis.
+	This option is only supported for a continuous axis.	
       }
       \item{\code{hAxis.baselineColor}}{a string. Default
-	'black'. \code{hAxis} property that specifies the color of the
-	baseline for the horizontal axis. Can be any HTML color string, for
-	example: \code{'red'} or \code{'#00cc00'}.
+	\code{'black'}. The color of the baseline for the horizontal
+	axis. Can be any HTML color string, for example: \code{'red'} or
+	\code{'#00cc00'}.
+	This option is only supported for a continuous axis.
       }
       \item{\code{hAxis.direction}}{1 or -1. Default 1. The direction in which the
-	values along the horizontal axis grow. Specify -1 to reverse the
+	values along the vertical axis grow. Specify -1 to reverse the
 	order of the values.
       }
-      \item{\code{hAxis.format}}{a string. Default auto. a format string for
-	numeric axis labels. This is a subset of the ICU pattern set. For
-	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
-	and 50\% for values 10, 7.5, and 0.5.
+      \item{\code{hAxis.format}}{a string. Default auto.
+	A format string for numeric or date axis labels.
+	
+	For number axis labels, this is a subset of the decimal
+	formatting ICU pattern set. For instance, \code{\{format:'#,###\%'\}} will
+	display values \code{"1,000\%", "750\%"}, and \code{"50\%"} for values 10,
+	7.5, and 0.5.
+	
+	For date axis labels, this is a subset of the date formatting
+	ICU pattern set. For instance, \code{\{format:'MMM d, y'\}} will
+	display the value "Jul 1, 2011" for the date of July first in
+	2011.
+	
+	The actual formatting applied to the label is derived from the
+	locale the API has been loaded with. For more details, see
+	loading charts with a specific locale.
+
+	This option is only supported for a continuous axis.
       }
       \item{\code{hAxis.gridlines}}{a JSON object. Default null. An
 	object with members to configure the gridlines on the horizontal
@@ -140,17 +185,18 @@ gvisScatterChart(data, options = list(), chartid)
 	literal notation, as shown here:      
 	\code{\{color: '#333', count: 4\}}
 	This option is only supported for a continuous axis.
-      }     
-     \item{\code{hAxis.gridlines.color}}{a string. Default
-	\code{'#CCC'}. The color of the horizontal gridlines inside the
+      }
+      \item{\code{hAxis.gridlines.color}}{a string. Default
+	\code{'#CCC'}. The color of the vertical gridlines inside the
 	chart area. Specify a valid HTML color string.
-      }     
-     \item{\code{hAxis.gridlines.count}}{a number. Default 5.The number
+      }
+      \item{\code{hAxis.gridlines.count}}{a number. Default 5.The number
        of vertical gridlines inside the chart area. Minimum value is 2.       
       }
       \item{\code{hAxis.logScale}}{boolean. Default \code{FALSE}. \code{vAxis} property that
 	makes the vertical axis a logarithmic scale (requires all values to
 	be positive). Set to \code{TRUE} for yes.
+	This option is only supported for a continuous axis.
       }
       \item{\code{hAxis.textPosition}}{a string. Default \code{'out'} Position of the
 	horizontal axis text, relative to the chart area. Supported values:
@@ -174,17 +220,54 @@ gvisScatterChart(data, options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
+      \item{\code{hAxis.slantedText}}{boolean. Default automatic. If
+	true, draw the horizontal axis text at an angle, to help fit more
+	text along the axis; if false, draw horizontal axis text
+	upright. Default behavior is to slant text if it cannot all fit
+	when drawn upright. Notice that this option is available only when
+	the \code{hAxis.textPosition} is set to \code{'out'} (which is the default).      
+
+	This option is only supported for a discrete axis.
+      }
+      \item{\code{hAxis.slantedTextAngle}}{a number, 1-90. Default 30. The angle
+	of the horizontal axis text, if it's drawn slanted. Ignored if
+	\code{hAxis.slantedText} is false, or is in auto mode, and the chart
+	decided to draw the text horizontally.
+
+	This option is only supported for a discrete axis.
+      }
+      \item{\code{hAxis.maxAlternation}}{a number. Default 2. Maximum number of
+	levels of horizontal axis text. If axis text labels become too
+	crowded, the server might shift neighboring labels up or down in
+	order to fit labels closer together. This value specifies the
+	most number of levels to use; the server can use fewer levels, if
+	labels can fit without overlapping.
+
+	This option is only supported for a discrete axis.
+      }
+      \item{\code{hAxis.showTextEvery}}{a number. Default automatic. How many
+	horizontal axis labels to show, where 1 means show every label, 2
+	means show every other label, and so on. Default is to try to
+	show as many labels as possible without overlapping.
+
+	This option is only supported for a discrete axis.
+      }
       \item{\code{hAxis.maxValue}}{a number. Default automatic. \code{hAxis} property
 	that specifies the highest vertical axis grid line. The actual grid
 	line will be the greater of two values: the maxValue option value,
-	or the highest data value, rounded up to the next higher grid mark.
+	or the highest data value, rounded up to the next higher grid
+	mark.
+
+	This option is only supported for a continuous axis.
       }
       \item{\code{hAxis.minValue}}{a number. Default automatic. \code{hAxis} property that
 	specifies the lowest vertical axis grid line. The actual grid line
 	will be the lower of two values: the minValue option value, or the
 	lowest data value, rounded down to the next lower grid mark.
+
+	This option is only supported for a continuous axis.
       }
-          \item{\code{hAxis.viewWindowMode}}{a string. Default
+      \item{\code{hAxis.viewWindowMode}}{a string. Default
 	\code{"pretty"} if \code{hAxis.viewWindow} is null,
 	\code{"explicit"} otherwise. Specifies how to scale the horizontal
 	axis to render the values within the chart area. The following
@@ -204,19 +287,49 @@ gvisScatterChart(data, options = list(), chartid)
 	    describing the maximum and minimum values to show.
 	  }
 	}
+	This option is only supported for a continuous axis.
       }
       \item{\code{hAxis.viewWindow}}{Object. Default
-	\code{NULL}. Specifies the maximum and minimum data values to
-	show on the horizontal axis. Present only if
-	\code{vAxis.viewWindowMode='explicit'}
+	\code{NULL}. Specifies the cropping range of the horizontal axis.
       }
-      \item{\code{hAxis.viewWindow.max}}{A number. Default 0.	The
-	maximum vertical data value to render.
+      
+      \item{\code{hAxis.viewWindow.max}}{A number. Default auto.
+	
+	\describe{
+	  
+	  \item{For a continuous axis}{
+	    
+	    The maximum horizontal data value to render. Has an effect
+	    only if \code{hAxis.viewWindowMode='explicit'}.	    
+	  }
+	  \item{For a discrete axis}{
+	    
+	    The zero-based row index where the cropping window ends. Data points at
+	    this index and higher will be cropped out. In conjunction with
+	    \code{vAxis.viewWindowMode.min}, it defines a half-opened range \code{[min, max)} that
+	    denotes the element indices to display. In other words, every index such
+	    that \code{min <= index < max} will be displayed.
+	  }
+	}	
       }
-      \item{\code{hAxis.viewWindow.min}}{A number. Default 0. The
-	minimum vertical data value to render.
+      \item{\code{hAxis.viewWindow.min}}{A number. Default auto.
+	\describe{
+	  
+	  \item{For a continuous axis}{
+	    The minimum horizontal data value to render. Has an effect
+	    only if \code{hAxis.viewWindowMode='explicit'}.	    
+	  }
+	  \item{For a discrete axis}{
+	    The zero-based row index where the cropping window
+	    begins. Data points at indices lower than this will be
+	    cropped out. In conjunction with \code{vAxis.viewWindowMode.max},
+	    it defines a half-opened range \code{[min, max)} that denotes the
+	    element indices to display. In other words, every index such
+	    that \code{min <= index < max} will be displayed.	    
+	  }
+	}	
       }    
-  
+            
       \item{\code{height}}{a number. Default height of the containing
 	element. Height of the chart, in pixels.
       }
@@ -248,60 +361,34 @@ gvisScatterChart(data, options = list(), chartid)
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }      
-      \item{\code{lineWidth}}{a number. Default 2. Line width in pixels. Use zero to
-	hide all lines and show only the points.
+      \item{\code{sizeAxis}}{a JSON object. Default \code{NULL}.
+	An object with members to configure how values are associated
+	with bubble size. To specify properties of this object, you can
+	use object literal notation, as shown here:
+	
+	\code{\{minValue: 0,  maxSize: 20\}}
       }
-      \item{\code{pointSize}}{a number. Default 0. Diameter of data points, in pixels. Use
-	zero to hide all points.
+      \item{\code{sizeAxis.maxSize}}{a number. Default 30.
+	Maximum radius of the largest possible bubble, in pixels.
+      }      
+      \item{\code{sizeAxis.maxValue}}{a number. Default set to maximum
+	value of size column in chart data.
+	The size value (as appears in the chart data) to be mapped to
+	\code{sizeAxis.maxSize}. Larger values will be cropped to this value.		
       }
-      \item{\code{series}}{a JSON array of objects, or object with nested
-	objects. Default \{\}.	
-	An array of objects, each describing the format of the
-	corresponding series in the chart. To use default values for a
-	series, specify an empty object {}. If a series or a value is not
-	specified, the global value will be used. Each object supports the
-	following properties:
-	\describe{
-	  \item{\code{color}}{The color to use for this series. Specify a valid
-	    HTML color string.
-	  }
-	  \item{\code{targetAxisIndex}}{Which axis to assign this series
-	    to, where 0 is the default axis, and 1 is the opposite
-	    axis. Default value is 0; set to 1 to define a chart where
-	    different series are rendered against different axes. You can
-	    define a different scale for different axes.
-	  }
-	  \item{\code{pointSize}}{Overrides the global pointSize value
-	    for this series.
-	  }
-	  \item{\code{lineWidth}}{Overrides the global lineWidth value
-	    for this series.
-	  }
-	  \item{\code{curveType}}{Overrides the global curveType value
-	    for this series.
-	    }
-	    \item{\code{visibleInLegend}}{A boolean value, where true
-	      means that the series should have a legend entry, and false means
-	      that it should not. Default is \code{TRUE}.
-	    }
-	  }
-	  You can specify either an array of objects, each of which
-	  applies to the series in the order given, or you can specify an
-	  object where each child has a numeric key indicating which series
-	  it applies to. For example, the following two declarations are
-	  identical, and declare the first series as black and absent from
-	  the legend, and the fourth as red and absent from the legend:
-	  
-	  \code{
-	    series: [\{color: 'black', visibleInLegend: false\},\{\}, \{\}, \{color:
-	    'red', visibleInLegend: false\}]
-	  }
-
-	  \code{
-	    series: \{0:\{color: 'black', visibleInLegend: false\}, 3:\{color: 'red',
-	    visibleInLegend: false\}\}
-	  }
-	}
+      \item{\code{sizeAxis.minSize}}{a number. Default 5.
+	Minimum radius of the largest possible bubble, in pixels.
+      }
+      \item{\code{sizeAxis.minValue}}{a number. Default set to minimum
+	value of size column in chart data.
+	The size value (as appears in the chart data) to be mapped to
+	\code{sizeAxis.minSize}. Smaller values will be cropped to this value.		
+      }      
+      \item{\code{sortBubblesBySize}}{boolean. Default \code{TRUE}. If
+	true, sorts the bubbles by size so the smaller bubbles appear
+	above the larger bubbles. If false, bubbles are sorted according
+	to their order in \code{data}.      
+      }
       \item{\code{theme}}{a string. Default \code{NULL}.
 	A theme is a set of predefined option values that work together
 	to achieve a specific chart behavior or visual effect. Currently
@@ -318,7 +405,7 @@ gvisScatterChart(data, options = list(), chartid)
 	    }
 	  }
 	}
-      }      	    
+      }      	
       \item{\code{title}}{a string. Default no title. Text to display above the chart.
       }
       \item{\code{titlePosition}}{a string. Default \code{'out'}.
@@ -409,9 +496,9 @@ gvisScatterChart(data, options = list(), chartid)
       \item{\code{vAxis.gridlines.count}}{a number. Default 5.The number
        of vertical gridlines inside the chart area. Minimum value is 2.       
      }
-      \item{\code{vAxis.logScale}}{boolean. Default \code{FALSE}. \code{vAxis} property that
-	makes the vertical axis a logarithmic scale (requires all values to
-	be positive). Set to \code{TRUE} for yes.
+     \item{\code{vAxis.logScale}}{boolean. Default \code{FALSE}. \code{vAxis} property that
+       makes the vertical axis a logarithmic scale (requires all values to
+       be positive). Set to \code{TRUE} for yes.
       }
       \item{\code{vAxis.textPosition}}{a string. Default \code{'out'}. Position of the
 	vertical axis text, relative to the chart area. Supported values:
@@ -428,18 +515,11 @@ gvisScatterChart(data, options = list(), chartid)
       \item{\code{vAxis.title}}{a string. Default no title. \code{vAxis} property that
 	specifies a title for the vertical axis.
       }
-      \item{\code{vAxis.titleTextStyle}}{a JSON object. Default
-
-	\code{\{color: 'black',
-	  fontName: <global-font-name>, fontSize: <global-font-size>\}}.
-
-	An
+      \item{\code{vAxis.titleTextStyle}}{a JSON object. Default \code{\{color: 'black',
+	  fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
 	object that specifies the vertical axis title text style. The
 	object has this format:
-	
-	\code{\{color: <string>, fontName: <string>, fontSize:
-	  <number>\}}
-	
+	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -453,7 +533,7 @@ gvisScatterChart(data, options = list(), chartid)
 	will be the lower of two values: the minValue option value, or the
 	lowest data value, rounded down to the next lower grid mark.
       }
-    \item{\code{vAxis.viewWindowMode}}{a string. Default
+      \item{\code{vAxis.viewWindowMode}}{a string. Default
 	\code{"pretty"} if \code{vAxis.viewWindow} is null,
 	\code{"explicit"} otherwise. Specifies how to scale the vertical
 	axis to render the values within the chart area. The following
@@ -474,20 +554,21 @@ gvisScatterChart(data, options = list(), chartid)
 	  }
 	}
       }
-      \item{\code{vAxis.viewWindow}}{Object. Default
-	\code{NULL}. Specifies the maximum and minimum data values to
-	show on the vertical axis. Present only if
-	\code{vAxis.viewWindowMode='explicit'}
+      \item{\code{vAxis.viewWindow}}{a JSON object. Specifies the
+	cropping range of the vertical axis.	
       }
       \item{\code{vAxis.viewWindow.max}}{A number. Default 0.	The
 	maximum vertical data value to render.
+
+	Has an effect only if vAxis.viewWindowMode='explicit'.
       }
       \item{\code{vAxis.viewWindow.min}}{A number. Default 0. The
 	minimum vertical data value to render.
+
+	Has an effect only if vAxis.viewWindowMode='explicit'.
       }
-      
       \item{\code{width}}{a number. Default width of the containing
-      element. Width of the chart, in pixels.
+	element. Width of the chart, in	pixels.
       }
     }
   } 
@@ -495,16 +576,17 @@ gvisScatterChart(data, options = list(), chartid)
     chart type and \code{\link{tempfile}}
   }
 }
+
 %%\details{
 %%  ~~ If necessary, more details than the description above ~~
 %%}
 \value{
-  \code{gvisScatterChart} returns list of \code{\link{class}}
+  \code{gvisBubbleChart} returns list of \code{\link{class}}
   "\code{gvis}" and "\code{list}".   
   
   An object of class "\code{gvis}" is a list containing at least the
   following components:
-  \item{\code{type}}{Google visualisation type, here 'ScatterChart'}
+  \item{\code{type}}{Google visualisation type, here 'BubbleChart'}
   \item{\code{chartid}}{character id of the chart object. Unique chart
     ids are required to place several charts on the same page.
   }
@@ -547,8 +629,8 @@ gvisScatterChart(data, options = list(), chartid)
   }
 }
 \references{
-  Google Scatter Chart API:
-  \url{http://code.google.com/apis/chart/interactive/docs/gallery/scatterchart.html} 
+  Google Bubble Chart API:
+  \url{http://code.google.com/apis/chart/interactive/docs/gallery/bubblechart.html} 
 
   Follow the link for Google's data policy.
 
@@ -559,46 +641,41 @@ gvisScatterChart(data, options = list(), chartid)
   Diego de Castillo \email{decastillo@gmail.com}
 }
 \section{Warning}{
-  Google Visualisation API: You cannot load both scatterchart and corechart
+  Google Visualisation API: You cannot load both bubblechart and corechart
   packages at the same time on the same page.
 }
 
-%% ~Make other sections like Warning with \section{Warning }{....} ~
 
 \seealso{
-  See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
-  printing and plotting methods
+  See also \code{\link{gvisMotionChart}} for a moving bubble chart over
+  time, and \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
+  printing and plotting methods.
 }
 \examples{
-## Please note that by default the googleVis plot command
-## will open a browser window and requires an internet
-## connection to display the visualisation.
 
+bubble1 <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses")
+plot(bubble1)
 
-## Scatter chart
-Scatter1 <- gvisScatterChart(women)
-plot(Scatter1)
+## Set color and size
+bubble2 <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses",
+                          colorvar="Location", sizevar="Profit",
+                          options=list(hAxis='{minValue:75, maxValue:125}'))
 
-## Using optional arguments
-Scatter2 <- gvisScatterChart(women, options=list(legend="none",
-                 lineWidth=2, pointSize=0,
-                 title="Women", vAxis="{title:'weight (lbs)'}",
-                 hAxis="{title:'height (in)'}", width=300, height=300))
-                 
-plot(Scatter2)
+plot(bubble2)
 
+## Use year to color the bubbles
+bubble3 <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses",
+                           colorvar="Year", sizevar="Profit",
+                           options=list(hAxis='{minValue:75, maxValue:125}'))
+plot(bubble3)
+\dontrun{
+## Moving bubble chart over time, aka motion chart
 
-df=data.frame(x=sin(1:100/3), 
-              Circle=cos(1:100/3), 
- 	      Ellipse=cos(1:100/3)*0.5)
-
-## Plot several variables as smooth curves
-Scatter3 <- gvisScatterChart(df, 
-	    		options=list(curveType='function', 
-				     pointSize=0, 
-				     lineWidth=2))
-plot(Scatter3)
-
+M <- gvisMotionChart(Fruits, Fruit, Year)
+plot(M)
 }
 
+
+
+}
 \keyword{ iplot }
