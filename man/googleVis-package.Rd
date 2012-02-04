@@ -7,10 +7,9 @@ Using the Google Visualisation API with R
 }
 \description{
   The googleVis package provides an interface between R and the Google
-  Visualisation API to create interactive charts which can be embedded
-  into web pages. With the googleVis package users can easily create web
+  Visualisation API. Users of the googleVis package can easily create web
   pages with interactive charts based on R data frames and display them
-  either via the local R HTTP help server or within their own sites,
+  either with the local R HTTP help server or within their own sites,
   without uploading the data to Google.
   
   A browser with Flash and Internet connection is required. Please visit
@@ -46,9 +45,9 @@ Using the Google Visualisation API with R
     \item FLARE (ActionScript): \url{http://flare.prefuse.org/}
   }
 
-  For examples using the Google Visualisation API see the Google
-  Public Data Explorer: \url{http://www.google.com/publicdata/home}
-
+  See the Google Public Data Explorer for examples using the Google
+  Visualisation API: \url{http://www.google.com/publicdata/home}
+  
   Other R packages of interest to you might be:
   \itemize{
     \item plotGoogleMaps: Plot HTML output with Google Maps API and your own data. \url{http://cran.r-project.org/web/packages/plotGoogleMaps/}

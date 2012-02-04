@@ -5,15 +5,15 @@
 }
 \description{
   The gvisGeoChart function reads a data.frame and
-  creates text output referring to the Google Visualisation API which can be
+  creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page.
   
-  A Geochart is a map of a country, a continent, or a region with two modes:
+  A geo chart is a map of a country, a continent, or a region with two modes:
   The region mode colorizes whole regions, such as countries, provinces,
   or states. The marker mode marks designated regions using bubbles that
   are scaled according to a value that you specify.
 
-  A Geochart is rendered within the browser using
+  A geo chart is rendered within the browser using
   SVG or VML. Note that the map is not scrollable or draggable.
 }
 \usage{
@@ -305,7 +305,7 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 
 
 \references{
-  Google Geo Map  API: \url{http://code.google.com/apis/visualization/documentation/gallery/geochart.html}
+  Google Geo Chart  API: \url{http://code.google.com/apis/visualization/documentation/gallery/geochart.html}
 
   Follow the link for Google's data policy.
 
@@ -316,7 +316,7 @@ Markus Gesmann \email{markus.gesmann@gmail.com},
 Diego de Castillo \email{decastillo@gmail.com}
 }
 \note{
-  This is the new version of the GeoMap chart. 
+  This is the new version of the GeoChart chart. 
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~

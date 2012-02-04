@@ -436,7 +436,7 @@ gvisHtmlWrapper <- function(title, dataName, chartid, type){
 <!-- htmlFooter -->
 <span> 
 %s &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>
-&#8226; <a href="http://code.google.com/apis/visualization/terms.html">Google Terms of Use</a> &#8226; %s
+&#8226; <a href="http://code.google.com/apis/terms/index.html">Google Terms of Use</a> &#8226; %s
 </span></div>
 </body>
 </html>

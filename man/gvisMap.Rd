@@ -5,7 +5,7 @@
 }
 \description{
   The gvisMap function reads a data.frame and
-  creates text output referring to the Google Visualisation API which can be
+  creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page.
   
   The maps are the well known Google Maps. 

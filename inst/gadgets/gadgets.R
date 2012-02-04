@@ -125,6 +125,15 @@ Scatter <- gvisScatterChart(women, options=list(legend="none",
                  
 cat(createGoogleGadget(Scatter), file="scatterchart.xml")
 
+## Bubble chart
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses",
+                           colorvar="Year", sizevar="Profit",
+                           options=list(hAxis='{minValue:75, maxValue:125}',
+                             width=500, height=300))
+
+cat(createGoogleGadget(Bubble), file="bubblechart.xml")
+
+
 ## Pie chart
 Pie <- gvisPieChart(CityPopularity,
                     options=list(width=400, height=200))

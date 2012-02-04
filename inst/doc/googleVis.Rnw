@@ -135,7 +135,7 @@ there, e.g.
 
 \subsection{Google Visualisation API}
 
-The Google Visualisation API~\cite{GoogleVisApi}, \cite{GoogleTerms}
+The Google Visualisation API~\cite{GoogleVisApi}
 allows users to create interactive charts as part of Google
 documents, spreadsheets and web pages. In this text we will focus 
 on the usage of the API as part of web pages.
@@ -221,9 +221,8 @@ parts\footnote{For more details see
 These principles hold true for most of the interactive charts of the
 Google Visualisation API, see the examples in Figure~\ref{demos}.
 
-However, before you use the API you should read the \href{http://code.google.com/apis/visualization/terms.html}{Google
-  Visualization API Terms of Service}  and the \href{http://code.google.com/apis/maps/terms.html}{Google  
-Maps/Google Earth APIs Terms of Service}.
+However, before you use the API you should read the \href{http://code.google.com/apis/terms/index.html}{Google
+  Visualization API Terms of Service}\cite{GoogleTerms}. 
 
 \section{The \googleVis package}
 

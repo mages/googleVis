@@ -6,7 +6,7 @@ Google Area Chart with R
 \description{
 
   The gvisAreaChart function reads a data.frame and
-  creates text output referring to the Google Visualisation API which can be
+  creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page.
   
   The area chart is rendered within the browser using SVG or VML and

@@ -28,7 +28,7 @@ Markus Gesmann
 }
 \note{
 Google Gadgets can be embedded in various Google products, for example
-as part of a Google Code wiki page, Blogger or Google Site.
+as part of a Google Code wiki page, Blogger or Google Sites.
 In all cases the XML gadget file has to be hosted online, e.g. using Google Docs.
 
 In Blogger the gadgets can be embedded via the design tab, and in a Google Sites via

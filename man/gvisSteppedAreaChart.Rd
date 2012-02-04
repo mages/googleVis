@@ -6,7 +6,7 @@ Google Stepped Area Chart with R
 \description{
 
   The gvisSteppedAreaChart function reads a data.frame and
-  creates text output referring to the Google Visualisation API which can be
+  creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page.
   
   The stepped area chart is rendered within the browser using SVG or VML and
@@ -16,7 +16,8 @@ Google Stepped Area Chart with R
 gvisSteppedAreaChart(data, xvar = "", yvar = "", options = list(), chartid)
 }
 \arguments{
-  \item{data}{a \code{\link{data.frame}} to be displayed as a line chart
+  \item{data}{a \code{\link{data.frame}} to be displayed as a stepped
+  area chart. 
   }
   \item{xvar}{
     name of the character column which contains the category labels for

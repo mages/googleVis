@@ -4,11 +4,11 @@
 \title{Google Motion Chart with R}
 \description{
   The gvisMotionChart function reads a data.frame and
-  creates text output referring to the Google Visualisation API which can be
+  creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page. The actual chart is
   rendered by the web browser in flash.
 
-  A Motion Chart is a dynamic chart to explore several indicators over time.
+  A motion chart is a dynamic chart to explore several indicators over time.
 
 }
 \usage{

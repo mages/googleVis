@@ -17,13 +17,13 @@
   \item{x}{
     An object of class \code{gvis}.
   }
-  \item{tag}{name tag of the objects to be extracted from gvis objects. The
+  \item{tag}{name tag of the objects to be extracted from a gvis object. The
     default tag "html" will show a complete web page with the
     visualisation. The tag "chart" will present all code for the
     visualisation chart only. For more information see the details section.
   }	
   \item{file}{
-    file name to be used internally by \code{\link{cat}}. If "" (the
+    file name. If "" (the
     default), output will be printed to the standard output connection,
     the console unless redirected by \code{\link{sink}}.
   }
@@ -102,7 +102,7 @@
   of a \code{googleVis} function locally. 
   A browser with Flash and Internet connection is required.
   The displayed page includes a link (click on the chart id) to a
-  further page which shows the code of the chart for the user to copy
+  further page, which shows the code of the chart for the user to copy
   and paste into her own page.
 }
 

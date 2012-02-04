@@ -6,7 +6,7 @@
 \description{
 
   The gvisAnnotatedTimeLine function reads a data.frame and
-  creates text output referring to the Google Visualisation API which can be
+  creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page.
   
   An annotated time line is an interactive time series line chart with optional

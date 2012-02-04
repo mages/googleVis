@@ -7,7 +7,7 @@ Google Intensity Map with R
   An intensity map highlights regions or countries based on relative values.
 
   The gvisIntensityMap function reads a data.frame and
-  creates text output referring to the Google Visualisation API which can be
+  creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page.
 }
 \usage{

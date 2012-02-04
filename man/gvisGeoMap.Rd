@@ -5,10 +5,10 @@
 }
 \description{
   The gvisGeoMap function reads a data.frame and
-  creates text output referring to the Google Visualisation API which can be
+  creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page.
  
-  A Geo map is a map of a country, continent, or region map, with colours
+  A geo map is a map of a country, continent, or region map, with colours
   and values assigned to specific regions. Values are displayed as a colour
   scale, and you can specify optional hover-text for regions. The map is
   rendered in the browser. Note that the

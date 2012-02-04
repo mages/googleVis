@@ -8,7 +8,7 @@
   from the following list: columns, lines, and area lines.
 
   The gvisComboChart function reads a data.frame and
-  creates text output referring to the Google Visualisation API which can be
+  creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page. The actual chart is
   rendered by the web browser using SVG or
   VML. 
@@ -668,7 +668,7 @@ value is given and therefore no button is displayed.
   }
 }
 \references{
-  Google Line Chart API:
+  Google Combo Chart API:
   \url{http://code.google.com/apis/chart/interactive/docs/gallery/combochart.html} 
 
   Follow the link for Google's data policy.
