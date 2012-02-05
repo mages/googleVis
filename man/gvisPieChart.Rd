@@ -56,7 +56,7 @@ value is given and therefore no button is displayed.
 	number followed by \code{\%}. A simple number is a value in pixels; a number
 	followed by \code{\%} is a percentage. Example:
 	
-	\code{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
+	\preformatted{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
       }
       \item{\code{chartArea.left}}{A number or string. Default auto. How far to draw
 	the chart from the left border.
@@ -93,7 +93,7 @@ value is given and therefore no button is displayed.
 	legend. To specify properties of this object, you can use object
 	literal notation, as shown here:
 	
-	\code{\{position: 'top', textStyle: \{color: 'blue', fontSize: 16\}\}}
+	\preformatted{\{position: 'top', textStyle: \{color: 'blue', fontSize: 16\}\}}
       }
       \item{\code{legend.position}}{a string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
@@ -108,18 +108,18 @@ value is given and therefore no button is displayed.
 	  }
 	}
       }
-      \item{\code{legend.textStyle}}{a JSON object. Default \code{\{color: 'black',
+      \item{\code{legend.textStyle}}{a JSON object. Default \preformatted{\{color: 'black',
 	  fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the legend text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize:
+	\preformatted{\{color: <string>, fontName: <string>, fontSize:
 	  <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
       \item{\code{slices}}{a JOSN array of objects, or object with
-	nested objects. Default \code{\{\}}. A JSON array of objects, each
+	nested objects. Default \preformatted{\{\}.} A JSON array of objects, each
 	describing the format of the corresponding slice in the pie. To
-	use default values for a slice, specify an empty object \code{\{\}}. If a
+	use default values for a slice, specify an empty object \preformatted{\{\}.} If a
 	slice or a value is not specified, the global value will be
 	used. Each object supports the following properties:
 	\describe{
@@ -136,7 +136,7 @@ value is given and therefore no button is displayed.
 	applies to. For example, the following two declarations are
 	identical, and declare the first slice as black and the fourth as
 	red:
-	\code{
+	\preformatted{
 	  slices: [\{color: 'black', \{\}, \{\}, \{color: 'red'\}]
 	  slices: \{0: \{color: 'black'\}, 3: \{color: 'red'\}\}
 	}
@@ -159,11 +159,11 @@ value is given and therefore no button is displayed.
 	}
       }
       \item{\code{pieSliceTextStyle}}{A json object. Default
-	\code{\{color: 'black', fontName: <global-font-name>, fontSize:
-	  <global-font-size>\}}. An object that specifies the slice text
+	\preformatted{\{color: 'black', fontName: <global-font-name>, fontSize:
+	  <global-font-size>\}.} An object that specifies the slice text
 	style. The object has this format: 
-	\code{\{color: <string>, fontName: <string>, fontSize:
-	  <number>\}}. The color can be any HTML color string, for
+	\preformatted{\{color: <string>, fontName: <string>, fontSize:
+	  <number>\}.} The color can be any HTML color string, for
 	example: \code{'red'} or \code{'#00cc00'}. Also see \code{fontName} and
 	\code{fontSize}.
       }	
@@ -189,10 +189,10 @@ value is given and therefore no button is displayed.
       \item{\code{title}}{A string. Default no title. Text to display above the chart.
       }
       \item{\code{titleTextStyle}}{A json object. Default
-	\code{\{color:'black',fontName:<global-font-name>,fontSize:<global-font-size>\}}. An
+	\preformatted{\{color:'black', fontName:<global-font-name>,fontSize:<global-font-size>\}.} An
 	object that specifies the title text
 	style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -201,17 +201,17 @@ value is given and therefore no button is displayed.
 	specify properties of this object, you can use object
 	literal notation, as shown here:
 	
-	\code{\{textStyle: {color: '#FF0000'}, showColorCode: true\}}
+	\preformatted{\{textStyle: {color: '#FF0000'}, showColorCode: true\}}
       }
       \item{\code{tooltip.showColorCode}}{boolean. Default automatic.
 	If true, show colored squares next to the series information in
 	the tooltip. The default is true when \code{focusTarget} is set to
 	\code{'category'}, otherwise the default is \code{FALSE}.
       }
-      \item{\code{tooltip.textStyle}}{a JSON object. Default \code{\{color: 'black',
+      \item{\code{tooltip.textStyle}}{a JSON object. Default \preformatted{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }

@@ -61,7 +61,7 @@ gvisScatterChart(data, options = list(), chartid)
 	number followed by \code{\%}. A simple number is a value in pixels; a number
 	followed by \code{\%} is a percentage. Example:
 	
-	\code{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
+	\preformatted{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
       }
       \item{\code{chartArea.left}}{a number or string. Default auto. How far to draw
 	the chart from the left border.
@@ -110,7 +110,7 @@ gvisScatterChart(data, options = list(), chartid)
 	object, you can use object literal notation, as shown here:
 	%\describe{
 	%\item{
-	\code{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
+	\preformatted{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
 	%}
 	%}
       }
@@ -131,14 +131,14 @@ gvisScatterChart(data, options = list(), chartid)
       }
       \item{\code{hAxis.format}}{a string. Default auto. a format string for
 	numeric axis labels. This is a subset of the ICU pattern set. For
-	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
+	instance, \preformatted{\{format:'#,###\%'\}.}will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
       }
       \item{\code{hAxis.gridlines}}{a JSON object. Default null. An
 	object with members to configure the gridlines on the horizontal
 	axis. To specify properties of this object, you can use object
 	literal notation, as shown here:      
-	\code{\{color: '#333', count: 4\}}
+	\preformatted{\{color: '#333', count: 4\}}
 	This option is only supported for a continuous axis.
       }     
      \item{\code{hAxis.gridlines.color}}{a string. Default
@@ -156,21 +156,21 @@ gvisScatterChart(data, options = list(), chartid)
 	horizontal axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
       }
-      \item{\code{hAxis.textStyle}}{a JSON object. Default \code{\{color: 'black',
+      \item{\code{hAxis.textStyle}}{a JSON object. Default \preformatted{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the horizontal axis text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
       \item{\code{hAxis.title}}{a string. Default \code{'null'}. \code{hAxis} property that
 	specifies the title of the horizontal axis.
       }
-      \item{\code{hAxis.titleTextStyle}}{a JSON object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
+      \item{\code{hAxis.titleTextStyle}}{a JSON object. Default \preformatted{\{color: 'black',
+	fontName: <global-font-name>, fontSize: <global-font-size>\}.} An
 	object that specifies the horizontal axis title text style. The object
 	has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -225,7 +225,7 @@ gvisScatterChart(data, options = list(), chartid)
 	legend. To specify properties of this object, you can use object
 	literal notation, as shown here:
 	
-	\code{\{position: 'top', textStyle: \{color: 'blue', fontSize: 16\}\}}
+	\preformatted{\{position: 'top', textStyle: \{color: 'blue', fontSize: 16\}\}}
       }
       \item{\code{legend.position}}{a string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
@@ -240,10 +240,10 @@ gvisScatterChart(data, options = list(), chartid)
 	  }
 	}
       }
-      \item{\code{legend.textStyle}}{a JSON object. Default \code{\{color: 'black',
+      \item{\code{legend.textStyle}}{a JSON object. Default \preformatted{\{color: 'black',
 	  fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the legend text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize:
+	\preformatted{\{color: <string>, fontName: <string>, fontSize:
 	  <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
@@ -292,12 +292,12 @@ gvisScatterChart(data, options = list(), chartid)
 	  identical, and declare the first series as black and absent from
 	  the legend, and the fourth as red and absent from the legend:
 	  
-	  \code{
+	  \preformatted{
 	    series: [\{color: 'black', visibleInLegend: false\},\{\}, \{\}, \{color:
 	    'red', visibleInLegend: false\}]
 	  }
 
-	  \code{
+	  \preformatted{
 	    series: \{0:\{color: 'black', visibleInLegend: false\}, 3:\{color: 'red',
 	    visibleInLegend: false\}\}
 	  }
@@ -310,7 +310,7 @@ gvisScatterChart(data, options = list(), chartid)
 	  \item{\code{maximized}}{Maximizes the area of the chart, and
 	    draws the legend and all of the labels inside the chart area. Sets
 	    the following options:	    
-	    \code{
+	    \preformatted{
 	      chartArea: \{width: '100\%', height: '100\%'\},
 	      legend: \{position: 'in'\},
 	      titlePosition: 'in', axisTitlesPosition: 'in',
@@ -334,10 +334,10 @@ gvisScatterChart(data, options = list(), chartid)
 	}
       }
       \item{\code{titleTextStyle}}{a JSON object. Default
-	\code{\{color:'black',fontName:<global-font-name>,fontSize:<global-font-size>\}}. An
+	\preformatted{\{color:'black', fontName:<global-font-name>,fontSize:<global-font-size>\}.} An
 	object that specifies the title text
 	style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -346,17 +346,17 @@ gvisScatterChart(data, options = list(), chartid)
 	specify properties of this object, you can use object
 	literal notation, as shown here:
 	
-	\code{\{textStyle: {color: '#FF0000'}, showColorCode: true\}}
+	\preformatted{\{textStyle: {color: '#FF0000'}, showColorCode: true\}}
       }
       \item{\code{tooltip.showColorCode}}{boolean. Default automatic.
 	If true, show colored squares next to the series information in
 	the tooltip. The default is true when \code{focusTarget} is set to
 	\code{'category'}, otherwise the default is \code{FALSE}.
       }
-      \item{\code{tooltip.textStyle}}{a JSON object. Default \code{\{color: 'black',
+      \item{\code{tooltip.textStyle}}{a JSON object. Default \preformatted{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -373,7 +373,7 @@ gvisScatterChart(data, options = list(), chartid)
 	An object with members to configure various vertical axis
 	elements. To specify properties of this object, you can use object
 	literal notation, as shown here:
-	\code{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
+	\preformatted{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
 	}
       \item{\code{vAxis.baseline}}{a number. Default automatic. \code{vAxis} property
 	that specifies the baseline for the vertical axis. If the
@@ -390,7 +390,7 @@ gvisScatterChart(data, options = list(), chartid)
       }
       \item{\code{vAxis.format}}{a string. Default auto. A format string for
 	numeric axis labels. This is a subset of the ICU pattern set. For
-	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
+	instance, \preformatted{\{format:'#,###\%'\}.}will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
       }
       \item{\code{vAxis.gridlines}}{a JSON object. Default
@@ -398,7 +398,7 @@ gvisScatterChart(data, options = list(), chartid)
 	An object with members to configure the gridlines on the
 	vertical axis. To specify properties of this object, you can use
 	object literal notation, as shown here:
-	\code{
+	\preformatted{
 	  \{color: '#333', count: 4\}
 	}
       }      
@@ -418,10 +418,10 @@ gvisScatterChart(data, options = list(), chartid)
 	\code{'out', 'in', 'none'}.
       }
       \item{\code{vAxis.textStyle}}{a JSON object. Default
-	\code{\{color: 'black',fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
+	\preformatted{\{color: 'black', fontName: <global-font-name>, fontSize: <global-font-size>\}.} An
 	object that specifies the vertical axis text style. The object has
 	this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -430,14 +430,14 @@ gvisScatterChart(data, options = list(), chartid)
       }
       \item{\code{vAxis.titleTextStyle}}{a JSON object. Default
 
-	\code{\{color: 'black',
-	  fontName: <global-font-name>, fontSize: <global-font-size>\}}.
+	\preformatted{\{color: 'black',
+	  fontName: <global-font-name>, fontSize: <global-font-size>\}.}
 
 	An
 	object that specifies the vertical axis title text style. The
 	object has this format:
 	
-	\code{\{color: <string>, fontName: <string>, fontSize:
+	\preformatted{\{color: <string>, fontName: <string>, fontSize:
 	  <number>\}}
 	
 	The color can be any HTML color string, for example: \code{'red'} or

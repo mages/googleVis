@@ -164,10 +164,10 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
 	Which dot on the series to highlight, and corresponding values to
 	show in the legend. Select from one of these values:
 	\describe{
-	  \item{'nearest'}{The values closest along the X axis to the
+	  \item{\code{'nearest'}}{The values closest along the X axis to the
 	    mouse.
 	  }
-	  \item{'last'}{The next set of values to the left of the mouse.
+	  \item{\code{'last'}}{The next set of values to the left of the mouse.
 	  }
 	}
       }
@@ -244,11 +244,11 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
 	and minimum values shown on the Y axis. The following options are
 	available:
 	\describe{	
-	  \item{'maximized'}{The Y axis will span the minimum to the
+	  \item{\code{'maximized'}}{The Y axis will span the minimum to the
 	    maximum values of the series. If you have more than one series,
 	    use 'allmaximized'.
 	  }
-	  \item{'fixed' [default]}{ The Y axis varies, depending on the
+	  \item{\code{'fixed'} [default]}{ The Y axis varies, depending on the
 	    data values values:
 	    \itemize{
 	      \item{If all values are >=0, the Y axis will span from zero
@@ -264,13 +264,13 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
 	      }
 	    }
 	  }	
-	  \item{'allmaximized'}{Same as 'maximized,' but used when
+	  \item{\code{'allmaximized'}}{Same as 'maximized,' but used when
 	    multiple scales are displayed. Both charts will be maximized
 	    within the same scale, which means that one will be
 	    misrepresented against the Y axis, but hovering over each
 	    series will display it's true value.
 	  }
-	  \item{'allfixed'}{Same as 'fixed,' but used when multiple
+	  \item{\code{'allfixed'}}{Same as 'fixed,' but used when multiple
 	    scales are displayed. This setting adjusts each scale to the
 	    series to which it applies (use this in conjunction with
 	    \code{scaleColumns}).
@@ -511,17 +511,18 @@ AAPL <- reshape(data[,c("Date", "Close", "Volume")], idvar="Date",
      		times=c("Close", "Volume"), 
                 timevar="Type",
                 varying=list(c("Close", "Volume")),
-                v.names="Value", "Type",
+                v.names="Value",
                 direction="long")
 
-## Calculate last year for zoom start time
+## Calculate previous two years for zoom start time
 lyd <- as.POSIXlt(as.Date(d))
-lyd$year <- lyd$year-1
+lyd$year <- lyd$year-2
 lyd <- as.Date(lyd)
 
 aapl <- gvisAnnotatedTimeLine(AAPL, datevar="Date",
                            numvar="Value", idvar="Type",
                           options=list(
+                            colors="['blue', 'lightblue']",
                             zoomStartTime=lyd,
                             zoomEndTime=as.Date(d),
                             legendPosition='newRow',
@@ -530,7 +531,6 @@ aapl <- gvisAnnotatedTimeLine(AAPL, datevar="Date",
                            )
 
 plot(aapl)
-
 }
 }
 \keyword{ iplot }

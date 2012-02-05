@@ -92,7 +92,7 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 	specify properties of this object, you can use object literal
 	notation, as shown here:
 	
-	\code{\{minValue: 0,  colors: ['#FF0000', '#00FF00']\}}
+	\preformatted{\{minValue: 0,  colors: ['#FF0000', '#00FF00']\}}
       }
       \item{\code{colorAxis.minValue}}{a number. Default minimum value
 	of color column in chart data.	If present, specifies a minimum
@@ -119,7 +119,7 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 	strings. Default \code{'null'}.	Colors to assign to values in
 	the visualization. An array of strings, where each element is an
 	HTML color string, for example: colorAxis:
-	\code{\{colors:['red','#004411']\}}. You must have at least two values;
+	\preformatted{\{colors:['red','#004411']\}.} You must have at least two values;
 	the gradient will include all your values, plus calculated
 	intermediary values, with the first color as the smallest value,
 	and the last color as the highest.
@@ -147,19 +147,19 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 	\code{'none'}, if no legend should appear. To specify properties of this
 	object, you can use object literal notation, as shown here:
 	
-	\code{\{textStyle: \{color: 'blue', fontSize: 16\}\}}
+	\preformatted{\{textStyle: \{color: 'blue', fontSize: 16\}\}}
       }
       \item{\code{legend.numberFormat}}{a string. Default
 	\code{'auto'}. A format string for numeric axis labels. This is
 	a subset of the ICU pattern set. For instance,
-	\code{\{numberFormat:'.##'\}} will display values "10.66", "10.6", and
+	\preformatted{\{numberFormat:'.##'\}.}will display values "10.66", "10.6", and
 	"10.0" for values 10.666, 10.6, and 10.
       }
-      \item{\code{legend.textStyle}}{a JSON object. Default \code{\{color:
+      \item{\code{legend.textStyle}}{a JSON object. Default \preformatted{\{color:
 	  'black', fontName: <global-font-name>, fontSize:
-	  <global-font-size>\}}.  An object that specifies the legend text
+	  <global-font-size>\}.}  An object that specifies the legend text
 	style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -209,7 +209,7 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 	size. To specify properties of this object, you can use object
 	literal notation, as shown here:
 	
-	\code{\{minValue: 0,  maxSize: 20\}}
+	\preformatted{\{minValue: 0,  maxSize: 20\}}
       }
       \item{\code{sizeAxis.maxSize}}{a number. Default 30. Maximum size
 	of the largest marker, in pixels.
@@ -231,14 +231,14 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 	shown here:
  
 
-	\code{\{textStyle: \{color: '#FF0000'\}, showColorCode: true\}}
+	\preformatted{\{textStyle: \{color: '#FF0000'\}, showColorCode: true\}}
       }
-      \item{\code{tooltip.textStyle}}{a JSON object. Default \code{\{color:
+      \item{\code{tooltip.textStyle}}{a JSON object. Default \preformatted{\{color:
 	  'black', fontName: <global-font-name>, fontSize:
 	  <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
 	
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
     
 	The color can be any HTML color string, for example: \code{'red'} or \code{'#00cc00'}.
       }

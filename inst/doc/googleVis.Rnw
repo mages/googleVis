@@ -321,8 +321,9 @@ the package.
 
 As an example we will show how to generate a motion chart as displayed in   
 Figure~\ref{MotionChartGUI}. It works similarly for the other
-APIs. Further examples are covered in the demos of the \googleVis
-package, see also Figure~\ref{demos}. 
+APIs. Further examples are covered in the demos\footnote{See
+  \texttt{demo(package="googleVis")} for a list of the available demos.} of the \googleVis
+package, see also Figures~\ref{demos}.
 
 The design of the visualisation functions is fairly generic. The name
 of the visualisation function is \texttt{'gvis' + ChartType}. So for
@@ -604,19 +605,20 @@ Example of \googleVis chart with \texttt{options = list (gvis.editor =
 \end{figure}
 
 \subsubsection{Dealing with apostrophes in column names}
-The \googleVis package converts data frame into JSON objects.
+The \googleVis package converts data frames into JSON objects.
 The column names of the resulting JSON tables are encapsulated with
 single speech marks, see lines 12 -- 16 of the code example on
 page~\pageref{motionchartcodeexample}. 
 
 Hence apostrophes in column names of your input data frame have
-to be encapsulate by a double backslash.
+to be encapsulated by a double backslash.
 
 Here is a little example, see the output in Figure~\ref{fig:apostrophes}.
 <<>>=
 df <- data.frame("Year"=c(2010,2011), "Lloyd\\'s"=c(86.1, 93.3), 
                  "Munich Re\\'s R/I"=c(95.3, 100.5),
                  check.names=FALSE) 
+df
 CR <- gvisColumnChart(df, options=list(vAxis='{baseline:0}', 
                             title="Combined Ratio %",
                             legend="{position:'bottom'}"))

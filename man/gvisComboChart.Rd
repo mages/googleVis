@@ -78,7 +78,7 @@ value is given and therefore no button is displayed.
 	number followed by \code{\%}. A simple number is a value in pixels; a number
 	followed by \code{\%} is a percentage. Example:
 	
-	\code{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
+	\preformatted{\{left:20,top:0,width:\"50\%\",height:\"75\%\"\}}
       }
       \item{\code{chartArea.left}}{a number or string. Default auto. How far to draw
 	the chart from the left border.
@@ -152,12 +152,12 @@ value is given and therefore no button is displayed.
 	A format string for numeric or date axis labels.
 	
 	For number axis labels, this is a subset of the decimal
-	formatting ICU pattern set. For instance, \code{\{format:'#,###\%'\}} will
-	display values \code{"1,000\%", "750\%"}, and \code{"50\%"} for values 10,
+	formatting ICU pattern set. For instance, \preformatted{\{format:'#,###\%'\}.}will
+	display values \\code{"1,000\%", "750\%"}, and \code{"50\%"} for values 10,
 	7.5, and 0.5.
 	
 	For date axis labels, this is a subset of the date formatting
-	ICU pattern set. For instance, \code{\{format:'MMM d, y'\}} will
+	ICU pattern set. For instance, \preformatted{\{format:'MMM d, y'\}.}will
 	display the value "Jul 1, 2011" for the date of July first in
 	2011.
 	
@@ -171,7 +171,7 @@ value is given and therefore no button is displayed.
 	object with members to configure the gridlines on the horizontal
 	axis. To specify properties of this object, you can use object
 	literal notation, as shown here:      
-	\code{\{color: '#333', count: 4\}}
+	\preformatted{\{color: '#333', count: 4\}}
 	This option is only supported for a continuous axis.
       }
       \item{\code{hAxis.gridlines.color}}{a string. Default
@@ -190,21 +190,21 @@ value is given and therefore no button is displayed.
 	horizontal axis text, relative to the chart area. Supported values:
 	\code{'out', 'in', 'none'}.
       }
-      \item{\code{hAxis.textStyle}}{a JSON object. Default \code{\{color: 'black',
+      \item{\code{hAxis.textStyle}}{a JSON object. Default \preformatted{\{color: 'black',
 	fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the horizontal axis text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
       \item{\code{hAxis.title}}{a string. Default \code{'null'}. \code{hAxis} property that
 	specifies the title of the horizontal axis.
       }
-      \item{\code{hAxis.titleTextStyle}}{a JSON object. Default \code{\{color: 'black',
-	fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
+      \item{\code{hAxis.titleTextStyle}}{a JSON object. Default \preformatted{\{color: 'black',
+	fontName: <global-font-name>, fontSize: <global-font-size>\}.} An
 	object that specifies the horizontal axis title text style. The object
 	has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -330,7 +330,7 @@ value is given and therefore no button is displayed.
 	legend. To specify properties of this object, you can use object
 	literal notation, as shown here:
 	
-	\code{\{position: 'top', textStyle: \{color: 'blue', fontSize: 16\}\}}
+	\preformatted{\{position: 'top', textStyle: \{color: 'blue', fontSize: 16\}\}}
       }
       \item{\code{legend.position}}{a string. Default \code{'right'}. Position of the legend. Can
 	be one of the following:
@@ -345,10 +345,10 @@ value is given and therefore no button is displayed.
 	  }
 	}
       }
-      \item{\code{legend.textStyle}}{a JSON object. Default \code{\{color: 'black',
+      \item{\code{legend.textStyle}}{a JSON object. Default \preformatted{\{color: 'black',
 	  fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the legend text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize:
+	\preformatted{\{color: <string>, fontName: <string>, fontSize:
 	  <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
@@ -416,7 +416,7 @@ value is given and therefore no button is displayed.
 	  \item{\code{maximized}}{Maximizes the area of the chart, and
 	    draws the legend and all of the labels inside the chart area. Sets
 	    the following options:	    
-	    \code{
+	    \preformatted{
 	      chartArea: \{width: '100\%', height: '100\%'\},
 	      legend: \{position: 'in'\},
 	      titlePosition: 'in', axisTitlesPosition: 'in',
@@ -440,10 +440,10 @@ value is given and therefore no button is displayed.
 	}
       }
       \item{\code{titleTextStyle}}{a JSON object. Default
-	\code{\{color:'black',fontName:<global-font-name>,fontSize:<global-font-size>\}}. An
+	\preformatted{\{color:'black', fontName:<global-font-name>,fontSize:<global-font-size>\}.} An
 	object that specifies the title text
 	style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -452,17 +452,17 @@ value is given and therefore no button is displayed.
 	specify properties of this object, you can use object
 	literal notation, as shown here:
 	
-	\code{\{textStyle: {color: '#FF0000'}, showColorCode: true\}}
+	\preformatted{\{textStyle: {color: '#FF0000'}, showColorCode: true\}}
       }
       \item{\code{tooltip.showColorCode}}{boolean. Default automatic.
 	If true, show colored squares next to the series information in
 	the tooltip. The default is true when \code{focusTarget} is set to
 	\code{'category'}, otherwise the default is \code{FALSE}.
       }
-      \item{\code{tooltip.TextStyle}}{a JSON object. Default \code{\{color: 'black',
+      \item{\code{tooltip.TextStyle}}{a JSON object. Default \preformatted{\{color: 'black',
 	  fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the tooltip text style. The object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
@@ -487,7 +487,7 @@ value is given and therefore no button is displayed.
 	using \code{vAxes}. The following example assigns series 2 to the right
 	axis and specifies a custom title and text style for it:
 	
-	\code{ series:\{2:\{targetAxisIndex:1\}\},
+	\preformatted{series:\{2:\{targetAxisIndex:1\}\},
 	  vAxes:\{1:\{title:'Losses',textStyle:\{color: 'red'\}\}\}
 	  }
 	  This property can be either an object or an array: the object is a
@@ -497,7 +497,7 @@ value is given and therefore no button is displayed.
 	  example, the following array-style notation is identical to
 	  the \code{vAxis} object shown above:
 
-	  \code{
+	  \preformatted{
 	    vAxes:[
 	    \{\}, // Nothing specified for axis 0
 	    \{title:'Losses',textStyle:\{color: 'red'\}\} // Axis 1
@@ -508,7 +508,7 @@ value is given and therefore no button is displayed.
 	An object with members to configure various vertical axis
 	elements. To specify properties of this object, you can use object
 	literal notation, as shown here:
-	\code{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
+	\preformatted{\{title: 'Hello', titleTextStyle: \{color: '#FF0000'\}\}}
 	}
       \item{\code{vAxis.baseline}}{a number. Default automatic. \code{vAxis} property
 	that specifies the baseline for the vertical axis. If the
@@ -525,7 +525,7 @@ value is given and therefore no button is displayed.
       }
       \item{\code{vAxis.format}}{a string. Default auto. A format string for
 	numeric axis labels. This is a subset of the ICU pattern set. For
-	instance, \code{\{format:'#,###\%'\}} will display values 1,000\%, 750\%,
+	instance, \preformatted{\{format:'#,###\%'\}.}will display values 1,000\%, 750\%,
 	and 50\% for values 10, 7.5, and 0.5.
       }
       \item{\code{vAxis.gridlines.color}}{a string. Default
@@ -544,21 +544,21 @@ value is given and therefore no button is displayed.
 	\code{'out', 'in', 'none'}.
       }
       \item{\code{vAxis.textStyle}}{a JSON object. Default
-	\code{\{color: 'black',fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
+	\preformatted{\{color: 'black', fontName: <global-font-name>, fontSize: <global-font-size>\}.} An
 	object that specifies the vertical axis text style. The object has
 	this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
       \item{\code{vAxis.title}}{a string. Default no title. \code{vAxis} property that
 	specifies a title for the vertical axis.
       }
-      \item{\code{vAxis.titleTextStyle}}{a JSON object. Default \code{\{color: 'black',
-	  fontName: <global-font-name>, fontSize: <global-font-size>\}}. An
+      \item{\code{vAxis.titleTextStyle}}{a JSON object. Default \preformatted{\{color: 'black',
+	  fontName: <global-font-name>, fontSize: <global-font-size>\}.} An
 	object that specifies the vertical axis title text style. The
 	object has this format:
-	\code{\{color: <string>, fontName: <string>, fontSize: <number>\}}
+	\preformatted{\{color: <string>, fontName: <string>, fontSize: <number>\}}
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
