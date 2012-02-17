@@ -262,7 +262,7 @@ ATL <- gvisAnnotatedTimeLine(Stock, datevar="Date",
                           
 Map <- gvisMap(Andrew, "LatLong" , "Tip",
               options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
-                           mapType='hybrid', useMapTypeControl=TRUE,
+                           mapType='terrain', useMapTypeControl=TRUE,
                            width=400, height=200))
 Geo <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
                  options=list(dataMode="regions", width=400,height=200)) 
@@ -280,9 +280,10 @@ Tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
                                  fontColor='black',
                                  showScale=TRUE))
 
-M <- gvisMerge(gvisMerge(gvisMerge(MC, ATL, TRUE), gvisMerge(Map, Geo, TRUE)), gvisMerge(Table, Tree, TRUE))
-
-
+M <- gvisMerge(gvisMerge(gvisMerge(MC, ATL, TRUE, tableOptions="cellspacing=10"), 
+                         gvisMerge(Map, Geo, TRUE, tableOptions="cellspacing=10")), 
+                         gvisMerge(Table, Tree, TRUE, tableOptions="cellspacing=10"))
+plot(M)
 @ 
 \begin{figure}[t]
 \begin{center}
@@ -615,7 +616,7 @@ to be encapsulated by a double backslash.
 
 Here is a little example, see the output in Figure~\ref{fig:apostrophes}.
 <<>>=
-df <- data.frame("Year"=c(2010,2011), "Lloyd\\'s"=c(86.1, 93.3), 
+df <- data.frame("Year"=c(2009,2010), "Lloyd\\'s"=c(86.1, 93.3), 
                  "Munich Re\\'s R/I"=c(95.3, 100.5),
                  check.names=FALSE) 
 df

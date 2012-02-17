@@ -1,3 +1,11 @@
+Version 0.2.15 [2012-02-17]
+==========================
+
+Changes
+
+   o Fixed typos in vignette
+
+
 Version 0.2.14 [2012-02-04]
 ==========================
 
@@ -6,7 +14,7 @@ Changes
    o Updated help files to be in line with the Google Visualisation
      API pages
    o Updated vignette with new section on dealing with apostrophes in
-     column names and updated example in section "Setting options" of the package
+     column names and updated example in section "Setting options"
    o Fixed typos in vignette. Thanks to Pat Burns for pointing them
      out
    o Updated links to Google's updated API Terms of Use:
