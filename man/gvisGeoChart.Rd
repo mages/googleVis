@@ -136,10 +136,26 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 	\code{'regions'}: This is a region map
 	\code{'markers'}: This is a marker map.
       }
+      \item{\code{enableRegionInteractivity}}{boolean. Default
+	automatic. If true, enable region interactivity, including focus
+	and tool-tip elaboration on mouse hover, and region selection
+	and firing of regionClick and select events on mouse click.
+	
+	The default is \code{TRUE} in region mode, and \code{FALSE} in marker mode.
+      }
+      \item{\code{height}}{number. The default height is 347 pixels,
+	unless the width option is specified and \code{keepAspectRatio} is
+	set to true - in which case the height is calculated accordingly.
+      }
       
-      \item{\code{height}}{number, default 347. Height of the
-	visualization. If no units are given, the default unit is
-	pixels. 
+      \item{\code{keepAspectRatio}}{boolean. Default \code{TRUE}. If
+	true, the map will be drawn at the largest size that can fit
+	inside the chart area at its natural aspect ratio. If only one of
+	the width and height options is specified, the other one will be
+	calculated according to the aspect ratio.
+	
+	If false, the map will be stretched to the exact size of the chart
+	as specified by the width and height options.
       }
       
       \item{\code{legend}}{a JSON object / \code{'none'}. Default \code{'null'}.	
@@ -165,32 +181,46 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
       }
       \item{\code{region}}{string, default \code{'world'}.
 	The area to display on the map. (Surrounding areas will be
-	displayed as well.) Can be either a country code (in uppercase
-	ISO-3166 format), or a one of the following strings
-	\tabular{ll}{
-	  world \tab (Whole world)\cr
-	  us_metro \tab (United States, metro areas)\cr
-	  005 \tab (South America)\cr
-	  013 \tab (Central America)\cr
-	  021 \tab (North America)\cr
-	  002 \tab (All of Africa)\cr
-	  017 \tab (Central Africa)\cr
-	  015 \tab (Northern Africa)\cr
-	  018 \tab (Southern Africa)\cr
-	  030 \tab (Eastern Asia)\cr
-	  034 \tab (Southern Asia)\cr
-	  035 \tab (Asia/Pacific region)\cr
-	  143 \tab (Central Asia)\cr
-	  145 \tab (Middle East)\cr
-	  151 \tab (Northern Asia)\cr
-	  154 \tab (Northern Europe)\cr
-	  155 \tab (Western Europe)\cr
-	  039 \tab (Southern Europe)
+	displayed as well.) Can be one of the following:
+	\itemize{	  
+	  \item \code{'world'} A map of the entire world.
+	  
+	  \item A continent or a sub-continent, specified by its 3-digit
+	    code, e.g., '011' for Western Africa.
+	  
+	  \item A country, specified by its ISO 3166-1 alpha-2 code,
+	    e.g., \code{'AU'} for Australia.
+	  
+	  \item A state in the United States, specified by its ISO
+	    3166-2:US code, e.g., \code{'US-AL'} for Alabama. Note that
+	    the resolution option must beset to
+	    either \code{'provinces'} or \code{'metros'}.
 	}
 	For more information see:
 	\url{http://code.google.com/apis/chart/interactive/docs/gallery/geochart.html#Configuration_Options}	
       }
 
+      \item{\code{magnifyingGlass}}{an object. Default
+	\preformatted{\{enable: true, zoomFactor: 5.0\}}
+	
+	An object with members to configure various aspects of the
+	magnifying glass. To specify properties of this object, you can
+	use object literal notation, as shown here:
+	\preformatted{\{enable: true, zoomFactor: 7.5\}}
+      }
+      \item{\code{magnifyingGlass.enable}}{boolean. Default \code{TRUE}.
+	If true, when the user lingers over a cluttered marker, a
+	magnifiying glass will be opened.
+	
+	Note: this feature is not supported in browsers that do not
+	support SVG, i.e. Internet Explorer version 8 or earlier.
+      }
+      \item{\code{magnifyingGlass.zoomFactor}}{a number. Default 5.0. The zoom
+	factor of the magnifying glass. Can be any number greater than 0.
+      }
+      \item{\code{markerOpacity}}{number, between 0.0 - 1.0. Default 1.0.
+      }
+      
       \item{\code{resolution}}{a string. Default \code{'countries'}
 	The resolution of the map borders. Choose one of the following values:
 	\describe{

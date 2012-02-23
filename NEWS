@@ -1,10 +1,38 @@
-Version 0.2.15 [2012-02-17]
+Version 0.2.15 [2012-02-23]
 ==========================
 
 Changes
 
-   o Fixed typos in vignette
+   o Updated documentation following a new version of the Google API
+     on 22 February 2012. 
 
+NEW FEATURES
+
+   o Quoted from Google
+     http://code.google.com/apis/chart/interactive/docs/release_notes.html: 
+     - Added gradient color mode to bubble chart.
+     - Geo chart:
+       * Region interactivity in marker mode is now disabled by
+       	 default. How to keep the old behavior? Set the
+   	 enableRegionInteractivity option to true.
+
+       * Markers are now opaque by default. How to keep the old
+         behaviour? Set the markerOpacity option to 0.5.
+
+       * Marker size is now between 3 and 12 pixels by default. How to
+         keep the old behavior? Set the sizeAxis option to {minSize: 2,
+         maxSize: 30}.
+
+       * A magnifying glass is now opened when the user hovers over
+         cluttered markers (excluding IE<=8). How to keep the old
+         behaviour? Set the magnifyingGlass option to {enable: false}.
+
+       * Maps are not stretched by default anymore, but rather kept at
+	 the original aspect ratio. How to keep the old behavior? Set the
+  	 keepAspectRatio option to false.
+
+   o Added demo AnimatedGeoChart. The demo shows how a Geo Chart can be animated
+     with additional JavaScript, see also the demo AnimatedGeoMap. 
 
 Version 0.2.14 [2012-02-04]
 ==========================

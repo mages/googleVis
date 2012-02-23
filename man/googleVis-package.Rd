@@ -21,7 +21,7 @@ Using the Google Visualisation API with R
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
 	Version: \tab 0.2.15\cr
-	Date: \tab 2012-02-17\cr
+	Date: \tab 2012-02-23\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}

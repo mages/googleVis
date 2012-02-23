@@ -8,7 +8,12 @@ Google Bubble Chart with R
   The gvisBubbleChart function reads a data.frame and
   creates text output referring to the Google Visualisation API, which can be
   included into a web page, or as a stand-alone page.
-  
+
+  A bubble chart is used to visualize a data set with 2 to 4
+  dimensions. The first two dimensions are visualized as coordinates,
+  the 3rd as color and the 4th as size.
+ 
+
   The bubble chart is rendered within the browser using SVG or VML and
   displays tips when hovering over points.
 }
@@ -119,6 +124,78 @@ gvisBubbleChart(data, idvar = "", xvar = "", yvar = "",
 	use for the chart elements. An array of strings, where each element is
 	an HTML color string, for example: \code{colors:[red','#004411']}.
       }
+      \item{\code{colorAxis}}{a string. Default \code{'null'}	An object that
+	specifies a mapping between colors and color column values. To
+	specify properties of this object, you can use object literal
+	notation, as shown here:
+	
+	\preformatted{\{minValue: 0,  colors: ['#FF0000', '#00FF00']\}}
+      }
+      \item{\code{colorAxis.minValue}}{a number. Default minimum value
+	of color column in chart data.	If present, specifies a minimum
+	value for chart color data. Color data values of this value and
+	lower will be rendered as the first color in the
+	\code{colorAxis.colors} range.
+      }
+      \item{\code{colorAxis.maxValue}}{a number. Default maximum value
+	of color column in chart data	If present, specifies a maximum
+	value for chart color data. Color data values of this value and
+	higher will be rendered as the last color in the
+	\code{colorAxis.colors} range.
+      }
+      \item{\code{colorAxis.values}}{a JSON array of numbers. Default
+	\code{'null'}. Controls how values are associated with
+	colors. Each value is associated with the corresponding color in
+	the \code{colorAxis.colors} array. These values apply to the color
+	value for a region or marker. Regions are colored according to a
+	gradient of the values specified here. Not specifying a value
+	for this option is equivalent to specifying \code{[minValue,
+	  maxValue]}.
+      }
+      \item{\code{colorAxis.colors}}{a JSON array of color
+	strings. Default \code{'null'}.	Colors to assign to values in
+	the visualization. An array of strings, where each element is an
+	HTML color string, for example: colorAxis:
+	\preformatted{\{colors:['red','#004411']\}.} You must have at least two values;
+	the gradient will include all your values, plus calculated
+	intermediary values, with the first color as the smallest value,
+	and the last color as the highest.
+      }
+      \item{\code{colorAxis.legend}}{an object. Default \code{null}. An
+	object that specifies the style of the gradient color legend.
+      }
+      \item{\code{colorAxis.legend.position}}{a string.	Default
+	\code{'top'}. Position of the legend. Can be one of the following:
+	 \describe{
+	   \item{\code{'top'}}{Above the chart.
+	   }
+	   \item{\code{'bottom'}}{Below the chart.
+	   }
+	   \item{\code{'in'}}{Inside the chart, at the top.
+	   }
+	   \item{\code{'none'}}{No legend is displayed.
+	   }
+	 }
+       }
+       \item{\code{colorAxis.legend.textStyle}}{an object. Default
+      	\preformatted{\{color: 'black', fontName: <global-font-name>, fontSize:
+	<global-font-size>\}}
+      
+      An object that specifies the legend text style. The object has this format:
+      	\preformatted{
+	  \{color: <string>, fontName: <string>, fontSize: <number>\}
+	  }
+	  The color can be any HTML color string, for example:
+      	\preformatted{'red'} or \preformatted{'#00cc00'}. Also
+      	see \code{fontName} and \code{fontSize}.
+      }
+      \item{\code{colorAxis.legend.numberFormat}}{a string. Default
+      	\code{'auto'}. A format string for
+	  numeric labels. This is a subset of the ICU pattern set. For instance,
+	  \preformatted{\{numberFormat:'.##'\}} will display values
+      	  \preformatted{"10.66", "10.6"}, and 	\preformatted{"10.0"} for  
+	  values 10.666, 10.6, and 10.
+	}      
       \item{\code{enableInteractivity}}{boolean. Default \code{TRUE}. Whether
 	the chart throws user-based events or reacts to user interaction. If
 	false, the chart will not throw 'select' or other interaction-based
@@ -668,6 +745,14 @@ bubble3 <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses",
                            colorvar="Year", sizevar="Profit",
                            options=list(hAxis='{minValue:75, maxValue:125}'))
 plot(bubble3)
+
+## Gradient colour example
+bubble4 <- gvisBubbleChart(Fruits, idvar="Fruit", xvar="Sales", yvar="Expenses",
+                          sizevar="Profit",
+                          options=list(hAxis='{minValue:75,  maxValue:125}', 
+                                  colorAxis="{colors: ['lightblue', 'blue']}"))
+plot(bubble4)
+
 \dontrun{
 ## Moving bubble chart over time, aka motion chart
 
