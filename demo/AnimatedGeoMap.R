@@ -1,4 +1,4 @@
-## Animated Geo Maps based on ideas and code of:
+## Animated Geo Maps based on ideas and code by:
 ## Manoj Ananthapadmanabhan and Anand Ramalingam
 
 ## Here we animate the percentage of vote for president won by the
