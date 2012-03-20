@@ -584,6 +584,26 @@ e.g. width=500, while the more complex options with sub-components are
 listed in curly brackets \{\}, and arrays, e.g. to define the two
 axes, use square brackets [ ].
 
+Here is another example setting the  colour axis of a geo chart, see Figure~\ref{geochart}:
+<<eval=FALSE>>=
+Geo <- gvisGeoChart(CityPopularity, locationvar='City', 
+                    colorvar='Popularity',
+                     options=list(region='US', height=350, 
+                      displayMode='markers',
+            	      colorAxis="{values:[200,400,600,800],
+                       colors:[\'red', \'pink\', \'orange',\'green']}")
+                      ) 
+plot(Geo)
+@ 
+\begin{figure}%%[!ht]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{gvisGeoChart.png}
+\caption{
+A geo chart with options set for a colour axis.}
+\label{geochart}
+\end{center}
+\end{figure}
+
 \subsubsection{Chart Editor}
 A special option for all charts is \texttt{gvis.editor}, which adds an
 edit  button to the page, allowing the user to edit, change and

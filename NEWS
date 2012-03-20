@@ -1,7 +1,10 @@
-googleVis 0.2.16 [2012-03-04]
+googleVis 0.2.16 [2012-03-19]
 ----------------------------
 
 Changes
+
+ * Updated example in help file of gvisGeoChart for individual colour
+   axis and added to vignette as well
 
 googleVis 0.2.15 [2012-03-04]
 ----------------------------

@@ -393,8 +393,10 @@ plot(G3)
 G4 <- gvisGeoChart(CityPopularity, locationvar='City', colorvar='Popularity',
                       options=list(region='US', height=350, 
                                    displayMode='markers',
-				   colorAxis="{colors: ['orange','blue']}") )
-plot(G4) 
+				   colorAxis="{values:[200,400,600,800],
+                                   colors:[\'red', \'pink\', \'orange',\'green']}")
+                      ) 
+plot(G4)
 
 G5 <- gvisGeoChart(Andrew, "LatLong", colorvar='Speed_kt',
                    options=list(region="US"))
@@ -404,6 +406,9 @@ plot(G5)
 G6 <- gvisGeoChart(Andrew, "LatLong", sizevar='Speed_kt',
                    colorvar="Pressure_mb", options=list(region="US"))
 plot(G6)
+
+
+
 
 }
 \keyword{ iplot }
