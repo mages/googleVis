@@ -21,7 +21,7 @@ Using the Google Visualisation API with R
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
 	Version: \tab 0.2.16\cr
-	Date: \tab 2012-03-19\cr
+	Date: \tab 2012-05-17\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
@@ -63,9 +63,9 @@ Using the Google Visualisation API with R
 \references{
   \itemize{
 	\item googleVis project site: \url{http://code.google.com/p/google-motion-charts-with-r/}
-	\item Google Visualisation API: \url{http://code.google.com/apis/visualization/interactive_charts.html}
-	\item Google Terms of Use: \url{http://code.google.com/apis/chart/interactive/terms.html}
-	\item Google Maps API Terms of Service: \url{http://code.google.com/apis/maps/terms.html}
+	\item Google Chart Tools API: \url{https://developers.google.com/chart/}
+	\item Google Terms of Use: \url{https://developers.google.com/terms/}
+	\item Google Maps API Terms of Service: \url{https://developers.google.com/maps/terms}
       }
 }
 \examples{

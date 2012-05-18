@@ -30,7 +30,9 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
   }
   \item{timevar}{
     column name of \code{data} which shows the time dimension. The
-    information has to be either numeric or of class \code{\link{Date}}.
+    information has to be either numeric, of class \code{\link{Date}} or
+    a character which follows the pattern  'YYYYWww' (e.g. '2010W04' for
+    weekly data) or 'YYYYQq' (e.g. '2010Q1' for quarterly data).
   }
   \item{date.format}{
     if \code{timevar} is of class \code{\link{Date}} then this argument

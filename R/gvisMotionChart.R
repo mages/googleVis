@@ -65,9 +65,10 @@ gvisCheckMotionChartData <- function(data, options){
 
   typeMotionChart[[options$data$timevar]] <-
     testTimevar(x[[options$data$timevar]], options$data$date.format)
-
-  if(typeMotionChart[[options$data$timevar]] == "string"){
-  ## only true for weekly data
+  
+  if(typeMotionChart[[options$data$timevar]] == "string" &
+     (options$data$date.format %in% c("%YW%W","%YW%U"))){
+    ## only true for weekly data
     x[[options$data$timevar]] <- format.Date(x[[options$data$timevar]],
                                              options$data$date.format) 
   }
@@ -116,6 +117,14 @@ testTimevar <- function(x, date.format){
   
   if(class(x)=="Date"& date.format %in% c("%YW%W","%YW%U"))
     return("string") 
+
+  ##Quarters. Accept in ISO format as a character
+  if(class(x)=="character" &  all(grepl("[0-9]{4}Q[1-4]" ,x)  == TRUE))
+    return("string")
+
+  ##Weeks. Accept in ISO format as a character
+  if(class(x)=="character" &  all(grepl("[0-9]{4}W[0-4][0-9]|5[0-3]" , x)  == TRUE))
+    return("string")
 
   if(class(x)=="Date")
     return("date")

@@ -407,7 +407,20 @@ G6 <- gvisGeoChart(Andrew, "LatLong", sizevar='Speed_kt',
                    colorvar="Pressure_mb", options=list(region="US"))
 plot(G6)
 
+## Create lat:long values and plot a map of Oceania
+## Set background colour to light-blue
 
+require(stats)
+data(quakes)
+head(quakes)
+quakes$latlong<-paste(quakes$lat, quakes$long, sep=":")
+
+G7 <- gvisGeoChart(quakes, "latlong", "depth", "mag",
+                   options=list(displayMode="Markers", region="009",
+                   colorAxis="{colors:['red', 'grey']}",
+                   backgroundColor="lightblue"))
+
+plot(G7)
 
 
 }
