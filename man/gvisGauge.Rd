@@ -31,7 +31,7 @@ value is given and therefore no button is displayed.
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/gauge.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/gauge.html#Configuration_Options}:
     \describe{
       \item{\code{greenColor}}{a string. Default \code{'#109618'}. The color
 	to use for the green section, in HTML color notation.

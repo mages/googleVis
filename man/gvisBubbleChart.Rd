@@ -52,7 +52,7 @@ gvisBubbleChart(data, idvar = "", xvar = "", yvar = "",
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/bubblechart.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/bubblechart.html#Configuration_Options}:
     \describe{
 
       \item{\code{axisTitlesPosition}}{a string. Default 'out'. Where to place

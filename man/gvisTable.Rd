@@ -33,7 +33,7 @@ value is given and therefore no button is displayed.
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/table.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/table.html#Configuration_Options}:
   
     \describe{
       \item{\code{allowHtml}}{boolean. Default \code{FALSE}.
@@ -234,7 +234,7 @@ value is given and therefore no button is displayed.
 }
 
 \references{
-  Google Table  API: \url{http://code.google.com/apis/visualization/documentation/gallery/table.html}
+  Google Table  API: \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/table.html}
   
   Follow the link for Google's data policy.
 }

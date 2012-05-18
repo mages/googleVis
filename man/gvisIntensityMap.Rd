@@ -36,7 +36,7 @@ value is given and therefore no button is displayed.
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/intensitymap.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/intensitymap.html#Configuration_Options}:
     
     \describe{
       
@@ -119,7 +119,7 @@ value is given and therefore no button is displayed.
 
 
 \references{
-  Google Intensity Map  API: \url{http://code.google.com/apis/visualization/documentation/gallery/intensitymap.html}
+  Google Intensity Map  API: \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/intensitymap.html}
 
   Follow the link for Google's data policy.
 

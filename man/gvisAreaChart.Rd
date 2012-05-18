@@ -34,7 +34,7 @@ value is given and therefore no button is displayed.
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/areachart.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/areachart.html#Configuration_Options}:
     \describe{
 
      \item{\code{areaOpacity}}{a number between 0.0 - 1.0. Default

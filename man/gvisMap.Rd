@@ -44,7 +44,7 @@ value is given and therefore no button is displayed.
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/map.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/map.html#Configuration_Options}:
     
     \describe{
       \item{\code{enableScrollWheel}}{boolean. Default \code{FALSE}.	If set
@@ -145,7 +145,7 @@ value is given and therefore no button is displayed.
 
 }
 \references{
-  Google Map  API: \url{http://code.google.com/apis/visualization/documentation/gallery/map.html}
+  Google Map  API: \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/map.html}
 
   Follow the link for Google's data policy.
 }

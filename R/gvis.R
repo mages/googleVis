@@ -436,7 +436,7 @@ gvisHtmlWrapper <- function(title, dataName, chartid, type){
 <!-- htmlFooter -->
 <span> 
 %s &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>
-&#8226; <a href="http://code.google.com/apis/terms/index.html">Google Terms of Use</a> &#8226; %s
+&#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; %s
 </span></div>
 </body>
 </html>
@@ -445,7 +445,7 @@ gvisHtmlWrapper <- function(title, dataName, chartid, type){
 if(type %in% "gvisMerge"){
   policy <- "Data Policy: See individual charts"
 }else{
-  policy <- sprintf('<a href="http://code.google.com/apis/chart/interactive/docs/gallery/%s.html#Data_Policy">Data Policy</a>', type)
+  policy <- sprintf('<a href="https://google-developers.appspot.com/chart/interactive/docs/gallery/%s.html#Data_Policy">Data Policy</a>', type)
 }
 
   htmlFooter <- sprintf(htmlFooter, R.Version()$version.string,

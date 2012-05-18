@@ -65,7 +65,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/geomap.html#Configuration_Options}:
     \describe{
       \item{\code{region}}{string, default \code{'world'}.	
 	The area to display on the map. (Surrounding areas will be
@@ -203,7 +203,7 @@ gvisGeoMap(data, locationvar='', numvar='', hovervar='',
 
 
 \references{
-  Google Geo Map  API: \url{http://code.google.com/apis/visualization/documentation/gallery/geomap.html}
+  Google Geo Map  API: \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/geomap.html}
 
   Follow the link for Google's data policy.
 

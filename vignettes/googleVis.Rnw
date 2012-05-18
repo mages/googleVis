@@ -37,6 +37,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \renewcommand{\familydefault}{\sfdefault}
 
 \begin{document}
+\SweaveOpts{concordance=TRUE}
 
 \author{Markus Gesmann\footnote{markus.gesmann@gmail.com},
   Diego de Castillo\footnote{decastillo@gmail.com}\\
@@ -197,12 +198,11 @@ generates output similar to Figure~\ref{MotionChartGUI}:
 \end{verbatim}
 \end{small}
 The code and data are processed and rendered in the browser and is
-not submitted to any server\footnote{
-\url{http://code.google.com/apis/visualization/documentation/gallery/motionchart.html\#Data\_Policy}}. 
+not submitted to any server\footnote{\url{https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html\#Data\_Policy}}. 
 
 You will notice that the above html code has five generic
 parts\footnote{For more details see
-\url{http://code.google.com/apis/chart/interactive/docs/adding\_charts.html}}:
+\url{https://google-developers.appspot.com/chart/interactive/docs/index}}:
 \begin{itemize}
 \item references to Google's AJAX (l. 4) and Visualisation
   API (ll. 7 -- 8),
@@ -221,7 +221,7 @@ parts\footnote{For more details see
 These principles hold true for most of the interactive charts of the
 Google Visualisation API, see the examples in Figure~\ref{demos}.
 
-However, before you use the API you should read the \href{http://code.google.com/apis/terms/index.html}{Google
+However, before you use the API you should read the \href{https://developers.google.com/terms/}{Google
   Visualization API Terms of Service}\cite{GoogleTerms}. 
 
 \section{The \googleVis package}
@@ -610,7 +610,7 @@ edit  button to the page, allowing the user to edit, change and
 customise the chart on the fly, see the following example and
 Figure~\ref{Editor}. The content of the list item \texttt{gvis.editor}
 describes the label of the browser button\footnote{See also
-  \url{http://code.google.com/apis/chart/interactive/docs/reference.html\#google\_visualization\_charteditor}}. 
+  \url{https://google-developers.appspot.com/chart/interactive/docs/drawing\_charts\#charteditor}}. 
 <<eval=FALSE>>=
 Editor <- gvisLineChart(df, options=list(gvis.editor='Edit me!'))
 plot(Editor)

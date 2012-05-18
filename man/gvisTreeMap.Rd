@@ -57,7 +57,7 @@ value is given and therefore no button is displayed.
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html#Configuration_Options}: 
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/treemap.html#Configuration_Options}: 
     \describe{
       \item{\code{headerColor}}{string, default	'#988f86'. The color of
 	the header section for each node. Specify an HTML color value.
@@ -218,7 +218,7 @@ From \url{http://code.google.com/apis/chart/interactive/docs/gallery/treemap.htm
 
 \references{
   Google Tree Map  API:
-  \url{http://code.google.com/apis/visualization/documentation/gallery/treemap.html}
+  \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/treemap.html}
 
   Follow the link for Google's data policy.  
 }

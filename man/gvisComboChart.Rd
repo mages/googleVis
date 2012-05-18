@@ -39,7 +39,7 @@ value is given and therefore no button is displayed.
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/combochart.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/combochart.html#Configuration_Options}:
     \describe{
       \item{\code{areaOpacity}}{a number, 0.0 - 1.0. Default 0.3. The default
 	opacity of the colored area under an area chart series, where 0.0

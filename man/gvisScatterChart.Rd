@@ -29,7 +29,7 @@ gvisScatterChart(data, options = list(), chartid)
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/scatterchart.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/scatterchart.html#Configuration_Options}:
     \describe{
       \item{\code{axisTitlesPosition}}{a string. Default 'out'. Where to place
 	the axis titles, compared to the chart area. Supported values:

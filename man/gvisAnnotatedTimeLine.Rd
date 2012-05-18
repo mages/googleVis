@@ -70,7 +70,7 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
       }       
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/annotatedtimeline.html#Configuration_Options}:
     \describe{
       \item{\code{height}}{height of the chart in pixels.
       }
@@ -302,7 +302,7 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
 }
 \details{
 From
-\url{http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html#Data_Format}:
+\url{https://google-developers.appspot.com/chart/interactive/docs/gallery/annotatedtimeline.html#Data_Format}:
 
 You can display one or more lines on your chart. Each row represents an
 X position on the chart - that is, a specific time; each line is
@@ -393,7 +393,7 @@ described by a set of one to three columns.
 
 \references{
   Google Annotated Time Line API:
-  \url{http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html}
+  \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/annotatedtimeline.html}
 
   Follow the link for Google's data policy.  
 }

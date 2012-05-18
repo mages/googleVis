@@ -68,7 +68,7 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/geochart.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/geochart.html#Configuration_Options}:
     
     \describe{
       
@@ -335,7 +335,7 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 
 
 \references{
-  Google Geo Chart  API: \url{http://code.google.com/apis/visualization/documentation/gallery/geochart.html}
+  Google Geo Chart  API: \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/geochart.html}
 
   Follow the link for Google's data policy.
 

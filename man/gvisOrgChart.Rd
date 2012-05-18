@@ -45,7 +45,7 @@ value is given and therefore no button is displayed.
       }
     }
     Further possible components are, taken from
-    \url{http://code.google.com/apis/visualization/documentation/gallery/orgchart.html#Configuration_Options}: 
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/orgchart.html#Configuration_Options}: 
     \describe{
       \item{\code{allowCollapse}}{Boolean. Default
 	\code{FALSE}. Determines if double click will collapse a node.
@@ -122,7 +122,7 @@ value is given and therefore no button is displayed.
 
 \references{
   Google Org Chart  API:
-  \url{http://code.google.com/apis/visualization/documentation/gallery/orgchart.html}
+  \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/orgchart.html}
 
   Follow the link for Google's data policy.  
 }

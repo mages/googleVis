@@ -1,10 +1,15 @@
-googleVis 0.2.16 [2012-05-17]
+googleVis 0.2.16 [2012-05-19]
 ----------------------------
 
 Changes
 
  * Updated example in help file of gvisGeoChart for individual colour
-   axis and added to vignette as well
+   axis 
+
+ * Updated links to Google API pages
+
+NEW FEATURES
+
  * gvisMotionCharts accepts quarterly and weekly time dimensions.
    Thanks to Jason Pickering for providing a patch 
 
