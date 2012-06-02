@@ -86,7 +86,7 @@ subData <- subset(wbData, !region.value %in% "Aggregates" , select=
 
 ## Create a motion chart
 M <- gvisMotionChart(subData, idvar="country.name", timevar="year",
-                     options=list(width=700, height=600))
+                     options=list(width=600, height=500), chartid="WorldBankMotionChart")
 
 ## Display the chart in your browser
 plot(M)

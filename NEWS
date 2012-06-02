@@ -1,4 +1,4 @@
-googleVis 0.2.16 [2012-05-19]
+googleVis 0.2.16 [2012-06-01]
 ----------------------------
 
 Changes
@@ -11,7 +11,7 @@ Changes
 NEW FEATURES
 
  * gvisMotionCharts accepts quarterly and weekly time dimensions.
-   Thanks to Jason Pickering for providing a patch 
+   Thanks to Jason Pickering for providing a patch. 
 
 googleVis 0.2.15 [2012-03-04]
 ----------------------------
