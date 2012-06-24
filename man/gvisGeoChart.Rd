@@ -422,6 +422,20 @@ G7 <- gvisGeoChart(quakes, "latlong", "depth", "mag",
 
 plot(G7)
 
+\dontrun{
+## Plot world wide earth quakes of the last 30 days with magnitude >= 4.0 
+library(XML)
+## Get earthquake data of the last 30 days
+eq <- readHTMLTable(readLines("http://www.iris.edu/seismon/last30.html"),
+	colClasses=c("factor", rep("numeric", 4), "factor"))
+eq <- eq[[2]] ## extract the eq table
+eq$loc=paste(eq$LAT, eq$LON, sep=":") ## create a lat:long location variable
 
+G8 <- gvisGeoChart(eq, "loc", "DEPTH km", "MAG",
+                   options=list(displayMode="Markers", 
+                   colorAxis="{colors:['purple', 'red', 'orange', 'grey']}",
+                   backgroundColor="lightblue"))
+plot(G8)
+}
 }
 \keyword{ iplot }
