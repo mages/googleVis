@@ -127,5 +127,11 @@ plot(LBCA)
 
 
 plot(gvisMerge(GTM, LBCA, tableOptions="bgcolor=\"#AABBCC\""))
+
+## Applying gvisMerge recursively
+
+p <- Reduce(gvisMerge, list(line, column, area, bar))
+plot(p)
+
 }
 \keyword{ aplot }
