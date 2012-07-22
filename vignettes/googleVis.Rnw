@@ -29,6 +29,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \setlength{\parskip}{2mm}
 
 \newcommand{\googleVis}{\textbf{\texttt{googleVis}} }
+\newcommand{\knitr}{\textbf{\texttt{knitr}} }
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
 \newcommand{\brew}{\textbf{\texttt{brew }}}
 \newcommand{\rapache}{\emph{{RApache }}}
@@ -913,12 +914,33 @@ folder path:
 system.file("brew", package = "googleVis")
 @ 
 
+\section{Using \googleVis with \knitr}
+Using \googleVis with \knitr~\cite{knitr} is a convient way of creating
+interactive reproducible reports. The approach taken by
+\knitr is similar to Sweave, in that you can combine code with text, see
+the \knitr home page\footnote{\url{http://yihui.name/knitr/}} for more 
+details. However, \knitr can also export to HTML, which is required to 
+embed \googleVis charts.
+
+To include \googleVis output into a \knitr document you have 
+to set the chunk option results to \texttt{'asis'} and print the chart 
+element only, as demonstrated in the following example:
+\begin{verbatim}
+```{r results='asis'}
+M <- gvisMotionChart(Fruits, "Fruit", "Year",
+                     options=list(width=550, height=450))
+print(M, 'chart')
+```
+\end{verbatim}
+Further examples have been published in a blog post: 
+\url{http://lamages.blogspot.co.uk/2012/05/interactive-reports-in-r-with-knitr-and.html}
+
 \section{Using \googleVis in presentations}
 The Google Visualisation API is designed for web pages, so it should
-be no surprise that it can be difficult or impossible to embed \googleVis output in
-traditional presentation software like MS PowerPoint\footnote{For MS
-  PowerPoint on MS Windows the pulg-in
-  \href{http://skp.mvps.org/liveweb.htm}{liveweb} provides the
+be no surprise that it can be difficult or impossible to embed \googleVis 
+output in traditional presentation software like MS PowerPoint\footnote{For 
+MS PowerPoint on MS Windows the pulg-in
+\href{http://skp.mvps.org/liveweb.htm}{liveweb} provides the
   functionality to insert web pages into a PowerPoint slide and
   refresh the pages real-time during slide show.}, Google Docs,
 OpenOffice Impress or Apple Keynote. 
@@ -929,13 +951,14 @@ between applications during her talk. This can be fun, but quite often
 it is not. 
 
 An alternative would be to build the presentation as a web page it
-self.  The JavaScript library deck.js~\cite{deck.js}, a j{Q}uery
+self.  
+
+The JavaScript library deck.js~\cite{deck.js}, a j{Q}uery
 framework for creating {HTML} presentations by Caleb  Troughton,
 provides an elegant way of combining the slide paradigm with web content 
 such as YouTube videos or \googleVis output. You find an example with
 \googleVis charts on mages's blog:
 \url{http://lamages.blogspot.com/2011/11/interactive-presentations.html} .
-
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.5\textwidth]{GettingStartedWithGoogleVis.png}
@@ -944,6 +967,18 @@ such as YouTube videos or \googleVis output. You find an example with
   \label{fig:deck.js}
 \end{figure}
 
+An alternative to deck.js is 
+slidy\footnote{\url{http://www.w3.org/Talks/Tools/Slidy2/}} 
+in combination with \knitr and 
+pandoc\footnote{\url{http://johnmacfarlane.net/pandoc/}}, see the following blog post for more details:
+\url{http://lamages.blogspot.co.uk/2012/05/interactive-html-presentation-with-r.html}. The basic idea is that to create a Markdown file with \knitr and to post-process the output with pandoc into a slidy HTML presentation.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.5\textwidth]{CambR_googleVis_29_May_2012.png}
+  \caption{\googleVis presentation with slidy:
+    \url{http://lamages.blogspot.co.uk/2012/05/interactive-html-presentation-with-r.html}} 
+  \label{fig:slidy}
+\end{figure}
 
 \section{Beyond R}
 In this section we present ideas which go beyond the usual coding in

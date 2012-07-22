@@ -1,3 +1,21 @@
+googleVis 0.2.17 [2012-07-21]
+----------------------------
+
+Changes
+
+ * Added section on knitr to vignette
+
+ * Added example to gvisMerge demonstrating the use of Reduce
+
+Bug Fixes
+
+ * Data frames with one row only were not displayed in a chart.
+   Thanks to Oliver Jay for reporting this issue.
+
+ * Fixed eqarth quake example from 
+   http://www.iris.edu/seismon/last30.html, 
+   Mag was read as factor rather than numeric
+
 googleVis 0.2.16 [2012-06-01]
 ----------------------------
 

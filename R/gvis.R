@@ -224,10 +224,11 @@ gvisFormat <- function(data){
 
   output$json <-fixBackslash(output$json)
 
+  ## 2012-07-21 Checking for one-row data frames seems to be no longer required  
   ## if we have have only one row of data we have to add additional "[" around the json output
-  if(nrow(data)==1){
-    output$json <- paste("[", output$json ,"]", sep="\n")
-  }
+  ##if(nrow(data)==1){
+  ##    output$json <- paste("[", output$json ,"]", sep="\n")
+  ##  }
   return(output)
 }
 
