@@ -20,8 +20,8 @@ Using the Google Visualisation API with R
 \tabular{ll}{
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
-	Version: \tab 0.2.16\cr
-	Date: \tab 2012-06-01\cr
+	Version: \tab 0.2.17\cr
+	Date: \tab 2012-07-29\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
@@ -35,6 +35,7 @@ Using the Google Visualisation API with R
   Of course there are many alternative visualisation toolkits out
   there, e.g. 
   \itemize{
+    \item d3js: \url{http://d3js.org}
     \item Many Eyes:
     \url{http://services.alphaworks.ibm.com/manyeyes/page/Create_a_Visualization.html}    
     \item Open Flash Chart (Flash):

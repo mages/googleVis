@@ -33,6 +33,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \newcommand{\rsp}{\textbf{\texttt{R.rsp }}}
 \newcommand{\brew}{\textbf{\texttt{brew }}}
 \newcommand{\rapache}{\emph{{RApache }}}
+\newcommand{\Rook}{\emph{{Rook }}}
 \newcommand{\rjsonio}{\textbf{\texttt{RJSONIO }}}
 
 \renewcommand{\familydefault}{\sfdefault}
@@ -113,7 +114,8 @@ others the authors of this vignette started the development of the
 \googleVis package~\cite{googleVis}, \cite{RJournal:2011-2:GesmannCastillo}. 
 
 Of course there are many other alternative visualisation toolkits out
-there, e.g.  
+there, e.g. 
+\href{http://d3js.org}{d3js} \cite{d3js}, 
 \href{http://services.alphaworks.ibm.com/manyeyes/page/Create_a_Visualization.html}{Many
   Eyes} \cite{ManyEyes},
 \href{http://teethgrinder.co.uk/open-flash-chart/}{Open Flash Chart
@@ -913,6 +915,55 @@ folder path:
 <<eval=FALSE>>=
 system.file("brew", package = "googleVis")
 @ 
+
+% \subsection{Using \googleVis with \Rook}
+% 
+% <<eval=FALSE>>=
+% require(Rook)
+% require(googleVis)
+% s <- Rhttpd$new()
+% s$start(listen='127.0.0.1')
+% 
+% my.app <- function(env){
+%  ## Start with a table and allow the user to upload another csv-file
+%   req <- Request$new(env)
+%   res <- Response$new()
+% 
+%   ## Provide some data to start
+%   data <- Exports[,1:2]
+%   if (!is.null(req$POST())) {
+%     ## Read data from uploaded csv file
+%    data <- req$POST()[["data"]]
+%    data <- read.csv(data$tempfile)
+%   }
+%   tbl <- gvisTable(data, 
+%                    options=list(gvis.editor="Edit me!",
+%                                 height=350),
+%                                 chartid="myInitialView")
+%   
+%   res$write(tbl$html$header) 
+%   res$write("<h1>My first Rook app with googleVis</h1>") 
+%   res$write(paste(tbl$html$chart, collapse=''))
+% 
+%   res$write('
+% Read CSV file:<form method="POST" enctype="multipart/form-data">
+% <input type="file" name="data">
+% <input type="submit" name="Go">\n</form>\n<br>'
+%             )            
+%   res$write(tbl$html$footer)
+%   res$finish()
+% }
+% s$add(app=my.app, name='googleVisTable')
+% s$browse('googleVisTable')
+% @
+
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Rook.png}
+  \caption{Screen shot of a Rook app with \googleVis output.}
+  \label{Rook}
+\end{figure}
+
 
 \section{Using \googleVis with \knitr}
 Using \googleVis with \knitr~\cite{knitr} is a convient way of creating

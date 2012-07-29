@@ -1,4 +1,4 @@
-googleVis 0.2.17 [2012-07-21]
+googleVis 0.2.29 [2012-07-29]
 ----------------------------
 
 Changes
@@ -10,7 +10,7 @@ Changes
 Bug Fixes
 
  * Data frames with one row only were not displayed in a chart.
-   Thanks to Oliver Jay for reporting this issue.
+   Thanks to Oliver Jay and Wai Tung Ho for reporting this issue.
 
  * Fixed eqarth quake example from 
    http://www.iris.edu/seismon/last30.html, 
