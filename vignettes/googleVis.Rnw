@@ -791,7 +791,7 @@ currently the \rapache module only runs on UNIX/Linux and Mac OS X.
 
 \subsubsection{Using \googleVis with \rsp}\label{rspexample}
 The \rsp package allows the user to integrate R code into html code.
-The R code is filtered by the \rsp web server and executed
+The R code is parsed by the \rsp web server and executed
 at run time. 
 
 As an example, we embed a motion chart into a rsp-page: 
@@ -916,53 +916,70 @@ folder path:
 system.file("brew", package = "googleVis")
 @ 
 
-% \subsection{Using \googleVis with \Rook}
-% 
-% <<eval=FALSE>>=
-% require(Rook)
-% require(googleVis)
-% s <- Rhttpd$new()
-% s$start(listen='127.0.0.1')
-% 
-% my.app <- function(env){
-%  ## Start with a table and allow the user to upload another csv-file
-%   req <- Request$new(env)
-%   res <- Response$new()
-% 
-%   ## Provide some data to start
-%   data <- Exports[,1:2]
-%   if (!is.null(req$POST())) {
-%     ## Read data from uploaded csv file
-%    data <- req$POST()[["data"]]
-%    data <- read.csv(data$tempfile)
-%   }
-%   tbl <- gvisTable(data, 
-%                    options=list(gvis.editor="Edit me!",
-%                                 height=350),
-%                                 chartid="myInitialView")
-%   
-%   res$write(tbl$html$header) 
-%   res$write("<h1>My first Rook app with googleVis</h1>") 
-%   res$write(paste(tbl$html$chart, collapse=''))
-% 
-%   res$write('
-% Read CSV file:<form method="POST" enctype="multipart/form-data">
-% <input type="file" name="data">
-% <input type="submit" name="Go">\n</form>\n<br>'
-%             )            
-%   res$write(tbl$html$footer)
-%   res$finish()
-% }
-% s$add(app=my.app, name='googleVisTable')
-% s$browse('googleVisTable')
-% @
+\subsubsection{Using \googleVis with \Rook}
 
-\begin{figure}[t]
+\Rook~\cite{Rook} is a web server interface for R, written by Jeffrey Horner, the author 
+of rApache and brew. Compared to other web frameworks \Rook appears incredible lightweight.
+\Rook doesn't need any configuration. It is an R package, which works out of the box with the R HTTP 
+server. That means no configuration files are needed. No files have to be placed 
+in particular folders. Instead, \Rook web applications can be run on a local desktop. 
+However, \Rook requires some knowledge of the HTTP protocol. 
+
+Here is a \Rook app example with \texttt{googleVis}. It displays a little R data frame in a 
+\googleVis table by default. 
+The user can change the visualisation by clicking on the \emph{Edit me!} button 
+and upload her/his own CSV-file, see , see Figure~\ref{fig:Rook}. 
+
+<<eval=FALSE>>=
+require(Rook)
+require(googleVis)
+s <- Rhttpd$new()
+s$start(listen='127.0.0.1')
+
+my.app <- function(env){
+ ## Start with a table and allow the user to upload a CSV-file
+  req <- Request$new(env)
+  res <- Response$new()
+
+  ## Provide some data to start with
+  ## Exports is a sample data set of googleVis
+  data <- Exports[,1:2] 
+  ## Add functionality to upload CSV-file
+  if (!is.null(req$POST())) {
+    ## Read data from uploaded CSV-file
+   data <- req$POST()[["data"]]
+   data <- read.csv(data$tempfile)
+  }
+  ## Create table with googleVis
+  tbl <- gvisTable(data, 
+                   options=list(gvis.editor="Edit me!",
+                                height=350),
+                                chartid="myInitialView")
+  ## Write the HTML output and
+  ## make use of the googleVis HTML output.
+  ## See vignette('googleVis') for more details
+  res$write(tbl$html$header) 
+  res$write("<h1>My first Rook app with googleVis</h1>")
+  res$write(tbl$html$chart)
+  res$write('
+Read CSV file:<form method="POST" enctype="multipart/form-data">
+<input type="file" name="data">
+<input type="submit" name="Go">\n</form>')            
+  res$write(tbl$html$footer)
+  res$finish()
+}
+s$add(app=my.app, name='googleVisTable')
+## Open a browser window and display the web app
+s$browse('googleVisTable')
+@
+
+\begin{figure}
   \centering
   \includegraphics[width=0.8\textwidth]{Rook.png}
   \caption{Screen shot of a Rook app with \googleVis output.}
-  \label{Rook}
+  \label{fig:Rook}
 \end{figure}
+
 
 
 \section{Using \googleVis with \knitr}
