@@ -12,7 +12,7 @@ Bug Fixes
  * Data frames with one row only were not displayed in a chart.
    Thanks to Oliver Jay and Wai Tung Ho for reporting this issue.
 
- * Fixed eqarth quake example, using data from 
+ * Fixed earth quake example, using data from 
    http://www.iris.edu/seismon/last30.html, 
    Mag was read as factor rather than numeric
 
