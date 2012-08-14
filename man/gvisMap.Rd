@@ -193,16 +193,17 @@ M1 <- gvisMap(Andrew, "LatLong" , "Tip",
 plot(M1) 
 
 
-## Example with address, here UK post-code
+## Example with address, here UK post-code and some html code in tooltip
 
 df <- data.frame(Postcode=c("EC3M 7HA", "EC2P 2EJ"),
-                 Tip=c("Lloyd's", "Guildhall"))
+                 Tip=c("<a href='http://www.lloyds.com'>Lloyd's</a>", 
+                 "<a href='http://www.guildhall.cityoflondon.gov.uk/'>Guildhall</a>"))
  
 M2 <- gvisMap(df, "Postcode", "Tip",
               options=list(showTip=TRUE, mapType='normal',
               enableScrollWheel=TRUE))
-
-plot(M2) 
+ 
+plot(M2)
 
 }
 

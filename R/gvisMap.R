@@ -51,6 +51,6 @@ gvisCheckMapData <- function(data, options){
   	x$Longitude <- as.numeric(as.character(latlong$V2))
     	x <- x[c("Latitude","Longitude",varNames)]
   }
-
+  
   return(data.frame(x))
 }
