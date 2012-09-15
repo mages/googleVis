@@ -59,6 +59,7 @@
               paste(tmp, collapse=", ")
             })
 
+  ## options(browser="false")
   packageStartupMessage(gvisWelcomeMessage())
   invisible()
 }

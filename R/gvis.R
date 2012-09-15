@@ -157,7 +157,7 @@ divChart <- '
 '
   divChart <- sprintf(divChart,
                      ifelse(!is.null(options$gvis$gvis.editor),
-                     sprintf("<input type='button' onclick='openEditor%s()' value='%s'>",
+                     sprintf("<input type='button' onclick='openEditor%s()' value='%s'/>",
                            chartid,as.character(options$gvis$gvis.editor)),''),
 		                 chartid,
                      ifelse(!(is.null(options$gvis$width) || (options$gvis$width == "")),options$gvis$width,600),
