@@ -18,9 +18,11 @@
 ### MA 02110-1301, USA
 
 
-gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m/%d",
+gvisMotionChart <- function(data, idvar="id", timevar="time",
+                            ### xvar="", yvar="", colorvar="", sizevar="",
+                            date.format="%Y/%m/%d",
                             options=list(), chartid){
-
+  
   my.type <- "MotionChart"
   dataName <- deparse(substitute(data))
 
@@ -28,10 +30,12 @@ gvisMotionChart <- function(data, idvar="id", timevar="time", date.format="%Y/%m
   my.options <- list(gvis=modifyList(list(width = 600, height=500), options),
                      dataName=dataName,
                      data=list(idvar=idvar, timevar=timevar,
+                     ###  xvar=xvar, yvar=yvar, colorvar=colorvar, sizevar=sizevar,
                        date.format=date.format, allowed=c("number",
                                                   "string", "date"))
                      )
-  
+
+ 
   checked.data <- gvisCheckMotionChartData(data, my.options)
    
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid)
@@ -48,6 +52,7 @@ gvisCheckMotionChartData <- function(data, options){
   ## A number or date in the time variable (second column)
   ## Everything else has to be a number or string
   
+
   ## Convert data.frame to list
   x <- as.list(data)
   varNames <- names(x)
@@ -79,8 +84,10 @@ gvisCheckMotionChartData <- function(data, options){
     x[[options$data$idvar]] <- as.character(x[[options$data$idvar]])
   }
   typeMotionChart[[options$data$idvar]] <- "string"
+
+  varOthers <- varNames[ -idvar.timevar.pos  ]  
+                        
   
-  varOthers <- varNames[ -idvar.timevar.pos  ]
   varOrder <- c(options$data$idvar, options$data$timevar, varOthers)
   x <- x[varOrder]
   
@@ -107,6 +114,7 @@ gvisCheckMotionChartData <- function(data, options){
 
   X <- data.frame(x)
   names(X) <- varNames
+
   return(X)
 }
 

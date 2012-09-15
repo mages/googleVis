@@ -31,11 +31,5 @@ Thanks to:
 	o Pat Burns for pointing out typos in the vignette
 	o Jason Pickering for providing a patch to allow for quarterly 
 	  and weekly time dimensions with gvisMotionChart
-  o Oliver Jay and Wai Tung Ho for reporting an issue with one-row 
-    data sets
-  
-
-
-  
-
-  
+    	o Oliver Jay and Wai Tung Ho for reporting an issue with one-row 
+	  data sets

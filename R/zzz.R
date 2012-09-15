@@ -58,7 +58,7 @@
               tmp <- paste("new Date(",y,",",m,",",d,",",H,",",M,",",S,")",sep="")
               paste(tmp, collapse=", ")
             })
-
+  
   ## options(browser="false")
   packageStartupMessage(gvisWelcomeMessage())
   invisible()

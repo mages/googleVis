@@ -12,7 +12,8 @@
 
 }
 \usage{
-gvisMotionChart(data, idvar = "id", timevar = "time", 
+gvisMotionChart(data, idvar = "id", timevar = "time",
+%%                      xvar="", yvar="", colorvar="", sizevar="",
 		      date.format = "\%Y/\%m/\%d", 
 		      options = list(), chartid)
 }
@@ -34,6 +35,20 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
     a character which follows the pattern  'YYYYWww' (e.g. '2010W04' for
     weekly data) or 'YYYYQq' (e.g. '2010Q1' for quarterly data).
   }
+%  \item{xvar}{
+%    column name of a numerical vector in \code{data} to be plotted on the x-axis.
+%  }
+%  \item{yvar}{
+%    column name of a numerical vector in \code{data} to be plotted on the y-axis.
+%  }
+%  \item{colorvar}{column name of data that identifies bubbles in the same
+%    series. Use the same value to identify all bubbles that belong to the
+%    same series; bubbles in the same series will be assigned the same
+%    color. Series can be configured using the \code{series} option.
+%  }
+%  \item{sizevar}{values in this column are mapped to actual pixel values
+%    using the \code{sizeAxis} option.
+%  }
   \item{date.format}{
     if \code{timevar} is of class \code{\link{Date}} then this argument
     specifies how the dates are reformatted to be used by JavaScript. 

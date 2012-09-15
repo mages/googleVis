@@ -116,15 +116,14 @@ others the authors of this vignette started the development of the
 Of course there are many other alternative visualisation toolkits out
 there, e.g. 
 \href{http://d3js.org}{d3js} \cite{d3js}, 
-\href{http://services.alphaworks.ibm.com/manyeyes/page/Create_a_Visualization.html}{Many
+\href{http://www-958.ibm.com/software/data/cognos/manyeyes/}{Many
   Eyes} \cite{ManyEyes},
 \href{http://teethgrinder.co.uk/open-flash-chart/}{Open Flash Chart
   (Flash)} \cite{OpenFlashChart}, 
 \href{http://www.openlayers.org/}{OpenLayers
   (JavaScript)} \cite{OpenLayers}, 
 \href{http://processing.org/}{Processing (Java)} \cite{Processing}, 
-\href{http://simile.mit.edu/}{simile (AJAX)} \cite{Simile} and
-\href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare}.
+and \href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare}.
 
 \begin{figure}[t]
 \begin{center}

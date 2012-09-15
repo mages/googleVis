@@ -24,22 +24,22 @@ gvisBubbleChart(data, idvar = "", xvar = "", yvar = "",
 }
 \arguments{
   \item{data}{a \code{\link{data.frame}} to be displayed as a bubble
-  chart. The data has to have at least three columns for \code{idvar,
-  xvar}, and \code{yvar}. 
-}
+    chart. The data has to have at least three columns for \code{idvar,
+      xvar}, and \code{yvar}. 
+  }
   \item{idvar}{column name of \code{data} with the bubble
-}
-\item{xvar}{
-  column name of a numerical vector in \code{data} to be plotted on the x-axis.
-}
+  }
+  \item{xvar}{
+    column name of a numerical vector in \code{data} to be plotted on the x-axis.
+  }
   \item{yvar}{
-  column name of a numerical vector in \code{data} to be plotted on the y-axis.
-}
-\item{colorvar}{column name of data that identifies bubbles in the same
-  series. Use the same value to identify all bubbles that belong to the
-  same series; bubbles in the same series will be assigned the same
-  color. Series can be configured using the \code{series} option.
-}
+    column name of a numerical vector in \code{data} to be plotted on the y-axis.
+  }
+  \item{colorvar}{column name of data that identifies bubbles in the same
+    series. Use the same value to identify all bubbles that belong to the
+    same series; bubbles in the same series will be assigned the same
+    color. Series can be configured using the \code{series} option.
+  }
   \item{sizevar}{values in this column are mapped to actual pixel values
     using the \code{sizeAxis} option.
   }

@@ -3,8 +3,15 @@ googleVis 0.2.18 [2012-08-14]
 
 Changes
 
-* Changed example in help file of gvisMap to include html code 
-  in tooltip. 
+* plot.gvis has a new argument 'browser'. The argument is passed on
+  to the function browseURL. The 'browser' argument is by default set
+  based on the output of interactive(). This prevents R CMD CHECK
+  trying to open browser windows. See the help file of plot.gvis for
+  more details.
+  Thanks to Henrik Bengtsson for his comments and suggestions.
+
+* Changed example in help file of gvisMap to show how to include html
+  code in tooltip. 
 
 Bug Fixes
 
@@ -15,9 +22,9 @@ googleVis 0.2.17 [2012-08-02]
 
 Changes
 
- * Added section on knitr and Rook to vignette
+ * Added section on 'knitr' and 'Rook' to vignette
 
- * Added example to gvisMerge demonstrating the use of Reduce
+ * Added example to gvisMerge demonstrating the use of 'Reduce'
 
 Bug Fixes
 
