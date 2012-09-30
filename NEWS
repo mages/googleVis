@@ -13,9 +13,13 @@ Changes
 * Changed example in help file of gvisMap to show how to include html
   code in tooltip. 
 
+* gvisGeoChart accepts tooltip.triggers following an update of the
+  Visualisation API by Google, 24 September 2012
+
 Bug Fixes
 
 * Chart editor was not validated properly under XHMTL 1.0 Strict
+
 
 googleVis 0.2.17 [2012-08-02]
 ----------------------------

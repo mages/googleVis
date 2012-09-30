@@ -19,13 +19,28 @@
 
 
 gvisMotionChart <- function(data, idvar="id", timevar="time",
-                            ### xvar="", yvar="", colorvar="", sizevar="",
+                            ## xvar="", yvar="", colorvar="", sizevar="",
                             date.format="%Y/%m/%d",
                             options=list(), chartid){
   
   my.type <- "MotionChart"
   dataName <- deparse(substitute(data))
 
+#   my.options <- list(gvis=options, 
+#                    dataName=dataName,
+#                     data=list(idvar=idvar,
+#                       xvar=xvar,
+#                       yvar=yvar,                       
+#                       colorvar=colorvar,
+#                       sizevar=sizevar,
+#                       allowed=c("number", "string")
+#                       )
+#                     )
+#
+# 
+#  data <- gvisCheckBubbleChartData(data, my.options)
+
+  
   ## Combine options for other generic functions
   my.options <- list(gvis=modifyList(list(width = 600, height=500), options),
                      dataName=dataName,

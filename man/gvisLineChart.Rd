@@ -470,7 +470,8 @@ gvisLineChart(data, xvar = "", yvar = "", options = list(), chartid)
       \item{\code{tooltip.trigger}}{
 	The user interaction that causes the tooltip to be displayed:
 	\describe{
-	  \item{\code{'hover'}}{ The tooltip will be displayed when the user hovers over an element.
+	  \item{\code{'hover'}}{The tooltip will be displayed when the
+	    user hovers over an element.	    
 	  }
 	  \item{\code{'none'}}{The tooltip will not be displayed.
 	  }	  

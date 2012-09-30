@@ -259,7 +259,6 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
 	An object with members to configure various tooltip elements. To specify
 	properties of this object, you can use object literal notation, as
 	shown here:
- 
 
 	\preformatted{\{textStyle: \{color: '#FF0000'\}, showColorCode: true\}}
       }
@@ -272,7 +271,16 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
     
 	The color can be any HTML color string, for example: \code{'red'} or \code{'#00cc00'}.
       }
-      
+      \item{\code{tooltip.trigger}}{a string. Default \code{'focus'}.
+	The user interaction that causes the tooltip to be displayed:
+	\describe{
+	  \item{\code{'focus'}}{The tooltip will be displayed when the
+	    user hovers over an element.	  
+	  }     
+	  \item{\code{'none'}}{The tooltip will not be displayed.
+	  }
+	}
+      }
       \item{\code{width}}{number, default 556. Width of the
 	visualization. If no units are given, the default unit is pixels.
       }	

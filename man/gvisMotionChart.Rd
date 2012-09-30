@@ -13,7 +13,7 @@
 }
 \usage{
 gvisMotionChart(data, idvar = "id", timevar = "time",
-%%                      xvar="", yvar="", colorvar="", sizevar="",
+%                      xvar="", yvar="", colorvar="", sizevar="",
 		      date.format = "\%Y/\%m/\%d", 
 		      options = list(), chartid)
 }

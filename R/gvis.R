@@ -523,4 +523,3 @@ is.string <- function(x) {
   return(class(x)=="string")
 }
 
-
