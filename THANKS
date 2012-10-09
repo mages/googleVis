@@ -33,3 +33,5 @@ Thanks to:
 	  and weekly time dimensions with gvisMotionChart
     	o Oliver Jay and Wai Tung Ho for reporting an issue with one-row 
 	  data sets
+	o Erik Bülow for pointing out how to load the Google API via a
+	  secure connection

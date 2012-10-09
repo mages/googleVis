@@ -16,6 +16,9 @@ Changes
 * gvisGeoChart accepts tooltip.triggers following an update of the
   Visualisation API by Google, 24 September 2012
 
+* The Google API is loaded via a secure connection. Thanks to Erik
+  Bülow for pointing this out (Issue 19). 
+
 Bug Fixes
 
 * Chart editor was not validated properly under XHMTL 1.0 Strict
