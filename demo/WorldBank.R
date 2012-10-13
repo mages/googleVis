@@ -13,7 +13,6 @@
 ## Markus Gesmann, 24 September 2011
 ## Distributed under GPL 2 or later
 
-
 getWorldBankData <- function(id='SP.POP.TOTL', date='1960:2010',
                              value="value", per.page=12000){ 
   require(RJSONIO)

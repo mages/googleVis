@@ -5,8 +5,10 @@
 ## Democratic candidate in the elections from 1932 - 2008
 
 ## This demo requires the 'pscl' package
+if( !is.element("pscl", installed.packages()[,1]) )
+  install.packages("pscl")
 
-library(pscl)
+require(pscl)
 data(presidentialElections)
 
 ## Add min and max values to the data

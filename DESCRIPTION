@@ -2,7 +2,7 @@ Package: googleVis
 Type: Package
 Title: Interface between R and the Google Visualisation API
 Version: 0.2.18
-Date: 2012-08-14
+Date: 2012-10-14
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
                      email = "markus.gesmann@gmail.com"),
             person("Diego", "de Castillo", role = "aut",
@@ -19,11 +19,11 @@ Description: The googleVis package provides an interface between R and
 	     the project web site for more information and examples.
 Depends:
     R (>= 2.11.0),
-    RJSONIO (>= 0.3),
     methods,
+    RJSONIO,
     utils
 Suggests:
-    R.rsp,
+    R.rsp,    
     brew,
     pscl,
     WDI,

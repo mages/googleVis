@@ -75,7 +75,7 @@ gvis <- function(type="", data, options, chartid, package){
 
   jsHeader <- '
 <!-- jsHeader -->
-<script type="text/javascript\" src="https://www.google.com/jsapi">
+<script type="text/javascript\" src="http://www.google.com/jsapi">
 </script>
 <script type="text/javascript">
 '
@@ -175,10 +175,66 @@ divChart <- '
   return(output)
 }
 
-gvisFormat <- function(data){
+
+
+###############
+
+toJSONarray <- function(dtf){
+  ## Thanks to Sebastian Kranz for this function
+  ## Thanks also to Wei Luo: http://theweiluo.wordpress.com/2011/09/30/r-to-json-for-d3-js-and-protovis
   
+  #restore.point("toJSONarray")
+  clnms <- colnames(dtf)
+  
+  # Transforms a vector into a vector of JSON strings that
+  # can be pasted together afterwards
+  toJSONvec <- function(vec) {
+    #restore.point("name.value")
+    na.row <- is.na(vec)
+    if(is(vec,'integer')){
+      ret <- vec
+    } else if (is(vec,'numeric')) {
+      # Round to 10 points after the decimal as before
+      ret <- as.character(signif(vec,digits=10))
+    } else if (is(vec,'logical')) {
+      ret <- tolower(as.character(vec))
+    } else if (is(vec,'Date')) {
+      y <- format(vec,"%Y")
+      m <- as.numeric(format(vec,"%m")) -1
+      d <- as.numeric(format(vec,"%d"))
+      ret <- paste("new Date(",y,",",m,",",d,")",sep="")
+    } else if (is(vec,'POSIXct') | is(vec,'POSIXlt')) {
+      y <- format(vec,"%Y")
+      m <- as.numeric(format(vec,"%m")) -1
+      d <- as.numeric(format(vec,"%d"))
+      H <- as.numeric(format(vec,"%H"))
+      M <- as.numeric(format(vec,"%M"))
+      S <- as.numeric(format(vec,"%S"))
+      ret <- paste("new Date(",y,",",m,",",d,",",H,",",M,",",S,")",sep="")
+    } else {
+      quote <- '"';
+      vec <- gsub('"', '\\\\"', vec)
+      ret <- paste(quote, vec, quote, sep='')
+    }
+    ret[na.row] <- "null"
+    ret
+  }
+  # Transform columns depending on data type and store in a list
+  objs <- lapply(dtf,toJSONvec)
+  # Remove names just for the case that one column name was sep or collapse
+  names(objs) <- NULL
+  # Paste columns together
+  str <- do.call(paste,c(objs,list(sep=",\n")))
+  
+  # Add [ ] and paste rows together
+  res <- paste('[\n ', paste("[\n",str,"\n]",collapse=',\n'), ' \n]',sep="")
+  return(res)
+}
+
+
+gvisFormat <- function(data){
+  #restore.point("gvisFormat")
   ## Create a list where the Google DataTable type of all variables will be stored
-  require(RJSONIO)
   
   ## Convert data.frame to list
   x <- as.list(data)
@@ -195,49 +251,33 @@ gvisFormat <- function(data){
                               "POSIXct"="datetime",
                               "POSIXlt"="datetime")
                      }
-                     )
+  )
   
   ## factor to character
   x.df <- as.data.frame(
-                        lapply(x,
-                               function(a){
-                                 if (is.factor(a)) as.character(a) else a
-                               }
-                               ),
-                        stringsAsFactors=FALSE
-                        )
-  ## needed for toJSON, otherwise names are in json-array
-  names(x.df) <-  NULL
-  x.array <- lapply(seq(nrow(x.df)),
-                    function(.row){
-                      do.call("list", x.df[.row,])
-                    }
-                    )
-
-  ## filter out  NA 
-  x.array <- rapply(x.array, function(z) if(!is.na(z)){z}, how="list")
+    lapply(x,
+           function(a){
+             if (is.factor(a)) as.character(a) else a
+           }
+    ),
+    stringsAsFactors=FALSE
+  )
   
+  # The function is specified above
+  json <- toJSONarray(x.df)
   output <- list(
-                 data.type = unlist(varTypes),
-                 json = toJSON(x.array, digits = 10)
-                 )
-
+    data.type = unlist(varTypes),
+    json = json
+  )
+  
   output$json <-fixBackslash(output$json)
-
-  ## 2012-07-21 Checking for one-row data frames seems to be no longer required  
-  ## if we have have only one row of data we have to add additional "[" around the json output
-  ##if(nrow(data)==1){
-  ##    output$json <- paste("[", output$json ,"]", sep="\n")
-  ##  }
+  
   return(output)
 }
 
-
 fixBackslash <- function(x){
-   if(packageDescription("RJSONIO")$Version>= "0.7" ){
       x <-  gsub("\\\\\\\\", "\\\\", x)
-      }
-return(x)
+   return(x)
 }
 
 

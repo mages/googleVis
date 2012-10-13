@@ -1,6 +1,7 @@
 importFrom(grDevices)		 
 importFrom(methods, setMethod)		 
 importFrom(utils, packageDescription)		 
+
 importFrom("RJSONIO", "toJSON")		 
 export(gvisMotionChart, gvisTable, gvisGeoMap,gvisTreeMap,gvisMap, gvisAnnotatedTimeLine)		 
 export(gvisScatterChart, gvisPieChart, gvisOrgChart, gvisIntensityMap)		 
@@ -8,8 +9,6 @@ export(gvisLineChart, gvisAreaChart, gvisBarChart, gvisColumnChart, gvisGauge)
 export(gvisGeoChart, gvisComboChart, gvisBubbleChart)		 
 export(gvisCandlestickChart, gvisSteppedAreaChart)		 
 export(gvisMerge)		 
-## export(gvisSparkline)		 
-## export(,gvisChartEditor)		 
 export(createGoogleGadget)		 
 			 
 #Methods		 

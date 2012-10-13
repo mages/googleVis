@@ -20,6 +20,8 @@
 
 .onLoad<- function(lib, pkg,...)
 {
+  ## This function are required to set option in googleVis functions,
+  ## e.g. to set startZoom and stopZoom windows in gvisAnnotatedTimeLine
   setMethod("toJSON", "Date",
             function(x, container = length(x) > 1 || length(names(x)) > 0, ...) {
               dt <- as.Date(x)
@@ -58,7 +60,7 @@
               tmp <- paste("new Date(",y,",",m,",",d,",",H,",",M,",",S,")",sep="")
               paste(tmp, collapse=", ")
             })
-
+    
   packageStartupMessage(gvisWelcomeMessage())
   invisible()
 }
@@ -70,7 +72,7 @@ gvisWelcomeMessage <- function(){
         "\n",
         "Please read the Google API Terms of Use\n",
         "before you use the package:\n",
-        "http://code.google.com/apis/terms/index.html\n",
+        "https://developers.google.com/terms/\n",
         "\n",
         "Type ?googleVis to access the overall documentation and\n",
         "vignette('googleVis') for the package vignette.\n",

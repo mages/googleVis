@@ -1,15 +1,15 @@
 Thanks to:
-	o Henrik Bengtsson for providing the 'R.rsp: R Server Pages'
-	  package and his reviews and comments
-	o Duncan Temple Lang for providing the 'RJSONIO' package
-	o Sebastian Pérez Saaibi for his inspiring talk on 'Generator
+  o Google, who make the visualisation API available
+  o All the guys behind www.gapminder.org and Hans Rosling for
+	  telling everyone that data is not boring 
+  o Sebastian Pérez Saaibi for his inspiring talk on 'Generator
 	  Tool for Google Motion Charts' at the R/RMETRICS conference
 	  2010
-	o All the guys behind www.gapminder.org and Hans Rosling for
-	  telling everyone that data is not boring 
+  o Henrik Bengtsson for providing the 'R.rsp: R Server Pages'
+	  package and his reviews and comments
+	o Duncan Temple Lang for providing the 'RJSONIO' package
 	o Deepayan Sarkar for showing us in the lattice package how to
 	  deal with lists of options  
-	o Google, who make the visualisation API available
 	o Paul Cleary for a bug report on the handling of months:
 	  Google date objects expect the months Jan.- Dec. as 0 - 11 and
 	  not 1 - 12.
@@ -30,8 +30,10 @@ Thanks to:
 	  when displaying data with special characters in column names
 	o Pat Burns for pointing out typos in the vignette
 	o Jason Pickering for providing a patch to allow for quarterly 
-	  and weekly time dimensions with gvisMotionChart
-    	o Oliver Jay and Wai Tung Ho for reporting an issue with one-row 
+	  and weekly time dimensions to be displayed with gvisMotionChart
+  o Oliver Jay and Wai Tung Ho for reporting an issue with one-row 
 	  data sets
 	o Erik Bülow for pointing out how to load the Google API via a
 	  secure connection
+  o Sebastian Kranz and Wei Luo for providing ideas and code to
+    improve the transformation of R data frames into JSON code.    
