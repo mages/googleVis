@@ -3,17 +3,19 @@
 \alias{googleVis}
 \docType{package}
 \title{
-Using the Google Visualisation API with R
+Using the Google Chart Tools with R
 }
 \description{
   The googleVis package provides an interface between R and the Google
-  Visualisation API. Users of the googleVis package can easily create web
-  pages with interactive charts based on R data frames and display them
-  either with the local R HTTP help server or within their own sites,
-  without uploading the data to Google.
+  Chart Tools. It allows users to easily create web pages with
+  interactive charts, using the Google Chart Tools, based on R data
+  frames and display them either via the local R HTTP help server or
+  within their own sites, without uploading the data to Google.
   
-  A browser with Flash and Internet connection is required. Please visit
-  the project web site for more information and examples:
+  A modern browser with Internet connection is required and for some
+  charts Flash. Please visit the project web site for more information
+  and examples:
+
   \url{http://code.google.com/p/google-motion-charts-with-r/}.
 } 
 \details{
@@ -47,7 +49,7 @@ Using the Google Visualisation API with R
   }
 
   See the Google Public Data Explorer for examples using the Google
-  Visualisation API: \url{http://www.google.com/publicdata/home}
+  Chart Tools: \url{http://www.google.com/publicdata/home}
   
   Other R packages of interest to you might be:
   \itemize{

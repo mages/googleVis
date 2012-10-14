@@ -7,11 +7,11 @@
 \usepackage{hyperref}
 
 \hypersetup{
-  pdftitle={Using the Google Visualisation API with R},%
+  pdftitle={Using the Google Chart Tools with R},%
   pdfauthor={Markus Gesmann},%
 }
 
-%\VignetteIndexEntry{Using the Google Visualisation API with R}
+%\VignetteIndexEntry{Using the Google Chart Tools with R}
 % \VignetteDepends{googleVis}
 %\VignetteKeywords{google, visualisation, api}
 %\VignettePackage{googleVis}
@@ -43,26 +43,26 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \author{Markus Gesmann\footnote{markus.gesmann@gmail.com},
   Diego de Castillo\footnote{decastillo@gmail.com}\\
 Contact: rvisualisation@gmail.com}
-\title{Using the Google Visualisation API with R:\\
+\title{Using the Google Chart Tools with R:\\
   googleVis-\Sexpr{packageDescription("googleVis")[['Version']]} Package Vignette
 }
 \maketitle
 \begin{abstract}
   The \googleVis package provides an interface between R and the
-  Google Visualisation API.  The Google Visualisation API offers
-  interactive charts which can be embedded into web pages. The best
+  Google Chart Tools.  The Google Chart Tools offer  interactive
+  charts which can be embedded into web pages. The best 
   known of these charts is probably the Motion Chart, popularised 
   by Hans Rosling in his TED talks. 
  
   The functions of the \googleVis package allow the user to visualise
-  data stored in R data frames with the Google Visualisation API
+  data stored in R data frames with the Google Chart Tools
   without uploading the data to Google. The output of a \googleVis
   function is html code that contains the data and references to
   JavaScript functions hosted by Google.
   
   googleVis makes use of the internal R HTTP server to display the
-  output locally. A browser with Flash and Internet connection is
-  required.
+  output locally. A modern browser with an Internet connection is
+  required and for some charts Flash.
 	     
 \end{abstract}
 
@@ -93,7 +93,8 @@ motion charts, see Figure~\ref{MotionChartGUI}.
 Rosling's presentation popularised the idea and use of interactive
 charts, and as one result the software behind
 Gapminder was bought by Google and integrated as motion charts into
-their Visualisation API~\cite{GoogleVisApi} one year later. 
+their Google Chart Tools~\cite{GoogleVisApi}, formerly known as Google
+Visualisation API, one year later.  
 
 We also notice that data journalism has grown over the recent
 years. The data blogs of the
@@ -135,10 +136,10 @@ and \href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare}.
 \end{figure}
 %\clearpage
 
-\subsection{Google Visualisation API}
+\subsection{Google Chart Tools}
 
-The Google Visualisation API~\cite{GoogleVisApi}
-allows users to create interactive charts as part of Google
+The Google Chart Tools~\cite{GoogleVisApi}
+allow users to create interactive charts as part of Google
 documents, spreadsheets and web pages. In this text we will focus 
 on the usage of the API as part of web pages.
 
@@ -148,7 +149,7 @@ help to analyse data. Please note, that most of those charts are rendered
 within a browser.
 
 The charting data can either be embedded into the html file or read
-dynamically. The key to the Google Visualisation API is that the data is
+dynamically. The key to the Google Chart Tools is that the data is
 structured in a DataTable~\cite{DataTable}, and this is where the \googleVis
 package helps, as it transforms R data frames into
 JSON~\cite{json} objects as the basis for a DataTable.
@@ -219,18 +220,17 @@ parts\footnote{For more details see
   32 -- 34).
 \end{itemize}
 These principles hold true for most of the interactive charts of the
-Google Visualisation API, see the examples in Figure~\ref{demos}.
+Google Chart Tools, see the examples in Figure~\ref{demos}.
 
 However, before you use the API you should read the \href{https://developers.google.com/terms/}{Google
-  Visualization API Terms of Service}\cite{GoogleTerms}. 
+  Terms of Service}\cite{GoogleTerms}. 
 
 \section{The \googleVis package}
 
 
 The \googleVis package provides an interface between R and the Google
-Visualisation API.  The functions of the package allow the user to
-visualise data stored in R data frames with the Google Visualisation
-API.
+Chart Tools.  The functions of the package allow the user to
+visualise data stored in R data frames with the Google Chart Tools.
 
 Version (\Sexpr{packageDescription("googleVis")[['Version']]}) of the package
 provides interfaces to  Motion Charts, Annotated Time Lines, 
@@ -338,7 +338,7 @@ and \texttt{timevar} specify the column names of the id variable and
 time variable for the plot, while display options are set in an
 optional list, which we discuss in more detail on
 page~\pageref{settingoptions}. The options and data requirements
-follow those of the Google Visualisation API and are documented in the
+follow those of the Google Chart Tools and are documented in the
 help pages, see 
 <<eval=FALSE>>=
 help('gvisMotionChart')
@@ -543,7 +543,7 @@ plot(GTM)
 
 Setting the various options of a \googleVis objects can be a bit
 cumbersome at first. The options follow those of the Google
-Visualisation API and can be set via a named list using the argument \texttt{options}.
+Chart Tools and can be set via a named list using the argument \texttt{options}.
 In the following example we create a line chart and set various
 options\footnote{Please refer to the help file of the individual
   \googleVis functions, as the options can vary from chart to chart.},
@@ -1001,7 +1001,7 @@ Further examples have been published in a blog post:
 \url{http://lamages.blogspot.co.uk/2012/05/interactive-reports-in-r-with-knitr-and.html}
 
 \section{Using \googleVis in presentations}
-The Google Visualisation API is designed for web pages, so it should
+The Google Chart Tools are designed for web pages, so it should
 be no surprise that it can be difficult or impossible to embed \googleVis 
 output in traditional presentation software like MS PowerPoint\footnote{For 
 MS PowerPoint on MS Windows the pulg-in
@@ -1107,12 +1107,14 @@ jscode <- "
 J2 <- gvisTable(Population, options=list(gvis.listener.jscode=jscode))
 plot(J2)
 @ 
-For more details see the \texttt{demo(EventListener)} and \href{http://code.google.com/apis/chart/interactive/docs/reference.html}{Google Visualisation API Reference}.
+For more details see the \texttt{demo(EventListener)} and
+\href{https://developers.google.com/chart/interactive/docs/reference}{Google
+  Chart Tools Reference}.
 
 \section{Contact}
 \subsection{Collaboration} 
 Obviously, the package is work in progress and there are many other functions of the Google
-Visualisation API which are still untouched. 
+Chart Tools which are still untouched. 
 
 Please feel free to send us an email if you would like to be kept
 informed of new versions, or if you have any feedback, ideas,
