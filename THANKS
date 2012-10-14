@@ -33,5 +33,7 @@ Thanks to:
     data sets
   o Erik Bülow for pointing out how to load the Google API via a
     secure connection
+  o Sebastian Kranz for comments to enhance the argument list for
+    gvisMotionChart to make it more user friendly 
   o Sebastian Kranz and Wei Luo for providing ideas and code to
-    improve the transformation of R data frames into JSON code.    
+    improve the transformation of R data frames into JSON code

@@ -47,12 +47,8 @@ gvisBubbleChart <- function(data, idvar="", xvar="", yvar="", colorvar="", sizev
 
 gvisCheckBubbleChartData <- function(data, options){
 
-   varNames <- names(data)
-
-##   typeMotionChart[[options$data$timevar]] <-
-##     testTimevar(x[[options$data$timevar]], options$data$date.format)
-
-   
+  varNames <- names(data)
+  
   data.structure <- list(
                          idvar = list(mode="required", FUN=check.char),
                          xvar = list(mode="required", FUN=check.num),

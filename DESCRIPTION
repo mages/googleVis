@@ -1,7 +1,7 @@
 Package: googleVis
 Type: Package
 Title: Interface between R and the Google Visualisation API
-Version: 0.2.18
+Version: 0.3.0
 Date: 2012-10-14
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
                      email = "markus.gesmann@gmail.com"),

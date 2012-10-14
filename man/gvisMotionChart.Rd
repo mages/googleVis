@@ -24,7 +24,11 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
     columns with subject name (\code{idvar}), time (\code{timevar}) and
     two columns of numeric values. Further columns, numeric and
     character/factor are optional. The combination of \code{idvar} and
-    \code{timevar} has to describe a unique row. 
+    \code{timevar} has to describe a unique row. The column names of the
+    \code{idvar} and \code{timevar} have to be specified. Further
+    columns, if not specified by the other arguments (\code{xvar, yvar,
+      colorvar, sizevar}), will be assumed to
+    be in the order of the arguments.
   }
   \item{idvar}{column name of \code{data} with the subject to be
     analysed.
@@ -35,20 +39,20 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
     a character which follows the pattern  'YYYYWww' (e.g. '2010W04' for
     weekly data) or 'YYYYQq' (e.g. '2010Q1' for quarterly data).
   }
-%  \item{xvar}{
-%    column name of a numerical vector in \code{data} to be plotted on the x-axis.
-%  }
-%  \item{yvar}{
-%    column name of a numerical vector in \code{data} to be plotted on the y-axis.
-%  }
-%  \item{colorvar}{column name of data that identifies bubbles in the same
-%    series. Use the same value to identify all bubbles that belong to the
-%    same series; bubbles in the same series will be assigned the same
-%    color. Series can be configured using the \code{series} option.
-%  }
-%  \item{sizevar}{values in this column are mapped to actual pixel values
-%    using the \code{sizeAxis} option.
-%  }
+  \item{xvar}{
+    column name of a numerical vector in \code{data} to be plotted on the x-axis.
+  }
+  \item{yvar}{
+    column name of a numerical vector in \code{data} to be plotted on the y-axis.
+  }
+  \item{colorvar}{column name of data that identifies bubbles in the same
+    series. Use the same value to identify all bubbles that belong to the
+    same series; bubbles in the same series will be assigned the same
+    color. Series can be configured using the \code{series} option.
+  }
+  \item{sizevar}{values in this column are mapped to actual pixel values
+    using the \code{sizeAxis} option.
+  }
   \item{date.format}{
     if \code{timevar} is of class \code{\link{Date}} then this argument
     specifies how the dates are reformatted to be used by JavaScript. 
@@ -263,7 +267,7 @@ M3 <- gvisMotionChart(Fruits, "Fruit", "Date", date.format="\%YW\%W")
 plot(M3) 
 }
 ## Options: no side panel on the right
-M4 <- gvisMotionChart(Fruits,"Fruit","Year",
+M4 <- gvisMotionChart(Fruits,"Fruit", "Year",
                  options=list(showSidePanel=FALSE))
 plot(M4)
 
@@ -295,6 +299,15 @@ myStateSettings <-'
 '
 M6 <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
 plot(M6)
+
+
+## Define which columns are used for the initial setup of the various
+## dimensions
+M7 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
+                              xvar="Profit", yvar="Expenses",
+                              colorvar="Location", sizevar="Sales")
+plot(M7)
+
 ## For more information see:
 ## http://code.google.com/apis/chart/interactive/docs/gallery/motionchart.html#Motion_Chart_initial_state
 

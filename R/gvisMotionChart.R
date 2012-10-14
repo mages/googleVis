@@ -17,46 +17,50 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-
 gvisMotionChart <- function(data, idvar="id", timevar="time",
-                            ## xvar="", yvar="", colorvar="", sizevar="",
+                            xvar="", yvar="", colorvar="", sizevar="",
                             date.format="%Y/%m/%d",
                             options=list(), chartid){
+  
   
   my.type <- "MotionChart"
   dataName <- deparse(substitute(data))
 
-#   my.options <- list(gvis=options, 
-#                    dataName=dataName,
-#                     data=list(idvar=idvar,
-#                       xvar=xvar,
-#                       yvar=yvar,                       
-#                       colorvar=colorvar,
-#                       sizevar=sizevar,
-#                       allowed=c("number", "string")
-#                       )
-#                     )
-#
-# 
-#  data <- gvisCheckBubbleChartData(data, my.options)
-
+  ## Bring data frame in the right column order
+  other.vars <- c(idvar, timevar, xvar, yvar, colorvar, sizevar)
+  pos <- rep(NA, 6)
+  ## nms.data <- names(data)
+  for( i in 1:6){
+    if(other.vars[i] != ""){
+      pos[i] <- match(other.vars[i], names(data))	
+      if(is.na(pos[i]))
+        stop(paste("Column", other.vars[i], "does not exist."))
+      if(pos[i] != i){## Column needs to be moved
+        swap.cols <- c(pos[i], i)
+        nms <- names(data[, swap.cols ])
+        data[, rev(swap.cols)] <- data[, swap.cols]
+        names(data)[rev(swap.cols)] <- nms
+      }		
+    }	 
+  }
   
   ## Combine options for other generic functions
   my.options <- list(gvis=modifyList(list(width = 600, height=500), options),
                      dataName=dataName,
                      data=list(idvar=idvar, timevar=timevar,
-                     ###  xvar=xvar, yvar=yvar, colorvar=colorvar, sizevar=sizevar,
+                       ##  xvar=xvar, yvar=yvar, colorvar=colorvar, sizevar=sizevar,
                        date.format=date.format, allowed=c("number",
                                                   "string", "date"))
                      )
-
- 
+  
   checked.data <- gvisCheckMotionChartData(data, my.options)
-   
+          
+     
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid)
-
+  
   return(output)
 }
+
 
 gvisCheckMotionChartData <- function(data, options){
   

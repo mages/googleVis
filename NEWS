@@ -1,4 +1,4 @@
-googleVis 0.2.18 [2012-10-14]
+googleVis 0.3.0 [2012-10-14]
 ----------------------------
 
 NEW FEATURES
@@ -10,6 +10,11 @@ NEW FEATURES
   more details.
   Thanks to Henrik Bengtsson for his comments and suggestions.
 
+* gvisMotionChart has new arguments xvar, yvar, colorvar and
+  sizevar. Those arguments are optional and set the various dimensions 
+  of a motion chart, similar to those in gvisBubbleChart.
+  Thanks to Sebastian Kranz for the idea and initial code.
+
 * gvisGeoChart accepts tooltip.triggers following an update of the
   Visualisation API by Google, 24 September 2012
 
@@ -19,7 +24,7 @@ NEW FEATURES
 
 Changes
 
-* The Google API is loaded via a secure connection: https:// rather than http://. 
+* Changed the load mechanism for the Google API from http to https.
   Thanks to Erik Bülow for pointing this out (Issue 19). 
 
 * Changed example in help file of gvisMap to show how to include html
