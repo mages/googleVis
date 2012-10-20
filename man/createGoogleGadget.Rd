@@ -21,7 +21,7 @@ createGoogleGadget(gvis)
 }
 \references{
   For more information about Google Gadgets see:
-  \url{http://www.google.com/webmasters/gadgets/}
+  \url{https://developers.google.com/gadgets/}
 }
 \author{
 Markus Gesmann

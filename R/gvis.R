@@ -263,7 +263,7 @@ gvisFormat <- function(data){
     stringsAsFactors=FALSE
   )
   
-  # The function is specified above
+  ## The function is specified above
   json <- toJSONarray(x.df)
   output <- list(
     data.type = unlist(varTypes),

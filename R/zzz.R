@@ -22,6 +22,7 @@
 {
   ## This function are required to set option in googleVis functions,
   ## e.g. to set startZoom and stopZoom windows in gvisAnnotatedTimeLine
+
   setMethod("toJSON", "Date",
             function(x, container = length(x) > 1 || length(names(x)) > 0, ...) {
               dt <- as.Date(x)

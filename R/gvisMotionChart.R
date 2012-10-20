@@ -48,14 +48,12 @@ gvisMotionChart <- function(data, idvar="id", timevar="time",
   my.options <- list(gvis=modifyList(list(width = 600, height=500), options),
                      dataName=dataName,
                      data=list(idvar=idvar, timevar=timevar,
-                       ##  xvar=xvar, yvar=yvar, colorvar=colorvar, sizevar=sizevar,
                        date.format=date.format, allowed=c("number",
                                                   "string", "date"))
                      )
   
   checked.data <- gvisCheckMotionChartData(data, my.options)
-          
-     
+             
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options, chartid)
   
   return(output)
@@ -70,7 +68,6 @@ gvisCheckMotionChartData <- function(data, options){
   ## Google Motion Chart needs a 'string' in the id variable (first column)
   ## A number or date in the time variable (second column)
   ## Everything else has to be a number or string
-  
 
   ## Convert data.frame to list
   x <- as.list(data)
@@ -85,7 +82,7 @@ gvisCheckMotionChartData <- function(data, options){
   if(sum(!is.na(idvar.timevar.pos)) < 2){
     stop("There is a missmatch between the idvar and timevar specified and the colnames of your data.")
   }
-
+  
 
   typeMotionChart[[options$data$timevar]] <-
     testTimevar(x[[options$data$timevar]], options$data$date.format)

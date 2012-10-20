@@ -1,4 +1,4 @@
-googleVis 0.3.0 [2012-10-14]
+googleVis 0.3.0 [2012-10-20]
 ----------------------------
 
 NEW FEATURES
@@ -6,8 +6,8 @@ NEW FEATURES
 * plot.gvis has a new argument 'browser'. The argument is passed on
   to the function browseURL. The 'browser' argument is by default set
   based on the output of interactive(). This prevents R CMD CHECK
-  trying to open browser windows. See the help file of plot.gvis for
-  more details.
+  trying to open browser windows during the package checking
+  process. See the help file of plot.gvis for more details.
   Thanks to Henrik Bengtsson for his comments and suggestions.
 
 * gvisMotionChart has new arguments xvar, yvar, colorvar and
@@ -40,7 +40,7 @@ googleVis 0.2.17 [2012-08-02]
 
 Changes
 
- * Added section on 'knitr' and 'Rook' to vignette
+ * Added sections with information to 'knitr' and 'Rook' to vignette 
 
  * Added example to gvisMerge demonstrating the use of 'Reduce'
 

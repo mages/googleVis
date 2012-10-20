@@ -1134,7 +1134,7 @@ citation()
 for  bib-entries and information on how to cite the software.
 
 \subsection{Training and consultancy}
-Please contact us if you would like to discuss tailored training or
+Please contact us if you would like to discuss training or
 consultancy: \href{mailto:rvisualisation@gmail.com?subject=Training-and-consultancy}{rvisualisation@gmail.com} 
 
 
