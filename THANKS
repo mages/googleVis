@@ -37,3 +37,4 @@ Thanks to:
     gvisMotionChart to make it more user friendly 
   o Sebastian Kranz and Wei Luo for providing ideas and code to
     improve the transformation of R data frames into JSON code
+  o Sebastian Kranz for reporting a bug in version 0.3.0

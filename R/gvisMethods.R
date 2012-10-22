@@ -47,9 +47,9 @@ googlevis.httpd.handler <- function(path, query, ...) {
        "status code"=200L)
 }
 
-plot.gvis <- function(x, browser=ifelse(interactive() , getOption("browser"), "false"),...){
+plot.gvis <- function(x, ...){
   
-  if(!isServerRunning()) {
+  if(!isServerRunning() ) {
     tools:::startDynamicHelp()
   }
 
@@ -102,7 +102,11 @@ plot.gvis <- function(x, browser=ifelse(interactive() , getOption("browser"), "f
   .url <- sprintf("http://127.0.0.1:%s/custom/googleVis/%s",
                   tools:::httpdPort,
                   basename(file))
-  browseURL(.url, browser=browser,...)
+  if(interactive()){
+    browseURL(.url, ...)
+  }else{
+   browseURL(.url, browser='false',...)
+  }
   invisible(file)
 }
   

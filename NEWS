@@ -1,3 +1,19 @@
+googleVis 0.3.1 [2012-10-22]
+----------------------------
+
+Bug Fixes
+
+* The argument 'browser' introduced in version 0.3.0 has been removed
+  again. The argument was set by default to the output of
+  getOptions('browser'), if interactive() returned TRUE, otherwise to
+  'false'. The function getOptions('browser') returns either a string
+  or a function call. The later caused an error message, as
+  experienced with RStudio. The check is now handled internally by
+  plot.gvis.
+
+  Thanks to Sebastian Kranz for reporting this bug.
+
+
 googleVis 0.3.0 [2012-10-20]
 ----------------------------
 

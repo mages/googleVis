@@ -11,8 +11,7 @@
 \usage{	
 \method{print}{gvis}(x, tag="html", file = "", ...)
 		
-\method{plot}{gvis}(x, browser=ifelse(interactive() ,
-                               getOption("browser"), "false"), ...)
+\method{plot}{gvis}(x, ...)
 }
 \arguments{
   \item{x}{
@@ -27,10 +26,6 @@
     file name. If "" (the
     default), output will be printed to the standard output connection,
     the console unless redirected by \code{\link{sink}}.
-  }
-  \item{browser}{the argument is passed on to the argument of the same
-    name in \code{\link{browseURL}}. By default no browser window is
-    opened when plot.gvis is run via script from the command line.
   }
   \item{\dots}{arguments passed on to \code{\link{cat}}
       (\code{print.gvis}) or \code{\link{browseURL}} (\code{plot.gvis}).
