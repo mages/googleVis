@@ -3,7 +3,7 @@ googleVis 0.3.2 [2012-10-28]
 
 NEW FEATURES
 
- * plot.gvis gained the new argument 'tag', which works similar to the
+ * plot.gvis gained the argument 'tag', which works similar to the
    argument of the same name in print.gvis. By default the tag
    argument is NULL and plot.gvis has the same behaviour as in the
    previous versions of googleVis. 

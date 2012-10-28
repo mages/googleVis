@@ -166,8 +166,7 @@ plot(Mtbl)
 ## Example of using googleVis with knitr and markdown
 
 \dontrun{
-## Simple knitr/markdown file
-
+## Simple knitr/markdown file with googleVis
 knitrRmd <-"
 # Markdown example with knitr and googleVis
 ===========================================
@@ -178,8 +177,8 @@ In this case change the behaviour of plot.gvis
 library(googleVis)
 op <- options(gvis.plot.tag='chart')
 ```
-The following plot statements will automatcally return  the HTML
-required for the 'knited' output. 
+The following plot statements will automatically return  the HTML
+required for the 'knitted' output. 
 
 ## Combo chart
 ```{r ComboExample, results='asis', tidy=FALSE}
@@ -188,7 +187,7 @@ CityPopularity$Mean=mean(CityPopularity$Popularity)
 CC <- gvisComboChart(CityPopularity, xvar='City',
           yvar=c('Mean', 'Popularity'),
           options=list(seriesType='bars',
-                       with=350, height=300,
+                       width=450, height=300,
                        title='City Popularity',
                        series='{0: {type:\"line\"}}'))
 plot(CC)
@@ -198,8 +197,8 @@ Example of gvisComboChart with R code shown above.
 ## Place two charts next to each other
 ```{r gvisMergeExample, results='asis', echo=FALSE}
 Geo <- gvisGeoChart(Exports, locationvar='Country', colorvar='Profit', 
-                    options=list(height=250, width=350)) 
-Tbl <- gvisTable(Exports, options=list(height=250, width=150))
+                    options=list(height=300, width=350)) 
+Tbl <- gvisTable(Exports, options=list(height=300, width=200))
 plot(gvisMerge(Geo, Tbl, horizontal=TRUE))
 ``````
 Example of a gvisGeoChart with gvisTable and R code hidden.
@@ -210,10 +209,11 @@ M <- gvisMotionChart(Fruits, 'Fruit', 'Year',
          options=list(width=400, height=350))
 plot(M)
 ```
-Please note that the Motion Chart is only displayed when hoseted on a
-web server, or the directory in which the file is stored has been
-added to the trusted source in the security settings of
-Macromedia. See the googleVis package vignette for more details. 
+Please note that the Motion Chart is only displayed when hosted on a
+web server, or is placed in a directory which has been added to the 
+trusted sources in the [security settings of Macromedia]
+(http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html). 
+See the googleVis package vignette for more details. 
 
 ```{r resetOptions}
 ## Set options back to original options
