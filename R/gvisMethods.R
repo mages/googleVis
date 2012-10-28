@@ -18,8 +18,16 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
-print.gvis <- function(x, tag="html", file="", ...){
+print.gvis <- function(x, tag=NULL, file="", ...){
 
+  if(is.null(tag))
+    tag <- getOption("gvis.print.tag")
+  
+  if(!tag %in% getOption("gvis.tags"))
+        stop(paste(tag,
+        "is not a valid option. Set tag to NULL or one of the following:\n",
+                   paste(getOption("gvis.tags"), collapse=", "))) 
+      
   tag <- ifelse( tag %in% c("chartid", "type", "html"), tag, paste(".", tag, sep=""))
 
   output <- unlist(x)
@@ -47,19 +55,28 @@ googlevis.httpd.handler <- function(path, query, ...) {
        "status code"=200L)
 }
 
-plot.gvis <- function(x, ...){
-  
-  if(!isServerRunning() ) {
-    tools:::startDynamicHelp()
-  }
+plot.gvis <- function(x, tag=NULL, ...){
 
-  env <- get( ".httpd.handlers.env", asNamespace("tools"))
-  env[["googleVis"]] <- googlevis.httpd.handler
-  
-  root.dir <- tempdir()
+  if(is.null(tag))
+    tag <- getOption("gvis.plot.tag")
 
-  ## Write the pure chart html code into a separate file
-  chart.txt <- '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  ## Open browser window
+  if(is.null(tag)){
+    
+    if(!isServerRunning() ) {
+      tools:::startDynamicHelp()
+    }
+    
+    env <- get( ".httpd.handlers.env", asNamespace("tools"))
+    env[["googleVis"]] <- googlevis.httpd.handler
+    
+    root.dir <- tempdir()
+    
+    ## Write the whole visualisation into a html file
+    if('gvis' %in% class(x)){    
+      
+      ## Write the pure chart html code into a separate file
+      chart.txt <- '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -89,25 +106,40 @@ plot.gvis <- function(x, ...){
 </body>
 </html>
 '
-  chart.txt <- sprintf(chart.txt, x$chartid,gsub(">","&gt;",gsub("<","&lt;",
-                                                                 paste(unlist(x$html$chart), collapse="\n")))
-                       )
-  cat(chart.txt, file=file.path(root.dir, paste("Chart_", x$chartid, ".html", sep="")))
-
-  ## Write the whole visualisation into a html file
-  file <- file.path(root.dir, paste(x$chartid ,".html", sep=""))
- 
-  print(x, file=file)
-  
-  .url <- sprintf("http://127.0.0.1:%s/custom/googleVis/%s",
-                  tools:::httpdPort,
-                  basename(file))
-  if(interactive()){
-    browseURL(.url, ...)
-  }else{
-   browseURL(.url, browser='false',...)
+    
+      chart.txt <- sprintf(chart.txt, x$chartid,gsub(">","&gt;",gsub("<","&lt;",
+                                                                     paste(unlist(x$html$chart), collapse="\n")))
+                           )
+      cat(chart.txt, file=file.path(root.dir, paste("Chart_", x$chartid, ".html", sep="")))
+      
+      file <- file.path(root.dir, paste(x$chartid ,".html", sep=""))
+    }else{## not a gvis object
+      basex <- basename(x)
+      if(length(grep("htm", substr(basex, nchar(basex)-3,nchar(basex)))) < 1)
+        warning("The file does not appear to be an html file.\n")
+      file.copy(from=x, to=file.path(root.dir, basex),...)
+      file <- file.path(root.dir, basex)
+    }
+    
+    print(x, file=file)
+    
+    .url <- sprintf("http://127.0.0.1:%s/custom/googleVis/%s",
+                    tools:::httpdPort,
+                    basename(file))
+    if(interactive()){
+      browseURL(.url, ...)
+    }else{ ## not interactive modus     
+      browseURL(.url, browser='false',...)
+    }
+    invisible(file)
+  }else{ ## givs.plot.tag not NULL
+    if('gvis' %in% class(x)){
+      return(print(x, tag=tag))
+    }else{
+      return(print(x))
+    }
   }
-  invisible(file)
+  
 }
   
 gvisMerge <- function(x, y, horizontal=FALSE, tableOptions='border="0"',

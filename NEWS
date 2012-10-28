@@ -1,3 +1,37 @@
+googleVis 0.3.2 [2012-10-28]
+----------------------------
+
+NEW FEATURES
+
+ * plot.gvis gained the new argument 'tag', which works similar to the
+   argument of the same name in print.gvis. By default the tag
+   argument is NULL and plot.gvis has the same behaviour as in the
+   previous versions of googleVis. 
+   However, the argument can be set outside plot.gvis via
+   options(gvis.plot.tag=...). This allows users to switch plot
+   statements into print statements by changing only one setting. This
+   is particular useful when googleVis is used in combination with
+   knitr or R.rsp. Setting options(plot.gvis.tag="chart") will ensure
+   that plot(gvisOutput) statements will be included into the final
+   HTML output. See the help file to plot.gvis and vignette for more
+   details. 
+
+Changes
+
+ * The tag argument of print.gvis can be set globally from outside the
+   function via options(gvis.print.tag)
+
+ * The vignette has a new section describing how to set the
+   behaviour of plot.gvis and print.gvis via options(gvis.plot.tag),
+   options(gvis.print.tag) respectively. The section describing how
+   googleVis can be used with knitr has been extended and an additional
+   example included. 
+
+ * plot.gvis can open any html file now, not just gvis-objects. Like
+   with gvis-object it will copy the file into a temporary directory
+   and display it via the R HTTP server. 
+
+
 googleVis 0.3.1 [2012-10-22]
 ----------------------------
 
@@ -8,8 +42,8 @@ Bug Fixes
   getOptions('browser'), if interactive() returned TRUE, otherwise to
   'false'. The function getOptions('browser') returns either a string
   or a function call. The later caused an error message, as
-  experienced with RStudio. The check is now handled internally by
-  plot.gvis.
+  experienced with RStudio and RGui.exe. The check is now handled
+  internally by plot.gvis.
 
   Thanks to Sebastian Kranz for reporting this bug.
 

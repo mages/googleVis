@@ -70,9 +70,9 @@ Contact: rvisualisation@gmail.com}
 \tableofcontents
 \clearpage
 
-\section{Introduction}
+\section{Introduction}\label{sec:Intro}
 
-\subsection{Motivation}
+\subsection{Motivation}\label{sec:Motivation}
 More and more data is becoming available, and yet
 stories and insights are still often missed: we are lost in the data
 jungle and struggle to see the wood for the trees. 
@@ -136,7 +136,7 @@ and \href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare}.
 \end{figure}
 %\clearpage
 
-\subsection{Google Chart Tools}
+\subsection{Google Chart Tools}\label{sec:GoogleChartTools}
 
 The Google Chart Tools~\cite{GoogleVisApi}
 allow users to create interactive charts as part of Google
@@ -223,9 +223,9 @@ These principles hold true for most of the interactive charts of the
 Google Chart Tools, see the examples in Figure~\ref{demos}.
 
 However, before you use the API you should read the \href{https://developers.google.com/terms/}{Google
-  Terms of Service}\cite{GoogleTerms}. 
+  Terms of Service}~\cite{GoogleTerms}. 
 
-\section{The \googleVis package}
+\section{The \googleVis package}\label{sec:googleVisPackage}
 
 
 The \googleVis package provides an interface between R and the Google
@@ -297,7 +297,7 @@ plot(M)
 \end{center}
 \end{figure}
 
-\subsection{Installation}
+\subsection{Installation}\label{sec:Installation}
 We can install \googleVis in the usual way from CRAN, e.g.:
 <<eval=FALSE>>=
 install.packages('googleVis') 
@@ -314,7 +314,7 @@ library(googleVis)
 cat(googleVis:::gvisWelcomeMessage())
 @ 
 
-\subsection{Using the  \googleVis package}
+\subsection{Using the  \googleVis package}\label{sec:UsingGoogleVis}
 
 The individual functions of the \googleVis package are documented in
 detail in the help pages. Here we will cover only the principles of
@@ -377,7 +377,7 @@ and \texttt{'list'}. Generic print (\texttt{print.gvis})  and plot
 To illustrate the concept we shall create a motion chart using the
 \texttt{Fruits} data set. 
 
-\subsection{Motion Chart Example}
+\subsection{Motion Chart Example}\label{sec:MotionChartExample}
 
 Following the documentation of the Google Motion Chart API we need a
 data set which has at least four columns: one identifying the
@@ -463,7 +463,8 @@ print(M, tag='footer')
 cat(paste(substring( capture.output( cat(M$html$footer) ) , 0, 66), sep="\n", collapse="\n"))
 @ 
 
-\subsection{Displaying \texttt{gvis} objects locally}
+\subsection{Displaying \texttt{gvis} objects
+  locally}\label{sec:DisplayLocally} 
 
 To display the page locally, type:
 <<eval=FALSE>>=
@@ -506,11 +507,64 @@ settings. Tony Breyal posted the following solution on
 Now open your googleVis html file and it should display
 successfully. 
 
-\subsection{Combining charts with \texttt{gvisMerge}}
+Alternatively use the function \texttt{plot.gvis} explicitly,
+e.g. suppose your html file is stored in
+\texttt{/Users/JoeBloggs/myGoogleVisChart.html}. Using the
+\texttt{plot.gvis} the file will be copied into a temporary directory
+and displayed via the R HTTP help server with, in the same way as a
+gvis-object: 
+<<eval=FALSE>>=
+plot.gvis("/Users/JoeBloggs/myGoogleVisChart.html")
+@ 
+
+Please note that this feature of \texttt{plot.gis} was introduced
+to \googleVis  with version 0.3.2.
+
+\subsection{Setting default behaviour of \texttt{print.gvis} and
+  \texttt{plot.gvis}}\label{sec:Options} 
+
+In \googleVis version 0.3.2 the function \texttt{plot.gvis} gained the
+same argument as \texttt{print.gvis}: \texttt{tag}. By default the
+\texttt{tag} argument is set to \texttt{NULL} in \texttt{plot.gvis}
+and the plot function will display its output in a browser
+window. However, if \texttt{tag} is not \texttt{NULL} the function
+\texttt{plot.gvis} will behave exactly like \texttt{print.gvis}.
+
+The default \texttt{tag} can be set for both functions globally via
+the \texttt{options()} function. On package load \googleVis sets
+\texttt{options(gvis.print.tag='html')} and
+\texttt{options(gvis.plot.tag=NULL)}. 
+
+Suppose you would set \texttt{options(gvis.plot.tag='chart')} then all
+following plot statements would print the chart part of the
+gvis-object only, without opening a browser window. This might
+seem a bit odd at first, yet it becomes helpful when you write R
+Markdown files for \knitr or files for other packages such as
+\textbf{\texttt{R.rsp}}. 
+
+While you draft your file you may want to see the output of \googleVis
+in a interactive way, so you set \texttt{options(gvis.plot.tag=NULL)}
+at the top of the file and you change the setting to \texttt{'chart'}
+before you parse the file, say with \textbf{\texttt{knitr}}. This will
+ensure that all plot statements return the HTML code of the chart,
+rather than opening browser windows. Section~\ref{sec:knitr} on
+page~\pageref{sec:knitr} provides more details and a little \knitr
+example.   
+
+\subsection{Combining charts with \texttt{gvisMerge}}\label{gvisMerge}
 
 The function \texttt{gvisMerge} takes two \texttt{gvis}-objects 
 and merges the underlying components into one page. The charts are
 aligned either horizontally or vertically next to each other in an HTML table. 
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=0.8\textwidth]{gvisMerge.pdf}
+\caption{
+  Three charts combined with \texttt{gvisMerge}.
+}\label{gvisMerge}
+\end{center}
+\end{figure}
 
 The output of \texttt{gvisMerge} is a \texttt{gvis}-object again.
 This allows us to apply the same function iteratively to create more complex
@@ -530,14 +584,6 @@ GTM <- gvisMerge(GT, M, horizontal=TRUE,
 <<eval=FALSE>>=
 plot(GTM)
 @ 
-\begin{figure}%%[!ht]
-\begin{center}
-\includegraphics[width=0.8\textwidth]{gvisMerge.pdf}
-\caption{
-  Three charts combined with \texttt{gvisMerge}.
-}\label{gvisMerge}
-\end{center}
-\end{figure}
 
 \subsection{Setting options}\label{settingoptions}
 
@@ -548,7 +594,7 @@ In the following example we create a line chart and set various
 options\footnote{Please refer to the help file of the individual
   \googleVis functions, as the options can vary from chart to chart.},
 see the output in Figure~\ref{Options}.  
-\begin{figure}%%[!ht]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{Options.pdf}
 \caption{
@@ -595,7 +641,7 @@ Geo <- gvisGeoChart(CityPopularity, locationvar='City',
                       ) 
 plot(Geo)
 @ 
-\begin{figure}%%[!ht]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{gvisGeoChart.png}
 \caption{
@@ -615,7 +661,7 @@ describes the label of the browser button\footnote{See also
 Editor <- gvisLineChart(df, options=list(gvis.editor='Edit me!'))
 plot(Editor)
 @ 
-\begin{figure}%%[!ht]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=0.8\textwidth]{Editor.pdf}
 \caption{
@@ -927,6 +973,13 @@ Here is a \Rook app example with \texttt{googleVis}. It displays a little R data
 The user can change the visualisation by clicking on the \emph{Edit me!} button 
 and upload her/his own CSV-file, see , see Figure~\ref{fig:Rook}. 
 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Rook.png}
+  \caption{Screen shot of a Rook app with \googleVis output.}
+  \label{fig:Rook}
+\end{figure}
+
 <<eval=FALSE>>=
 require(Rook)
 require(googleVis)
@@ -970,22 +1023,13 @@ s$add(app=my.app, name='googleVisTable')
 s$browse('googleVisTable')
 @
 
-\begin{figure}
-  \centering
-  \includegraphics[width=0.8\textwidth]{Rook.png}
-  \caption{Screen shot of a Rook app with \googleVis output.}
-  \label{fig:Rook}
-\end{figure}
-
-
-
-\section{Using \googleVis with \knitr}
-Using \googleVis with \knitr~\cite{knitr} is a convient way of creating
-interactive reproducible reports. The approach taken by
-\knitr is similar to Sweave, in that you can combine code with text, see
-the \knitr home page\footnote{\url{http://yihui.name/knitr/}} for more 
-details. However, \knitr can also export to HTML, which is required to 
-embed \googleVis charts.
+\section{Using \googleVis with \knitr}\label{sec:knitr}
+Using \googleVis with
+\knitr\footnote{\url{http://yihui.name/knitr/}}~\cite{knitr} is a
+convient way of creating interactive reproducible reports. The
+approach taken by \knitr is similar to Sweave, in that you can combine
+code with text and formatting tags. However, \knitr can also export to
+HTML, which is required to  embed \googleVis charts.
 
 To include \googleVis output into a \knitr document you have 
 to set the chunk option results to \texttt{'asis'} and print the chart 
@@ -997,8 +1041,93 @@ M <- gvisMotionChart(Fruits, "Fruit", "Year",
 print(M, 'chart')
 ```
 \end{verbatim}
-Further examples have been published in a blog post: 
+A little example was published in a blog post: 
 \url{http://lamages.blogspot.co.uk/2012/05/interactive-reports-in-r-with-knitr-and.html}
+
+Version 0.3.2 of \googleVis introduced \texttt{'tag'} as a new argument to
+the plot function \texttt{plot.gvis}, see also
+page~\pageref{sec:Options}. This argument is by default set to
+\texttt{NULL} and can be set globally outside the plot function via
+\texttt{options()}.  
+
+The argument \texttt{tag} influences the behaviour of the plot
+function. The \texttt{tag} parameter can be the same as for the print
+function \texttt{print.gvis}. Indeed, setting
+\texttt{options(gvis.plot.tag = 'chart')} will change the behaviour of
+plot to print, so \texttt{plot(x)} will no longer open a browser
+window, but produce the same output as \texttt{print(x, tag='chart')},
+if \texttt{x} is a gvis-object. 
+
+Hence, setting the option \texttt{gvis.plot.tag} in a \knitr markdown
+Rmd-file to \texttt{'chart'} will automatically turn all following
+plot statements into html output, see the example below and Figure~\ref{fig:markdown}. 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.7\textwidth]{MarkdownExample.png}
+  \caption{Screen shot of the markdown  example output} 
+  \label{fig:markdown}
+\end{figure}
+
+\begin{verbatim}
+# Markdown example with knitr and googleVis
+===========================================
+This is a little Markdown example file.
+Set the googleVis options first.
+In this case change the behaviour of plot.gvis
+```{r setOptions, message=FALSE}
+library(googleVis)
+op <- options(gvis.plot.tag='chart')
+```
+The following plot statements will automatcally return  the HTML
+required for the 'knited' output. 
+
+## Combo chart
+```{r ComboExample, results='asis', tidy=FALSE}
+## Add the mean
+CityPopularity$Mean=mean(CityPopularity$Popularity)
+CC <- gvisComboChart(CityPopularity, xvar='City',
+          yvar=c('Mean', 'Popularity'),
+          options=list(seriesType='bars',
+                       with=350, height=300,
+                       title='City Popularity',
+                       series='{0: {type:\"line\"}}'))
+plot(CC)
+```
+Example of gvisComboChart with R code shown above.
+
+## Place two charts next to each other
+```{r gvisMergeExample, results='asis', echo=FALSE}
+Geo <- gvisGeoChart(Exports, locationvar='Country', colorvar='Profit', 
+                    options=list(height=250, width=350)) 
+Tbl <- gvisTable(Exports, options=list(height=250, width=150))
+plot(gvisMerge(Geo, Tbl, horizontal=TRUE))
+``````
+Example of a gvisGeoChart with gvisTable and R code hidden.
+
+## Motion Chart
+```{r MotionChartExample, results='asis', tidy=FALSE}
+M <- gvisMotionChart(Fruits, 'Fruit', 'Year',
+         options=list(width=400, height=350))
+plot(M)
+```
+Please note that the Motion Chart is only displayed when hoseted on a
+web server, or the directory in which the file is stored has been
+added to the trusted source in the security settings of
+Macromedia. See the googleVis package vignette for more details. 
+
+```{r resetOptions}
+## Set options back to original options
+options(op)
+```
+\end{verbatim}
+
+As a result you can use the \texttt{options()} command as a switch in your \knitr
+file to switch between as interactive mode, where you are likely to
+experiment, via copying and pasting R code into the console and
+running \texttt{knit} on the whole file.
+
+A more comprehensive example is given in the help file to \texttt{plot.gvis}.
 
 \section{Using \googleVis in presentations}
 The Google Chart Tools are designed for web pages, so it should

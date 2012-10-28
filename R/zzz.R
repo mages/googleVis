@@ -20,6 +20,18 @@
 
 .onLoad<- function(lib, pkg,...)
 {
+
+  options(gvis.plot.tag=NULL)
+  options(gvis.print.tag="html")
+
+  ## Set possible gvis.out.options
+  ## Output from
+  ## unique(unlist(strsplit(names(unlist( gvisTable(data.frame(x=1, y=1)))),".", fixed=TRUE)))
+
+  gvis.tags <- c("type",  "chartid", "html", "header", "chart", "jsHeader", "jsData", "jsDrawChart", 
+                 "jsDisplayChart", "jsChart", "jsFooter", "divChart", "caption", "footer")
+  options(gvis.tags=gvis.tags)
+  
   ## This function are required to set option in googleVis functions,
   ## e.g. to set startZoom and stopZoom windows in gvisAnnotatedTimeLine
 
