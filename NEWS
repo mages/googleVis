@@ -1,3 +1,12 @@
+googleVis 0.3.3 [2012-10-31]
+----------------------------
+
+Bug Fixes
+
+ * plot.gvis didn't open a browser window when options(gvis.plot.tag)
+   was not set to NULL, but the user explicitly called plot.gvis with tag
+   NULL. Thanks to Sebastian Kranz for reporting this bug. 
+
 googleVis 0.3.2 [2012-10-28]
 ----------------------------
 

@@ -15,10 +15,11 @@
 }
 \arguments{
   \item{x}{
-    An object of class \code{gvis}, or a HTML file in case of plot.gvis.
+    An object of class \code{gvis}, or a HTML file in case of
+    plot.gvis. 
   }
   \item{tag}{Default \code{NULL}. Name tag of the objects to be
-    extracted from a gvis object. If no tag is given (\code{tag=NULL})
+    extracted from a gvis object. If tag is missing 
     then the values of \code{getOption("gvis.print.tag")},
     \code{getOption("gvis.plot.tag")} will be used for \code{print.gvis}
     and \code{plot.gvis} respectively.  
@@ -42,7 +43,10 @@
     be used initially in an interactive mode and with one change in
     \code{options()} produce the HTML output required for a programmatic
     run of the script. See the example section below for a
-    \code{knitr} case study.  
+    \code{knitr} case study.
+
+    \code{plot.gvis} ignores the argument \code{tag} it \code{x} is a
+    HTML file name.
   }	
   \item{file}{
     file name. If "" (the

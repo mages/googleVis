@@ -57,24 +57,20 @@ googlevis.httpd.handler <- function(path, query, ...) {
 
 plot.gvis <- function(x, tag=NULL, ...){
 
-  if(is.null(tag))
+  if(missing(tag)) ## Has tag being actively set?
     tag <- getOption("gvis.plot.tag")
 
-  ## Open browser window
-  if(is.null(tag)){
-    
+  if(is.null(tag) | !('gvis' %in% class(x))){  ## Open browser window if tag is NULL   
     if(!isServerRunning() ) {
       tools:::startDynamicHelp()
     }
     
     env <- get( ".httpd.handlers.env", asNamespace("tools"))
-    env[["googleVis"]] <- googlevis.httpd.handler
-    
+    env[["googleVis"]] <- googlevis.httpd.handler    
     root.dir <- tempdir()
     
     ## Write the whole visualisation into a html file
-    if('gvis' %in% class(x)){    
-      
+    if('gvis' %in% class(x)){          
       ## Write the pure chart html code into a separate file
       chart.txt <- '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -105,13 +101,10 @@ plot.gvis <- function(x, tag=NULL, ...){
 </p>
 </body>
 </html>
-'
-    
+'    
       chart.txt <- sprintf(chart.txt, x$chartid,gsub(">","&gt;",gsub("<","&lt;",
-                                                                     paste(unlist(x$html$chart), collapse="\n")))
-                           )
-      cat(chart.txt, file=file.path(root.dir, paste("Chart_", x$chartid, ".html", sep="")))
-      
+                                                                     paste(unlist(x$html$chart), collapse="\n"))))
+      cat(chart.txt, file=file.path(root.dir, paste("Chart_", x$chartid, ".html", sep="")))      
       file <- file.path(root.dir, paste(x$chartid ,".html", sep=""))
     }else{## not a gvis object
       basex <- basename(x)
@@ -119,10 +112,8 @@ plot.gvis <- function(x, tag=NULL, ...){
         warning("The file does not appear to be an html file.\n")
       file.copy(from=x, to=file.path(root.dir, basex),...)
       file <- file.path(root.dir, basex)
-    }
-    
-    print(x, file=file)
-    
+    }    
+    print(x, file=file)    
     .url <- sprintf("http://127.0.0.1:%s/custom/googleVis/%s",
                     tools:::httpdPort,
                     basename(file))
@@ -138,8 +129,7 @@ plot.gvis <- function(x, tag=NULL, ...){
     }else{
       return(print(x))
     }
-  }
-  
+  }  
 }
   
 gvisMerge <- function(x, y, horizontal=FALSE, tableOptions='border="0"',
