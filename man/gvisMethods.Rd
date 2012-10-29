@@ -21,8 +21,10 @@
     extracted from a gvis object. If no tag is given (\code{tag=NULL})
     then the values of \code{getOption("gvis.print.tag")},
     \code{getOption("gvis.plot.tag")} will be used for \code{print.gvis}
-    and \code{plot.gvis} respectively.  A complete list of available
-    tags is given by the command \code{getOption("gvis.tags")}.
+    and \code{plot.gvis} respectively.  
+
+    A complete list of available tags is given by the command
+    \code{getOption("gvis.tags")}. 
 
     The default value of \code{gvis.print.tag} is \code{"html"}, which
     means \code{print.gvis} will show a complete web page with the
