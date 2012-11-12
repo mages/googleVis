@@ -38,3 +38,5 @@ Thanks to:
   o Sebastian Kranz and Wei Luo for providing ideas and code to
     improve the transformation of R data frames into JSON code
   o Sebastian Kranz for reporting a bug in version 0.3.0
+  o Leonardo Trabuco for helping to clarify the usage of the
+    argument state in the help file of gvisMotionChart

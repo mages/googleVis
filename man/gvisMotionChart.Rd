@@ -79,7 +79,8 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
       \item{\code{state}}{An initial display state for the chart. This
 	is a serialised JSON object that describes zoom level, selected
 	dimensions, selected bubbles/entities, and other state
-	descriptions. For more details see
+	descriptions. The string has to start and end with a newline,
+	see the example for more details, see also
 	\url{https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html#Motion_Chart_initial_state}
       }
       \item{\code{showChartButtons}}{logical, default=\code{TRUE}.
@@ -283,7 +284,8 @@ plot(M5)
 ## settings via R. Just copy and past the string from the browser into
 ## the argument state of the options list.
 ## Here is an example of a motion chart, with an initial line chart
-## displayed. 
+## displayed. Ensure that you have a newline at the start and end of
+## your settings string.
 
 myStateSettings <-'
 {"xZoomedDataMin":1199145600000,"colorOption":"2",
@@ -297,8 +299,13 @@ myStateSettings <-'
 "xZoomedIn":false,"time":"2010","yZoomedDataMin":0,
 "yZoomedIn":false,"orderedByY":false,"yZoomedDataMax":100}
 '
-M6 <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
-plot(M6)
+M6a <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
+plot(M6a)
+
+## Newline set explicitly
+myStateSettings <-'\n{"iconType":"LINE"}\n'
+M6b <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
+plot(M6b)
 
 
 ## Define which columns are used for the initial setup of the various

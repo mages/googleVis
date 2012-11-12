@@ -1,3 +1,12 @@
+googleVis 0.3.3 [2012-11-12]
+----------------------------
+
+Changes
+
+ * Clarified the usage of the argument state in the help file of
+   gvisMotionChart. Thanks to Leonardo Trabuco 
+
+
 googleVis 0.3.3 [2012-10-31]
 ----------------------------
 
