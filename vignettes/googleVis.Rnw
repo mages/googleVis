@@ -1130,7 +1130,7 @@ running \texttt{knit} on the whole file.
 
 A more comprehensive example is given in the help file to \texttt{plot.gvis}.
 
-\section{Using \googleVis in presentations}
+\section{Using \googleVis in presentations}\label{sec:presentations}
 The Google Chart Tools are designed for web pages, so it should
 be no surprise that it can be difficult or impossible to embed \googleVis 
 output in traditional presentation software like MS PowerPoint\footnote{For 
@@ -1240,6 +1240,49 @@ plot(J2)
 For more details see the \texttt{demo(EventListener)} and
 \href{https://developers.google.com/chart/interactive/docs/reference}{Google
   Chart Tools Reference}.
+
+\section{Frequent ask questions -- FAQ}
+\subsection{Can use googleVis output in PDF files?}
+No, not directly. 
+
+The Google Chart Tools API is designed for dynamic web
+output on your screen and not on paper. See also the
+section~\ref{sec:presentations}, page~\pageref{sec:presentations},
+which covers how to use \googleVis in presentations. 
+
+Note that this vignette uses screen shots to include
+examples of \googleVis charts.
+
+\subsection{Can I change the colour of the bubbles in motion charts?}
+
+No, unfortunately not.
+
+The colours are set by the Google Chart Tools API and cannot changed
+by the user.
+
+\subsection{Can I change the icons in Maps?}
+
+No, not via \texttt{gvisMap}.
+
+However, you can upload your data to a Google Fusion Table link with a
+second table which defines the icons. See the Google Fusion Table
+support page for more details: \url{http://support.google.com/fusiontables/answer/2679986?hl=en}
+
+\subsection{Why can't I see motion charts when I open them from a local directory?}
+
+See section~\ref{sec:DisplayLocally} on page~\pageref{sec:DisplayLocally}
+
+\subsection{Why can't I see motion charts on my iPad/iPhone?}
+
+Motion charts (also geo maps and annotated time lines) are rendered in
+your browser using Flash, unlike most other charts which use
+HTML5. Unfortunately Flash is not directly supported on iOS devices
+such as iPads and iPhones. 
+
+Apparently there is little appetite at Google to migrate move motion
+charts to HTML5 or other technologies, see the following Google
+Visualisation API news group post: \url{https://groups.google.com/forum/?fromgroups=#!topic/google-visualization-api/3dn3zlQMcXI}
+%{https://groups.google.com/\-forum/\-?fromgroups=\-#!topic/\-google-visualization-api/\-3dn3zlQMcXI}.
 
 \section{Contact}
 \subsection{Collaboration} 

@@ -2,3 +2,4 @@ googleVis		Examples of various googleVis functions and plots
 AnimatedGeoMap		Prototype of an animate a geo map with JavaScript
 EventListener		Examples of basic JavaScript event handlers
 WorldBank		Visualising country level data sourced from the World Bank
+Rrsp			Demo showing how googleVis can work with the R.rsp package

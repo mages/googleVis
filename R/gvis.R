@@ -98,24 +98,28 @@ return(data);
                      paste(paste("data.addColumn('", data.type, "','",
                                  names(data.type), "');", sep=""), collapse="\n"))
     
-  jsDisplayChart <- '
-// jsDisplayChart 
+ jsDisplayChart <- '
+// jsDisplayChart
 function displayChart%s()
 {
-  google.load("visualization", "1", { packages:["%s"] %s}); 
-  google.setOnLoadCallback(drawChart%s);
+  if (typeof google === "object" && typeof google.visualization === "object") {
+    drawChart%s();
+ } else {
+   google.load("visualization", "1", { packages:["%s"] %s});
+   google.setOnLoadCallback(drawChart%s);
+ }
 }
 '
-  jsDisplayChart <- sprintf(jsDisplayChart, chartid,
-                     ifelse(!is.null(options$gvis$gvis.editor),'charteditor',
-                            tolower(package)),
-                     ifelse(!is.null(options$gvis$gvis.language),
-                            paste(",'language':'",
-                                  options$gvis$gvis.language, "'", sep=""), ''),
-                     chartid
-                     )
+ jsDisplayChart <- sprintf(jsDisplayChart, chartid, chartid,
+                    ifelse(!is.null(options$gvis$gvis.editor), 'charteditor',
+                           tolower(package)),
+                    ifelse(!is.null(options$gvis$gvis.language),
+                           paste(",'language':'",
+                                 options$gvis$gvis.language, "'", sep=""), ''), chartid
+                    )
 
-  
+#########
+
   jsDrawChart <- '
 // jsDrawChart
 function drawChart%s() {

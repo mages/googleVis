@@ -17,13 +17,16 @@ Using the Google Chart Tools with R
   and examples:
 
   \url{http://code.google.com/p/google-motion-charts-with-r/}.
+
+  You find further notes on Markus' blog:
+  \url{http://lamages.blogspot.co.uk/search/label/googleVis}
 } 
 \details{
 \tabular{ll}{
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
 	Version: \tab 0.3.4\cr
-	Date: \tab 2012-12-11\cr
+	Date: \tab 2012-01-26\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}

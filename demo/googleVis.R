@@ -234,8 +234,4 @@ plot(GTM)
 
 pause()
 
-## See how googleVis functions can be integrated into rsp-files:
-if(require(R.rsp))
-  browseRsp() ## Click on googleVis in the Package section.
-
 ## See demo(package='googleVis') for other available demos.

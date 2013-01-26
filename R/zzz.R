@@ -74,10 +74,12 @@
               paste(tmp, collapse=", ")
             })
     
-  packageStartupMessage(gvisWelcomeMessage())
   invisible()
 }
 
+.onAttach <- function(lib, pkg,...){
+  packageStartupMessage(gvisWelcomeMessage())
+}
 gvisWelcomeMessage <- function(){
   
   paste("\n",     

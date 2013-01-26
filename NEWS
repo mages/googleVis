@@ -1,13 +1,23 @@
-googleVis 0.3.4 [2012-12-11]
+googleVis 0.3.4 [2012-01-26]
 ----------------------------
 
 Changes
 
-* Changed the load mechanism for the Google API from http to https
-  again. Thanks to Jacques Philip. 
+ * Changed the load mechanism for the Google API from http to https
+   again. Thanks to Jacques Philip. 
 
-* Changed package dependencies to imports in DESCRIPTION. 
-  Thanks to Suraj Gupta for pointing this out.
+ * Changed package dependencies to imports in DESCRIPTION. 
+   Thanks to Suraj Gupta for pointing this out.
+
+ * Separated out the R.rsp example in demo googleVis to demo Rrsp.
+
+ * Added FAQ section to vignette.
+
+Bug Fixes
+
+ * jsDisplayChart didn't check if google visualization is already loaded.
+   Many thanks to Mark Melling reporting the issue and providing a solution.
+
 
 googleVis 0.3.3 [2012-11-12]
 ----------------------------
