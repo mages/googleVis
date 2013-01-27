@@ -25,7 +25,6 @@ Imports:
     RJSONIO,
     utils
 Suggests:
-    Hmisc
 License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/, http://lamages.blogspot.co.uk/search/label/googleVis
 LazyLoad: yes
