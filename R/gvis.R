@@ -75,8 +75,6 @@ gvis <- function(type="", data, options, chartid, package){
 
   jsHeader <- '
 <!-- jsHeader -->
-<script type="text/javascript\" src="https://www.google.com/jsapi">
-</script>
 <script type="text/javascript">
 '
   jsHeader  <- paste(infoString(type),   jsHeader , sep="\n")
@@ -102,20 +100,16 @@ return(data);
 // jsDisplayChart
 function displayChart%s()
 {
-  if (typeof google === "object" && typeof google.visualization === "object") {
-    drawChart%s();
- } else {
-   google.load("visualization", "1", { packages:["%s"] %s});
-   google.setOnLoadCallback(drawChart%s);
- }
+  google.load("visualization", "1", { packages:["%s"], callback: drawChart%s %s});
 }
 '
- jsDisplayChart <- sprintf(jsDisplayChart, chartid, chartid,
+ jsDisplayChart <- sprintf(jsDisplayChart, chartid,
                     ifelse(!is.null(options$gvis$gvis.editor), 'charteditor',
                            tolower(package)),
+                    chartid,
                     ifelse(!is.null(options$gvis$gvis.language),
                            paste(",'language':'",
-                                 options$gvis$gvis.language, "'", sep=""), ''), chartid
+                                 options$gvis$gvis.language, "'", sep=""), '')
                     )
 
 #########
@@ -138,20 +132,18 @@ function drawChart%s() {
                      gvisEditor(chartid,type,options)
                      )
 
-
-
-  jsChart <- '
-// jsChart 
-displayChart%s()
+jsFooter  <- '
+// jsFooter
+ </script>
 '
-   jsChart <- sprintf(jsChart, chartid )
 
-  jsFooter <- '
-<!-- jsFooter -->  
-//-->
-</script>
+jsChart <- '
+<!-- jsChart -->  
+<script type="text/javascript\" src="https://www.google.com/jsapi?callback=displayChart%s"></script>
 '
-  
+jsChart  <- sprintf(jsChart, chartid)
+
+ 
 divChart <- '
 <!-- divChart -->
 %s  
@@ -172,8 +164,8 @@ divChart <- '
                                    jsData=jsData,
                                    jsDrawChart=jsDrawChart,
                                    jsDisplayChart=jsDisplayChart,
-                                   jsChart=jsChart,
                                    jsFooter=jsFooter,
+                                   jsChart=jsChart,
                                    divChart=divChart),
                      type=type, chartid=chartid)
   return(output)

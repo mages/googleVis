@@ -1,12 +1,14 @@
 Package: googleVis
 Type: Package
 Title: Interface between R and the Google Chart Tools
-Version: 0.3.4
-Date: 2012-01-26
+Version: 0.4.0
+Date: 2012-02-01
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
                      email = "markus.gesmann@gmail.com"),
             person("Diego", "de Castillo", role = "aut",
-                     email = "decastillo@gmail.com"))
+                     email = "decastillo@gmail.com"),
+                   person("Joe", "Cheng", role = "ctb",
+     	             email = "joe@rstudio.com"))
 Author: Markus Gesmann, Diego de Castillo
 Maintainer: Markus Gesmann <markus.gesmann@gmail.com>
 Description: 

@@ -98,18 +98,18 @@ gvisMerge(x, y, horizontal = FALSE,
 
 
 G <- gvisGeoChart(Exports, "Country", "Profit", 
-                  options=list(width=200, height=100))
+                  options=list(width=250, height=100))
 T <- gvisTable(Exports, 
-                  options=list(width=200, height=260))
+                  options=list(width=250, height=300))
 
 GT <- gvisMerge(G,T, horizontal=FALSE) 
 plot(GT)
 
 M <- gvisMotionChart(Fruits, "Fruit", "Year",
-                     options=list(width=400, height=360))
+                     options=list(width=400, height=410))
 
 GTM <- gvisMerge(GT, M, horizontal=TRUE,
-                     tableOptions="bgcolor=\"#CCCCCC\" cellspacing=10")
+                     tableOptions="cellspacing=10")
 plot(GTM)
 
 
@@ -121,12 +121,10 @@ area <- gvisAreaChart(OpenClose, "Weekday", c("Open", "Close"),
               options=list(legend='none', width=300, height=150))
 bar <- gvisBarChart(OpenClose, "Weekday", c("Open", "Close"),
               options=list(legend='none', width=300, height=150))
-LBCA <- gvisMerge(gvisMerge(line, bar), gvisMerge(column, area), TRUE) 
+LBCA <- gvisMerge(gvisMerge(line, bar), gvisMerge(column, area),
+                  horizontal=TRUE, tableOptions="bgcolor=\"#AABBCC\"") 
 
 plot(LBCA)
-
-
-plot(gvisMerge(GTM, LBCA, tableOptions="bgcolor=\"#AABBCC\""))
 
 ## Applying gvisMerge successively
 

@@ -42,3 +42,4 @@ Thanks to:
     argument state in the help file of gvisMotionChart
   o Mark Melling for reporting an issue with jsDisplayChart and
     providing a solution
+  o Joe Cheng for code contribution to make googleVis work with shiny

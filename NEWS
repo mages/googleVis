@@ -1,5 +1,10 @@
-googleVis 0.3.4 [2012-01-26]
+googleVis 0.4.0 [2012-02-01]
 ----------------------------
+
+NEW FEATURES
+ 
+ * New function ... to support shiny.
+   Many thanks for Joe Cheng for his support and help.
 
 Changes
 
