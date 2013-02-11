@@ -43,3 +43,5 @@ Thanks to:
   o Mark Melling for reporting an issue with jsDisplayChart and
     providing a solution
   o Joe Cheng for code contribution to make googleVis work with shiny
+  o John Maindonald for reporting that the WorldBank demo didn't 
+    download all data, but only the first 12000 records.

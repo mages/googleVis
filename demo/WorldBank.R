@@ -12,9 +12,14 @@
 ## See also: http://lamages.blogspot.com/2011/09/accessing-and-plotting-world-bank-data.html
 ## Markus Gesmann, 24 September 2011
 ## Distributed under GPL 2 or later
+##
+## See the WDI package by Vincent Arel-Bundock for an alternative to
+## access data from the World Bank:
+## http://cran.r-project.org/web/packages/WDI/index.html
+##
 
 getWorldBankData <- function(id='SP.POP.TOTL', date='1960:2010',
-                             value="value", per.page=12000){ 
+                             value="value", per.page=20000){ 
   require(RJSONIO)
   url <- paste("http://api.worldbank.org/countries/all/indicators/", id,
                "?date=", date, "&format=json&per_page=", per.page,
@@ -87,7 +92,7 @@ subData <- subset(wbData, !region.value %in% "Aggregates" , select=
 M <- gvisMotionChart(subData, idvar="country.name", timevar="year",
                      xvar="life.expectancy", yvar="fertility.rate", colorvar="region.value",
                      sizevar="population",
-                     options=list(width=600, height=500), chartid="WorldBankMotionChart")
+                     options=list(width=520, height=390), chartid="WorldBankMotionChart")
 
 ## Display the chart in your browser
 plot(M)

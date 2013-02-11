@@ -20,8 +20,12 @@ Changes
 
 Bug Fixes
 
- * jsDisplayChart didn't check if google visualization is already loaded.
-   Many thanks to Mark Melling reporting the issue and providing a solution.
+ * jsDisplayChart didn't check if google visualization is already
+   loaded. Many thanks to Mark Melling reporting the issue and
+   providing a solution. 
+
+ * John Maindonald reported that the demo WorldBank didn't download
+   all data but only the first 12000 records. 
 
 
 googleVis 0.3.3 [2012-11-12]
@@ -39,8 +43,8 @@ googleVis 0.3.3 [2012-10-31]
 Bug Fixes
 
  * plot.gvis didn't open a browser window when options(gvis.plot.tag)
-   was not set to NULL, but the user explicitly called plot.gvis with tag
-   NULL. Thanks to Sebastian Kranz for reporting this bug. 
+   was not set to NULL, but the user explicitly called plot.gvis with
+   tag NULL. Thanks to Sebastian Kranz for reporting this bug. 
 
 googleVis 0.3.2 [2012-10-28]
 ----------------------------

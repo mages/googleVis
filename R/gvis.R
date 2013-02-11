@@ -81,8 +81,7 @@ gvis <- function(type="", data, options, chartid, package){
 
  jsData <- '
 // jsData 
-function gvisData%s ()
-{
+function gvisData%s () {
   var data = new google.visualization.DataTable();
   var datajson =
 %s;
@@ -98,8 +97,7 @@ return(data);
     
  jsDisplayChart <- '
 // jsDisplayChart
-function displayChart%s()
-{
+function displayChart%s() {
   google.load("visualization", "1", { packages:["%s"], callback: drawChart%s %s});
 }
 '
