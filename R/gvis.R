@@ -98,7 +98,29 @@ return(data);
  jsDisplayChart <- '
 // jsDisplayChart
 function displayChart%s() {
-  google.load("visualization", "1", { packages:["%s"], callback: drawChart%s %s});
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+  var chartid = "%s";
+
+  // Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+  var i, newPackage = true;
+  for (i = 0; newPackage && i < pkgs.length; i++) {
+    if (pkgs[i] === chartid)
+      newPackage = false;
+  }
+  if (newPackage)
+    pkgs.push(chartid);
+
+  // Add the drawChart function to the global list of callbacks
+  callbacks.push(drawChart%s);
+
+  window.clearTimeout(window.__gvisLoad);
+  window.__gvisLoad = setTimeout(function() {
+    google.load("visualization", "1", { packages:pkgs, callback: function() {
+      while (callbacks.length > 0)
+        callbacks.shift()();
+    } %s});
+  }, 1);
 }
 '
  jsDisplayChart <- sprintf(jsDisplayChart, chartid,
