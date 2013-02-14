@@ -111,7 +111,8 @@ output with the \rsp package~\cite{Rsp}.
 Inspired by those talks and the desire to use interactive data
 visualisation tools to foster the dialogue between data analysts and
 others the authors of this vignette started the development of the
-\googleVis package~\cite{googleVis}, \cite{RJournal:2011-2:GesmannCastillo}. 
+\googleVis package~\cite{googleVis},
+\cite{RJournal:2011-2:GesmannCastillo} in August 2010. 
 
 Of course there are many other alternative visualisation toolkits out
 there, e.g. 
@@ -971,7 +972,7 @@ However, \Rook requires some knowledge of the HTTP protocol.
 Here is a \Rook app example with \texttt{googleVis}. It displays a little R data frame in a 
 \googleVis table by default. 
 The user can change the visualisation by clicking on the \emph{Edit me!} button 
-and upload her/his own CSV-file, see , see Figure~\ref{fig:Rook}. 
+and upload her/his own CSV-file, see Figure~\ref{fig:Rook}. 
 
 \begin{figure}[ht]
   \centering
@@ -1123,12 +1124,12 @@ options(op)
 ```
 \end{verbatim}
 
-As a result you can use the \texttt{options()} command as a switch in your \knitr
-file to switch between as interactive mode, where you are likely to
+Note that you can use the \texttt{options()} command in your \knitr
+file to switch between an interactive mode, where you are likely to
 experiment, via copying and pasting R code into the console and
 running \texttt{knit} on the whole file.
 
-A more comprehensive example is given in the help file to \texttt{plot.gvis}.
+A more comprehensive example is given in the help file to \texttt{?plot.gvis}.
 
 \section{Using \googleVis in presentations}\label{sec:presentations}
 The Google Chart Tools are designed for web pages, so it should
@@ -1152,7 +1153,7 @@ The JavaScript library deck.js~\cite{deck.js}, a j{Q}uery
 framework for creating {HTML} presentations by Caleb  Troughton,
 provides an elegant way of combining the slide paradigm with web content 
 such as YouTube videos or \googleVis output. You find an example with
-\googleVis charts on mages's blog:
+\googleVis charts on mages' blog:
 \url{http://lamages.blogspot.com/2011/11/interactive-presentations.html} .
 \begin{figure}[h]
   \centering
@@ -1166,7 +1167,9 @@ An alternative to deck.js is
 slidy\footnote{\url{http://www.w3.org/Talks/Tools/Slidy2/}} 
 in combination with \knitr and 
 pandoc\footnote{\url{http://johnmacfarlane.net/pandoc/}}, see the following blog post for more details:
-\url{http://lamages.blogspot.co.uk/2012/05/interactive-html-presentation-with-r.html}. The basic idea is that to create a Markdown file with \knitr and to post-process the output with pandoc into a slidy HTML presentation.
+\url{http://lamages.blogspot.co.uk/2012/05/interactive-html-presentation-with-r.html}. The
+basic idea is that you create a Markdown file with \knitr and you
+post-process the output with pandoc into a slidy HTML presentation. 
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.5\textwidth]{CambR_googleVis_29_May_2012.png}
@@ -1264,8 +1267,8 @@ by the user.
 
 No, not via \texttt{gvisMap}.
 
-However, you can upload your data to a Google Fusion Table link with a
-second table which defines the icons. See the Google Fusion Table
+However, you can upload your data to a Google Fusion Table and link it
+to a second table which defines the icons. See the Google Fusion Table
 support page for more details: \url{http://support.google.com/fusiontables/answer/2679986?hl=en}
 
 \subsection{Why can't I see motion charts when I open them from a local directory?}
@@ -1279,7 +1282,7 @@ your browser using Flash, unlike most other charts which use
 HTML5. Unfortunately Flash is not directly supported on iOS devices
 such as iPads and iPhones. 
 
-Apparently there is little appetite at Google to migrate move motion
+Apparently there is little appetite at Google to migrate motion
 charts to HTML5 or other technologies, see the following Google
 Visualisation API news group post: \url{https://groups.google.com/forum/?fromgroups=#!topic/google-visualization-api/3dn3zlQMcXI}
 %{https://groups.google.com/\-forum/\-?fromgroups=\-#!topic/\-google-visualization-api/\-3dn3zlQMcXI}.
