@@ -29,7 +29,7 @@
   ## unique(unlist(strsplit(names(unlist( gvisTable(data.frame(x=1, y=1)))),".", fixed=TRUE)))
 
   gvis.tags <- c("type",  "chartid", "html", "header", "chart", "jsHeader", "jsData", "jsDrawChart", 
-                 "jsDisplayChart", "jsChart", "jsFooter", "divChart", "caption", "footer")
+                 "jsDisplayChart", "jsFooter", "jsChart", "divChart", "caption", "footer")
   options(gvis.tags=gvis.tags)
   
   ## This function are required to set option in googleVis functions,

@@ -1,6 +1,6 @@
 ### File R/gvisMap.R
 ### Part of the R package googleVis
-### Copyright 2010, 2011, 2012 Markus Gesmann, Diego de Castillo
+### Copyright 2010, 2011, 2012, 2013 Markus Gesmann, Diego de Castillo
 
 ### It is made available under the terms of the GNU General Public
 ### License, version 2, or at your option, any later version,

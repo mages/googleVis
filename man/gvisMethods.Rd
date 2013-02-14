@@ -86,10 +86,10 @@
 	  \item{\code{jsDisplayChart}}{JavaScript function calling the
 	    handler to display the chart.
 	  }
+	  \item{\code{jsFooter}}{End tag \code{</script>}.
+	  }
 	  \item{\code{jsChart}}{Call of the \code{jsDisplayChart} 
 	    function.
-	  }
-	  \item{\code{jsFooter}}{End tag \code{</script>}.
 	  }
 	  \item{\code{divChart}}{\code{<div>} container to embed the chart
 	    into the page.
