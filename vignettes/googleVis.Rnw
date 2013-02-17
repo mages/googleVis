@@ -1354,8 +1354,7 @@ such as iPads and iPhones.
 
 Apparently there is little appetite at Google to migrate motion
 charts to HTML5 or other technologies, see the following Google
-Visualisation API news group post: \url{https://groups.google.com/forum/?fromgroups=#!topic/google-visualization-api/3dn3zlQMcXI}
-%{https://groups.google.com/\-forum/\-?fromgroups=\-#!topic/\-google-visualization-api/\-3dn3zlQMcXI}.
+Visualisation API news group post: \url{http://goo.gl/5Zyuw}.
 
 \section{Contact}
 \subsection{Collaboration} 
