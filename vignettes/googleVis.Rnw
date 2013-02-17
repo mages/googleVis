@@ -34,6 +34,7 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \newcommand{\brew}{\textbf{\texttt{brew }}}
 \newcommand{\rapache}{\emph{{RApache }}}
 \newcommand{\Rook}{\emph{{Rook }}}
+\newcommand{\shiny}{\textbf{\texttt{shiny }}}
 
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -826,12 +827,21 @@ For an example see the following blog entry:
 \subsection{Embedding \googleVis in web sites dynamically}
 
 In this section we provide examples how the \googleVis functions can be
-embedded into web sites dynamically. With the R packages \rsp~\cite{Rsp} and
-\brew~\cite{brew2010} we have two options to integrate R snippets into
-html code. While the \rsp package comes with its own internal web
-server, \brew requires the Apache HTTP server~\cite{Apache2.0} with
-the \rapache~\cite{Rapache} module installed. Please note that
-currently the \rapache module only runs on UNIX/Linux and Mac OS X.  
+embedded into web sites dynamically. 
+
+The R packages \rsp~\cite{Rsp} and \brew~\cite{brew2010} are two
+options to integrate R snippets into html code. While the \rsp package
+comes with its own internal web server, \brew requires the Apache HTTP
+server~\cite{Apache2.0} with the \rapache~\cite{Rapache} module
+installed. Please note that currently the \rapache module only runs on
+UNIX/Linux and Mac OS X.   
+
+Since version 2.11.0 R ships with its own internal web server and with
+\Rook~\cite{Rook} and \shiny~\cite{shiny} there are also two 
+alternatives that use this facility. Both packages allow users to
+deploy web application locally with very little overhead. The \shiny
+framework is the newest and certainly the easiest option to 
+get started with web apps using R and \googleVis.
 
 \subsubsection{Using \googleVis with \rsp}\label{rspexample}
 The \rsp package allows the user to integrate R code into html code.
@@ -1023,6 +1033,66 @@ s$add(app=my.app, name='googleVisTable')
 ## Open a browser window and display the web app
 s$browse('googleVisTable')
 @
+
+\subsubsection{Using \googleVis with \shiny}
+Shiny\footnote{\url{http://www.rstudio.com/shiny/}} is a package from
+RStudio that makes it incredibly easy to build interactive web
+applications with R.  
+
+With version 0.4.0 of \googleVis the support for \shiny ~\cite{shiny}
+apps has been added. Joe Cheng contributed the \texttt{renderGvis}
+function which allows users to use \googleVis output in \shiny in a
+similar way to other plotting functions. Note that \shiny of version
+$\ge$ 0.3.1.99 is required.
+
+The following example has been taken from the help file of
+\texttt{renderGvis}. It displays a scatter chart where the user can
+select the data set to be displayed, see also the screen shot in
+Figure~\ref{fig:shiny}. 
+
+<<eval=FALSE>>=
+# server.R
+library(googleVis)
+
+shinyServer(function(input, output) {
+  datasetInput <- reactive({
+    switch(input$dataset,
+           "rock" = rock,
+           "pressure" = pressure,
+           "cars" = cars)
+  })
+  
+  output$view <- renderGvis({
+    gvisScatterChart(datasetInput())
+  })
+})
+
+# ui.R
+shinyUI(pageWithSidebar(
+  headerPanel("googleVis on Shiny"),
+  sidebarPanel(
+    selectInput("dataset", "Choose a dataset:", 
+                choices = c("rock", "pressure", "cars"))
+  ),
+  mainPanel(
+    htmlOutput("view")
+  )
+))
+@ 
+
+\begin{figure}[ht]
+  \centering
+  \includegraphics[width=0.8\textwidth]{shiny.png}
+  \caption{Screen shot a \shiny app with \googleVis output.}
+  \label{fig:shiny}
+\end{figure}
+
+You can run the example locally with the following statement.
+<<eval=FALSE>>=
+library(shiny) ## Version >= 0.3.1.99 required
+runApp(system.file("shiny/", package="googleVis"))
+@ 
+
 
 \section{Using \googleVis with \knitr}\label{sec:knitr}
 Using \googleVis with

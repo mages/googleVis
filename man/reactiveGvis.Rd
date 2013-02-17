@@ -1,5 +1,5 @@
-\name{reactiveGvis}
-\alias{reactiveGvis}
+\name{renderGvis}
+\alias{renderGvis}
 \title{
   Use a googleVis Chart as Shiny Output
 }
@@ -10,11 +10,18 @@
   \code{ui.R}.
 }
 \usage{
-reactiveGvis(func)
+renderGvis(expr, env=parent.frame(), quoted=FALSE)
 }
 \arguments{
-  \item{func}{
-    A function that returns a gvis object.
+  \item{expr}{
+    An expression that returns a gvis object.
+  }
+  \item{env}{
+    The environment in which to evaluate \code{expr}.
+  }
+  \item{quoted}{
+    Is \code{expr} a quoted expression (with \code{quote()})?
+    This is useful if you want to save an expression in a variable.
   }
 }
 %%\details{
@@ -38,14 +45,14 @@ shiny::runApp(system.file("shiny/", package="googleVis"))
 library(googleVis)
 
 shinyServer(function(input, output) {
-  datasetInput <- reactive(function() {
+  datasetInput <- reactive({
     switch(input$dataset,
            "rock" = rock,
            "pressure" = pressure,
            "cars" = cars)
   })
   
-  output$view <- reactiveGvis(function() {
+  output$view <- renderGvis({
     gvisScatterChart(datasetInput())
   })
 })

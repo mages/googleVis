@@ -11,7 +11,7 @@ export(gvisCandlestickChart, gvisSteppedAreaChart)
 export(gvisMerge)		 
 export(createGoogleGadget)		 
 export(plot.gvis)		 
-export(reactiveGvis)
+export(renderGvis)
 			 
 #Methods		 
 S3method(plot, gvis)		 

@@ -1,12 +1,19 @@
-googleVis 0.4.0 [2013-02-01]
+googleVis 0.4.0 [2013-02-17]
 ----------------------------
 
 NEW FEATURES
  
- * New function ... to support shiny.
+ * New function renderGvis to support shiny.
+   This function allows user to insert googleVis output into shiny
+   apps, similar to renderText and renderPlot. See the help page for
+   more details.
    Many thanks for Joe Cheng for his support and help.
 
 Changes
+
+ * In order to support shiny the order of the elements of the
+   gvis*()$html$chart vector changed. The positions of jsChart and
+   jsFooter have been swapped.
 
  * Changed the load mechanism for the Google API from http to https
    again. Thanks to Jacques Philip. 
