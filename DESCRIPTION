@@ -2,7 +2,7 @@ Package: googleVis
 Type: Package
 Title: Interface between R and the Google Chart Tools
 Version: 0.4.0
-Date: 2013-02-17
+Date: 2013-02-24
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
                      email = "markus.gesmann@gmail.com"),
             person("Diego", "de Castillo", role = "aut",
@@ -27,8 +27,9 @@ Imports:
     RJSONIO,
     utils
 Suggests:
-    shiny (>= 0.3.1.99)
+    shiny (>= 0.4.0)
 License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/, http://lamages.blogspot.co.uk/search/label/googleVis
+BugReports: http://code.google.com/p/google-motion-charts-with-r/issues/list 
 LazyLoad: yes
 LazyData: yes

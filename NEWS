@@ -1,4 +1,4 @@
-googleVis 0.4.0 [2013-02-17]
+googleVis 0.4.0 [2013-02-24]
 ----------------------------
 
 NEW FEATURES
@@ -6,8 +6,7 @@ NEW FEATURES
  * New function renderGvis to support shiny.
    This function allows user to insert googleVis output into shiny
    apps, similar to renderText and renderPlot. See the help page for
-   more details.
-   Many thanks for Joe Cheng for his support and help.
+   more details. Many thanks to Joe Cheng for his support and help.
 
 Changes
 
@@ -15,24 +14,25 @@ Changes
    gvis*()$html$chart vector changed. The positions of jsChart and
    jsFooter have been swapped.
 
- * Changed the load mechanism for the Google API from http to https
+ * The load mechanism for the Google API changed from http to https
    again. Thanks to Jacques Philip. 
 
- * Changed package dependencies to imports in DESCRIPTION. 
+ * The package dependencies changed to imports statements in DESCRIPTION. 
    Thanks to Suraj Gupta for pointing this out.
 
- * Separated out the R.rsp example in demo googleVis to demo Rrsp.
+ * The R.rsp example in demo googleVis has been moved into its own
+   demo Rrsp. 
 
- * Added FAQ section to vignette.
+ * A FAQ and shiny section has been added to the vignette.
 
 Bug Fixes
 
- * jsDisplayChart didn't check if google visualization is already
-   loaded. Many thanks to Mark Melling reporting the issue and
-   providing a solution. 
+ * jsDisplayChart didn't check if the google visualization function is already
+   loaded. Many thanks to Mark Melling for reporting the issue and
+   providing a solution.
 
- * John Maindonald reported that the demo WorldBank didn't download
-   all data but only the first 12000 records. 
+ * The demo WorldBank didn't download all data but only the first
+   12000 records. Many thanks to John Maindonald reported this issue. 
 
 
 googleVis 0.3.3 [2012-11-12]
@@ -52,6 +52,7 @@ Bug Fixes
  * plot.gvis didn't open a browser window when options(gvis.plot.tag)
    was not set to NULL, but the user explicitly called plot.gvis with
    tag NULL. Thanks to Sebastian Kranz for reporting this bug. 
+
 
 googleVis 0.3.2 [2012-10-28]
 ----------------------------
