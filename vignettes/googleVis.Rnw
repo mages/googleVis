@@ -97,13 +97,6 @@ Gapminder was bought by Google and integrated as motion charts into
 their Google Chart Tools~\cite{GoogleVisApi}, formerly known as Google
 Visualisation API, one year later.  
 
-We also notice that data journalism has grown over the recent
-years. The data blogs of the
-\href{http://www.guardian.co.uk/news/datablog}{Guardian (UK)}, and 
-\href{http://blogs.taz.de/open-data/}{taz.de (Die Tageszeitung,
- Germany)} have brought data analysis and data visualisation to a wider
-audience. 
-
 In 2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented at the 
 R/Rmetrics Workshop on  Computational Finance and Financial
 Engineering, the idea to use Google motion charts to visualise R
@@ -147,8 +140,8 @@ on the usage of the API as part of web pages.
 
 The Google Public Data Explorer~\cite{GooglePublicData} provides a
 good example, demonstrating the use of interactive charts and how they can
-help to analyse data. Please note, that most of those charts are rendered
-within a browser.
+help to analyse data. Please note, that all of those charts are
+rendered by the browser.
 
 The charting data can either be embedded into the html file or read
 dynamically. The key to the Google Chart Tools is that the data is
@@ -249,7 +242,7 @@ The output of a \googleVis function is html code that contains the
 data and references to JavaScript functions hosted by Google. A
 browser with an Internet connection is required to view
 the output, and for Motion Charts, Geo Maps and Annotated Time Lines
-also Flash. The actual chart is rendered in the browser. 
+also Flash. 
 
 <<eval=FALSE, echo=FALSE>>=
 ## Code for screen shot
@@ -301,7 +294,7 @@ plot(M)
 \end{figure}
 
 \subsection{Installation}\label{sec:Installation}
-We can install \googleVis in the usual way from CRAN, e.g.:
+You can install \googleVis in the usual way from CRAN, e.g.:
 <<eval=FALSE>>=
 install.packages('googleVis') 
 @
@@ -444,13 +437,15 @@ The complete chart can be displayed via:
 <<>>=
 print(M, tag='chart')  ## or cat(M$html$chart)
 @
-Similarly you can also access specific components of the chart, e.g.
-<<>>=
+Similarly you can also access specific components of the chart, e.g. (output  truncated)
+<<eval=FALSE>>=
 cat(M$html$chart['jsChart']) # or print(M, 'jsChart')
 @ 
-
+<<echo=FALSE>>=
+cat(paste(substring( capture.output( cat(M$html$chart['jsChart']) ) , 0, 66), sep="\n", collapse="\n"))
+@ 
 A basic chart caption and html footer are the final items of the html
-list (output is truncated):
+list (output  truncated):
 
 <<eval=FALSE>>=
 print(M, tag='caption')
@@ -480,7 +475,7 @@ the output using the R HTTP help web server locally, usually under
 http://127.0.0.1.   
 
 The chart caption provides a link to the chart code via
-the chart id for easy copy and paste. 
+the chart id for copy and paste. 
 
 The R command \texttt{tempdir()}  will show you the path of the
 per-session temporary directory, in which the files were written.  
@@ -628,7 +623,7 @@ Line <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
                           ))
 plot(Line)
 @
-As you can see some from the example above, the simpler options can be set by name=value,
+As you can see from the example above, the simpler options can be set by name=value,
 e.g. width=500, while the more complex options with sub-components are
 listed in curly brackets \{\}, and arrays, e.g. to define the two
 axes, use square brackets [ ].
@@ -729,7 +724,7 @@ usage with \googleVis output.
 
 By default WordPress does not allow JavaScript code (and hence \googleVis
 output) to be inserted into a page. However, additional plugins
-allow us to extend the functions of WordPress.
+allow you to extend the functions of WordPress.
 
 One option of embedding JavaScript code inside a WordPress post is to use
 the ``custom fields shortcode''
@@ -1318,7 +1313,7 @@ For more details see the \texttt{demo(EventListener)} and
   Chart Tools Reference}.
 
 \section{Frequent ask questions -- FAQ}
-\subsection{Can use googleVis output in PDF files?}
+\subsection{Can I use googleVis output in PDF files?}
 No, not directly. 
 
 The Google Chart Tools API is designed for dynamic web
@@ -1358,6 +1353,18 @@ such as iPads and iPhones.
 Apparently there is little appetite at Google to migrate motion
 charts to HTML5 or other technologies, see the following Google
 Visualisation API news group post: \url{http://goo.gl/5Zyuw}.
+
+\subsection{How can I change the look and feel of the charts}
+
+The charts have a lot of options which allow you to change the look
+and feel of the output, see the help files for more details. However,
+\googleVis provides only an interface to the Google Chart Tools. If
+you have specific questions to the charts then please join the Google
+Visualisation API newsgroup: 
+\url{http://groups.google.com/group/google-visualization-api}.
+
+For frequent ask questions regarding the API check: 
+\url{https://developers.google.com/chart/interactive/faq}.
 
 \section{Contact}
 \subsection{Collaboration} 
