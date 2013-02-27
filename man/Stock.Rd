@@ -37,7 +37,7 @@
  Pencils.annotation <-c(rep(NA,4), 'Bought 200k pencils', NA)
  Pens <- c(40645, 20374, 50766, 14334, 66467, 39463)
  Pens.titles <- c(rep(NA, 3), 'Out of stock', NA, NA)
- Pens.annotation <- c(rep(NA, 3), 'Ran of stock on pens at 4pm', NA, NA)
+ Pens.annotation <- c(rep(NA, 3), 'Ran of out stock of pens at 4pm', NA, NA)
 
  original.df=data.frame(Date, Pencils, Pencils.titles,
                         Pencils.annotation, Pens, Pens.titles,
