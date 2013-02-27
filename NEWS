@@ -1,3 +1,18 @@
+googleVis 0.4.0 [2013-03-03]
+----------------------------
+
+NEW FEATURES
+
+ * The core charts (e.g. line, area, bar, column and combo charts)
+   accept now also date variables for the x-axis. Thanks to Sebastian
+   Campbell for pointing this out.
+
+Bug Fixes
+
+ * Fixed typo in the tip column of the Andrew data set. 
+   Thanks to Sebastian Campbell for reporting this issue. 
+
+
 googleVis 0.4.0 [2013-02-24]
 ----------------------------
 

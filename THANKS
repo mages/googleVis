@@ -45,3 +45,6 @@ Thanks to:
   o Joe Cheng for code contribution to make googleVis work with shiny
   o John Maindonald for reporting that the WorldBank demo didn't 
     download all data, but only the first 12000 records.
+  o Sebastian Campbell for reporting a typo in the Andrew data set and
+    pointing out that the core charts, such as line charts accept also
+    date variables for the x-axis. 

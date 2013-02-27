@@ -97,7 +97,7 @@ gvisCoreChart <- function(data, xvar="", yvar="", options=list(), chartid, chart
   
   my.options <- list(gvis=modifyList(list(allowHtml=TRUE),options), dataName=dataName,
                      data=list(xvar=xvar, yvar=yvar,
-                       allowed=c("string", "number"))
+                       allowed=c("string", "number", "date", "datetime"))
                      )
   
   
