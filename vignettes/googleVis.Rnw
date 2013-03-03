@@ -1354,7 +1354,7 @@ Apparently there is little appetite at Google to migrate motion
 charts to HTML5 or other technologies, see the following Google
 Visualisation API news group post: \url{http://goo.gl/5Zyuw}.
 
-\subsection{How can I change the look and feel of the charts}
+\subsection{How can I change the look and feel of the charts?}
 
 The charts have a lot of options which allow you to change the look
 and feel of the output, see the help files for more details. However,
@@ -1365,6 +1365,19 @@ Visualisation API newsgroup:
 
 For frequent ask questions regarding the API check: 
 \url{https://developers.google.com/chart/interactive/faq}.
+
+\subsection{Is it possible to use \googleVis in corporate work?}
+Review the Google Terms of Service
+(\url{https://developers.google.com/terms/}) and get in touch with
+your colleagues in IT / Legal. If in doubt contact Google
+directly. 
+
+\subsection{Bugs and issues}
+
+Should you find any issues or bugs with googleVis, then please drop
+us a line or add them to our issues list: 
+\url{http://code.google.com/p/google-motion-charts-with-r/issues/list}
+
 
 \section{Contact}
 \subsection{Collaboration} 

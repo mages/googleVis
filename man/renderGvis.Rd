@@ -24,9 +24,13 @@ renderGvis(expr, env=parent.frame(), quoted=FALSE)
     This is useful if you want to save an expression in a variable.
   }
 }
-%%\details{
-%%  ~~ If necessary, more details than the description above ~~
-%%}
+\details{
+More information about shiny is available online: 
+\url{http://www.rstudio.com/shiny/}. 
+
+You find further examples with googleVis on shiny on mages' blog:
+\url{http://lamages.blogspot.co.uk/search/label/shiny}
+}
 \value{
   Returns a function that can be assigned to a Shiny \code{output} element.
 }  
