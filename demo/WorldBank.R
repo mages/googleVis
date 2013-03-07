@@ -11,90 +11,33 @@
 ##
 ## See also: http://lamages.blogspot.com/2011/09/accessing-and-plotting-world-bank-data.html
 ## Markus Gesmann, 24 September 2011
+##
+## Thanks to John Maindonald for a simplified version of this
+## demo using the WDI package.
+##
 ## Distributed under GPL 2 or later
-##
-## See the WDI package by Vincent Arel-Bundock for an alternative to
-## access data from the World Bank:
-## http://cran.r-project.org/web/packages/WDI/index.html
-##
 
-getWorldBankData <- function(id='SP.POP.TOTL', date='1960:2010',
-                             value="value", per.page=20000){ 
-  require(RJSONIO)
-  url <- paste("http://api.worldbank.org/countries/all/indicators/", id,
-               "?date=", date, "&format=json&per_page=", per.page,
-               sep="")
+## This demo requires the 'WDI' package
+if( !is.element("pscl", installed.packages()[,1]) )
+  install.packages("WDI")
 
-  wbData <- fromJSON(url)[[2]]
-   
-  wbData = data.frame(
-    year = as.numeric(sapply(wbData, "[[", "date")), 
-    value = as.numeric(sapply(wbData, function(x)
-      ifelse(is.null(x[["value"]]),NA, x[["value"]]))),  
-    country.name = sapply(wbData, function(x) x[["country"]]['value']),
-    country.id = sapply(wbData, function(x) x[["country"]]['id'])    
-    )
+library(WDI)
+inds <- c('SP.DYN.TFRT.IN','SP.DYN.LE00.IN', 'SP.POP.TOTL',
+          'NY.GDP.PCAP.CD', 'SE.ADT.1524.LT.FE.ZS')
+indnams <- c("fertility.rate", "life.expectancy", "population",
+             "GDP.per.capita.Current.USD", "15.to.25.yr.female.literacy")
+wdiData <- WDI(country="all", indicator=inds,
+               start=1960, end=format(Sys.Date(), "%Y"), extra=TRUE)
+colnum <- match(inds, names(wdiData))
 
-  names(wbData)[2] <- value
-  
-  return(wbData)
-}
-
-getWorldBankCountries <- function(){
-  wbCountries <-
-    fromJSON("http://api.worldbank.org/countries?per_page=12000&format=json") 
-  wbCountries <- data.frame(t(sapply(wbCountries[[2]], unlist)))
-  wbCountries$longitude <- as.numeric(wbCountries$longitude)
-  wbCountries$latitude <- as.numeric(wbCountries$latitude)
-  levels(wbCountries$region.value) <- gsub(" \\(all income levels\\)",
-                                           "", levels(wbCountries$region.value))
-  return(wbCountries)
-}
-
-## Create a string 1960:this year, e.g. 1960:2011
-years <- paste("1960:", format(Sys.Date(), "%Y"), sep="")
-
-## Fertility rate
-fertility.rate <- getWorldBankData(id='SP.DYN.TFRT.IN',
-                                   date=years, value="fertility.rate")
-
-## Life Expectancy
-life.exp <- getWorldBankData(id='SP.DYN.LE00.IN',  date=years,
-                             value="life.expectancy") 
-
-## Population
-population <- getWorldBankData(id='SP.POP.TOTL',  date=years,
-                               value="population")
-
-## GDP per capita (current US$)
-GDP.per.capita <- getWorldBankData(id='NY.GDP.PCAP.CD',
-                                   date=years,
-                                   value="GDP.per.capita.Current.USD") 
-
-## Merge data sets
-wbData <- merge(life.exp, fertility.rate)
-wbData <- merge(wbData, population)
-wbData <- merge(wbData, GDP.per.capita)
-
-## Get country mappings
-wbCountries <- getWorldBankCountries()
-
-## Add regional information
-wbData <- merge(wbData, wbCountries[c("iso2Code", "region.value", 
-                                      "incomeLevel.value")],
-                by.x="country.id", by.y="iso2Code")
-
-## Filter out the aggregates and country id column
-subData <- subset(wbData, !region.value %in% "Aggregates" , select=
-                  -country.id) 
-
+names(wdiData)[colnum] <- indnams
 ## Create a motion chart
-M <- gvisMotionChart(subData, idvar="country.name", timevar="year",
-                     xvar="life.expectancy", yvar="fertility.rate", colorvar="region.value",
-                     sizevar="population",
-                     options=list(width=520, height=390), chartid="WorldBankMotionChart")
-
-## Display the chart in your browser
+library(googleVis)
+WorldBank <- subset(wdiData, !region %in% "Aggregates")
+M <- gvisMotionChart(WorldBank,
+                     idvar="country", timevar="year",
+                     xvar="life.expectancy", yvar="fertility.rate",
+                     colorvar="region", sizevar="population",
+                     options=list(width=700, height=600))
+## Display the chart in the browser
 plot(M)
-
-
