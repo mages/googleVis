@@ -33,7 +33,7 @@ colnum <- match(inds, names(wdiData))
 names(wdiData)[colnum] <- indnams
 ## Create a motion chart
 library(googleVis)
-WorldBank <- subset(wdiData, !region %in% "Aggregates")
+WorldBank <- droplevels(subset(wdiData, !region %in% "Aggregates"))
 M <- gvisMotionChart(WorldBank,
                      idvar="country", timevar="year",
                      xvar="life.expectancy", yvar="fertility.rate",
