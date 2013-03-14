@@ -97,7 +97,7 @@ return(data);
     
  jsDisplayChart <- '
 // jsDisplayChart
-function displayChart%s() {
+(function() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   var chartid = "%s";
@@ -113,20 +113,31 @@ function displayChart%s() {
 
   // Add the drawChart function to the global list of callbacks
   callbacks.push(drawChart%s);
-
+})();
+function displayChart%s() {
+  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
+  // The timeout is set to 100 because otherwise the container div we are
+  // targeting might not be part of the document yet
   window.__gvisLoad = setTimeout(function() {
+    var pkgCount = pkgs.length;
     google.load("visualization", "1", { packages:pkgs, callback: function() {
+      if (pkgCount != pkgs.length) {
+        // Race condition where another setTimeout call snuck in after us; if
+        // that call added a package, we must not shift its callback
+        return;
+      }
       while (callbacks.length > 0)
         callbacks.shift()();
     } %s});
-  }, 1);
+  }, 100);
 }
 '
- jsDisplayChart <- sprintf(jsDisplayChart, chartid,
+ jsDisplayChart <- sprintf(jsDisplayChart,
                     ifelse(!is.null(options$gvis$gvis.editor), 'charteditor',
                            tolower(package)),
-                    chartid,
+                    chartid, chartid,
                     ifelse(!is.null(options$gvis$gvis.language),
                            paste(",'language':'",
                                  options$gvis$gvis.language, "'", sep=""), '')
