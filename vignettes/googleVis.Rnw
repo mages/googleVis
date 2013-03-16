@@ -50,7 +50,7 @@ Contact: rvisualisation@gmail.com}
 \maketitle
 \begin{abstract}
   The \googleVis package provides an interface between R and the
-  Google Chart Tools.  The Google Chart Tools offer  interactive
+  Google Chart Tools.  The Google Chart Tools offer interactive
   charts which can be embedded into web pages. The best 
   known of these charts is probably the Motion Chart, popularised 
   by Hans Rosling in his TED talks. 
@@ -78,7 +78,7 @@ More and more data is becoming available, and yet
 stories and insights are still often missed: we are lost in the data
 jungle and struggle to see the wood for the trees. 
 
-Hence new tools are required to bring data to life, to engage with
+Hence, new tools are required to bring data to life, to engage with
 users, to enable them to slice and dice the data, to view it from
 various angles and to find stories worth telling: outliers, trends or
 even the obvious. 
@@ -92,10 +92,10 @@ Gapminder~\cite{Gapminder} had developed animated bubble charts, aka
 motion charts, see Figure~\ref{MotionChartGUI}. 
 
 Rosling's presentation popularised the idea and use of interactive
-charts, and as one result the software behind
+charts. One year later the software behind
 Gapminder was bought by Google and integrated as motion charts into
 their Google Chart Tools~\cite{GoogleVisApi}, formerly known as Google
-Visualisation API, one year later.  
+Visualisation API.  
 
 In 2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented at the 
 R/Rmetrics Workshop on  Computational Finance and Financial
@@ -147,7 +147,7 @@ The charting data can either be embedded into the html file or read
 dynamically. The key to the Google Chart Tools is that the data is
 structured in a DataTable~\cite{DataTable}, and this is where the \googleVis
 package helps, as it transforms R data frames into JSON~\cite{json}
-objects, using the \texttt{\textbf{RJSONIO}} package~\cite{RJSONIO},  as
+objects, using the \texttt{\textbf{RJSONIO}} package~\cite{RJSONIO}, as
 the basis for a DataTable. 
 
 As an example we shall look at the html-code of a motion chart from
@@ -194,7 +194,7 @@ generates output similar to Figure~\ref{MotionChartGUI}:
 36 </html>
 \end{verbatim}
 \end{small}
-The code and data are processed and rendered in the browser and is
+The code and data are processed and rendered by the browser and is
 not submitted to any server\footnote{\url{https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html\#Data\_Policy}}. 
 
 You will notice that the above html code has five generic
@@ -320,7 +320,7 @@ As an example we will show how to generate a motion chart as displayed in
 Figure~\ref{MotionChartGUI}. It works similarly for the other
 APIs. Further examples are covered in the demos\footnote{See
   \texttt{demo(package="googleVis")} for a list of the available demos.} of the \googleVis
-package, see also Figures~\ref{demos}.
+package.
 
 The design of the visualisation functions is fairly generic. The name
 of the visualisation function is \texttt{'gvis' + ChartType}. So for
@@ -352,18 +352,19 @@ The argument \texttt{chartid}  allows the user to set a chart id of the
 output chart manually. If the argument is missing a random id using 
 \texttt{tempfile(pattern=\textquotesingle\textquotesingle)}  
 will be generated. Unique chart ids are required to place more than
-one chart into a page. 
+one chart on a web page. 
 
 The output of a \googleVis function is a list of lists (a nested list)
 containing information about the chart type, chart id and the html
 code in a  sub-list with header, chart, caption and footer, see Figure~\ref{gvisObject}.
 
 The idea behind this concept is that users can get a
-complete web page while at the same time extracting specific parts,
-such as the chart. This is particularly helpful if the package functions
+complete web page, while at the same time offer a facility to extract 
+specific parts, such as the chart itself. 
+This is particularly helpful if the package functions
 are used in solutions where the user wants to feed the visualisation
 output into other sites, or would like to embed them into rsp-pages
-(see page~\pageref{rspexample}),  or use \rapache (see
+(see page~\pageref{rspexample}),  use \rapache (see
 page~\pageref{rapacheexample}) or Google Gadgets.  
 
 The output of a \googleVis function will be of class \texttt{'gvis'}
@@ -474,7 +475,7 @@ the type and chart id information of the object and it will display
 the output using the R HTTP help web server locally, usually under
 http://127.0.0.1.   
 
-The chart caption provides a link to the chart code via
+Note that the chart caption provides a link to the chart code via
 the chart id for copy and paste. 
 
 The R command \texttt{tempdir()}  will show you the path of the
@@ -502,7 +503,7 @@ settings. Tony Breyal posted the following solution on
 \item Click OK
 \end{enumerate}
 
-Now open your googleVis html file and it should display
+Now open your \googleVis html file and it should display
 successfully. 
 
 Alternatively use the function \texttt{plot.gvis} explicitly,
@@ -541,7 +542,7 @@ Markdown files for \knitr or files for other packages such as
 \textbf{\texttt{R.rsp}}. 
 
 While you draft your file you may want to see the output of \googleVis
-in a interactive way, so you set \texttt{options(gvis.plot.tag=NULL)}
+in an interactive way, so you set \texttt{options(gvis.plot.tag=NULL)}
 at the top of the file and you change the setting to \texttt{'chart'}
 before you parse the file, say with \textbf{\texttt{knitr}}. This will
 ensure that all plot statements return the HTML code of the chart,
@@ -798,7 +799,7 @@ Suppose the URL to the gadget is
   
   \texttt{<wiki:gadget url="http://example.com/gadget.xml" />},
 
- \item in Blogger via the design tab, see site gadget.
+ \item in Blogger via the design tab, see site gadgets.
 \end{itemize}
 
 However, the situation is different again, if you would like to include the \googleVis
@@ -836,7 +837,7 @@ Since version 2.11.0 R ships with its own internal web server and with
 \Rook~\cite{Rook} and \shiny~\cite{shiny} there are also two 
 alternatives that use this facility. Both packages allow users to
 deploy web application locally with very little overhead. The \shiny
-framework is the newest and certainly the easiest option to 
+framework is the newest and certainly easiest option to 
 get started with web apps using R and \googleVis.
 
 \subsubsection{Using \googleVis with \rsp}\label{rspexample}
@@ -1031,14 +1032,14 @@ s$browse('googleVisTable')
 @
 
 \subsubsection{Using \googleVis with \shiny}
-Shiny\footnote{\url{http://www.rstudio.com/shiny/}} is a package from
-RStudio that makes it incredibly easy to build interactive web
+Shiny\footnote{\url{http://www.rstudio.com/shiny/}} is a package by
+RStudio. Shiny makes it incredibly easy to build interactive web
 applications with R.  
 
 With version 0.4.0 of \googleVis the support for \shiny ~\cite{shiny}
 apps has been added. Joe Cheng contributed the \texttt{renderGvis}
 function which allows users to use \googleVis output in \shiny in a
-similar way to other plotting functions. Note that \shiny of version
+similar way to other plotting functions. Note that \shiny version
 $\ge$ 0.4.0 is required.
 
 The following example has been taken from the help file of
@@ -1096,12 +1097,12 @@ Further examples have been published on Markus' blog:
 Using \googleVis with
 \knitr\footnote{\url{http://yihui.name/knitr/}}~\cite{knitr} is a
 convient way of creating interactive reproducible reports. The
-approach taken by \knitr is similar to Sweave, in that you can combine
+approach taken by \knitr is similar to Sweave, you can combine R
 code with text and formatting tags. However, \knitr can also export to
 HTML, which is required to  embed \googleVis charts.
 
 To include \googleVis output into a \knitr document you have 
-to set the chunk option results to \texttt{'asis'} and print the chart 
+to set the chunk option \texttt{results} to \texttt{'asis'} and print the chart 
 element only, as demonstrated in the following example:
 \begin{verbatim}
 ```{r results='asis'}
@@ -1214,8 +1215,7 @@ the live web pages. But this approach requires the presenter to switch
 between applications during her talk. This can be fun, but quite often
 it is not. 
 
-An alternative would be to build the presentation as a web page it
-self.  
+An alternative would be to build the presentation as a web page itself.  
 
 The JavaScript library deck.js~\cite{deck.js}, a j{Q}uery
 framework for creating {HTML} presentations by Caleb  Troughton,
@@ -1328,7 +1328,7 @@ examples of \googleVis charts.
 
 No, unfortunately not.
 
-The colours are set by the Google Chart Tools API and cannot changed
+The colours are set by the Google Chart Tools API and cannot be changed
 by the user.
 
 \subsection{Can I change the icons in Maps?}
