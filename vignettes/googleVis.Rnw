@@ -11,8 +11,9 @@
   pdfauthor={Markus Gesmann},%
 }
 
+%\VignetteEngine(Sweave)
 %\VignetteIndexEntry{Using the Google Chart Tools with R}
-% \VignetteDepends{googleVis}
+%\VignetteDepends{googleVis}
 %\VignetteKeywords{google, visualisation, api}
 %\VignettePackage{googleVis}
 

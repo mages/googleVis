@@ -17,7 +17,8 @@
   SVG or VML. Note that the map is not scrollable or draggable.
 }
 \usage{
-gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), chartid)
+gvisGeoChart(data, locationvar = "", colorvar="", 
+             sizevar="", hovervar="", options = list(), chartid)
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
@@ -58,6 +59,9 @@ gvisGeoChart(data, locationvar = "", colorvar="", sizevar="", options = list(), 
     column will be used (or default `size, if no color column is
     provided as well). If the column is present, null valuesare not
     allowed. 
+  }
+  \item{hovervar}{column name of \code{data} with the additional string
+    text displayed when the user hovers over this region. 
   }
   \item{options}{list of configuration options for Google Geo Chart.
     \describe{
@@ -431,19 +435,35 @@ G7 <- gvisGeoChart(quakes, "latlong", "depth", "mag",
 plot(G7)
 
 \dontrun{
+# Plot S&P countries' credit rating sourced from Wikipedia
+# Use the hovervar to show the rating
+library(XML)
+url <- "http://en.wikipedia.org/wiki/List_of_countries_by_credit_rating"
+x <- readHTMLTable(readLines(url), which=3)
+levels(x$Rating) <- substring(levels(x$Rating), 4, 
+                              nchar(levels(x$Rating)))
+x$Ranking <- x$Rating
+levels(x$Ranking) <- nlevels(x$Rating):1
+x$Ranking <- as.character(x$Ranking)
+x$Rating <- paste(x$Country, x$Rating, sep=": ")
+#### Create a geo chart
+G8 <- gvisGeoChart(x, "Country", "Ranking", hovervar="Rating",
+                options=list(gvis.editor="S&P", 
+                             colorAxis="{colors:['#91BFDB', '#FC8D59']}"))
+plot(G8)
+
+
 ## Plot world wide earth quakes of the last 30 days with magnitude >= 4.0 
 library(XML)
 ## Get earthquake data of the last 30 days
-eq <- readHTMLTable(readLines("http://www.iris.edu/seismon/last30.html"),
-	colClasses=c("factor", rep("numeric", 4), "factor"))
-eq <- eq[[2]] ## extract the eq table
-eq$loc=paste(eq$LAT, eq$LON, sep=":") ## create a lat:long location variable
+eq <- read.csv("http://earthquake.usgs.gov/earthquakes/feed/v0.1/summary/2.5_week.csv")
+eq$loc=paste(eq$Latitude, eq$Longitude, sep=":")
 
-G8 <- gvisGeoChart(eq, "loc", "DEPTH km", "MAG",
+G9 <- gvisGeoChart(eq, "loc", "Depth", "Magnitude",
                    options=list(displayMode="Markers", 
                    colorAxis="{colors:['purple', 'red', 'orange', 'grey']}",
-                   backgroundColor="lightblue"))
-plot(G8)
+                   backgroundColor="lightblue"), chartid="EQ")
+plot(G9)
 }
 }
 \keyword{ iplot }

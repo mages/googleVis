@@ -19,6 +19,7 @@
 
 gvisGeoChart <- function(data, locationvar="", ## numvar="",
                          colorvar="", sizevar="",
+                         hovervar="",
                          options=list(), chartid){
 
   my.type <- "GeoChart"
@@ -27,9 +28,11 @@ gvisGeoChart <- function(data, locationvar="", ## numvar="",
   my.options <- list(gvis=modifyList(list(width = 556, height=347),options), 
                      dataName=dataName,
                      data=list(locationvar=locationvar,
-                       ## numvar=numvar,
+                               hovervar=hovervar,  
+                               ## numvar=numvar,
                        colorvar=colorvar,
                        sizevar=sizevar,
+                       
                        allowed=c("number", "string")
                        )
                      )
@@ -49,6 +52,7 @@ gvisCheckGeoChartData <- function(data, options){
 
   data.structure <- list(
         	     locationvar = list(mode="required",FUN=check.location),
+        	     hovervar    = list(mode="optional",FUN=check.char),
         	     ## numvar      = list(mode="optional",FUN=check.num),
                      colorvar      = list(mode="optional",FUN=check.num),
         	     sizevar    = list(mode="optional",FUN=check.num))

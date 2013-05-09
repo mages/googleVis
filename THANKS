@@ -50,3 +50,5 @@ Thanks to:
     charts accept also date variables for the x-axis. 
   o John Maindonald for providing a simplified version of the
     WorldBank demo using the WDI package. 
+  o John Muschelli for suggesting to add hovervar as an additional
+    argument to gvisGeoChart.

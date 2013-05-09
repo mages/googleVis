@@ -1,3 +1,16 @@
+googleVis 0.4.3 [2013-05-09]
+----------------------------
+
+
+NEW FEATURES
+ 
+ * givsGeoChart has a new argument 'hovervar' to specify a column in
+   input data that can be used to show additional information in a geo
+   chart. See the new example of plotting countries' credit rating in
+   the help file for use case. Thanks to John Muschelli for suggesting
+   this feature.
+
+
 googleVis 0.4.2 [2013-03-16]
 ----------------------------
 
