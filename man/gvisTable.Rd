@@ -181,7 +181,7 @@ value is given and therefore no button is displayed.
     chart type and \code{\link{tempfile}}
   }
   
-  \item{format}{named list. If \code{NULL} (default) no specific format will be used. The named list needs to contain the column names of the data and the specified format. The format string is a subset of the ICU pattern set. For instance, {pattern:'#,###\%'} will result in output values "1,000\%", "750\%", and "50\%" for values 10, 7.5, and 0.5. 
+  \item{formats}{named list. If \code{NULL} (default) no specific format will be used. The named list needs to contain the column names of the data and the specified format. The format string is a subset of the ICU pattern set. For instance, {pattern:'#,###\%'} will result in output values "1,000\%", "750\%", and "50\%" for values 10, 7.5, and 0.5. 
   }
 }
 
@@ -272,9 +272,9 @@ plot(tbl2)
 ## Table with formating options
 tbl3 <- gvisTable(Population, formats=list(Population="#,###"))
 
-Population[['% of World Population']] <- Population[['% of World Population']]/100 
+Population[['\% of World Population']] <- Population[['\% of World Population']]/100 
 tbl4 <- gvisTable(Population, formats=list(Population="#,###", 
-                                           '% of World Population'='#.#%'))
+                                           '\% of World Population'='#.#\%'))
 plot(tbl4)                                           
 plot(tbl3)
 }
