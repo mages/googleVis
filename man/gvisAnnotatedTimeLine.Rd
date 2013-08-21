@@ -70,7 +70,7 @@ gvisAnnotatedTimeLine(data,  datevar = "", numvar="", idvar = "",
       }       
     }
     Further possible components are, taken from
-    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/annotatedtimeline.html#Configuration_Options}:
+    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/annotatedtimeline#Configuration_Options}:
     \describe{
       \item{\code{height}}{height of the chart in pixels.
       }
@@ -501,8 +501,10 @@ month <- ifelse(month < 10, paste("0",month, sep=""), m)
 
 ## Get weekly stock prices from Apple Inc.
 tckr <- 'AAPL'
-fn <- sprintf('http://ichart.finance.yahoo.com/table.csv?s=\%s&a=08&b=7&c=1984&d=\%s&e=\%s&f=\%s&g=w&ignore=.csv',
-      tckr, month, current.day, current.year)
+yahoo <- 'http://ichart.finance.yahoo.com/table.csv'
+
+fn <- sprintf('\%s?s=\%s&a=08&b=7&c=1984&d=\%s&e=\%s&f=\%s&g=w&ignore=.csv',
+      yahoo, tckr, month, current.day, current.year)
 
 ## Get data from Yahoo! Finance
 data <- read.csv(fn, colClasses=c("Date", rep("numeric",6)))

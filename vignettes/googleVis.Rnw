@@ -1355,6 +1355,32 @@ Apparently there is little appetite at Google to migrate motion
 charts to HTML5 or other technologies, see the following Google
 Visualisation API news group post: \url{http://goo.gl/5Zyuw}.
 
+\subsection{How can I set axes limits with googleVis?}
+
+Unfortunately, there are no arguments such as \texttt{ylim} and \texttt{xlim}. 
+Instead, the Google Charts axes options are set via \texttt{hAxes} and 
+\texttt{vAxes}, with h and v indicating the horizontal and vertical axis. 
+More precisely, we have to set  \texttt{viewWindowMode : 'explicit'} and set 
+the \texttt{viewWindow} to the desired min and max values. 
+Additionally, we have to wrap all of this in $[\{\}]$ brackets as those 
+settings are sub-options of \texttt{h/vAxes}. 
+There are also options \texttt{minValue} and \texttt{maxValue}, 
+but they only allow you to extend the axes ranges.
+
+Here is a minimal example, setting the y-axis limits from 0 to 10:
+<<eval=FALSE>>=
+library(googleVis)
+dat <- data.frame(x=LETTERS[1:10], 
+                  y=c(0, 4, -2, 2, 4, 3, 8, 15, 10, 4))
+area1 <- gvisAreaChart(xvar="x", yvar="y", data=dat,
+    	options=list(vAxes="[{viewWindowMode:'explicit',
+			viewWindow:{min:0, max:10}}]",
+                        width=500, height=400, 
+                        title="y-limits set from 0 to 10"),
+			chartid="area1ylim")
+plot(area1)
+@
+
 \subsection{How can I change the look and feel of the charts?}
 
 The charts have a lot of options which allow you to change the look

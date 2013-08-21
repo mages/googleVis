@@ -19,7 +19,7 @@
   of events corresponding to user interaction.
 }
 \usage{
-gvisTable(data, options = list(), chartid)
+gvisTable(data, options = list(), chartid, formats = NULL)
 }
 \arguments{
   \item{data}{a \code{\link{data.frame}} to be displayed as a table
@@ -180,6 +180,9 @@ value is given and therefore no button is displayed.
   \item{chartid}{character. If missing (default) a random chart id will be generated based on
     chart type and \code{\link{tempfile}}
   }
+  
+  \item{format}{named list. If \code{NULL} (default) no specific format will be used. The named list needs to contain the column names of the data and the specified format. The format string is a subset of the ICU pattern set. For instance, {pattern:'#,###\%'} will result in output values "1,000\%", "750\%", and "50\%" for values 10, 7.5, and 0.5. 
+  }
 }
 
 %%\details{
@@ -265,6 +268,15 @@ plot(tbl1)
 tbl2 <- gvisTable(Population, options=list(page='enable', height=300))
 
 plot(tbl2)
+
+## Table with formating options
+tbl3 <- gvisTable(Population, formats=list(Population="#,###"))
+
+Population[['% of World Population']] <- Population[['% of World Population']]/100 
+tbl4 <- gvisTable(Population, formats=list(Population="#,###", 
+                                           '% of World Population'='#.#%'))
+plot(tbl4)                                           
+plot(tbl3)
 }
 
 \keyword{ iplot }

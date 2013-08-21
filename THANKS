@@ -52,3 +52,5 @@ Thanks to:
     WorldBank demo using the WDI package. 
   o John Muschelli for suggesting to add hovervar as an additional
     argument to gvisGeoChart.
+  o Jacqueline Buros for providing code to include formats parameter 
+    to gvisTable()

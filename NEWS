@@ -1,13 +1,23 @@
-googleVis 0.4.3 [2013-05-09]
+googleVis 0.4.3 [2013-08-21]
 ----------------------------
 
+NEW FEATURES
+
+* gvisTable() gained new parameter formats, which allow users to specify the 
+  format of number displayed in a table. Thanks to Jacqueline Buros for 
+  providing ideas and code.
+
+* Extended FAQ section
+
+googleVis 0.4.3 [2013-05-25]
+----------------------------
 
 NEW FEATURES
  
  * givsGeoChart has a new argument 'hovervar' to specify a column in
    input data that can be used to show additional information in a geo
    chart. See the new example of plotting countries' credit rating in
-   the help file for use case. Thanks to John Muschelli for suggesting
+   the help file for a use case. Thanks to John Muschelli for suggesting
    this feature.
 
 

@@ -70,7 +70,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
       }   
     }
     Further possible components are, taken from
-    \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html#Configuration_Options}: 
+    \url{https://developers.google.com/chart/interactive/docs/gallery/motionchart}: 
     \describe{
       \item{\code{height}}{height of the chart in pixels.
       }
@@ -81,7 +81,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 	dimensions, selected bubbles/entities, and other state
 	descriptions. The string has to start and end with a newline,
 	see the example for more details, see also
-	\url{https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html#Motion_Chart_initial_state}
+	\url{https://developers.google.com/chart/interactive/docs/gallery/motionchart}
       }
       \item{\code{showChartButtons}}{logical, default=\code{TRUE}.
 	\code{FALSE} hides the buttons that control the chart type (bubbles /
@@ -174,7 +174,7 @@ gvisMotionChart(data, idvar = "id", timevar = "time",
 }
 \references{
   Google Motion Chart API:
-  \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html} 
+  \url{https://developers.google.com/chart/interactive/docs/gallery/motionchart} 
 
   Follow the link for Google's data policy.
 
@@ -316,7 +316,7 @@ M7 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
 plot(M7)
 
 ## For more information see:
-## http://code.google.com/apis/chart/interactive/docs/gallery/motionchart.html#Motion_Chart_initial_state
+## https://developers.google.com/chart/interactive/docs/gallery/motionchart
 
 ## See also the demo(WorldBank). It demonstrates how you can access
 ## country level data from the World Bank to create Gapminder-like

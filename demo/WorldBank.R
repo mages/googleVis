@@ -18,7 +18,7 @@
 ## Distributed under GPL 2 or later
 
 ## This demo requires the 'WDI' package
-if( !is.element("pscl", installed.packages()[,1]) )
+if( !is.element("WDI", installed.packages()[,1]) )
   install.packages("WDI")
 
 library(WDI)
