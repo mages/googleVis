@@ -3,7 +3,7 @@
 \usepackage{Sweave}
 \usepackage{thumbpdf}
 \usepackage{url}
-\usepackage{wrapfig}
+%\usepackage{wrapfig}
 \usepackage{hyperref}
 
 \hypersetup{
@@ -341,13 +341,13 @@ help pages, see
 help('gvisMotionChart')
 @ 
 
-\begin{wrapfigure}{r}{0.35\textwidth}
+\begin{figure}%{r}{0.35\textwidth}
 \begin{center}
 \includegraphics[width=0.34\textwidth]{gvisObject.pdf}
 \caption{Schematic structure of a gvis list object.
 }\label{gvisObject}
 \end{center}
-\end{wrapfigure}
+\end{figure}
 
 The argument \texttt{chartid}  allows the user to set a chart id of the
 output chart manually. If the argument is missing a random id using 
