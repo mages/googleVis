@@ -108,6 +108,31 @@ value is given and therefore no button is displayed.
 	  }
 	}
       }
+
+      \item{\code{legend.alignment}}{a string. Default
+	automatic. Alignment of the legend. Can be one of the following: 
+	\describe{
+	  \item{\code{'start'}}{Aligned to the start of the area
+	    allocated for the legend.
+	    }
+	    \item{\code{'center'}}{Centered in the area allocated for the
+	      legend.
+	      }
+	      \item{\code{'end'}}{Aligned to the end of the area
+		allocated for the legend.
+	      }
+	    }
+	    Start, center, and end are relative to the style --
+	    vertical or horizontal -- of the legend. For example, in a
+	    'right' legend, 'start' and 'end' are at the top and bottom,
+	    respectively; for a 'top' legend, 'start' and 'end' would be at
+	    the left and right of the area, respectively.
+
+	    The default value depends on the legend's position. For 'bottom'
+	    legends, the default is 'center'; other legends default to
+	    'start'.
+	  }
+      
       \item{\code{legend.textStyle}}{a JSON object. Default \preformatted{\{color: 'black',
 	  fontName: <global-font-name>, fontSize: <global-font-size>\}}
 	An object that specifies the legend text style. The object has this format:
@@ -116,31 +141,11 @@ value is given and therefore no button is displayed.
 	The color can be any HTML color string, for example: \code{'red'} or
 	\code{'#00cc00'}. Also see \code{fontName} and \code{fontSize}.
       }
-      \item{\code{slices}}{a JOSN array of objects, or object with
-	nested objects. Default \preformatted{\{\}.} A JSON array of objects, each
-	describing the format of the corresponding slice in the pie. To
-	use default values for a slice, specify an empty object \preformatted{\{\}.} If a
-	slice or a value is not specified, the global value will be
-	used. Each object supports the following properties:
-	\describe{
-	  \item{\code{color}}{The color to use for this slice. Specify a
-	    valid HTML color string.
+      \item{\code{pieHole}}{a number. Default 0. If between 0 and
+	  1, displays a donut chart. The hole with have a radius equal
+	  to number times the radius of the chart.
 	  }
-	  \item{\code{textStyle}}{Overrides the global pieSliceTextSlice
-	    for this slice.
-	  }
-	}
-	You can specify either an array of objects, each of which applies
-	to the slice in the order given, or you can specify an object
-	where each child has a numeric key indicating which slice it
-	applies to. For example, the following two declarations are
-	identical, and declare the first slice as black and the fourth as
-	red:
-	\preformatted{
-	  slices: [\{color: 'black', \{\}, \{\}, \{color: 'red'\}]
-	  slices: \{0: \{color: 'black'\}, 3: \{color: 'red'\}\}
-	}
-      }
+	  
       \item{\code{pieSliceBorderColor}}{a string. Default \code{'white'}.
 	The color of the slices border.
       }      
@@ -153,7 +158,7 @@ value is given and therefore no button is displayed.
 	  }
 	  \item{\code{'value'}}{The quantitative value of the slice.
 	  }
-	  \item{\code{'label'}}{ The name of the slice.
+	  \item{\code{'label'}}{The name of the slice.
 	  }
 	  \item{\code{'none'}}{No text is displayed.}
 	}
@@ -166,7 +171,11 @@ value is given and therefore no button is displayed.
 	  <number>\}.} The color can be any HTML color string, for
 	example: \code{'red'} or \code{'#00cc00'}. Also see \code{fontName} and
 	\code{fontSize}.
-      }	
+      }
+      \item{\code{pieStartAngle}}{A number. Default 0.	The angle, in
+	degrees, to rotate the chart by. The default of 0 will orient
+	the leftmost edge of the first slice directly up.
+      }
       \item{\code{reverseCategories}}{Boolean. Default \code{FALSE}. If
 	set to \code{TRUE}, will draw slices counterclockwise. The
 	default is to draw clockwise.	
@@ -186,6 +195,43 @@ value is given and therefore no button is displayed.
 	label for the combination slice that holds all slices below
 	\code{sliceVisibilityThreshold}.
       }
+      \item{\code{slices}}{a JOSN array of objects, or object with
+	nested objects. Default \preformatted{\{\}.} A JSON array of objects, each
+	describing the format of the corresponding slice in the pie. To
+	use default values for a slice, specify an empty object \preformatted{\{\}.} If a
+	slice or a value is not specified, the global value will be
+	used. Each object supports the following properties:
+	\describe{
+	  \item{\code{color}}{The color to use for this slice. Specify a
+	    valid HTML color string.
+	  }
+	  \item{code{offset}}{How far to separate the slice from the
+	    rest of the pie, from 0.0 (not at all) to 1.0 (the pie's
+	    radius).
+	  }
+	  \item{\code{textStyle}}{Overrides the global pieSliceTextSlice
+	    for this slice.
+	  }
+	}
+	You can specify either an array of objects, each of which applies
+	to the slice in the order given, or you can specify an object
+	where each child has a numeric key indicating which slice it
+	applies to. For example, the following two declarations are
+	identical, and declare the first slice as black and the fourth as
+	red:
+	\preformatted{
+	  slices: [\{color: 'black', \{\}, \{\}, \{color: 'red'\}]
+	  slices: \{0: \{color: 'black'\}, 3: \{color: 'red'\}\}
+	}
+      }
+
+      \item{\code{sliceVisibilityThreshold}}{a number. Default
+	1/720. The slice relative part, below which a slice will not show
+	individually. All slices that have not passed this threshold will
+	be combined to a single slice, whose size is the sum of all their
+	sizes. Default is not to show individually any slice which is
+	smaller than half a degree.
+      }      
       \item{\code{title}}{A string. Default no title. Text to display above the chart.
       }
       \item{\code{titleTextStyle}}{A json object. Default
@@ -314,6 +360,16 @@ value is given and therefore no button is displayed.
 
 Pie1 <- gvisPieChart(CityPopularity)
 plot(Pie1)
+
+## Doughnut chart - a pie with a hole
+Pie2 <- gvisPieChart(CityPopularity, options=list(
+                    slices="{4: {offset: 0.2}, 0: {offset: 0.3}}",
+                    title='City popularity',
+                    legend='none',
+                    pieSliceText='label',
+                    pieHole=0.5))
+plot(Pie2)
+
 
 }
 \keyword{ iplot }

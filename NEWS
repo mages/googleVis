@@ -1,4 +1,4 @@
-googleVis 0.4.3 [2013-08-21]
+googleVis 0.4.4 [2013-08-23]
 ----------------------------
 
 NEW FEATURES
@@ -6,6 +6,8 @@ NEW FEATURES
 * gvisTable() gained new parameter formats, which allow users to 
   specify the format of number displayed in a table. 
   Thanks to Jacqueline Buros for providing ideas and code.
+
+* Doughnut chart are now possible as pie charts with a hole.
 
 Changes
 
