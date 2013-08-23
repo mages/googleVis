@@ -540,7 +540,9 @@ value is given and therefore no button is displayed.
 ## will open a browser window and requires an internet
 ## connection to display the visualisation.
 
-df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
+df <- data.frame(country=c("US", "GB", "BR"), 
+                           val1=c(1,3,4), 
+                           val2=c(23,12,32))
 
 ## Bar chart
 Bar1 <- gvisBarChart(df, xvar="country", yvar=c("val1", "val2"))
@@ -552,11 +554,11 @@ Bar2 <- gvisBarChart(df, xvar="country", yvar=c("val1", "val2"),
 plot(Bar2)
 
 
-## Add a customised title and smoothed curve
+## Add a customised title and change width of bars
 Bar3 <- gvisBarChart(df, xvar="country", yvar=c("val1", "val2"),
              options=list(title="Hello World",
                           titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}",
-                          curveType='function'))
+                          bar="{groupWidth:'100\%'}"))
 plot(Bar3)
 
 \dontrun{

@@ -1,6 +1,7 @@
 importFrom(grDevices)		 
 importFrom(methods, setMethod)		 
 importFrom(utils, packageDescription)		 
+importFrom(tools, startDynamicHelp)  	 
 
 importFrom("RJSONIO", "toJSON")
 export(gvisMotionChart, gvisTable, gvisGeoMap,gvisTreeMap,gvisMap, gvisAnnotatedTimeLine)		 

@@ -572,11 +572,11 @@ Col2 <- gvisColumnChart(df, xvar="country", yvar=c("val1", "val2"),
 plot(Col2)
 
 
-## Add a customised title and smoothed curve
+## Add a customised title and and change width of columns
 Col3 <- gvisColumnChart(df, xvar="country", yvar=c("val1", "val2"),
              options=list(title="Hello World",
                           titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}",
-                          curveType='function'))
+                          bar="{groupWidth:'100\%'}"))
 plot(Col3)
 
 \dontrun{

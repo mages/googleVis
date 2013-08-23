@@ -702,5 +702,14 @@ C1 <- gvisComboChart(CityPopularity, xvar="City",
                                                 series='{0: {type:"line"}}'))
 plot(C1)
 
+## Changing the width of columsn
+C2 <- gvisComboChart(CityPopularity, xvar="City",
+                                     yvar=c("Mean", "Popularity"),
+                                   options=list(seriesType="bars",
+                                                bar="{groupWidth:'100\%'}",
+                                                title="City Popularity",
+                                                series='{0: {type:"line"}}'))
+plot(C2)
+
 }
 \keyword{ iplot }

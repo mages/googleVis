@@ -4,13 +4,13 @@ Title: Interface between R and the Google Chart Tools
 Version: 0.4.4
 Date: 2013-08-21
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
-                     email = "markus.gesmann@gmail.com"),
+                     email = "markus.gesmann@googlemail.com"),
             person("Diego", "de Castillo", role = "aut",
                      email = "decastillo@gmail.com"),
                    person("Joe", "Cheng", role = "ctb",
      	             email = "joe@rstudio.com"))
 Author: Markus Gesmann, Diego de Castillo
-Maintainer: Markus Gesmann <markus.gesmann@gmail.com>
+Maintainer: Markus Gesmann <markus.gesmann@googlemail.com>
 Description: 
    The googleVis package provides an interface between R and Google's
    Chart Tools. It allows users to create web pages with interactive

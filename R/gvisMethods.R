@@ -41,7 +41,8 @@ print.gvis <- function(x, tag=NULL, file="", ...){
 
 
 isServerRunning <- function() {
-  tools:::httpdPort > 0L
+  #tools:::httpdPort > 0L
+  get("httpdPort", envir=environment(startDynamicHelp)) > 0
 }
 
 googlevis.httpd.handler <- function(path, query, ...) {
@@ -62,7 +63,7 @@ plot.gvis <- function(x, tag=NULL, ...){
 
   if(is.null(tag) | !('gvis' %in% class(x))){  ## Open browser window if tag is NULL   
     if(!isServerRunning() ) {
-      tools:::startDynamicHelp()
+      startDynamicHelp()
     }
     
     env <- get( ".httpd.handlers.env", asNamespace("tools"))
@@ -115,7 +116,8 @@ plot.gvis <- function(x, tag=NULL, ...){
     }    
     print(x, file=file)    
     .url <- sprintf("http://127.0.0.1:%s/custom/googleVis/%s",
-                    tools:::httpdPort,
+                    #tools:::httpdPort,
+                    get("httpdPort", envir=environment(startDynamicHelp)),
                     basename(file))
     if(interactive()){
       browseURL(.url, ...)
