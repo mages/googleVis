@@ -276,7 +276,6 @@ Population[['\% of World Population']] <- Population[['\% of World Population']]
 tbl4 <- gvisTable(Population, formats=list(Population="#,###", 
                                            '\% of World Population'='#.#\%'))
 plot(tbl4)                                           
-plot(tbl3)
 }
 
 \keyword{ iplot }

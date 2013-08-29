@@ -94,47 +94,47 @@ gvis <- function(type="", data, options, chartid, package, formats=NULL){
   }
   
   jsHeader <- '
-  <!-- jsHeader -->
-  <script type="text/javascript">
-  '
+<!-- jsHeader -->
+<script type="text/javascript">
+'
   jsHeader  <- paste(infoString(type),   jsHeader , sep="\n")
   
   jsData <- '
-  // jsData 
-  function gvisData%s () {
-  var data = new google.visualization.DataTable();
-  var datajson =
-  %s;
-  %s
-  data.addRows(datajson);
-  return(data);
-  }
-  '
+// jsData 
+function gvisData%s () {
+var data = new google.visualization.DataTable();
+var datajson =
+%s;
+%s
+data.addRows(datajson);
+return(data);
+}
+'
   jsData <- sprintf(jsData, chartid,
                     data.json,
                     paste(paste("data.addColumn('", data.type, "','",
                                 names(data.type), "');", sep=""), collapse="\n"))
   
   jsDisplayChart <- '
-  // jsDisplayChart
-  (function() {
-  var pkgs = window.__gvisPackages = window.__gvisPackages || [];
-  var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
-  var chartid = "%s";
+// jsDisplayChart
+(function() {
+var pkgs = window.__gvisPackages = window.__gvisPackages || [];
+var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
+var chartid = "%s";
   
-  // Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
-  var i, newPackage = true;
-  for (i = 0; newPackage && i < pkgs.length; i++) {
-  if (pkgs[i] === chartid)
-  newPackage = false;
-  }
-  if (newPackage)
+// Manually see if chartid is in pkgs (not all browsers support Array.indexOf)
+var i, newPackage = true;
+for (i = 0; newPackage && i < pkgs.length; i++) {
+if (pkgs[i] === chartid)
+newPackage = false;
+}
+if (newPackage)
   pkgs.push(chartid);
   
-  // Add the drawChart function to the global list of callbacks
-  callbacks.push(drawChart%s);
-  })();
-  function displayChart%s() {
+// Add the drawChart function to the global list of callbacks
+callbacks.push(drawChart%s);
+})();
+function displayChart%s() {
   var pkgs = window.__gvisPackages = window.__gvisPackages || [];
   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];
   window.clearTimeout(window.__gvisLoad);
@@ -147,13 +147,13 @@ gvis <- function(type="", data, options, chartid, package, formats=NULL){
   // Race condition where another setTimeout call snuck in after us; if
   // that call added a package, we must not shift its callback
   return;
-  }
-  while (callbacks.length > 0)
-  callbacks.shift()();
-  } %s});
-  }, 100);
-  }
-  '
+}
+while (callbacks.length > 0)
+callbacks.shift()();
+} %s});
+}, 100);
+}
+'
   jsDisplayChart <- sprintf(jsDisplayChart,
                             ifelse(!is.null(options$gvis$gvis.editor), 'charteditor',
                                    tolower(package)),
@@ -166,17 +166,17 @@ gvis <- function(type="", data, options, chartid, package, formats=NULL){
   #########
   
   jsDrawChart <- '
-  // jsDrawChart
-  function drawChart%s() {
-  var data = gvisData%s();
-  var options = {};
-  %s
-  %s
-  %s
-  %s
-  }
-  %s  
-  '
+// jsDrawChart
+function drawChart%s() {
+var data = gvisData%s();
+var options = {};
+%s
+%s
+%s
+%s
+}
+%s  
+'
   jsDrawChart <- sprintf(jsDrawChart, chartid,  chartid,
                          paste(gvisOptions(options), collapse="\n"),
                          jsFormats,
@@ -186,24 +186,24 @@ gvis <- function(type="", data, options, chartid, package, formats=NULL){
   )
   
   jsFooter  <- '
-  // jsFooter
-  </script>
-  '
+// jsFooter
+</script>
+'
   
   jsChart <- '
-  <!-- jsChart -->  
-  <script type="text/javascript\" src="https://www.google.com/jsapi?callback=displayChart%s"></script>
-  '
+<!-- jsChart -->  
+<script type="text/javascript\" src="https://www.google.com/jsapi?callback=displayChart%s"></script>
+'
   jsChart  <- sprintf(jsChart, chartid)
   
   
   divChart <- '
-  <!-- divChart -->
-  %s  
-  <div id="%s"
+<!-- divChart -->
+%s  
+<div id="%s"
   style="width: %spx; height: %spx;">
-  </div>
-  '
+</div>
+'
   divChart <- sprintf(divChart,
                       ifelse(!is.null(options$gvis$gvis.editor),
                              sprintf("<input type='button' onclick='openEditor%s()' value='%s'/>",
@@ -502,12 +502,12 @@ gvisHtmlWrapper <- function(title, dataName, chartid, type){
   
   htmlHeader <- '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-  <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-  <title>%s</title>
-  <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-  <style type="text/css">
-  body {
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>%s</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<style type="text/css">
+body {
   color: #444444;
   font-family: Arial,Helvetica,sans-serif;
   font-size: 75%%;
@@ -515,22 +515,22 @@ gvisHtmlWrapper <- function(title, dataName, chartid, type){
   a {
   color: #4D87C7;
   text-decoration: none;
-  }
-  </style>
-  </head>
-  <body>
-  '
+}
+</style>
+</head>
+<body>
+'
   htmlHeader <- sprintf(htmlHeader,chartid) 
   
   htmlFooter <- '
-  <!-- htmlFooter -->
-  <span> 
+<!-- htmlFooter -->
+<span> 
   %s &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>
   &#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; %s
-  </span></div>
-  </body>
-  </html>
-  '
+</span></div>
+</body>
+</html>
+'
   
   if(type %in% "gvisMerge"){
     policy <- "Data Policy: See individual charts"

@@ -1,3 +1,11 @@
+googleVis 0.4.5 [2013-08-29]
+----------------------------
+
+Bug Fixes
+
+* The indentation of some of the HTML output changed in version 0.4.4,
+  which as a result stopped googleVis output to be rendered with knitr.
+
 googleVis 0.4.4 [2013-08-23]
 ----------------------------
 
@@ -12,7 +20,7 @@ NEW FEATURES
 Changes
 
 * New examples for gvisBarChart, gvisColumnChart, gvisComboChart 
-  demonstarting how to change the width of bars
+  demonstrating how to change the width of bars
 
 * Extended FAQ section
 
