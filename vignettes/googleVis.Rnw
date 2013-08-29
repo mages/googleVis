@@ -123,7 +123,7 @@ and \href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare}.
 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=\textwidth]{MotionChart.pdf}
+\includegraphics[width=\textwidth]{./figures/MotionChart.pdf}
 \caption{
   Overview of a Google Motion Chart.  Screenshot of the output of
   \texttt{plot(gvisMotionChart(Fruits, idvar='Fruit', timevar='Year'))}
@@ -284,7 +284,7 @@ plot(M)
 @ 
 \begin{figure}[t]
 \begin{center}
-\includegraphics[width=\textwidth]{googleVisDemoPlots.pdf}
+\includegraphics[width=\textwidth]{./figures/googleVisDemoPlots.pdf}
 \caption{
   Screenshot of some of the outputs of \texttt{demo(googleVis)}.
   Clockwise from top left:
@@ -343,7 +343,7 @@ help('gvisMotionChart')
 
 \begin{figure}%{r}{0.35\textwidth}
 \begin{center}
-\includegraphics[width=0.34\textwidth]{gvisObject.pdf}
+\includegraphics[width=0.34\textwidth]{./figures/gvisObject.pdf}
 \caption{Schematic structure of a gvis list object.
 }\label{gvisObject}
 \end{center}
@@ -559,7 +559,7 @@ aligned either horizontally or vertically next to each other in an HTML table.
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=0.8\textwidth]{gvisMerge.pdf}
+\includegraphics[width=0.8\textwidth]{./figures/gvisMerge.pdf}
 \caption{
   Three charts combined with \texttt{gvisMerge}.
 }\label{gvisMerge}
@@ -596,7 +596,7 @@ options\footnote{Please refer to the help file of the individual
 see the output in Figure~\ref{Options}.  
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=0.8\textwidth]{Options.pdf}
+\includegraphics[width=0.8\textwidth]{./figures/Options.pdf}
 \caption{
   A line chart with various options set.
 }\label{Options}
@@ -643,7 +643,7 @@ plot(Geo)
 @ 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=0.8\textwidth]{gvisGeoChart.png}
+\includegraphics[width=0.8\textwidth]{./figures/gvisGeoChart.pdf}
 \caption{
 A geo chart with options set for a colour axis.}
 \label{geochart}
@@ -663,7 +663,7 @@ plot(Editor)
 @ 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=0.8\textwidth]{Editor.pdf}
+\includegraphics[width=0.8\textwidth]{./figures/Editor.pdf}
 \caption{
 Example of \googleVis chart with \texttt{options = list (gvis.editor =
   'Edit me!')}.
@@ -695,7 +695,7 @@ plot(CR)
 @ 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.5\textwidth]{Apostrophe.png}
+  \includegraphics[width=0.5\textwidth]{./figures/Apostrophe.pdf}
   \caption{Visualising data with apostrophes in column names.}
   \label{fig:apostrophes}
 \end{figure}
@@ -750,7 +750,7 @@ an illustration.
 
 \begin{figure}[t]
   \centering
-  \includegraphics[width=0.8\textwidth]{CreatePost.png}
+  \includegraphics[width=0.8\textwidth]{./figures/CreatePost.pdf}
   \caption{Including \googleVis output in a WordPress blog entry.}
   \label{wordpress}
 \end{figure}
@@ -984,7 +984,7 @@ and upload her/his own CSV-file, see Figure~\ref{fig:Rook}.
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.8\textwidth]{Rook.png}
+  \includegraphics[width=0.8\textwidth]{./figures/Rook.pdf}
   \caption{Screen shot of a Rook app with \googleVis output.}
   \label{fig:Rook}
 \end{figure}
@@ -1080,7 +1080,7 @@ shinyUI(pageWithSidebar(
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.8\textwidth]{shiny.png}
+  \includegraphics[width=0.8\textwidth]{./figures/shiny.pdf}
   \caption{Screen shot a \shiny app with \googleVis output.}
   \label{fig:shiny}
 \end{figure}
@@ -1135,7 +1135,7 @@ plot statements into html output, see the example below and Figure~\ref{fig:mark
 
 \begin{figure}[ht]
   \centering
-  \includegraphics[width=0.7\textwidth]{MarkdownExample.png}
+  \includegraphics[width=0.7\textwidth]{./figures/MarkdownExample.pdf}
   \caption{Screen shot of the markdown  example output} 
   \label{fig:markdown}
 \end{figure}
@@ -1226,7 +1226,7 @@ such as YouTube videos or \googleVis output. You find an example with
 \url{http://lamages.blogspot.com/2011/11/interactive-presentations.html} .
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.5\textwidth]{GettingStartedWithGoogleVis.png}
+  \includegraphics[width=0.5\textwidth]{./figures/GettingStartedWithGoogleVis.pdf}
   \caption{\googleVis presentation with deck.js:
     \url{http://dl.dropbox.com/u/7586336/blogger/deck.js/googleVis/index.html}} 
   \label{fig:deck.js}
@@ -1241,7 +1241,7 @@ basic idea is that you create a Markdown file with \knitr and you
 post-process the output with pandoc into a slidy HTML presentation. 
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.5\textwidth]{CambR_googleVis_29_May_2012.png}
+  \includegraphics[width=0.5\textwidth]{./figures/CambR_googleVis_29_May_2012.pdf}
   \caption{\googleVis presentation with slidy:
     \url{http://lamages.blogspot.co.uk/2012/05/interactive-html-presentation-with-r.html}} 
   \label{fig:slidy}
