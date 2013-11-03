@@ -1202,6 +1202,7 @@ running \texttt{knit} on the whole file.
 A more comprehensive example is given in the help file to \texttt{?plot.gvis}.
 
 \section{Using \googleVis in presentations}\label{sec:presentations}
+
 The Google Chart Tools are designed for web pages, so it should
 be no surprise that it can be difficult or impossible to embed \googleVis 
 output in traditional presentation software like MS PowerPoint\footnote{For 
@@ -1218,34 +1219,31 @@ it is not.
 
 An alternative would be to build the presentation as a web page itself.  
 
-The JavaScript library deck.js~\cite{deck.js}, a j{Q}uery
-framework for creating {HTML} presentations by Caleb  Troughton,
-provides an elegant way of combining the slide paradigm with web content 
-such as YouTube videos or \googleVis output. You find an example with
-\googleVis charts on mages' blog:
-\url{http://lamages.blogspot.com/2011/11/interactive-presentations.html} .
+A popular approach here is the \texttt{slifiy} package by Ramnath Vaidyanathan, 
+\cite{slidify} that builds on the knitr Markdown approach of the previous 
+section. An example of a \texttt{slidify} presentation is the \googleVis 
+tutorial given at the useR! conference in 2013, \cite{googleVisTutorial}.
+
 \begin{figure}[h]
   \centering
-  \includegraphics[width=0.5\textwidth]{./figures/GettingStartedWithGoogleVis.pdf}
-  \caption{\googleVis presentation with deck.js:
-    \url{http://dl.dropbox.com/u/7586336/blogger/deck.js/googleVis/index.html}} 
-  \label{fig:deck.js}
+  \includegraphics[width=0.5\textwidth]{./figures/googleVisTutorial2013.png}
+  \caption{\googleVis tutorial at the useR! 2013 conference: \url{http://decastillo.github.io/googleVis_Tutorial}} 
+  \label{fig:slidify}
 \end{figure}
 
-An alternative to deck.js is 
-slidy\footnote{\url{http://www.w3.org/Talks/Tools/Slidy2/}} 
-in combination with \knitr and 
-pandoc\footnote{\url{http://johnmacfarlane.net/pandoc/}}, see the following blog post for more details:
-\url{http://lamages.blogspot.co.uk/2012/05/interactive-html-presentation-with-r.html}. The
-basic idea is that you create a Markdown file with \knitr and you
-post-process the output with pandoc into a slidy HTML presentation. 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=0.5\textwidth]{./figures/CambR_googleVis_29_May_2012.pdf}
-  \caption{\googleVis presentation with slidy:
-    \url{http://lamages.blogspot.co.uk/2012/05/interactive-html-presentation-with-r.html}} 
-  \label{fig:slidy}
-\end{figure}
+Slidify provides a choice of different layout frameworks and syntax highlighting options. Additionally, slidify slides can be published from R online, e.g. 
+on Dropbox or github.
+
+\section{Using \googleVis with RStudio}
+
+RStudio is popular a free and open source integrated development environment 
+for R. With verion 0.98.441 RStudio introduced a viewer pane that allows users 
+to display HTML files within RStudio's IDE.
+
+\googleVis will use the Viewer pane in RStudio (version >= 0.98.441) 
+to display non-Flash charts by default. The setting is controlled
+via the option viewer. Set \texttt{options("viewer"=NULL)} and the googleVis
+plot function will open all output in the default browser.
 
 \section{Beyond R}
 In this section we present ideas which go beyond the usual coding in

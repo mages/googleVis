@@ -120,7 +120,13 @@ plot.gvis <- function(x, tag=NULL, ...){
                     get("httpdPort", envir=environment(startDynamicHelp)),
                     basename(file))
     if(interactive()){
-      browseURL(.url, ...)
+      
+      viewer <- getOption("viewer")
+      if (!is.null(viewer) & !x$type %in% c("MotionChart", "AnnotatedTimeLine", "GeoMap"))
+        viewer(.url)#"http://localhost:8100")
+      else
+        #utils::browseURL("http://localhost:8100")
+            browseURL(.url, ...)
     }else{ ## not interactive modus     
       browseURL(.url, browser='false',...)
     }
