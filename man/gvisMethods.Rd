@@ -132,9 +132,12 @@
   and paste into her own page.
   
   googleVis will use the Viewer pane in RStudio (version >= 0.98.441) 
-  to display non-Flash charts by default. The setting is controlled
-  via the option viewer. Set \code{options("viewer"=NULL)} and the googleVis
-  plot function will open all output in the default browser again.
+  to display non-Flash charts by default. Flash charts and merged 
+  gvis-objects are displayed in the default browser. 
+  The setting is controlled via the option \code{googleVis.viewer}. 
+  By default it will have the value of \code{getOption("viewer")}.
+  Set \code{options("googleVis.viewer"=NULL)} and the googleVis
+  plot function will open all output in the standard browser again.
 }
 
 %% ~Make other sections like Warning with \section{Warning }{....} ~

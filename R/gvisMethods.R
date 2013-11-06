@@ -121,8 +121,9 @@ plot.gvis <- function(x, tag=NULL, ...){
                     basename(file))
     if(interactive()){
       
-      viewer <- getOption("viewer")
-      if (!is.null(viewer) & !x$type %in% c("MotionChart", "AnnotatedTimeLine", "GeoMap"))
+      viewer <- getOption("googleVis.viewer")
+      if (!is.null(viewer) & !x$type %in% c("MotionChart", "AnnotatedTimeLine", 
+                                            "GeoMap", "gvisMerge"))
         viewer(.url)#"http://localhost:8100")
       else
         #utils::browseURL("http://localhost:8100")

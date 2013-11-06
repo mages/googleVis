@@ -1241,9 +1241,13 @@ for R. With verion 0.98.441 RStudio introduced a viewer pane that allows users
 to display HTML files within RStudio's IDE.
 
 \googleVis will use the Viewer pane in RStudio (version >= 0.98.441) 
-to display non-Flash charts by default. The setting is controlled
-via the option viewer. Set \texttt{options("viewer"=NULL)} and the googleVis
-plot function will open all output in the default browser.
+to display non-Flash charts by default. Flash charts and merged gvis-objects are
+displayed in the default browser. The setting is controlled
+via the option \texttt{googleVis.viewer}. By default it will have
+the value of \texttt{getOption("viewer")}.
+Set \texttt{options("googleVis.viewer"=NULL)} and the googleVis
+plot function will open all output in the standard browser.
+
 
 \section{Beyond R}
 In this section we present ideas which go beyond the usual coding in
