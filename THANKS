@@ -55,3 +55,4 @@ Thanks to:
   o Jacqueline Buros for providing code to include formats parameter 
     to gvisTable()
   o JJ Allaire for pointing out how to use the viewer pane in RStudio
+  o Oliver Gjoneski and Ashton Trey Belew for patches on roles and tooltips

@@ -63,7 +63,7 @@ gvis <- function(type="", data, options, chartid, package, formats=NULL){
   data.json <- output$json
   
   ## check for not allowed data types
-  checkTypes <- data.type %in% options$data$allowed 
+  checkTypes <- data.type %in% options$data$allowed | isRoleColumn(data.type)
   if(sum(!checkTypes)){
     message <- paste("Only the following data types are allowed: ", 
                      paste(options$data$allowed, collapse=", "), "\n",
@@ -112,8 +112,26 @@ return(data);
 '
   jsData <- sprintf(jsData, chartid,
                     data.json,
-                    paste(paste("data.addColumn('", data.type, "','",
-                                names(data.type), "');", sep=""), collapse="\n"))
+                    paste(sapply(1:length(data.type), function(x)
+                                     if (endsIn(names(data.type)[x], '.tooltip'))
+                                       paste("data.addColumn({type: '", data.type[x], "', role: 'tooltip', 'p': {'html': true}});", sep="")
+                                     else if(endsIn(names(data.type)[x], '.interval'))
+                                       paste("data.addColumn({type: '", data.type[x], "', role: 'interval'});", sep="")
+                                     else if(endsIn(names(data.type)[x], '.annotation'))
+                                       paste("data.addColumn({type: '", data.type[x], "', role: 'annotation'});", sep="")
+                                     else if(endsIn(names(data.type)[x], '.annotationText'))
+                                       paste("data.addColumn({type: '", data.type[x], "', role: 'annotationText'});", sep="")
+                                     else if(endsIn(names(data.type)[x], '.certainty'))
+                                       paste("data.addColumn({type: '", data.type[x], "', role: 'certainty'});", sep="")
+                                     else if(endsIn(names(data.type)[x], '.scope'))
+                                       paste("data.addColumn({type: '", data.type[x], "', role: 'scope'});", sep="")
+                                     else if(endsIn(names(data.type)[x], '.emphasis'))
+                                       paste("data.addColumn({type: '", data.type[x], "', role: 'emphasis'});", sep="")
+                                     else
+                                       paste("data.addColumn('", data.type[x], "','",
+                                         names(data.type)[x], "');", sep="")
+                                 ), collapse="\n")
+                  )
   
   jsDisplayChart <- '
 // jsDisplayChart
@@ -329,7 +347,20 @@ fixBackslash <- function(x){
   return(x)
 }
 
+endsIn <- function(source, target){
+  substr(source, nchar(source)-nchar(target)+1, nchar(source)) %in% target
+}
 
+isRoleColumn <- function(x) {
+  return ((x %in% c("string") & endsIn(names(x), ".tooltip")) |
+          (x %in% c("string") & endsIn(names(x), ".annotation")) |
+          (x %in% c("string") & endsIn(names(x), ".annotationText")) |
+          (x %in% c("boolean") & endsIn(names(x), ".certainty")) |
+          (x %in% c("boolean") & endsIn(names(x), ".emphasis")) |
+          (x %in% c("boolean") & endsIn(names(x), ".scope")) |
+          (x %in% c("number") & endsIn(names(x), ".interval"))
+         )
+}
 check.location <- function(x){
   y = as.character(x)
   if (! is.character(y))
