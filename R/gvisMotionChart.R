@@ -27,22 +27,11 @@ gvisMotionChart <- function(data, idvar="id", timevar="time",
   dataName <- deparse(substitute(data))
 
   ## Bring data frame in the right column order
-  other.vars <- c(idvar, timevar, xvar, yvar, colorvar, sizevar)
-  pos <- rep(NA, 6)
-  ## nms.data <- names(data)
-  for( i in 1:6){
-    if(other.vars[i] != ""){
-      pos[i] <- match(other.vars[i], names(data))	
-      if(is.na(pos[i]))
-        stop(paste("Column", other.vars[i], "does not exist."))
-      if(pos[i] != i){## Column needs to be moved
-        swap.cols <- c(pos[i], i)
-        nms <- names(data[, swap.cols ])
-        data[, rev(swap.cols)] <- data[, swap.cols]
-        names(data)[rev(swap.cols)] <- nms
-      }		
-    }	 
-  }
+  vars <- c(idvar, timevar, xvar, yvar, colorvar, sizevar)  
+  vars.pos <- na.omit(match(vars, names(data)))
+  nm <- c(names(data)[vars.pos], names(data)[-vars.pos])
+  data <- cbind(data[, vars.pos], data[,-vars.pos])
+  names(data) <- nm
   
   ## Combine options for other generic functions
   my.options <- list(gvis=modifyList(list(width = 600, height=500), options),
