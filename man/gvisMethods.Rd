@@ -172,9 +172,9 @@ print(M, tag="jsData")
 plot(M)
 
 ## Combine with another chart, e.g. table
-tbl <- gvisTable(Fruits, options=list(height=220))
-Mtbl <- gvisMerge(M, tbl)
-plot(Mtbl)
+#tbl <- gvisTable(Fruits, options=list(height=220))
+#Mtbl <- gvisMerge(M, tbl)
+#plot(Mtbl)
 
 
 ## Example of using googleVis with knitr and markdown

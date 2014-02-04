@@ -25,8 +25,8 @@ Using the Google Chart Tools with R
 \tabular{ll}{
 	Package: \tab googleVis\cr
 	Type: \tab Package\cr
-	Version: \tab 0.4.8\cr
-	Date: \tab 2013-11-30\cr
+	Version: \tab 0.5.0\cr
+	Date: \tab 2014-02-03\cr
 	License: \tab GPL version 2 or later\cr
 	 }
 	}
