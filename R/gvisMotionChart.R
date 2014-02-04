@@ -62,7 +62,11 @@
 #' The parameters can be set via a named list, e.g. to set both height and width 
 #' to 500px use \code{options=list(height=500, width=500)}.
 #' Boolean options have to be set in the standard R way with \code{TRUE}
-#' and \code{FALSE}, rather than 'true' and 'false'.
+#' and \code{FALSE}, rather than 'true' and 'false'. 
+#' However, this is not true for more complex arguments that have to be 
+#' wrapped into longer JSON strings. 
+#' See the example below fore more details.
+#' 
 #' @param chartid character. If missing (default) a random chart id will be 
 #' generated based on chart type and \code{\link{tempfile}}
 #' 
@@ -112,7 +116,8 @@
 #' }
 #' 
 #' 
-#' @author Markus Gesmann, Diego de Castillo 
+#' @author Markus Gesmann \email{markus.gesmann@@gmail.com}, 
+#' Diego de Castillo \email{decastillo@@gmail.com}
 #' 
 #' @references Google Motion Chart API: 
 #' \url{https://developers.google.com/chart/interactive/docs/gallery/motionchart} 
@@ -187,20 +192,22 @@
 #' "xZoomedIn":false,"time":"2010","yZoomedDataMin":0,
 #' "yZoomedIn":false,"orderedByY":false,"yZoomedDataMax":100}
 #' '
-#' M6a <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
+#' M6a <- gvisMotionChart(Fruits, "Fruit", "Year", 
+#'                        options=list(state=myStateSettings))
 #' plot(M6a)
 #' 
 #' ## Newline set explicitly
 #' myStateSettings <-'\n{"iconType":"LINE"}\n'
-#' M6b <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
+#' M6b <- gvisMotionChart(Fruits, "Fruit", "Year", 
+#'                        options=list(state=myStateSettings))
 #' plot(M6b)
 #' 
 #' 
 #' ## Define which columns are used for the initial setup of the various
 #' ## dimensions
 #' M7 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
-#'                               xvar="Profit", yvar="Expenses",
-#'                               colorvar="Location", sizevar="Sales")
+#'                       xvar="Profit", yvar="Expenses",
+#'                       colorvar="Location", sizevar="Sales")
 #' plot(M7)
 #' ## For more information see:
 #' ## https://developers.google.com/chart/interactive/docs/gallery/motionchart
