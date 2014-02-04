@@ -40,7 +40,7 @@
 #' @return Returns a function that can be assigned to a Shiny \code{output} 
 #' element.  
 #' 
-#' @author Joe Cheng
+#' @author Joe Cheng, \email{joe@@rstudio.com}
 #' 
 #' @keywords shiny 
 #' 
