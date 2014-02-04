@@ -2,42 +2,12 @@ importFrom(grDevices)
 importFrom(methods, setMethod)		 
 importFrom(utils, packageDescription)		 
 importFrom(tools, startDynamicHelp)  	 
-importFrom(RJSONIO, toJSON)
-# Methods     
+
+importFrom("RJSONIO", "toJSON")
+export(gvisMotionChart)		 
+export(plot.gvis)		 
+export(renderGvis)
+			 
+#Methods		 
 S3method(plot, gvis)		 
 S3method(print, gvis)
-#export(plot.gvis)  	 
-
-# gvis Charts
-export(gvisMotionChart)		 
-export(gvisGeoMap)
-export(gvisIntensityMap)
-export(gvisTreeMap)
-export(gvisTable)
-export(gvisPieChart)
-export(gvisGauge)
-export(gvisOrgChart)
-export(gvisBubbleChart)
-export(gvisAnnotatedTimeLine)
-export(gvisMap)
-export(gvisGeoChart)
-export(gvisScatterChart)  	 
-export(gvisLineChart)
-export(gvisAreaChart)
-export(gvisBarChart)
-export(gvisColumnChart)		 
-export(gvisComboChart)		 
-export(gvisCandlestickChart)
-export(gvisSteppedAreaChart)		 
-
-export(gvisCalendar)
-export(gvisHistogram)     
-export(gvisAnnotationChart)
-export(gvisTimeline)     
-export(gvisSankey)     
-
-# Support function
-export(renderGvis)
-export(createGoogleGadget)
-export(gvisMerge)
-			 

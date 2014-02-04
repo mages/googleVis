@@ -1,8 +1,8 @@
 Version: 1.0
 
-RestoreWorkspace: No
-SaveWorkspace: No
-AlwaysSaveHistory: Yes
+RestoreWorkspace: Default
+SaveWorkspace: Default
+AlwaysSaveHistory: Default
 
 EnableCodeIndexing: Yes
 UseSpacesForTab: Yes
@@ -14,7 +14,4 @@ LaTeX: pdfLaTeX
 
 BuildType: Package
 PackageInstallArgs: --no-multiarch --with-keep.source
-PackageBuildArgs: --compact-vignettes=both
-PackageBuildBinaryArgs: --compact-vignettes=both
-PackageCheckArgs: --as-cran
 PackageRoxygenize: rd

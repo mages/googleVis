@@ -1,43 +1,50 @@
 \name{renderGvis}
 \alias{renderGvis}
-\title{renderGvis}
-\usage{
-renderGvis(expr, env = parent.frame(), quoted = FALSE)
-}
-\arguments{
-  \item{expr}{An expression that returns a gvis object.}
-
-  \item{env}{The environment in which to evaluate
-  \code{expr}}
-
-  \item{quoted}{Is \code{expr} a quoted expression (with
-  \code{quote()})? This is useful if you want to save an
-  expression in a variable.}
-}
-\value{
-Returns a function that can be assigned to a Shiny
-\code{output} element.
+\title{
+  Use a googleVis Chart as Shiny Output
 }
 \description{
-This function lets you use googleVis charts as Shiny
-output. Use it to wrap a googleVis-generating function that
-you assign to an \code{output} element in \code{server.R};
-then create an \code{htmlOutput} with the same name in
-\code{ui.R}.
+  This function lets you use googleVis charts as Shiny output. Use it to wrap a
+  googleVis-generating function that you assign to an \code{output} element in
+  \code{server.R}; then create an \code{htmlOutput} with the same name in
+  \code{ui.R}.
+}
+\usage{
+renderGvis(expr, env=parent.frame(), quoted=FALSE)
+}
+\arguments{
+  \item{expr}{
+    An expression that returns a gvis object.
+  }
+  \item{env}{
+    The environment in which to evaluate \code{expr}.
+  }
+  \item{quoted}{
+    Is \code{expr} a quoted expression (with \code{quote()})?
+    This is useful if you want to save an expression in a variable.
+  }
 }
 \details{
-Use a googleVis Chart as Shiny Output
+More information about shiny is available online: 
+\url{http://www.rstudio.com/shiny/}. 
+
+You find further examples with googleVis on shiny on mages' blog:
+\url{http://lamages.blogspot.co.uk/search/label/shiny}
 }
-\section{Details}{
-  More information about shiny is available online:
-  \url{http://www.rstudio.com/shiny/}.  You find further
-  examples with googleVis on shiny on mages' blog:
-  \url{http://lamages.blogspot.co.uk/search/label/shiny}
+\value{
+  Returns a function that can be assigned to a Shiny \code{output} element.
+}  
+
+\author{
+Joe Cheng \email{joe@rstudio.com}
 }
+
 \examples{
 \dontrun{
 # To run this example:
 shiny::runApp(system.file("shiny/", package="googleVis"))
+
+
 # server.R
 library(googleVis)
 
@@ -48,10 +55,10 @@ shinyServer(function(input, output) {
            "pressure" = pressure,
            "cars" = cars)
   })
-
+  
   output$view <- renderGvis({
     gvisScatterChart(datasetInput(),
-                     options=list(title=paste('Data:',input$dataset))))
+                    options=list(title=paste('Data:',input$dataset))))
   })
 })
 
@@ -59,7 +66,7 @@ shinyServer(function(input, output) {
 shinyUI(pageWithSidebar(
   headerPanel("googleVis on Shiny"),
   sidebarPanel(
-    selectInput("dataset", "Choose a dataset:",
+    selectInput("dataset", "Choose a dataset:", 
                 choices = c("rock", "pressure", "cars"))
   ),
   mainPanel(
@@ -68,8 +75,5 @@ shinyUI(pageWithSidebar(
 ))
 }
 }
-\author{
-Joe Cheng, \email{joe@rstudio.com}
-}
-\keyword{shiny}
 
+\keyword{ shiny }

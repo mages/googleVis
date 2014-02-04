@@ -1,2 +1,0 @@
-\url{https://developers.google.com/chart/interactive/docs/gallery/CHARTNAME#Configuration_Options}
-
