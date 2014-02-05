@@ -1,0 +1,646 @@
+googleVis 0.4.8 [2013-11-30]
+----------------------------
+
+NEW FEATURES
+
+* Tooltips and roles 
+
+
+googleVis 0.4.7 [2013-11-10]
+----------------------------
+
+Changes
+
+* New option 'googleVis.viewer' which controls the default output of
+  the googleVis plot method. On package load it is set to 
+  getOption("viewer"). It you use RStudio, then its viewer pane will 
+  be used for displaying non-Flash charts. 
+  Set options("googleVis.viewer"=NULL) and the googleVis
+  plot function will open all output in the default browser again.
+
+* The package startup message makes the user aware of the default 
+  viewer option.
+
+
+googleVis 0.4.6 [2013-11-03]
+----------------------------
+
+Changes
+
+* googleVis will use the Viewer pane in RStudio (version >= 0.98.441) 
+  to display non-Flash charts by default. The setting is controlled
+  via the option viewer. Set options("viewer"=NULL) and the googleVis
+  plot function will open all output in the default browser again.
+
+googleVis 0.4.5 [2013-08-29]
+----------------------------
+
+Bug Fixes
+
+* The indentation of some of the HTML output changed in version 0.4.4,
+  which as a result stopped googleVis output to be rendered with knitr.
+
+googleVis 0.4.4 [2013-08-23]
+----------------------------
+
+NEW FEATURES
+
+* gvisTable() gained new parameter formats, which allow users to 
+  specify the format of numbers displayed in a table. 
+  Thanks to Jacqueline Buros for providing ideas and code.
+
+* Doughnut charts are now possible as pie charts with a hole.
+
+Changes
+
+* New examples for gvisBarChart, gvisColumnChart, gvisComboChart 
+  demonstrating how to change the width of bars
+
+* Extended FAQ section
+
+
+googleVis 0.4.3 [2013-05-25]
+----------------------------
+
+NEW FEATURES
+ 
+ * givsGeoChart has a new argument 'hovervar' to specify a column in
+   input data that can be used to show additional information in a geo
+   chart. See the new example of plotting countries' credit rating in
+   the help file for a use case. Thanks to John Muschelli for suggesting
+   this feature.
+
+
+googleVis 0.4.2 [2013-03-16]
+----------------------------
+
+NEW FEATURES
+
+ * The core charts (e.g. line, area, bar, column and combo charts)
+   accept now also date variables for the x-axis. Thanks to Sebastian
+   Campbell for pointing this out.
+
+Changes 
+
+ * The WorldBank demo uses now the WDI package.
+   Thanks to John Maindonald for providing the code.
+
+Bug Fixes
+
+ * Fixed typos in Stock and Andrew example data. 
+   Thanks to Sebastian Campbell for reporting this issue. 
+
+
+googleVis 0.4.0 [2013-02-24]
+----------------------------
+
+NEW FEATURES
+ 
+ * New function renderGvis to support shiny.
+   This function allows user to insert googleVis output into shiny
+   apps, similar to renderText and renderPlot. See the help page for
+   more details. Many thanks to Joe Cheng for his support and help.
+
+Changes
+
+ * In order to support shiny the order of the elements of the
+   gvis*()$html$chart vector changed. The positions of jsChart and
+   jsFooter have been swapped.
+
+ * The load mechanism for the Google API changed from http to https
+   again. Thanks to Jacques Philip. 
+
+ * The package dependencies changed to imports statements in DESCRIPTION. 
+   Thanks to Suraj Gupta for pointing this out.
+
+ * The R.rsp example in demo googleVis has been moved into its own
+   demo Rrsp. 
+
+ * A FAQ and shiny section has been added to the vignette.
+
+Bug Fixes
+
+ * jsDisplayChart didn't check if the google visualization function is already
+   loaded. Many thanks to Mark Melling for reporting the issue and
+   providing a solution.
+
+ * The demo WorldBank didn't download all data but only the first
+   12000 records. Many thanks to John Maindonald reported this issue. 
+
+
+googleVis 0.3.3 [2012-11-12]
+----------------------------
+
+Changes
+
+ * Clarified the usage of the argument state in the help file of
+   gvisMotionChart. Thanks to Leonardo Trabuco 
+
+
+googleVis 0.3.3 [2012-10-31]
+----------------------------
+
+Bug Fixes
+
+ * plot.gvis didn't open a browser window when options(gvis.plot.tag)
+   was not set to NULL, but the user explicitly called plot.gvis with
+   tag NULL. Thanks to Sebastian Kranz for reporting this bug. 
+
+
+googleVis 0.3.2 [2012-10-28]
+----------------------------
+
+NEW FEATURES
+
+ * plot.gvis gained the argument 'tag', which works similar to the
+   argument of the same name in print.gvis. By default the tag
+   argument is NULL and plot.gvis has the same behaviour as in the
+   previous versions of googleVis. 
+   However, the argument can be set outside plot.gvis via
+   options(gvis.plot.tag=...). This allows users to switch plot
+   statements into print statements by changing only one setting. This
+   is particular useful when googleVis is used in combination with
+   knitr or R.rsp. Setting options(plot.gvis.tag="chart") will ensure
+   that plot(gvisOutput) statements will be included into the final
+   HTML output. See the help file to plot.gvis and vignette for more
+   details. 
+
+Changes
+
+ * The tag argument of print.gvis can be set globally from outside the
+   function via options(gvis.print.tag)
+
+ * The vignette has a new section describing how to set the
+   behaviour of plot.gvis and print.gvis via options(gvis.plot.tag),
+   options(gvis.print.tag) respectively. The section describing how
+   googleVis can be used with knitr has been extended and an additional
+   example included. 
+
+ * plot.gvis can open any html file now, not just gvis-objects. Like
+   with gvis-object it will copy the file into a temporary directory
+   and display it via the R HTTP server. 
+
+
+googleVis 0.3.1 [2012-10-22]
+----------------------------
+
+Bug Fixes
+
+* The argument 'browser' introduced in version 0.3.0 has been removed
+  again. The argument was set by default to the output of
+  getOptions('browser'), if interactive() returned TRUE, otherwise to
+  'false'. The function getOptions('browser') returns either a string
+  or a function call. The later caused an error message, as
+  experienced with RStudio and RGui.exe. The check is now handled
+  internally by plot.gvis.
+
+  Thanks to Sebastian Kranz for reporting this bug.
+
+
+googleVis 0.3.0 [2012-10-20]
+----------------------------
+
+NEW FEATURES
+
+* plot.gvis has a new argument 'browser'. The argument is passed on
+  to the function browseURL. The 'browser' argument is by default set
+  based on the output of interactive(). This prevents R CMD CHECK
+  trying to open browser windows during the package checking
+  process. See the help file of plot.gvis for more details.
+  Thanks to Henrik Bengtsson for his comments and suggestions.
+
+* gvisMotionChart has new arguments xvar, yvar, colorvar and
+  sizevar. Those arguments are optional and set the various dimensions 
+  of a motion chart, similar to those in gvisBubbleChart.
+  Thanks to Sebastian Kranz for the idea and initial code.
+
+* gvisGeoChart accepts tooltip.triggers following an update of the
+  Visualisation API by Google, 24 September 2012
+
+* R data frames are transformed into JSON objects using a new function 
+  provided by Sebastian Kranz and Wei Luo. The new function speeds up 
+  the googleVis functions.
+
+Changes
+
+* Changed the load mechanism for the Google API from http to https.
+  Thanks to Erik Bülow for pointing this out (Issue 19). 
+
+* Changed example in help file of gvisMap to show how to include html
+  code in tooltip. 
+
+Bug Fixes
+
+* Chart editor was not validated properly under XHMTL 1.0 Strict
+
+
+googleVis 0.2.17 [2012-08-02]
+----------------------------
+
+Changes
+
+ * Added sections with information to 'knitr' and 'Rook' to vignette 
+
+ * Added example to gvisMerge demonstrating the use of 'Reduce'
+
+Bug Fixes
+
+ * Data frames with one row only were not displayed in a chart.
+   Thanks to Oliver Jay and Wai Tung Ho for reporting this issue.
+
+ * Fixed earth quake example, using data from 
+   http://www.iris.edu/seismon/last30.html, 
+   Mag was read as factor rather than numeric
+
+googleVis 0.2.16 [2012-06-01]
+----------------------------
+
+Changes
+
+ * Updated example in help file of gvisGeoChart for individual colour
+   axis 
+
+ * Updated links to Google API pages
+
+NEW FEATURES
+
+ * gvisMotionCharts accepts quarterly and weekly time dimensions.
+   Thanks to Jason Pickering for providing a patch. 
+
+googleVis 0.2.15 [2012-03-04]
+----------------------------
+
+Changes
+
+*  Updated documentation following a new version of the Google API
+   on 22 February 2012. 
+     
+*  Moved vignette from folder /inst/doc to /vignettes
+
+NEW FEATURES
+
+*  Quoted from Google
+   http://code.google.com/apis/chart/interactive/docs/release_notes.html: 
+   - Added gradient color mode to bubble chart.
+   - Geo chart:
+     o  Region interactivity in marker mode is now disabled by
+     	default. How to keep the old behavior? Set the
+   	enableRegionInteractivity option to true.
+
+     o  Markers are now opaque by default. How to keep the old
+        behaviour? Set the markerOpacity option to 0.5.
+
+     o  Marker size is now between 3 and 12 pixels by default. How to
+        keep the old behavior? Set the sizeAxis option to {minSize: 2,
+        maxSize: 30}.
+
+     o  A magnifying glass is now opened when the user hovers over
+        cluttered markers (excluding IE<=8). How to keep the old
+        behaviour? Set the magnifyingGlass option to {enable: false}.
+
+     o  Maps are not stretched by default anymore, but rather kept at
+      	the original aspect ratio. How to keep the old behavior? Set the
+  	keepAspectRatio option to false.
+
+
+googleVis 0.2.14 [2012-02-04]
+----------------------------
+
+Changes
+
+*  Updated help files to be in line with the Google Visualisation
+   API pages
+*  Updated vignette with new section on dealing with apostrophes in
+   column names and updated example in section "Setting options"
+*  Fixed typos in vignette. Thanks to Pat Burns for pointing them
+   out
+*  Updated links to Google's updated API Terms of Use:
+   http://code.google.com/apis/terms/index.html  
+
+NEW FEATURES
+
+ *  New bubble chart function gvisBubbleChart
+
+
+googleVis 0.2.13 [2011-12-19]
+----------------------------
+
+Changes
+
+ *  The list of arguments for gvisGeoChart changed:
+    - the argument 'numvar' has been renamed to 'colorvar' to
+      reflect the updated Google API. Additionally gvisGeoChart
+      gained a new argument 'sizevar'.
+ *  Updated googleVis vignette with a section on using googleVis 
+    output in presentations  
+ *  Renamed demo EventListner to EventListener
+
+NEW FEATURES
+
+ *  Google published a new version of their Visualisation API on 7
+    December 2011. Some of the new features have been implemented
+    into googleVis already:
+    - New stepped area chart function gvisSteppedAreaChart
+    - gvisGeoChart has a new marker mode, similar to the mode in
+      gvisGeoMap. See example(gvisGeoChart) for the new
+      functionalities.
+
+googleVis 0.2.12 [2011-12-07]
+----------------------------
+
+Bug Fixes
+
+ *  gvisMotionChart didn't display data with special characters,
+    e.g. spaces, &, %, in column names correctly. 
+    Thanks to Alexander Holcroft for reporting this issue.
+
+googleVis 0.2.11 [2011-11-16]
+----------------------------
+
+Changes
+
+*  Updated vignette and documentation with instructions on changing
+   the Flash security settings to display Flash charts locally. 
+   Thanks to Tony Breyal.
+*  New example to plot weekly data with gvisMotionChart
+*  Removed local copies of gadget files to reduce package file
+   size. A local copy of the R script to generate the original gadget
+   files is still included in inst/gadgets 
+
+googleVis 0.2.10 [2011-09-24]
+----------------------------
+
+Changes
+
+*  Updated section 'Using googleVis output with Google Sites,
+   Blogger, etc.' vignette
+
+*  Updated example for gvisMotionChart, showing how the initial
+   chart setting can be changed, e.g to display a line chart.
+
+*  New example for gvisAnnotatedTimeLine, showing how to shade
+   areas. Thanks to Mike Silberbauer for providing the initial code.    
+   
+NEW FEATURES
+ 
+ *  New demo WorldBank. It demonstrates how country level data can
+    be accessed from the World Bank via their API and displayed with a
+    Motion Chart. Inspired by Google's Public Data Explorer, see
+    http://www.google.com/publicdata/home
+  
+
+googleVis 0.2.9 [2011-09-01]
+---------------------------
+
+Changes
+
+*  The documentation of googleVis has been update to reflect a new
+   version of the Google Visualisation API which was published on 
+   13 July, see
+   http://code.google.com/apis/chart/interactive/docs/release_notes.html#72011. 
+   Here are some of the most interesting features:   
+   - Support for dual Y axes
+   - Ability to crop and zoom chart area to specific ranges
+   - Ability to set different properties for each series
+   - Ability to enable or disable chart interactivity
+   - Performance improvements in GeoChart
+
+*  Updated vignette with new sections on
+   - Setting options
+   - How to use the on-page chart editor
+   - Using googleVis with other Google products such as
+     Blogger and Google Sites 
+
+*  Updated warning section for gvisTreeMap
+
+NEW FEATURES
+ 
+ *  New gvis.editor argument in options, which adds an edit
+    button to the page, allowing the user to edit, change and
+    customise the chart on the fly.
+
+
+googleVis 0.2.8 [2011-07-31]
+---------------------------
+
+Changes
+
+*  Updated package welcome message. The message asks the user to read Google's
+   Visualisation and Maps API Terms of Use before she uses the functions of the
+   googleVis package. 
+	
+*  The caption gvis-plots contain an additional link to Google's data policy.
+
+*  New example for gvisBarChart using the XML package to chart online data from Wikipedia
+
+
+googleVis 0.2.7 [2011-07-10]
+---------------------------
+
+Changes
+
+*  The vignette includes new sections describing:
+   - how output of the googleVis package can be included into
+     WordPress pages,  
+   - how JavaScript event handlers can be added to charts. 
+
+*  Clarified documentation for Flash based charts in help files of 
+   motion chart, geo map, annotated time line. 
+
+NEW FEATURES
+ 
+ *  New demo 'EventListener' showcasing how a 'Listener' event can be
+    added to charts  
+
+BUG FIXES
+
+ *  gvisGeoMap documentation stated that the default dataMode is
+    'regions', but the function actually used 'markers'. The default
+    for dataMode is now 'regions' and therefore in line with the
+    help file.   
+
+googleVis 0.2.6 [2011-06-12]
+---------------------------
+
+Changes
+
+*  Updated demos
+
+NEW FEATURES
+
+*  New interfaces to three more interactive Google charts:
+   - gvisComboChart
+   - gvisGeoChart
+   - gvisCandlestickChart
+
+*  New function 'gvisMerge' to align two charts next to each other
+
+
+googleVis 0.2.5 [2011-06-04]
+---------------------------
+
+NEW FEATURES
+
+*  New interfaces to more interactive Google charts:
+   - gvisLineChart
+   - gvisBarChart
+   - gvisColumnChart
+   - gvisAreaChart
+   - gvisScatterChart
+   - gvisPieChart
+   - gvisGauge
+   - gvisOrgChart
+   - gvisIntensityMap 
+
+*  New demo 'AnimatedGeoMap'. The demo shows how a Geo Map can be animated
+   with additional JavaScript. 
+   Thanks to Manoj Ananthapadmanabhan and Anand Ramalingam, who
+   provided the idea and initial code.
+    
+BUG FIXES
+
+*  The way RJSONIO treats backslashes changed in version 0.7.1 and
+   as a result some Google charts were no longer displayed.
+
+googleVis 0.2.4 [2011-02-07]
+---------------------------
+
+Changes
+   
+*  plot.gvis no longer writes into the package folder. Instead
+   temporary files are created. This overcomes the need to install
+   the package into a directory with write access. Many thanks to
+   Ben Bolker for this suggestion and code contribution.  
+  
+*  plot.gvis no longer requires the web server provided by
+   the R.rsp package to display the visualisation output. Instead it
+   uses the internal R HTTP help server. Many thanks to John Verzani
+   for this suggestion and code contribution. 
+  
+*  R >= 2.11.0 is required to plot googleVis output, as it uses the
+   internal R HTTP help server.
+  
+*  Updated vignette with a section on how to use googleVis with
+   RApache and brew
+
+NEW FEATURES
+
+*  The plot function generates a web page which includes a link
+   to the HTML code of the chart. Many thanks to Henrik Bengtsson
+   for this suggestion.
+
+*  gvis visualisation functions have a new argument 'chart id', to
+   set the chart id of the exhibit manually. 	         
+
+*  gvis functions return more details about the visualisation chart
+   in a structured way. Suppose x is a 'gvis' object, than
+   x$html$chart is a named character vector of the chart's
+   JavaScript building blocks and html tags. 
+
+*  print.gvis has a new argument 'tag', which gives the user more
+   control over the output
+
+*  Brew example files in: 
+   system.file("brew", package = "googleVis")  
+
+BUG FIXES
+
+*  gvisTable did not accept datetime columns.
+
+googleVis 0.2.3 [2010-12-19]
+---------------------------
+
+Changes
+    
+NEW FEATURES
+
+*  gvisAnnotatedTimeLine accepts date in POSIX* formats
+
+BUG FIXES
+
+*  Google date objects expect the months Jan.- Dec. as 0 - 11 and
+   not 1 - 12 
+*  Fixed typo in the Andrew data set. The Pressure at 1992-08-24
+   12:00:00 was 951 and not 51  
+
+googleVis 0.2.2 [2010-12-12]
+---------------------------
+
+Changes
+    
+ *  Fixed typos in documentation
+
+NEW FEATURES
+
+*  New function:
+   - createGoogleGadget which allows users to create Google Gadgets
+     XML output  
+
+
+googleVis 0.2.1 [2010-11-30]
+---------------------------
+
+Changes
+    
+ *  First version to be released on CRAN
+
+NEW FEATURES
+
+*  New function:
+   - gvisAnnotatedTimeLine to generate interactive annotated time
+     line charts 
+
+googleVis 0.2.0 [2010-11-14]
+---------------------------
+
+Changes
+
+*  The package has been renamed from GoogleMotionChart to googleVis 
+   to reflect a new more flexible implementation.
+*  More functions of the Google Visualisation API are now available.
+
+USER-VISIBLE CHANGES
+
+*  New interfaces, all visualisation functions start with 'gvis'.
+*  Output is now of class 'gvis' with generic print and plot
+   functions.
+*  'gvis' objects are list of lists, which allow the user to extract
+   the various parts of the visualisation output, e.g. the chart
+   object.
+  
+NEW FEATURES
+
+*  New functions:
+   - gvisMotionChart to generate motion charts
+   - gvisGeoMap to generate geographical maps
+   - gvisMap to generate maps
+   - gvisTreeMap to generate tree maps
+   - gvisTable to generate table output
+   - print.gvis: generic function to print 'gvis' objects
+   - plot.gvis: generic function to display 'gvis' objects in a
+     browser via the R.rsp package.  
+
+
+googleVis 0.1.4 [2010-08-12]
+---------------------------
+Changes
+
+*  The package uses the RJSONIO package from Omegahat to
+   transform a data.frame into a json DataTable 
+
+googleVis 0.1.3 [2010-08-08]
+---------------------------
+NEW FEATURES
+
+*  More detailed motion chart configuration settings are possible.
+
+USER-VISIBLE CHANGES
+*  options have to be set via a list. Arguments height and width
+   can be set, plus further configurations.
+*  Updated demo PerformanceAnalyticsMotionChart   
+
+
+googleVis 0.1.2 [2010-08-03]
+---------------------------
+
+First public version.

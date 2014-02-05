@@ -1,0 +1,58 @@
+Thanks to:
+  o Google, who make the visualisation API available
+  o All the guys behind www.gapminder.org and Hans Rosling for telling
+    everyone that data is not boring 
+  o Sebastian Pérez Saaibi for his inspiring talk on 'Generator
+    Tool for Google Motion Charts' at the R/RMETRICS conference 2010
+  o Henrik Bengtsson for providing the 'R.rsp: R Server Pages'
+    package and his reviews and comments
+  o Duncan Temple Lang for providing the 'RJSONIO' package
+  o Deepayan Sarkar for showing us in the lattice package how to deal
+    with lists of options  
+  o Paul Cleary for a bug report on the handling of months:
+    Google date objects expect the months Jan.- Dec. as 0 - 11 and
+    not 1 - 12.
+  o Ben Bolker for comments on plot.gvis and the usage of temporary
+    files  
+  o John Verzani for pointing out how to use the R http help server
+  o Cornelius Puschmann and Jeffrey Breen for highlighting a
+    dependency issue with RJONSIO version 0.7-1
+  o Manoj Ananthapadmanabhan and Anand Ramalingam for providing
+    ideas and code to animate a Google Geo Map
+  o Rahul Premraj for pointing out a rounding issue with Google Maps 
+  o Mike Silberbauer for an example showing how to shade the
+    areas in annotated time line charts
+  o Tony Breyal for providing instructions on changing the Flash
+    security settings to display Flash charts locally 
+  o Alexander Holcroft for reporting a bug in gvisMotionChart
+    when displaying data with special characters in column names
+  o Pat Burns for pointing out typos in the vignette
+  o Jason Pickering for providing a patch to allow for quarterly 
+    and weekly time dimensions to be displayed with gvisMotionChart
+  o Oliver Jay and Wai Tung Ho for reporting an issue with one-row 
+    data sets
+  o Erik Bülow for pointing out how to load the Google API via a
+    secure connection
+  o Sebastian Kranz for comments to enhance the argument list for
+    gvisMotionChart to make it more user friendly 
+  o Sebastian Kranz and Wei Luo for providing ideas and code to
+    improve the transformation of R data frames into JSON code
+  o Sebastian Kranz for reporting a bug in version 0.3.0
+  o Leonardo Trabuco for helping to clarify the usage of the
+    argument state in the help file of gvisMotionChart
+  o Mark Melling for reporting an issue with jsDisplayChart and
+    providing a solution
+  o Joe Cheng for code contribution to make googleVis work with shiny
+  o John Maindonald for reporting that the WorldBank demo didn't 
+    download all data, but only the first 12000 records.
+  o Sebastian Campbell for reporting a typo in the Andrew and Stock
+    data set and pointing out that the core charts, such as line
+    charts accept also date variables for the x-axis. 
+  o John Maindonald for providing a simplified version of the
+    WorldBank demo using the WDI package. 
+  o John Muschelli for suggesting to add hovervar as an additional
+    argument to gvisGeoChart.
+  o Jacqueline Buros for providing code to include formats parameter 
+    to gvisTable()
+  o JJ Allaire for pointing out how to use the viewer pane in RStudio
+  o Oliver Gjoneski and Ashton Trey Belew for patches on roles and tooltips
