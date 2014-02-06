@@ -30,7 +30,7 @@
 #'  \code{data} for the bar labels to be used
 #' @param start number or date for the start dates
 #' @param end number or date for the end dates
-#' @param list of configuration options.
+#' @param options list of configuration options.
 #' The options are documented in detail by Google online:
 #' \url{https://developers.google.com/chart/interactive/docs/gallery/timeline#Configuration_Options}
 #' 

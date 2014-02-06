@@ -5,6 +5,8 @@ importFrom(tools, startDynamicHelp)
 
 importFrom("RJSONIO", "toJSON")
 export(gvisMotionChart)		 
+export(gvisTimeline)  	 
+export(gvisSankey)     
 export(plot.gvis)		 
 export(renderGvis)
 			 
