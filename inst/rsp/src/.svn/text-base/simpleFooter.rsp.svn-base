@@ -1,0 +1,6 @@
+<%--     F o o t e r    --%>
+<address style="margin-top: 1ex; padding-top: 0.5ex; border-top: #000000 1px solid;">
+ <div style="float:left; font-size:smaller;">Generated on <%=date()%> with <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis</a>.
+ </div>
+ <div style="float:right; font-size:smaller;" class="WebcutsHide">Powered by <a href="http://www.braju.com/R/">R.rsp&nbsp;v<%=getVersion(R.rsp)%></a>.</div>
+</address>
