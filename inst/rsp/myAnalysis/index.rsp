@@ -1,0 +1,27 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+        "http://www.w3.org/TR/REC-html40/loose.dtd">
+
+<%title="Google Motion Chart Pages"%>
+
+
+<html>
+<%@include file="../src/simpleHead.rsp"%>
+
+<body>
+<%@include file="../src/simpleHeader.rsp"%>
+
+
+
+<p>
+By default the <tt>googleVis</tt> package will store its output in
+this directory.
+</p>
+Current files:
+<ul>
+ <%=paste("<li> <a href='", dir(system.file(paste("rsp","myAnalysis", sep=.Platform$file.sep), package="googleVis")),"'>",   dir(system.file(paste("rsp","myAnalysis",  sep=.Platform$file.sep), package="googleVis")), "</a>\n",   sep="")%>
+</ul>
+
+
+<%@include file="../src/simpleFooter.rsp"%>
+</body>
+</html>

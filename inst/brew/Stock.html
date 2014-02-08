@@ -1,0 +1,55 @@
+<html>
+<body>
+<% setContentType("text/html") %>
+
+<h1>Apple Inc. Stock Performance</h1>
+
+<%
+ require(googleVis)
+
+d <- Sys.time() ## get current date and time
+current.year <- format(d, "%Y")
+current.month <- format(d, "%m")
+current.day <- format(Sys.time(), "%d")
+##Yahoo finance sets January to 00 hence: 
+month <- as.numeric(current.month)  - 1
+month <- ifelse(month < 10, paste("0",month, sep=""), m)
+
+## weekly stock prices from Apple Inc.
+fn <-
+sprintf('http://ichart.finance.yahoo.com/table.csv?s=AAPL&a=08&b=7&c=1984&d=%s&e=%s&f=%s&g=w&ignore=.csv',
+month, current.day, current.year)
+
+## Get Data from Yahoo Finance
+data <- read.csv(fn, colClasses=c("Date", rep("numeric",6)))
+
+AAPL <- reshape(data[,c("Date", "Close", "Volume")], idvar="Date", times=c("Close", "Volume"), 
+                  timevar="Type",
+                  varying=list(c("Close", "Volume")),
+                  v.names="Value", "Type",
+                   direction="long")
+
+## calculate date last year for zoom start time
+lyd <- as.POSIXlt(as.Date(d))
+lyd$year <- lyd$year-1
+lyd <- as.Date(lyd)
+
+aapl <- gvisAnnotatedTimeLine(AAPL, datevar="Date",
+                           numvar="Value", idvar="Type",
+                          options=list(
+                            zoomStartTime=lyd,
+                            zoomEndTime=as.Date(d),
+                            legendPosition='newRow',
+                            width=600, height=400, scaleColumns='[0,1]',
+                            scaleType='allmaximized')
+                           )
+
+%>
+<hr>
+
+<%= aapl$html$chart %>
+
+
+<hr>
+</body>
+</html>

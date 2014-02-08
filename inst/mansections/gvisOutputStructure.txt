@@ -2,7 +2,7 @@
 An object of class "\code{gvis}" is a list containing at least the
 following components:
 \describe{
-\item{\code{type}}{Google visualisation type, here 'Sankey'}
+\item{\code{type}}{Google visualisation type}
 \item{\code{chartid}}{character id of the chart object. Unique chart
 ids are required to place several charts on the same page.
 }
