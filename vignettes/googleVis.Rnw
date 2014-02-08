@@ -628,7 +628,47 @@ e.g. width=500, while the more complex options with sub-components are
 listed in curly brackets \{\}, and arrays, e.g. to define the two
 axes, use square brackets [ ].
 
-Here is another example setting the  colour axis of a geo chart, see Figure~\ref{geochart}:
+Generally the following rules apply:
+
+\begin{itemize}
+
+\item parameters with names that do not include a "." are set with a single 
+value, e.g. width and height. Those are set like one would do in R, that is
+\texttt{options=list(}\texttt{width=200,} \texttt{height=300)}. 
+Boolean arguments are set to 
+either \texttt{TRUE} or \texttt{FALSE}, using the R syntax.
+
+\item parameters with names that do not include a "." and are set with 
+multiple values, e.g. \texttt{color}, and are wrapped in "[ ]", e.g. 
+\texttt{options=list(} \texttt{colors="['\#cbb69d',} \texttt{'\#603913',}
+\texttt{'\#c69c6e']")}
+
+\item parameters with names that do include a "." present parameters with 
+several sub-options and have to be set as a string wrapped in "\{ \}".
+The values of those sub-options are set via parameter:value. Boolean values
+have to be stated as \texttt{'true'} or \texttt{'false'}. 
+For example the Google documentaion states the formating options for the 
+vertical axis and states the parameter as \texttt{vAxis.format}. 
+Then this paramter can be set in R as:
+\texttt{options=list(} \texttt{vAxis="\{format:'\#,\#\#\#\%'\}")}. 
+
+\item If several sub-options have to be set, e.g. 
+\texttt{titleTextStyle.color,} \texttt{titleTextStyle.fontName} and 
+\texttt{titleTextStyle.fontSize}, then those can be combined in one list item 
+such as:
+\texttt{options=list(} \texttt{titleTextStyle="\{color:'red',} 
+\texttt{fontName:'Courier',} \texttt{fontSize:16\}")}
+
+\item paramters that can have more than one value per sub-options are 
+wrapped in "[ ]". For example to set the labels for left and right axes use:
+\texttt{options=list(} \texttt{vAxes="[\{title:'val1'\},} 
+\texttt{\{title:'val2'\}]")}
+
+\end{itemize}
+
+
+The following example set the colour axis of a geo chart, 
+see Figure~\ref{geochart}:
 <<eval=FALSE>>=
 Geo <- gvisGeoChart(CityPopularity, locationvar='City', 
                     colorvar='Popularity',
@@ -1325,6 +1365,10 @@ which covers how to use \googleVis in presentations.
 
 Note that this vignette uses screen shots to include
 examples of \googleVis charts.
+
+For further details see Google's online documentation on 
+\href{https://developers.google.com/chart/interactive/docs/printing}{printing 
+PNG charts}.
 
 \subsection{Can I change the colour of the bubbles in motion charts?}
 
