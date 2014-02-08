@@ -735,9 +735,10 @@ gvisCandlestickChart<- function(data, xvar="", low="", open="", close="", high="
 #' 
 #' ## Using optional arguments
 #' Scatter2 <- gvisScatterChart(women, options=list(legend="none",
-#'                  lineWidth=2, pointSize=0,
+#'                  lineWidth=2, pointSize=2,
 #'                  title="Women", vAxis="{title:'weight (lbs)'}",
-#'                  hAxis="{title:'height (in)'}", width=300, height=300))
+#'                  crosshair="{ trigger: 'both' }", 
+#'                  hAxis="{title:'height (in)'}", width=500, height=400))
 #'                  
 #' plot(Scatter2)
 #' 

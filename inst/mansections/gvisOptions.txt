@@ -7,18 +7,18 @@ value, e.g. width and height. Those are set like one would do in R, that is
 Boolean arguments are set to 
 either \code{TRUE} or \code{FALSE}, using the R syntax.
 }
-\item{parameters with names that don't include a "." and are set with 
-multiple values, e.g. \code{color}. The values for those parameter have to 
-be wrapped in "[ ]", e.g. 
+\item{parameters with names that don't include a "."  are set with 
+multiple values, e.g. \code{color}, and are wrapped in "[ ]", e.g. 
 \code{options=list(}\code{colors="['#cbb69d',} \code{'#603913',}
 \code{'#c69c6e']")}
 }
-\item{parameters with names that do include a "." These parameters have 
-several sub-options and have to be set as a string wrapped in "{ }", 
-and the value of those sub-options is set via parameter:value. Boolean values
-have to stated as 'true' or 'false'. Suppose the Google documentaion explains
-the formating options for the vertical axis and states the parameter 
-\code{vAxis.format}. This paramter has to be set via R as:
+\item{parameters with names that do include a "." present parameters with 
+several sub-options and have to be set as a string wrapped in "{ }".
+The values of those sub-options are set via parameter:value. Boolean values
+have to be stated as \code{'true'} or \code{'false'}. 
+For example the Google documentaion states the formating options for the 
+vertical axis and states the parameter as \code{vAxis.format}. 
+Then this paramter can be set in R as:
 \code{options=list(}\code{vAxis="{format:'#,###\%'}")}. 
 }
 \item{If several sub-options have to be set, e.g. 

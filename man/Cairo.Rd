@@ -1,4 +1,4 @@
-\name{Cairo}
+  \name{Cairo}
 \alias{Cairo}
 \docType{data}
 \title{
@@ -15,8 +15,8 @@ The average air temperature (C) in Cairo from 2002 to 2004.
     \item{\code{Temp}}{average temperatur in Celsius}
   }
 }
-\details{
-}
+%\details{
+%}
 \source{
 \url{http://www.engr.udayton.edu/weather/citylistWorld.htm}
 }
