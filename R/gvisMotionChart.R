@@ -18,6 +18,8 @@
 ### MA 02110-1301, USA
 
 #' Google Motion Chart with R
+#' \Sexpr{googleChartName <- "motionchart"}
+#' \Sexpr{gvisChartName <- "gvisMotionChart"}
 #'
 #' @description
 #' The gvisMotionChart function reads a data.frame and
@@ -58,69 +60,36 @@
 #' used by JavaScript. 
 #' @param options list of configuration options for Google Motion Chart.
 #' The options are documented in detail by Google online:
-#' \url{https://developers.google.com/chart/interactive/docs/gallery/motionchart#Configuration_Options}
-#' The parameters can be set via a named list, e.g. to set both height and width 
-#' to 500px use \code{options=list(height=500, width=500)}.
-#' Boolean options have to be set in the standard R way with \code{TRUE}
-#' and \code{FALSE}, rather than 'true' and 'false'. 
-#' However, this is not true for more complex arguments that have to be 
-#' wrapped into longer JSON strings. 
-#' See the example below fore more details.
 #' 
+#' % START DYNAMIC CONTENT
+#' 
+#' \Sexpr[results=rd]{gsub("CHARTNAME", 
+#' googleChartName,
+#' readLines(file.path(".", "inst",  "mansections", 
+#' "GoogleChartToolsURLConfigOptions.txt")))}
+#' 
+#'  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst", 
+#'  "mansections", "gvisOptions.txt")))}
+#'   
 #' @param chartid character. If missing (default) a random chart id will be 
 #' generated based on chart type and \code{\link{tempfile}}
 #' 
-#' @return \code{gvisMotionChart} returns list of \code{\link{class}}
-#' "\code{gvis}" and "\code{list}".   
-#' An object of class "\code{gvis}" is a list containing at least the
-#' following components:
-#' \describe{
-#' \item{\code{type}}{Google visualisation type, here 'MotionChart'}
-#' \item{\code{chartid}}{character id of the chart object. Unique chart
-#' ids are required to place several charts on the same page.
-#' }
-#' \item{\code{html}}{a list with the building blocks for a page
-#' \describe{
-#' \item{\code{header}}{a character string of a html page header:
-#' \code{<html>...<body>},}
-#' \item{\code{chart}}{a named character vector of the chart's building blocks:
-#'  \describe{
-#'  \item{\code{jsHeader}}{Opening \code{<script>} tag and
-#'  reference to Google's JavaScript library.
-#'  }
-#'  \item{\code{jsData}}{JavaScript function defining the input
-#'  \code{data} as a JSON object.
-#'  } 
-#'  \item{\code{jsDrawChart}}{JavaScript function combing the data with 
-#'  the visualisation API and user options.
-#'  }
-#'  \item{\code{jsDisplayChart}}{JavaScript function calling the
-#'  handler to display the chart.
-#'  }
-#'  \item{\code{jsFooter}}{End tag \code{</script>}.
-#'  }
-#'  \item{\code{jsChart}}{Call of the \code{jsDisplayChart} function.
-#'  }
-#'  \item{\code{divChart}}{\code{<div>} container to embed the chart
-#'  into the page.
-#'  }
-#'  }   
-#'  }
-#'  \item{\code{caption}}{character string of a standard caption,
-#'  including data name and chart id.
-#'  }	
-#'  \item{\code{footer}}{character string of a html page footer:
-#'  \code{</body>...</html>}, including the used R and googleVis version
-#'  and link to Google's Terms of Use.}
-#'  }}
-#' }
+#' @return \Sexpr[results=rd]{paste(gvisChartName)} returns list 
+#' of \code{\link{class}}
+#'  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst", 
+#'  "mansections", "gvisOutputStructure.txt")))}
+#'   
+#' @references Google Chart Tools API: 
+#' \Sexpr[results=rd]{gsub("CHARTNAME", 
+#' googleChartName, 
+#' readLines(file.path(".", "inst",  "mansections", 
+#' "GoogleChartToolsURL.txt")))}
 #' 
+#' % END DYNAMIC CONTENT
 #' 
 #' @author Markus Gesmann \email{markus.gesmann@@gmail.com}, 
 #' Diego de Castillo \email{decastillo@@gmail.com}
 #' 
-#' @references Google Motion Chart API: 
-#' \url{https://developers.google.com/chart/interactive/docs/gallery/motionchart} 
 #' 
 #' @section Warnings:
 #' Because of Flash security settings the chart 
@@ -345,4 +314,3 @@ testTimevar <- function(x, date.format){
   stop(paste("The timevar has to be of numeric or Date format. Currently it is ", class(x)))
 
 }
-  

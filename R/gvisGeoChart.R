@@ -64,7 +64,7 @@
 #' is provided as well). If the column is present, null valuesare not allowed.
 #' @param hovervar column name of \code{data} with the additional string text
 #' displayed when the user hovers over this region.
-#' @param options list of configuration options for Google Geo Chart.
+#' @param options list of configuration options, see:
 #' 
 #' % START DYNAMIC CONTENT
 #' 

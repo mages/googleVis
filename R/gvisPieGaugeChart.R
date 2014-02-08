@@ -33,7 +33,7 @@
 #' labels for the slice labels.
 #' @param numvar a vector of column names of the numerical variables of the
 #' slice values.
-#' @param options list of configuration options for Google Pie Chart.
+#' @param options list of configuration options for Google Pie Charts, see:
 #' 
 #' % START DYNAMIC CONTENT
 #' 
@@ -120,7 +120,7 @@ gvisPieChart <- function(data, labelvar="", numvar="", options=list(), chartid){
 #' labels for the slice labels.
 #' @param numvar a vector of column names of the numerical variables of the
 #' slice values.
-#' @param options list of configuration options for Google Gauge. 
+#' @param options list of configuration options, see: 
 #' 
 #' % START DYNAMIC CONTENT
 #' 

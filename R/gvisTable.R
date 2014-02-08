@@ -38,7 +38,7 @@
 #' 
 #' 
 #' @param data a \code{\link{data.frame}} to be displayed as a table
-#' @param options list of configuration options for Google Table.  
+#' @param options list of configuration options, see: 
 #' 
 #' % START DYNAMIC CONTENT
 #' 
