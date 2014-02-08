@@ -87,7 +87,8 @@ gvisWelcomeMessage <- function(){
     display <- "the standard browser to display its output.\n"
   else
     display <- paste("the RStudio Viewer pane to display its output.\n",
-                     "Set options('googleVis.viewer'=NULL) to use your browser.\n")
+                     "Set options('googleVis.viewer'=NULL) to use your browser.\n",
+                     sep="")
   paste("\n",     
         "Welcome to googleVis version ", packageDescription("googleVis")$Version, "\n",
         "\n",

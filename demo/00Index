@@ -3,3 +3,4 @@ AnimatedGeoMap		Prototype of an animate a geo map with JavaScript
 EventListener		Examples of basic JavaScript event handlers
 WorldBank		Visualising country level data sourced from the World Bank
 Rrsp			Demo showing how googleVis can work with the R.rsp package
+Trendlines    Adding trendlines to Scatter Charts, Bar Charts, Column Charts, and Line Charts
