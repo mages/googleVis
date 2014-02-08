@@ -34,7 +34,7 @@
 #' analysed. The location has to contain country ISO codes or USA state codes.
 #' @param numvar column names of \code{data} with the numeric values to be
 #' displayed.
-#' @param options list of configuration options for Google Intensity Map.
+#' @param options list of configuration options, see:
 #' 
 #' % START DYNAMIC CONTENT
 #' 

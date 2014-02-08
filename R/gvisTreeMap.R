@@ -63,7 +63,7 @@
 #' scale from \code{minColorValue} to \code{maxColorValue}, and then the node
 #' is assigned a color from the gradient between \code{minColor} and
 #' \code{maxColor}.
-#' @param options list of configuration options for Google Tree Map.
+#' @param options list of configuration options, see:
 #' 
 #' % START DYNAMIC CONTENT
 #' 

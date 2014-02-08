@@ -4,20 +4,18 @@ Title: Interface between R and the Google Chart Tools
 Version: 0.5.0
 Date: 2014-02-03
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
-                     email = "markus.gesmann@googlemail.com"),
-            person("Diego", "de Castillo", role = "aut",
-                     email = "decastillo@gmail.com"),
-                   person("Joe", "Cheng", role = "ctb",
-                    email = "joe@rstudio.com"))
-Description: 
-   The googleVis package provides an interface between R and the Google
-   Chart Tools API. It allows users to create web pages with interactive
-   charts based on R data frames, using the Google Chart Tools and to
-   display them either via the local R HTTP help server or within
-   their own sites, without uploading the data to Google. A modern
-   browser with Internet connection is required and for some charts
-   Flash. Please visit the project web site for more information and
-   examples. 
+    email = "markus.gesmann@googlemail.com"),
+    person("Diego", "de Castillo", role = "aut",
+    email = "decastillo@gmail.com"),
+    person("Joe", "Cheng", role = "ctb",
+    email = "joe@rstudio.com"))
+Description: The googleVis package provides an interface between R and the
+    Google Chart Tools API. It allows users to create web pages with
+    interactive charts based on R data frames, using the Google Chart Tools and
+    to display them either via the local R HTTP help server or within their own
+    sites, without uploading the data to Google. A modern browser with Internet
+    connection is required and for some charts Flash. Please visit the project
+    web site for more information and examples.
 Depends:
     R (>= 2.11.0)
 Imports:
@@ -25,9 +23,28 @@ Imports:
     RJSONIO,
     utils
 Suggests:
-    shiny (>= 0.4.0), httpuv (>= 1.2.0)
+    shiny (>= 0.4.0),
+    httpuv (>= 1.2.0)
 License: GPL (>= 2)
-URL: http://code.google.com/p/google-motion-charts-with-r/, http://lamages.blogspot.co.uk/search/label/googleVis
-BugReports: http://code.google.com/p/google-motion-charts-with-r/issues/list 
+URL: http://code.google.com/p/google-motion-charts-with-r/,
+    http://lamages.blogspot.co.uk/search/label/googleVis
+BugReports: http://code.google.com/p/google-motion-charts-with-r/issues/list
 LazyLoad: yes
 LazyData: yes
+Collate:
+    'gvis.R'
+    'gvisMethods.R'
+    'gvisMotionChart.R'
+    'gvisSankey.R'
+    'gvisTimeLine.R'
+    'shiny.R'
+    'zzz.R'
+    'gadget.R'
+    'gvisGeoMap.R'
+    'gvisGeoChart.R'
+    'gvisMap.R'
+    'gvisIntensityMap.R'
+    'gvisTreeMap.R'
+    'gvisTable.R'
+    'gvisChartEditor.R'
+    'gvisPieGaugeChart.R'
