@@ -1,0 +1,33 @@
+The parameters can be set via a named list. The parameters have to map those
+of the Google documentation. 
+\itemize{
+\item{parameters with names that don't include a "." and are set with a single 
+value, e.g. width and height. Those are set like one would do in R, that is
+\code{options=list(width=200, height=300)}. Boolean arguments are set to 
+either \code{TRUE} or \code{FALSE}, using the R syntax.
+}
+\item{parameters with names that don't include a "." and are set with 
+multiple values, e.g. \code{color}. The values for those parameter have to 
+be wrapped in "[ ]", e.g. 
+\code{options=list(colors="['#cbb69d', '#603913', '#c69c6e']")}
+}
+\item{parameters with names that do include a "." These parameters have 
+several sub-options and have to be set as a string wrapped in "{ }", 
+and the value of those sub-options is set via parameter:value. Boolean values
+have to stated as 'true' or 'false'. Suppose the Google documentaion explains
+the formating options for the vertical axis and states the parameter 
+\code{vAxis.format}. This paramter has to be set via R as:
+\code{options=list(vAxis="{format:'#,###\%'}")}. 
+}
+\item{If several sub-options have to be set, e.g. 
+\code{titleTextStyle.color, titleTextStyle.fontName} and 
+\code{titleTextStyle.fontSize}, then those can be combined in one list item 
+such as:
+\code{options=list(titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}")}
+}
+\item{paramters that can have more than one value per sub-options are 
+wrapped in "[ ]". For example to set the labels for left and right axes use:
+\code{options=list(vAxes="[{title:'val1'}, {title:'val2'}]")}
+}
+}
+For more details see the Google API documentation and the R examples below.   
