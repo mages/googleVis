@@ -5,8 +5,8 @@ NEW FEATURES
 * New demo Trendlines that shows how trendlines can be added to
   Scatter Charts, Bar Charts, Column Charts, and Line Charts.
 
-* New functions gvisSankey, gvisAnnotationChart, gvisHistogram 
-  and gvisTimeline
+* New functions gvisSankey, gvisAnnotationChart, gvisHistogram,
+  gvisCalendar and gvisTimeline
 
 Changes
 

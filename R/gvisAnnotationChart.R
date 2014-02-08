@@ -96,7 +96,7 @@
 #' @examples
 #' 
 #' ## Please note that by default the googleVis plot command
-#' ## will open a browser window and requires Flash and Internet
+#' ## will open a browser window and requires Internet
 #' ## connection to display the visualisation.
 #' 
 #' 
@@ -192,7 +192,7 @@
 #' lyd$year <- lyd$year-2
 #' lyd <- as.Date(lyd)
 #' 
-#' aapl <- gvisAnnotatedTimeLine(AAPL, datevar="Date",
+#' aapl <- gvisAnnotationChart(AAPL, datevar="Date",
 #'                            numvar="Value", idvar="Type",
 #'                           options=list(
 #'                             colors="['blue', 'lightblue']",
