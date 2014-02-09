@@ -24,7 +24,12 @@ install.packages("devtools")
 ```
 
 To install googleVis run:
-
+<!--
+Fix my broken path to pdflatex on R
+```s
+Sys.setenv(PATH=paste(Sys.getenv("PATH"),"/usr/texbin",sep=":"))
+```
+-->
 ```s
 library(devtools)
 install_github("mages/googleVis")

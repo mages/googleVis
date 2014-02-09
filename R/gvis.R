@@ -21,11 +21,13 @@
 
 gvisChart <- function(type, checked.data, options, chartid, package, formats = NULL){
   
-  Chart = gvis(type=type, checked.data, options=options, chartid=chartid, package, formats=formats)
+  Chart = gvis(type=type, checked.data, options=options, 
+               chartid=chartid, package, formats=formats)
   chartid <- Chart$chartid
   htmlChart <- Chart$chart
   
-  htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, dataName=options$dataName,
+  htmlScaffold <- gvisHtmlWrapper(title="", chartid=chartid, 
+                                  dataName=options$dataName,
                                   type=tolower(type))
   
   output <- structure(
