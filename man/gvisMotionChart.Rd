@@ -1,0 +1,189 @@
+\name{gvisMotionChart}
+\alias{gvisMotionChart}
+\title{Google Motion Chart with R
+\Sexpr{googleChartName <- "motionchart"}
+\Sexpr{gvisChartName <- "gvisMotionChart"}}
+\usage{
+  gvisMotionChart(data, idvar = "id", timevar = "time",
+    xvar = "", yvar = "", colorvar = "", sizevar = "",
+    date.format = "\%Y/\%m/\%d", options = list(), chartid)
+}
+\arguments{
+  \item{data}{a \code{data.frame}. The data has to have at
+  least four columns with subject name (\code{idvar}), time
+  (\code{timevar}) and two columns of numeric values.
+  Further columns, numeric and character/factor are
+  optional. The combination of \code{idvar} and
+  \code{timevar} has to describe a unique row. The column
+  names of the \code{idvar} and \code{timevar} have to be
+  specified. Further columns, if not specified by the other
+  arguments (\code{xvar, yvar, colorvar, sizevar}), will be
+  assumed to be in the order of the arguments.}
+
+  \item{idvar}{column name of \code{data} with the subject
+  to be analysed.}
+
+  \item{timevar}{column name of \code{data} which shows the
+  time dimension. The information has to be either numeric,
+  of class \code{\link{Date}} or a character which follows
+  the pattern 'YYYYWww' (e.g. '2010W04' for weekly data) or
+  'YYYYQq' (e.g. '2010Q1' for quarterly data).}
+
+  \item{xvar}{column name of a numerical vector in
+  \code{data} to be plotted on the x-axis.}
+
+  \item{yvar}{column name of a numerical vector in
+  \code{data} to be plotted on the y-axis.}
+
+  \item{colorvar}{column name of data that identifies
+  bubbles in the same series. Use the same value to
+  identify all bubbles that belong to the same series;
+  bubbles in the same series will be assigned the same
+  color. Series can be configured using the \code{series}
+  option.}
+
+  \item{sizevar}{values in this column are mapped to actual
+  pixel values using the \code{sizeAxis} option.}
+
+  \item{date.format}{if \code{timevar} is of class
+  \code{\link{Date}} then this argument specifies how the
+  dates are reformatted to be used by JavaScript.}
+
+  \item{options}{list of configuration options for Google
+  Motion Chart. The options are documented in detail by
+  Google online:
+
+  % START DYNAMIC CONTENT
+
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURLConfigOptions.txt")))}
+
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOptions.txt")))}}
+
+  \item{chartid}{character. If missing (default) a random
+  chart id will be generated based on chart type and
+  \code{\link{tempfile}}}
+}
+\value{
+  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
+  \code{\link{class}}
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOutputStructure.txt")))}
+}
+\description{
+  The gvisMotionChart function reads a data.frame and
+  creates text output referring to the Google Visualisation
+  API, which can be included into a web page, or as a
+  stand-alone page. The actual chart is rendered by the web
+  browser in Flash. A motion chart is a dynamic chart to
+  explore several indicators over time.
+}
+\section{Warnings}{
+  Because of Flash security settings the chart might not
+  work correctly when accessed from a file location in the
+  browser (e.g., file:///c:/webhost/myhost/myviz.html)
+  rather than from a web server URL (e.g.
+  http://www.myhost.com/myviz.html). See the googleVis
+  package vignette and the Macromedia web site
+  (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/})
+  for more details.
+}
+
+\section{Note}{
+  Please note that a \code{timevar} with values less than
+  100 will be shown as years 19xx.
+}
+\examples{
+## Please note that by default the googleVis plot command
+## will open a browser window and requires Flash and Internet
+## connection to display the visualisation.
+M1 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year")
+plot(M1)
+
+\dontrun{
+## Usage of date variable
+M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
+                      date.format = "\\\%Y\\\%m\\\%d")
+                      plot(M2)
+
+## Display weekly data:
+M3 <- gvisMotionChart(Fruits, "Fruit", "Date", date.format="\\\%YW\\\%W")
+plot(M3)
+}
+## Options: no side panel on the right
+M4 <- gvisMotionChart(Fruits,"Fruit", "Year",
+                      options=list(showSidePanel=FALSE))
+plot(M4)
+
+## Options: trails un-ticked
+M5 <- gvisMotionChart(Fruits, "Fruit", "Year",
+                      options=list(state='{"showTrails":false};'))
+
+plot(M5)
+
+## You can change some of displaying settings via the browser,
+## e.g. the level of opacity of non-selected items, or the chart type.
+## The state string from the 'Advanced' tab can be used to set those
+## settings via R. Just copy and past the string from the browser into
+## the argument state of the options list.
+## Here is an example of a motion chart, with an initial line chart
+## displayed. Ensure that you have a newline at the start and end of
+## your settings string.
+
+myStateSettings <-'
+{"xZoomedDataMin":1199145600000,"colorOption":"2",
+"duration":{"timeUnit":"Y","multiplier":1},"yLambda":1,
+"yAxisOption":"4","sizeOption":"_UNISIZE",
+"iconKeySettings":[],"xLambda":1,"nonSelectedAlpha":0,
+"xZoomedDataMax":1262304000000,"iconType":"LINE",
+"dimensions":{"iconDimensions":["dim0"]},
+"showTrails":false,"uniColorForNonSelected":false,
+"xAxisOption":"_TIME","orderedByX":false,"playDuration":15000,
+"xZoomedIn":false,"time":"2010","yZoomedDataMin":0,
+"yZoomedIn":false,"orderedByY":false,"yZoomedDataMax":100}
+'
+M6a <- gvisMotionChart(Fruits, "Fruit", "Year",
+                       options=list(state=myStateSettings))
+plot(M6a)
+
+## Newline set explicitly
+myStateSettings <-'\\n{"iconType":"LINE"}\\n'
+M6b <- gvisMotionChart(Fruits, "Fruit", "Year",
+                       options=list(state=myStateSettings))
+plot(M6b)
+
+
+## Define which columns are used for the initial setup of the various
+## dimensions
+M7 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",
+                      xvar="Profit", yvar="Expenses",
+                      colorvar="Location", sizevar="Sales")
+plot(M7)
+## For more information see:
+## https://developers.google.com/chart/interactive/docs/gallery/motionchart
+
+## See also the demo(WorldBank). It demonstrates how you can access
+## country level data from the World Bank to create Gapminder-like
+## plots.
+}
+\author{
+  Markus Gesmann \email{markus.gesmann@gmail.com}, Diego de
+  Castillo \email{decastillo@gmail.com}
+}
+\references{
+  Google Chart Tools API:
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURL.txt")))}
+
+  % END DYNAMIC CONTENT
+}
+\seealso{
+  See also \code{\link{print.gvis}},
+  \code{\link{plot.gvis}} for printing and plotting
+  methods.
+}
+\keyword{iplot}
+

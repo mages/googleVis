@@ -1,0 +1,122 @@
+\name{gvisBarChart}
+\alias{gvisBarChart}
+\title{Google Bar Chart with R
+\Sexpr{googleChartName <- "barchart"}
+\Sexpr{gvisChartName <- "gvisBarChart"}}
+\usage{
+  gvisBarChart(data, xvar = "", yvar = "",
+    options = list(), chartid)
+}
+\arguments{
+  \item{data}{a \code{\link{data.frame}} to be displayed as
+  a bar chart}
+
+  \item{xvar}{name of the character column which contains
+  the category labels for the x-axes.}
+
+  \item{yvar}{a vector of column names of the numerical
+  variables to be plotted.  Each column is displayed as a
+  separate bar/column.}
+
+  \item{options}{list of configuration options, see:
+
+  % START DYNAMIC CONTENT
+
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURLConfigOptions.txt")))}
+
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOptions.txt")))}}
+
+  \item{chartid}{character. If missing (default) a random
+  chart id will be generated based on chart type and
+  \code{\link{tempfile}}}
+}
+\value{
+  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
+  \code{\link{class}}
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOutputStructure.txt")))}
+}
+\description{
+  The gvisBarChart function reads a data.frame and creates
+  text output referring to the Google Visualisation API,
+  which can be included into a web page, or as a
+  stand-alone page. The actual chart is rendered by the web
+  browser using SVG or VML.
+}
+\examples{
+## Please note that by default the googleVis plot command
+## will open a browser window and requires an internet
+## connection to display the visualisation.
+
+df <- data.frame(country=c("US", "GB", "BR"),
+                           val1=c(1,3,4),
+                           val2=c(23,12,32))
+
+## Bar chart
+Bar1 <- gvisBarChart(df, xvar="country", yvar=c("val1", "val2"))
+plot(Bar1)
+
+## Stacked bar chart
+Bar2 <- gvisBarChart(df, xvar="country", yvar=c("val1", "val2"),
+     options=list(isStacked=TRUE))
+plot(Bar2)
+
+
+## Add a customised title and change width of bars
+Bar3 <- gvisBarChart(df, xvar="country", yvar=c("val1", "val2"),
+             options=list(title="Hello World",
+                          titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}",
+                          bar="{groupWidth:'100\%'}"))
+plot(Bar3)
+
+\dontrun{
+## Change x-axis to percentages
+Bar4 <- gvisBarChart(df, xvar="country", yvar=c("val1", "val2"),
+                       options=list(hAxis="{format:'#,###\%'}"))
+plot(Bar4)
+
+## The following example reads data from a Wikipedia table and displays
+## the information in a bar chart.
+## We use the readHMLTable function of the XML package to get the data
+library(XML)
+## Get the data of the biggest ISO container companies from Wikipedia
+##(table 3):
+df=readHTMLTable(readLines("http://en.wikipedia.org/wiki/Intermodal_freight_transport"))[[3]][,1:2]
+## Rename the second column
+names(df)[2]="TEU capacity"
+## The numbers are displayed with commas to separate thousands, so let's
+## get rid of them:
+df[,2]=as.numeric(gsub(",", "", as.character(df[,2])))
+
+## Finally we can create a nice bar chart:
+Bar5 <- gvisBarChart(df, options=list(
+                    chartArea="{left:250,top:50,width:\\"50\%\\",height:\\"75\%\\"}",
+                    legend="bottom",
+                    title="Top 20 container shipping companies in order of TEU capacity"))
+
+plot(Bar5)
+
+}
+}
+\author{
+  Markus Gesmann \email{markus.gesmann@gmail.com},
+
+  Diego de Castillo \email{decastillo@gmail.com}
+}
+\references{
+  Google Chart Tools API:
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURL.txt")))}
+
+  % END DYNAMIC CONTENT
+}
+\seealso{
+  See also \code{\link{print.gvis}},
+  \code{\link{plot.gvis}} for printing and plotting methods
+}
+\keyword{iplot}
+

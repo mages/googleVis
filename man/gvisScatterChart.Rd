@@ -1,0 +1,94 @@
+\name{gvisScatterChart}
+\alias{gvisScatterChart}
+\title{Google Scatter Chart with R
+\Sexpr{googleChartName <- "scatterchart"}
+\Sexpr{gvisChartName <- "gvisScatterChart"}}
+\usage{
+  gvisScatterChart(data, options = list(), chartid)
+}
+\arguments{
+  \item{data}{a \code{\link{data.frame}} to be displayed as
+  a scatter chart. Two or more columns are required, all
+  must be numeric. The values in the first column are used
+  for the X-axis. The values in following columns are used
+  for the Y-axis. Each column is displayed with a separate
+  color.}
+
+  \item{options}{list of configuration options, see:
+
+  % START DYNAMIC CONTENT
+
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURLConfigOptions.txt")))}
+
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOptions.txt")))}}
+
+  \item{chartid}{character. If missing (default) a random
+  chart id will be generated based on chart type and
+  \code{\link{tempfile}}}
+}
+\value{
+  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
+  \code{\link{class}}
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOutputStructure.txt")))}
+}
+\description{
+  The gvisScatterChart function reads a data.frame and
+  creates text output referring to the Google Visualisation
+  API, which can be included into a web page, or as a
+  stand-alone page. The actual chart is rendered by the web
+  browser using SVG or VML.
+}
+\examples{
+## Please note that by default the googleVis plot command
+## will open a browser window and requires an internet
+## connection to display the visualisation.
+
+
+## Scatter chart
+Scatter1 <- gvisScatterChart(women)
+plot(Scatter1)
+
+## Using optional arguments
+Scatter2 <- gvisScatterChart(women, options=list(legend="none",
+                 lineWidth=2, pointSize=2,
+                 title="Women", vAxis="{title:'weight (lbs)'}",
+                 crosshair="{ trigger: 'both' }",
+                 hAxis="{title:'height (in)'}", width=500, height=400))
+
+plot(Scatter2)
+
+
+df=data.frame(x=sin(1:100/3),
+              Circle=cos(1:100/3),
+ 	      Ellipse=cos(1:100/3)*0.5)
+
+## Plot several variables as smooth curves
+Scatter3 <- gvisScatterChart(df,
+	    		options=list(curveType='function',
+				     pointSize=0,
+				     lineWidth=2))
+plot(Scatter3)
+}
+\author{
+  Markus Gesmann \email{markus.gesmann@gmail.com},
+
+  Diego de Castillo \email{decastillo@gmail.com}
+}
+\references{
+  Google Chart Tools API:
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURL.txt")))}
+
+  % END DYNAMIC CONTENT
+}
+\seealso{
+  See also \code{\link{print.gvis}},
+  \code{\link{plot.gvis}} for printing and plotting methods
+}
+\keyword{iplot}
+
