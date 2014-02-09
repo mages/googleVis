@@ -17,7 +17,7 @@ Description: The googleVis package provides an interface between R and the
     connection is required and for some charts Flash. Please visit the project
     web site for more information and examples.
 Depends:
-    R (>= 3.0.0)
+    R (>= 3.0.2)
 Imports:
     methods,
     RJSONIO,
@@ -25,6 +25,7 @@ Imports:
 Suggests:
     shiny (>= 0.4.0),
     httpuv (>= 1.2.0)
+    knitr (>=1.5)
 License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/,
     http://lamages.blogspot.co.uk/search/label/googleVis
