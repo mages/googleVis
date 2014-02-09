@@ -17,7 +17,7 @@ Description: The googleVis package provides an interface between R and the
     connection is required and for some charts Flash. Please visit the project
     web site for more information and examples.
 Depends:
-    R (>= 2.11.0)
+    R (>= 3.0.0)
 Imports:
     methods,
     RJSONIO,
