@@ -3,14 +3,14 @@ of the Google documentation.
 \itemize{
 \item{parameters with names that don't include a "." and are set with a single 
 value, e.g. width and height. Those are set like one would do in R, that is
-\code{options=list(}\code{width=200,} \code{height=300)}. 
+\code{options=list(width=200, height=300)}. 
 Boolean arguments are set to 
 either \code{TRUE} or \code{FALSE}, using the R syntax.
 }
 \item{parameters with names that don't include a "."  are set with 
 multiple values, e.g. \code{color}, and are wrapped in "[ ]", e.g. 
-\code{options=list(}\code{colors="['#cbb69d',} \code{'#603913',}
-\code{'#c69c6e']")}
+
+\code{options=list(colors="['#cbb69d', '#603913', '#c69c6e']")}
 }
 \item{parameters with names that do include a "." present parameters with 
 several sub-options and have to be set as a string wrapped in "{ }".
@@ -19,18 +19,21 @@ have to be stated as \code{'true'} or \code{'false'}.
 For example the Google documentaion states the formating options for the 
 vertical axis and states the parameter as \code{vAxis.format}. 
 Then this paramter can be set in R as:
-\code{options=list(}\code{vAxis="{format:'#,###\%'}")}. 
+
+\code{options=list(vAxis="{format:'#,###\%'}")}. 
 }
 \item{If several sub-options have to be set, e.g. 
+
 \code{titleTextStyle.color}, \code{titleTextStyle.fontName} and 
 \code{titleTextStyle.fontSize}, then those can be combined in one list item 
 such as:
-\code{options=list(}\code{titleTextStyle="{color:'red',} 
-\code{fontName:'Courier',} \code{fontSize:16}")}
+
+\code{options=list(titleTextStyle="{color:'red', fontName:'Courier', fontSize:16}")}
 }
 \item{paramters that can have more than one value per sub-options are 
 wrapped in "[ ]". For example to set the labels for left and right axes use:
-\code{options=list(}\code{vAxes="[{title:'val1'}, {title:'val2'}]")}
+
+\code{options=list(vAxes="[{title:'val1'}, {title:'val2'}]")}
 }
 \item{\code{gvis.editor}}{ a character label for an
  on-page button that opens an in-page dialog box enabling

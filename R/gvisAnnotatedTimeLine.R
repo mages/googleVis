@@ -87,6 +87,9 @@
 #' and the Macromedia web site
 #' (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/})
 #' for more details.
+#' 
+#' Use code{\link{gvisAnnotationChart}} for a non-Flash version of this plot.
+#' 
 #' @author Markus Gesmann \email{markus.gesmann@@gmail.com},
 #' 
 #' Diego de Castillo \email{decastillo@@gmail.com}

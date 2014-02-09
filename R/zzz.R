@@ -99,7 +99,7 @@ gvisWelcomeMessage <- function(){
         "Note, the plot method of googleVis will by default use\n",
         display,
         "\n",
-        "See the googleVis package vignette for more details.\n",
+        "See the googleVis package vignettes for more details.\n",
         "\n",               
         "To suppress the this message use:\n",
         "suppressPackageStartupMessages(library(googleVis))\n",  

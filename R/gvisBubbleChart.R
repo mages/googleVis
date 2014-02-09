@@ -62,7 +62,7 @@
 #'  "mansections", "gvisOptions.txt")))}
 #'   
 #' @param chartid character. If missing (default) a random chart id will be 
-#' generated based on chart type and \code{\link{tempfile}}
+#' generated based on chart type and \code{\link{tempfile}}.
 #' 
 #' @return \Sexpr[results=rd]{paste(gvisChartName)} returns list 
 #' of \code{\link{class}}

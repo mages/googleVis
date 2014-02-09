@@ -653,7 +653,7 @@ Then this paramter can be set in R as:
 \texttt{options=list(} \texttt{vAxis="\{format:'\#,\#\#\#\%'\}")}. 
 
 \item If several sub-options have to be set, e.g. 
-\texttt{titleTextStyle.color,} \texttt{titleTextStyle.fontName} and 
+\texttt{titleTextStyle.color,} \texttt{title\-Text\-Style.\-fontName} and 
 \texttt{titleTextStyle.fontSize}, then those can be combined in one list item 
 such as:
 \texttt{options=list(} \texttt{titleTextStyle="\{color:'red',} 
