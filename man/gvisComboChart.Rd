@@ -1,0 +1,97 @@
+\name{gvisComboChart}
+\alias{gvisComboChart}
+\title{Google Combo Chart with R
+\Sexpr{googleChartName <- "combochart"}
+\Sexpr{gvisChartName <- "gvisComboChart"}}
+\usage{
+  gvisComboChart(data, xvar = "", yvar = "",
+    options = list(), chartid)
+}
+\arguments{
+  \item{data}{a \code{\link{data.frame}} to be displayed as
+  a columns, line and area chart.}
+
+  \item{xvar}{name of the character column which contains
+  the category labels for the x-axes.}
+
+  \item{yvar}{a vector of column names of the numerical
+  variables to be plotted.  Each column is displayed as a
+  separate column, line or area series.}
+
+  \item{options}{list of configuration options, see:
+
+  % START DYNAMIC CONTENT
+
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURLConfigOptions.txt")))}
+
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOptions.txt")))}}
+
+  \item{chartid}{character. If missing (default) a random
+  chart id will be generated based on chart type and
+  \code{\link{tempfile}}}
+}
+\value{
+  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
+  \code{\link{class}}
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOutputStructure.txt")))}
+}
+\description{
+  A chart that lets you render each series as a different
+  marker type from the following list: columns, lines, and
+  area lines.
+}
+\details{
+  The gvisComboChart function reads a data.frame and
+  creates text output referring to the Google Visualisation
+  API, which can be included into a web page, or as a
+  stand-alone page. The actual chart is rendered by the web
+  browser using SVG or VML.
+}
+\examples{
+## Please note that by default the googleVis plot command
+## will open a browser window and requires an internet
+## connection to display the visualisation.
+
+CityPopularity
+## Add the mean
+CityPopularity$Mean=mean(CityPopularity$Popularity)
+
+C1 <- gvisComboChart(CityPopularity, xvar="City",
+                                     yvar=c("Mean", "Popularity"),
+                                   options=list(seriesType="bars",
+                                                title="City Popularity",
+                                                series='{0: {type:"line"}}'))
+plot(C1)
+
+## Changing the width of columsn
+C2 <- gvisComboChart(CityPopularity, xvar="City",
+                                     yvar=c("Mean", "Popularity"),
+                                   options=list(seriesType="bars",
+                                                bar="{groupWidth:'100\%'}",
+                                                title="City Popularity",
+                                                series='{0: {type:"line"}}'))
+plot(C2)
+}
+\author{
+  Markus Gesmann \email{markus.gesmann@gmail.com},
+
+  Diego de Castillo \email{decastillo@gmail.com}
+}
+\references{
+  Google Chart Tools API:
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURL.txt")))}
+
+  % END DYNAMIC CONTENT
+}
+\seealso{
+  See also \code{\link{print.gvis}},
+  \code{\link{plot.gvis}} for printing and plotting methods
+}
+\keyword{iplot}
+

@@ -1,0 +1,384 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{Examples from the googleVis package}
+-->
+# Examples from the googleVis package
+===========================================
+```{r setOptions, message=FALSE}
+library(googleVis)
+op <- options(gvis.plot.tag='chart')
+df=data.frame(country=c("US", "GB", "BR"), 
+              val1=c(10,13,14), 
+              val2=c(23,12,32))
+```
+
+## Line chart
+```{r results='asis', tidy=FALSE}
+Line <- gvisLineChart(df)
+plot(Line)
+```
+### Line chart with two axis
+```{r results='asis', tidy=FALSE}
+Line2 <- gvisLineChart(df, "country", c("val1","val2"),
+                       options=list(
+                         series="[{targetAxisIndex: 0},
+                                 {targetAxisIndex:1}]",
+                         vAxes="[{title:'val1'}, {title:'val2'}]"
+                       ))
+plot(Line2)
+
+```
+### Setting options, it works similar for other charts
+```{r results='asis', tidy=FALSE}
+Line3 <-  gvisLineChart(df, xvar="country", 
+                        yvar=c("val1","val2"),
+                        options=list(
+                          title="Hello World",
+                          titleTextStyle="{color:'red', 
+                                           fontName:'Courier', 
+                                           fontSize:16}",                         
+                          backgroundColor="#D3D3D3",                          
+                          vAxis="{gridlines:{color:'red', count:3}}",
+                          hAxis="{title:'Country', 
+                                  titleTextStyl:{color:'blue'}}",
+                          series="[{color:'green', targetAxisIndex: 0},  
+                                   {color: 'orange',targetAxisIndex:1}]",
+                          vAxes="[{title:'val1'}, {title:'val2'}]",
+                          legend="bottom",
+                          curveType="function",
+                          width=500,
+                          height=300                         
+                        ))
+plot(Line3)
+```
+
+### Add edit button for on the fly customisation
+The same option is available for all other charts
+```{r results='asis', tidy=FALSE}
+Line4 <-  gvisLineChart(df, "country", c("val1","val2"),
+                        options=list(gvis.editor="Edit me!"))
+plot(Line4)
+```
+
+## Bar chart
+```{r results='asis', tidy=FALSE}
+Bar <- gvisBarChart(df)
+plot(Bar)
+```
+
+## Column chart
+```{r results='asis', tidy=FALSE}
+Column <- gvisColumnChart(df)
+plot(Column)
+```
+
+## Area chart
+```{r results='asis', tidy=FALSE}
+Area <- gvisAreaChart(df)
+plot(Area)
+```
+
+## Stepped Area chart
+```{r results='asis', tidy=FALSE}
+SteppedArea <- gvisSteppedAreaChart(df, xvar="country", 
+                                    yvar=c("val1", "val2"),
+                                    options=list(isStacked=TRUE))
+plot(SteppedArea)
+```
+
+## Combo chart
+```{r results='asis', tidy=FALSE}
+Combo <- gvisComboChart(df, xvar="country",
+                        yvar=c("val1", "val2"),
+                        options=list(seriesType="bars",
+                                     series='{1: {type:"line"}}'))
+plot(Combo)
+```
+
+## Scatter chart
+```{r results='asis', tidy=FALSE}
+Scatter <- gvisScatterChart(women, 
+                            options=list(
+                              legend="none",
+                              lineWidth=2, pointSize=0,
+                              title="Women", vAxis="{title:'weight (lbs)'}",
+                              hAxis="{title:'height (in)'}", 
+                              width=300, height=300))
+plot(Scatter)
+```
+
+## Bubble chart
+```{r results='asis', tidy=FALSE}
+Bubble <- gvisBubbleChart(Fruits, idvar="Fruit", 
+                          xvar="Sales", yvar="Expenses",
+                          colorvar="Year", sizevar="Profit",
+                          options=list(
+                            hAxis='{minValue:75, maxValue:125}'))
+plot(Bubble)
+```
+
+## Candlestick chart
+```{r results='asis', tidy=FALSE}
+Candle <- gvisCandlestickChart(OpenClose, 
+                               options=list(legend='none'))
+plot(Candle)
+```
+
+## Pie chart
+```{r results='asis', tidy=FALSE}
+Pie <- gvisPieChart(CityPopularity)
+plot(Pie)
+```
+
+## Gauge
+```{r results='asis', tidy=FALSE}
+Gauge <-  gvisGauge(CityPopularity, 
+                    options=list(min=0, max=800, greenFrom=500,
+                                 greenTo=800, yellowFrom=300, yellowTo=500,
+                                 redFrom=0, redTo=300, width=400, height=300))
+plot(Gauge)
+```
+
+## Org chart
+```{r results='asis', tidy=FALSE}
+Org <- gvisOrgChart(Regions, 
+                    options=list(width=600, height=250,
+                                 size='large', allowCollapse=TRUE))
+plot(Org)
+```
+
+## Intensity Map
+```{r results='asis', tidy=FALSE}
+Intensity <- gvisIntensityMap(df)
+plot(Intensity)
+```
+
+## Geo Chart
+```{r results='asis', tidy=FALSE}
+Geo=gvisGeoChart(Exports, locationvar="Country", 
+                 colorvar="Profit",
+                 options=list(projection="kavrayskiy-vii"))
+plot(Geo)
+```
+
+### Example showing US data by state 
+```{r results='asis', tidy=FALSE}
+require(datasets)
+states <- data.frame(state.name, state.x77)
+GeoStates <- gvisGeoChart(states, "state.name", "Illiteracy",
+                          options=list(region="US", 
+                                       displayMode="regions", 
+                                       resolution="provinces",
+                                       width=600, height=400))
+plot(GeoStates)
+```
+### Show Hurricane Andrew (1992) storm track with Geo Chart
+```{r results='asis', tidy=FALSE}
+GeoMarker <- gvisGeoChart(Andrew, "LatLong", 
+                          sizevar='Speed_kt',
+                          colorvar="Pressure_mb", 
+                          options=list(region="US"))
+plot(GeoMarker)
+```
+
+## Google Maps
+```{r results='asis', tidy=FALSE}
+AndrewMap <- gvisMap(Andrew, "LatLong" , "Tip", 
+                     options=list(showTip=TRUE, 
+                                  showLine=TRUE, 
+                                  enableScrollWheel=TRUE,
+                                  mapType='terrain', 
+                                  useMapTypeControl=TRUE))
+plot(AndrewMap)
+```
+
+## Table
+Click on the column header to sort the rows 
+```{r results='asis', tidy=FALSE}
+Table <- gvisTable(Exports, 
+                   options=list(width=400, 
+                                height=300))
+plot(Table)
+```
+
+### Table with embedded links
+```{r results='asis', tidy=FALSE}
+PopTable <- gvisTable(Population, 
+                      options=list(width=600, 
+                                   height=300, 
+                                   page='enable'))
+plot(PopTable)
+```
+
+## Tree Map 
+Left mouse-click to drill down, right mouse-click to move up a hierarchy
+```{r results='asis', tidy=FALSE}
+Tree <- gvisTreeMap(Regions,  
+                    "Region", "Parent", 
+                    "Val", "Fac", 
+                    options=list(fontSize=16))
+plot(Tree)
+```
+
+## Annotation chart 
+```{r results='asis', tidy=FALSE}
+A4 <- gvisAnnotationChart(Stock, 
+                          datevar="Date",
+                          numvar="Value", 
+                          idvar="Device",
+                          titlevar="Title", 
+                          annotationvar="Annotation",
+                          options=list(
+                            width=600, height=350,
+                            fill=10, displayExactValues=TRUE,
+                            colors="['#0000ff','#00ff00']")
+)
+plot(A4)
+```
+
+## Sankey chart
+```{r results='asis', tidy=FALSE}
+dat <- data.frame(From=c(rep("A",3), rep("B", 3)),
+                  To=c(rep(c("X", "Y", "Z"),2)),
+                  Weight=c(5,7,6,2,9,4))
+
+sk2 <- gvisSankey(dat, from="From", to="To", weight="Weight",
+                  options=list(
+                    sankey="{link: {color: { fill: '#d799ae' } },
+                            node: { color: { fill: '#a61d4c' },
+                            label: { color: '#871b47' } }}"))
+plot(sk2)
+```
+
+## Histogram
+```{r results='asis', tidy=FALSE}
+set.seed(123)
+dat=data.frame(A=rpois(100, 20),
+               B=rpois(100, 5),
+               C=rpois(100, 50))
+hist3 <- gvisHistogram(dat, options=list(
+  legend="{ position: 'top', maxLines: 2 }",
+  colors="['#5C3292', '#1A8763', '#871B47']"))
+
+plot(hist3)
+```
+
+## Calendar chart
+```{r results='asis', tidy=FALSE}
+cl2 <- gvisCalendar(Cairo, 
+                    datevar="Date", 
+                    numvar="Temp",
+                    options=list(
+                      title="Daily temperature in Cairo",
+                      height=500,
+                      calendar="{yearLabel:{fontName: 'Times-Roman',
+                                fontSize:32, color:'#1A8763', bold: true},
+                                cellColor:{ stroke:'red', strokeOpacity:0.2},
+                                focusedCellColor:{stroke:'red'}}"))
+plot(cl2)
+```
+
+## Timeline chart
+```{r results='asis', tidy=FALSE}
+dat <- data.frame(Position=c(rep("President", 3), rep("Vice", 3)),
+                  Name=c("Washington", "Adams", "Jefferson",
+                         "Adams", "Jefferson", "Burr"),
+                  start=as.Date(x=rep(c("1789-03-29", "1797-02-03", 
+                                        "1801-02-03"),2)),
+                  end=as.Date(x=rep(c("1797-02-03", "1801-02-03", 
+                                      "1809-02-03"),2)))
+
+tl <- gvisTimeline(data=dat, 
+                   rowlabel="Name",
+                   barlabel="Position",
+                   start="start", 
+                   end="end",
+                   options=list(timeline="{groupByRowLabel:false}",
+                                backgroundColor='#ffd', 
+                                height=350,
+                                colors="['#cbb69d', '#603913', '#c69c6e']"))
+plot(tl)
+```
+
+## Geo Map
+Requires Flash
+```{r results='asis', tidy=FALSE}
+Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit",
+               options=list(height=350, dataMode='regions'))
+plot(Geo)
+```
+```{r results='asis', tidy=FALSE}
+AndrewGeo <- gvisGeoMap(Andrew, 
+                        locationvar="LatLong", 
+                        numvar="Speed_kt", 
+                        hovervar="Category", 
+                        options=list(height=350, 
+                                     region="US", 
+                                     dataMode="markers"))
+plot(AndrewGeo)
+```
+
+## Annotated time line chart
+Requires Flash
+```{r results='asis', tidy=FALSE}
+AnnoTimeLine  <- gvisAnnotatedTimeLine(Stock, 
+                                       datevar="Date",
+                                       numvar="Value", 
+                                       idvar="Device",
+                                       titlevar="Title", 
+                                       annotationvar="Annotation",
+                                       options=list(displayAnnotations=TRUE,
+                                                    width=600, height=350))
+plot(AnnoTimeLine)
+```
+
+## Motion chart
+Requires Flash
+```{r results='asis', tidy=FALSE}
+Motion=gvisMotionChart(Fruits, 
+                       idvar="Fruit", 
+                       timevar="Year")
+plot(Motion)
+```
+
+You can change some of displaying settings via the browser,
+e.g. the level of opacity of non-selected items, or the chart type.
+The state string from the 'Advanced' tab can be used to set those
+settings via R. Just copy and past the string from the browser into
+the argument state of the options list.
+Here is an example of a motion chart, with an initial line chart
+displayed. 
+```{r results='asis', tidy=FALSE}
+myStateSettings <-'
+{"xZoomedDataMin":1199145600000,"colorOption":"2",
+"duration":{"timeUnit":"Y","multiplier":1},"yLambda":1,
+"yAxisOption":"4","sizeOption":"_UNISIZE",
+"iconKeySettings":[],"xLambda":1,"nonSelectedAlpha":0,
+"xZoomedDataMax":1262304000000,"iconType":"LINE",
+"dimensions":{"iconDimensions":["dim0"]},
+"showTrails":false,"uniColorForNonSelected":false,
+"xAxisOption":"_TIME","orderedByX":false,"playDuration":15000,
+"xZoomedIn":false,"time":"2010","yZoomedDataMin":0,
+"yZoomedIn":false,"orderedByY":false,"yZoomedDataMax":100}
+'
+M <- gvisMotionChart(Fruits, "Fruit", "Year", options=list(state=myStateSettings))
+plot(M)
+```
+
+## Merging charts
+```{r results='asis', tidy=FALSE}
+G <- gvisGeoChart(Exports, "Country", "Profit", 
+                  options=list(width=220, height=100))
+T <- gvisTable(Exports, 
+                  options=list(width=220, height=260))
+
+GT <- gvisMerge(G,T, horizontal=FALSE) 
+plot(GT)
+```
+```{r results='asis', tidy=FALSE}
+M <- gvisMotionChart(Fruits, "Fruit", "Year",
+                     options=list(width=440, height=360))
+GTM <- gvisMerge(GT, M, horizontal=TRUE,
+                 tableOptions="bgcolor=\"#CCCCCC\" cellspacing=10")
+plot(GTM)
+```

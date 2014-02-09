@@ -1,0 +1,83 @@
+\name{gvisSankey}
+\alias{gvisSankey}
+\title{Google Sankey Chart with R
+\Sexpr{googleChartName <- "sankey"}
+\Sexpr{gvisChartName <- "gvisSankey"}}
+\usage{
+  gvisSankey(data, from = "", to = "", weight = "",
+    options = list(), chartid)
+}
+\arguments{
+  \item{data}{data.frame that contains the data to be
+  visualised}
+
+  \item{from}{a string that referes to the column name in
+  \code{data} for the source nodes to be used}
+
+  \item{to}{a string that referes to the column name in
+  \code{data} for the destination nodes to be used}
+
+  \item{weight}{name of the column with the numerical
+  weight of the connections}
+
+  \item{options}{list of configuration options. The options
+  are documented in detail by Google online:
+
+  % START DYNAMIC CONTENT
+
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURLConfigOptions.txt")))}
+
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOptions.txt")))}}
+
+  \item{chartid}{character. If missing (default) a random
+  chart id will be generated based on chart type and
+  \code{\link{tempfile}}}
+}
+\value{
+  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
+  \code{\link{class}}
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOutputStructure.txt")))}
+}
+\description{
+  A sankey diagram is a visualization used to depict a flow
+  from one set of values to another. The things being
+  connected are called nodes and the connections are called
+  links. They're named after Captain Sankey, who created a
+  diagram of steam engine efficiency that used arrows
+  having widths proportional to heat loss.
+}
+\section{Warning}{
+  The sankey chart may be undergoing substantial revisions
+  in future Google Charts releases.
+}
+\examples{
+dat <- data.frame(From=c(rep("A",3), rep("B", 3)),
+                  To=c(rep(c("X", "Y", "Z"),2)),
+                  Weight=c(5,7,6,2,9,4))
+
+sk1 <- gvisSankey(dat, from="From", to="To", weight="Weight")
+plot(sk1)
+
+sk2 <- gvisSankey(dat, from="From", to="To", weight="Weight",
+                options=list(sankey="{link: {color: { fill: '#d799ae' } },
+                                     node: { color: { fill: '#a61d4c' },
+                                     label: { color: '#871b47' } }}"))
+plot(sk2)
+}
+\author{
+  Markus Gesmann \email{markus.gesmann@gmail.com}
+}
+\references{
+  Google Chart Tools API:
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURL.txt")))}
+
+  % END DYNAMIC CONTENT
+}
+\keyword{iplot}
+

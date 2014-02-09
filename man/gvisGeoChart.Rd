@@ -1,0 +1,216 @@
+\name{gvisGeoChart}
+\alias{gvisGeoChart}
+\title{Google Geo Chart with R
+\Sexpr{googleChartName <- "geochart"}
+\Sexpr{gvisChartName <- "gvisGeoChart"}}
+\usage{
+  gvisGeoChart(data, locationvar = "", colorvar = "",
+    sizevar = "", hovervar = "", options = list(), chartid)
+}
+\arguments{
+  \item{data}{a \code{data.frame}. The data has to have at
+  least one column with location name (\code{locationvar}),
+  value to be mapped to location. The format of the data
+  varies depending on which display mode that you use:
+  Regions or Markers.}
+
+  \item{locationvar}{column name of \code{data} with the
+  geo locations to be analysed. The locations can be
+  provide in two formats: \describe{ \item{Format
+  1}{'latitude:longitude'. See the example below.}
+  \item{Format 2}{Address, country name, region name
+  locations, or US metropolitan area codes, see
+  \url{http://code.google.com/apis/adwords/docs/developer/adwords_api_us_metros.html}.
+  This format works with the \code{dataMode} option set to
+  either 'markers' or 'regions'. The following formats are
+  accepted: A specific address (for example, "1600
+  Pennsylvania Ave"). A country name as a string (for
+  example, "England"), or an uppercase ISO-3166 code or its
+  English text equivalent (for example, "GB" or "United
+  Kingdom").  An uppercase ISO-3166-2 region code name or
+  its English text equivalent (for example, "US-NJ" or "New
+  Jersey").  } }}
+
+  \item{colorvar}{column name of \code{data} with the
+  optional numeric column used to assign a color to this
+  marker, based on the scale specified in the
+  \code{colorAxis.colors} property. If this column is not
+  present, all markers will be the same color. If the
+  column is present, null values are not allowed. Values
+  are scaled relative to each other, or absolutely to
+  values specified in the \code{colorAxis.values}
+  property.}
+
+  \item{sizevar}{only used for
+  \code{displayMode='markers'}. Column name of \code{data}
+  with the optional numeric column used to assign the
+  marker size, relative to the other marker sizes. If this
+  column is not present, the value from the previous column
+  will be used (or default `size, if no color column is
+  provided as well). If the column is present, null
+  valuesare not allowed.}
+
+  \item{hovervar}{column name of \code{data} with the
+  additional string text displayed when the user hovers
+  over this region.}
+
+  \item{options}{list of configuration options, see:
+
+  % START DYNAMIC CONTENT
+
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURLConfigOptions.txt")))}
+
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOptions.txt")))}}
+
+  \item{chartid}{character. If missing (default) a random
+  chart id will be generated based on chart type and
+  \code{\link{tempfile}}}
+}
+\value{
+  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
+  \code{\link{class}}
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOutputStructure.txt")))}
+}
+\description{
+  The gvisGeoChart function reads a data.frame and creates
+  text output referring to the Google Visualisation API,
+  which can be included into a web page, or as a
+  stand-alone page.
+}
+\details{
+  A geo chart is a map of a country, a continent, or a
+  region with two modes: The region mode colorizes whole
+  regions, such as countries, provinces, or states. The
+  marker mode marks designated regions using bubbles that
+  are scaled according to a value that you specify.
+
+  A geo chart is rendered within the browser using SVG or
+  VML. Note that the map is not scrollable or draggable.
+}
+\examples{
+## Please note that by default the googleVis plot command
+## will open a browser window and requires Internet
+## connection to display the visualisation.
+
+## Regions examples
+## The regions style fills entire regions (typically countries) with
+## colors corresponding to the values that you assign
+
+G1a <- gvisGeoChart(Exports, locationvar='Country', colorvar='Profit')
+
+plot(G1a)
+
+## Change projection
+G1b <- gvisGeoChart(Exports, locationvar='Country', colorvar='Profit',
+                   options=list(projection="kavrayskiy-vii"))
+
+plot(G1b)
+
+## Plot only Europe
+G2 <- gvisGeoChart(Exports, "Country", "Profit",
+                   options=list(region="150"))
+
+plot(G2)
+
+
+## Example showing US data by state
+require(datasets)
+
+states <- data.frame(state.name, state.x77)
+G3 <- gvisGeoChart(states, "state.name", "Illiteracy",
+                 options=list(region="US", displayMode="regions",
+                              resolution="provinces",
+   	 width=600, height=400))
+plot(G3)
+
+## Markers Example
+## A marker style map renders bubble-shaped markers at specified
+## locations with the color and size that you specify.
+
+G4 <- gvisGeoChart(CityPopularity, locationvar='City', colorvar='Popularity',
+                      options=list(region='US', height=350,
+                                   displayMode='markers',
+				   colorAxis="{values:[200,400,600,800],
+                                   colors:[\\'red', \\'pink\\', \\'orange',\\'green']}")
+                      )
+plot(G4)
+
+G5 <- gvisGeoChart(Andrew, "LatLong", colorvar='Speed_kt',
+                   options=list(region="US"))
+plot(G5)
+
+
+G6 <- gvisGeoChart(Andrew, "LatLong", sizevar='Speed_kt',
+                   colorvar="Pressure_mb", options=list(region="US"))
+plot(G6)
+
+## Create lat:long values and plot a map of Oceania
+## Set background colour to light-blue
+
+require(stats)
+data(quakes)
+head(quakes)
+quakes$latlong<-paste(quakes$lat, quakes$long, sep=":")
+
+G7 <- gvisGeoChart(quakes, "latlong", "depth", "mag",
+                   options=list(displayMode="Markers", region="009",
+                   colorAxis="{colors:['red', 'grey']}",
+                   backgroundColor="lightblue"))
+
+plot(G7)
+
+\dontrun{
+# Plot S&P countries' credit rating sourced from Wikipedia
+# Use the hovervar to show the rating
+library(XML)
+url <- "http://en.wikipedia.org/wiki/List_of_countries_by_credit_rating"
+x <- readHTMLTable(readLines(url), which=3)
+levels(x$Rating) <- substring(levels(x$Rating), 4,
+                              nchar(levels(x$Rating)))
+x$Ranking <- x$Rating
+levels(x$Ranking) <- nlevels(x$Rating):1
+x$Ranking <- as.character(x$Ranking)
+x$Rating <- paste(x$Country, x$Rating, sep=": ")
+#### Create a geo chart
+G8 <- gvisGeoChart(x, "Country", "Ranking", hovervar="Rating",
+                options=list(gvis.editor="S&P",
+                             colorAxis="{colors:['#91BFDB', '#FC8D59']}"))
+plot(G8)
+
+
+## Plot world wide earth quakes of the last 30 days with magnitude >= 4.0
+library(XML)
+## Get earthquake data of the last 30 days
+eq <- read.csv("http://earthquake.usgs.gov/earthquakes/feed/v0.1/summary/2.5_week.csv")
+eq$loc=paste(eq$Latitude, eq$Longitude, sep=":")
+
+G9 <- gvisGeoChart(eq, "loc", "Depth", "Magnitude",
+                   options=list(displayMode="Markers",
+                   colorAxis="{colors:['purple', 'red', 'orange', 'grey']}",
+                   backgroundColor="lightblue"), chartid="EQ")
+plot(G9)
+}
+}
+\author{
+  Markus Gesmann \email{markus.gesmann@gmail.com}, Diego de
+  Castillo \email{decastillo@gmail.com}
+}
+\references{
+  Google Chart Tools API:
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURL.txt")))}
+
+  % END DYNAMIC CONTENT
+}
+\seealso{
+  See also \code{\link{print.gvis}},
+  \code{\link{plot.gvis}} for printing and plotting
+  methods.
+}
+\keyword{iplot}
+

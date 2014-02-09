@@ -1,0 +1,101 @@
+\name{gvisSteppedAreaChart}
+\alias{gvisSteppedAreaChart}
+\title{Google Stepped Area Chart with R
+\Sexpr{googleChartName <- "steppedarechart"}
+\Sexpr{gvisChartName <- "gvisSteppedAreChart"}}
+\usage{
+  gvisSteppedAreaChart(data, xvar = "", yvar = "",
+    options = list(), chartid)
+}
+\arguments{
+  \item{data}{a \code{\link{data.frame}} to be displayed as
+  a stepped area chart.}
+
+  \item{xvar}{name of the character column which contains
+  the category labels for the x-axes.}
+
+  \item{yvar}{a vector of column names of the numerical
+  variables to be plotted.  Each column is displayed as a
+  separate line.}
+
+  \item{options}{list of configuration options, see:
+
+  % START DYNAMIC CONTENT
+
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURLConfigOptions.txt")))}
+
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOptions.txt")))}}
+
+  \item{chartid}{character. If missing (default) a random
+  chart id will be generated based on chart type and
+  \code{\link{tempfile}}}
+}
+\value{
+  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
+  \code{\link{class}}
+  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+  "mansections", "gvisOutputStructure.txt")))}
+}
+\description{
+  The gvisSteppedAreaChart function reads a data.frame and
+  creates text output referring to the Google Visualisation
+  API, which can be included into a web page, or as a
+  stand-alone page.
+}
+\details{
+  The stepped area chart is rendered within the browser
+  using SVG or VML and displays tips when hovering over
+  points.
+}
+\examples{
+## Please note that by default the googleVis plot command
+## will open a browser window and requires an internet
+## connection to display the visualisation.
+
+df=data.frame(country=c("US", "GB", "BR"), val1=c(1,3,4), val2=c(23,12,32))
+
+## Stepped Area chart
+SteppedArea1 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"))
+plot(SteppedArea1)
+
+## Stacked chart
+SteppedArea2 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+      options=list(isStacked=TRUE))
+plot(SteppedArea2)
+
+
+## Add a customised title
+SteppedArea3 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+             options=list(title="Hello World",
+                          titleTextStyle="{color:'red',fontName:'Courier',fontSize:16}"))
+plot(SteppedArea3)
+
+\dontrun{
+## Change y-axis to percentages
+SteppedArea3 <- gvisSteppedAreaChart(df, xvar="country", yvar=c("val1", "val2"),
+                       options=list(vAxis="{format:'#,###\%'}"))
+plot(SteppedArea3)
+}
+}
+\author{
+  Markus Gesmann \email{markus.gesmann@gmail.com},
+
+  Diego de Castillo \email{decastillo@gmail.com}
+}
+\references{
+  Google Chart Tools API:
+  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+  readLines(file.path(".", "inst", "mansections",
+  "GoogleChartToolsURL.txt")))}
+
+  % END DYNAMIC CONTENT
+}
+\seealso{
+  See also \code{\link{print.gvis}},
+  \code{\link{plot.gvis}} for printing and plotting methods
+}
+\keyword{iplot}
+
