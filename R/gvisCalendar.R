@@ -48,7 +48,7 @@
 #'  "mansections", "gvisOptions.txt")))}
 #'   
 #' @param chartid character. If missing (default) a random chart id will be 
-#' generated based on chart type and \code{\link{tempfile}}
+#' generated based on chart type and \code{\link{tempfile}}.
 #' 
 #' @return \Sexpr[results=rd]{paste(gvisChartName)} returns list 
 #' of \code{\link{class}}
@@ -62,15 +62,6 @@
 #' "GoogleChartToolsURL.txt")))}
 #' 
 #' % END DYNAMIC CONTENT
-#' @section Warnings:
-#' 
-#' Because of Flash security settings the chart might not work correctly when
-#' accessed from a file location in the browser (e.g.,
-#' file:///c:/webhost/myhost/myviz.html) rather than from a web server URL
-#' (e.g. http://www.myhost.com/myviz.html). See the googleVis package vignette
-#' and the Macromedia web site
-#' (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/})
-#' for more details.
 #' @author Markus Gesmann \email{markus.gesmann@@gmail.com},
 #' 
 #' Diego de Castillo \email{decastillo@@gmail.com}

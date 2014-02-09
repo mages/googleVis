@@ -18,11 +18,6 @@ Exports: googleVis example data set
 }
 \examples{
 data(Exports)
-Exports
-G <- gvisGeoMap(Exports, locationvar='Country',  numvar='Profit',
-		options=list(height=350, dataMode='regions'))
-\dontrun{
-plot(G)
-}
+str(Exports)
 }
 \keyword{datasets}

@@ -120,8 +120,8 @@ gvisLineChart <- function(data, xvar="", yvar="", options=list(), chartid){##, e
 
 
 #' Google Area Chart with R
-#' \Sexpr{googleChartName <- "arechart"}
-#' \Sexpr{gvisChartName <- "gvisAreChart"}
+#' \Sexpr{googleChartName <- "areachart"}
+#' \Sexpr{gvisChartName <- "gvisAreaChart"}
 #' 
 #' The gvisAreaChart function reads a data.frame and creates text output
 #' referring to the Google Visualisation API, which can be included into a web
