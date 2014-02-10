@@ -25,7 +25,7 @@ Imports:
 Suggests:
     shiny (>= 0.4.0),
     httpuv (>= 1.2.0),
-    knitr (>=1.5)
+    knitr (>= 1.5)
 License: GPL (>= 2)
 URL: http://code.google.com/p/google-motion-charts-with-r/,
     http://lamages.blogspot.co.uk/search/label/googleVis
