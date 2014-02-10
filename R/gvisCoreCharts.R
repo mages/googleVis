@@ -109,12 +109,14 @@
 #' 
 #' 
 #' 
-gvisLineChart <- function(data, xvar="", yvar="", options=list(), chartid){##, editor
+gvisLineChart <- function(data, xvar="", yvar="", options=list(), 
+                          chartid){##, editor
 
   ##  if(!missing(editor)){
   ##   options=list(options, gvis.editor=editor) 
   ## }
-  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="LineChart")
+  gvisCoreChart(data, xvar, yvar, options, chartid, 
+                chart.type="LineChart")
 }
 
 
@@ -200,9 +202,11 @@ gvisLineChart <- function(data, xvar="", yvar="", options=list(), chartid){##, e
 #' plot(Area3)
 #' }
 #' 
-gvisAreaChart <- function(data, xvar="", yvar="", options=list(), chartid){
+gvisAreaChart <- function(data, xvar="", yvar="", options=list(), 
+                          chartid){
   
-  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="AreaChart")
+  gvisCoreChart(data, xvar, yvar, options, chartid, 
+                chart.type="AreaChart")
 }
 
 
@@ -288,9 +292,11 @@ gvisAreaChart <- function(data, xvar="", yvar="", options=list(), chartid){
 #' plot(SteppedArea3)
 #' }
 #' 
-gvisSteppedAreaChart <- function(data, xvar="", yvar="", options=list(), chartid){
+gvisSteppedAreaChart <- function(data, xvar="", yvar="", 
+                                 options=list(), chartid){
   
-  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="SteppedAreaChart")
+  gvisCoreChart(data, xvar, yvar, options, chartid, 
+                chart.type="SteppedAreaChart")
 }
 
 
@@ -399,9 +405,11 @@ gvisSteppedAreaChart <- function(data, xvar="", yvar="", options=list(), chartid
 #' 
 #' }
 #' 
-gvisBarChart <- function(data, xvar="", yvar="", options=list(), chartid){
+gvisBarChart <- function(data, xvar="", yvar="", options=list(), 
+                         chartid){
   
-  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="BarChart")
+  gvisCoreChart(data, xvar, yvar, options, chartid, 
+                chart.type="BarChart")
 }
 
 
@@ -487,12 +495,12 @@ gvisBarChart <- function(data, xvar="", yvar="", options=list(), chartid){
 #' }
 #' 
 #' 
-gvisColumnChart <- function(data, xvar="", yvar="", options=list(), chartid){
+gvisColumnChart <- function(data, xvar="", yvar="", options=list(), 
+                            chartid){
   
-  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="ColumnChart")
+  gvisCoreChart(data, xvar, yvar, options, chartid, 
+                chart.type="ColumnChart")
 }
-
-
 
 
 #' Google Combo Chart with R
@@ -575,9 +583,11 @@ gvisColumnChart <- function(data, xvar="", yvar="", options=list(), chartid){
 #' plot(C2)
 #' 
 #' 
-gvisComboChart <- function(data, xvar="", yvar="", options=list(), chartid){
+gvisComboChart <- function(data, xvar="", yvar="", options=list(), 
+                           chartid){
 
-  gvisCoreChart(data, xvar, yvar, options, chartid, chart.type="ComboChart")
+  gvisCoreChart(data, xvar, yvar, options, chartid, 
+                chart.type="ComboChart")
 }
 
 
@@ -666,11 +676,13 @@ gvisComboChart <- function(data, xvar="", yvar="", options=list(), chartid){
 #' plot(C1)
 #' 
 #' 
-gvisCandlestickChart<- function(data, xvar="", low="", open="", close="", high="", options=list(), chartid){
+gvisCandlestickChart<- function(data, xvar="", low="", open="", close="", 
+                                high="", options=list(), chartid){
   
   data <- gvisCheckCandestickChartData(data)
   
-  gvisCoreChart(data, xvar, yvar=c(low, open, close, high), options, chartid, chart.type="CandlestickChart")
+  gvisCoreChart(data, xvar, yvar=c(low, open, close, high), 
+                options, chartid, chart.type="CandlestickChart")
 }
 
 
@@ -760,7 +772,8 @@ gvisScatterChart <- function(data, options=list(), chartid){
   my.type <- "ScatterChart"
   dataName <- deparse(substitute(data))
   
-  my.options <- list(gvis=modifyList(list(allowHtml=TRUE),options), dataName=dataName,
+  my.options <- list(gvis=modifyList(list(allowHtml=TRUE),options), 
+                     dataName=dataName,
                      data=list(allowed=c("number")))
   
   checked.data <- gvisCheckScatterChartData(data)
@@ -788,11 +801,17 @@ gvisCheckScatterChartData <- function(data){
 
 gvisCoreChart <- function(data, xvar="", yvar="", options=list(), chartid, chart.type){
   
+  if(!is.data.frame(data)){
+    stop("Error: data has to be a data.frame.")
+  }
+  
   dataName <- deparse(substitute(data))
   
   my.options <- list(gvis=modifyList(list(allowHtml=TRUE),options), dataName=dataName,
                      data=list(xvar=xvar, yvar=yvar,
-                       allowed=c("string", "number", "date", "datetime"))
+                       allowed=c("string", "number", "date", 
+                                 "datetime"#, "boolean"
+                                 ))
                      )
   
   
@@ -822,13 +841,17 @@ gvisCheckCoreChartData <- function(data, xvar, yvar){
     yvar <- sapply(data, is.numeric)
     yvar <- names(yvar[yvar])
   }
-  data <-  data[,c(xvar, yvar)]
-
+  ord <- names(data) %in% c(xvar, yvar)
+  #   if( ncol(data) > ncol(data[, ord]))
+  #     data <-  cbind(data[, ord], data[,!ord])
+  #   else
+  #     
+  data <- data[,ord]
+ 
   if(!any(sapply(data, is.numeric))){
     stop("Error: Your data has to have at least one numerical column.")
   }
 
-  
   return(data)
 }
 

@@ -236,7 +236,8 @@ gvisCheckMotionChartData <- function(data, options){
   names(typeMotionChart) <- varNames
   
   ## Check if idvar and timevar match columns in the data
-  idvar.timevar.pos <- match(c(options$data$idvar, options$data$timevar), varNames)
+  idvar.timevar.pos <- match(c(options$data$idvar, 
+                               options$data$timevar), varNames)
   if(sum(!is.na(idvar.timevar.pos)) < 2){
     stop("There is a missmatch between the idvar and timevar specified and the colnames of your data.")
   }
