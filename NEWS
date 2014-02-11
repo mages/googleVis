@@ -8,6 +8,9 @@ NEW FEATURES
 * New demo Trendlines showing how trend-lines can be added to
   Scatter-, Bar-, Column-, and Line Charts.
 
+* New demo Roles showing how different column roles can be used
+  in core charts to highlight data.
+
 * New vignettes written in R Markdown showcasing googleVis
   examples and how the package works with knitr.
 
