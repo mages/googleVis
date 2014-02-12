@@ -17,10 +17,10 @@ You can install the stable version from
 install.packages('googleVis', dependencies = TRUE)
 ```
 
-To install the current development version from github you need the [devtools package](http://cran.r-project.org/web/packages/devtools/index.html):
+To install the current development version from github you need the [devtools package](http://cran.r-project.org/web/packages/devtools/index.html) and the other packages on which googleVis depends:
 
 ```s
-install.packages("devtools")
+install.packages(c("devtools","RJSONIO", "knitr", "shiny", "httpuv"))
 ```
 
 To install googleVis run:
@@ -32,7 +32,6 @@ Sys.setenv(PATH=paste(Sys.getenv("PATH"),"/usr/texbin",sep=":"))
 -->
 ```s
 library(devtools)
-install.packages(c("RJSONIO", "knitr", "shiny", "httpuv"))
 install_github("mages/googleVis")
 ```
 
