@@ -32,6 +32,7 @@ Sys.setenv(PATH=paste(Sys.getenv("PATH"),"/usr/texbin",sep=":"))
 -->
 ```s
 library(devtools)
+install.packages(c("RJSONIO", "knitr", "shiny", "httpuv"))
 install_github("mages/googleVis")
 ```
 
