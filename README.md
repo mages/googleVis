@@ -43,7 +43,7 @@ library(googleVis)
 demo(googleVis)
 ```
 
-See the googleVis package [vignettes](http://cran.r-project.org/web/packages/googleVis/) for more details. For a brief introduction read the five page [R Journal article](http://google-motion-charts-with-r.googlecode.com/files/RJournal_2011-2_Gesmann%2Bde%7ECastillo.pdf) and go through our [tutorial](http://decastillo.github.io/googleVis_Tutorial). More examples and post have been posted on Markus' [blog](http://lamages.blogspot.co.uk/search/label/googleVis).
+See the googleVis package [vignettes](http://cran.r-project.org/web/packages/googleVis/) for more details. For a brief introduction read the five page [R Journal article](http://google-motion-charts-with-r.googlecode.com/files/RJournal_2011-2_Gesmann%2Bde%7ECastillo.pdf) and go through our [tutorial](http://decastillo.github.io/googleVis_Tutorial). More examples have been posted on Markus' [blog](http://lamages.blogspot.co.uk/search/label/googleVis).
 
 [<img src="https://raw.github.com/mages/googleVis/master/vignettes/figures/googleVisTutorial2013.png" width=400/>](http://decastillo.github.io/googleVis_Tutorial)
 
