@@ -53,16 +53,29 @@ df <- data.frame(Year=2013:2014, Sales=c(120, 130),
                  Sales.interval=c(100,110), 
                  Sales.interval=c(140, 150),
                  Sales.style=c('red', 'gold'),
+                 Sales.annotation=c("North", "South"),
                  check.names=FALSE)
 
 plot(
   gvisBarChart(df, xvar='Year', 
                yvar=c('Sales', 
                       'Sales.style',
+                      'Sales.annotation',
                       'Sales.interval', 
                       'Sales.interval')
   )
 )
+
+plot(
+  gvisLineChart(df, xvar='Year', 
+               yvar=c('Sales', 
+                      'Sales.interval', 
+                      'Sales.interval'),
+               options=list(series="[{color:'purple'}]")
+  )
+)
+
+
 ## ---- LimitData ----
 plot(
   gvisLineChart(dat, xvar='Year', 

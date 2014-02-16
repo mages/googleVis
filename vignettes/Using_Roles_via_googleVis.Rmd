@@ -37,6 +37,8 @@ and asign boolean values to indicate which values I'd like to highlight.
 ```{r CertaintyScopeEmphasis, results='asis', tidy=FALSE}
 ```
 
+Using roles with column or bar charts has its some specifics.
+Instead of emphasize, I can use style to change the colors.
 ```{r ColumnChart, results='asis', tidy=FALSE}
 ```
 
