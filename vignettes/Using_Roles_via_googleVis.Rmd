@@ -1,0 +1,42 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{Examples from the googleVis package}
+-->
+# Using Roles via googleVis
+
+Add the ability to pass columns roles for further processing downstream.
+
+Role columns must follow column they pertain to.  Proper naming
+conventions must be be observed.  For example, roles fulfilling tooltip
+roles and must be called "foo.blah.tooltip".
+
+For more details see the [Google documentation](https://developers.google.com/chart/interactive/docs/roles).
+
+The following examples should help to illustrate the concept. 
+
+```{r setOptions, message=FALSE, echo=FALSE}
+library(googleVis)
+op <- options(gvis.plot.tag='chart')
+read_chunk('../demo/Roles.R')
+```
+The first example uses a data set that has the additional column
+`pop.html.tooltip` with the first 11 letters of the latin alphabet.
+This column is mapped automatically as a tooltip, when the user hovers 
+over the chart point.
+```{r Tooltip, results='asis', tidy=FALSE}
+```
+
+```{r TooltipHTML, results='asis', tidy=FALSE}
+```
+
+```{r CertaintyScopeEmphasis, results='asis', tidy=FALSE}
+```
+
+```{r ColumnChart, results='asis', tidy=FALSE}
+```
+
+```{r LimitData, results='asis', tidy=FALSE}
+```
+
+```{r TwoLines, results='asis', tidy=FALSE}
+```
