@@ -25,11 +25,10 @@ plot(
 )
 
 ## ---- CertaintyScopeEmphasis ----
-df <- data.frame(year=1:11,pop=1:11,
-                 pop.html.tooltip=letters[1:11],
+df <- data.frame(year=1:11, x=1:11,
+                 x.scope=c(rep(TRUE, 8), rep(FALSE, 3)),
                  y=11:1, y.html.tooltip=LETTERS[11:1],                 
                  y.certainty=c(rep(TRUE, 5), rep(FALSE, 6)),
-                 y.scope=c(rep(TRUE, 5), rep(FALSE, 6)),
                  y.emphasis=c(rep(FALSE, 4), rep(TRUE, 7)))
 plot(
   gvisScatterChart(df,options=list(lineWidth=2))
@@ -42,14 +41,28 @@ dat <- data.frame(Year=2010:2013,
                                        'Sunspot activity made this our best year ever!',
                                        '$800K in 2012.',
                                        '$1M in sales last year.'),
-                  Sales.certainty=c(TRUE, FALSE, TRUE, FALSE),
-                  Sales.emphasis=c(TRUE, TRUE, FALSE, FALSE))
+                  Sales.certainty=c(TRUE, FALSE, TRUE, FALSE))
 plot(
   gvisColumnChart(dat, xvar='Year', 
                   yvar=c('Sales', 'Sales.certainty')
   )
 )
 
+## ---- Interval ----
+df <- data.frame(Year=2013:2014, Sales=c(120, 130), 
+                 Sales.interval=c(100,110), 
+                 Sales.interval=c(140, 150),
+                 Sales.style=c('red', 'gold'),
+                 check.names=FALSE)
+
+plot(
+  gvisBarChart(df, xvar='Year', 
+               yvar=c('Sales', 
+                      'Sales.style',
+                      'Sales.interval', 
+                      'Sales.interval')
+  )
+)
 ## ---- LimitData ----
 plot(
   gvisLineChart(dat, xvar='Year', 

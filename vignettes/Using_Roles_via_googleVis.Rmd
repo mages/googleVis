@@ -20,15 +20,20 @@ op <- options(gvis.plot.tag='chart')
 read_chunk('../demo/Roles.R')
 ```
 The first example uses a data set that has the additional column
-`pop.html.tooltip` with the first 11 letters of the latin alphabet.
+`pop.html.tooltip` with the first 11 letters of the Latin alphabet.
 This column is mapped automatically as a tooltip, when the user hovers 
 over the chart point.
 ```{r Tooltip, results='asis', tidy=FALSE}
 ```
-
+I can embed some HTML code into my tooltip as well, but then I have to
+set this in my options list as well.
 ```{r TooltipHTML, results='asis', tidy=FALSE}
 ```
-
+Often it is helpful to highlight certain parts of my data, e.g.
+subsets that I feel more certain about or that I want to emphasize for 
+other reasons the reader. 
+In a similar way as above I add additional columns to by data
+and asign boolean values to indicate which values I'd like to highlight.
 ```{r CertaintyScopeEmphasis, results='asis', tidy=FALSE}
 ```
 
