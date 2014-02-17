@@ -16,8 +16,9 @@ The following examples should help to illustrate the concept.
 
 ```{r setOptions, message=FALSE, echo=FALSE}
 library(googleVis)
+library(knitr)
 op <- options(gvis.plot.tag='chart')
-read_chunk('../demo/Roles.R')
+read_demo('Roles', 'googleVis')
 ```
 The first example uses a data set that has the additional column
 `pop.html.tooltip` with the first 11 letters of the Latin alphabet.

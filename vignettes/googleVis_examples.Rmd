@@ -21,8 +21,9 @@ helpfiles of the individual googleVis function and review the
 ## Line chart
 ```{r setOptions, message=FALSE, echo=FALSE}
 library(googleVis)
+library(knitr)
 op <- options(gvis.plot.tag='chart')
-read_chunk('../demo/googleVis.R')
+read_demo('googleVis', 'googleVis')
 ```
 ```{r testData, tidy=FALSE}
 ```
