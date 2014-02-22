@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Googlevis by mages</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="javascripts/scale.fix.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1 class="header">Googlevis</h1>
+        <p class="header">Interface between R and the Google Chart Tools</p>
+
+        <ul>
+          <li class="download"><a class="buttons" href="https://github.com/mages/googleVis/zipball/master">Download ZIP</a></li>
+          <li class="download"><a class="buttons" href="https://github.com/mages/googleVis/tarball/master">Download TAR</a></li>
+          <li><a class="buttons github" href="https://github.com/mages/googleVis">View On GitHub</a></li>
+        </ul>
+
+        <p class="header">This project is maintained by <a class="header name" href="https://github.com/mages">mages</a></p>
+
+
+      </header>
+      <section>
+        <h1>
+<a name="googlevis" class="anchor" href="#googlevis"><span class="octicon octicon-link"></span></a>googleVis</h1>
+
+<p>The googleVis package provides an interface between R and the <a href="https://developers.google.com/chart/interactive/docs/gallery">Google Chart Tools API</a>. </p>
+
+<p>It allows users to create web pages with interactive charts based on R data frames, using the Google Chart Tools and to display them either via the local R HTTP help server or within their own
+sites, without uploading the data to Google. A modern browser with Internet connection is required and for some charts Flash. </p>
+
+<p>Please visit the <a href="https://code.google.com/p/google-motion-charts-with-r/">project web site</a> for more information and examples and 
+read the <a href="https://developers.google.com/terms/">Google API Terms of Use</a> before you use the package.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>You can install the stable version from
+<a href="http://cran.r-project.org/package=googleVis">CRAN</a>:</p>
+
+<div class="highlight highlight-s"><pre>install.packages<span class="p">(</span><span class="s">'googleVis'</span><span class="p">,</span> dependencies <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
+</pre></div>
+
+<p>To install the current development version from github you need the <a href="http://cran.r-project.org/web/packages/devtools/index.html">devtools package</a> and the other packages on which googleVis depends:</p>
+
+<div class="highlight highlight-s"><pre>install.packages<span class="p">(</span>c<span class="p">(</span><span class="s">"devtools"</span><span class="p">,</span><span class="s">"RJSONIO"</span><span class="p">,</span> <span class="s">"knitr"</span><span class="p">,</span> <span class="s">"shiny"</span><span class="p">,</span> <span class="s">"httpuv"</span><span class="p">))</span>
+</pre></div>
+
+<p>To install googleVis run:</p>
+
+
+
+<div class="highlight highlight-s"><pre>library<span class="p">(</span>devtools<span class="p">)</span>
+install_github<span class="p">(</span><span class="s">"mages/googleVis"</span><span class="p">)</span>
+</pre></div>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<div class="highlight highlight-s"><pre>library<span class="p">(</span>googleVis<span class="p">)</span>
+<span class="o">?</span>googleVis
+demo<span class="p">(</span>googleVis<span class="p">)</span>
+</pre></div>
+
+<p>See the googleVis package <a href="http://cran.r-project.org/web/packages/googleVis/">vignettes</a> for more details. For a brief introduction read the five page <a href="http://google-motion-charts-with-r.googlecode.com/files/RJournal_2011-2_Gesmann%2Bde%7ECastillo.pdf">R Journal article</a> and go through our <a href="http://decastillo.github.io/googleVis_Tutorial">tutorial</a>. More examples have been posted on Markus' <a href="http://lamages.blogspot.co.uk/search/label/googleVis">blog</a>.</p>
+
+<p><a href="http://decastillo.github.io/googleVis_Tutorial"><img src="https://raw.github.com/mages/googleVis/master/vignettes/figures/googleVisTutorial2013.png" width="400/"></a></p>
+
+<h2>
+<a name="license" class="anchor" href="#license"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>This package is free and open source software, licensed under <a href="https://www.gnu.org/copyleft/gpl.html">GPL</a>.</p>
+
+<p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_GB"><img alt="Creative Commons Licence" src="http://i.creativecommons.org/l/by-sa/4.0/80x15.png"></a><br>googleVis documentation by <a href="https://github.com/mages/googleVis" rel="cc:attributionURL">Markus Gesmann &amp; Diego de Castillo</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/deed.en_GB">Creative Commons Attribution-ShareAlike 4.0 International License</a>. Based on a work at <a href="https://developers.google.com/chart/interactive/docs/gallery" rel="dct:source"></a><a href="https://developers.google.com/chart/interactive/docs/gallery">https://developers.google.com/chart/interactive/docs/gallery</a>.</p>
+      </section>
+      <footer>
+        <p><small>Hosted on <a href="http://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
+      </footer>
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+		
+  </body>
+</html>
