@@ -27,9 +27,7 @@ Suggests:
     httpuv (>= 1.2.0),
     knitr (>= 1.5)
 License: GPL (>= 2)
-URL: http://code.google.com/p/google-motion-charts-with-r/,
-    http://lamages.blogspot.co.uk/search/label/googleVis
-BugReports: http://code.google.com/p/google-motion-charts-with-r/issues/list
+URL: https://github.com/mages/googleVis
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
