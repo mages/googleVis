@@ -119,19 +119,15 @@ plot.gvis <- function(x, tag=NULL, ...){
                     #tools:::httpdPort,
                     get("httpdPort", envir=environment(startDynamicHelp)),
                     basename(file))
-    if(interactive()){
-      
-      viewer <- getOption("googleVis.viewer")
-      #       if (!is.null(viewer) & !x$type %in% c("MotionChart", "AnnotatedTimeLine", 
-      #                                             "GeoMap", "gvisMerge"))
-      if (!is.null(viewer) )        
-        viewer(.url)#"http://localhost:8100")
-      else
-        #utils::browseURL("http://localhost:8100")
-            browseURL(.url, ...)
-    }else{ ## not interactive modus     
+     if(interactive()){
+#      viewer <- getOption("googleVis.viewer")
+#       if (!is.null(viewer) )        
+#         viewer(.url)#"http://localhost:8100")
+#       else
+             browseURL(.url, ...)
+     }else{ ## not interactive modus     
       browseURL(.url, browser='false',...)
-    }
+     }
     invisible(file)
   }else{ ## givs.plot.tag not NULL
     if('gvis' %in% class(x)){

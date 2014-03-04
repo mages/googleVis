@@ -9,31 +9,35 @@
 ## Linear trend line
 
 ## Add a trend line to the first series
-lt <- gvisScatterChart(women, options=list(trendlines="0" ))
-plot(lt)
+## ---- LinearTrend ----
+plot(
+  gvisScatterChart(women, options=list(trendlines="0"))
+)
 
 ## Exponential trend line and show equation in legend
-et <- gvisScatterChart(women, options=list(
-   trendlines="{0: { type: 'exponential',  
+## ---- ExponentialTrend ----
+plot(
+  gvisScatterChart(women, options=list(
+    trendlines="{0: { type: 'exponential',  
                      visibleInLegend: 'true', 
                      color: 'green',
                      lineWidth: 10,
                      opacity: 0.5}}"))
-plot(et)
+)
 
-dat <- data.frame(week=1:6,
-                  #country=c("US", "GB", "BR"),
-                  val1=c(1,3,4,5,6,8), 
+## ---- ColumnChartWithTrendline ----
+dat <- data.frame(val1=c(1,3,4,5,6,8), 
                   val2=c(12,23,32,40,50,55))
-## Column chart with two trend lines
-## The first column has to be ignored for trendlines
-Col1 <- gvisColumnChart(dat[,2:3],
-                        options=list(trendlines="{0: {}, 1:{}}"))
-plot(Col1)
+plot(
+  gvisColumnChart(dat,
+                  options=list(trendlines="{0: {}}"))
+)
 
-# Give the trendlines different labels
-Col2 <- gvisColumnChart(dat[,2:3],
-                        options=list(trendlines="{
+## ---- DifferentLabels ----
+dat$val3 <- c(5,6,10,12,15,20)
+plot(
+  gvisColumnChart(dat,
+                  options=list(trendlines="{
                           0: {
                             labelInLegend: 'Trendline 1',
                             visibleInLegend: true,}, 
@@ -41,5 +45,6 @@ Col2 <- gvisColumnChart(dat[,2:3],
                             labelInLegend: 'Trendline 2',
                             visibleInLegend: true}
                           }"
-                        ))
-plot(Col2)
+                  ))
+)
+
