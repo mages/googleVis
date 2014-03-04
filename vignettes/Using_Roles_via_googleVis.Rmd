@@ -1,6 +1,6 @@
 <!--
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Examples from the googleVis package}
+%\VignetteIndexEntry{Using Roles via googleVis}
 -->
 # Using Roles via googleVis
 

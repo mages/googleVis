@@ -1271,22 +1271,22 @@ tutorial given at the useR! conference in 2013, \cite{googleVisTutorial}.
 
 Slidify provides a choice of different layout frameworks and syntax highlighting options. Additionally, slidify slides can be published from R online, e.g. 
 on Dropbox or github.
-
-\section{Using \googleVis with RStudio}
-
-RStudio is popular a free and open source integrated development environment 
-for R. With verion 0.98.441 RStudio introduced a viewer pane that allows users 
-to display HTML files within RStudio's IDE.
-
-\googleVis will use the Viewer pane in RStudio (version >= 0.98.441) 
-to display non-Flash charts by default. Flash charts and merged gvis-objects are
-displayed in the default browser. The setting is controlled
-via the option \texttt{googleVis.viewer}. By default it will have
-the value of \texttt{getOption("viewer")}.
-
-Set \texttt{options("googleVis.viewer"=NULL)} and the googleVis
-plot function will open all output in the standard browser.
-
+% 
+% \section{Using \googleVis with RStudio}
+% 
+% RStudio is popular a free and open source integrated development environment 
+% for R. With verion 0.98.441 RStudio introduced a viewer pane that allows users 
+% to display HTML files within RStudio's IDE.
+% 
+% \googleVis will use the Viewer pane in RStudio (version >= 0.98.441) 
+% to display non-Flash charts by default. Flash charts and merged gvis-objects are
+% displayed in the default browser. The setting is controlled
+% via the option \texttt{googleVis.viewer}. By default it will have
+% the value of \texttt{getOption("viewer")}.
+% 
+% Set \texttt{options("googleVis.viewer"=NULL)} and the googleVis
+% plot function will open all output in the standard browser.
+% 
 
 \section{Beyond R}
 In this section we present ideas which go beyond the usual coding in
