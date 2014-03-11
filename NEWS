@@ -3,7 +3,8 @@ googleVis 0.5.0-1 [2014-03-04]
 NEW FEATURES
 
 * New functions gvisSankey, gvisAnnotationChart, gvisHistogram,
-  gvisCalendar and gvisTimeline
+  gvisCalendar and gvisTimeline to support the new Google charts 
+  of the same names (without 'gvis').
 
 * New demo Trendlines showing how trend-lines can be added to
   Scatter-, Bar-, Column-, and Line Charts.
