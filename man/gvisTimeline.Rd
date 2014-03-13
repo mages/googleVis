@@ -17,9 +17,10 @@
   \item{barlabel}{a string that referes to the column name
   in \code{data} for the bar labels to be used}
 
-  \item{start}{number or date for the start dates}
+  \item{start}{number, date or datetime for the start
+  dates}
 
-  \item{end}{number or date for the end dates}
+  \item{end}{number, date or datetime for the end dates}
 
   \item{options}{list of configuration options. The options
   are documented in detail by Google online:
@@ -84,6 +85,17 @@ tl <- gvisTimeline(data=dat, rowlabel="Name",barlabel="Position",
                                 backgroundColor='#ffd', height=350,
                                 colors="['#cbb69d', '#603913', '#c69c6e']"))
 
+plot(tl)
+
+# Datetime example
+dat <- data.frame(Term=c("Room 1","Room 2","Room 3"),
+                  Language=c("English", "German", "French"),
+                  start=as.POSIXct(c("2014-03-14 14:00", "2014-03-14 15:00",
+                                     "2014-03-14 14:30")),
+                 end=as.POSIXct(c("2014-03-14 15:00", "2014-03-14 16:00",
+                                  "2014-03-14 15:30")))
+tl <- gvisTimeline(data=dat, rowlabel="Language",
+                   start="start", end="end")
 plot(tl)
 }
 \author{
