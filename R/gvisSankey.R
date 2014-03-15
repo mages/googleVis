@@ -96,23 +96,23 @@ gvisSankey <- function(data, from="", to="", weight="",
                      )
 
  
-  checked.data <- gvisCheckSankeyData(data, my.options)
+  #checked.data <- gvisCheckSankeyData(data, my.options)
   
-  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options,
+  output <- gvisChart(type=my.type, checked.data=data, options=my.options,
                       chartid=chartid, package="sankey") 
   
   return(output)
 }
-
-gvisCheckSankeyData <- function(data, options){
-
-  data.structure <- list(
-                         from = list(mode="required", FUN=check.char),
-                         to = list(mode="required", FUN=check.char),
-                         weight = list(mode="required", FUN=check.num)
-                         )
-  x <- gvisCheckData(data=data, options=options, data.structure=data.structure)
-
-  return(data)
-}
+# 
+# gvisCheckSankeyData <- function(data, options){
+# 
+#   data.structure <- list(
+#                          from = list(mode="required", FUN=check.char),
+#                          to = list(mode="required", FUN=check.char),
+#                          weight = list(mode="required", FUN=check.num)
+#                          )
+#   data <- gvisCheckData(data=data, options=options, data.structure=data.structure)
+# 
+#   return(data)
+# }
 

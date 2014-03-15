@@ -106,7 +106,7 @@
 #' plot(tl)
 #'
 #' # Datetime example 
-#' dat <- data.frame(Term=c("Room 1","Room 2","Room 3"),
+#' dat <- data.frame(Room=c("Room 1","Room 2","Room 3"),
 #'                   Language=c("English", "German", "French"),
 #'                   start=as.POSIXct(c("2014-03-14 14:00", "2014-03-14 15:00", 
 #'                                      "2014-03-14 14:30")),
@@ -116,6 +116,16 @@
 #'                    start="start", end="end")
 #' plot(tl)
 #'
+#' \dontrun{
+#' require(timeline)
+#' data(ww2)
+#' timeline(ww2, ww2.events, event.spots=2, event.label='', event.above=FALSE)
+#' ww2$Person <- gsub("\\n" ," ", ww2$Person)
+#' plot(gvisTimeline(ww2, barlabel="Person", rowlabel="Group",
+#'                   start="StartDate", end="EndDate",
+#'      options=list(width=600, height=350))
+#' )
+#' }
 
 gvisTimeline <- function(data, rowlabel="", barlabel="", start="", 
                          end="", options=list(), chartid){
@@ -129,7 +139,8 @@ gvisTimeline <- function(data, rowlabel="", barlabel="", start="",
                      )
 
  
-  checked.data <- gvisCheckTimelineData(data, my.options)
+  checked.data <- gvisCheckTimelineData(data, rl=rowlabel, bl=barlabel,
+                                        start=start, end=end)
   
   output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options,
                       chartid=chartid, package="timeline") 
@@ -137,16 +148,11 @@ gvisTimeline <- function(data, rowlabel="", barlabel="", start="",
   return(output)
 }
 
-gvisCheckTimelineData <- function(data, options){
+gvisCheckTimelineData <- function(data, rl, bl, start, end){
 
-  data.structure <- list(
-                         rowlabel = list(mode="required", FUN=check.char),
-                         barlabel = list(mode="optional", FUN=check.char),
-                         start = list(mode="required", FUN=check.num),
-                         end = list(mode="required", FUN=check.num)
-                         )
-  x <- gvisCheckData(data=data, options=options, data.structure=data.structure)
-
-  return(data)
+  if(any(c(rl, bl, start, end) %in% ""))
+    return(data)
+  else  
+    return(data[, c(rl, bl, start, end)])
 }
 

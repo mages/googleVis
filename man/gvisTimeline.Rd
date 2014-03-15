@@ -88,7 +88,7 @@ tl <- gvisTimeline(data=dat, rowlabel="Name",barlabel="Position",
 plot(tl)
 
 # Datetime example
-dat <- data.frame(Term=c("Room 1","Room 2","Room 3"),
+dat <- data.frame(Room=c("Room 1","Room 2","Room 3"),
                   Language=c("English", "German", "French"),
                   start=as.POSIXct(c("2014-03-14 14:00", "2014-03-14 15:00",
                                      "2014-03-14 14:30")),
@@ -97,6 +97,17 @@ dat <- data.frame(Term=c("Room 1","Room 2","Room 3"),
 tl <- gvisTimeline(data=dat, rowlabel="Language",
                    start="start", end="end")
 plot(tl)
+
+\dontrun{
+require(timeline)
+data(ww2)
+timeline(ww2, ww2.events, event.spots=2, event.label='', event.above=FALSE)
+ww2$Person <- gsub("\\\\n" ," ", ww2$Person)
+plot(gvisTimeline(ww2, barlabel="Person", rowlabel="Group",
+                  start="StartDate", end="EndDate",
+     options=list(width=600, height=350))
+)
+}
 }
 \author{
   Markus Gesmann \email{markus.gesmann@gmail.com}
