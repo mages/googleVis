@@ -48,3 +48,8 @@ Instead of emphasize, I can use style to change the colors.
 
 ```{r TwoLines, results='asis', tidy=FALSE}
 ```
+
+Setting the annotations style to line allows me to add little reference lines
+to the plot.
+```{r VerticalReferenceLine, results='asis', tidy=FALSE}
+```
