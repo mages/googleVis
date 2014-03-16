@@ -135,6 +135,7 @@ return(data);
                         paste("data.addColumn('", data.type[x], "','",
                               names(data.type)[x], "');", sep="")
                     ), collapse="\n")
+                    
   )
   
   jsDisplayChart <- '

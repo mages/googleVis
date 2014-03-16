@@ -100,3 +100,21 @@ plot(
                 yvar=c("val1", "val1.emphasis", "val2")
   )
 )
+
+## ---- VerticalReferenceLine ----
+dat <- data.frame(Year=2010:2013, 
+                  Sales=c(600, 1500, 800, 1000),
+                  Sales.annotation=c('First year', NA, NA, 'Last Year'),
+                  Sales.annotationText=c('$600K in our first year!',
+                                       NA,
+                                       NA,
+                                       '$1M in sales last year.'))      
+
+plot(
+  gvisLineChart(dat, xvar='Year', 
+                  yvar=c('Sales',
+                         'Sales.annotation',
+                         'Sales.annotationText'),
+                         options=list(annotations = "{style:'line'}")
+  )
+)
