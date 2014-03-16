@@ -563,7 +563,7 @@ body {
   htmlFooter <- '
 <!-- htmlFooter -->
 <span> 
-  %s &#8226; <a href="http://code.google.com/p/google-motion-charts-with-r/">googleVis-%s</a>
+  %s &#8226; <a href="https://github.com/mages/googleVis">googleVis-%s</a>
   &#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; %s
 </span></div>
 </body>
