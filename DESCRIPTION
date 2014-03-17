@@ -2,7 +2,7 @@ Package: googleVis
 Type: Package
 Title: Interface between R and the Google Chart Tools
 Version: 0.5.0-3
-Date: 2014-03-16
+Date: 2014-03-17
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     email = "markus.gesmann@googlemail.com"),
     person("Diego", "de Castillo", role = "aut",
