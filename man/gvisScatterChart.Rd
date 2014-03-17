@@ -75,10 +75,10 @@ plot(Scatter3)
 
 ## Two series in the same plot with different
 ## x-values
-dat <- data.frame(x=c(2,2,1,3,4),
-y1=c(0,3,NA,NA,NA),
-y2=c(NA,NA,0,3,2))
-Scatter4 <- gvisScatterChart(dat,
+df <- data.frame(x=c(2,2,1,3,4),
+                 y1=c(0,3,NA,NA,NA),
+                 y2=c(NA,NA,0,3,2))
+Scatter4 <- gvisScatterChart(df,
                              options=list(lineWidth=2,
                                           pointSize=2))
 plot(Scatter4)
