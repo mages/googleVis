@@ -16,7 +16,7 @@ Using the Google Chart Tools with R
   charts Flash. Please visit the project web site for more information
   and examples:
 
-  \url{http://code.google.com/p/google-motion-charts-with-r/}.
+  \url{http://github.com/mages/googleVis}.
 
   You find further notes on Markus' blog:
   \url{http://lamages.blogspot.co.uk/search/label/googleVis}

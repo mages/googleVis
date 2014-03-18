@@ -73,7 +73,7 @@ plot(cl3)
 cl4 <- gvisCalendar(Cairo, datevar="Date", numvar="Temp",
                     options=list(
                     title="Daily temperature in Cairo",
-                    height=500,
+                    height=320,
                     calendar="{yearLabel: { fontName: 'Times-Roman',
                                fontSize: 32, color: '#1A8763', bold: true},
                                cellSize: 10,

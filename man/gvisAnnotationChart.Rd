@@ -70,16 +70,6 @@
   charts are SVG/VML and should be preferred whenever
   possible.
 }
-\section{Warnings}{
-  Because of Flash security settings the chart might not
-  work correctly when accessed from a file location in the
-  browser (e.g., file:///c:/webhost/myhost/myviz.html)
-  rather than from a web server URL (e.g.
-  http://www.myhost.com/myviz.html). See the googleVis
-  package vignette and the Macromedia web site
-  (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/})
-  for more details.
-}
 \examples{
 ## Please note that by default the googleVis plot command
 ## will open a browser window and requires Internet
@@ -193,9 +183,8 @@ plot(aapl)
 }
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com},
-
-  Diego de Castillo \email{decastillo@gmail.com}
+  Markus Gesmann \email{markus.gesmann@gmail.com}, Diego de
+  Castillo \email{decastillo@gmail.com}
 }
 \references{
   Google Chart Tools API:
