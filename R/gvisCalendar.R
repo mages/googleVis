@@ -120,9 +120,25 @@ gvisCalendar <- function(data, datevar="",
                                allowed=c("number", "date", "datetime"))
   )
   
-  output <- gvisChart(type=my.type, checked.data=data, 
+  checked.data <- gvisCheckCalendar(data, datevar, numvar) 
+  output <- gvisChart(type=my.type, checked.data=checked.data, 
                       options=my.options, chartid=chartid)
   
   return(output)
+}
+
+gvisCheckCalendar <- function(data, datevar, numvar){
+  
+  if(any(c(datevar, numvar) %in% ""))
+    return(data[, 1:2])
+  
+  if(numvar %in% "")
+    return(cbind(data[, datevar], data[, 2]))
+  
+  if(datevar %in% "")
+    return(cbind(data[, 1], data[, numvar]))
+
+  return(data[, c(datevar, numvar)])
+
 }
 
