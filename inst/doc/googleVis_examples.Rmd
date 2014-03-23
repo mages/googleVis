@@ -1,0 +1,178 @@
+<!--
+%\VignetteEngine{knitr::knitr}
+%\VignetteIndexEntry{Examples from the googleVis package}
+-->
+# Examples from the googleVis package
+===========================================
+It may take a little while to load all charts. Please be patient.
+All charts require an Internet connection.
+
+These examples are taken from the googleVis demo. 
+You can execute the demos by
+```{r demo, eval=FALSE}
+library(googleVis)
+demo(googleVis)
+```
+
+For more details about the charts and further examples see the 
+helpfiles of the individual googleVis function and review the 
+[Google Chart Tools API documentation](https://developers.google.com/chart/interactive/docs/gallery) and [Terms of Service](https://developers.google.com/terms).
+
+## Line chart
+```{r setOptions, message=FALSE, echo=FALSE}
+library(googleVis)
+library(knitr)
+op <- options(gvis.plot.tag='chart')
+read_demo('googleVis', 'googleVis')
+```
+```{r testData, tidy=FALSE}
+```
+```{r LineChart, results='asis', tidy=FALSE}
+```
+
+### Line chart with two axis
+```{r TwoAxis, results='asis', tidy=FALSE}
+```
+
+### Setting options, it works similar for other charts
+```{r SettingOptions, results='asis', tidy=FALSE}
+```
+
+### Add edit button for on the fly customisation
+```{r EditButton, results='asis', tidy=FALSE}
+```
+The same option is available for all other charts
+
+## Bar chart
+```{r BarChart, results='asis', tidy=FALSE}
+```
+
+## Column chart
+```{r ColumnChart, results='asis', tidy=FALSE}
+```
+
+## Area chart
+```{r AreaChart, results='asis', tidy=FALSE}
+```
+
+## Stepped Area chart
+```{r SteppedAreaChart, results='asis', tidy=FALSE}
+```
+
+## Combo chart
+```{r ComboChart, results='asis', tidy=FALSE}
+```
+
+## Scatter chart
+```{r ScatterChart, results='asis', tidy=FALSE}
+```
+
+## Bubble chart
+```{r BubbleChart, results='asis', tidy=FALSE}
+```
+
+## Candlestick chart
+```{r CandlestickChart, results='asis', tidy=FALSE}
+```
+
+## Pie chart
+```{r PieChart, results='asis', tidy=FALSE}
+```
+
+## Gauge
+```{r Gauge, results='asis', tidy=FALSE}
+```
+
+## Intensity Map
+```{r IntensityMap, results='asis', tidy=FALSE}
+```
+
+## Geo Chart
+```{r GeoChart, results='asis', tidy=FALSE}
+```
+
+### Example showing US data by state 
+```{r USStateData, results='asis', tidy=FALSE}
+```
+
+### Show Hurricane Andrew (1992) storm track with markers
+```{r GeoChartHurricaneAndrew, results='asis', tidy=FALSE}
+```
+
+## Google Maps
+```{r GoogleMapHurricaneAndrew, results='asis', tidy=FALSE}
+```
+
+## Table
+```{r Table, results='asis', tidy=FALSE}
+```
+Click on the column header to sort the rows 
+
+### Table with pages
+```{r TableWithPages, results='asis', tidy=FALSE}
+```
+
+## Org chart
+```{r OrgChart, results='asis', tidy=FALSE}
+```
+Double click on a parent to collapse all its children.
+
+## Tree Map 
+```{r TreeMap, results='asis', tidy=FALSE}
+```
+Left mouse-click to drill down, right mouse-click to move up a hierarchy.
+
+## Annotation chart 
+```{r AnnotationChart, results='asis', tidy=FALSE}
+```
+
+## Sankey chart
+```{r SankeyChart, results='asis', tidy=FALSE}
+```
+
+## Histogram
+```{r Histogram, results='asis', tidy=FALSE}
+```
+
+## Calendar chart
+```{r CalendarChart, results='asis', tidy=FALSE}
+```
+
+## Timeline chart
+```{r Timeline, results='asis', tidy=FALSE}
+```
+
+## Merging charts
+```{r gvisMerge, results='asis', tidy=FALSE}
+```
+
+```{r gvisMerge3, results='asis', tidy=FALSE}
+```
+
+
+
+All the following charts require Flash. 
+## Geo Map
+```{r GeoMap, results='asis', tidy=FALSE}
+```
+
+## Annotated time line chart
+```{r AnnotatedTimeLine, results='asis', tidy=FALSE}
+```
+
+## Motion chart
+```{r MotionChart, results='asis', tidy=FALSE}
+```
+
+You can change some of displaying settings via the browser,
+e.g. the level of opacity of non-selected items, or the chart type.
+The state string from the 'Advanced' tab can be used to set those
+settings via R. Just copy and past the string from the browser into
+the argument state of the options list.
+Here is an example of a motion chart, with an initial line chart
+displayed. 
+
+```{r MotionChartSettings, results='asis', tidy=FALSE}
+```
+
+
