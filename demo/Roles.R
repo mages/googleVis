@@ -18,7 +18,8 @@ plot(
 )
 
 ## ---- TooltipHTML ----
-levels(df$pop.html.tooltip)[1] <- '<a href="http://www.google.com">Google</a>'
+levels(df$pop.html.tooltip)[1] <- 
+  '<a href="http://www.r-project.com"><img src="http://www.r-project.org/Rlogo.jpg" alt="R logo" /></a>'
 plot( 
   gvisScatterChart(df,
                    options=list(tooltip="{isHtml:'true'}"))
