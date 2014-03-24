@@ -285,6 +285,7 @@ Cal <- gvisCalendar(Cairo,
                       title="Daily temperature in Cairo",
                       height=500,
                       calendar="{yearLabel:{fontName: 'Times-Roman',
+                                cellSize: 10,
                                 fontSize:32, color:'#1A8763', bold: true},
                                 cellColor:{ stroke:'red', strokeOpacity:0.2},
                                 focusedCellColor:{stroke:'red'}}"))
