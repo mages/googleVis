@@ -84,6 +84,17 @@ M2 <- gvisMap(df, "Postcode", "Tip",
               enableScrollWheel=TRUE))
 
 plot(M2)
+
+## Change mapping icons
+M3 <- gvisMap(df, "Postcode", "Tip",
+              options=list(showTip=TRUE, mapType='normal',
+              enableScrollWheel=TRUE,
+              icons="{
+              'default': {'normal': 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Azure-icon.png',
+                          'selected': 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Right-Azure-icon.png'
+                          }}"))
+
+plot(M3)
 }
 \author{
   Markus Gesmann \email{markus.gesmann@gmail.com},
