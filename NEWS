@@ -46,6 +46,9 @@ Changes
 * The package start-up message makes the user aware of the default 
   viewer option.
 
+* Added example to gvisMap that illustrates how the icon can be 
+  changed.
+
 
 googleVis 0.4.6 [2013-11-03]
 ----------------------------
