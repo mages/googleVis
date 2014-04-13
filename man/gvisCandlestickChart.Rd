@@ -4,9 +4,8 @@
 \Sexpr{googleChartName <- "candlestickchart"}
 \Sexpr{gvisChartName <- "gvisCandlestickChart"}}
 \usage{
-  gvisCandlestickChart(data, xvar = "", low = "",
-    open = "", close = "", high = "", options = list(),
-    chartid)
+gvisCandlestickChart(data, xvar = "", low = "", open = "", close = "",
+  high = "", options = list(), chartid)
 }
 \arguments{
   \item{data}{a \code{\link{data.frame}} to be displayed as
@@ -52,28 +51,28 @@
   \code{\link{tempfile}}}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  An interactive candlestick chart.
+An interactive candlestick chart.
 }
 \details{
-  The gvisCandlestickChart function reads a data.frame and
-  creates text output referring to the Google Visualisation
-  API, which can be included into a web page, or as a
-  stand-alone page. The actual chart is rendered by the web
-  browser using SVG or VML.
+The gvisCandlestickChart function reads a data.frame and
+creates text output referring to the Google Visualisation
+API, which can be included into a web page, or as a
+stand-alone page. The actual chart is rendered by the web
+browser using SVG or VML.
 
-  A candlestick chart is used to show an opening and
-  closing value overlaid on top of a total variance.
-  Candlestick charts are often used to show stock value
-  behavior. In this chart, items where the opening value is
-  less than the closing value (a gain) are drawn as filled
-  boxes, and items where the opening value is more than the
-  closing value (a loss) are drawn as hollow boxes.
+A candlestick chart is used to show an opening and closing
+value overlaid on top of a total variance. Candlestick
+charts are often used to show stock value behavior. In this
+chart, items where the opening value is less than the
+closing value (a gain) are drawn as filled boxes, and items
+where the opening value is more than the closing value (a
+loss) are drawn as hollow boxes.
 }
 \examples{
 ## Please note that by default the googleVis plot command
@@ -91,21 +90,21 @@ C1 <- gvisCandlestickChart(OpenClose, xvar="Weekday", low="Low",
 plot(C1)
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com},
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
-  Diego de Castillo \email{decastillo@gmail.com}
+Diego de Castillo \email{decastillo@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \seealso{
-  See also \code{\link{print.gvis}},
-  \code{\link{plot.gvis}} for printing and plotting methods
+See also \code{\link{print.gvis}}, \code{\link{plot.gvis}}
+for printing and plotting methods
 }
 \keyword{iplot}
 

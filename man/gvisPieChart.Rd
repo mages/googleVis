@@ -4,8 +4,7 @@
 \Sexpr{googleChartName <- "piechart"}
 \Sexpr{gvisChartName <- "gvisPieChart"}}
 \usage{
-  gvisPieChart(data, labelvar = "", numvar = "",
-    options = list(), chartid)
+gvisPieChart(data, labelvar = "", numvar = "", options = list(), chartid)
 }
 \arguments{
   \item{data}{a \code{\link{data.frame}} to be displayed as
@@ -34,17 +33,17 @@
   \code{\link{tempfile}}}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  The gvisPieChart function reads a data.frame and creates
-  text output referring to the Google Visualisation API,
-  which can be included into a web page, or as a
-  stand-alone page. The actual chart is rendered by the web
-  browser using SVG or VML.
+The gvisPieChart function reads a data.frame and creates
+text output referring to the Google Visualisation API,
+which can be included into a web page, or as a stand-alone
+page. The actual chart is rendered by the web browser using
+SVG or VML.
 }
 \examples{
 ## Please note that by default the googleVis plot command
@@ -64,21 +63,21 @@ Pie2 <- gvisPieChart(CityPopularity, options=list(
 plot(Pie2)
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com},
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
-  Diego de Castillo \email{decastillo@gmail.com}
+Diego de Castillo \email{decastillo@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \seealso{
-  See also \code{\link{print.gvis}},
-  \code{\link{plot.gvis}} for printing and plotting methods
+See also \code{\link{print.gvis}}, \code{\link{plot.gvis}}
+for printing and plotting methods
 }
 \keyword{iplot}
 

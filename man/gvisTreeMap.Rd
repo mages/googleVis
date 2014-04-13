@@ -4,8 +4,8 @@
 \Sexpr{googleChartName <- "treemap"}
 \Sexpr{gvisChartName <- "gvisTreeMap"}}
 \usage{
-  gvisTreeMap(data, idvar = "", parentvar = "",
-    sizevar = "", colorvar = "", options = list(), chartid)
+gvisTreeMap(data, idvar = "", parentvar = "", sizevar = "",
+  colorvar = "", options = list(), chartid)
 }
 \arguments{
   \item{data}{a \code{data.frame}. The data has to have at
@@ -55,37 +55,36 @@
   \code{\link{tempfile}}}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  The gvisTreeMap function reads a data.frame and creates
-  text output referring to the Google Visualisation API,
-  which can be included into a web page, or as a
-  stand-alone page. The actual chart is rendered by the web
-  browser.
+The gvisTreeMap function reads a data.frame and creates
+text output referring to the Google Visualisation API,
+which can be included into a web page, or as a stand-alone
+page. The actual chart is rendered by the web browser.
 }
 \details{
-  A tree map is a visual representation of a data tree,
-  where each node can have zero or more children, and one
-  parent (except for the root, which has no parents). Each
-  node is displayed as a rectangle, sized and colored
-  according to values that you assign. Sizes and colors are
-  valued relative to all other nodes in the graph. You can
-  specify how many levels to display simultaneously, and
-  optionally to display deeper levels in a hinted fashion.
-  If a node is a leaf node, you can specify a size and
-  color; if it is not a leaf, it will be displayed as a
-  bounding box for leaf nodes. The default behavior is to
-  move down the tree when a user left-clicks a node, and to
-  move back up the tree when a user right-clicks the graph.
+A tree map is a visual representation of a data tree, where
+each node can have zero or more children, and one parent
+(except for the root, which has no parents). Each node is
+displayed as a rectangle, sized and colored according to
+values that you assign. Sizes and colors are valued
+relative to all other nodes in the graph. You can specify
+how many levels to display simultaneously, and optionally
+to display deeper levels in a hinted fashion. If a node is
+a leaf node, you can specify a size and color; if it is not
+a leaf, it will be displayed as a bounding box for leaf
+nodes. The default behavior is to move down the tree when a
+user left-clicks a node, and to move back up the tree when
+a user right-clicks the graph.
 
-  The total size of the graph is determined by the size of
-  the containing element that you insert in your page. If
-  you have leaf nodes with names too long to show, the name
-  will be truncated with an ellipsis (...).
+The total size of the graph is determined by the size of
+the containing element that you insert in your page. If you
+have leaf nodes with names too long to show, the name will
+be truncated with an ellipsis (...).
 }
 \section{Warning }{
   Tree maps display a tree like structure where every child
@@ -191,26 +190,24 @@ statesTree3 <- gvisTreeMap(my.states3, "regionid", "parentid",
 plot(statesTree3)
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com},
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
-  Diego de Castillo \email{decastillo@gmail.com}
+Diego de Castillo \email{decastillo@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \seealso{
-  See also \code{\link{print.gvis}},
-  \code{\link{plot.gvis}} for printing and plotting
-  methods.
+See also \code{\link{print.gvis}}, \code{\link{plot.gvis}}
+for printing and plotting methods.
 
-  Please note that the \code{treemap} package offeres a
-  static version of tree maps via its \code{tmPlot}
-  function.
+Please note that the \code{treemap} package offeres a
+static version of tree maps via its \code{tmPlot} function.
 }
 \keyword{iplot}
 

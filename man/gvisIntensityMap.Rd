@@ -4,8 +4,8 @@
 \Sexpr{googleChartName <- "intensitymap"}
 \Sexpr{gvisChartName <- "gvisIntensityMap"}}
 \usage{
-  gvisIntensityMap(data, locationvar = "", numvar = "",
-    options = list(), chartid)
+gvisIntensityMap(data, locationvar = "", numvar = "", options = list(),
+  chartid)
 }
 \arguments{
   \item{data}{a \code{data.frame}. The data has to have at
@@ -36,20 +36,20 @@
   \code{\link{tempfile}}}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  An intensity map highlights regions or countries based on
-  relative values.
+An intensity map highlights regions or countries based on
+relative values.
 }
 \details{
-  The gvisIntensityMap function reads a data.frame and
-  creates text output referring to the Google Visualisation
-  API, which can be included into a web page, or as a
-  stand-alone page.
+The gvisIntensityMap function reads a data.frame and
+creates text output referring to the Google Visualisation
+API, which can be included into a web page, or as a
+stand-alone page.
 }
 \examples{
 ## Please note that by default the googleVis plot command
@@ -66,24 +66,23 @@ Intensity2 <- gvisIntensityMap(df,
 plot(Intensity2)
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com},
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
-  Diego de Castillo \email{decastillo@gmail.com}
+Diego de Castillo \email{decastillo@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \seealso{
-  See also \code{\link{print.gvis}},
-  \code{\link{plot.gvis}} for printing and plotting
-  methods, \code{\link{gvisMap}} and
-  \code{\link{gvisGeoMap}} for an alternative to
-  \code{gvisIntensityMap}.
+See also \code{\link{print.gvis}}, \code{\link{plot.gvis}}
+for printing and plotting methods, \code{\link{gvisMap}}
+and \code{\link{gvisGeoMap}} for an alternative to
+\code{gvisIntensityMap}.
 }
 \keyword{iplot}
 

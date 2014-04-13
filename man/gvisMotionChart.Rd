@@ -4,9 +4,9 @@
 \Sexpr{googleChartName <- "motionchart"}
 \Sexpr{gvisChartName <- "gvisMotionChart"}}
 \usage{
-  gvisMotionChart(data, idvar = "id", timevar = "time",
-    xvar = "", yvar = "", colorvar = "", sizevar = "",
-    date.format = "\%Y/\%m/\%d", options = list(), chartid)
+gvisMotionChart(data, idvar = "id", timevar = "time", xvar = "",
+  yvar = "", colorvar = "", sizevar = "", date.format = "\%Y/\%m/\%d",
+  options = list(), chartid)
 }
 \arguments{
   \item{data}{a \code{data.frame}. The data has to have at
@@ -67,18 +67,18 @@
   \code{\link{tempfile}}}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  The gvisMotionChart function reads a data.frame and
-  creates text output referring to the Google Visualisation
-  API, which can be included into a web page, or as a
-  stand-alone page. The actual chart is rendered by the web
-  browser in Flash. A motion chart is a dynamic chart to
-  explore several indicators over time.
+The gvisMotionChart function reads a data.frame and creates
+text output referring to the Google Visualisation API,
+which can be included into a web page, or as a stand-alone
+page. The actual chart is rendered by the web browser in
+Flash. A motion chart is a dynamic chart to explore several
+indicators over time.
 }
 \section{Warnings}{
   Because of Flash security settings the chart might not
@@ -169,21 +169,20 @@ plot(M7)
 ## plots.
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com}, Diego de
-  Castillo \email{decastillo@gmail.com}
+Markus Gesmann \email{markus.gesmann@gmail.com}, Diego de
+Castillo \email{decastillo@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \seealso{
-  See also \code{\link{print.gvis}},
-  \code{\link{plot.gvis}} for printing and plotting
-  methods.
+See also \code{\link{print.gvis}}, \code{\link{plot.gvis}}
+for printing and plotting methods.
 }
 \keyword{iplot}
 

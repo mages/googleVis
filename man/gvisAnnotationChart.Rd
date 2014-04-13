@@ -4,9 +4,9 @@
 \Sexpr{googleChartName <- "annotationchart"}
 \Sexpr{gvisChartName <- "gvisAnnotationChart"}}
 \usage{
-  gvisAnnotationChart(data, datevar = "", numvar = "",
-    idvar = "", titlevar = "", annotationvar = "",
-    date.format = "\%Y/\%m/\%d", options = list(), chartid)
+gvisAnnotationChart(data, datevar = "", numvar = "", idvar = "",
+  titlevar = "", annotationvar = "", date.format = "\%Y/\%m/\%d",
+  options = list(), chartid)
 }
 \arguments{
   \item{data}{a \code{data.frame}. The data has to have at
@@ -58,17 +58,16 @@
   \code{\link{tempfile}}.}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  gvisAnnotationChart charts are interactive time series
-  line charts that support annotations. Unlike the
-  gvisAnnotatedTimeLine, which uses Flash, annotation
-  charts are SVG/VML and should be preferred whenever
-  possible.
+gvisAnnotationChart charts are interactive time series line
+charts that support annotations. Unlike the
+gvisAnnotatedTimeLine, which uses Flash, annotation charts
+are SVG/VML and should be preferred whenever possible.
 }
 \examples{
 ## Please note that by default the googleVis plot command
@@ -183,22 +182,22 @@ plot(aapl)
 }
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com}, Diego de
-  Castillo \email{decastillo@gmail.com}
+Markus Gesmann \email{markus.gesmann@gmail.com}, Diego de
+Castillo \email{decastillo@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \seealso{
-  See also \code{\link{print.gvis}},
-  \code{\link{plot.gvis}} for printing and plotting
-  methods. Further see \code{\link{reshape}} for reshaping
-  data, e.g. from a wide format into a long format.
+See also \code{\link{print.gvis}}, \code{\link{plot.gvis}}
+for printing and plotting methods. Further see
+\code{\link{reshape}} for reshaping data, e.g. from a wide
+format into a long format.
 }
 \keyword{iplot}
 

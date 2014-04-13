@@ -4,8 +4,8 @@
 \Sexpr{googleChartName <- "geomap"}
 \Sexpr{gvisChartName <- "gvisGeoMap"}}
 \usage{
-  gvisGeoMap(data, locationvar = "", numvar = "",
-    hovervar = "", options = list(), chartid)
+gvisGeoMap(data, locationvar = "", numvar = "", hovervar = "",
+  options = list(), chartid)
 }
 \arguments{
   \item{data}{\code{data.frame}. The data has to have at
@@ -57,24 +57,22 @@
   \code{\link{tempfile}}}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  The gvisGeoMap function reads a data.frame and creates
-  text output referring to the Google Visualisation API,
-  which can be included into a web page, or as a
-  stand-alone page.
+The gvisGeoMap function reads a data.frame and creates text
+output referring to the Google Visualisation API, which can
+be included into a web page, or as a stand-alone page.
 
-  A geo map is a map of a country, continent, or region
-  map, with colours and values assigned to specific
-  regions. Values are displayed as a colour scale, and you
-  can specify optional hover-text for regions. The map is
-  rendered in the browser. Note that the map is not
-  scroll-able or drag-gable, but can be configured to allow
-  zooming.
+A geo map is a map of a country, continent, or region map,
+with colours and values assigned to specific regions.
+Values are displayed as a colour scale, and you can specify
+optional hover-text for regions. The map is rendered in the
+browser. Note that the map is not scroll-able or
+drag-gable, but can be configured to allow zooming.
 }
 \section{Warnings}{
   Because of Flash security settings the chart might not
@@ -139,16 +137,16 @@ G5 <- gvisGeoMap(WorldPopulation, "Country", "Population.in.millions", "Rank",
 plot(G5)
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com}, Diego de
-  Castillo \email{decastillo@gmail.com}
+Markus Gesmann \email{markus.gesmann@gmail.com}, Diego de
+Castillo \email{decastillo@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \keyword{iplot}
 
