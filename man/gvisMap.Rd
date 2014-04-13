@@ -4,8 +4,7 @@
 \Sexpr{googleChartName <- "map"}
 \Sexpr{gvisChartName <- "gvisMap"}}
 \usage{
-  gvisMap(data, locationvar = "", tipvar = "",
-    options = list(), chartid)
+gvisMap(data, locationvar = "", tipvar = "", options = list(), chartid)
 }
 \arguments{
   \item{data}{a \code{data.frame}. The data has to have at
@@ -41,19 +40,18 @@
   \code{\link{tempfile}}}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  The gvisMap function reads a data.frame and creates text
-  output referring to the Google Visualisation API, which
-  can be included into a web page, or as a stand-alone
-  page.
+The gvisMap function reads a data.frame and creates text
+output referring to the Google Visualisation API, which can
+be included into a web page, or as a stand-alone page.
 }
 \details{
-  The maps are the well known Google Maps.
+The maps are the well known Google Maps.
 }
 \examples{
 ## Please note that by default the googleVis plot command
@@ -89,32 +87,35 @@ plot(M2)
 M3 <- gvisMap(df, "Postcode", "Tip",
               options=list(showTip=TRUE, mapType='normal',
               enableScrollWheel=TRUE,
-              icons="{
-              'default': {'normal': 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Azure-icon.png',
-                          'selected': 'http://icons.iconarchive.com/icons/icons-land/vista-map-markers/48/Map-Marker-Ball-Right-Azure-icon.png'
-                          }}"))
+              icons=paste0("{",
+              "'default': {'normal': 'http://icons.iconarchive.com/",
+              "icons/icons-land/vista-map-markers/48/",
+              "Map-Marker-Ball-Azure-icon.png',\\n",
+              "'selected': 'http://icons.iconarchive.com/",
+              "icons/icons-land/vista-map-markers/48/",
+              "Map-Marker-Ball-Right-Azure-icon.png'",
+              "}}")))
 
 plot(M3)
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com},
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
-  Diego de Castillo \email{decastillo@gmail.com}
+Diego de Castillo \email{decastillo@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \seealso{
-  See also \code{\link{print.gvis}},
-  \code{\link{plot.gvis}} for printing and plotting
-  methods, \code{\link{gvisGeoMap}} and
-  \code{\link{gvisIntensityMap}} for an alternative to
-  \code{gvisMap}.
+See also \code{\link{print.gvis}}, \code{\link{plot.gvis}}
+for printing and plotting methods, \code{\link{gvisGeoMap}}
+and \code{\link{gvisIntensityMap}} for an alternative to
+\code{gvisMap}.
 }
 \keyword{iplot}
 

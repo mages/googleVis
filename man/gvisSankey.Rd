@@ -4,8 +4,8 @@
 \Sexpr{googleChartName <- "sankey"}
 \Sexpr{gvisChartName <- "gvisSankey"}}
 \usage{
-  gvisSankey(data, from = "", to = "", weight = "",
-    options = list(), chartid)
+gvisSankey(data, from = "", to = "", weight = "", options = list(),
+  chartid)
 }
 \arguments{
   \item{data}{data.frame that contains the data to be
@@ -37,18 +37,18 @@
   \code{\link{tempfile}}}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  A sankey diagram is a visualization used to depict a flow
-  from one set of values to another. The things being
-  connected are called nodes and the connections are called
-  links. They're named after Captain Sankey, who created a
-  diagram of steam engine efficiency that used arrows
-  having widths proportional to heat loss.
+A sankey diagram is a visualization used to depict a flow
+from one set of values to another. The things being
+connected are called nodes and the connections are called
+links. They're named after Captain Sankey, who created a
+diagram of steam engine efficiency that used arrows having
+widths proportional to heat loss.
 }
 \section{Warning}{
   The sankey chart may be undergoing substantial revisions
@@ -69,15 +69,15 @@ sk2 <- gvisSankey(dat, from="From", to="To", weight="Weight",
 plot(sk2)
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com}
+Markus Gesmann \email{markus.gesmann@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \keyword{iplot}
 

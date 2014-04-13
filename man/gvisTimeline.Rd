@@ -4,8 +4,8 @@
 \Sexpr{googleChartName <- "timeline"}
 \Sexpr{gvisChartName <- "gvisTimeline"}}
 \usage{
-  gvisTimeline(data, rowlabel = "", barlabel = "",
-    start = "", end = "", options = list(), chartid)
+gvisTimeline(data, rowlabel = "", barlabel = "", start = "", end = "",
+  options = list(), chartid)
 }
 \arguments{
   \item{data}{data.frame that contains the data to be
@@ -39,15 +39,15 @@
   \code{\link{tempfile}}}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  A timeline is a chart that depicts how a set of resources
-  are used over time. One popular type of timeline is the
-  Gantt chart.
+A timeline is a chart that depicts how a set of resources
+are used over time. One popular type of timeline is the
+Gantt chart.
 }
 \examples{
 dat <- data.frame(Term=c("1","2","3"),
@@ -110,15 +110,15 @@ plot(gvisTimeline(ww2, barlabel="Person", rowlabel="Group",
 }
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com}
+Markus Gesmann \email{markus.gesmann@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \keyword{iplot}
 

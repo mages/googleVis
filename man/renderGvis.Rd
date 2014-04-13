@@ -2,7 +2,7 @@
 \alias{renderGvis}
 \title{renderGvis}
 \usage{
-  renderGvis(expr, env = parent.frame(), quoted = FALSE)
+renderGvis(expr, env = parent.frame(), quoted = FALSE)
 }
 \arguments{
   \item{expr}{An expression that returns a gvis object.}
@@ -15,18 +15,18 @@
   expression in a variable.}
 }
 \value{
-  Returns a function that can be assigned to a Shiny
-  \code{output} element.
+Returns a function that can be assigned to a Shiny
+\code{output} element.
 }
 \description{
-  This function lets you use googleVis charts as Shiny
-  output. Use it to wrap a googleVis-generating function
-  that you assign to an \code{output} element in
-  \code{server.R}; then create an \code{htmlOutput} with
-  the same name in \code{ui.R}.
+This function lets you use googleVis charts as Shiny
+output. Use it to wrap a googleVis-generating function that
+you assign to an \code{output} element in \code{server.R};
+then create an \code{htmlOutput} with the same name in
+\code{ui.R}.
 }
 \details{
-  Use a googleVis Chart as Shiny Output
+Use a googleVis Chart as Shiny Output
 }
 \section{Details}{
   More information about shiny is available online:
@@ -69,7 +69,7 @@ shinyUI(pageWithSidebar(
 }
 }
 \author{
-  Joe Cheng, \email{joe@rstudio.com}
+Joe Cheng, \email{joe@rstudio.com}
 }
 \keyword{shiny}
 

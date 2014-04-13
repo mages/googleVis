@@ -4,8 +4,8 @@
 \Sexpr{googleChartName <- "steppedarechart"}
 \Sexpr{gvisChartName <- "gvisSteppedAreChart"}}
 \usage{
-  gvisSteppedAreaChart(data, xvar = "", yvar = "",
-    options = list(), chartid)
+gvisSteppedAreaChart(data, xvar = "", yvar = "", options = list(),
+  chartid)
 }
 \arguments{
   \item{data}{a \code{\link{data.frame}} to be displayed as
@@ -34,21 +34,20 @@
   \code{\link{tempfile}}}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  The gvisSteppedAreaChart function reads a data.frame and
-  creates text output referring to the Google Visualisation
-  API, which can be included into a web page, or as a
-  stand-alone page.
+The gvisSteppedAreaChart function reads a data.frame and
+creates text output referring to the Google Visualisation
+API, which can be included into a web page, or as a
+stand-alone page.
 }
 \details{
-  The stepped area chart is rendered within the browser
-  using SVG or VML and displays tips when hovering over
-  points.
+The stepped area chart is rendered within the browser using
+SVG or VML and displays tips when hovering over points.
 }
 \examples{
 ## Please note that by default the googleVis plot command
@@ -81,21 +80,21 @@ plot(SteppedArea3)
 }
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com},
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
-  Diego de Castillo \email{decastillo@gmail.com}
+Diego de Castillo \email{decastillo@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \seealso{
-  See also \code{\link{print.gvis}},
-  \code{\link{plot.gvis}} for printing and plotting methods
+See also \code{\link{print.gvis}}, \code{\link{plot.gvis}}
+for printing and plotting methods
 }
 \keyword{iplot}
 

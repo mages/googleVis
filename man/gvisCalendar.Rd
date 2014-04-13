@@ -4,8 +4,7 @@
 \Sexpr{googleChartName <- "Calendar"}
 \Sexpr{gvisChartName <- "gvisCalendar"}}
 \usage{
-  gvisCalendar(data, datevar = "", numvar = "",
-    options = list(), chartid)
+gvisCalendar(data, datevar = "", numvar = "", options = list(), chartid)
 }
 \arguments{
   \item{data}{a \code{data.frame}. The data has to have at
@@ -36,17 +35,17 @@
   \code{\link{tempfile}}.}
 }
 \value{
-  \Sexpr[results=rd]{paste(gvisChartName)} returns list of
-  \code{\link{class}}
-  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
-  "mansections", "gvisOutputStructure.txt")))}
+\Sexpr[results=rd]{paste(gvisChartName)} returns list of
+\code{\link{class}}
+\Sexpr[results=rd]{paste(readLines(file.path(".", "inst",
+"mansections", "gvisOutputStructure.txt")))}
 }
 \description{
-  A calendar chart is a visualization used to show activity
-  over the course of a long span of time, such as months or
-  years. They're best used when you want to illustrate how
-  some quantity varies depending on the day of the week, or
-  how it trends over time.
+A calendar chart is a visualization used to show activity
+over the course of a long span of time, such as months or
+years. They're best used when you want to illustrate how
+some quantity varies depending on the day of the week, or
+how it trends over time.
 }
 \section{Warning}{
   The calendar chart may be undergoing substantial
@@ -83,22 +82,21 @@ cl4 <- gvisCalendar(Cairo, datevar="Date", numvar="Temp",
 plot(cl4)
 }
 \author{
-  Markus Gesmann \email{markus.gesmann@gmail.com},
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
-  Diego de Castillo \email{decastillo@gmail.com}
+Diego de Castillo \email{decastillo@gmail.com}
 }
 \references{
-  Google Chart Tools API:
-  \Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
-  readLines(file.path(".", "inst", "mansections",
-  "GoogleChartToolsURL.txt")))}
+Google Chart Tools API:
+\Sexpr[results=rd]{gsub("CHARTNAME", googleChartName,
+readLines(file.path(".", "inst", "mansections",
+"GoogleChartToolsURL.txt")))}
 
-  % END DYNAMIC CONTENT
+% END DYNAMIC CONTENT
 }
 \seealso{
-  See also \code{\link{print.gvis}},
-  \code{\link{plot.gvis}} for printing and plotting
-  methods.
+See also \code{\link{print.gvis}}, \code{\link{plot.gvis}}
+for printing and plotting methods.
 }
 \keyword{iplot}
 
