@@ -1,3 +1,8 @@
+googleVis 0.5.2 [2014-04-15]
+----------------------------
+NEW FEATURES
+
+
 googleVis 0.5.1 [2014-04-14]
 ----------------------------
 NEW FEATURES
@@ -24,9 +29,7 @@ Changes
 
 * All googleVis output will be displayed in your default browser. 
   In previous versions of googleVis output could also be displayed 
-  in the preview pane of RStudio. All googleVis output will be displayed       
-  in your default browser. In previous versions of googleVis output could 
-  also be displayed in the preview pane of RStudio. This feature is no 
+  in the preview pane of RStudio. This feature is no 
   longer available with the current version of RStudio, but is likely to   
   be introduced again with the release of RStudio version 0.99 or higher.
 
