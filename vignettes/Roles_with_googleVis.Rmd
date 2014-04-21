@@ -26,16 +26,16 @@ I can embed some HTML code into my tooltip as well, but then I have to
 set this in my options list as well.
 ```{r TooltipHTML, results='asis', tidy=FALSE}
 ```
-Often it is helpful to highlight certain parts of my data, e.g.
+Often it is helpful to highlight certain parts of the data, e.g.
 subsets that I feel more certain about or that I want to emphasize for 
-other reasons the reader. 
-In a similar way as above I add additional columns to by data
+other reasons to the reader. 
+In a similar way as above I add additional columns to my data
 and asign boolean values to indicate which values I'd like to highlight.
 ```{r CertaintyScopeEmphasis, results='asis', tidy=FALSE}
 ```
 
-Using roles with column or bar charts has its some specifics.
-Instead of emphasize, I can use style to change the colors.
+Using roles with column or bar charts has some specifics.
+Instead of 'emphasize' use 'style' to change the colours.
 ```{r ColumnChart, results='asis', tidy=FALSE}
 ```
 
@@ -45,7 +45,7 @@ Instead of emphasize, I can use style to change the colors.
 ```{r TwoLines, results='asis', tidy=FALSE}
 ```
 
-Setting the annotations style to line allows me to add little reference lines
+Setting the annotations style to 'line' allows me to add little reference lines
 to the plot.
 ```{r VerticalReferenceLine, results='asis', tidy=FALSE}
 ```

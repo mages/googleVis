@@ -204,8 +204,9 @@ pause()
 
 
 ## ---- Table ----
-Table <- gvisTable(Exports, 
-                   options=list(width=400, 
+Table <- gvisTable(Stock, 
+                   formats=list(Value="#,###"),
+                   options=list(width=500, 
                                 height=300))
 plot(Table)
 
@@ -244,7 +245,6 @@ plot(Tree)
 pause()
 
 ## ---- AnnotationChart ----
-Stock
 Anno <- gvisAnnotationChart(Stock, 
                             datevar="Date",
                             numvar="Value", 
@@ -277,7 +277,6 @@ plot(Sankey)
 pause()
 
 # ---- CalendarChart ----
-head(Cairo)
 Cal <- gvisCalendar(Cairo, 
                     datevar="Date", 
                     numvar="Temp",
