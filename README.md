@@ -5,8 +5,7 @@ The googleVis package provides an interface between R and the [Google Chart Tool
 It allows users to create web pages with interactive charts based on R data frames, using the Google Chart Tools and to display them either via the local R HTTP help server or within their own
 sites, without uploading the data to Google. A modern browser with Internet connection is required and for some charts Flash. 
 
-Please visit the [project web site](https://code.google.com/p/google-motion-charts-with-r/) for more information and examples and 
-read the [Google API Terms of Use](https://developers.google.com/terms/) before you use the package.
+Please read the [Google API Terms of Use](https://developers.google.com/terms/) before you use the package.
 
 ## Installation
 
@@ -14,7 +13,7 @@ You can install the stable version from
 [CRAN](http://cran.r-project.org/package=googleVis):
 
 ```s
-install.packages('googleVis', dependencies = TRUE)
+install.packages('googleVis')
 ```
 
 To install the current development version from github you need the [devtools package](http://cran.r-project.org/web/packages/devtools/index.html) and the other packages on which googleVis depends:
