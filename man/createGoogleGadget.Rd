@@ -38,8 +38,6 @@ In a Google Code wiki the gadget can be embedded via
 
 \code{<wiki:gadget url="http://example.com/gadget.xml" height="200" border="0" />}
 
-You find examples on the googleVis project site: 
-\url{http://code.google.com/p/google-motion-charts-with-r/wiki/GadgetExamples}
 }
 
 

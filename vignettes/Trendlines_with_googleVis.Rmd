@@ -5,7 +5,8 @@
 # Using Trendlines with googleVis
 
 A trendline is a line superimposed on a chart revealing the overall 
-direction of the data. Google Charts can automatically generate trendlinesfor Scatter Charts, Bar Charts, Column Charts and Line Charts.
+direction of the data. Google Charts can automatically generate 
+trendlines for Scatter Charts, Bar Charts, Column Charts and Line Charts.
 
 Fore more details see: 
 https://developers.google.com/chart/interactive/docs/gallery/trendlines

@@ -13,8 +13,7 @@ Using the Google Chart Tools with R
   own sites, without uploading the data to Google.
   
   A modern browser with Internet connection is required and for some
-  charts Flash. Please visit the project web site for more information
-  and examples:
+  charts Flash. Please visit the project web site for more information:
 
   \url{http://github.com/mages/googleVis}.
 
@@ -32,8 +31,7 @@ Using the Google Chart Tools with R
   }
 \references{
   \itemize{
-	\item googleVis project site: \url{http://code.google.com/p/google-motion-charts-with-r/}
-	\item Google Chart Tools API: \url{https://developers.google.com/chart/}
+		\item Google Chart Tools API: \url{https://developers.google.com/chart/}
 	\item Google Terms of Use: \url{https://developers.google.com/terms/}
 	\item Google Maps API Terms of Service: \url{https://developers.google.com/maps/terms}
       }

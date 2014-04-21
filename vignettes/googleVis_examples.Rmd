@@ -1,6 +1,6 @@
 <!--
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Examples from the googleVis package}
+%\VignetteIndexEntry{Demonstartion of googleVis}
 -->
 # Examples from the googleVis package
 ===========================================
@@ -8,7 +8,7 @@ It may take a little while to load all charts. Please be patient.
 All charts require an Internet connection.
 
 These examples are taken from the googleVis demo. 
-You can execute the demos by
+You can execute the demos via
 ```{r demo, eval=FALSE}
 library(googleVis)
 demo(googleVis)
@@ -41,7 +41,7 @@ read_demo('googleVis', 'googleVis')
 ### Add edit button for on the fly customisation
 ```{r EditButton, results='asis', tidy=FALSE}
 ```
-The same option is available for all other charts
+The same option is available for all other charts.
 
 ## Bar chart
 ```{r BarChart, results='asis', tidy=FALSE}
