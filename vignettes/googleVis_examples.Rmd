@@ -38,6 +38,10 @@ read_demo('googleVis', 'googleVis')
 ```{r SettingOptions, results='asis', tidy=FALSE}
 ```
 
+### Customizing Lines
+```{r CustomizingLines, results='asis', tidy=FALSE}
+```
+
 ### Add edit button for on the fly customisation
 ```{r EditButton, results='asis', tidy=FALSE}
 ```
@@ -65,6 +69,10 @@ The same option is available for all other charts.
 
 ## Scatter chart
 ```{r ScatterChart, results='asis', tidy=FALSE}
+```
+
+## Customizing points
+```{r ScatterChartPoints, results='asis', tidy=FALSE}
 ```
 
 ## Bubble chart

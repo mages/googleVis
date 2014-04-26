@@ -563,7 +563,7 @@ body {
   htmlFooter <- '
 <!-- htmlFooter -->
 <span> 
-  %s &#8226; <a href="https://github.com/mages/googleVis">googleVis-%s</a>
+  %s 
   &#8226; <a href="https://developers.google.com/terms/">Google Terms of Use</a> &#8226; %s
 </span></div>
 </body>
@@ -573,13 +573,13 @@ body {
   if(type %in% "gvisMerge"){
     policy <- "Data Policy: See individual charts"
   }else{
-    policy <- sprintf('<a href="https://google-developers.appspot.com/chart/interactive/docs/gallery/%s#Data_Policy">Data Policy</a>', type)
+    policy <- sprintf('<a href="https://google-developers.appspot.com/chart/interactive/docs/gallery/%s">Documentation and Data Policy</a>', type)
   }
   
   htmlFooter <- sprintf(htmlFooter, R.Version()$version.string,
-                        packageDescription('googleVis')$Version, policy)  
-  htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: <a href="Chart_%s.html">%s</a></span><br />' ,
-                         dataName, chartid, chartid)
+                         policy)  
+  htmlCaption <- sprintf('<div><span>Data: %s &#8226; Chart ID: <a href="Chart_%s.html">%s</a> &#8226; <a href="https://github.com/mages/googleVis">googleVis-%s</a></span><br />' ,
+                         dataName, chartid, chartid,packageDescription('googleVis')$Version)
   
   return(list(htmlHeader=htmlHeader,
               htmlFooter=htmlFooter,

@@ -52,10 +52,26 @@ plot(Line3)
 ## ---- pause ----
 pause()
 
+## ---- CustomizingLines ----
+Dashed <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
+                        options=list(
+                          series="[{color:'green', targetAxisIndex: 0, 
+                          lineWidth: 1, lineDashStyle: [2, 2, 20, 2, 20, 2]}, 
+                          {color: 'blue',targetAxisIndex: 1, 
+                          lineWidth: 2, lineDashStyle: [4, 1]}]",
+                          vAxes="[{title:'val1'}, {title:'val2'}]"
+                        ))
+plot(Dashed)
+
+## ---- pause ----
+pause()
+
 ## ---- EditButton ----
 Line4 <-  gvisLineChart(df, "country", c("val1","val2"),
                         options=list(gvis.editor="Edit me!"))
 plot(Line4)
+
+
 
 ## ---- pause ----
 pause()
@@ -109,6 +125,25 @@ Scatter <- gvisScatterChart(women,
                               hAxis="{title:'height (in)'}", 
                               width=300, height=300))
 plot(Scatter)
+
+## ---- ScatterChartPoints ----
+M <- matrix(nrow=6,ncol=6)
+M[col(M)==row(M)] <- 1:6
+dat <- data.frame(X=1:6, M)
+SC <- gvisScatterChart(dat, 
+                       options=list(
+                         title="Customizing points",
+                         legend="right",
+                         pointSize=30,
+                         series="{
+                              0: { pointShape: 'circle' },
+                              1: { pointShape: 'triangle' },
+                              2: { pointShape: 'square' },
+                              3: { pointShape: 'diamond' },
+                              4: { pointShape: 'star' },
+                              5: { pointShape: 'polygon' }
+                              }"))
+plot(SC)
 
 ## ---- pause ----
 pause()
@@ -282,12 +317,13 @@ Cal <- gvisCalendar(Cairo,
                     numvar="Temp",
                     options=list(
                       title="Daily temperature in Cairo",
-                      height=500,
-                      calendar="{yearLabel:{fontName: 'Times-Roman',
-                                cellSize: 10,
-                                fontSize:32, color:'#1A8763', bold: true},
-                                cellColor:{ stroke:'red', strokeOpacity:0.2},
-                                focusedCellColor:{stroke:'red'}}"))
+                      height=320,
+                      calendar="{yearLabel: { fontName: 'Times-Roman',
+                               fontSize: 32, color: '#1A8763', bold: true},
+                               cellSize: 10,
+                               cellColor: { stroke: 'red', strokeOpacity: 0.2 },
+                               focusedCellColor: {stroke:'red'}}")
+)
 plot(Cal)
 
 ## ---- pause ----
