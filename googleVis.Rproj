@@ -16,5 +16,5 @@ BuildType: Package
 PackageInstallArgs: --no-multiarch --with-keep.source
 PackageBuildArgs: --compact-vignettes=both
 PackageBuildBinaryArgs: --compact-vignettes=both
-PackageCheckArgs: -—as-cran
+PackageCheckArgs: --as-cran
 PackageRoxygenize: rd
