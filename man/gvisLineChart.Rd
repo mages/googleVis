@@ -84,6 +84,17 @@ plot(Line4)
 Line5 <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
                        options=list(gvis.editor="Edit me!"))
 plot(Line5)
+
+## Customizing lines
+Dashed <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
+             options=list(
+             series="[{color:'green', targetAxisIndex: 0,
+                       lineWidth: 1, lineDashStyle: [2, 2, 20, 2, 20, 2]},
+                      {color: 'blue',targetAxisIndex: 1,
+                       lineWidth: 2, lineDashStyle: [4, 1]}]",
+                       vAxes="[{title:'val1'}, {title:'val2'}]"
+                       ))
+plot(Dashed)
 }
 \author{
 Markus Gesmann \email{markus.gesmann@gmail.com},

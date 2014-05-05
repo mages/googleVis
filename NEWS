@@ -1,11 +1,12 @@
-googleVis 0.5.2 [2014-04-26]
+googleVis 0.5.2 [2014-05-05]
 ----------------------------
 Changes
 
-* Minor formatting issues in documentation and vignettes.
+* Fixed minor formatting issues in documentation and vignettes.
 
-* Added examples in demo googleVis to show case how to
-  customize points and lines.
+* Added examples in demo googleVis to show how to
+  customize points and lines and to the help files of
+  gvisLineChart and gvisScatterChart.
 
 googleVis 0.5.1 [2014-04-14]
 ----------------------------

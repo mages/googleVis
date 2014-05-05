@@ -82,6 +82,25 @@ Scatter4 <- gvisScatterChart(df,
                              options=list(lineWidth=2,
                                           pointSize=2))
 plot(Scatter4)
+
+## Customize points
+M <- matrix(nrow=6,ncol=6)
+M[col(M)==row(M)] <- 1:6
+dat <- data.frame(X=1:6, M)
+SC <- gvisScatterChart(dat,
+                        options=list(
+                        title="Customizing points",
+                        legend="right",
+                        pointSize=30,
+                        series="{
+                             0: { pointShape: 'circle' },
+                             1: { pointShape: 'triangle' },
+                             2: { pointShape: 'square' },
+                             3: { pointShape: 'diamond' },
+                             4: { pointShape: 'star' },
+                             5: { pointShape: 'polygon' }
+                             }"))
+plot(SC)
 }
 \author{
 Markus Gesmann \email{markus.gesmann@gmail.com},
