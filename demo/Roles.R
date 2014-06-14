@@ -107,10 +107,14 @@ plot(
                        'Sales.interval.4'),
                 options=list(series="[{color:'purple'}]",
                              lineWidth=4,
-                             intervals="{ 'style':'area' }"
+                             intervals="{ 'style':'area' }",
+                             interval="{
+                               'i1': { 'color': '#4374E0', 'style':'bars', 'barWidth':0, 'lineWidth':4, 'pointSize':10, 'fillOpacity':1 },
+                               'i2': { 'color': '#E49307', 'style':'bars', 'barWidth':0, 'lineWidth':4, 'pointSize':10, 'fillOpacity':1 }}"                                                          
                              )
   )
 )
+
 
 ## ---- TwoLines ----
 df <- data.frame(country=c("US", "GB", "BR"), 

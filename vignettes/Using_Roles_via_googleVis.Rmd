@@ -1,10 +1,11 @@
 <!--
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Using Roles via googleVis}
+%\VignetteIndexEntry{Using Roles and Intervals via googleVis}
 -->
 # Using Roles via googleVis
 
-Roles add the ability to pass columns for further processing downstream. Role columns must follow column they pertain to. Proper naming
+Roles add the ability to pass columns for further processing downstream. 
+Role columns must follow column they pertain to. Proper naming
 conventions must be be observed. For example, roles fulfilling tooltip
 roles and must be called "foo.blah.tooltip". For more details see the [Google documentation](https://developers.google.com/chart/interactive/docs/roles).
 
@@ -39,12 +40,6 @@ Instead of 'emphasize' use 'style' to change the colours.
 ```{r ColumnChart, results='asis', tidy=FALSE}
 ```
 
-Intervals are help to add error bars, confidency levels, etc.
-Note that the options are set either via `interval` or `intervals`, 
-if set across all intervals.
-
-```{r Interval, results='asis', tidy=FALSE}
-```
 
 ```{r TwoLines, results='asis', tidy=FALSE}
 ```
@@ -53,3 +48,13 @@ Setting the annotations style to 'line' allows me to add little reference lines
 to the plot.
 ```{r VerticalReferenceLine, results='asis', tidy=FALSE}
 ```
+
+Intervals are help to add error bars, confidency levels, etc.
+Note that the options are set either via `interval` or `intervals`, 
+if set across all intervals. The examples below give an indication of what 
+can be achieved with intervals. For more details visit the Google documentation
+on [intervals](https://google-developers.appspot.com/chart/interactive/docs/gallery/intervals).
+
+```{r Interval, results='asis', tidy=FALSE}
+```
+
