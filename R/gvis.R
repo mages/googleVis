@@ -117,8 +117,11 @@ return(data);
                     paste(sapply(1:length(data.type), function(x)
                       if (endsIn(names(data.type)[x], '.tooltip'))
                         paste("data.addColumn({type: '", data.type[x], "', role: 'tooltip', 'p': {'html': true}});", sep="")
-                      else if(endsIn(names(data.type)[x], '.interval'))
-                        paste("data.addColumn({type: '", data.type[x], "', role: 'interval'});", sep="")
+                      else if(endsIn.No(names(data.type)[x], '.interval')){
+                        id <- unlist(strsplit(names(data.type)[x], ".interval."))
+                        id <- id[length(id)]
+                        paste("data.addColumn({id:'i",id,"', type: '", data.type[x], "', role: 'interval'});", sep="")
+                      }
                       else if(endsIn(names(data.type)[x], '.style'))
                         paste("data.addColumn({type: '", data.type[x], "', role: 'style'});", sep="")                                 
                       else if(endsIn(names(data.type)[x], '.annotation'))
@@ -356,6 +359,11 @@ endsIn <- function(source, target){
   substr(source, nchar(source)-nchar(target)+1, nchar(source)) %in% target
 }
 
+endsIn.No <- function(source, target){
+  ind <- grep(paste0(target, ".[0-9]"), source) 
+  c(1:length(source)) %in% ind    
+}
+
 isRoleColumn <- function(x) {
   return (
     (x %in% c("string") & endsIn(names(x), ".tooltip")) |
@@ -365,9 +373,10 @@ isRoleColumn <- function(x) {
       (x %in% c("boolean") & endsIn(names(x), ".certainty")) |
       (x %in% c("boolean") & endsIn(names(x), ".emphasis")) |
       (x %in% c("boolean") & endsIn(names(x), ".scope")) |
-      (x %in% c("number") & endsIn(names(x), ".interval"))
+      (x %in% c("number") & endsIn.No(names(x), ".interval"))
   )
 }
+
 check.location <- function(x){
   y = as.character(x)
   if (! is.character(y))

@@ -39,7 +39,11 @@ Instead of 'emphasize' use 'style' to change the colours.
 ```{r ColumnChart, results='asis', tidy=FALSE}
 ```
 
-```{r LimitData, results='asis', tidy=FALSE}
+Intervals are help to add error bars, confidency levels, etc.
+Note that the options are set either via `interval` or `intervals`, 
+if set across all intervals.
+
+```{r Interval, results='asis', tidy=FALSE}
 ```
 
 ```{r TwoLines, results='asis', tidy=FALSE}

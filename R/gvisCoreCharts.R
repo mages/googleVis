@@ -878,14 +878,10 @@ gvisCheckCoreChartData <- function(data, xvar, yvar){
     yvar <- sapply(data, is.numeric)
     yvar <- names(yvar[yvar])
   }
-  ord <- names(data) %in% c(xvar, yvar)
-  #   if( ncol(data) > ncol(data[, ord]))
-  #     data <-  cbind(data[, ord], data[,!ord])
-  #   else
-  #     
-  nm <- names(data)[ord]
-  data <- data[,ord]
-  names(data) <- nm
+  
+  data <- data[,c(xvar, yvar)]
+  names(data) <- c(xvar, yvar)
+  
   if(!any(sapply(data, is.numeric))){
     stop("Error: Your data has to have at least one numerical column.")
   }

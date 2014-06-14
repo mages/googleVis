@@ -51,37 +51,64 @@ plot(
 
 ## ---- Interval ----
 df <- data.frame(Year=2013:2014, Sales=c(120, 130), 
-                 Sales.interval=c(100,110), 
-                 Sales.interval=c(140, 150),
+                 Sales.interval.1=c(100,110), 
+                 Sales.interval.2=c(140, 150),
+                 Sales.interval.3=c(90, 100),
+                 Sales.interval.4=c(150, 170),
                  Sales.style=c('red', 'gold'),
                  Sales.annotation=c("North", "South"),
                  check.names=FALSE)
 
 plot(
   gvisBarChart(df, xvar='Year', 
-               yvar=c('Sales', 
+               yvar=c('Sales',                       
+                      'Sales.interval.1', 
+                      'Sales.interval.2',
                       'Sales.style',
-                      'Sales.annotation',
-                      'Sales.interval', 
-                      'Sales.interval')
+                      'Sales.annotation')
   )
 )
 
 plot(
   gvisLineChart(df, xvar='Year', 
                yvar=c('Sales', 
-                      'Sales.interval', 
-                      'Sales.interval'),
+                      'Sales.interval.1', 
+                      'Sales.interval.2'),
                options=list(series="[{color:'purple'}]")
   )
 )
 
 
-## ---- LimitData ----
 plot(
-  gvisLineChart(dat, xvar='Year', 
-                yvar=c('Sales', 'Sales.emphasis', 
-                       'Sales.html.tooltip')
+  gvisLineChart(df, xvar='Year', 
+                yvar=c('Sales', 
+                       'Sales.interval.1', 
+                       'Sales.interval.2', 
+                       'Sales.interval.3', 
+                       'Sales.interval.4'),
+                options=list(series="[{color:'purple'}]",
+                             lineWidth=4,
+                             interval="{
+            'i1': { 'style':'line', 'color':'#D3362D', 'lineWidth': 0.5 },
+            'i2': { 'style':'line', 'color':'#F1CA3A', 'lineWidth': 1 },
+            'i3': { 'style':'line', 'color':'#5F9654', 'lineWidth': 2 },
+            'i4': { 'style':'line', 'color':'#5F9654', 'lineWidth': 3 }
+        }")
+  )
+)
+
+
+plot(
+  gvisLineChart(df, xvar='Year', 
+                yvar=c('Sales', 
+                       'Sales.interval.1', 
+                       'Sales.interval.2', 
+                       'Sales.interval.3', 
+                       'Sales.interval.4'),
+                options=list(series="[{color:'purple'}]",
+                             lineWidth=4,
+                             intervals="{ 'style':'area' }"
+                             )
   )
 )
 
