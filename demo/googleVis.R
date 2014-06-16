@@ -250,7 +250,9 @@ pause()
 
 ## ---- TableWithPages ----
 PopTable <- gvisTable(Population, 
-                      options=list(width=600, 
+                      formats=list(Population="#,###",
+                                   '% of World Population'='#.#%'),
+                      options=list(width='automatic', 
                                    height=300, 
                                    page='enable'))
 plot(PopTable)
@@ -417,7 +419,7 @@ AnnoTimeLine  <- gvisAnnotatedTimeLine(Stock,
                                        titlevar="Title", 
                                        annotationvar="Annotation",
                                        options=list(displayAnnotations=TRUE,
-                                                    width=600, height=350))
+                                                    width="600px", height="350px"))
 plot(AnnoTimeLine)
 
 ## ---- pause ----

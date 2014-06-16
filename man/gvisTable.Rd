@@ -61,7 +61,9 @@ tbl1 <- gvisTable(Population)
 plot(tbl1)
 
 ## Table with enabled paging
-tbl2 <- gvisTable(Population, options=list(page='enable', height=300))
+tbl2 <- gvisTable(Population, options=list(page='enable',
+                                           height='automatic',
+                                           width='automatic'))
 
 plot(tbl2)
 

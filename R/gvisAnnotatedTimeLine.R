@@ -88,6 +88,10 @@
 #' (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/})
 #' for more details.
 #' 
+#' Important: To use this visualization, you must specify the height and width 
+#' of the container element explicitly on your page. So, for example:
+#' options=list(width="600px", height="350px")
+#' 
 #' Use code{\link{gvisAnnotationChart}} for a non-Flash version of this plot.
 #' 
 #' @author Markus Gesmann \email{markus.gesmann@@gmail.com},
@@ -113,7 +117,7 @@
 #'                            titlevar="Title", annotationvar="Annotation",
 #'                            options=list(displayAnnotations=TRUE,
 #'                             legendPosition='newRow',
-#'                             width=600, height=350)
+#'                             width="600px", height="350px")
 #'                            )
 #' plot(A1)
 #' 
@@ -122,7 +126,7 @@
 #'                            numvar="Value", idvar="Device",
 #'                            titlevar="Title", annotationvar="Annotation",
 #'                            options=list(displayAnnotations=TRUE, 
-#'                             width=600, height=350, scaleColumns='[0,1]',
+#'                             width="600px", height="350px", scaleColumns='[0,1]',
 #'                             scaleType='allmaximized')
 #'                           )
 #' plot(A2)
@@ -132,7 +136,7 @@
 #'                            numvar="Value", idvar="Device",
 #'                            titlevar="Title", annotationvar="Annotation",
 #'                            options=list(
-#'                              width=600, height=350,
+#'                              width="600px", height="350px",
 #'                             zoomStartTime=as.Date("2008-01-04"),
 #'                             zoomEndTime=as.Date("2008-01-05")) 
 #'                           )
@@ -145,7 +149,7 @@
 #'                            numvar="Value", idvar="Device",
 #'                            titlevar="Title", annotationvar="Annotation",
 #'                            options=list(
-#'                              width=600, height=350,
+#'                              width="600px", height="350px",
 #'                              fill=10, displayExactValues=TRUE,
 #'                              colors="['#0000ff','#00ff00']")
 #'                            )
@@ -156,7 +160,8 @@
 #' ## Data with POSIXct datetime variable
 #' A5 <- gvisAnnotatedTimeLine(Andrew, datevar="Date/Time UTC",
 #'                             numvar="Pressure_mb",
-#'                             options=list(scaleType='maximized')
+#'                             options=list(scaleType='maximized',
+#'                                          width="600px", height="350px")
 #'                             )
 #' 
 #' plot(A5)
@@ -205,7 +210,7 @@
 #'                             zoomStartTime=lyd,
 #'                             zoomEndTime=as.Date(d),
 #'                             legendPosition='newRow',
-#'                             width=600, height=400, scaleColumns='[0,1]',
+#'                             width="600px", height="400px", scaleColumns='[0,1]',
 #'                             scaleType='allmaximized')
 #'                            )
 #' 
@@ -222,7 +227,7 @@ gvisAnnotatedTimeLine <- function(data, datevar="",
   my.type <- "AnnotatedTimeLine"
   dataName <- deparse(substitute(data))
   
-  my.options <- list(gvis=modifyList(list(width = 600, height=300), options), 
+  my.options <- list(gvis=modifyList(list(width = "600px", height="300px"), options), 
 		     dataName=dataName,                     
                      data=list(datevar=datevar, numvar=numvar,
                        idvar=idvar, titlevar=titlevar, annotationvar=annotationvar,

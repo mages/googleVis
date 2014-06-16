@@ -227,7 +227,7 @@ var options = {};
 <!-- divChart -->
 %s  
 <div id="%s"
-  style="width: %spx; height: %spx;">
+  style="width: %s; height: %s;">
 </div>
 '
   divChart <- sprintf(divChart,
@@ -235,8 +235,8 @@ var options = {};
                              sprintf("<input type='button' onclick='openEditor%s()' value='%s'/>",
                                      chartid,as.character(options$gvis$gvis.editor)),''),
                       chartid,
-                      ifelse(!(is.null(options$gvis$width) || (options$gvis$width == "")),options$gvis$width,600),
-                      ifelse(!(is.null(options$gvis$height) || (options$gvis$height == "")),options$gvis$height,500)
+                      ifelse(!(is.null(options$gvis$width) || (options$gvis$width == "")),options$gvis$width, "600px"),
+                      ifelse(!(is.null(options$gvis$height) || (options$gvis$height == "")),options$gvis$height, "500px")
   )
   
   output <- list(chart=list(jsHeader=jsHeader,

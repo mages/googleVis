@@ -60,3 +60,5 @@ Thanks to:
   o Yihui Xie for pointing out formatting issues of the markdown 
     vignettes
   o John Taveras for reporting in gvisCheckCoreChartData
+  o Paul Murrell for reporting an issue with setting width and height of 
+    googleVis charts
