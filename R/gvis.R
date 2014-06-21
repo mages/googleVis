@@ -1,6 +1,6 @@
 ### File R/gvis.R
 ### Part of the R package googleVis
-### Copyright 2010, 2011, 2012, 2013 Markus Gesmann, Diego de Castillo
+### Copyright 2010 - 2014 Markus Gesmann, Diego de Castillo
 ### Distributed under GPL 2 or later
 
 ### It is made available under the terms of the GNU General Public
@@ -226,17 +226,17 @@ var options = {};
   divChart <- '
 <!-- divChart -->
 %s  
-<div id="%s"
+<div id="%s" 
   style="width: %s; height: %s;">
 </div>
-'
+'  
   divChart <- sprintf(divChart,
                       ifelse(!is.null(options$gvis$gvis.editor),
                              sprintf("<input type='button' onclick='openEditor%s()' value='%s'/>",
                                      chartid,as.character(options$gvis$gvis.editor)),''),
                       chartid,
-                      ifelse(!(is.null(options$gvis$width) || (options$gvis$width == "")),options$gvis$width, "600px"),
-                      ifelse(!(is.null(options$gvis$height) || (options$gvis$height == "")),options$gvis$height, "500px")
+                      ifelse(!(is.null(options$gvis$width) || (options$gvis$width == "")),options$gvis$width, "500"),
+                      ifelse(!(is.null(options$gvis$height) || (options$gvis$height == "")),options$gvis$height, "automatic")
   )
   
   output <- list(chart=list(jsHeader=jsHeader,
@@ -525,14 +525,20 @@ gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
   options <- options$gvis
   # wipe out options with start with gvis.
   options[grep("^gvis.",names(options))] <- NULL
-  .par <- sapply(names(options), function(x)
-    paste("options[\"", x,"\"] = ",
-          ifelse(any(checkSquareCurlBracketOps(options[[x]])),
-                 paste(options[[x]], collapse="\n"),
-                 paste(toJSON(options[[x]], FALSE), collapse="\n")                                       
-          ),
-          ";",sep="" )
+  .par <- sapply(names(options), function(x){
+    if(! (x %in% c("width", "height") & 
+            ! is.numeric(type.convert(gsub("px","", options[[x]])))) 
+    ){
+      paste("options[\"", x,"\"] = ",
+            ifelse(any(checkSquareCurlBracketOps(options[[x]])),
+                   paste(options[[x]], collapse="\n"),
+                   paste(toJSON(options[[x]], FALSE), collapse="\n")                                       
+            ),
+            ";",sep="" )      
+    }
+  }
   )
+  .par <- .par[!sapply(.par,is.null)]
   return(fixBackslash(.par))
 }
 
