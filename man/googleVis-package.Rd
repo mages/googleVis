@@ -3,12 +3,12 @@
 \alias{googleVis}
 \docType{package}
 \title{
-Using the Google Chart Tools with R
+Using Google Charts with R
 }
 \description{
-  The googleVis package provides an interface between R and the Google
-  Chart Tools. It allows users to create web pages with interactive
-  charts based on R data frames, using the Google Chart Tools and to
+  The googleVis package provides an interface between R and Google
+  Charts. It allows users to create web pages with interactive
+  charts based on R data frames, using the Google Charts API and to
   display them either via the local R HTTP help server or within their
   own sites, without uploading the data to Google.
   
@@ -31,7 +31,7 @@ Using the Google Chart Tools with R
   }
 \references{
   \itemize{
-		\item Google Chart Tools API: \url{https://developers.google.com/chart/}
+		\item Google Charts API: \url{https://developers.google.com/chart/}
 	\item Google Terms of Use: \url{https://developers.google.com/terms/}
 	\item Google Maps API Terms of Service: \url{https://developers.google.com/maps/terms}
       }

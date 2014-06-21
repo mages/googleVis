@@ -7,12 +7,12 @@
 \usepackage{hyperref}
 
 \hypersetup{
-  pdftitle={Using the Google Chart Tools with R},%
+  pdftitle={Using Google Charts with R},%
   pdfauthor={Markus Gesmann},%
 }
 
 %\VignetteEngine(Sweave)
-%\VignetteIndexEntry{Using the Google Chart Tools with R}
+%\VignetteIndexEntry{Using Google Charts with R}
 %\VignetteDepends{googleVis}
 %\VignetteKeywords{google, visualisation, api}
 %\VignettePackage{googleVis}
@@ -51,13 +51,13 @@ Contact: rvisualisation@gmail.com}
 \maketitle
 \begin{abstract}
   The \googleVis package provides an interface between R and the
-  Google Chart Tools.  The Google Chart Tools offer interactive
+  Google Charts API. Google Charts offer interactive
   charts which can be embedded into web pages. The best 
   known of these charts is probably the Motion Chart, popularised 
   by Hans Rosling in his TED talks. 
  
   The functions of the \googleVis package allow the user to visualise
-  data stored in R data frames with the Google Chart Tools
+  data stored in R data frames with Google Charts
   without uploading the data to Google. The output of a \googleVis
   function is html code that contains the data and references to
   JavaScript functions hosted by Google.
@@ -95,7 +95,7 @@ motion charts, see Figure~\ref{MotionChartGUI}.
 Rosling's presentation popularised the idea and use of interactive
 charts. One year later the software behind
 Gapminder was bought by Google and integrated as motion charts into
-their Google Chart Tools~\cite{GoogleVisApi}, formerly known as Google
+their Google Charts API~\cite{GoogleVisApi}, formerly known as Google
 Visualisation API.  
 
 In 2010 Sebasti\'{a}n P\'{e}rez Saaibi~\cite{Saaibi2010} presented at the 
@@ -134,8 +134,8 @@ and \href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare}.
 
 \subsection{Google Chart Tools}\label{sec:GoogleChartTools}
 
-The Google Chart Tools~\cite{GoogleVisApi}
-allow users to create interactive charts as part of Google
+The Google Charts API~\cite{GoogleVisApi}
+allows users to create interactive charts as part of Google
 documents, spreadsheets and web pages. In this text we will focus 
 on the usage of the API as part of web pages.
 
@@ -145,7 +145,7 @@ help to analyse data. Please note, that all of those charts are
 rendered by the browser.
 
 The charting data can either be embedded into the html file or read
-dynamically. The key to the Google Chart Tools is that the data is
+dynamically. The key to the Google Charts is that the data is
 structured in a DataTable~\cite{DataTable}, and this is where the \googleVis
 package helps, as it transforms R data frames into JSON~\cite{json}
 objects, using the \texttt{\textbf{RJSONIO}} package~\cite{RJSONIO}, as
@@ -227,7 +227,7 @@ However, before you use the API you should read the \href{https://developers.goo
 
 The \googleVis package provides an interface between R and the Google
 Chart Tools.  The functions of the package allow the user to
-visualise data stored in R data frames with the Google Chart Tools.
+visualise data stored in R data frames with Google Charts.
 
 Version (\Sexpr{packageDescription("googleVis")[['Version']]}) of the package
 provides interfaces to  Motion Charts, Annotated Time Lines, 
@@ -333,7 +333,7 @@ and \texttt{timevar} specify the column names of the id variable and
 time variable for the plot, while display options are set in an
 optional list, which we discuss in more detail on
 page~\pageref{settingoptions}. The options and data requirements
-follow those of the Google Chart Tools and are documented in the
+follow those of the Google Charts API  and are documented in the
 help pages, see 
 <<eval=FALSE>>=
 help('gvisMotionChart')
@@ -587,7 +587,7 @@ plot(GTM)
 
 Setting the various options of a \googleVis objects can be a bit
 cumbersome at first. The options follow those of the Google
-Chart Tools and can be set via a named list using the argument \texttt{options}.
+Charts API and can be set via a named list using the argument \texttt{options}.
 In the following example we create a line chart and set various
 options\footnote{Please refer to the help file of the individual
   \googleVis functions, as the options can vary from chart to chart.},
@@ -1352,13 +1352,13 @@ plot(J2)
 @ 
 For more details see the \texttt{demo(EventListener)} and
 \href{https://developers.google.com/chart/interactive/docs/reference}{Google
-  Chart Tools Reference}.
+  Charts Reference}.
 
 \section{Frequent ask questions -- FAQ}
 \subsection{Can I use googleVis output in PDF files?}
 No, not directly. 
 
-The Google Chart Tools API is designed for dynamic web
+The Google Charts API is designed for dynamic web
 output on your screen and not on paper. See also the
 section~\ref{sec:presentations}, page~\pageref{sec:presentations},
 which covers how to use \googleVis in presentations. 
@@ -1374,7 +1374,7 @@ PNG charts}.
 
 No, unfortunately not.
 
-The colours are set by the Google Chart Tools API and cannot be changed
+The colours are set by the Google Charts API and cannot be changed
 by the user.
 
 \subsection{Can I change the icons in Maps?}
@@ -1430,7 +1430,7 @@ plot(area1)
 
 The charts have a lot of options which allow you to change the look
 and feel of the output, see the help files for more details. However,
-\googleVis provides only an interface to the Google Chart Tools. If
+\googleVis provides only an interface to the Google Charts API. If
 you have specific questions to the charts then please join the Google
 Visualisation API newsgroup: 
 \url{http://groups.google.com/group/google-visualization-api}.
@@ -1454,7 +1454,7 @@ us a line or add them to our issues list:
 \section{Contact}
 \subsection{Collaboration} 
 Obviously, the package is work in progress and there are many other functions of the Google
-Chart Tools which are still untouched. 
+Charts API which are still untouched. 
 
 Please feel free to send us an email if you would like to be kept
 informed of new versions, or if you have any feedback, ideas,
