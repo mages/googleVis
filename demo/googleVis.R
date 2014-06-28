@@ -261,7 +261,6 @@ plot(PopTable)
 pause()
 
 ## ---- OrgChart ----
-Regions
 Org <- gvisOrgChart(Regions, 
                     options=list(width=600, height=250,
                                  size='large', allowCollapse=TRUE))
