@@ -46,6 +46,8 @@ See the googleVis package [vignettes](http://cran.r-project.org/web/packages/goo
 
 [<img src="https://raw.github.com/mages/googleVis/master/vignettes/figures/googleVisTutorial2013.png" width=400/>](http://decastillo.github.io/googleVis_Tutorial)
 
+[![Donate](https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=HHPMW8TXCCRSC&lc=GB&item_name=googleVis&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
+
 ## License
 
 This package is free and open source software, licensed under [GPL](https://www.gnu.org/copyleft/gpl.html).
