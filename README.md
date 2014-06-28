@@ -1,8 +1,8 @@
 # googleVis 
 
-The googleVis package provides an interface between R and the [Google Chart Tools API](https://developers.google.com/chart/interactive/docs/gallery). 
+The googleVis package provides an interface between R and the [Google Charts API](https://developers.google.com/chart/interactive/docs/gallery). 
 
-It allows users to create web pages with interactive charts based on R data frames, using the Google Chart Tools and to display them either via the local R HTTP help server or within their own
+It allows users to create web pages with interactive charts based on R data frames, using the Google Charts API and to display them either via the local R HTTP help server or within their own
 sites, without uploading the data to Google. A modern browser with Internet connection is required and for some charts Flash. 
 
 Please read the [Google API Terms of Use](https://developers.google.com/terms/) before you use the package.

@@ -2,7 +2,7 @@ Package: googleVis
 Type: Package
 Title: Interface between R and Google Charts
 Version: 0.5.3
-Date: 2014-06-21
+Date: 2014-06-28
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     email = "markus.gesmann@googlemail.com"),
     person("Diego", "de Castillo", role = "aut",
@@ -26,7 +26,8 @@ Suggests:
     httpuv (>= 1.2.0),
     knitr (>= 1.5)
 License: GPL (>= 2)
-URL: https://github.com/mages/googleVis
+URL: http://github.com/mages/googleVis
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
+Type: Package

@@ -1,5 +1,13 @@
-googleVis 0.5.3 [2014-06-21]
+googleVis 0.5.3 [2014-06-28]
 ----------------------------
+
+Changes
+
+* Default chart width is set to 'automatic' instead of 500 pixels.
+
+* Intervals for columns roles have to end with the suffix ".i",
+  with i being an interger. Several interval columns are allowed,
+  see the Roles demo and vignette for more details.
 
 Bug Fix
 
@@ -12,12 +20,6 @@ Bug Fix
   the number is assumed to be pixels. This has been fixed.
   Thanks to Paul Murrell for reporting this issue.
 
-Changes
-
-* Intervals for columns roles have to end with the suffix ".i",
-  with i being an interger. Several interval columns are allowed,
-  see the Roles demo and vignette for more details.
-
 
 googleVis 0.5.2 [2014-05-05]
 ----------------------------
@@ -28,6 +30,7 @@ Changes
 * Added examples in demo googleVis to show how to
   customize points and lines and to the help files of
   gvisLineChart and gvisScatterChart.
+
 
 googleVis 0.5.1 [2014-04-14]
 ----------------------------
@@ -89,6 +92,7 @@ Changes
   via the option viewer. Set options("viewer"=NULL) and the googleVis
   plot function will open all output in the default browser again.
 
+
 googleVis 0.4.5 [2013-08-29]
 ----------------------------
 
@@ -96,6 +100,7 @@ Bug Fixes
 
 * The indentation of some of the HTML output changed in version 0.4.4,
   which as a result stopped googleVis output to be rendered with knitr.
+
 
 googleVis 0.4.4 [2013-08-23]
 ----------------------------
