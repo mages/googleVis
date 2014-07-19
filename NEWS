@@ -3,7 +3,7 @@ googleVis 0.5.4 [2014-06-19]
 
 Changes
 
-* Tyding up of googleVis demo, vignette and README file
+* Tidying up of googleVis demo, vignette and README file
 
 
 googleVis 0.5.3 [2014-06-28]
@@ -22,7 +22,7 @@ Bug Fix
 * The order of y-variables in core charts wasn't maintained.
   Thanks to John Taveras for reporting this bug.
 
-* Width and height of googleVis charts were only accpeted in pixels, 
+* Width and height of googleVis charts were only accepted in pixels, 
   although the Google Charts API uses standard HTML units (for
   example, '100px', '80em', '60', 'automatic'). If no units are specified 
   the number is assumed to be pixels. This has been fixed.
