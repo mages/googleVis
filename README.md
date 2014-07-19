@@ -7,7 +7,7 @@ sites, without uploading the data to Google. A modern browser with Internet conn
 
 You find examples of all googleVis function on [CRAN](http://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html). Perhaps the best known example of the Google Chart API is the motion chart, popularised by [Hans Rosling](http://www.gapminder.org) in his [2006 TED talk](http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen). 
 
-<iframe src="http://mages.github.io/googleVis/WorldBank.html" width=560 height=560 frameborder=0>Loading</iframe>
+<iframe src="http://mages.github.io/googleVis/WorldBank.html" width=560 height=560 frameborder=0></iframe>
 
 Please read the [Google API Terms of Use](https://developers.google.com/terms/) before you start using the package. 
 
