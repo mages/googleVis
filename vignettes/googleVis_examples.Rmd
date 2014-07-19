@@ -154,19 +154,8 @@ Left mouse-click to drill down, right mouse-click to move up a hierarchy.
 ```{r gvisMerge, results='asis', tidy=FALSE}
 ```
 
-```{r gvisMerge3, results='asis', tidy=FALSE}
-```
-
-
-
+# Flash charts
 All the following charts require Flash. 
-## Geo Map
-```{r GeoMap, results='asis', tidy=FALSE}
-```
-
-## Annotated time line chart
-```{r AnnotatedTimeLine, results='asis', tidy=FALSE}
-```
 
 ## Motion chart
 ```{r MotionChart, results='asis', tidy=FALSE}
@@ -184,3 +173,10 @@ displayed.
 ```
 
 
+## Geo Map
+```{r GeoMap, results='asis', tidy=FALSE}
+```
+
+## Annotated time line chart
+```{r AnnotatedTimeLine, results='asis', tidy=FALSE}
+```

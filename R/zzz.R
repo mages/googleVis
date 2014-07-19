@@ -93,7 +93,7 @@ gvisWelcomeMessage <- function(){
         "Welcome to googleVis version ", packageDescription("googleVis")$Version, "\n",
         "\n",
         "Please read the Google API Terms of Use\n",
-        "before you use the package:\n",
+        "before you start using the package:\n",
         "https://developers.google.com/terms/\n",
         "\n",
         "Note, the plot method of googleVis will by default use\n",
