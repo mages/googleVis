@@ -109,18 +109,6 @@ others the authors of this vignette started the development of the
 \googleVis package~\cite{googleVis},
 \cite{RJournal:2011-2:GesmannCastillo} in August 2010. 
 
-Of course there are many other alternative visualisation toolkits out
-there, e.g. 
-\href{http://d3js.org}{d3js} \cite{d3js}, 
-\href{http://www-958.ibm.com/software/data/cognos/manyeyes/}{Many
-  Eyes} \cite{ManyEyes},
-\href{http://teethgrinder.co.uk/open-flash-chart/}{Open Flash Chart
-  (Flash)} \cite{OpenFlashChart}, 
-\href{http://www.openlayers.org/}{OpenLayers
-  (JavaScript)} \cite{OpenLayers}, 
-\href{http://processing.org/}{Processing (Java)} \cite{Processing}, 
-and \href{http://flare.prefuse.org/}{FLARE (ActionScript)} \cite{Flare}.
-
 \begin{figure}[t]
 \begin{center}
 \includegraphics[width=\textwidth]{./figures/MotionChart.pdf}
