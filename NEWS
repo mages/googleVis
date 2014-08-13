@@ -1,9 +1,11 @@
-googleVis 0.5.4 [2014-08-09]
+googleVis 0.5.4 [2014-08-13]
 ----------------------------
 
 Changes
 
-* Tidying up of README file
+* Tidyed up of README file.
+
+* Added example to gvisMerge help file.
 
 
 googleVis 0.5.4 [2014-06-19]
