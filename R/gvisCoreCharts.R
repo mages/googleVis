@@ -871,12 +871,22 @@ gvisCheckCoreChartData <- function(data, xvar, yvar){
   if(xvar=="")
     xvar <- names(data)[1]
 
+  if(ncol(data)>1){
+    rest <- names(data)[!names(data) %in% xvar]
+    data <- data[,c(xvar, rest)]
+  }
+  
   if("integer" %in% class(data[,xvar]))
     data[,xvar] <- as.character(data[,xvar])
   
   if("" %in% yvar){
-    yvar <- sapply(data, is.numeric)
-    yvar <- names(yvar[yvar])
+    if(ncol(data) > 2){
+      yvar <- sapply(data[,-1], is.numeric)
+      yvar <- names(yvar[yvar])
+    }else{
+      yvar=names(data)[2]
+    }
+    
   }
   
   data <- data[,c(xvar, yvar)]

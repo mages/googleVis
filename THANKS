@@ -62,3 +62,4 @@ Thanks to:
   o John Taveras for reporting in gvisCheckCoreChartData
   o Paul Murrell for reporting an issue with setting width and height of 
     googleVis charts
+  o Thanks to stanstrup for reporting an issue with gvisCoreChart

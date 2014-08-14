@@ -1,4 +1,4 @@
-googleVis 0.5.4 [2014-08-13]
+googleVis 0.5.4 [2014-08-14]
 ----------------------------
 
 Changes
@@ -7,6 +7,11 @@ Changes
 
 * Added example to gvisMerge help file.
 
+Bug Fixes
+
+* In some case when no xvar and yvar arguments where provided for 
+  core charts the output wasn't sensible. This bug was introduced with
+  version 0.5.3. Thanks to stanstrup for reporting this issue.
 
 googleVis 0.5.4 [2014-06-19]
 ----------------------------
