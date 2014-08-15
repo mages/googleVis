@@ -22,7 +22,7 @@ read_demo('Trendlines', 'googleVis')
 ```{r LinearTrend, results='asis', tidy=FALSE}
 ```
 
-## Exponential trend line and show equation in legend
+## Exponential trend line with equation shown in legend
 ```{r ExponentialTrend, results='asis', tidy=FALSE}
 ```
 

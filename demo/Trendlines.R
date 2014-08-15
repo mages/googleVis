@@ -14,7 +14,6 @@ plot(
   gvisScatterChart(women, options=list(trendlines="0"))
 )
 
-## Exponential trend line and show equation in legend
 ## ---- ExponentialTrend ----
 plot(
   gvisScatterChart(women, options=list(
@@ -22,7 +21,8 @@ plot(
                      visibleInLegend: 'true', 
                      color: 'green',
                      lineWidth: 10,
-                     opacity: 0.5}}"))
+                     opacity: 0.5}}",
+    chartArea="{left:50,top:20,width:'50%',height:'75%'}"))
 )
 
 ## ---- ColumnChartWithTrendline ----
@@ -44,7 +44,9 @@ plot(
                           1:{
                             labelInLegend: 'Trendline 2',
                             visibleInLegend: true}
-                          }"
+                          }",
+                          chartArea="{left:50,top:20,
+                                      width:'50%',height:'75%'}"
                   ))
 )
 

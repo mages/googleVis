@@ -23,15 +23,14 @@ This column is mapped automatically as a tooltip, when the user hovers
 over the chart point.
 ```{r Tooltip, results='asis', tidy=FALSE}
 ```
-I can embed some HTML code into my tooltip as well, but then I have to
-set this in my options list as well.
+HTML code can be embedded into the tooltip as well, if the option 
+isHtml is set to true.
 ```{r TooltipHTML, results='asis', tidy=FALSE}
 ```
-Often it is helpful to highlight certain parts of the data, e.g.
-subsets that I feel more certain about or that I want to emphasize for 
-other reasons to the reader. 
-In a similar way as above I add additional columns to my data
-and asign boolean values to indicate which values I'd like to highlight.
+Often it is helpful to highlight certain parts of the data. The Google API
+distinguishes between certainty and emphasis.
+In a similar way to above additional columns with boolean values
+have to be added to the data.
 ```{r CertaintyScopeEmphasis, results='asis', tidy=FALSE}
 ```
 
@@ -44,17 +43,16 @@ Instead of 'emphasize' use 'style' to change the colours.
 ```{r TwoLines, results='asis', tidy=FALSE}
 ```
 
-Setting the annotations style to 'line' allows me to add little reference lines
+Setting the annotations style to 'line' allows to add little reference lines
 to the plot.
 ```{r VerticalReferenceLine, results='asis', tidy=FALSE}
 ```
 
-Intervals are help to add error bars, confidency levels, etc.
+Intervals help to add error bars, confidence levels, etc.
 Note that the options are set either via `interval` or `intervals`, 
 if set across all intervals. The examples below give an indication of what 
-can be achieved with intervals. For more details visit the Google documentation
-on [intervals](https://google-developers.appspot.com/chart/interactive/docs/gallery/intervals).
+can be achieved with intervals. 
+For more details visit the Google [documentation](https://google-developers.appspot.com/chart/interactive/docs/gallery/intervals).
 
 ```{r Interval, results='asis', tidy=FALSE}
 ```
-

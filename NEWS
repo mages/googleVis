@@ -1,19 +1,21 @@
-googleVis 0.5.4 [2014-08-14]
+googleVis 0.5.4 [2014-08-15]
 ----------------------------
 
 Changes
-
-* Tidyed up of README file.
 
 * Added example to gvisMerge help file.
 
 Bug Fixes
 
-* In some case when no xvar and yvar arguments where provided for 
-  core charts the output wasn't sensible. This bug was introduced with
-  version 0.5.3. Thanks to stanstrup for reporting this issue.
+* README.md when converted to (X)HTML using a current version of 
+  pandoc showed minor problems when validated using W3C Markup 
+  Validator.
 
-googleVis 0.5.4 [2014-06-19]
+* In some case when no xvar and yvar arguments where provided for 
+  core charts the output wasn't sensible. This bug was introduced 
+  with version 0.5.3. Thanks to stanstrup for reporting this issue.
+
+googleVis 0.5.4 [2014-07-19]
 ----------------------------
 
 Changes

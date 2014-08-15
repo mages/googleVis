@@ -34,19 +34,6 @@ read_demo('googleVis', 'googleVis')
 ```{r TwoAxis, results='asis', tidy=FALSE}
 ```
 
-### Setting options, it works similar for other charts
-```{r SettingOptions, results='asis', tidy=FALSE}
-```
-
-### Customizing Lines
-```{r CustomizingLines, results='asis', tidy=FALSE}
-```
-
-### Add edit button for on the fly customisation
-```{r EditButton, results='asis', tidy=FALSE}
-```
-The same option is available for all other charts.
-
 ## Bar chart
 ```{r BarChart, results='asis', tidy=FALSE}
 ```
@@ -71,12 +58,26 @@ The same option is available for all other charts.
 ```{r ScatterChart, results='asis', tidy=FALSE}
 ```
 
+## Bubble chart
+```{r BubbleChart, results='asis', tidy=FALSE}
+```
+
+### Customizing Lines
+```{r CustomizingLines, results='asis', tidy=FALSE}
+```
+
+
 ## Customizing points
 ```{r ScatterChartPoints, results='asis', tidy=FALSE}
 ```
 
-## Bubble chart
-```{r BubbleChart, results='asis', tidy=FALSE}
+### Added edit button for on the fly customisation
+```{r EditButton, results='asis', tidy=FALSE}
+```
+The same option is available for all other charts.
+
+### A chart with many options set
+```{r SettingOptions, results='asis', tidy=FALSE}
 ```
 
 ## Candlestick chart

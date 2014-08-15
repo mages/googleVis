@@ -4,9 +4,10 @@
 -->
 # Markdown example with knitr and googleVis
 ===========================================
-This is a little Markdown example file.
-Set the googleVis options first.
-In this case change the behaviour of plot.gvis
+This is a little Markdown example output. The Markdown source file is hosted on [GitHub](https://github.com/mages/googleVis/blob/master/vignettes/Using_googleVis_with_knitr.Rmd).
+
+Set the googleVis options first to change the behaviour of plot.gvis, so that only the chart component of the HTML file is written into the output file.
+
 ```{r setOptions, message=FALSE}
 library(googleVis)
 op <- options(gvis.plot.tag='chart')
@@ -44,7 +45,7 @@ M <- gvisMotionChart(Fruits, 'Fruit', 'Year',
 plot(M)
 ```
 Please note that the Motion Chart is only displayed when hosted on a
-web server, or is placed in a directory which has been added to the 
+web server, or if placed in a directory which has been added to the 
 trusted sources in the [security settings of Macromedia]
 (http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html). 
 See the googleVis package vignette for more details. 
