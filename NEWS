@@ -1,6 +1,11 @@
-googleVis 0.5.6 [2014-08-15]
+googleVis 0.5.6 [2014-09-04]
 ----------------------------
 
+* Added table of content to googleVis exmaples
+  vignette
+
+* Rescaled the column "% of World Population"
+  in sample data set "Population" by a factor of 0.01
 
 googleVis 0.5.5 [2014-08-15]
 ----------------------------

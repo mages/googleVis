@@ -62,5 +62,8 @@ Thanks to:
   o John Taveras for reporting in gvisCheckCoreChartData
   o Paul Murrell for reporting an issue with setting width and height of 
     googleVis charts
-  o Thanks to Kurt Hornik for pointing out issues with README.md
-  o Thanks to stanstrup for reporting an issue with gvisCoreChart
+  o Kurt Hornik for pointing out issues with README.md
+  o stanstrup for reporting an issue with gvisCoreChart
+  o Jason Miller for highlighting that the column "% of World 
+    Population" in sample data set "Population" needed to be 
+    devided by 100
