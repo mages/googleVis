@@ -1,9 +1,17 @@
+---
+title: "Examples from the googleVis package"
+output:
+  html_document:
+    css: mystyle.css
+    theme: null
+    toc: yes
+---
+
 <!--
-%\VignetteEngine{knitr::knitr}
+%\VignetteEngine{knitr::rmarkdown}
 %\VignetteIndexEntry{Demonstartion of googleVis}
 -->
-# Examples from the googleVis package
-===========================================
+
 It may take a little while to load all charts. Please be patient.
 All charts require an Internet connection.
 
