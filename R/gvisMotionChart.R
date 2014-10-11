@@ -193,40 +193,66 @@ gvisMotionChart <- function(data, idvar="id", timevar="time",
   
   my.type <- "MotionChart"
   dataName <- deparse(substitute(data))
-
-  ## Bring data frame in the right column order
-  vars <- c(idvar, timevar, xvar, yvar, colorvar, sizevar)  
+  
+  vars <- c(idvar, timevar)#, xvar, yvar)#, colorvar, sizevar) 
   vars.pos <- na.omit(match(vars, names(data)))
   nm <- c(names(data)[vars.pos], names(data)[-vars.pos])
   data <- cbind(data[, vars.pos], data[,-vars.pos])
   names(data) <- nm
   
+  
+  if(xvar != ""){
+    x.col <- match(xvar, names(data) ) - 1
+    xvar <- paste0("\"xAxisOption\":\"",x.col,"\",")   
+  }
+  if(yvar != ""){
+    y.col <- match(yvar, names(data) ) - 1
+    yvar <- paste0("\"yAxisOption\":\"",y.col,"\",")   
+  }
+  if(colorvar != ""){
+    colour.col <- match(colorvar, names(data) ) - 1
+    colorvar <- paste0("\"colorOption\":\"",colour.col,"\",")   
+  }
+  if(sizevar != ""){
+    size.col <- match(sizevar, names(data) ) - 1
+    sizevar <- paste0("\"sizeOption\":\"",size.col,"\",") 
+  }
+  
+  myState <- ""
+  if(!all(c(xvar, yvar, colorvar, sizevar) %in% "")){
+    myState <- paste0("\n{", xvar, yvar, colorvar, sizevar,
+                      "\"dimensions\":{\"iconDimensions\":[\"dim0\"]}}\n") 
+  }
+  
   ## Combine options for other generic functions
-  my.options <- list(gvis=modifyList(list(width = 600, height=500), options),
+  my.options <- list(gvis=modifyList(list(width = 600, height=500,
+                                          state=myState), options),
                      dataName=dataName,
                      data=list(idvar=idvar, timevar=timevar,
-                       date.format=date.format, allowed=c("number",
-                                                  "string", "date"))
-                     )
+                               date.format=date.format,
+                               allowed=c("number",
+                                         "string", "date"))
+  )
   
   checked.data <- gvisCheckMotionChartData(data, my.options)
-             
-  output <- gvisChart(type=my.type, checked.data=checked.data, 
+  
+  output <- gvisChart(type=my.type, checked.data=checked.data,
                       options=my.options, chartid)
   
   return(output)
 }
 
 
+
 gvisCheckMotionChartData <- function(data, options){
   
   ## Motion Charts require in the first column the idvar and time var in the second column
   ## The combination of idvar and timevar has to be unique
-
+  
   ## Google Motion Chart needs a 'string' in the id variable (first column)
   ## A number or date in the time variable (second column)
   ## Everything else has to be a number or string
-
+  
   ## Convert data.frame to list
   x <- as.list(data)
   varNames <- names(x)
@@ -242,32 +268,31 @@ gvisCheckMotionChartData <- function(data, options){
     stop("There is a missmatch between the idvar and timevar specified and the colnames of your data.")
   }
   
-
+  
   typeMotionChart[[options$data$timevar]] <-
     testTimevar(x[[options$data$timevar]], options$data$date.format)
   
   if(typeMotionChart[[options$data$timevar]] == "string" &
-     (options$data$date.format %in% c("%YW%W","%YW%U"))){
+       (options$data$date.format %in% c("%YW%W","%YW%U"))){
     ## only true for weekly data
     x[[options$data$timevar]] <- format.Date(x[[options$data$timevar]],
                                              options$data$date.format) 
   }
-    
+  
   
   ## idvar has to be a character, so lets try to convert it into a character
   if( ! is.character(x[[options$data$idvar]]) ){
     x[[options$data$idvar]] <- as.character(x[[options$data$idvar]])
   }
   typeMotionChart[[options$data$idvar]] <- "string"
-
+  
   varOthers <- varNames[ -idvar.timevar.pos  ]  
-                        
   
   varOrder <- c(options$data$idvar, options$data$timevar, varOthers)
   x <- x[varOrder]
   
   typeMotionChart[varOthers] <- sapply(varOthers, function(.x)
-                                       ifelse(is.numeric(x[[.x]]), "number","string"))
+    ifelse(is.numeric(x[[.x]]), "number","string"))
   
   typeMotionChart <- typeMotionChart[varOrder]
   x[varOthers] <- lapply(varOthers,function(.x){
@@ -276,7 +301,7 @@ gvisCheckMotionChartData <- function(data, options){
   
   
   ## check uniqueness of rows
-
+  
   if( nrow(data) != nrow(unique(as.data.frame(x)[1:2]))  ){
     stop("The data must have rows with ",
          "unique combinations of idvar and timevar.\n",
@@ -286,10 +311,10 @@ gvisCheckMotionChartData <- function(data, options){
          nrow(unique(as.data.frame(x)[1:2])),
          " unique rows.")
   }
-
+  
   X <- data.frame(x)
   names(X) <- varNames
-
+  
   return(X)
 }
 
@@ -300,18 +325,18 @@ testTimevar <- function(x, date.format){
   
   if(class(x)=="Date"& date.format %in% c("%YW%W","%YW%U"))
     return("string") 
-
+  
   ##Quarters. Accept in ISO format as a character
   if(class(x)=="character" &  all(grepl("[0-9]{4}Q[1-4]" ,x)  == TRUE))
     return("string")
-
+  
   ##Weeks. Accept in ISO format as a character
   if(class(x)=="character" &  all(grepl("[0-9]{4}W[0-4][0-9]|5[0-3]" , x)  == TRUE))
     return("string")
-
+  
   if(class(x)=="Date")
     return("date")
   
   stop(paste("The timevar has to be of numeric or Date format. Currently it is ", class(x)))
-
+  
 }

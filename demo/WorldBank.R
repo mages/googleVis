@@ -38,6 +38,7 @@ M <- gvisMotionChart(WorldBank,
                      idvar="country", timevar="year",
                      xvar="life.expectancy", yvar="fertility.rate",
                      colorvar="region", sizevar="population",
-                     options=list(width=700, height=600))
+                     options=list(width=700, height=600),
+                     chartid="WorldBank")
 ## Display the chart in the browser
 plot(M)

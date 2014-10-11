@@ -67,3 +67,4 @@ Thanks to:
   o Jason Miller for highlighting that the column "% of World 
     Population" in sample data set "Population" needed to be 
     devided by 100
+  o Juuso Parkkinen for reporting a bug in gvisMotionChart
