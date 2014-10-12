@@ -7,10 +7,9 @@ Using Google Charts with R
 }
 \description{
   The googleVis package provides an interface between R 
-  and the Google Charts API. It allows users to create web pages 
-  with interactive charts based on R data frames, using the Google 
-  Charts API. The package provides plot methods in R to display 
-  the charts locally with the R HTTP help server without uploading 
+  and the Google Charts API. It allows users to create web pages
+  with interactive charts based on R data frames and to display
+  them locally using the R HTTP help server without uploading
   the data to Google. 
   
   A modern browser with Internet connection is required and for 
@@ -34,8 +33,8 @@ Using Google Charts with R
 \references{
   \itemize{
 		\item Google Charts API: \url{https://developers.google.com/chart/}
-	\item Google Terms of Use: \url{https://developers.google.com/terms/}
-	\item Google Maps API Terms of Service: \url{https://developers.google.com/maps/terms}
+	  \item Google Terms of Use: \url{https://developers.google.com/terms/}
+	  \item Google Maps API Terms of Service: \url{https://developers.google.com/maps/terms}
       }
 }
 \examples{
