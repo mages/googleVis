@@ -9,7 +9,7 @@ Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     email = "decastillo@gmail.com"),
     person("Joe", "Cheng", role = "ctb",
     email = "joe@rstudio.com"))
-Description: The googleVis package provides an interface between R 
+Description: The googleVis package provides an interface between R
     and the Google Charts API. It allows users to create web pages
     with interactive charts based on R data frames and to display
     them locally using the R HTTP help server without uploading

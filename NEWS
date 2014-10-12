@@ -8,8 +8,9 @@ Changes
 
 Bug Fixes
 
-* gvisMotionChart: arguments sizevar and colorvar were not always picked up
-  correctly. Thanks to Juuso Parkkinen for reporting this issue.
+* gvisMotionChart: arguments xvar, yvar, sizevar and colorvar were not 
+  always picked up correctly. 
+  Thanks to Juuso Parkkinen for reporting this issue.
 
 googleVis 0.5.5 [2014-08-15]
 ----------------------------
