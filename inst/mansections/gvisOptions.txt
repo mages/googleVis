@@ -1,19 +1,27 @@
 The parameters can be set via a named list. The parameters have to map those
 of the Google documentation. 
 \itemize{
-\item{parameters with names that don't include a "." and are set with a single 
-value, e.g. width and height. Those are set like one would do in R, that is
-\code{options=list(width=200, height=300)}. 
-Boolean arguments are set to 
+\item{Boolean arguments are set to 
 either \code{TRUE} or \code{FALSE}, using the R syntax.
 }
-\item{parameters with names that don't include a "."  are set with 
-multiple values, e.g. \code{color}, and are wrapped in "[ ]", e.g. 
+\item{Google API parameters with a single value and with names that don't 
+include a "." are set like one would do in R, that is 
+\code{options=list(width=200, height=300)}. 
+Exceptions to this rule are the width and height options for 
+\code{\link{gvisAnnotatedTimeLine}} and \code{\link{gvisAnnotationChart}}.
+For those two functions, width and height must be character strings of the 
+format \code{"Xpx"}, where \code{X} is a number, or \code{"automatic"}. 
+For example, 
+\code{options=list(width="200px", height="300px")}.
+}
+\item{Google API parameters with names that don't include a ".", but require 
+multivalues are set as a character, wrapped in "[ ]" and separated by commas, 
+e.g. 
 
 \code{options=list(colors="['#cbb69d', '#603913', '#c69c6e']")}
 }
-\item{parameters with names that do include a "." present parameters with 
-several sub-options and have to be set as a string wrapped in "{ }".
+\item{Google API parameters with names that do include a "." present parameters with 
+several sub-options and have to be set as a character wrapped in "{ }".
 The values of those sub-options are set via parameter:value. Boolean values
 have to be stated as \code{'true'} or \code{'false'}. 
 For example the Google documentaion states the formating options for the 

@@ -1,9 +1,10 @@
-googleVis 0.5.7 [2014-10-12]
+googleVis 0.5.7 [2014-10-23]
 ----------------------------
 
 Changes
 
-
+* Clarified setting parameters in help file.
+  Thanks to Nick Salkowski for his suggestions.
 
 googleVis 0.5.6 [2014-10-12]
 ----------------------------
