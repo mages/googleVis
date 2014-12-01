@@ -50,7 +50,7 @@ shinyServer(function(input, output) {
 
   output$view <- renderGvis({
     gvisScatterChart(datasetInput(),
-                     options=list(title=paste('Data:',input$dataset))))
+                     options=list(title=paste('Data:',input$dataset)))
   })
 })
 
