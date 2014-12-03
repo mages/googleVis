@@ -1,7 +1,9 @@
-googleVis 0.5.7 [2014-10-23]
+googleVis 0.5.7 [2014-12-3]
 ----------------------------
 
 Changes
+
+* Updated DESCRPITION file to comply with new CRAN policy
 
 * Clarified setting parameters in help file.
   Thanks to Nick Salkowski for his suggestions.
@@ -11,8 +13,8 @@ googleVis 0.5.6 [2014-10-12]
 
 Changes
 
-* Rescaled the column "% of World Population" in sample data set "Population" 
-  by a factor of 0.01
+* Rescaled the column "% of World Population" in sample data 
+  set "Population" by a factor of 0.01
 
 Bug Fixes
 

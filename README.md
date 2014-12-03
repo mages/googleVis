@@ -1,9 +1,10 @@
 # googleVis 
 
 The googleVis package provides an interface between R and the [Google Charts API](https://developers.google.com/chart/interactive/docs/gallery). 
-
-It allows users to create web pages with interactive charts based on R data frames, using the Google Charts API and to display them either via the local R HTTP help server or within their own
-sites, without uploading the data to Google. A modern browser with Internet connection is required and for some charts Flash. 
+It allows users to create web pages with interactive charts based on R data frames. Charts are displayed locally via the R HTTP help server. 
+A modern browser with Internet connection is required and for some 
+charts Flash. The data remains local and is not uploaded to 
+Google.
 
 You find [examples](http://cran.r-project.org/web/packages/googleVis/vignettes/googleVis_examples.html) of all googleVis function on [CRAN](http://cran.r-project.org/web/packages/googleVis/). Perhaps the best known example of the Google Chart API is the motion chart, popularised by [Hans Rosling](http://www.gapminder.org) in his [2006 TED talk](http://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen). 
 

@@ -3,23 +3,21 @@
 \alias{googleVis}
 \docType{package}
 \title{
-Using Google Charts with R
+  R Interface to Google Charts
 }
 \description{
-  The googleVis package provides an interface between R 
-  and the Google Charts API. It allows users to create web pages
-  with interactive charts based on R data frames and to display
-  them locally using the R HTTP help server without uploading
-  the data to Google. 
-  
-  A modern browser with Internet connection is required and for 
-  some charts Flash.
-  
+  R interface to Google Charts API, allowing users 
+  to create interactive charts based on data frames. Charts 
+  are displayed locally via the R HTTP help server. A modern 
+  browser with Internet connection is required and for some 
+  charts Flash. The data remains local and is not uploaded to 
+  Google.
+    
   Please visit the project web site for more information:
   \url{http://github.com/mages/googleVis}.
 
   You find further notes on Markus' blog:
-  \url{http://lamages.blogspot.co.uk/search/label/googleVis}
+  \url{http://www.magesblog.com/search/label/googleVis}
 } 
 %\details{
 %	}
