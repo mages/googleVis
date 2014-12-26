@@ -9,7 +9,7 @@ It may take a little while to load all charts. Please be patient.
 All charts require an Internet connection.
 
 These examples are taken from the googleVis demo. 
-You can execute the demos via
+You can execute the demo via
 ```{r demo, eval=FALSE}
 library(googleVis)
 demo(googleVis)
@@ -72,10 +72,10 @@ read_demo('googleVis', 'googleVis')
 ```{r ScatterChartPoints, results='asis', tidy=FALSE}
 ```
 
-### Added edit button for on the fly customisation
+### Add edit button for on the fly customisation
 ```{r EditButton, results='asis', tidy=FALSE}
 ```
-The same option is available for all other charts.
+The same option is available for all other charts as well.
 
 ### A chart with many options set
 ```{r SettingOptions, results='asis', tidy=FALSE}
@@ -130,7 +130,7 @@ Double click on a parent to collapse all its children.
 ## Tree Map 
 ```{r TreeMap, results='asis', tidy=FALSE}
 ```
-Left mouse-click to drill down, right mouse-click to move up a hierarchy.
+Left mouse-click to drill down, right mouse-click to move up a level.
 
 ## Annotation chart 
 ```{r AnnotationChart, results='asis', tidy=FALSE}
@@ -157,7 +157,7 @@ Left mouse-click to drill down, right mouse-click to move up a hierarchy.
 ```
 
 # Flash charts
-All the following charts require Flash. 
+All the following charts require a Flash player. 
 
 ## Motion chart
 ```{r MotionChart, results='asis', tidy=FALSE}

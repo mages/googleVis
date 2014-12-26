@@ -64,7 +64,7 @@ Contact: rvisualisation@gmail.com}
   
   googleVis makes use of the internal R HTTP server to display the
   output locally. A modern browser with an Internet connection is
-  required and for some charts Flash.
+  required and for some charts a Flash player.
 	     
 \end{abstract}
 
