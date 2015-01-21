@@ -1,4 +1,4 @@
-googleVis 0.5.8 [2014-01-20]
+googleVis 0.5.8 [2014-01-21]
 ----------------------------
 
 * Internal changes to how the internal web server is called, to reflect

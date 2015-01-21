@@ -44,7 +44,7 @@ isServerRunning <- function() {
   #tools:::httpdPort > 0L
   ifelse(R.version['svn rev'] < 67550,
          get("httpdPort", envir=environment(startDynamicHelp))>0,
-         get("httpdPort", envir=environment(startDynamicHelp))(NA)>0
+         tools::startDynamicHelp(NA)>0
   )  
 }
 
@@ -122,7 +122,7 @@ plot.gvis <- function(x, tag=NULL, ...){
                     #tools:::httpdPort,
                     ifelse(R.version['svn rev'] < 67550,
                            get("httpdPort", envir=environment(startDynamicHelp)),
-                           get("httpdPort", envir=environment(startDynamicHelp))(NA)
+                           tools::startDynamicHelp(NA)
                            ),
                     basename(file))
      if(interactive()){
