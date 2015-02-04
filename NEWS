@@ -1,6 +1,16 @@
 googleVis 0.5.8 [2014-01-21]
 ----------------------------
 
+Changes
+
+  * Added note section on width and height to helpfile of 
+    gvisIntensityMap. Thanks to Sarang Brahme for his comment.
+
+googleVis 0.5.8 [2014-01-21]
+----------------------------
+
+Changes
+
 * Internal changes to how the internal web server is called, to reflect
   changes in R 3.2.0
 

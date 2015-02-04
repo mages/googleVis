@@ -60,6 +60,10 @@
 #' readLines(file.path(".", "inst",  "mansections", 
 #' "GoogleChartToolsURL.txt")))}
 #' 
+#' @section Note:
+#' Please note that the maximum height for this visualisation is 220 and 
+#' the maximum width is 440. For more details see the Google documentation.
+#' 
 #' % END DYNAMIC CONTENT
 #' @author Markus Gesmann \email{markus.gesmann@@gmail.com},
 #' 
