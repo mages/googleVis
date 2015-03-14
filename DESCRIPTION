@@ -27,6 +27,7 @@ Suggests:
     knitr (>= 1.5)
 License: GPL (>= 2)
 URL: http://github.com/mages/googleVis
+BugReports: https://github.com/mages/googleVis/issues 
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
