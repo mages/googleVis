@@ -1,10 +1,12 @@
-googleVis 0.5.8 [2014-01-21]
+googleVis 0.5.9 [2014-07-04]
 ----------------------------
 
 Changes
 
   * Added note section on width and height to help file of 
     gvisIntensityMap. Thanks to Sarang Brahme for his comment.
+   
+  * Updated NAMESPACE file to comply with new R CMD checks in R-3.3.0   
 
 googleVis 0.5.8 [2014-01-21]
 ----------------------------
