@@ -17,9 +17,6 @@ The average air temperature (C) in Cairo from 2002 to 2004.
 }
 %\details{
 %}
-\source{
-\url{http://www.engr.udayton.edu/weather/citylistWorld.htm}
-}
 \references{
 Wood, S.N. (2006) Generalized Additive Models: An Introduction with R
 }

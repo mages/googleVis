@@ -76,7 +76,7 @@ gvisMerge(x, y, horizontal = FALSE,
   }
 }
 \references{
-  Google Chart Tools API: \url{http://code.google.com/apis/chart/index.html}
+  Google Chart Tools API: \url{https://developers.google.com/chart/}
 
   Follow the link for Google's data policy.
 }
