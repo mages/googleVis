@@ -1,4 +1,4 @@
-googleVis 0.5.9 [2014-07-04]
+googleVis 0.5.9 [2015-07-04]
 ----------------------------
 
 Changes
@@ -8,7 +8,7 @@ Changes
    
   * Updated NAMESPACE file to comply with new R CMD checks in R-3.3.0   
 
-googleVis 0.5.8 [2014-01-21]
+googleVis 0.5.8 [2015-01-21]
 ----------------------------
 
 Changes
