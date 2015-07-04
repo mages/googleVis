@@ -1,4 +1,5 @@
 # googleVis 
+[![Travis-CI Build Status](https://travis-ci.org/<USERNAME>/<REPO>.svg?branch=master)](https://travis-ci.org/<USERNAME>/<REPO>)
 
 The googleVis package provides an interface between R and the [Google Charts API](https://developers.google.com/chart/). 
 It allows users to create web pages with interactive charts based on R data frames. Charts are displayed locally via the R HTTP help server. 
