@@ -1,5 +1,5 @@
 # googleVis 
-[![Travis-CI Build Status](https://travis-ci.org/mages/googleVis.svg?branch=master)](https://travis-ci.org/mages/googleVis)   [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/googleVis)](http://cran.r-project.org/web/packages/googleVis) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/googleVis)
+[![Travis-CI Build Status](https://travis-ci.org/mages/googleVis.svg?branch=master)](https://travis-ci.org/mages/googleVis)   [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/googleVis)](http://cran.r-project.org/package=googleVis/) ![downloads](http://cranlogs.r-pkg.org/badges/grand-total/googleVis)
 
 
 The googleVis package provides an interface between R and the [Google Charts API](https://developers.google.com/chart/). 
