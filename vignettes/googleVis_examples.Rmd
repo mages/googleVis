@@ -1,6 +1,6 @@
 <!--
 %\VignetteEngine{knitr::knitr}
-%\VignetteIndexEntry{Demonstartion of googleVis}
+%\VignetteIndexEntry{Demonstration of googleVis}
 -->
 # googleVis examples 
 ===========================================
