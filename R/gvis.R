@@ -321,6 +321,7 @@ gvisFormat <- function(data){
                               "numeric"="number",
                               "character"="string",
                               "factor"="string",
+                              "ordered"="string",
                               "logical"="boolean",
                               "Date"="date",
                               "POSIXct"="datetime",

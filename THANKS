@@ -71,3 +71,4 @@ Thanks to:
   o Nick Salkowski for suggestions to improve the documentation
   o Kurt Hornik for informing of CRAN and R changes 
   o Sarang Brahme for comments on the documentation of gvisIntensityMap
+  o Carsten Langer for reporting an issue with ordered factors

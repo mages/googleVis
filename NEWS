@@ -1,6 +1,10 @@
-googleVis 0.5.10 [2015-07-04]
+googleVis 0.5.10 [2015-08-17]
 ----------------------------
 
+Bug fixes 
+
+ o Ordered factors were ignored. 
+   Thanks to Carsten Langer for reporting this issue.
 
 
 googleVis 0.5.9 [2015-07-04]
