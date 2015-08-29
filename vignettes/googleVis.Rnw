@@ -1436,7 +1436,7 @@ directly.
 
 Should you find any issues or bugs with googleVis, then please drop
 us a line or add them to our issues list: 
-\url{http://code.google.com/p/google-motion-charts-with-r/issues/list}
+\url{https://github.com/mages/googleVis/issues}
 
 
 \section{Contact}
