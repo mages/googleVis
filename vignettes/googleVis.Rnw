@@ -997,7 +997,7 @@ system.file("brew", package = "googleVis")
 \subsubsection{Using \googleVis with \Rook}
 
 \Rook~\cite{Rook} is a web server interface for R, written by Jeffrey Horner, the author 
-of rApache and brew. Compared to other web frameworks \Rook appears incredible lightweight.
+of rApache and brew. Compared to other web frameworks \Rook appears incredibly lightweight.
 \Rook doesn't need any configuration. It is an R package, which works out of the box with the R HTTP 
 server. That means no configuration files are needed. No files have to be placed 
 in particular folders. Instead, \Rook web applications can be run on a local desktop. 
