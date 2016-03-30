@@ -1245,7 +1245,7 @@ it is not.
 
 An alternative would be to build the presentation as a web page itself.  
 
-A popular approach here is the \texttt{slifiy} package by Ramnath Vaidyanathan, 
+A popular approach here is the \texttt{slidify} package by Ramnath Vaidyanathan, 
 \cite{slidify} that builds on the knitr Markdown approach of the previous 
 section. An example of a \texttt{slidify} presentation is the \googleVis 
 tutorial given at the useR! conference in 2013, \cite{googleVisTutorial}.
