@@ -40,3 +40,10 @@ export(renderGvis)
 export(createGoogleGadget)
 export(gvisMerge)
 			 
+# integration with Juypter ecosystem
+# these are actually S3 methods, but exporting them this way does
+# not need a dependency on repr
+export(repr_html.gvis)
+export(repr_text.gvis)
+export(repr_markdown.gvis)
+export(repr_latex.gvis)

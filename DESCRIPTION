@@ -8,7 +8,9 @@ Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     person("Diego", "de Castillo", role = "aut",
     email = "decastillo@gmail.com"),
     person("Joe", "Cheng", role = "ctb",
-    email = "joe@rstudio.com"))
+    email = "joe@rstudio.com")),
+    person("Jan", "Schulz", role = "ctb",
+    email = "jasc@gmx.net"))
 Description: R interface to Google Charts API, allowing users
     to create interactive charts based on data frames. Charts 
     are displayed locally via the R HTTP help server. A modern
