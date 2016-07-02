@@ -1,3 +1,10 @@
+googleVis 0.6.0 [2016-07-02]
+----------------------------
+
+Changes
+
+  * Changed package dependency from RJSONIO to jsonlite
+
 googleVis 0.5.10 [2015-08-26]
 ----------------------------
 

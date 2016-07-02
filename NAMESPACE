@@ -2,7 +2,7 @@ importFrom(methods, setMethod, is)
 importFrom(utils, packageDescription, browseURL, type.convert)		 
 importFrom(stats, na.omit, reshape)
 importFrom(tools, startDynamicHelp)  	 
-importFrom(RJSONIO, toJSON)
+importFrom(jsonlite, toJSON)
 # Methods     
 S3method(plot, gvis)		 
 S3method(print, gvis)

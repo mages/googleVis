@@ -533,7 +533,7 @@ gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
       paste("options[\"", x,"\"] = ",
             ifelse(any(checkSquareCurlBracketOps(options[[x]])),
                    paste(options[[x]], collapse="\n"),
-                   paste(toJSON(options[[x]], FALSE), collapse="\n")                                       
+                 paste(toJSON(options[[x]], pretty=TRUE), collapse="\n")                                       
             ),
             ";",sep="" )      
     }

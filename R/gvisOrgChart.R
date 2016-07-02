@@ -80,6 +80,7 @@
 #' See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and
 #' plotting methods.
 #' @keywords iplot
+#' 
 #' @examples
 #' 
 #' ## Please note that by default the googleVis plot command
@@ -98,7 +99,9 @@
 #'                      	          size='large', allowCollapse=TRUE))
 #' plot(Org2)
 #' 
-#' 
+
+
+
 gvisOrgChart <- function(data, idvar="", parentvar="", tipvar="", options=list(), chartid){
 
   my.type <- "OrgChart"

@@ -1,8 +1,8 @@
 Package: googleVis
 Type: Package
 Title: R Interface to Google Charts
-Version: 0.5.10
-Date: 2015-08-26
+Version: 0.6.0
+Date: 2016-07-02
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     email = "markus.gesmann@googlemail.com"),
     person("Diego", "de Castillo", role = "aut",
@@ -10,7 +10,7 @@ Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     person("Joe", "Cheng", role = "ctb",
     email = "joe@rstudio.com"))
 Description: R interface to Google Charts API, allowing users
-    to create interactive charts based on data frames. Charts 
+    to create interactive charts based on data frames. Charts
     are displayed locally via the R HTTP help server. A modern
     browser with Internet connection is required and for some
     charts a Flash player. The data remains local and is not
@@ -19,16 +19,18 @@ Depends:
     R (>= 3.0.2)
 Imports:
     methods,
-    RJSONIO,
+    jsonlite,
     utils
 Suggests:
     shiny (>= 0.4.0),
     httpuv (>= 1.2.0),
-    knitr (>= 1.5)
+    knitr (>= 1.5),
+    wbstats,
+    data.table
 License: GPL (>= 2)
 URL: https://github.com/mages/googleVis#googlevis
-BugReports: https://github.com/mages/googleVis/issues 
+BugReports: https://github.com/mages/googleVis/issues
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr
-Type: Package
+RoxygenNote: 5.0.1
