@@ -132,7 +132,7 @@ good example, demonstrating the use of interactive charts and how they can
 help to analyse data. Please note, that all of those charts are
 rendered by the browser.
 
-The charting data can either be embedded into the html file or read
+The charting data can either be embedded into the HTML file or read
 dynamically. The key to the Google Charts is that the data is
 structured in a DataTable~\cite{DataTable}, and this is where the \googleVis
 package helps, as it transforms R data frames into JSON~\cite{json}
@@ -186,7 +186,7 @@ generates output similar to Figure~\ref{MotionChartGUI}:
 The code and data are processed and rendered by the browser and is
 not submitted to any server\footnote{\url{https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html\#Data\_Policy}}. 
 
-You will notice that the above html code has five generic
+You will notice that the above HTML code has five generic
 parts\footnote{For more details see
 \url{https://google-developers.appspot.com/chart/interactive/docs/index}}:
 \begin{itemize}
@@ -225,7 +225,7 @@ Combo, Scatter, Candlestick, Pie, Sankey, Annotation,
 Histogram, Timeline, Calendar and Org Charts; see 
 Figure~\ref{demos} for some examples. 
 
-The output of a \googleVis function is html code that contains the
+The output of a \googleVis function is HTML code that contains the
 data and references to JavaScript functions hosted by Google. A
 browser with an Internet connection is required to view
 the output, and for Motion Charts, Geo Maps and Annotated Time Lines
@@ -342,7 +342,7 @@ will be generated. Unique chart ids are required to place more than
 one chart on a web page. 
 
 The output of a \googleVis function is a list of lists (a nested list)
-containing information about the chart type, chart id and the html
+containing information about the chart type, chart id and the HTML
 code in a  sub-list with header, chart, caption and footer, see Figure~\ref{gvisObject}.
 
 The idea behind this concept is that users can get a
@@ -411,7 +411,7 @@ a formatted screen output. This is the same output as
 \texttt{cat(M\$html\$chart)}. 
 
 The actual Google visualisation code is stored with the data
-as a named character vector in the \texttt{chart} item of the html
+as a named character vector in the \texttt{chart} item of the HTML
 list. The chart is made up of several JavaScript and  HTML
 statements. Please notice that the JavaScript functions are  
 uniquely named with the information of the chart id.
@@ -457,7 +457,7 @@ To display the page locally, type:
 plot(M)  # returns invisibly the file name
 @
 
-The plot method for \texttt{gvis}-objects creates html files in a temporary folder using
+The plot method for \texttt{gvis}-objects creates HTML files in a temporary folder using
 the type and chart id information of the object and it will display
 the output using the R HTTP help web server locally, usually under
 http://127.0.0.1.   
@@ -490,7 +490,7 @@ settings. Tony Breyal posted the following solution on
 \item Click OK
 \end{enumerate}
 
-Now open your \googleVis html file and it should display
+Now open your \googleVis HTML file and it should display
 successfully. 
 
 Alternatively use the function \texttt{plot.gvis} explicitly,
@@ -887,20 +887,6 @@ the R.rsp HTTP server, but no R output will be displayed. To embed the
 R output into the html code we have to add an equal sign,
 \texttt{<\%=$\dots$\%>}, which acts as a \texttt{cat} statement.
 
-You find an example as part of the \googleVis package. This example
-can be displayed via the following R command:
-<<eval=FALSE>>=
-library(R.rsp) 
-browseRsp() 
-# Follow the link for googleVis in the opening browser window
-@
-The actual rsp-file is located within the \googleVis package directory
-and again R allows you to find the file with the following command: 
-<<eval=FALSE>>=
-file.path(system.file("rsp", package = "googleVis"), "index.rsp")
-@ 
-For more information read the documentation of the \rsp package.
-
 \subsubsection{Using \googleVis with \rapache and \brew}\label{rapacheexample}
 
 \rapache supports web application development using
@@ -1123,7 +1109,7 @@ Further examples have been published on Markus' blog:
 \section{Using \googleVis with \knitr}\label{sec:knitr}
 Using \googleVis with
 \knitr\footnote{\url{http://yihui.name/knitr/}}~\cite{knitr} is a
-convient way of creating interactive reproducible reports. The
+convenient way of creating interactive reproducible reports. The
 approach taken by \knitr is similar to Sweave, you can combine R
 code with text and formatting tags. However, \knitr can also export to
 HTML, which is required to  embed \googleVis charts.
@@ -1473,4 +1459,3 @@ consultancy: \href{mailto:rvisualisation@gmail.com?subject=Training-and-consulta
 \addcontentsline{toc}{section}{References} 
 
 \end{document}
-

@@ -1,9 +1,12 @@
-googleVis 0.6.0 [2016-07-02]
+googleVis 0.6.0 [2016-07-04]
 ----------------------------
 
 Changes
 
   * Changed package dependency from RJSONIO to jsonlite
+  
+  * Change demo AnimatedGeoMap to AnimatedGeoChart
+
 
 googleVis 0.5.10 [2015-08-26]
 ----------------------------

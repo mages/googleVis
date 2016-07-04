@@ -37,7 +37,7 @@ WorldBank <- droplevels(subset(wdiData, !region %in% "Aggregates"))
 M <- gvisMotionChart(WorldBank,
                      idvar="country", timevar="year",
                      xvar="life.expectancy", yvar="fertility.rate",
-                     colorvar="region", sizevar="population",
+                     sizevar="population", colorvar="region", 
                      options=list(width=700, height=600),
                      chartid="WorldBank")
 ## Display the chart in the browser

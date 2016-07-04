@@ -24,8 +24,8 @@ presidentialElections <- rbind(presidentialElections[,1:3], df)
 gvisData <- by(presidentialElections, list(year=presidentialElections$year), function(x){
 	
 	year <- x$year[1]	
-	g <- gvisGeoMap(x, "state", "demVote", 
-		options=list(region="US", dataMode="regions"),
+	g <- gvisGeoChart(x, "state", "demVote", 
+		options=list(region="US", dataMode="regions", resolution="provinces"),
 		 chartid=paste("[", year, "]", sep=""))
 	.data <- g$html$chart["jsData"]
 	.data <-gsub("function ", "", .data)
@@ -63,17 +63,18 @@ gvisChart <- '
 function drawChart() {
 	var chart = {};
 	var options ={};
-	options["dataMode"] = "regions";
+	options["displayMode"] = "regions";
 	options["width"] =   600;
 	options["region"] = "US";
 	options["height"] =  400;
-	options["colors"] = [0xFFFFFF, 0x00000FF];
+  options["resolution"] = "provinces"
+	options["colors"] = ["red", "blue"];
 	
 	for (var i = Animation.startYear; i<=Animation.endYear; i++) {
 	   Animation.divCharts[i] = document.createElement("div");
 	   Animation.divCharts[i].className = "pop-chart";
 	   document.body.appendChild(Animation.divCharts[i]);
-	   chart[i] = new google.visualization.GeoMap(Animation.divCharts[i]);
+	   chart[i] = new google.visualization.GeoChart(Animation.divCharts[i]);
 	   
 	   var data = gvisData[(1928+4*i)]();
 	   options["title"] = i;
@@ -87,7 +88,7 @@ function drawChart() {
  
 // jsDisplayChart 
 function displayChart() {
-  google.load("visualization", "1", { packages:["geomap"] }); 
+  google.load("visualization", "1", { packages:["geochart"] }); 
   google.setOnLoadCallback(drawChart);
 }
 // jsChart 
@@ -131,7 +132,7 @@ htmlFoot <-'
 '
 
 page <- structure(
-                  list(type="AnimatedGeoMap",
+                  list(type="AnimatedGeoChart",
                        chartid="presidentialElections",
                        html=list(
                          header=htmlHead,

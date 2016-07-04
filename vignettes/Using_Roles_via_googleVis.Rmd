@@ -6,7 +6,7 @@
 
 Roles add the ability to pass columns for further processing downstream. 
 Role columns must follow column they pertain to. Proper naming
-conventions must be be observed. For example, roles fulfilling tooltip
+conventions must be observed. For example, roles fulfilling tooltip
 roles and must be called "foo.blah.tooltip". For more details see the [Google documentation](https://developers.google.com/chart/interactive/docs/roles).
 
 The following examples should help to illustrate the concept. 
@@ -19,7 +19,7 @@ read_demo('Roles', 'googleVis')
 ```
 The first example uses a data set that has the additional column
 `pop.html.tooltip` with the first 11 letters of the Latin alphabet.
-This column is mapped automatically as a tooltip, when the user hovers 
+This column is mapped automatically as a tooltip when the user hovers 
 over the chart point.
 ```{r Tooltip, results='asis', tidy=FALSE}
 ```
@@ -43,14 +43,14 @@ Instead of 'emphasize' use 'style' to change the colours.
 ```{r TwoLines, results='asis', tidy=FALSE}
 ```
 
-Setting the annotations style to 'line' allows to add little reference lines
+Setting the annotations style to 'line' allows adding little reference lines
 to the plot.
 ```{r VerticalReferenceLine, results='asis', tidy=FALSE}
 ```
 
 Intervals help to add error bars, confidence levels, etc.
 Note that the options are set either via `interval` or `intervals`, 
-if set across all intervals. The examples below give an indication of what 
+if set to all intervals. The examples below give an indication of what 
 can be achieved with intervals. 
 For more details visit the Google [documentation](https://google-developers.appspot.com/chart/interactive/docs/gallery/intervals).
 
