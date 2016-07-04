@@ -27,7 +27,7 @@ install.packages('googleVis')
 To install the current development version from github you need the [devtools package](http://cran.r-project.org/package=devtools/) and the other packages on which googleVis depends:
 
 ```s
-install.packages(c("devtools","RJSONIO", "knitr", "shiny", "httpuv"))
+install.packages(c("devtools","jsonlite", "knitr", "shiny", "httpuv"))
 ```
 
 To install googleVis run:

@@ -136,7 +136,7 @@ The charting data can either be embedded into the HTML file or read
 dynamically. The key to the Google Charts is that the data is
 structured in a DataTable~\cite{DataTable}, and this is where the \googleVis
 package helps, as it transforms R data frames into JSON~\cite{json}
-objects, using the \texttt{\textbf{RJSONIO}} package~\cite{RJSONIO}, as
+objects, using the \texttt{\textbf{jsonlite}} package~\cite{jsonlite}, as
 the basis for a DataTable. 
 
 As an example we shall look at the html-code of a motion chart from
