@@ -3,7 +3,7 @@ importFrom(utils, packageDescription, browseURL, type.convert)
 importFrom(stats, na.omit, reshape)
 importFrom(tools, startDynamicHelp)  	 
 importFrom(jsonlite, toJSON)
-importFrom(unbox, toJSON)
+importFrom(jsonlite, unbox)
 # Methods     
 S3method(plot, gvis)		 
 S3method(print, gvis)
