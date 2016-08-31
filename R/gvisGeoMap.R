@@ -93,6 +93,9 @@
 #' 
 #' 
 #' @section Warnings:
+#' GeoMap (gvisGeoMap) is Flash based, conisder using GeoChart (gvisGeoChart) instead.
+#' For more details visit: goo.gl/tkiEV8
+#' 
 #' Because of Flash security settings the chart 
 #' might not work correctly when accessed from a file location in the 
 #' browser (e.g., file:///c:/webhost/myhost/myviz.html) rather than 
@@ -160,6 +163,8 @@
 
 gvisGeoMap <- function(data, locationvar="", numvar="", hovervar="", options=list(), chartid){
 
+  warning("GeoMap (gvisGeoMap) is Flash based, conisder using GeoChart (gvisGeoChart) instead.\nFor more details visit: goo.gl/tkiEV8")
+  
   my.type <- "GeoMap"
   dataName <- deparse(substitute(data))
 

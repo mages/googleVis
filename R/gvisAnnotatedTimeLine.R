@@ -79,6 +79,8 @@
 #' 
 #' % END DYNAMIC CONTENT
 #' @section Warnings:
+#' AnnotatedTimeline (gvisAnnotatedTimeLine) is Flash based, conisder using  AnnotationChart (gvisAnnotationChart) instead.
+#' For more details visit: goo.gl/tkiEV8
 #' 
 #' Because of Flash security settings the chart might not work correctly when
 #' accessed from a file location in the browser (e.g.,
@@ -222,6 +224,7 @@ gvisAnnotatedTimeLine <- function(data, datevar="",
                                   annotationvar="", 
                                   date.format="%Y/%m/%d",
                                   options=list(), chartid){
+  warning("AnnotatedTimeline (gvisAnnotatedTimeLine) is Flash based, conisder using  AnnotationChart (gvisAnnotationChart) instead.\nFor more details visit: goo.gl/tkiEV8")
   
   
   my.type <- "AnnotatedTimeLine"

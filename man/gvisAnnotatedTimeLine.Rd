@@ -72,6 +72,8 @@ optional annotations. The chart is rendered within the browser using Flash.
 }
 \section{Warnings}{
 
+AnnotatedTimeline (gvisAnnotatedTimeLine) is Flash based, conisder using  AnnotationChart (gvisAnnotationChart) instead.
+For more details visit: goo.gl/tkiEV8
 
 Because of Flash security settings the chart might not work correctly when
 accessed from a file location in the browser (e.g.,

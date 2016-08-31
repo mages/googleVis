@@ -1,7 +1,17 @@
-googleVis 0.6.1 [2016-07-04]
+googleVis 0.6.1 [2016-08-31]
 ----------------------------
 
 Changes
+
+ o Flash based charts gvisGeoMap and gvisAnnotatedTimeLine will 
+   show a warning, reminding users to switch to the HTML5 charts
+   gvisGeoChart and gvisAnnotationChart instead.
+ 
+ 
+Bug fixes 
+
+ o In some cases option settings were not converted 
+   porberly into JSON objects  
 
 
 googleVis 0.6.0 [2016-07-04]
@@ -9,9 +19,9 @@ googleVis 0.6.0 [2016-07-04]
 
 Changes
 
-  * Changed package dependency from RJSONIO to jsonlite
+ o Changed package dependency from RJSONIO to jsonlite
   
-  * Change demo AnimatedGeoMap to AnimatedGeoChart
+ o Change demo AnimatedGeoMap to AnimatedGeoChart
 
 
 googleVis 0.5.10 [2015-08-26]
