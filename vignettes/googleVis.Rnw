@@ -229,7 +229,7 @@ The output of a \googleVis function is HTML code that contains the
 data and references to JavaScript functions hosted by Google. A
 browser with an Internet connection is required to view
 the output, and for Motion Charts, Geo Maps and Annotated Time Lines
-also Flash. 
+also Flash. For Geo Maps and Annotated Time Lines HTML5 alternatives are available with Geo Charts and Annotation Charts. 
 
 <<eval=FALSE, echo=FALSE>>=
 ## Code for screen shot
@@ -843,8 +843,8 @@ src="http://example.com/myGoogleVisChart.html">
 </iframe>
 \end{verbatim}
 For an example see the following blog entry:
-\href{http://lamages.blogspot.com/2011/09/including-googlevis-output-into-blogger.html}
-{http://lamages.blogspot.com/2011/09/including-googlevis-output-into-blogger.html}.
+\href{http://www.magesblog.com/2011/09/including-googlevis-output-into-blogger.html}
+{http://www.magesblog.com/2011/09/including-googlevis-output-into-blogger.html}.
 
 
 
@@ -1104,7 +1104,7 @@ runApp(system.file("shiny/", package="googleVis"))
 @ 
 
 Further examples have been published on Markus' blog:
-\url{http://lamages.blogspot.co.uk/search/label/shiny} 
+\url{http://www.magesblog.co.uk/search/label/shiny} 
 
 \section{Using \googleVis with \knitr}\label{sec:knitr}
 Using \googleVis with
@@ -1125,7 +1125,7 @@ print(M, 'chart')
 ```
 \end{verbatim}
 A little example was published in a blog post: 
-\url{http://lamages.blogspot.co.uk/2012/05/interactive-reports-in-r-with-knitr-and.html}
+\url{http://www.magesblog.co.uk/2012/05/interactive-reports-in-r-with-knitr-and.html}
 
 Version 0.3.2 of \googleVis introduced \texttt{'tag'} as a new argument to
 the plot function \texttt{plot.gvis}, see also
@@ -1370,10 +1370,6 @@ your browser using Flash, unlike most other charts which use
 HTML5. Unfortunately Flash is not directly supported on iOS devices
 such as iPads and iPhones. 
 
-Apparently there is little appetite at Google to migrate motion
-charts to HTML5 or other technologies, see the following Google
-Visualisation API news group post: \url{http://goo.gl/5Zyuw}.
-
 \subsection{How can I set axes limits with googleVis?}
 
 Unfortunately, there are no arguments such as \texttt{ylim} and \texttt{xlim}. 
@@ -1425,17 +1421,6 @@ us a line or add them to our issues list:
 \url{https://github.com/mages/googleVis/issues}
 
 
-\section{Contact}
-\subsection{Collaboration} 
-Obviously, the package is work in progress and there are many other functions of the Google
-Charts API which are still untouched. 
-
-Please feel free to send us an email if you would like to be kept
-informed of new versions, or if you have any feedback, ideas,
-suggestions or would like to collaborate, our address is
-\href{mailto:rvisualisation@gmail.com}{rvisualisation@gmail.com}. 
-
-
 \subsection{Citation}
 Please cite R and \googleVis if you use it in your work or publications. Use
 <<eval=FALSE>>=
@@ -1446,11 +1431,6 @@ and
 citation()
 @ 
 for  bib-entries and information on how to cite the software.
-
-\subsection{Training and consultancy}
-Please contact us if you would like to discuss training or
-consultancy: \href{mailto:rvisualisation@gmail.com?subject=Training-and-consultancy}{rvisualisation@gmail.com} 
-
 
 %%\clearpage
 

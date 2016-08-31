@@ -5,6 +5,13 @@ r:
 
 cache: packages
 
+r_build_args: "--compact-vignettes=gs+qpdf"
+
+addons:
+  apt:
+    packages:
+      - qpdf
+
 warnings_are_errors: true
 
 notifications:
@@ -12,9 +19,6 @@ notifications:
     on_success: change
     on_failure: change
 
-env:
-   global:
-     - CRAN: http://cran.rstudio.com
-     - R_BUILD_ARGS="--compact-vignettes=gs+qpdf" 
-     - R_CHECK_ARGS="--as-cran"
-     - BOOTSTRAP_LATEX="1"
+repos:
+  CRAN: https://cloud.r-project.org
+  ropensci: http://packages.ropensci.org
