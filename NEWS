@@ -11,7 +11,7 @@ Changes
 Bug fixes 
 
  o In some cases option settings were not converted 
-   porberly into JSON objects  
+   porperly into JSON objects.  
 
 
 googleVis 0.6.0 [2016-07-04]
