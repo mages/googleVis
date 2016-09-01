@@ -7,7 +7,7 @@
 \usepackage{hyperref}
 
 \hypersetup{
-  pdftitle={Using Google Charts with R},%
+  pdftitle={Introduction to googleVis},%
   pdfauthor={Markus Gesmann},%
 }
 
@@ -43,10 +43,8 @@ options(prompt = "R> ", digits = 4, show.signif.stars = FALSE)
 \SweaveOpts{concordance=TRUE}
 
 \author{Markus Gesmann\footnote{markus.gesmann@gmail.com},
-  Diego de Castillo\footnote{decastillo@gmail.com}\\
-Contact: rvisualisation@gmail.com}
-\title{Using the Google Chart Tools with R:\\
-  googleVis-\Sexpr{packageDescription("googleVis")[['Version']]} Package Vignette
+  Diego de Castillo\footnote{decastillo@gmail.com}}
+\title{Introduction to googleVis \Sexpr{packageDescription("googleVis")[['Version']]}
 }
 \maketitle
 \begin{abstract}
@@ -59,7 +57,7 @@ Contact: rvisualisation@gmail.com}
   The functions of the \googleVis package allow the user to visualise
   data stored in R data frames with Google Charts
   without uploading the data to Google. The output of a \googleVis
-  function is html code that contains the data and references to
+  function is HTML code that contains the data and references to
   JavaScript functions hosted by Google.
   
   googleVis makes use of the internal R HTTP server to display the
@@ -124,7 +122,7 @@ others the authors of this vignette started the development of the
 
 The Google Charts API~\cite{GoogleVisApi}
 allows users to create interactive charts as part of Google
-documents, spreadsheets and web pages. In this text we will focus 
+documents, spreadsheets and web pages. In this text, we will focus 
 on the usage of the API as part of web pages.
 
 The Google Public Data Explorer~\cite{GooglePublicData} provides a
@@ -228,7 +226,7 @@ Figure~\ref{demos} for some examples.
 The output of a \googleVis function is HTML code that contains the
 data and references to JavaScript functions hosted by Google. A
 browser with an Internet connection is required to view
-the output, and for Motion Charts, Geo Maps and Annotated Time Lines
+the output, and for Motion Charts, Geo Maps, and Annotated Time Lines
 also Flash. For Geo Maps and Annotated Time Lines HTML5 alternatives are available with Geo Charts and Annotation Charts. 
 
 <<eval=FALSE, echo=FALSE>>=
@@ -303,7 +301,7 @@ The individual functions of the \googleVis package are documented in
 the help pages. Here we will cover only the principles of
 the package.
 
-As an example we will show how to generate a motion chart as displayed in   
+As an example, we will show how to generate a motion chart as displayed in   
 Figure~\ref{MotionChartGUI}. It works similarly for the other
 APIs. Further examples are covered in the demos\footnote{See
   \texttt{demo(package="googleVis")} for a list of the available demos.} of the \googleVis
@@ -477,7 +475,7 @@ Please note that Flash charts\footnote{Currently the following charts
   require Flash: motion chart, geo map and
   annotated time line} may not work when loaded as a local file
 due to security settings, and therefore require to be displayed via a
-web server.  However, you can overcame this issue by changing your Flash security
+web server.  However, you can overcome this issue by changing your Flash security
 settings. Tony Breyal posted the following solution on
 \href{http://stackoverflow.com/questions/8009825/cannot-view-gvismotionchart-from-printed-html-file 
 }{stackoverflow.com}: 
@@ -486,7 +484,7 @@ settings. Tony Breyal posted the following solution on
 \item Go to \url{http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html}
 \item Click on the dropbox which says 'Edit location' and choose 'add location'
 \item Click 'browse for folder'
-\item Choose the folder in which you saved your html file
+\item Choose the folder in which you saved your HTML file
 \item Click OK
 \end{enumerate}
 
@@ -576,7 +574,7 @@ plot(GTM)
 Setting the various options of a \googleVis objects can be a bit
 cumbersome at first. The options follow those of the Google
 Charts API and can be set via a named list using the argument \texttt{options}.
-In the following example we create a line chart and set various
+In the following example, we create a line chart and set various
 options\footnote{Please refer to the help file of the individual
   \googleVis functions, as the options can vary from chart to chart.},
 see the output in Figure~\ref{Options}.  
@@ -616,7 +614,7 @@ e.g. width=500, while the more complex options with sub-components are
 listed in curly brackets \{\}, and arrays, e.g. to define the two
 axes, use square brackets [ ].
 
-Generally the following rules apply:
+Generally, the following rules apply:
 
 \begin{itemize}
 
@@ -786,7 +784,7 @@ an illustration.
 
 Google Charts can be used with other Google products such as Google
 Sites, Blogger or Google Code wiki pages. 
-However, in most cases the chart has to be embedded as a Google Gadget.
+However, in most cases, the chart has to be embedded as a Google Gadget.
 Google Gadgets are written in XML and can have HTML and Javascript components.
 Here is an example of a 'Hello World' program written using Google
 Gadget technology from \href{http://en.wikipedia.org/wiki/Google_Gadgets}{Wikipedia}.
@@ -830,7 +828,7 @@ Suppose the URL to the gadget is
 \end{itemize}
 
 However, the situation is different again, if you would like to include the \googleVis
-output into a blogger post.  In this case a gadget does not
+output into a blogger post.  In this case, a gadget does not
 work. You can either copy and paste the chart directly into your
 post, but then it does not seem to work with MS Internet Explorer, or
 you use an indirect approach. This means that the \googleVis
@@ -850,11 +848,11 @@ For an example see the following blog entry:
 
 \subsection{Embedding \googleVis in web sites dynamically}
 
-In this section we provide examples how the \googleVis functions can be
-embedded into web sites dynamically. 
+In this section, we provide examples how the \googleVis functions can be
+embedded into web pages dynamically. 
 
 The R packages \rsp~\cite{Rsp} and \brew~\cite{brew2010} are two
-options to integrate R snippets into html code. While the \rsp package
+options to integrate R snippets into HTML code. While the \rsp package
 comes with its own internal web server, \brew requires the Apache HTTP
 server~\cite{Apache2.0} with the \rapache~\cite{Rapache} module
 installed. Please note that currently the \rapache module only runs on
@@ -892,7 +890,7 @@ R output into the html code we have to add an equal sign,
 \rapache supports web application development using
 R and the Apache HTTP server. The  \rapache module
 embeds the R interpreter into the Apache web server.  However, as we
-would like to mix R and html code we also need a parser and
+would like to mix R and HTML code we also need a parser and
 this is where the R package \brew comes into place. 
 
 Files sitting in a dedicated \brew folder of the HTTP repository are
@@ -1367,7 +1365,7 @@ See section~\ref{sec:DisplayLocally} on page~\pageref{sec:DisplayLocally}
 
 Motion charts (also geo maps and annotated time lines) are rendered in
 your browser using Flash, unlike most other charts which use
-HTML5. Unfortunately Flash is not directly supported on iOS devices
+HTML5. Unfortunately, Flash is not directly supported on iOS devices
 such as iPads and iPhones. 
 
 \subsection{How can I set axes limits with googleVis?}
