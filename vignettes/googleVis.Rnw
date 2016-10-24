@@ -12,7 +12,7 @@
 }
 
 %\VignetteEngine(Sweave)
-%\VignetteIndexEntry{Using Google Charts with R}
+%\VignetteIndexEntry{Introduction to googleVis}
 %\VignetteDepends{googleVis}
 %\VignetteKeywords{google, visualisation, api}
 %\VignettePackage{googleVis}
