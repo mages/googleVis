@@ -12,6 +12,7 @@
 }
 
 %\VignetteEngine(Sweave)
+%!\VignetteEncoding{UTF-8}
 %\VignetteIndexEntry{Introduction to googleVis}
 %\VignetteDepends{googleVis}
 %\VignetteKeywords{google, visualisation, api}
@@ -832,7 +833,7 @@ output into a blogger post.  In this case, a gadget does not
 work. You can either copy and paste the chart directly into your
 post, but then it does not seem to work with MS Internet Explorer, or
 you use an indirect approach. This means that the \googleVis
-chart has to be hosted on a separate page (e.g. in a public Dropbox
+chart has to be hosted on a separate page (e.g. in a public web
 folder) and is embedded into the blog post by using the
 \texttt{<iframe>} tag, e.g.: 
 \begin{verbatim}
@@ -1242,7 +1243,7 @@ tutorial given at the useR! conference in 2013, \cite{googleVisTutorial}.
 \end{figure}
 
 Slidify provides a choice of different layout frameworks and syntax highlighting options. Additionally, slidify slides can be published from R online, e.g. 
-on Dropbox or github.
+on GitHub.
 % 
 % \section{Using \googleVis with RStudio}
 % 
