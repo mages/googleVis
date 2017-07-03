@@ -19,7 +19,7 @@
 
 
 #' Google Calendar Chart with R
-#' \Sexpr{googleChartName <- "Calendar"}
+#' \Sexpr{googleChartName <- "calendar"}
 #' \Sexpr{gvisChartName <- "gvisCalendar"}
 #' 
 #' A calendar chart is a visualization used to show activity over the course 

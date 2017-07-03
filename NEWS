@@ -1,9 +1,17 @@
+googleVis 0.6.3 [2017-07-03]
+----------------------------
+
+Bug fixes 
+
+ o Corrected URL for gvisCalendar documentation by Google
+
+
 googleVis 0.6.2 [2017-01-01]
 ----------------------------
 
 Changes
 
-  o Update links to omegahat from omegahat.org
+  o Updated links to omegahat from omegahat.org
     to omegahat.net as requested by CRAN
 
 
