@@ -198,10 +198,14 @@
 #' ## Plot world wide earth quakes of the last 30 days with magnitude >= 4.0 
 #' library(XML)
 #' ## Get earthquake data of the last 30 days
-#' eq <- read.csv("http://earthquake.usgs.gov/earthquakes/feed/v0.1/summary/2.5_week.csv")
-#' eq$loc=paste(eq$Latitude, eq$Longitude, sep=":")
-#' 
-#' G9 <- gvisGeoChart(eq, "loc", "Depth", "Magnitude",
+#' url <- "http://ds.iris.edu/sm2/eventlist/"
+#' eq <- readHTMLTable(readLines(url),
+#'                     colClasses=c("factor", rep("numeric", 4), "factor"))$evTable
+#'                     names(eq) <- c("DATE", "LAT", "LON", "MAG",
+#'                                    "DEPTH", "LOCATION_NAME", "IRIS_ID")
+#' ##Format location data
+#' eq$loc=paste(eq$LAT, eq$LON, sep=":")                   
+#' G9 <- gvisGeoChart(eq, "loc", "DEPTH", "MAG",
 #'                    options=list(displayMode="Markers", 
 #'                    colorAxis="{colors:['purple', 'red', 'orange', 'grey']}",
 #'                    backgroundColor="lightblue"), chartid="EQ")
