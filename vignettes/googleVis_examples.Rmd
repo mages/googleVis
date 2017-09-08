@@ -17,7 +17,7 @@ demo(googleVis)
 
 For more details about the charts and further examples see the 
 helpfiles of the individual googleVis function and review the 
-[Google Charts API documentation](https://developers.google.com/chart/interactive/docs/gallery) and [Terms of Service](https://developers.google.com/terms).
+[Google Charts API documentation](https://google-developers.appspot.com/chart/interactive/docs/gallery) and [Terms of Service](https://google-developers.appspot.com/chart/terms).
 
 ## Line chart
 ```{r setOptions, message=FALSE, echo=FALSE}

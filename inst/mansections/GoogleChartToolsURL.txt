@@ -1,2 +1,2 @@
-\url{http://developers.google.com/chart/interactive/docs/gallery/CHARTNAME}
+\url{https://google-developers.appspot.com/chart/interactive/docs/gallery/CHARTNAME}
 
