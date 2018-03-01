@@ -88,6 +88,7 @@ unique parent.
 
 Values in column \code{sizevar} should be greater than zero and finite.
 }
+
 \examples{
 
 ## Please note that by default the googleVis plot command
@@ -188,11 +189,6 @@ plot(statesTree3)
 
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -209,5 +205,9 @@ plotting methods.
 Please note that the \code{treemap} package offeres a static version of tree
 maps via its \code{tmPlot} function.
 }
-\keyword{iplot}
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
+Diego de Castillo \email{decastillo@gmail.com}
+}
+\keyword{iplot}

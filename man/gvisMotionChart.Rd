@@ -94,6 +94,7 @@ for more details.
 Please note that a \code{timevar} with values less than 100 will 
 be shown as years 19xx.
 }
+
 \examples{
 ## Please note that by default the googleVis plot command
 ## will open a browser window and requires Flash and Internet
@@ -168,10 +169,6 @@ plot(M7)
 ## plots.
  
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com}, 
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -185,5 +182,8 @@ readLines(file.path(".", "inst",  "mansections",
 See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} 
 for printing and plotting methods.
 }
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com}, 
+Diego de Castillo \email{decastillo@gmail.com}
+}
 \keyword{iplot}
-

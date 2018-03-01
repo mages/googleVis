@@ -175,20 +175,20 @@ plot(G8)
 ## Plot world wide earth quakes of the last 30 days with magnitude >= 4.0 
 library(XML)
 ## Get earthquake data of the last 30 days
-eq <- read.csv("https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.csv")
-eq$loc=paste(eq$Latitude, eq$Longitude, sep=":")
-
-G9 <- gvisGeoChart(eq, "loc", "Depth", "Magnitude",
+url <- "http://ds.iris.edu/sm2/eventlist/"
+eq <- readHTMLTable(readLines(url),
+                    colClasses=c("factor", rep("numeric", 4), "factor"))$evTable
+                    names(eq) <- c("DATE", "LAT", "LON", "MAG",
+                                   "DEPTH", "LOCATION_NAME", "IRIS_ID")
+##Format location data
+eq$loc=paste(eq$LAT, eq$LON, sep=":")                   
+G9 <- gvisGeoChart(eq, "loc", "DEPTH", "MAG",
                    options=list(displayMode="Markers", 
                    colorAxis="{colors:['purple', 'red', 'orange', 'grey']}",
                    backgroundColor="lightblue"), chartid="EQ")
 plot(G9)
 }
 
-}
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com}, 
-Diego de Castillo \email{decastillo@gmail.com}
 }
 \references{
 Google Chart Tools API: 
@@ -203,5 +203,8 @@ readLines(file.path(".", "inst",  "mansections",
 See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} 
 for printing and plotting methods.
 }
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com}, 
+Diego de Castillo \email{decastillo@gmail.com}
+}
 \keyword{iplot}
-

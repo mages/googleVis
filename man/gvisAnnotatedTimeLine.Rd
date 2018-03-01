@@ -89,6 +89,7 @@ options=list(width="600px", height="350px")
 
 Use code{\link{gvisAnnotationChart}} for a non-Flash version of this plot.
 }
+
 \examples{
 
 ## Please note that by default the googleVis plot command
@@ -204,11 +205,6 @@ plot(aapl)
 }
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -223,5 +219,9 @@ See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and
 plotting methods. Further see \code{\link{reshape}} for reshaping data, e.g.
 from a wide format into a long format.
 }
-\keyword{iplot}
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
+Diego de Castillo \email{decastillo@gmail.com}
+}
+\keyword{iplot}

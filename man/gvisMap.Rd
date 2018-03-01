@@ -97,11 +97,6 @@ M3 <- gvisMap(df, "Postcode", "Tip",
                         
 plot(M3)
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -116,5 +111,9 @@ See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and
 plotting methods, \code{\link{gvisGeoMap}} and
 \code{\link{gvisIntensityMap}} for an alternative to \code{gvisMap}.
 }
-\keyword{iplot}
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
+Diego de Castillo \email{decastillo@gmail.com}
+}
+\keyword{iplot}

@@ -101,11 +101,6 @@ plot(M)
 
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -120,5 +115,9 @@ See also \code{\link{gvisMotionChart}} for a moving bubble chart
 over time, and \code{\link{print.gvis}}, \code{\link{plot.gvis}} for
 printing and plotting methods.
 }
-\keyword{iplot}
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
+Diego de Castillo \email{decastillo@gmail.com}
+}
+\keyword{iplot}

@@ -108,9 +108,6 @@ plot(gvisTimeline(ww2, barlabel="Person", rowlabel="Group",
 )
 }
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -120,5 +117,7 @@ readLines(file.path(".", "inst",  "mansections",
 
 % END DYNAMIC CONTENT
 }
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com}
+}
 \keyword{iplot}
-

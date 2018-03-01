@@ -180,10 +180,6 @@ plot(aapl)
 }
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -198,5 +194,8 @@ See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and
 plotting methods. Further see \code{\link{reshape}} for reshaping data, e.g.
 from a wide format into a long format.
 }
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
+Diego de Castillo \email{decastillo@gmail.com}
+}
 \keyword{iplot}
-

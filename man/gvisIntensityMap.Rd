@@ -56,6 +56,7 @@ the maximum width is 440. For more details see the Google documentation.
 
 % END DYNAMIC CONTENT
 }
+
 \examples{
 
 ## Please note that by default the googleVis plot command
@@ -74,11 +75,6 @@ plot(Intensity2)
 
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -91,5 +87,9 @@ See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and
 plotting methods, \code{\link{gvisMap}} and \code{\link{gvisGeoMap}} for an
 alternative to \code{gvisIntensityMap}.
 }
-\keyword{iplot}
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
+Diego de Castillo \email{decastillo@gmail.com}
+}
+\keyword{iplot}

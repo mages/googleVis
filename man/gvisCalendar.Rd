@@ -3,7 +3,7 @@
 \name{gvisCalendar}
 \alias{gvisCalendar}
 \title{Google Calendar Chart with R
-\Sexpr{googleChartName <- "Calendar"}
+\Sexpr{googleChartName <- "calendar"}
 \Sexpr{gvisChartName <- "gvisCalendar"}}
 \usage{
 gvisCalendar(data, datevar = "", numvar = "", options = list(), chartid)
@@ -52,6 +52,7 @@ the week, or how it trends over time.
 The calendar chart may be undergoing substantial revisions in future 
 Google Charts releases.
 }
+
 \examples{
 cl1 <- gvisCalendar(Cairo, datevar="Date", numvar="Temp")
 plot(cl1)
@@ -83,11 +84,6 @@ cl4 <- gvisCalendar(Cairo, datevar="Date", numvar="Temp",
 plot(cl4)
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com},
-
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -101,5 +97,9 @@ readLines(file.path(".", "inst",  "mansections",
 See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and
 plotting methods.
 }
-\keyword{iplot}
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com},
 
+Diego de Castillo \email{decastillo@gmail.com}
+}
+\keyword{iplot}

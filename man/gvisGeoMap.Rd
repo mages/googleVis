@@ -86,6 +86,7 @@ See the googleVis package vignette and the Macromedia web
 site (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/}) 
 for more details.
 }
+
 \examples{
 ## Please note that by default the googleVis plot command
 ## will open a browser window and requires Internet
@@ -139,10 +140,6 @@ G5 <- gvisGeoMap(WorldPopulation, "Country", "Population.in.millions", "Rank",
 plot(G5)
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com}, 
-Diego de Castillo \email{decastillo@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -152,5 +149,8 @@ readLines(file.path(".", "inst",  "mansections",
 
 % END DYNAMIC CONTENT
 }
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com}, 
+Diego de Castillo \email{decastillo@gmail.com}
+}
 \keyword{iplot}
-

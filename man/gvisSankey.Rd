@@ -54,6 +54,7 @@ proportional to heat loss.
 The sankey chart may be undergoing substantial revisions in 
 future Google Charts releases.
 }
+
 \examples{
 dat <- data.frame(From=c(rep("A",3), rep("B", 3)), 
                   To=c(rep(c("X", "Y", "Z"),2)), 
@@ -69,9 +70,6 @@ sk2 <- gvisSankey(dat, from="From", to="To", weight="Weight",
 plot(sk2)
 
 }
-\author{
-Markus Gesmann \email{markus.gesmann@gmail.com}
-}
 \references{
 Google Chart Tools API: 
 \Sexpr[results=rd]{gsub("CHARTNAME", 
@@ -81,5 +79,7 @@ readLines(file.path(".", "inst",  "mansections",
 
 % END DYNAMIC CONTENT
 }
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com}
+}
 \keyword{iplot}
-
