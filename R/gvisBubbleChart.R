@@ -155,7 +155,7 @@ gvisCheckBubbleChartData <- function(data, options){
                          idvar = list(mode="required", FUN=check.char),
                          xvar = list(mode="required", FUN=check.num),
                          yvar  = list(mode="required", FUN=check.num),
-                         colorvar  = list(mode="optional", FUN=check.char),
+                         colorvar  = list(mode="optional", FUN=check.char.num),
                          sizevar  = list(mode="optional", FUN=check.num))
 	
   x <- gvisCheckData(data=data,options=options,data.structure=data.structure)
