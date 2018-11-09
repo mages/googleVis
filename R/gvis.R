@@ -424,6 +424,12 @@ check.num.pos <- function(x){
   y
 }
 
+check.char.num <- function(x){
+  if(!( is.numeric(x) | is.character(x)))
+    stop(paste("The column has to be of numeric or character format. Currently it is", class(x)))
+  x
+}
+
 gvisCheckData <- function(data="", options=list(), data.structure=list()){
   ## Convert data.frame to list
   x <- as.list(data)

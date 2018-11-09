@@ -1,9 +1,11 @@
-googleVis 0.6.3 [2017-07-03]
+googleVis 0.6.3 [2017-11-09]
 ----------------------------
 
 Bug fixes 
 
  o Corrected URL for gvisCalendar documentation by Google
+ o Allow for numeric colorvar input for gvisBubbleChart to create 
+   a gradient color scale
 
 
 googleVis 0.6.2 [2017-01-01]
