@@ -425,7 +425,7 @@ check.num.pos <- function(x){
 }
 
 check.char.num <- function(x){
-  if(!( is.numeric(x) | is.character(x)))
+  if(!(( is.numeric(x) | is.character(x)) | is.factor(x)))
     stop(paste("The column has to be of numeric or character format. Currently it is", class(x)))
   x
 }
