@@ -36,7 +36,7 @@ the menu "Insert" -> "More gadgets ..." -> "Add gadget ULR".
 
 In a Google Code wiki the gadget can be embedded via
 
-\code{<wiki:gadget url="http://example.com/gadget.xml" height="200" border="0" />}
+\code{<wiki:gadget url="https://example.com/gadget.xml" height="200" border="0" />}
 
 }
 

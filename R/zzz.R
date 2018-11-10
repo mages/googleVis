@@ -100,7 +100,7 @@ gvisWelcomeMessage <- function(){
         display,
         "\n",
         "See the googleVis package vignettes for more details,\n",
-        "or visit http://github.com/mages/googleVis.\n",
+        "or visit https://github.com/mages/googleVis.\n",
         "\n",               
         "To suppress this message use:\n",
         "suppressPackageStartupMessages(library(googleVis))\n",  

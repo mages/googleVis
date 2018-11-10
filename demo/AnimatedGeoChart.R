@@ -103,7 +103,7 @@ htmlHead <- '
 <head>
 <title>US Presidential Election by State: 1932 - 2008</title>
 
-<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script type="text/javascript">
 
 '

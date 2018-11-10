@@ -85,9 +85,9 @@
 #' Because of Flash security settings the chart might not work correctly when
 #' accessed from a file location in the browser (e.g.,
 #' file:///c:/webhost/myhost/myviz.html) rather than from a web server URL
-#' (e.g. http://www.myhost.com/myviz.html). See the googleVis package vignette
+#' (e.g. https://www.myhost.com/myviz.html). See the googleVis package vignette
 #' and the Macromedia web site
-#' (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/})
+#' (\url{https://www.macromedia.com/support/documentation/en/flashplayer/help/})
 #' for more details.
 #' 
 #' Important: To use this visualization, you must specify the height and width 
@@ -185,7 +185,7 @@
 #' 
 #' ## Get weekly stock prices from Apple Inc.
 #' tckr <- 'AAPL'
-#' yahoo <- 'http://ichart.finance.yahoo.com/table.csv'
+#' yahoo <- 'https://ichart.finance.yahoo.com/table.csv'
 #' 
 #' fn <- sprintf('%s?s=%s&a=08&b=7&c=1984&d=%s&e=%s&f=%s&g=w&ignore=.csv',
 #'       yahoo, tckr, month, current.day, current.year)

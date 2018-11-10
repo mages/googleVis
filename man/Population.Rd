@@ -22,7 +22,7 @@
 }
 \source{
 Sourced from Wikipedia (columns 1 to 5):
-\url{http://en.wikipedia.org/wiki/List_of_countries_by_population},
+\url{https://en.wikipedia.org/wiki/List_of_countries_by_population},
 9 October 2010. 
 }
 \examples{

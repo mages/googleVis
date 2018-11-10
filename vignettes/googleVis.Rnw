@@ -147,7 +147,7 @@ generates output similar to Figure~\ref{MotionChartGUI}:
  1 <html>
  2  <head>
  3   <script type="text/javascript" 
- 4     src="http://www.google.com/jsapi">
+ 4     src="https://www.google.com/jsapi">
  5   </script>
  6   <script type="text/javascript">
  7     google.load('visualization', '1', 
@@ -478,11 +478,11 @@ Please note that Flash charts\footnote{Currently the following charts
 due to security settings, and therefore require to be displayed via a
 web server.  However, you can overcome this issue by changing your Flash security
 settings. Tony Breyal posted the following solution on
-\href{http://stackoverflow.com/questions/8009825/cannot-view-gvismotionchart-from-printed-html-file 
+\href{https://stackoverflow.com/questions/8009825/cannot-view-gvismotionchart-from-printed-html-file 
 }{stackoverflow.com}: 
 
 \begin{enumerate}\label{breyal}
-\item Go to \url{http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html}
+\item Go to \url{https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html}
 \item Click on the dropbox which says 'Edit location' and choose 'add location'
 \item Click 'browse for folder'
 \item Choose the folder in which you saved your HTML file
@@ -745,7 +745,7 @@ and process it from there.
 
 \subsection{Using \googleVis output with WordPress}
 
-\href{http://wordpress.org/}{WordPress} is a popular web software for
+\href{https://wordpress.org/}{WordPress} is a popular web software for
 creating websites and blogs. Here we give some tips about the
 usage with \googleVis output.  
 
@@ -755,7 +755,7 @@ allow you to extend the functions of WordPress.
 
 One option of embedding JavaScript code inside a WordPress post is to use
 the ``custom fields shortcode''
-plugin\footnote{\url{http://wordpress.org/extend/plugins/custom-fields-shortcode}}. 
+plugin\footnote{\url{https://wordpress.org/extend/plugins/custom-fields-shortcode}}. 
 The plugin allows you to create a custom field for the \googleVis
 code, which can be referred to in your article.
 
@@ -788,7 +788,7 @@ Sites, Blogger or Google Code wiki pages.
 However, in most cases, the chart has to be embedded as a Google Gadget.
 Google Gadgets are written in XML and can have HTML and Javascript components.
 Here is an example of a 'Hello World' program written using Google
-Gadget technology from \href{http://en.wikipedia.org/wiki/Google_Gadgets}{Wikipedia}.
+Gadget technology from \href{https://en.wikipedia.org/wiki/Google_Gadgets}{Wikipedia}.
 \begin{verbatim}
 <?xml version="1.0" encoding="UTF-8" ?> 
 <Module>  
@@ -813,7 +813,7 @@ cat(G, file="myGadget.xml")
 In order to use the gadget, the file \texttt{myGadget.xml} has to be
 hosted online, e.g. using Google Docs. 
 Suppose the URL to the gadget is
-\texttt{http://example.com/myGadget.xml}, than you can embed  the gadget
+\texttt{https://example.com/myGadget.xml}, than you can embed  the gadget
 
 \begin{itemize}
 
@@ -823,7 +823,7 @@ Suppose the URL to the gadget is
   
 \item in a Google Code wiki via the \texttt{wiki:gadget} tag, e.g.: 
   
-  \texttt{<wiki:gadget url="http://example.com/gadget.xml" />},
+  \texttt{<wiki:gadget url="https://example.com/gadget.xml" />},
 
  \item in Blogger via the design tab, see site gadgets.
 \end{itemize}
@@ -838,12 +838,12 @@ folder) and is embedded into the blog post by using the
 \texttt{<iframe>} tag, e.g.: 
 \begin{verbatim}
 <iframe width="100%" height="400px" frameborder="0" 
-src="http://example.com/myGoogleVisChart.html">
+src="https://example.com/myGoogleVisChart.html">
 </iframe>
 \end{verbatim}
 For an example see the following blog entry:
-\href{http://www.magesblog.com/2011/09/including-googlevis-output-into-blogger.html}
-{http://www.magesblog.com/2011/09/including-googlevis-output-into-blogger.html}.
+\href{https://www.magesblog.com/2011/09/including-googlevis-output-into-blogger.html}
+{https://www.magesblog.com/2011/09/including-googlevis-output-into-blogger.html}.
 
 
 
@@ -903,9 +903,9 @@ run in a separate window.
 
 Detailed installation instructions for \rapache are available on the
 project site: 
-\href{http://rapache.net/manual.html}{http://\-rapache.\-net/\-manual\-.html},
+\href{https://rapache.net/manual.html}{https://\-rapache.\-net/\-manual\-.html},
 for specific comments on Mac OS X see: 
-\href{http://worldofrcraft.blogspot.com/2010/08/installing-rapache-on-mac-os-x-snow.html}{http://\-worldofrcraft\-.blog\-spot\-.com/\-2010/\-08/\-installing\--rapache\--on\--mac\--os\--x\--snow\-.html}  
+\href{https://worldofrcraft.blogspot.com/2010/08/installing-rapache-on-mac-os-x-snow.html}{https://\-worldofrcraft\-.blog\-spot\-.com/\-2010/\-08/\-installing\--rapache\--on\--mac\--os\--x\--snow\-.html}  
 
 Following the installation of \rapache you will have to configure Apache.
 Most likely you have to add something along the following lines to your
@@ -937,7 +937,7 @@ To test that \rapache is working open
 \href{http://localhost/RApacheInfo}{http://\-localhost/\-RApacheInfo} and
 you should find details about your system, an example can be found on
 the \rapache site:
-\href{http://biostat.mc.vanderbilt.edu/rapache/files/RApacheInfo.html}{http://\-biostat.\-mc.\-vanderbilt.\-edu/\-rapache/\-files/\-RApacheInfo\-.html} 
+\href{https://biostat.mc.vanderbilt.edu/rapache/files/RApacheInfo.html}{https://\-biostat.\-mc.\-vanderbilt.\-edu/\-rapache/\-files/\-RApacheInfo\-.html} 
 
 The next step is to install the \brew R package in the usual way:
 <<eval=FALSE>>=
@@ -1044,7 +1044,7 @@ s$browse('googleVisTable')
 @
 
 \subsubsection{Using \googleVis with \shiny}
-Shiny\footnote{\url{http://www.rstudio.com/shiny/}} is a package by
+Shiny\footnote{\url{https://www.rstudio.com/shiny/}} is a package by
 RStudio. Shiny makes it incredibly easy to build interactive web
 applications with R.  
 
@@ -1103,11 +1103,11 @@ runApp(system.file("shiny/", package="googleVis"))
 @ 
 
 Further examples have been published on Markus' blog:
-\url{http://www.magesblog.co.uk/search/label/shiny} 
+\url{https://www.magesblog.co.uk/search/label/shiny} 
 
 \section{Using \googleVis with \knitr}\label{sec:knitr}
 Using \googleVis with
-\knitr\footnote{\url{http://yihui.name/knitr/}}~\cite{knitr} is a
+\knitr\footnote{\url{https://yihui.name/knitr/}}~\cite{knitr} is a
 convenient way of creating interactive reproducible reports. The
 approach taken by \knitr is similar to Sweave, you can combine R
 code with text and formatting tags. However, \knitr can also export to
@@ -1124,7 +1124,7 @@ print(M, 'chart')
 ```
 \end{verbatim}
 A little example was published in a blog post: 
-\url{http://www.magesblog.co.uk/2012/05/interactive-reports-in-r-with-knitr-and.html}
+\url{https://www.magesblog.co.uk/2012/05/interactive-reports-in-r-with-knitr-and.html}
 
 Version 0.3.2 of \googleVis introduced \texttt{'tag'} as a new argument to
 the plot function \texttt{plot.gvis}, see also
@@ -1196,7 +1196,7 @@ plot(M)
 Please note that the Motion Chart is only displayed when hosted on a
 web server, or is placed in a directory which has been added to the 
 trusted sources in the [security settings of Macromedia]
-(http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html). 
+(https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html). 
 See the googleVis package vignette for more details. 
 
 ```{r resetOptions}
@@ -1218,7 +1218,7 @@ The Google Chart Tools are designed for web pages, so it should
 be no surprise that it can be difficult or impossible to embed \googleVis 
 output in traditional presentation software like MS PowerPoint\footnote{For 
 MS PowerPoint on MS Windows the plug-in
-\href{http://skp.mvps.org/liveweb.htm}{liveweb} provides the
+\href{https://skp.mvps.org/liveweb.htm}{liveweb} provides the
   functionality to insert web pages into a PowerPoint slide and
   refresh the pages real-time during slide show.}, Google Docs,
 OpenOffice Impress or Apple Keynote. 
@@ -1238,7 +1238,7 @@ tutorial given at the useR! conference in 2013, \cite{googleVisTutorial}.
 \begin{figure}[h]
   \centering
   \includegraphics[width=0.5\textwidth]{./figures/googleVisTutorial2013.png}
-  \caption{\googleVis tutorial at the useR! 2013 conference: \url{http://decastillo.github.io/googleVis_Tutorial}} 
+  \caption{\googleVis tutorial at the useR! 2013 conference: \url{https://decastillo.github.io/googleVis_Tutorial}} 
   \label{fig:slidify}
 \end{figure}
 
@@ -1268,7 +1268,7 @@ R and are somewhat experimental.
 \subsection{Registering to catch events}
 
 Google visualisations can fire and receive
-events~\footnote{\url{http://code.google.com/apis/chart/interactive/docs/reference.html\#addlistener}}. 
+events~\footnote{\url{https://developers.google.com/chart/interactive/docs/events}}. 
 It exposes the following two JavaScript methods: 
 \begin{itemize}
 \item \texttt{google.visualization.events.trigger()} fires an event,
@@ -1299,7 +1299,7 @@ Here are some examples:
 
 Look up the selected item in Wikipedia:
 <<eval=FALSE>>=
-jscode <- "window.open('http://en.wikipedia.org/wiki/' 
+jscode <- "window.open('https://en.wikipedia.org/wiki/' 
                   + data.getValue(chart.getSelection()[0].row,0)); "
 
 J1 <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
@@ -1356,7 +1356,7 @@ No, not via \texttt{gvisMap}.
 
 However, you can upload your data to a Google Fusion Table and link it
 to a second table which defines the icons. See the Google Fusion Table
-support page for more details: \url{http://support.google.com/fusiontables/answer/2679986?hl=en}
+support page for more details: \url{https://support.google.com/fusiontables/answer/2679986?hl=en}
 
 \subsection{Why can't I see motion charts when I open them from a local directory?}
 
@@ -1402,7 +1402,7 @@ and feel of the output, see the help files for more details. However,
 \googleVis provides only an interface to the Google Charts API. If
 you have specific questions to the charts then please join the Google
 Visualisation API newsgroup: 
-\url{http://groups.google.com/group/google-visualization-api}.
+\url{https://groups.google.com/group/google-visualization-api}.
 
 For frequent ask questions regarding the API check: 
 \url{https://developers.google.com/chart/interactive/faq}.

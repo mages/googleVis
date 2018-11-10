@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
-        "http://www.w3.org/TR/REC-html40/loose.dtd">
+        "https://www.w3.org/TR/REC-html40/loose.dtd">
 
  <%title="Using the Google visualisation API with R"%>
  
@@ -13,7 +13,7 @@
       Welcome
     </h2>
     Welcome
-    to <a href="http://code.google.com/p/google-motion-charts-with-r/"><b>googleVis</b></a> 
+    to <a href="https://github.com/mages/googleVis/"><b>googleVis</b></a> 
     version <%=packageDescription("googleVis")$Version%> by:
     <a href="mailto:markus.gesmann@gmail.com">Markus Gesmann</a>
     and <a href="mailto:decastillo@gmail.com">Diego de Castillo</a>
@@ -22,13 +22,13 @@
     </h2> 
     <p>
      <tt>googleVis</tt> is a package
-     for <a href="http://www.r-project.org">R</a> which provides
+     for <a href="https://www.r-project.org">R</a> which provides
      functions to visualise data in R with
-     the <a href="http://code.google.com/apis/visualization/documentation/gallery.html">Google
+     the <a href="https://developers.google.com/chart/interactive/docs/gallery?csw=1">Google
      Visualisation API.</a> 
      <BR>
      Please read 
-     Google's <a href="http://code.google.com/apis/visualization/terms.html">terms
+     Google's <a href="https://developers.google.com/terms/site-terms">terms
      of use</a> and data policy. 
      <BR>The visual output will be rendered in your browser using Flash. 
     </p>
@@ -46,7 +46,7 @@
     </h2>
     <p>
       The R
-      package <tt><a href="http://cran.r-project.org/package=R.rsp">R.rsp</a></tt>
+      package <tt><a href="https://cran.r-project.org/package=R.rsp">R.rsp</a></tt>
       provides a lightweight web-server which we are using here to
       display these pages. Additionally the <tt>R.rsp</tt>
       package allows us to dynamically generate documents into
@@ -70,7 +70,7 @@ dataMode='regions'))$html$chart%&gt;
     </p>
     <p>
       <%=gvisGeoMap(Exports, locationvar='Country', numvar='Profit',options=list(height=350, dataMode='regions'))$html$chart%>
-      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/geomap.html">Google
+      See also: <a href="https://developers.google.com/chart/interactive/docs/gallery/geomap?csw=1">Google
       Geo Map API</a>  
     </p>
     <p>
@@ -83,7 +83,7 @@ useMapTypeControl=TRUE))$html$chart%&gt;
     </p>
     <p>
 <%=gvisMap(as.list(Andrew), "LatLong" , "Tip",  options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE, mapType='terrain', useMapTypeControl=TRUE))$html$chart%>
-     See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/map.html">Google
+     See also: <a href="https://developers.google.com/chart/interactive/docs/gallery/geomap?csw=1">Google
 	Map API</a>  
     </p>
    <p>
@@ -95,7 +95,7 @@ options=list(width=600, height=500))$html$chart%&gt;
     </p>
     <p>
       <%=gvisMotionChart(Fruits, idvar="Fruit", timevar="Year",  options=list(width=600, height=500))$html$chart%>
-      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/motionchart.html">Google
+      See also: <a href="https://developers.google.com/chart/interactive/docs/gallery/motionchart">Google
 	Motion Chart API</a>  
     </p>
     <p>
@@ -108,7 +108,7 @@ showScale=TRUE, fontSize=16))$html$chart%&gt;
     </p>
     <p>
       <%=gvisTreeMap(Regions, "Region", "Parent", "Val", "Fac", options=list(width=600, height=500,  showScale=TRUE, fontSize=16))$html$chart%>
-      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/treemap.html">Google
+      See also: <a href="https://developers.google.com/chart/interactive/docs/gallery/treemap">Google
 	Tree Map API</a>  
     </p>
     <p>
@@ -119,7 +119,7 @@ showScale=TRUE, fontSize=16))$html$chart%&gt;
     </p>
     <p>
       <%=gvisTable(Exports, options=list(width=600, height=300))$html$chart%>
-      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/table.html">Google
+      See also: <a href="https://developers.google.com/chart/interactive/docs/gallery/table">Google
       Table API</a>  
     </p>
 
@@ -134,7 +134,7 @@ options=list(displayAnnotations=TRUE, width=600, height=350))$html$chart%&gt;
     </p>
     <p>
       <%=gvisAnnotatedTimeLine(Stock, datevar="Date", numvar="Value",  idvar="Device", titlevar="Title", annotationvar="Annotation",  options=list(displayAnnotations=TRUE, width=600, height=350))$html$chart%>
-      See also: <a href="http://code.google.com/apis/visualization/documentation/gallery/annotatedtimeline.html">Google
+      See also: <a href="https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline">Google
       Annotated Time Line API</a>  
     </p>
 

@@ -5,7 +5,7 @@
 ##
 ## The following code shows two examples:
 
-jscode <- "window.open('http://en.wikipedia.org/wiki/'+data.getValue(chart.getSelection()[0].row,0));  "
+jscode <- "window.open('https://en.wikipedia.org/wiki/'+data.getValue(chart.getSelection()[0].row,0));  "
 J1 <- gvisGeoMap(Exports, locationvar='Country', numvar='Profit',
                  options=list(dataMode="regions",gvis.listener.jscode=jscode))
 
@@ -29,6 +29,6 @@ J2 <- gvisTable(Population,options=list(gvis.listener.jscode=jscode))
 plot(J2)
 
 ## For more details see
-## http://code.google.com/apis/chart/interactive/docs/reference.html#addlistener
+## https://developers.google.com/chart/interactive/docs/reference?csw=1#addlistener
 
 ## See demo(package='googleVis') for other available demos.

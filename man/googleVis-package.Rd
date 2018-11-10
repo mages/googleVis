@@ -14,10 +14,10 @@
   Google.
     
   Please visit the project web site for more information:
-  \url{http://github.com/mages/googleVis}.
+  \url{https://github.com/mages/googleVis}.
 
   You find further notes on Markus' blog:
-  \url{http://www.magesblog.com/search/label/googleVis}
+  \url{https://magesblog.com/tags/googlevis/}
 } 
 %\details{
 %	}

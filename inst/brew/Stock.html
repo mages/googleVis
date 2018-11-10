@@ -17,7 +17,7 @@ month <- ifelse(month < 10, paste("0",month, sep=""), m)
 
 ## weekly stock prices from Apple Inc.
 fn <-
-sprintf('http://ichart.finance.yahoo.com/table.csv?s=AAPL&a=08&b=7&c=1984&d=%s&e=%s&f=%s&g=w&ignore=.csv',
+sprintf('https://query1.finance.yahoo.com/v7/finance/download/AAPL?period1=1539197031&period2=1541879031&interval=1d&events=history&crumb=HVI./JxiQos',
 month, current.day, current.year)
 
 ## Get Data from Yahoo Finance

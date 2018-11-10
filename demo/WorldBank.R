@@ -1,15 +1,15 @@
 ## This demo shows how country level data can be accessed from
 ## the World Bank via their API and displayed with a Motion Chart.
 ## Inspired by Google's Public Data Explorer, see
-## http://www.google.com/publicdata/home
+## https://www.google.com/publicdata/home
 ##
 ## For the World Bank Data terms of use see:
-## http://data.worldbank.org/summary-terms-of-use
+## https://data.worldbank.org/summary-terms-of-use
 ##
 ## To run this demo an internet connection and Flash are required.
 ## This demo is part of the googleVis R package.
 ##
-## See also: http://lamages.blogspot.com/2011/09/accessing-and-plotting-world-bank-data.html
+## See also: https://magesblog.com/2011/09/accessing-and-plotting-world-bank-data.html
 ## Markus Gesmann, 24 September 2011
 ##
 ## Thanks to John Maindonald for a simplified version of this

@@ -432,7 +432,7 @@ Bug Fixes
    Thanks to Oliver Jay and Wai Tung Ho for reporting this issue.
 
  * Fixed earth quake example, using data from 
-   http://www.iris.edu/seismon/last30.html, 
+   https://ds.iris.edu/seismon/eventlist/index.phtml, 
    Mag was read as factor rather than numeric
 
 googleVis 0.2.16 [2012-06-01]
@@ -463,7 +463,7 @@ Changes
 NEW FEATURES
 
 *  Quoted from Google
-   http://code.google.com/apis/chart/interactive/docs/release_notes.html: 
+   https://developers.google.com/chart/interactive/docs/release_notes?csw=1: 
    - Added gradient color mode to bubble chart.
    - Geo chart:
      o  Region interactivity in marker mode is now disabled by
@@ -498,7 +498,7 @@ Changes
 *  Fixed typos in vignette. Thanks to Pat Burns for pointing them
    out
 *  Updated links to Google's updated API Terms of Use:
-   http://code.google.com/apis/terms/index.html  
+   https://developers.google.com/terms/site-terms  
 
 NEW FEATURES
 
@@ -569,7 +569,7 @@ NEW FEATURES
  *  New demo WorldBank. It demonstrates how country level data can
     be accessed from the World Bank via their API and displayed with a
     Motion Chart. Inspired by Google's Public Data Explorer, see
-    http://www.google.com/publicdata/home
+    https://www.google.com/publicdata/home
   
 
 googleVis 0.2.9 [2011-09-01]
@@ -580,7 +580,7 @@ Changes
 *  The documentation of googleVis has been update to reflect a new
    version of the Google Visualisation API which was published on 
    13 July, see
-   http://code.google.com/apis/chart/interactive/docs/release_notes.html#72011. 
+   https://developers.google.com/chart/interactive/docs/release_notes?csw=1#july-13-2011. 
    Here are some of the most interesting features:   
    - Support for dual Y axes
    - Ability to crop and zoom chart area to specific ranges

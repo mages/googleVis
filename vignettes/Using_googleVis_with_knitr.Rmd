@@ -35,7 +35,7 @@ Geo <- gvisGeoChart(Exports, locationvar='Country', colorvar='Profit',
                     options=list(height=300, width=350)) 
 Tbl <- gvisTable(Exports, options=list(height=300, width=200))
 plot(gvisMerge(Geo, Tbl, horizontal=TRUE))
-``````
+```
 Example of a gvisGeoChart with gvisTable and R code hidden.
 
 ## Motion Chart
@@ -47,7 +47,7 @@ plot(M)
 Please note that the Motion Chart is only displayed when hosted on a
 web server, or if placed in a directory which has been added to the 
 trusted sources in the [security settings of Macromedia]
-(http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html). 
+(https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html). 
 See the googleVis package vignette for more details. 
 
 ```{r resetOptions}

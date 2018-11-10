@@ -254,7 +254,7 @@ var options = {};
 
 ###############
 ## Thanks to Sebastian Kranz for this function
-## Thanks also to Wei Luo: http://theweiluo.wordpress.com/2011/09/30/r-to-json-for-d3-js-and-protovis
+## Thanks also to Wei Luo: https://theweiluo.wordpress.com/2011/09/30/r-to-json-for-d3-js-and-protovis
 
 # Transforms a vector into a vector of JSON strings that
 # can be pasted together afterwards
@@ -292,7 +292,7 @@ toJsonSONvec <- function(vec) {
 
 toJsonSONarray <- function(dtf){
   ## Thanks to Sebastian Kranz for this function
-  ## Thanks also to Wei Luo: http://theweiluo.wordpress.com/2011/09/30/r-to-json-for-d3-js-and-protovis
+  ## Thanks also to Wei Luo: https://theweiluo.wordpress.com/2011/09/30/r-to-json-for-d3-js-and-protovis
   
   #restore.point("toJsonSONarray")
   clnms <- colnames(dtf)
@@ -571,8 +571,8 @@ checkSquareCurlBracketOps <- function(char){
 gvisHtmlWrapper <- function(title, dataName, chartid, type){
   
   htmlHeader <- '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+  "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml">
 <head>
 <title>%s</title>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />

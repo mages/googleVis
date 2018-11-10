@@ -25,7 +25,7 @@
 %%  ~~ If necessary, more details than the __description__ above ~~
 %%}
 \source{
-  National Hurricane Center: \url{http://www.nhc.noaa.gov/1992andrew.html}
+  National Hurricane Center: \url{https://www.nhc.noaa.gov/1992andrew.html}
 }
 %%\references{
 %%  ~~ possibly secondary sources and usages ~~

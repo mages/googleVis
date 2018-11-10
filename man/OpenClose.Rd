@@ -23,7 +23,7 @@
 %%}
 \source{
   Google Visualisation: Candlestick Chart
-  \url{http://code.google.com/apis/chart/interactive/docs/gallery/candlestickchart.html}
+  \url{https://developers.google.com/chart/interactive/docs/gallery/candlestickchart?csw=1}
 }
 %%\references{
 %%  ~~ possibly secondary sources and usages ~~
