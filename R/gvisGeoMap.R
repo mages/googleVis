@@ -104,8 +104,6 @@
 #' site (\url{https://www.macromedia.com/support/documentation/en/flashplayer/help/}) 
 #' for more details.
 #' 
-#' @export
-#'  
 #' @keywords iplot
 #' 
 #' @examples

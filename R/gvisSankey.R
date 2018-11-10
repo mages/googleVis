@@ -61,8 +61,6 @@
 #' 
 #' @author Markus Gesmann \email{markus.gesmann@@gmail.com}
 #' 
-#' @export
-#' 
 #' @section Warning:
 #' The sankey chart may be undergoing substantial revisions in 
 #' future Google Charts releases.

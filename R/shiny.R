@@ -44,8 +44,6 @@
 #' 
 #' @keywords shiny 
 #' 
-#' @export  
-#' 
 #' @examples   
 #' \dontrun{
 #' # To run this example:

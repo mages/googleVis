@@ -99,8 +99,6 @@
 #' See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} 
 #' for printing and plotting methods.
 #' 
-#' @export
-#' 
 #' @keywords iplot
 #' 
 #' @examples
