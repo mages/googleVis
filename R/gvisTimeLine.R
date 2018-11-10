@@ -63,8 +63,6 @@
 #' 
 #' @author Markus Gesmann \email{markus.gesmann@@gmail.com}
 #' 
-#' @export
-#' 
 #' @keywords iplot
 #' 
 #' @examples
