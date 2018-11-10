@@ -83,7 +83,7 @@ plot(Bar4)
 library(XML)
 ## Get the data of the biggest ISO container companies from Wikipedia
 ##(table 3):
-df=readHTMLTable(readLines("http://en.wikipedia.org/wiki/Intermodal_freight_transport"))[[3]][,1:2]
+df=readHTMLTable(readLines("https://en.wikipedia.org/wiki/Intermodal_freight_transport"))[[3]][,1:2]
 ## Rename the second column
 names(df)[2]="TEU capacity"
 ## The numbers are displayed with commas to separate thousands, so let's

@@ -226,7 +226,7 @@ plot(M)
 Please note that the Motion Chart is only displayed when hosted on a
 web server, or is placed in a directory which has been added to the 
 trusted sources in the [security settings of Macromedia]
-(http://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html). 
+(https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html). 
 See the googleVis package vignette for more details. 
 
 ```{r resetOptions}
@@ -304,7 +304,7 @@ cat(M$html$chart[c('jsDrawChart', 'jsDisplayChart', 'jsChart')],
 html <- sprintf('
 <html>
   <head>
-  <script type="text/javascript" src="http://www.google.com/jsapi">
+  <script type="text/javascript" src="https://www.google.com/jsapi">
   </script>
   <script type="text/javascript" src="\%s/gvisFunctions.js"></script>
   <script type="text/javascript" src="\%s/gvisData.js"></script>

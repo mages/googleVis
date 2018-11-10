@@ -6,7 +6,8 @@
 \Sexpr{googleChartName <- "piechart"}
 \Sexpr{gvisChartName <- "gvisPieChart"}}
 \usage{
-gvisPieChart(data, labelvar = "", numvar = "", options = list(), chartid)
+gvisPieChart(data, labelvar = "", numvar = "", options = list(),
+  chartid)
 }
 \arguments{
 \item{data}{a \code{\link{data.frame}} to be displayed as a pie chart}

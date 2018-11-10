@@ -145,7 +145,7 @@ month <- ifelse(month < 10, paste("0",month, sep=""), m)
 
 ## Get weekly stock prices from Apple Inc.
 tckr <- 'AAPL'
-yahoo <- 'http://ichart.finance.yahoo.com/table.csv'
+yahoo <- 'https://ichart.finance.yahoo.com/table.csv'
 
 fn <- sprintf('\%s?s=\%s&a=08&b=7&c=1984&d=\%s&e=\%s&f=\%s&g=w&ignore=.csv',
       yahoo, tckr, month, current.day, current.year)

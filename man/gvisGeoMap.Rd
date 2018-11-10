@@ -22,7 +22,7 @@ analysed. The locations can be provide in two formats:
 \item{Format 1}{'latitude:longitude'. See the example below.}
 \item{Format 2}{Address, country name, region name locations, or
 US metropolitan area codes, see
-\url{http://code.google.com/apis/adwords/docs/developer/adwords_api_us_metros.html}. 
+\url{https://developers.google.com/adwords/api/docs/appendix/geotargeting?csw=1}. 
 This format works with the \code{dataMode} option set to either
 'markers' or 'regions'. The following formats are accepted: 
 A specific address (for example, "1600 Pennsylvania Ave"). 
@@ -81,9 +81,9 @@ For more details visit: goo.gl/tkiEV8
 Because of Flash security settings the chart 
 might not work correctly when accessed from a file location in the 
 browser (e.g., file:///c:/webhost/myhost/myviz.html) rather than 
-from a web server URL (e.g. http://www.myhost.com/myviz.html). 
+from a web server URL (e.g. https://www.myhost.com/myviz.html). 
 See the googleVis package vignette and the Macromedia web 
-site (\url{http://www.macromedia.com/support/documentation/en/flashplayer/help/}) 
+site (\url{https://www.macromedia.com/support/documentation/en/flashplayer/help/}) 
 for more details.
 }
 
