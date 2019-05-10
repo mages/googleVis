@@ -7,7 +7,8 @@
 \Sexpr{gvisChartName <- "gvisWordTree"}}
 \usage{
 gvisWordTree(data, textvar = "", sizevar = "", stylevar = "",
-  options = list(), chartid)
+  idvar = "", parentvar = "", options = list(),
+  method = "implicit", chartid)
 }
 \arguments{
 \item{data}{\code{data.frame} that contains the data to be visualised}
@@ -15,10 +16,18 @@ gvisWordTree(data, textvar = "", sizevar = "", stylevar = "",
 \item{textvar}{a string that refers to the column name in \code{data} that
 contains the text to be used.}
 
-\item{sizevar}{a string that refers to the size of the words in the word tree.}
+\item{sizevar}{a string that refers to the column name in \code{data} that
+contains the size of the words in the word tree.}
 
-\item{stylevar}{a string that refers to the style of the words in the word
-tree.}
+\item{stylevar}{a string that refers to the column name in \code{data} that
+contains the stlye of the text. 
+For no warning message in plot, should be called \code{<textvar>.style}.}
+
+\item{idvar}{(only when format is explicit) a string that refers to the 
+column name in \code{data} that contains the unique ID of the text.}
+
+\item{parentvar}{(only when format is explicit) a string that refers to the 
+column name in \code{data} that contains the ID of the parent of the text.}
 
 \item{options}{list of configuration options, see:
 
@@ -31,6 +40,12 @@ readLines(file.path(".", "inst",  "mansections",
 
  \Sexpr[results=rd]{paste(readLines(file.path(".", "inst", 
  "mansections", "gvisOptions.txt")))}}
+
+\item{method}{a string to say whether the word tree is either:
+\itemize{
+\item{\code{implicit}}{ - will weight and connect automatically, or} 
+\item{\code{explicit}}{ - can specify weights and connections}
+}}
 
 \item{chartid}{character. If missing (default) a random chart id will be 
 generated based on chart type and \code{\link{tempfile}}}
@@ -69,6 +84,20 @@ wt2 <- gvisWordTree(Cats2, textvar = "Phrase", stylevar = "Phrase.style",
                                    wordtree = "{word: 'cats'}",
                                    backgroundColor = "#cba"))
 plot(wt2)
+
+# Explicit word tree
+exp.data <- data.frame(id = as.numeric(0:9),
+                       label = letters[1:10],
+                       parent = c(-1, 0, 0, 0, 2, 2, 4, 6, 1, 7),
+                       size = c(10, 5, 3, 2, 2, 2, 1, 1, 5, 1),
+                       stringsAsFactors = FALSE)
+
+wt3 <- gvisWordTree(exp.data, idvar = "id", textvar = "label", 
+                    parentvar = "parent", sizevar = "size",
+                    options = list(wordtree = "{format: 'explicit'}"),
+                    method = "explicit")
+plot(wt3)
+
 }
 \references{
 Google Chart Tools API: 
