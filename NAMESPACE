@@ -33,7 +33,8 @@ export(gvisCalendar)
 export(gvisHistogram)     
 export(gvisAnnotationChart)
 export(gvisTimeline)     
-export(gvisSankey)     
+export(gvisSankey)
+export(gvisWordTree)
 
 # Support function
 export(renderGvis)
