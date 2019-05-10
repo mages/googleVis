@@ -35,7 +35,7 @@
 #' More information about shiny is available online: 
 #'  \url{https://www.rstudio.com/shiny/}. 
 #'  You find further examples with googleVis on shiny on mages' blog:
-#'  \url{https://magesblog.com/search/label/shiny}
+#'  \url{https://magesblog.com/tags/shiny/}
 #'  
 #' @return Returns a function that can be assigned to a Shiny \code{output} 
 #' element.  

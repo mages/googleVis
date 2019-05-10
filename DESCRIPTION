@@ -1,14 +1,15 @@
 Package: googleVis
 Type: Package
 Title: R Interface to Google Charts
-Version: 0.6.3
-Date: 2018-11-12
+Version: 0.6.4
+Date: 2019-05-10
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     email = "markus.gesmann@googlemail.com"),
     person("Diego", "de Castillo", role = "aut",
     email = "decastillo@gmail.com"),
     person("Joe", "Cheng", role = "ctb",
-    email = "joe@rstudio.com"))
+    email = "joe@rstudio.com"),
+    person("Ashley", "Baldry", role = "ctb"))
 Description: R interface to Google's chart tools, allowing users
     to create interactive charts based on data frames. Charts
     are displayed locally via the R HTTP help server. A modern

@@ -152,6 +152,10 @@ Left mouse-click to drill down, right mouse-click to move up a level.
 ```{r Timeline, results='asis', tidy=FALSE}
 ```
 
+## Word tree chart
+```{r WordTree, results='asis', tidy=FALSE}
+```
+
 ## Merging charts
 ```{r gvisMerge, results='asis', tidy=FALSE}
 ```

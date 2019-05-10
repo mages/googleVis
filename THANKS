@@ -72,3 +72,4 @@ Thanks to:
   o Kurt Hornik for informing of CRAN and R changes 
   o Sarang Brahme for comments on the documentation of gvisIntensityMap
   o Carsten Langer for reporting an issue with ordered factors
+  o Ashley Baldry for contributing the code for the gvisWordTree function

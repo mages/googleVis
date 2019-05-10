@@ -68,7 +68,7 @@
 #' 
 #' % END DYNAMIC CONTENT
 #' 
-#' @author Markus Gesmann \email{markus.gesmann@@gmail.com}
+#' @author Ashley Baldry
 #' 
 #' @section Warning:
 #' The word tree chart may be undergoing substantial revisions in 

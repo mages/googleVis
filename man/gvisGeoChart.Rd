@@ -20,7 +20,7 @@ analysed. The locations can be provide in two formats: \describe{
 \item{Format 1}{'latitude:longitude'. See the example below.} \item{Format
 2}{Address, country name, region name locations, or US metropolitan area
 codes, see
-\url{https://developers.google.com/adwords/api/docs/appendix/geotargeting?csw=1}.
+\url{https://developers.google.com/adwords/api/docs/appendix/geotargeting?csw=1l}.
 This format works with the \code{dataMode} option set to either 'markers' or
 'regions'. The following formats are accepted: A specific address (for
 example, "1600 Pennsylvania Ave"). A country name as a string (for example,

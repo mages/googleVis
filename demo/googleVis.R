@@ -364,6 +364,10 @@ plot(Hist)
 ## ---- pause ----
 pause()
 
+## ---- WordTree ----
+wt1 <- gvisWordTree(Cats, textvar = "Phrase")
+plot(wt1)
+
 ## ---- gvisMerge ----
 G <- gvisGeoChart(Exports, "Country", "Profit", 
                   options=list(width=300, height=300))
@@ -375,7 +379,6 @@ plot(GT)
 
 ## ---- pause ----
 pause()
-
 
 ## Flash charts
 ##  ---- GeoMap ----

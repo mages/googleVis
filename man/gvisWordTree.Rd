@@ -109,6 +109,6 @@ readLines(file.path(".", "inst",  "mansections",
 % END DYNAMIC CONTENT
 }
 \author{
-Markus Gesmann \email{markus.gesmann@gmail.com}
+Ashley Baldry
 }
 \keyword{iplot}

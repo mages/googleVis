@@ -1103,7 +1103,7 @@ runApp(system.file("shiny/", package="googleVis"))
 @ 
 
 Further examples have been published on Markus' blog:
-\url{https://www.magesblog.co.uk/search/label/shiny} 
+\url{https://magesblog.com/tags/shiny/} 
 
 \section{Using \googleVis with \knitr}\label{sec:knitr}
 Using \googleVis with

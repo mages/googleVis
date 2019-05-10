@@ -1,4 +1,13 @@
-googleVis 0.6.3 [2017-11-09]
+googleVis 0.6.4 [2019-05-10]
+----------------------------
+
+Changes
+
+ o added gvisWordTree function. 
+   Thanks to Ashley Baldry for contributing the code.
+
+
+googleVis 0.6.3 [2018-11-09]
 ----------------------------
 
 Bug fixes 
