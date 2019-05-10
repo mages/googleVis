@@ -2,12 +2,84 @@
 % Please edit documentation in R/gvisWordTree.R
 \name{gvisWordTree}
 \alias{gvisWordTree}
-\title{Google Word Tree with R}
+\title{Google Word Tree with R
+\Sexpr{googleChartName <- "wordtree"}
+\Sexpr{gvisChartName <- "gvisWordTree"}}
 \usage{
 gvisWordTree(data, textvar = "", sizevar = "", stylevar = "",
   options = list(), chartid)
 }
-\description{
-The gvisWordTree function reads a data.frame and creates text outpute referring to the Google Visualisation API,
-which can be included into a web page, or as a stand-alone page. The actual chart is rendered by the web browser.
+\arguments{
+\item{data}{\code{data.frame} that contains the data to be visualised}
+
+\item{textvar}{a string that refers to the column name in \code{data} that
+contains the text to be used.}
+
+\item{sizevar}{a string that refers to the size of the words in the word tree.}
+
+\item{stylevar}{a string that refers to the style of the words in the word
+tree.}
+
+\item{options}{list of configuration options, see:
+
+% START DYNAMIC CONTENT
+
+\Sexpr[results=rd]{gsub("CHARTNAME", 
+googleChartName,
+readLines(file.path(".", "inst",  "mansections", 
+"GoogleChartToolsURLConfigOptions.txt")))}
+
+ \Sexpr[results=rd]{paste(readLines(file.path(".", "inst", 
+ "mansections", "gvisOptions.txt")))}}
+
+\item{chartid}{character. If missing (default) a random chart id will be 
+generated based on chart type and \code{\link{tempfile}}}
 }
+\value{
+\Sexpr[results=rd]{paste(gvisChartName)} returns list 
+of \code{\link{class}}
+ \Sexpr[results=rd]{paste(readLines(file.path(".", "inst", 
+ "mansections", "gvisOutputStructure.txt")))}
+}
+\description{
+A word tree depicts multiple parallel sequences of words. It could be used to 
+show which words most often follow or precede a target word 
+(e.g., "Cats are...") or to show a hierarchy of terms (e.g., a decision tree).
+}
+\section{Warning}{
+
+The word tree chart may be undergoing substantial revisions in 
+future Google Charts releases.
+}
+
+\examples{
+## Please note that by default the googleVis plot command
+## will open a browser window and requires Internet
+## connection to display the visualisation.
+
+wt1 <- gvisWordTree(Cats, textvar = "Phrase")
+plot(wt1)
+
+Cats2 <- Cats
+Cats2$Phrase.style <- ifelse(Cats$Sentiment >= 7, "green", 
+                             ifelse(Cats$Sentiment <= 3, "red", "black"))
+                             
+wt2 <- gvisWordTree(Cats2, textvar = "Phrase", stylevar = "Phrase.style",
+                    options = list(fontName = "Times-Roman",
+                                   wordtree = "{word: 'cats'}",
+                                   backgroundColor = "#cba"))
+plot(wt2)
+}
+\references{
+Google Chart Tools API: 
+\Sexpr[results=rd]{gsub("CHARTNAME", 
+googleChartName, 
+readLines(file.path(".", "inst",  "mansections", 
+"GoogleChartToolsURL.txt")))}
+
+% END DYNAMIC CONTENT
+}
+\author{
+Markus Gesmann \email{markus.gesmann@gmail.com}
+}
+\keyword{iplot}
