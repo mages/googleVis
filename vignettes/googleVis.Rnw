@@ -842,8 +842,8 @@ src="https://example.com/myGoogleVisChart.html">
 </iframe>
 \end{verbatim}
 For an example see the following blog entry:
-\href{https://www.magesblog.com/2011/09/including-googlevis-output-into-blogger.html}
-{https://www.magesblog.com/2011/09/including-googlevis-output-into-blogger.html}.
+\href{https://magesblog.com/post/2011-09-11-including-googlevis-output-in-a-blogger-post/}
+{https://magesblog.com/post/2011-09-11-including-googlevis-output-in-a-blogger-post/}.
 
 
 
@@ -1124,7 +1124,7 @@ print(M, 'chart')
 ```
 \end{verbatim}
 A little example was published in a blog post: 
-\url{https://www.magesblog.co.uk/2012/05/interactive-reports-in-r-with-knitr-and.html}
+\url{https://magesblog.com/post/2012-05-15-interactive-reports-in-r-with-knitr-and/}
 
 Version 0.3.2 of \googleVis introduced \texttt{'tag'} as a new argument to
 the plot function \texttt{plot.gvis}, see also
