@@ -183,11 +183,11 @@ generates output similar to Figure~\ref{MotionChartGUI}:
 \end{verbatim}
 \end{small}
 The code and data are processed and rendered by the browser and is
-not submitted to any server\footnote{\url{https://google-developers.appspot.com/chart/interactive/docs/gallery/motionchart.html\#Data\_Policy}}. 
+not submitted to any server\footnote{\url{https://developers.google.com/chart/interactive/docs/gallery/motionchart.html\#Data\_Policy}}. 
 
 You will notice that the above HTML code has five generic
 parts\footnote{For more details see
-\url{https://google-developers.appspot.com/chart/interactive/docs/index}}:
+\url{https://developers.google.com/chart/interactive/docs/index}}:
 \begin{itemize}
 \item references to Google's AJAX (l. 4) and Visualisation
   API (ll. 7 -- 8),
@@ -681,7 +681,7 @@ edit  button to the page, allowing the user to edit, change and
 customise the chart on the fly, see the following example and
 Figure~\ref{Editor}. The content of the list item \texttt{gvis.editor}
 describes the label of the browser button\footnote{See also
-  \url{https://google-developers.appspot.com/chart/interactive/docs/drawing\_charts\#charteditor}}. 
+  \url{https://developers.google.com/chart/interactive/docs/drawing\_charts\#charteditor}}. 
 <<eval=FALSE>>=
 Editor <- gvisLineChart(df, options=list(gvis.editor='Edit me!'))
 plot(Editor)

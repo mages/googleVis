@@ -6,8 +6,7 @@
 \Sexpr{googleChartName <- "columnchart"}
 \Sexpr{gvisChartName <- "gvisColumnChart"}}
 \usage{
-gvisColumnChart(data, xvar = "", yvar = "", options = list(),
-  chartid)
+gvisColumnChart(data, xvar = "", yvar = "", options = list(), chartid)
 }
 \arguments{
 \item{data}{a \code{\link{data.frame}} to be displayed as a column chart}

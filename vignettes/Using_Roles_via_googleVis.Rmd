@@ -52,7 +52,7 @@ Intervals help to add error bars, confidence levels, etc.
 Note that the options are set either via `interval` or `intervals`, 
 if set to all intervals. The examples below give an indication of what 
 can be achieved with intervals. 
-For more details visit the Google [documentation](https://google-developers.appspot.com/chart/interactive/docs/gallery/intervals).
+For more details visit the Google [documentation](https://developers.google.com/chart/interactive/docs/gallery/intervals).
 
 ```{r Interval, results='asis', tidy=FALSE}
 ```

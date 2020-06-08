@@ -6,9 +6,17 @@
 \Sexpr{googleChartName <- "annotatedtimeline"}
 \Sexpr{gvisChartName <- "gvisAnnotatedTimeLine"}}
 \usage{
-gvisAnnotatedTimeLine(data, datevar = "", numvar = "", idvar = "",
-  titlevar = "", annotationvar = "", date.format = "\%Y/\%m/\%d",
-  options = list(), chartid)
+gvisAnnotatedTimeLine(
+  data,
+  datevar = "",
+  numvar = "",
+  idvar = "",
+  titlevar = "",
+  annotationvar = "",
+  date.format = "\%Y/\%m/\%d",
+  options = list(),
+  chartid
+)
 }
 \arguments{
 \item{data}{a \code{data.frame}. The data has to have at least two columns,

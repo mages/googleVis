@@ -6,8 +6,7 @@
 \Sexpr{googleChartName <- "steppedarechart"}
 \Sexpr{gvisChartName <- "gvisSteppedAreChart"}}
 \usage{
-gvisSteppedAreaChart(data, xvar = "", yvar = "", options = list(),
-  chartid)
+gvisSteppedAreaChart(data, xvar = "", yvar = "", options = list(), chartid)
 }
 \arguments{
 \item{data}{a \code{\link{data.frame}} to be displayed as a stepped area

@@ -18,4 +18,4 @@ PackageInstallArgs: --no-multiarch --with-keep.source
 PackageBuildArgs: --compact-vignettes=both
 PackageBuildBinaryArgs: --compact-vignettes=both
 PackageCheckArgs: --as-cran
-PackageRoxygenize: rd
+PackageRoxygenize: rd,namespace,vignette

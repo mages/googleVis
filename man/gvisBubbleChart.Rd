@@ -6,8 +6,16 @@
 \Sexpr{googleChartName <- "bubblechart"}
 \Sexpr{gvisChartName <- "gvisBubbleChart"}}
 \usage{
-gvisBubbleChart(data, idvar = "", xvar = "", yvar = "",
-  colorvar = "", sizevar = "", options = list(), chartid)
+gvisBubbleChart(
+  data,
+  idvar = "",
+  xvar = "",
+  yvar = "",
+  colorvar = "",
+  sizevar = "",
+  options = list(),
+  chartid
+)
 }
 \arguments{
 \item{data}{a \code{\link{data.frame}} to be displayed as a bubble chart.

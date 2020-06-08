@@ -6,8 +6,7 @@
 \Sexpr{googleChartName <- "map"}
 \Sexpr{gvisChartName <- "gvisMap"}}
 \usage{
-gvisMap(data, locationvar = "", tipvar = "", options = list(),
-  chartid)
+gvisMap(data, locationvar = "", tipvar = "", options = list(), chartid)
 }
 \arguments{
 \item{data}{a \code{data.frame}. The data has to have at least two columns
@@ -90,7 +89,7 @@ M3 <- gvisMap(df, "Postcode", "Tip",
               icons=paste0("{",
               "'default': {'normal': 'https://icons.iconarchive.com/",
               "icons/icons-land/vista-map-markers/48/",
-              "Map-Marker-Ball-Azure-icon.png',\\n",
+              "Map-Marker-Ball-Azure-icon.png',\n",
               "'selected': 'https://icons.iconarchive.com/",
               "icons/icons-land/vista-map-markers/48/",
               "Map-Marker-Ball-Right-Azure-icon.png'",

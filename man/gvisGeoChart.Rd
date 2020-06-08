@@ -6,8 +6,15 @@
 \Sexpr{googleChartName <- "geochart"}
 \Sexpr{gvisChartName <- "gvisGeoChart"}}
 \usage{
-gvisGeoChart(data, locationvar = "", colorvar = "", sizevar = "",
-  hovervar = "", options = list(), chartid)
+gvisGeoChart(
+  data,
+  locationvar = "",
+  colorvar = "",
+  sizevar = "",
+  hovervar = "",
+  options = list(),
+  chartid
+)
 }
 \arguments{
 \item{data}{a \code{data.frame}. The data has to have at least one column
@@ -125,7 +132,7 @@ G4 <- gvisGeoChart(CityPopularity, locationvar='City', colorvar='Popularity',
                       options=list(region='US', height=350, 
                                    displayMode='markers',
 				   colorAxis="{values:[200,400,600,800],
-                                   colors:[\\'red', \\'pink\\', \\'orange',\\'green']}")
+                                   colors:[\'red', \'pink\', \'orange',\'green']}")
                       ) 
 plot(G4)
 

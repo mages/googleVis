@@ -6,9 +6,18 @@
 \Sexpr{googleChartName <- "motionchart"}
 \Sexpr{gvisChartName <- "gvisMotionChart"}}
 \usage{
-gvisMotionChart(data, idvar = "id", timevar = "time", xvar = "",
-  yvar = "", colorvar = "", sizevar = "",
-  date.format = "\%Y/\%m/\%d", options = list(), chartid)
+gvisMotionChart(
+  data,
+  idvar = "id",
+  timevar = "time",
+  xvar = "",
+  yvar = "",
+  colorvar = "",
+  sizevar = "",
+  date.format = "\%Y/\%m/\%d",
+  options = list(),
+  chartid
+)
 }
 \arguments{
 \item{data}{a \code{data.frame}. The data has to have at least four
@@ -105,11 +114,11 @@ plot(M1)
 \dontrun{
 ## Usage of date variable
 M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
-                      date.format = "\\\%Y\\\%m\\\%d") 
+                      date.format = "\\%Y\\%m\\%d") 
                       plot(M2)
                       
 ## Display weekly data:
-M3 <- gvisMotionChart(Fruits, "Fruit", "Date", date.format="\\\%YW\\\%W")
+M3 <- gvisMotionChart(Fruits, "Fruit", "Date", date.format="\\%YW\\%W")
 plot(M3) 
 }
 ## Options: no side panel on the right
@@ -149,7 +158,7 @@ M6a <- gvisMotionChart(Fruits, "Fruit", "Year",
 plot(M6a)
 
 ## Newline set explicitly
-myStateSettings <-'\\n{"iconType":"LINE"}\\n'
+myStateSettings <-'\n{"iconType":"LINE"}\n'
 M6b <- gvisMotionChart(Fruits, "Fruit", "Year", 
                        options=list(state=myStateSettings))
 plot(M6b)

@@ -19,7 +19,7 @@ Example data set to illustrate the use of the googleVis package.
 %%  ~~ If necessary, more details than the __description__ above ~~
 %%}
 \source{
- Google Geo Map  API: \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/geomap.html}
+ Google Geo Map  API: \url{https://developers.google.com/chart/interactive/docs/gallery/geomap.html}
 }
 %%\references{
 %%  ~~ possibly secondary sources and usages ~~

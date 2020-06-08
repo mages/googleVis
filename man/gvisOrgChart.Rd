@@ -6,8 +6,14 @@
 \Sexpr{googleChartName <- "orgchart"}
 \Sexpr{gvisChartName <- "gvisOrgChart"}}
 \usage{
-gvisOrgChart(data, idvar = "", parentvar = "", tipvar = "",
-  options = list(), chartid)
+gvisOrgChart(
+  data,
+  idvar = "",
+  parentvar = "",
+  tipvar = "",
+  options = list(),
+  chartid
+)
 }
 \arguments{
 \item{data}{a \code{data.frame}. The data has to have at least three

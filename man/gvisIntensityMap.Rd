@@ -6,8 +6,13 @@
 \Sexpr{googleChartName <- "intensitymap"}
 \Sexpr{gvisChartName <- "gvisIntensityMap"}}
 \usage{
-gvisIntensityMap(data, locationvar = "", numvar = "",
-  options = list(), chartid)
+gvisIntensityMap(
+  data,
+  locationvar = "",
+  numvar = "",
+  options = list(),
+  chartid
+)
 }
 \arguments{
 \item{data}{a \code{data.frame}. The data has to have at least two columns

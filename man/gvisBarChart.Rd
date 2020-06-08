@@ -92,7 +92,7 @@ df[,2]=as.numeric(gsub(",", "", as.character(df[,2])))
 
 ## Finally we can create a nice bar chart:
 Bar5 <- gvisBarChart(df, options=list(
-                    chartArea="{left:250,top:50,width:\\"50\%\\",height:\\"75\%\\"}",
+                    chartArea="{left:250,top:50,width:\"50\%\",height:\"75\%\"}",
                     legend="bottom", 
                     title="Top 20 container shipping companies in order of TEU capacity"))
 

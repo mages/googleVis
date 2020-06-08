@@ -6,8 +6,15 @@
 \Sexpr{googleChartName <- "timeline"}
 \Sexpr{gvisChartName <- "gvisTimeline"}}
 \usage{
-gvisTimeline(data, rowlabel = "", barlabel = "", start = "",
-  end = "", options = list(), chartid)
+gvisTimeline(
+  data,
+  rowlabel = "",
+  barlabel = "",
+  start = "",
+  end = "",
+  options = list(),
+  chartid
+)
 }
 \arguments{
 \item{data}{data.frame that contains the data to be visualised}

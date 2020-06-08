@@ -6,9 +6,17 @@
 \Sexpr{googleChartName <- "wordtree"}
 \Sexpr{gvisChartName <- "gvisWordTree"}}
 \usage{
-gvisWordTree(data, textvar = "", sizevar = "", stylevar = "",
-  idvar = "", parentvar = "", options = list(),
-  method = "implicit", chartid)
+gvisWordTree(
+  data,
+  textvar = "",
+  sizevar = "",
+  stylevar = "",
+  idvar = "",
+  parentvar = "",
+  options = list(),
+  method = "implicit",
+  chartid
+)
 }
 \arguments{
 \item{data}{\code{data.frame} that contains the data to be visualised}

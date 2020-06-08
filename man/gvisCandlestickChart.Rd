@@ -6,8 +6,16 @@
 \Sexpr{googleChartName <- "candlestickchart"}
 \Sexpr{gvisChartName <- "gvisCandlestickChart"}}
 \usage{
-gvisCandlestickChart(data, xvar = "", low = "", open = "",
-  close = "", high = "", options = list(), chartid)
+gvisCandlestickChart(
+  data,
+  xvar = "",
+  low = "",
+  open = "",
+  close = "",
+  high = "",
+  options = list(),
+  chartid
+)
 }
 \arguments{
 \item{data}{a \code{\link{data.frame}} to be displayed as a candlestick

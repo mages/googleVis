@@ -6,8 +6,7 @@
 \Sexpr{googleChartName <- "gauge"}
 \Sexpr{gvisChartName <- "gvisGauge"}}
 \usage{
-gvisGauge(data, labelvar = "", numvar = "", options = list(),
-  chartid)
+gvisGauge(data, labelvar = "", numvar = "", options = list(), chartid)
 }
 \arguments{
 \item{data}{a \code{\link{data.frame}} to be displayed as a gauge}

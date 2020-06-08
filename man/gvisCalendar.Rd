@@ -6,8 +6,7 @@
 \Sexpr{googleChartName <- "calendar"}
 \Sexpr{gvisChartName <- "gvisCalendar"}}
 \usage{
-gvisCalendar(data, datevar = "", numvar = "", options = list(),
-  chartid)
+gvisCalendar(data, datevar = "", numvar = "", options = list(), chartid)
 }
 \arguments{
 \item{data}{a \code{data.frame}. The data has to have at least two columns,

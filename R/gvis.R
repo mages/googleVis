@@ -605,7 +605,7 @@ body {
   if(type %in% "gvisMerge"){
     policy <- "Data Policy: See individual charts"
   }else{
-    policy <- sprintf('<a href="https://google-developers.appspot.com/chart/interactive/docs/gallery/%s">Documentation and Data Policy</a>', type)
+    policy <- sprintf('<a href="https://developers.google.com/chart/interactive/docs/gallery/%s">Documentation and Data Policy</a>', type)
   }
   
   htmlFooter <- sprintf(htmlFooter, R.Version()$version.string,

@@ -6,8 +6,14 @@
 \Sexpr{googleChartName <- "geomap"}
 \Sexpr{gvisChartName <- "gvisGeoMap"}}
 \usage{
-gvisGeoMap(data, locationvar = "", numvar = "", hovervar = "",
-  options = list(), chartid)
+gvisGeoMap(
+  data,
+  locationvar = "",
+  numvar = "",
+  hovervar = "",
+  options = list(),
+  chartid
+)
 }
 \arguments{
 \item{data}{\code{data.frame}. The data has to have at least two

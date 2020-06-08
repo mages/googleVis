@@ -6,8 +6,15 @@
 \Sexpr{googleChartName <- "treemap"}
 \Sexpr{gvisChartName <- "gvisTreeMap"}}
 \usage{
-gvisTreeMap(data, idvar = "", parentvar = "", sizevar = "",
-  colorvar = "", options = list(), chartid)
+gvisTreeMap(
+  data,
+  idvar = "",
+  parentvar = "",
+  sizevar = "",
+  colorvar = "",
+  options = list(),
+  chartid
+)
 }
 \arguments{
 \item{data}{a \code{data.frame}. The data has to have at least four columns.

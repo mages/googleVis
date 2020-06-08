@@ -6,9 +6,17 @@
 \Sexpr{googleChartName <- "annotationchart"}
 \Sexpr{gvisChartName <- "gvisAnnotationChart"}}
 \usage{
-gvisAnnotationChart(data, datevar = "", numvar = "", idvar = "",
-  titlevar = "", annotationvar = "", date.format = "\%Y/\%m/\%d",
-  options = list(), chartid)
+gvisAnnotationChart(
+  data,
+  datevar = "",
+  numvar = "",
+  idvar = "",
+  titlevar = "",
+  annotationvar = "",
+  date.format = "\%Y/\%m/\%d",
+  options = list(),
+  chartid
+)
 }
 \arguments{
 \item{data}{a \code{data.frame}. The data has to have at least two columns,

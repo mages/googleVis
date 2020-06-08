@@ -6,8 +6,7 @@
 \Sexpr{googleChartName <- "sankey"}
 \Sexpr{gvisChartName <- "gvisSankey"}}
 \usage{
-gvisSankey(data, from = "", to = "", weight = "", options = list(),
-  chartid)
+gvisSankey(data, from = "", to = "", weight = "", options = list(), chartid)
 }
 \arguments{
 \item{data}{data.frame that contains the data to be visualised}

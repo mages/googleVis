@@ -23,7 +23,7 @@
 %%}
 \source{
   Google Annotated Time Line  API:
-  \url{https://google-developers.appspot.com/chart/interactive/docs/gallery/annotatedtimeline.html}
+  \url{https://developers.google.com/chart/interactive/docs/gallery/annotatedtimeline.html}
 }
 %%\references{
 %%  ~~ possibly secondary sources and usages ~~
