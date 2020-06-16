@@ -97,6 +97,7 @@ gvis <- function(type="", data, options, chartid, package, formats=NULL){
   
   jsHeader <- '
 <!-- jsHeader -->
+<script src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
 '
   jsHeader  <- paste(infoString(type),   jsHeader , sep="\n")
