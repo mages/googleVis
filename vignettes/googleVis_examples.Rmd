@@ -1,9 +1,15 @@
+---
+title: "googleVis examples"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    self_contained: false
+---
+
 <!--
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{Demonstration of googleVis}
 -->
-# googleVis examples 
-===========================================
 
 It may take a little while to load all charts. Please be patient.
 All charts require an Internet connection.
@@ -16,7 +22,7 @@ demo(googleVis)
 ```
 
 For more details about the charts and further examples see the 
-helpfiles of the individual googleVis function and review the 
+help files of the individual googleVis function and review the 
 [Google Charts API documentation](https://developers.google.com/chart/interactive/docs/gallery) and [Terms of Service](https://developers.google.com/chart/terms).
 
 ## Line chart
@@ -93,15 +99,12 @@ The same option is available for all other charts as well.
 ```{r Gauge, results='asis', tidy=FALSE}
 ```
 
-## Intensity Map
-```{r IntensityMap, results='asis', tidy=FALSE}
-```
 
 ## Geo Chart
 ```{r GeoChart, results='asis', tidy=FALSE}
 ```
 
-### Example showing US data by state 
+### Example showing US data by state
 ```{r USStateData, results='asis', tidy=FALSE}
 ```
 
@@ -116,7 +119,7 @@ The same option is available for all other charts as well.
 ## Table
 ```{r Table, results='asis', tidy=FALSE}
 ```
-Click on the column header to sort the rows 
+Click on the column header to sort the rows
 
 ### Table with pages
 ```{r TableWithPages, results='asis', tidy=FALSE}
@@ -127,12 +130,12 @@ Click on the column header to sort the rows
 ```
 Double click on a parent to collapse all its children.
 
-## Tree Map 
+## Tree Map
 ```{r TreeMap, results='asis', tidy=FALSE}
 ```
 Left mouse-click to drill down, right mouse-click to move up a level.
 
-## Annotation chart 
+## Annotation chart
 ```{r AnnotationChart, results='asis', tidy=FALSE}
 ```
 
@@ -161,7 +164,7 @@ Left mouse-click to drill down, right mouse-click to move up a level.
 ```
 
 # Flash charts
-All the following charts require a Flash player. 
+All the following charts require a Flash player.
 
 ## Motion chart
 ```{r MotionChart, results='asis', tidy=FALSE}
@@ -173,7 +176,7 @@ The state string from the 'Advanced' tab can be used to set those
 settings via R. Just copy and past the string from the browser into
 the argument state of the options list.
 Here is an example of a motion chart, with an initial line chart
-displayed. 
+displayed.
 
 ```{r MotionChartSettings, results='asis', tidy=FALSE}
 ```

@@ -1,18 +1,34 @@
+---
+title: "Markdown example with knitr and googleVis"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    self_contained: false
+---
+
 <!--
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{Markdown example with knitr and googleVis}
 -->
-# Markdown example with knitr and googleVis
-===========================================
+
 This is a little Markdown example output. The Markdown source file is hosted on [GitHub](https://github.com/mages/googleVis/blob/master/vignettes/Using_googleVis_with_knitr.Rmd).
 
-Set the googleVis options first to change the behaviour of plot.gvis, so that only the chart component of the HTML file is written into the output file.
+In the YAML header of your Rmarkdown file set the output option to:
+
+```
+  output:
+  html_document:
+    self_contained: false
+```
+
+Next, change googleVis option of `plot.gvis`, so that only the chart component of the HTML file is written into the output file:
 
 ```{r setOptions, message=FALSE}
 library(googleVis)
 op <- options(gvis.plot.tag='chart')
 ```
-The following plot statements will automatically return  the HTML
+
+The following plot statements will automatically return the HTML
 required for the 'knitted' output. 
 
 ## Combo chart
@@ -27,6 +43,7 @@ CC <- gvisComboChart(CityPopularity, xvar='City',
                        series='{0: {type:\"line\"}}'))
 plot(CC)
 ```
+
 Example of gvisComboChart with R code shown above.
 
 ## Place two charts next to each other
@@ -36,18 +53,9 @@ Geo <- gvisGeoChart(Exports, locationvar='Country', colorvar='Profit',
 Tbl <- gvisTable(Exports, options=list(height=300, width=200))
 plot(gvisMerge(Geo, Tbl, horizontal=TRUE))
 ```
+
 Example of a gvisGeoChart with gvisTable and R code hidden.
 
-## Motion Chart
-```{r MotionChartExample, results='asis', tidy=FALSE}
-M <- gvisMotionChart(Fruits, 'Fruit', 'Year',
-         options=list(width=400, height=350))
-plot(M)
-```
-Please note that the Motion Chart is only displayed when hosted on a
-web server, or if placed in a directory which has been added to the 
-trusted sources in the [security settings of Macromedia]
-(https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html). 
 See the googleVis package vignette for more details. 
 
 ```{r resetOptions}

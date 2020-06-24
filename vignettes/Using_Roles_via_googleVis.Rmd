@@ -1,8 +1,16 @@
+---
+title: "Using Roles via googleVis"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    self_contained: false
+---
+
 <!--
 %\VignetteEngine{knitr::knitr}
 %\VignetteIndexEntry{Using Roles and Intervals via googleVis}
 -->
-# Using Roles via googleVis
+
 
 Roles add the ability to pass columns for further processing downstream. 
 Role columns must follow column they pertain to. Proper naming
