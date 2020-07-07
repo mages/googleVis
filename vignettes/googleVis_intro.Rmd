@@ -60,12 +60,12 @@ Visualisation API.
 In 2010  Sebastián Pérez Saaibi [@Saaibi2010] presented at the 
 R/Rmetrics Workshop on  Computational Finance and Financial
 Engineering, the idea to use Google motion charts to visualise R
-output with the `r BiocStyle::CRANpkg("R.rsp")` package [@Rsp]. 
+output with the `r CRANpkg("R.rsp")` package [@Rsp]. 
 
 Inspired by those talks and the desire to use interactive data
 visualisation tools to foster the dialogue between data analysts and
 others the authors of this vignette started the development of the
-`r BiocStyle::CRANpkg("googleVis")` package 
+`r CRANpkg("googleVis")` package 
 [@RJournal:2011-2:GesmannCastillo] in August 2010. 
 
 ### Google Chart Tools
