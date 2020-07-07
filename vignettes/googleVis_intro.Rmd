@@ -286,14 +286,14 @@ help pages, see
 help('gvisGeoChart')
 ``` 
 
-The argument `chartid` allows the user to set a chart id of the
-output chart manually. If the argument is missing a random id using 
+The argument `chartid` allows the user to set a chart ID of the
+output chart manually. If the argument is missing a random ID using 
 `tempfile(pattern='')`
 will be generated. Unique chart ids are required to place more than
 one chart on a web page. 
 
 The output of a googleVis function is a list of lists (a nested list)
-containing information about the chart type, chart id and the HTML
+containing information about the chart type, chart ID and the HTML
 code in a  sub-list with header, chart, caption and footer.
 
 The idea behind this concept is that users can get a
@@ -388,7 +388,7 @@ The complete chart can be displayed via:
 print(gchart, tag='chart')  ## or cat(gchart$html$chart)
 ```
 
-Similarly you can also access specific components of the chart, e.g. (output  truncated)
+Similarly you can also access specific components of the chart, e.g. (output truncated)
 
 ```{r eval=FALSE}
 cat(gchart$html$chart['jsChart']) # or print(gchart, 'jsChart')
@@ -423,13 +423,11 @@ To display the page locally, simply type:
 plot(gchart)  # returns invisibly the file name
 ```
 
-The plot method for `gvis`-objects creates HTML files in a temporary folder using
-the type and chart id information of the object and it will display
-the output using the R HTTP help web server locally, usually under
-http://127.0.0.1.   
+The plot method for `gvis`-objects creates HTML files in a temporary 
+folder using the type and chart ID information of the object and it will display the output using the R built-in web server.   
 
 Note that the chart caption provides a link to the chart code via
-the chart id for copy and paste.
+the chart ID for copy and paste.
 
 The R command `tempdir()`  will show you the path of the
 per-session temporary directory, in which the files were written.
