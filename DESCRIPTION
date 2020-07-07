@@ -28,6 +28,7 @@ Suggests:
     knitr (>= 1.5),
     knitcitations,
     rmarkdown,
+    markdown,
     rmdformats,
     wbstats,
     data.table
