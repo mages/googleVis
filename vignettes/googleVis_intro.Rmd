@@ -1,0 +1,985 @@
+---
+title: "Introduction to googleVis"
+author: "Markus Gesmann and Diego de Castillo"
+keywords: "google, visualisation, api"
+abstract: "The googleVis package provides an interface between R and the Google Charts API. Google Charts offer interactive charts which can be embedded into web pages. The functions of the googleVis package allow the user to visualise data stored in R data frames with Google Charts without uploading the data to Google. The output of a googleVis function is HTML code that contains the data and references to JavaScript functions hosted by Google. googleVis makes use of the internal R HTTP server to display the output locally. A modern browser with an Internet connection is required and for some charts a Flash player."
+date: "`r Sys.Date()`"
+output:
+  rmdformats::readthedown:
+    thumbnails: false
+    use_bookdown: true
+    toc_depth: 2 
+    self_contained: false
+bibliography: googleVis.bib
+vignette: >
+  %\VignetteIndexEntry{Introduction to googleVis}
+  %\VignetteDepends{googleVis}
+  %\VignetteKeywords{google, visualisation, api}
+  %\VignettePackage{googleVis}
+  % \VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+  
+```{r options, echo=FALSE, warning=FALSE, message=FALSE}
+library(knitr)
+library(knitcitations)
+Rpackage <- function (pkg) {sprintf("*%s*", pkg)}
+CRANpkg <- function (pkg){
+    cran <- "https://CRAN.R-project.org/package"
+    fmt <- "[%s](%s=%s)"
+    Rpackage(sprintf(fmt, pkg, cran, pkg))
+}
+library(googleVis)
+options(prompt = "R> ", digits = 4, 
+        show.signif.stars = FALSE,
+        gvis.plot.tag='chart')
+```
+
+
+# Introduction
+
+## Motivation
+
+In 2006 Hans Rosling gave an inspiring talk at
+TED [@HansRoslingTedTalk] about social and economic developments
+in the world over the past 50 years, which challenged the views and
+perceptions of many listeners. Rosling had used extensive data analysis
+to reach his conclusions.  To visualise his talk, he and his team at
+Gapminder [@Gapminder] had developed animated bubble charts, aka
+motion charts. 
+
+<div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/lang/en/hans_rosling_the_best_stats_you_ve_ever_seen" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
+
+Rosling's presentation popularised the idea and use of interactive
+charts. One year later the software behind
+Gapminder was bought by Google and integrated as motion charts into
+their Google Charts API [@GoogleVisApi], formerly known as Google
+Visualisation API.  
+
+In 2010  Sebastián Pérez Saaibi [@Saaibi2010] presented at the 
+R/Rmetrics Workshop on  Computational Finance and Financial
+Engineering, the idea to use Google motion charts to visualise R
+output with the `r BiocStyle::CRANpkg("R.rsp")` package [@Rsp]. 
+
+Inspired by those talks and the desire to use interactive data
+visualisation tools to foster the dialogue between data analysts and
+others the authors of this vignette started the development of the
+`r BiocStyle::CRANpkg("googleVis")` package 
+[@RJournal:2011-2:GesmannCastillo] in August 2010. 
+
+### Google Chart Tools
+
+The Google Charts API [@GoogleVisApi]
+allows users to create interactive charts as part of Google
+documents, spreadsheets and web pages. In this text, we will focus 
+on the usage of the API as part of web pages.
+
+The Google Public Data Explorer [@GooglePublicData] provides a
+good example, demonstrating the use of interactive charts and how they can
+help to analyse data. Please note, that all of those charts are
+rendered by the browser.
+
+The charting data can either be embedded into the HTML file or read
+dynamically. The key to the Google Charts is that the data is
+structured in a DataTable [@DataTable], and this is where the googleVis
+package helps, as it transforms R data frames into JSON [@json]
+objects, using the `r BiocStyle::CRANpkg("jsonlite")` package [@jsonlite], as
+the basis for a DataTable. 
+
+As an example we shall look at the html-code of a motion chart from
+Google's visualisation gallery [@GoogleMotionChart].
+
+```
+ 1 <html>
+ 2  <head>
+ 3   <script type="text/javascript" 
+ 4     src="https://www.google.com/jsapi">
+ 5   </script>
+ 6   <script type="text/javascript">
+ 7     google.load('visualization', '1', 
+ 8      {'packages':['motionchart']});
+ 9    google.setOnLoadCallback(drawChart);
+10    function drawChart() {
+11    var data=new google.visualization.DataTable();
+12    data.addColumn('string', 'Fruit');
+13    data.addColumn('date', 'Date');
+14    data.addColumn('number', 'Sales');
+15    data.addColumn('number', 'Expenses');
+16    data.addColumn('string', 'Location');
+17    data.addRows([
+18    ['Apples',new Date(1988,0,1),1000,300,'East'],
+19    ['Oranges',new Date(1988,0,1),1150,200,'West'],
+20    ['Bananas',new Date(1988,0,1),300,250,'West'],
+21    ['Apples',new Date(1989,6,1),1200,400,'East'],
+22    ['Oranges',new Date(1989,6,1),750,150,'West'],
+23    ['Bananas',new Date(1989,6,1),788,617,'West']
+24    ]);
+25    var chart=new google.visualization.MotionChart(
+26      document.getElementById('chart_div'));
+27    chart.draw(data, {width: 600, height:300});
+28   }
+29   </script>
+30  </head>
+31  <body>
+32   <div id="chart_div" 
+33        style="width:600px; height:300px;">
+34   </div>
+35  </body>
+36 </html>
+```
+
+The code and data are processed and rendered by the browser and is
+not submitted to any server^[[Data Policy](https://developers.google.com/chart/interactive/docs/gallery/linechart#data-policy)]. 
+
+You will notice that the above HTML code has five generic
+parts:
+
+-  references to Google's AJAX (l. 4) and Visualisation
+  API (ll. 7 - 8),
+-  data to visualise as a `DataTable` (ll. 11 - 24),
+-  an instance call to create the chart (ll. 25 - 26),
+-  a method call to draw the chart including options, shown
+  here as width and height (l. 27),
+-  an HTML `<div>` element to add the chart to the page (ll.
+  32 -- 34).
+
+These principles hold true for most of the interactive charts of the
+Google Chart Tools, see the examples in the next section.
+
+However, before you use the API you should read the [Google Terms of Service](https://developers.google.com/terms/) [@GoogleTerms]. 
+
+# The googleVis package 
+
+The googleVis package provides an interface between R and the Google
+Chart Tools. The functions of the package allow the user to
+visualise data stored in R data frames with Google Charts.
+
+The output of a googleVis function is HTML code that contains the
+data and references to JavaScript functions hosted by Google. A
+browser with an Internet connection is required to view
+the output, and for a very few chart types, notably motion charts, also Flash. 
+Examples of several chart types are shown below, which have been combined with 
+the `gvisMerge` function.
+
+```{r demos, eval=TRUE, echo=FALSE, message=FALSE, warning=FALSE, results='asis'}
+## Code for screen shot
+library(googleVis)
+df <- data.frame(country=c("A", "B", "C"), 
+                 val1=c(1,3,4), val2=c(23,12,32))
+
+Line <- gvisLineChart(df, xvar="country", yvar=c("val1", "val2"),
+                      options = list(
+                        width=300, height=300,
+                        legend = "top",
+                        title="Hello World",
+                        titleTextStyle = "{color:'red',fontName:'Courier',
+            fontSize:16}",
+            curveType='function'))
+
+ATL <- gvisAnnotationChart(Stock, datevar="Date",
+                           numvar="Value", idvar="Device",
+                           titlevar="Title",
+                           annotationvar="Annotation",
+                           options=list(displayAnnotations=TRUE,
+                            legendPosition='newRow',
+                            width=300, height=300)
+                           )
+                          
+Gauge <- gvisGauge(CityPopularity, 
+                 options=list(min=0, max=800, greenFrom=500,
+                              greenTo=800, yellowFrom=300, 
+                              yellowTo=500,
+                              redFrom=0, redTo=300,
+                              width=300, height=200))
+
+
+Geo <-  gvisGeoChart(Exports, locationvar='Country',
+                     colorvar='Profit',
+                   options=list(projection="kavrayskiy-vii", 
+                                width=300,height=200)) 
+
+
+# Datetime example 
+dat <- data.frame(Room=c("Room 1","Room 2","Room 3"),
+                  Language=c("English", "German", "French"),
+                  start=as.POSIXct(c("2014-03-14 14:00", "2014-03-14 15:00", 
+                                     "2014-03-14 14:30")),
+                 end=as.POSIXct(c("2014-03-14 15:00", "2014-03-14 16:00", 
+                                  "2014-03-14 15:30")))
+TL <- gvisTimeline(data=dat, rowlabel="Language",
+                   start="start", end="end",
+                   options=list(width=300, height=200))
+Tree <- gvisTreeMap(Regions,  "Region", "Parent", "Val", "Fac",
+                    options=list(width=300, height=200,
+                                 fontSize=16,
+                                 minColor='#EDF8FB',
+                                 midColor='#66C2A4',
+                                 maxColor='#006D2C',
+                                 headerHeight=20,
+                                 fontColor='black',
+                                 showScale=TRUE))
+
+M <- gvisMerge(
+  gvisMerge(gvisMerge(Line, ATL, horizontal = TRUE,
+                      tableOptions="cellspacing=10"), 
+            gvisMerge(Gauge, Geo, horizontal =TRUE, 
+                      tableOptions="cellspacing=10")), 
+  gvisMerge(TL, Tree, horizontal = TRUE, 
+            tableOptions="cellspacing=10"))
+plot(M)
+``` 
+
+## Installation{#sec:Installation}
+
+You can install googleVis in the usual way from CRAN, e.g.:
+
+```{r eval=FALSE}
+install.packages('googleVis') 
+```
+The installation was successful if the
+command `library(googleVis)` gives you the following message:
+
+```{r echo=FALSE, quite=TRUE}
+library(googleVis)
+``` 
+```{r eval=FALSE}
+library(googleVis)
+``` 
+```{r echo=FALSE}
+cat(googleVis:::gvisWelcomeMessage())
+``` 
+
+# Concepts of the googleVis package 
+
+The individual functions of the googleVis package are documented in
+the help pages. Here we will cover only the basic concepts of
+the package.
+
+As an example, we will show how to generate a geo chart. It works 
+similarly for the other APIs. Further examples are covered in the demos^[See `demo(package="googleVis")` for a list of the available demos] of the googleVis
+package.
+
+The design of the visualisation functions is fairly generic. The name
+of the visualisation function is  `'gvis' + ChartType`. So for
+a geo chart we have: 
+
+```{r GeoChart, eval = FALSE}
+gchart <-  gvisGeoChart(data,
+                     locationvar = "",
+                     colorvar = "",
+                     sizevar = "",
+                     hovervar = "",
+                     options = list(),
+                     chartid)                     
+```
+
+Here `data` is the input `data.frame`, `locationvar`, 
+`colorvar`, `sizevar` and `hovervar` specify the various columns 
+used for the plot. Display options are set in an
+optional list, which we discuss in more detail in section
+\@ref(settingoptions). The options and data requirements
+follow those of the Google Charts API  and are documented in the
+help pages, see 
+
+```{r eval=FALSE}
+help('gvisGeoChart')
+``` 
+
+The argument `chartid` allows the user to set a chart id of the
+output chart manually. If the argument is missing a random id using 
+`tempfile(pattern='')`
+will be generated. Unique chart ids are required to place more than
+one chart on a web page. 
+
+The output of a googleVis function is a list of lists (a nested list)
+containing information about the chart type, chart id and the HTML
+code in a  sub-list with header, chart, caption and footer.
+
+The idea behind this concept is that users can get a
+complete web page, while at the same time offer a facility to extract 
+specific parts, such as the chart itself. 
+This is particularly helpful if the package functions
+are used in solutions where the user wants to feed the visualisation
+output into other sites.  
+
+The output of a googleVis function will be of class `gvis`
+and `list`. Generic print (`print.gvis`) and plot
+(`plot.gvis`) functions exist to ease the handling of such objects. 
+
+To illustrate the concept we shall create a Geo chart using the
+`Exports` data set. 
+
+## Geo Chart Example
+
+Following the documentation of the Google Geo Chart API we need a
+data set which has at least one column with the location
+variable.
+
+As an example we use the `Exports` data set:
+
+```{r }
+data(Exports)
+Exports
+```
+
+Here we will use the columns `'Country'` and
+`'Profit'` as location and colour variable respectively. 
+
+```{r }
+ gchart <-  gvisGeoChart(data = Exports, 
+                      locationvar='Country',
+                      colorvar='Profit',
+                      options=list(projection="kavrayskiy-vii", 
+                                   width=400, height=200))
+```
+
+The structural output of `gvisGeoChart` is a list of lists as
+described above 
+
+```{r eval=FALSE}
+ str(gchart)
+``` 
+
+```{r echo=FALSE}
+## This statement avoids truncation
+cat(paste(substring( capture.output( str(gchart) ) , 0, 66), sep="\n", collapse="\n"))
+``` 
+
+The first two items of the list contain information about the chart type
+used and the individual chart id: 
+
+```{r }
+gchart$type
+gchart$chartid
+``` 
+
+The html output is a list with header, chart, caption and
+footer. This allows the user to extract only certain parts
+of the page, or to create a complete html page. 
+
+The header part of the html page has only basic html and formatting tags: 
+
+```{r }
+print(gchart, tag='header')
+``` 
+
+Here we used the `print` statement with the tag
+`'header'` instead of `gchart$html$header` to achieve
+a formatted screen output. This is the same output as
+`cat(gchart$html$chart)`. 
+
+The actual Google visualisation code is stored with the data
+as a named character vector in the `chart` item of the HTML
+list. The chart is made up of several JavaScript and  HTML
+statements. Please notice that the JavaScript functions are
+uniquely named with the information of the chart id.
+This concept allows the user get all the chart code directly or only
+specific parts; see the examples in the help page of `print.gvis`
+for more details.
+
+```{r }
+names(gchart$html$chart)
+``` 
+
+The complete chart can be displayed via:
+
+```{r }
+print(gchart, tag='chart')  ## or cat(gchart$html$chart)
+```
+
+Similarly you can also access specific components of the chart, e.g. (output  truncated)
+
+```{r eval=FALSE}
+cat(gchart$html$chart['jsChart']) # or print(gchart, 'jsChart')
+``` 
+
+```{r echo=FALSE}
+cat(paste(substring( capture.output( cat(gchart$html$chart['jsChart']) ) , 0, 66), sep="\n", collapse="\n"))
+``` 
+
+A basic chart caption and html footer are the final items of the html
+list (output  truncated):
+
+```{r eval=FALSE}
+print(gchart, tag='caption')
+``` 
+```{r echo=FALSE}
+cat(paste(substring( capture.output( cat(gchart$html$caption) ) , 0, 66), sep="\n", collapse="\n"))
+``` 
+
+```{r eval=FALSE}
+print(gchart, tag='footer')
+``` 
+```{r echo=FALSE}
+cat(paste(substring( capture.output( cat(gchart$html$footer) ) , 0, 66), sep="\n", collapse="\n"))
+``` 
+
+# Displaying gvis objects locally
+
+To display the page locally, simply type:
+
+```{r eval=FALSE}
+plot(gchart)  # returns invisibly the file name
+```
+
+The plot method for `gvis`-objects creates HTML files in a temporary folder using
+the type and chart id information of the object and it will display
+the output using the R HTTP help web server locally, usually under
+http://127.0.0.1.   
+
+Note that the chart caption provides a link to the chart code via
+the chart id for copy and paste.
+
+The R command `tempdir()`  will show you the path of the
+per-session temporary directory, in which the files were written.
+You can write the chart into a local html file via the `print`
+command with the file argument, e.g.
+
+```{r eval=FALSE}
+print(gchart, file="myGoogleVisChart.html")
+``` 
+
+
+Alternatively use the function `plot.gvis` explicitly,
+e.g. suppose your html file is stored in
+`/Users/JoeBloggs/myGoogleVisChart.html`. Using the
+`plot.gvis` the file will be copied into a temporary directory
+and displayed via the R HTTP help server with, in the same way as a
+gvis-object: 
+
+```{r eval=FALSE}
+plot.gvis("/Users/JoeBloggs/myGoogleVisChart.html")
+``` 
+
+
+# Setting options {#settingoptions}
+
+Setting the various options of a googleVis objects can be a bit
+cumbersome at first. The options follow those of the Google
+Charts API and can be set via a named list using the argument `options}.
+In the following example, we create a line chart and set various
+options:  
+
+```{r LineChartWithOptions, results="asis"}
+df <- data.frame(country=c("US", "GB", "BR"), 
+                        val1=c(1,3,4), val2=c(23,12,32))
+
+Line <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
+                        options=list(
+                          title="Hello World",
+                          titleTextStyle="{color:'red', 
+                                           fontName:'Courier', 
+                                           fontSize:16}",                         
+                          backgroundColor="#D3D3D3",                          
+                          vAxis="{gridlines:{color:'red', count:3}}",
+                          hAxis="{title:'Country', titleTextStyle:{color:'blue'}}",
+		          series="[{color:'green', targetAxisIndex: 0},	
+                                   {color: 'orange',targetAxisIndex:1}]",
+                          vAxes="[{title:'val1'}, {title:'val2'}]",
+                          legend="bottom",
+                          curveType="function",
+                          width=500,
+                          height=300                         
+                          ))
+plot(Line)
+```
+
+As you can see from the example above, the simpler options can be set by `name=value`, e.g. `width=500`, while the more complex options with sub-components are
+listed in curly brackets `{}`, and arrays `[]`, e.g. to define the two
+axes.
+
+Generally, the following rules apply:
+
+
+ - parameters with names that do not include a "." are set with a single 
+ value, e.g. width and height. Those are set like one would do in R, that is
+ `options=list(width=200, height=300)`. Boolean arguments are set to 
+ either `TRUE` or `FALSE`, using the R syntax.
+ - parameters with names that do not include a "." and are set with 
+ multiple values, e.g. `color`, and are wrapped in `[ ]`, e.g. 
+ `options=list(colors="['#cbb69d', '#603913', '#c69c6e']")`
+ - parameters with names that do include a "." present parameters with 
+ several sub-options and have to be set as a string wrapped in "\{ \}".
+ The values of those sub-options are set via `parameter:value`. Boolean values
+ have to be stated as `'true'` or `'false'`. 
+ For example the Google documentation states the formatting options for the 
+ vertical axis as `vAxis.format`. 
+ Then this parameter can be set in R as:
+ `options=list(vAxis="{format:'#,###%'}")`. 
+ - If several sub-options have to be set, e.g. 
+`titleTextStyle.color`, `titleTextStyle.fontName` and 
+`titleTextStyle.fontSize`, then those can be combined in one list item 
+such as: `options=list(titleTextStyle="{color:'red',fontName:'Courier', fontSize:16}")`
+ - parameters that can have more than one value per sub-options are 
+wrapped in `[ ]`. For example to set the labels for left and right axes use:
+`options=list(vAxes="[{title:'val1'}, {title:'val2'}]")`
+
+
+## Chart Editor
+
+A special option for all charts is `gvis.editor`, which adds an
+edit  button to the page, allowing the user to edit, change and
+customise the chart on the fly. The content of the option `gvis.editor`
+describes the label of the browser button.    
+  
+```{r chartEdit, results='asis'}
+Editor <- gvisLineChart(df, options=list(gvis.editor='Edit me!'))
+plot(Editor)
+``` 
+
+
+
+
+# Embedding googleVis in web sites
+
+Suppose you have an existing web page and would like to integrate the
+output of a googleVis function, such as `gvisLineChart`. 
+In this case you only need the chart output from
+`gvisLineChart`.  So you can either copy and paste the output
+from the R console
+
+```{r eval=FALSE}
+print(gchart, 'chart')  ## or cat(gchart$html$chart) 
+``` 
+
+into your existing html page, or write the content directly into a file
+
+```{r eval=FALSE}
+print(gchart, 'chart', file='myfilename')
+```
+
+and process it from there.
+
+
+# Using googleVis with shiny
+
+[Shiny](https://www.rstudio.com/shiny/) is a package by
+RStudio, which makes it incredibly easy to build interactive web
+applications with R.  
+
+With version 0.4.0 of googleVis support for shiny
+apps was added. Joe Cheng contributed the `renderGvis`
+function which allows users to use googleVis output in shiny in a
+similar way to other plotting functions. 
+
+The following example has been taken from the help file of
+`renderGvis`. It displays a scatter chart where the user can
+select the data set to be displayed. 
+
+```{r eval=FALSE}
+# server.R
+library(googleVis)
+
+shinyServer(function(input, output) {
+  datasetInput <- reactive({
+    switch(input$dataset,
+           "rock" = rock,
+           "pressure" = pressure,
+           "cars" = cars)
+  })
+  
+  output$view <- renderGvis({
+    gvisScatterChart(datasetInput())
+  })
+})
+
+# ui.R
+shinyUI(pageWithSidebar(
+  headerPanel("googleVis on Shiny"),
+  sidebarPanel(
+    selectInput("dataset", "Choose a dataset:", 
+                choices = c("rock", "pressure", "cars"))
+  ),
+  mainPanel(
+    htmlOutput("view")
+  )
+))
+``` 
+
+You can run the example locally with the following statement.
+
+```{r eval=FALSE}
+library(shiny)
+runApp(system.file("shiny/", package="googleVis"))
+``` 
+
+
+# Setting default behaviour of `print.gvis` and `plot.gvis` 
+
+In googleVis version 0.3.2 the function `plot.gvis` gained the
+same argument as `print.gvis`: `tag`. By default the
+`tag` argument is set to `NULL` in `plot.gvis`
+and the plot function will display its output in a browser
+window. However, if `tag` is not `NULL` the function
+`plot.gvis` will behave exactly like `print.gvis`.
+
+The default `tag` can be set for both functions globally via
+the `options()` function. On package load googleVis sets
+`options(gvis.print.tag='html')` and
+`options(gvis.plot.tag=NULL)`. 
+
+Suppose you would set `options(gvis.plot.tag='chart')` then all
+following plot statements would print the chart part of the
+gvis-object only, without opening a browser window. This might
+seem a bit odd at first, yet it becomes helpful when you write R
+Markdown files for `knitr` or files for other packages such as
+`R.rsp`. 
+
+While you draft your file you may want to see the output of googleVis
+in an interactive way, so you set `options(gvis.plot.tag=NULL)`
+at the top of the file and you change the setting to `'chart'`
+before you parse the file, say with `knitr`. This will
+ensure that all plot statements return the HTML code of the chart,
+rather than opening browser windows. 
+
+
+# Using googleVis with knitr
+
+Using googleVis with [knitr](https://yihui.name/knitr/) [@knitr] is a
+convenient way of creating interactive reproducible reports. The
+approach taken by knitr is similar to Sweave, you can combine R
+code with text and formatting tags. However, knitr can also export to
+HTML, which is required to  embed googleVis charts.
+
+To include googleVis output into a knitr document you have to set 
+the `self_contained` option to `false` in the YAML header:
+
+```
+---
+title: "My document"
+output:
+  html_document:
+    self_contained: false
+---
+```
+
+Furthermore, the chunk option `results` should be set to `'asis'`, 
+so that the html output is written into the markdown file.
+
+You can either use the `print` statement:
+
+```{r echo=FALSE, class.output="r", comment=""}
+cat(paste(sep = "\n",
+   "```{r results='asis'}",
+   "gchart <- gvisColumnChart(CityPopularity, 'City', 'Popularity',",
+   "                        options=list(width=550, height=450,",
+   "                                     legend='none'))",
+   "print(gchart, 'chart')",
+   "```"
+))
+```
+
+or alternative change the behaviour of the `plot` function via setting
+`options(gvis.plot.tag = 'chart')`. With this setting `plot(x)` will no longer open a browser window, but produce the same output as 
+`print(x, tag='chart')`, if `x` is a gvis-object. 
+
+Hence, setting the option `gvis.plot.tag` in a knitr markdown
+Rmd-file to `'chart'` will automatically turn all following
+plot statements into html output. 
+
+Note that you can use the `options()` command in your knitr
+file to switch between an interactive mode, where you are likely to
+experiment, via copying and pasting R code into the console and
+running `knit` on the whole file.
+
+A more comprehensive example is given in the help file to `?plot.gvis`.
+
+# Using googleVis in presentations
+
+The Google Chart Tools are designed for web pages, so it should
+be no surprise that it can be difficult or impossible to embed googleVis 
+output in traditional presentation software like MS PowerPoint, Google Docs,
+OpenOffice Impress or Apple Keynote. 
+
+The easiest way is to include screen shots into the slide with links to
+the live web pages. But this approach requires the presenter to switch
+between applications during her talk. This can be fun, but quite often
+it is not. 
+
+An alternative would be to build the presentation as a web page itself.  
+
+A popular approach here is the `slidify` package by Ramnath Vaidyanathan, 
+[@slidify] that builds on the knitr Markdown approach of the previous 
+section. An example of a `slidify` presentation is the [googleVis 
+tutorial](https://decastillo.github.io/googleVis_Tutorial) given at the useR! conference in 2013, @googleVisTutorial.
+
+
+# Using Trendlines with googleVis
+
+A trendline is a line superimposed on a chart revealing the overall 
+direction of the data. Google Charts can automatically generate 
+trendlines for Scatter Charts, Bar Charts, Column Charts and Line Charts.
+
+For more details visit: 
+https://developers.google.com/chart/interactive/docs/gallery/trendlines
+
+```{r readTrendLines, message=FALSE, echo=FALSE}
+read_demo('Trendlines', 'googleVis')
+```
+
+## Linear trend line
+```{r LinearTrend, results='asis', tidy=FALSE}
+```
+
+## Exponential trend line with equation shown in legend
+```{r ExponentialTrend, results='asis', tidy=FALSE}
+```
+
+## Add trend line to column chart
+```{r ColumnChartWithTrendline, results='asis', tidy=FALSE}
+```
+
+## Changing labels in legend
+```{r DifferentLabels, results='asis', tidy=FALSE}
+```
+
+
+# Using Roles via googleVis
+
+Roles add the ability to pass columns for further processing downstream. 
+Role columns must follow column they pertain to. Proper naming
+conventions must be observed. For example, roles fulfilling tooltip
+roles and must be called "foo.blah.tooltip". For more details see the [Google documentation](https://developers.google.com/chart/interactive/docs/roles).
+
+The following examples should help to illustrate the concept. 
+
+```{r readRoles, message=FALSE, echo=FALSE}
+read_demo('Roles', 'googleVis')
+```
+The first example uses a data set that has the additional column
+`pop.html.tooltip` with the first 11 letters of the Latin alphabet.
+This column is mapped automatically as a tooltip when the user hovers 
+over the chart point.
+```{r Tooltip, results='asis', tidy=FALSE}
+```
+HTML code can be embedded into the tooltip as well, if the option 
+isHtml is set to true.
+
+Often it is helpful to highlight certain parts of the data. The Google API
+distinguishes between certainty and emphasis.
+In a similar way to above additional columns with boolean values
+have to be added to the data.
+```{r CertaintyScopeEmphasis, results='asis', tidy=FALSE}
+```
+
+Using roles with column or bar charts has some specifics.
+Instead of 'emphasize' use 'style' to change the colours.
+```{r ColumnChart, results='asis', tidy=FALSE}
+```
+
+
+```{r TwoLines, results='asis', tidy=FALSE}
+```
+
+Setting the annotations style to 'line' allows adding little reference lines
+to the plot.
+```{r VerticalReferenceLine, results='asis', tidy=FALSE}
+```
+
+Intervals help to add error bars, confidence levels, etc.
+Note that the options are set either via `interval` or `intervals`, 
+if set to all intervals. The examples below give an indication of what 
+can be achieved with intervals. 
+For more details visit the Google [documentation](https://developers.google.com/chart/interactive/docs/gallery/intervals).
+
+```{r Interval, results='asis', tidy=FALSE}
+```
+
+
+# Beyond R
+
+In this section we present ideas which go beyond the usual coding in
+R and are somewhat experimental.
+
+## Registering to catch events
+
+Google visualisations can fire and receive
+[events](https://developers.google.com/chart/interactive/docs/events).
+It exposes the following two JavaScript methods: 
+
+ - `google.visualization.events.trigger()` fires an event,
+ - `google.visualization.events.addListener()` listens for events.
+
+Here is an example of registering to receive the selection event from
+the Google documentation:
+
+```
+var table = new google.visualization.Table(document.getElementById('table_div'));
+table.draw(data, options);
+google.visualization.events.addListener(table, 'select', selectHandler);
+
+function selectHandler() {
+  alert('A table row was selected');
+}
+```
+
+We will only deal with this special case of a 'select' event of the
+'addListner' method. This event is available for most visualisations
+and acts on user interactions, e.g. user selection clicks.
+
+The 'addListener' method expects JavaScript code, which can be embedded
+into a gvis-object via `options` as (undocumented) parameter
+`gvis.listener.jscode`. 
+
+Here are some examples:
+
+Look up the selected item in Wikipedia:
+
+```{r listener, results="asis"}
+jscode <- "window.open('https://en.wikipedia.org/wiki/' 
+                  + data.getValue(chart.getSelection()[0].row,0)); "
+
+J1 <- gvisGeoChart(Exports, locationvar='Country', sizevar = 'Profit',
+                 options=list(dataMode="regions", 
+                              gvis.listener.jscode=jscode))
+plot(J1)
+``` 
+
+In the same way we can use the code in other charts, e.g. org- or line charts:
+
+```{r eval=FALSE}
+plot(gvisOrgChart(Regions,  options=list(gvis.listener.jscode=jscode)))
+plot(gvisLineChart(Regions[,c(1,3)], options=list(gvis.listener.jscode=jscode)))
+```
+
+In the following more advanced example the selected value of a table is
+displayed in a message box:
+
+```{r message, results="asis"}
+jscode <- "
+       var sel = chart.getSelection();
+       var row = sel[0].row;
+       var text = data.getValue(row,1);
+       alert(text);
+"
+J2 <- gvisTable(Population[1:5,], 
+                options=list(gvis.listener.jscode=jscode))
+plot(J2)
+``` 
+
+For more details see the `demo(EventListener)` and
+[Google Charts Reference](https://developers.google.com/chart/interactive/docs/reference).
+
+# Frequent ask questions -- FAQ
+
+## Can I use googleVis output in PDF files?
+No, not directly. The Google Charts API is designed for dynamic web
+output on your screen and not on paper.
+
+For further details see Google's online documentation on
+[printing PNG charts](https://developers.google.com/chart/interactive/docs/printing).
+
+## Can I change the colour of the bubbles in motion charts?
+
+No, unfortunately not. The colours are set by the Google Charts API and
+cannot be changed by the user.
+
+## Why can't I see motion charts when I open them from a local directory?
+
+Note that Flash charts may not work when loaded as a local file due to
+security settings, and therefore require to be displayed via a web
+server. However, you can overcome this issue by changing your Flash
+security settings. Tony Breyal posted the following solution on
+stackoverflow.com:
+
+ 1. Go to https://www.adobe.com/support/documentation/en/flashplayer/help/settings_manager04.html
+ 2. Click on the dropbox which says ’Edit location’ and choose ’add location’
+ 3. Click ’browse for folder’
+ 4. Choose the folder in which you saved your HTML file
+ 5. Click OK
+
+## Why can't I see motion charts on my iPad/iPhone?
+
+Motion charts (also geo maps and annotated time lines) are rendered in
+your browser using Flash, unlike most other charts which use
+HTML5. Unfortunately, Flash is not directly supported on iOS devices
+such as iPads and iPhones. 
+
+## How can I set axes limits with googleVis?
+
+Unfortunately, there are no arguments such as `ylim` and `xlim`. 
+Instead, the Google Charts axes options are set via `hAxes` and
+`vAxes`, with 'h' and 'v' indicating the horizontal and vertical axis. 
+More precisely, we have to set `viewWindowMode:'explicit'` and set the `viewWindow` to the desired `min` and `max` values. Additionally, we 
+have to wrap all of this in `[{}]` brackets as those settings are sub 
+options of `h/vAxes`. There are also options `minValue` and 
+`maxValue`, but they only allow you to extend the axes ranges.
+
+Here is a minimal example, setting the y-axis limits from 0 to 10:
+
+```{r setlimit, results="asis"}
+dat <- data.frame(x=LETTERS[1:10], 
+                  y=c(0, 4, -2, 2, 4, 3, 8, 15, 10, 4))
+area1 <- gvisAreaChart(xvar="x", yvar="y", data=dat,
+    	options=list(vAxes="[{viewWindowMode:'explicit',
+			viewWindow:{min:0, max:10}}]",
+                        width=500, height=400, 
+                        title="y-limits set from 0 to 10"),
+			chartid="area1ylim")
+plot(area1)
+```
+
+
+
+## How do I deal with apostrophes in column names?
+
+The googleVis package converts data frames into JSON objects.
+The column names of the resulting JSON tables are encapsulated with
+single speech marks. 
+
+Hence apostrophes in column names of your input data frame have
+to be encapsulated by a double backslash.
+
+Here is a little example:
+
+```{r columnchart, results='asis'}
+df <- data.frame("Year"=c('2009', '2010'), 
+                 "Alice\\'s salary"=c(86.1, 93.3), 
+                 "Bob\\'s salary"=c(95.3, 100.5),
+                 check.names=FALSE) 
+gchart <- gvisColumnChart(df, options=list(vAxis='{baseline:0}', 
+                            title="Salary",
+                            legend="{position:'bottom'}"))
+plot(gchart)
+```
+
+
+## How can I change the look and feel of the charts?
+
+The charts have a lot of options which allow you to change the look
+and feel of the output, see the help files for more details. However,
+googleVis provides only an interface to the Google Charts API. If
+you have specific questions to the charts then please ask the [Google
+Visualisation API newsgroup](https://groups.google.com/group/google-visualization-api).
+
+For frequent ask questions regarding the API check: 
+https://developers.google.com/chart/interactive/faq.
+
+## Is it possible to use googleVis in corporate work?
+
+Review the [Google Terms of Service](https://developers.google.com/terms/) 
+and get in touch with your colleagues in IT / Legal. If in doubt contact Google
+directly. 
+
+
+
+# Bugs and issues
+
+Should you find any issues or bugs with googleVis, then please drop
+us a line or add them to our issues list: 
+(https://github.com/mages/googleVis/issues)
+
+
+# Citation
+
+Please cite googleVis if you use it in your work or publications:
+
+```{r citation}
+citation("googleVis")
+```
+
+# References
+
+\bibliographystyle{alpha}
+\bibliography{googleVis}

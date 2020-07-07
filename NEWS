@@ -1,4 +1,4 @@
-googleVis 0.6.6 [2020-06-24]
+googleVis 0.6.6 [2020-07-07]
 ----------------------------
 
 Changes
@@ -6,6 +6,7 @@ Changes
  o Changed option in YAML header of vignette to 
    self_contained: false, as otherwise the plots 
    are not displayed
+ o Re-organised vignettes and use HTML output only
 
 googleVis 0.6.5 [2020-06-08]
 ----------------------------
