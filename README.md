@@ -8,7 +8,7 @@ A modern browser with Internet connection is required and for some
 charts a Flash player. The data remains local and is not uploaded to 
 Google.
 
-You find [examples](https://CRAN.R-project.org/package=googleVis/vignettes/googleVis_examples.html) of all googleVis function on [CRAN](https://cran.r-project.org/package=googleVis/). Perhaps the best known example is the [motion chart](https://mages.github.io/googleVis/WorldBank.html), popularised by [Hans Rosling](https://www.gapminder.org) in his [2006 TED talk](https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen). 
+You find [examples](https://CRAN.R-project.org/package=googleVis/vignettes/googleVis_examples.html) of all googleVis function on [CRAN](https://cran.r-project.org/package=googleVis/). 
 
 Please read [Google's Terms of Use](https://developers.google.com/terms/) before you start using the package. 
 
@@ -21,18 +21,6 @@ You can install the stable version from
 install.packages('googleVis')
 ```
 
-To install the current development version from github you need the [devtools package](https://cran.r-project.org/package=devtools/) and the other packages on which googleVis depends:
-
-```s
-install.packages(c("devtools","jsonlite", "knitr", "shiny", "httpuv"))
-```
-
-To install googleVis run:
-```s
-library(devtools)
-install_github("mages/googleVis")
-```
-
 ## Usage
 
 ```s
@@ -41,9 +29,7 @@ library(googleVis)
 demo(googleVis)
 ```
 
-See the googleVis package [vignettes](https://cran.r-project.org/package=googleVis/) for more details. For a brief introduction read the five page [R Journal article](https://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf) and go through our [tutorial](https://decastillo.github.io/googleVis_Tutorial). More examples have been posted on Markus' [blog](https://magesblog.com/tags/googlevis/).
-
-[<img src="https://raw.github.com/mages/googleVis/master/vignettes/figures/googleVisTutorial2013.png" alt="Tutorial" width="400"/>](https://decastillo.github.io/googleVis_Tutorial)
+See the googleVis package [vignettes](https://cran.r-project.org/package=googleVis/) for more details. For a brief introduction read the five page [R Journal article](https://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf).
 
 [![Donate](https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=HHPMW8TXCCRSC&lc=GB&item_name=googleVis&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
 
