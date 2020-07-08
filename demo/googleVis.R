@@ -184,12 +184,6 @@ plot(Gauge)
 ## ---- pause ----
 pause()
 
-## ---- IntensityMap ----
-Intensity <- gvisIntensityMap(df)
-plot(Intensity)
-
-## ---- pause ----
-pause()
 
 
 ## ---- GeoChart ----
@@ -381,42 +375,6 @@ plot(GT)
 pause()
 
 ## Flash charts
-##  ---- GeoMap ----
-Geo=gvisGeoMap(Exports, locationvar="Country", numvar="Profit",
-               options=list(height=350, dataMode='regions'))
-plot(Geo)
-
-## ---- pause ----
-pause()
-
-
-## ---- GeoMap ----
-AndrewGeo <- gvisGeoMap(Andrew, 
-                        locationvar="LatLong", 
-                        numvar="Speed_kt", 
-                        hovervar="Category", 
-                        options=list(height=350, 
-                                     region="US", 
-                                     dataMode="markers"))
-plot(AndrewGeo)
-
-## ---- pause ----
-pause()
-
-## ---- AnnotatedTimeLine ----
-AnnoTimeLine  <- gvisAnnotatedTimeLine(Stock, 
-                                       datevar="Date",
-                                       numvar="Value", 
-                                       idvar="Device",
-                                       titlevar="Title", 
-                                       annotationvar="Annotation",
-                                       options=list(displayAnnotations=TRUE,
-                                                    width="600px", height="350px"))
-plot(AnnoTimeLine)
-
-## ---- pause ----
-pause()
-
 ## ---- MotionChart ----
 Motion=gvisMotionChart(Fruits, 
                        idvar="Fruit", 
