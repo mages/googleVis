@@ -74,8 +74,7 @@
 #' @seealso
 #' 
 #' See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and
-#' plotting methods, \code{\link{gvisGeoMap}} and
-#' \code{\link{gvisIntensityMap}} for an alternative to \code{gvisMap}.
+#' plotting methods, \code{\link{gvisGeoChart}} for an alternative to \code{gvisMap}.
 #' 
 #' @keywords iplot
 #' @examples

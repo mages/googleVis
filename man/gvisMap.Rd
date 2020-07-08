@@ -108,8 +108,7 @@ readLines(file.path(".", "inst",  "mansections",
 }
 \seealso{
 See also \code{\link{print.gvis}}, \code{\link{plot.gvis}} for printing and
-plotting methods, \code{\link{gvisGeoMap}} and
-\code{\link{gvisIntensityMap}} for an alternative to \code{gvisMap}.
+plotting methods, \code{\link{gvisGeoChart}} for an alternative to \code{gvisMap}.
 }
 \author{
 Markus Gesmann \email{markus.gesmann@gmail.com},
