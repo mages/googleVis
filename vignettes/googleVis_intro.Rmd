@@ -278,8 +278,8 @@ gchart <-  gvisGeoChart(data,
 Here `data` is the input `data.frame`, `locationvar`, 
 `colorvar`, `sizevar` and `hovervar` specify the various columns 
 used for the plot. Display options are set in an
-optional list, which we discuss in more detail in section
-\@ref(settingoptions). The options and data requirements
+optional list, which we discuss in more detail later. 
+The options and data requirements
 follow those of the Google Charts API  and are documented in the
 help pages, see 
 
@@ -290,7 +290,7 @@ help('gvisGeoChart')
 The argument `chartid` allows the user to set a chart ID of the
 output chart manually. If the argument is missing a random ID using 
 `tempfile(pattern='')`
-will be generated. Unique chart ids are required to place more than
+will be generated. Unique chart  IDs are required to place more than
 one chart on a web page. 
 
 The output of a googleVis function is a list of lists (a nested list)
@@ -348,7 +348,7 @@ cat(paste(substring( capture.output( str(gchart) ) , 0, 66), sep="\n", collapse=
 ``` 
 
 The first two items of the list contain information about the chart type
-used and the individual chart id: 
+used and the individual chart ID: 
 
 ```{r }
 gchart$type
@@ -374,7 +374,7 @@ The actual Google visualisation code is stored with the data
 as a named character vector in the `chart` item of the HTML
 list. The chart is made up of several JavaScript and  HTML
 statements. Please notice that the JavaScript functions are
-uniquely named with the information of the chart id.
+uniquely named with the information of the chart  ID.
 This concept allows the user get all the chart code directly or only
 specific parts; see the examples in the help page of `print.gvis`
 for more details.
@@ -452,40 +452,40 @@ plot.gvis("/Users/JoeBloggs/myGoogleVisChart.html")
 ``` 
 
 
-# Setting options {#settingoptions}
+# Setting options
 
 Setting the various options of a googleVis objects can be a bit
 cumbersome at first. The options follow those of the Google
-Charts API and can be set via a named list using the argument `options}.
+Charts API and can be set via a named list using the argument `options`.
 In the following example, we create a line chart and set various
 options:  
 
 ```{r LineChartWithOptions, results="asis"}
 df <- data.frame(country=c("US", "GB", "BR"), 
-                        val1=c(1,3,4), val2=c(23,12,32))
+                 val1=c(1,3,4), val2=c(23,12,32))
 
 Line <-  gvisLineChart(df, xvar="country", yvar=c("val1","val2"),
-                        options=list(
-                          title="Hello World",
-                          titleTextStyle="{color:'red', 
+                       options=list(
+                         title="Hello World",
+                         titleTextStyle="{color:'red', 
                                            fontName:'Courier', 
                                            fontSize:16}",                         
-                          backgroundColor="#D3D3D3",                          
-                          vAxis="{gridlines:{color:'red', count:3}}",
-                          hAxis="{title:'Country', titleTextStyle:{color:'blue'}}",
-		          series="[{color:'green', targetAxisIndex: 0},	
+                         backgroundColor="#D3D3D3",                          
+                         vAxis="{gridlines:{color:'red', count:3}}",
+                         hAxis="{title:'Country', titleTextStyle:{color:'blue'}}",
+                         series="[{color:'green', targetAxisIndex: 0},	
                                    {color: 'orange',targetAxisIndex:1}]",
-                          vAxes="[{title:'val1'}, {title:'val2'}]",
-                          legend="bottom",
-                          curveType="function",
-                          width=500,
-                          height=300                         
-                          ))
+                         vAxes="[{title:'val1'}, {title:'val2'}]",
+                         legend="bottom",
+                         curveType="function",
+                         width=500,
+                         height=300                         
+                       ))
 plot(Line)
 ```
 
 As you can see from the example above, the simpler options can be set by `name=value`, e.g. `width=500`, while the more complex options with sub-components are
-listed in curly brackets `{}`, and arrays `[]`, e.g. to define the two
+listed in curly brackets `{}` and arrays `[]`, e.g. to define the two
 axes.
 
 Generally, the following rules apply:
@@ -753,7 +753,7 @@ over the chart point.
 ```{r Tooltip, results='asis', tidy=FALSE}
 ```
 HTML code can be embedded into the tooltip as well, if the option 
-isHtml is set to true.
+`isHtml` is set to true.
 
 Often it is helpful to highlight certain parts of the data. The Google API
 distinguishes between certainty and emphasis.
