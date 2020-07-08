@@ -180,12 +180,3 @@ displayed.
 
 ```{r MotionChartSettings, results='asis', tidy=FALSE}
 ```
-
-
-## Geo Map
-```{r GeoMap, results='asis', tidy=FALSE}
-```
-
-## Annotated time line chart
-```{r AnnotatedTimeLine, results='asis', tidy=FALSE}
-```
