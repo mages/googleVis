@@ -5,10 +5,10 @@ keywords: "google, visualisation, api"
 abstract: "The googleVis package provides an interface between R and the Google Charts API. Google Charts offer interactive charts which can be embedded into web pages. The functions of the googleVis package allow the user to visualise data stored in R data frames with Google Charts without uploading the data to Google. The output of a googleVis function is HTML code that contains the data and references to JavaScript functions hosted by Google. googleVis makes use of the internal R HTTP server to display the output locally. A modern browser with an Internet connection is required and for some charts a Flash player."
 date: "`r Sys.Date()`"
 output:
-  rmdformats::readthedown:
-    thumbnails: false
-    use_bookdown: true
-    toc_depth: 2 
+  rmarkdown::html_vignette:
+    toc: true
+    toc_depth: 2
+    number_sections: true
     self_contained: false
 bibliography: googleVis.bib
 vignette: >
@@ -30,6 +30,7 @@ CRANpkg <- function (pkg){
     fmt <- "[%s](%s=%s)"
     Rpackage(sprintf(fmt, pkg, cran, pkg))
 }
+
 library(googleVis)
 options(prompt = "R> ", digits = 4, 
         show.signif.stars = FALSE,

@@ -29,7 +29,6 @@ Suggests:
     knitcitations,
     rmarkdown,
     markdown,
-    rmdformats,
     wbstats,
     data.table
 License: GPL (>= 2)
