@@ -1,6 +1,4 @@
 googleVis		Examples of various googleVis functions and plots
-AnimatedGeoChart		Prototype of an animate a geo map with JavaScript
 EventListener		Examples of basic JavaScript event handlers
-WorldBank		Visualising country level data sourced from the World Bank
 Trendlines    Adding trendlines to Scatter Charts, Bar Charts, Column Charts, and Line Charts
 Roles   Concept and use of roles with googleVis
