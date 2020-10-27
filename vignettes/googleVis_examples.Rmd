@@ -11,6 +11,8 @@ output:
 %\VignetteIndexEntry{Demonstration of googleVis}
 -->
 
+# Demonstration of googleVis
+
 It may take a little while to load all charts. Please be patient.
 All charts require an Internet connection.
 
@@ -164,7 +166,7 @@ Left mouse-click to drill down, right mouse-click to move up a level.
 ```
 
 # Flash charts
-All the following charts require a Flash player.
+All the following chart requires a Flash player.
 
 ## Motion chart
 ```{r MotionChart, results='asis', tidy=FALSE}

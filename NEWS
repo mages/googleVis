@@ -1,4 +1,11 @@
-googleVis 0.6.6 [2020-07-08]
+googleVis 0.6.7 [2020-10-27]
+----------------------------
+
+Changes
+
+ o Removed dependency on package knitcitations
+
+ googleVis 0.6.6 [2020-07-08]
 ----------------------------
 
 Changes

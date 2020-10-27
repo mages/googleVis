@@ -1,8 +1,8 @@
 Package: googleVis
 Type: Package
 Title: R Interface to Google Charts
-Version: 0.6.6
-Date: 2020-07-08
+Version: 0.6.7
+Date: 2020-10-27
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     email = "markus.gesmann@googlemail.com"),
     person("Diego", "de Castillo", role = "aut",
@@ -26,7 +26,6 @@ Suggests:
     shiny (>= 0.4.0),
     httpuv (>= 1.2.0),
     knitr (>= 1.5),
-    knitcitations,
     rmarkdown,
     markdown,
     data.table
