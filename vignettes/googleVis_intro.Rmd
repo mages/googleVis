@@ -552,7 +552,7 @@ and process it from there.
 
 # Using googleVis with shiny
 
-[Shiny](https://www.rstudio.com/shiny/) is a package by
+[Shiny](https://shiny.rstudio.com/) is a package by
 RStudio, which makes it incredibly easy to build interactive web
 applications with R.  
 
@@ -634,7 +634,7 @@ rather than opening browser windows.
 
 # Using googleVis with knitr
 
-Using googleVis with [knitr](https://yihui.name/knitr/) [@knitr] is a
+Using googleVis with [knitr](https://yihui.org/knitr/) [@knitr] is a
 convenient way of creating interactive reproducible reports. The
 approach taken by knitr is similar to Sweave, you can combine R
 code with text and formatting tags. However, knitr can also export to
@@ -700,7 +700,7 @@ An alternative would be to build the presentation as a web page itself.
 A popular approach here is the `slidify` package by Ramnath Vaidyanathan, 
 [@slidify] that builds on the knitr Markdown approach of the previous 
 section. An example of a `slidify` presentation is the [googleVis 
-tutorial](https://decastillo.github.io/googleVis_Tutorial) given at the useR! conference in 2013, @googleVisTutorial.
+tutorial](https://decastillo.github.io/googleVis_Tutorial/) given at the useR! conference in 2013, @googleVisTutorial.
 
 
 # Using Trendlines with googleVis
@@ -881,7 +881,7 @@ server. However, you can overcome this issue by changing your Flash
 security settings. Tony Breyal posted the following solution on
 stackoverflow.com:
 
- 1. Go to https://www.adobe.com/support/documentation/en/flashplayer/help/settings_manager04.html
+ 1. Go to https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager04.html
  2. Click on the dropbox which says ’Edit location’ and choose ’add location’
  3. Click ’browse for folder’
  4. Choose the folder in which you saved your HTML file
@@ -949,7 +949,7 @@ The charts have a lot of options which allow you to change the look
 and feel of the output, see the help files for more details. However,
 googleVis provides only an interface to the Google Charts API. If
 you have specific questions to the charts then please ask the [Google
-Visualisation API newsgroup](https://groups.google.com/group/google-visualization-api).
+Visualisation API newsgroup](https://groups.google.com/d/forum/google-visualization-api).
 
 For frequent ask questions regarding the API check: 
 https://developers.google.com/chart/interactive/faq.

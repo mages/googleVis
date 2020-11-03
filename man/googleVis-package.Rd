@@ -32,7 +32,7 @@
   \itemize{
 		\item Google Charts API: \url{https://developers.google.com/chart/}
 	  \item Google Terms of Use: \url{https://developers.google.com/terms/}
-	  \item Google Maps API Terms of Service: \url{https://developers.google.com/maps/terms}
+	  \item Google Maps API Terms of Service: \url{https://cloud.google.com/maps-platform/terms/}
       }
 }
 \examples{
