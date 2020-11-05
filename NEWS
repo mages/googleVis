@@ -1,3 +1,11 @@
+googleVis 0.6.9 [2020-11-05]
+----------------------------
+
+Changes
+
+ o Fixed URLs to comply with CRAN checks
+ 
+
 googleVis 0.6.8 [2020-11-03]
 ----------------------------
 

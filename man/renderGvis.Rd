@@ -30,7 +30,7 @@ Use a googleVis Chart as Shiny Output
 \section{Details}{
 
 More information about shiny is available online: 
- \url{https://www.rstudio.com/shiny/}. 
+ \url{https://shiny.rstudio.com/}. 
  You find further examples with googleVis on shiny on mages' blog:
  \url{https://magesblog.com/tags/shiny/}
 }
