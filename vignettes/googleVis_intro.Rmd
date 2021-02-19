@@ -784,6 +784,12 @@ For more details visit the Google [documentation](https://developers.google.com/
 ```{r Interval, results='asis', tidy=FALSE}
 ```
 
+The tool tips in geo charts need a little work around, a `Tooltip.header` 
+variable has to be set to an empty string:
+
+```{r GeoChartTooltip, results='asis', tidy=FALSE}
+```
+
 
 # Beyond R
 

@@ -1,3 +1,11 @@
+googleVis 0.6.10 [2021-02-19]
+----------------------------
+
+Changes
+
+ o Allow custom HTML tooltips in gvisGeoCharts
+ 
+
 googleVis 0.6.9 [2020-11-05]
 ----------------------------
 

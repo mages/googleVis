@@ -150,3 +150,15 @@ plot(
                          options=list(annotations = "{style:'line'}")
   )
 )
+
+## ---- GeoChartTooltip ----
+Exports$Profit.tooltip <- paste("<b>Test</b>", Exports$Profit)
+Exports$Tooltip.header <- ""
+GeoTooltip <- gvisGeoChart(
+  Exports, 
+  locationvar = "Country", 
+  colorvar = "Profit",
+  hovervar = "Tooltip.header",
+  options = list(tooltip = "{isHtml: true}")
+)
+plot(GeoTooltip)

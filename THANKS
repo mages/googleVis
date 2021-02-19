@@ -73,3 +73,4 @@ Thanks to:
   o Sarang Brahme for comments on the documentation of gvisIntensityMap
   o Carsten Langer for reporting an issue with ordered factors
   o Ashley Baldry for contributing the code for the gvisWordTree function
+  o Durey Ingeniería for contributing code to allow custom HTML tooltips in gvisGeoCharts
