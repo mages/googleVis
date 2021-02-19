@@ -467,6 +467,11 @@ gvisCheckData <- function(data="", options=list(), data.structure=list()){
                                      names(options$data) != "allowed" &
                                      names(options$data) != "date.format"])]
   
+  html.tooltip.col <- names(data)[endsIn(names(data), '.tooltip')]
+  if (length(html.tooltip.col) == 1) {
+    x[[html.tooltip.col]] <- data[[html.tooltip.col]]
+  }
+  
   sapply(names(options$data[options$data!="" & names(options$data) !=
                               "allowed" & names(options$data) != "date.format"]), 
          function(.x){ 
