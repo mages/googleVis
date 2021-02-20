@@ -1,7 +1,6 @@
 ---
 title: "Introduction to googleVis"
 author: "Markus Gesmann and Diego de Castillo"
-keywords: "google, visualisation, api"
 abstract: "The googleVis package provides an interface between R and the Google Charts API. Google Charts offer interactive charts which can be embedded into web pages. The functions of the googleVis package allow the user to visualise data stored in R data frames with Google Charts without uploading the data to Google. The output of a googleVis function is HTML code that contains the data and references to JavaScript functions hosted by Google. googleVis makes use of the internal R HTTP server to display the output locally. A modern browser with an Internet connection is required and for some charts a Flash player."
 date: "`r Sys.Date()`"
 output:
@@ -12,15 +11,20 @@ output:
     toc_float: true
     number_sections: true
 bibliography: googleVis.bib
-vignette: >
-  %\VignetteIndexEntry{Introduction to googleVis}
-  %\VignetteDepends{googleVis}
-  %\VignetteKeywords{google, visualisation, api}
-  %\VignettePackage{googleVis}
-  % \VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
 ---
 
+<!--
+%\VignetteIndexEntry{Introduction to googleVis}
+%\VignetteDepends{googleVis}
+%\VignetteKeywords{google, visualisation, api}
+%\VignettePackage{googleVis}
+%\VignetteEngine{knitr::rmarkdown}
+\usepackage[utf8]{inputenc}
+-->
+
+```{js, echo=FALSE}
+$('.title').css('color', 'darkred')
+```
   
 ```{r options, echo=FALSE, warning=FALSE, message=FALSE}
 library(knitr)
@@ -46,13 +50,11 @@ In 2006 Hans Rosling gave an inspiring talk at
 TED [@HansRoslingTedTalk] about social and economic developments
 in the world over the past 50 years, which challenged the views and
 perceptions of many listeners. Rosling had used extensive data analysis
-to reach his conclusions.  To visualise his talk, he and his team at
+to reach his conclusions.  To visualise his [talk](https://embed.ted.com/talks/lang/en/hans_rosling_the_best_stats_you_ve_ever_seen), he and his team at
 Gapminder [@Gapminder] had developed animated bubble charts, aka
 motion charts. 
 
-<div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/lang/en/hans_rosling_the_best_stats_you_ve_ever_seen" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
-
-Rosling's presentation popularised the idea and use of interactive
+Rosling's [presentation](https://embed.ted.com/talks/lang/en/hans_rosling_the_best_stats_you_ve_ever_seen) popularised the idea and use of interactive
 charts. One year later the software behind
 Gapminder was bought by Google and integrated as motion charts into
 their Google Charts API [@GoogleVisApi], formerly known as Google
@@ -420,9 +422,10 @@ cat(paste(substring( capture.output( cat(gchart$html$footer) ) , 0, 66), sep="\n
 
 To display the page locally, simply type:
 
-```{r eval=FALSE}
+```{r displaygchart, results='asis'}
 plot(gchart)  # returns invisibly the file name
 ```
+
 
 The plot method for `gvis`-objects creates HTML files in a temporary 
 folder using the type and chart ID information of the object and it will display the output using the R built-in web server.   

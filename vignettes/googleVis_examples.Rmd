@@ -1,5 +1,6 @@
 ---
 title: "googleVis examples"
+author: "Markus Gesmann and Diego de Castillo"
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -13,9 +14,14 @@ output:
 ---
 
 <!--
-%\VignetteEngine{knitr::knitr}
+%\VignetteEngine{knitr::rmarkdown}
 %\VignetteIndexEntry{Demonstration of googleVis}
 -->
+
+
+```{js, echo=FALSE}
+$('.title').css('color', 'darkred')
+```
 
 # Demonstration of googleVis
 
