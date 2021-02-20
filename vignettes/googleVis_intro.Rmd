@@ -5,11 +5,12 @@ keywords: "google, visualisation, api"
 abstract: "The googleVis package provides an interface between R and the Google Charts API. Google Charts offer interactive charts which can be embedded into web pages. The functions of the googleVis package allow the user to visualise data stored in R data frames with Google Charts without uploading the data to Google. The output of a googleVis function is HTML code that contains the data and references to JavaScript functions hosted by Google. googleVis makes use of the internal R HTTP server to display the output locally. A modern browser with an Internet connection is required and for some charts a Flash player."
 date: "`r Sys.Date()`"
 output:
-  rmarkdown::html_vignette:
+  html_document:
+    self_contained: false 
     toc: true
     toc_depth: 2
+    toc_float: true
     number_sections: true
-    self_contained: false
 bibliography: googleVis.bib
 vignette: >
   %\VignetteIndexEntry{Introduction to googleVis}
@@ -867,7 +868,15 @@ For more details see the `demo(EventListener)` and
 
 # Frequent ask questions -- FAQ
 
+## Is there an alternative for the Flash based motion chart
+
+Other R packages provide alternatives to the Flash based
+Google motion chart, such as [plotly](https://plotly.com/r/animations/#mulitple-trace-animations), 
+[gganimate](https://gganimate.com)
+
+
 ## Can I use googleVis output in PDF files?
+
 No, not directly. The Google Charts API is designed for dynamic web
 output on your screen and not on paper.
 
