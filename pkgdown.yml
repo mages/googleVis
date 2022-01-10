@@ -1,0 +1,11 @@
+pandoc: 2.7.3
+pkgdown: 2.0.1
+pkgdown_sha: ~
+articles:
+  googleVis_examples: googleVis_examples.html
+  googleVis_intro: googleVis_intro.html
+last_built: 2022-01-10T20:28Z
+urls:
+  reference: https://mages.github.io/googleVis/reference
+  article: https://mages.github.io/googleVis/articles
+
