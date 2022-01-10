@@ -120,11 +120,11 @@
 #' \dontrun{
 #' ## Usage of date variable
 #' M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
-#'                       date.format = "\%Y\%m\%d") 
+#'                       date.format = "\\%Y\\%m\\%d") 
 #'                       plot(M2)
 #'                       
 #' ## Display weekly data:
-#' M3 <- gvisMotionChart(Fruits, "Fruit", "Date", date.format="\%YW\%W")
+#' M3 <- gvisMotionChart(Fruits, "Fruit", "Date", date.format="\\%YW\\%W")
 #' plot(M3) 
 #' }
 #' ## Options: no side panel on the right
@@ -187,6 +187,9 @@ gvisMotionChart <- function(data, idvar="id", timevar="time",
                             xvar="", yvar="", colorvar="", sizevar="",
                             date.format="%Y/%m/%d",
                             options=list(), chartid){
+  
+  .Deprecated("plotly::ggplotly",
+              msg = "Flash charts are no longer supported by most browsers.\nAn alternative is plotly::ggplotly.\nFor more see https://plotly-r.com/animating-views.html")
   
   
   my.type <- "MotionChart"

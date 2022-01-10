@@ -114,11 +114,11 @@ plot(M1)
 \dontrun{
 ## Usage of date variable
 M2 <- gvisMotionChart(Fruits, idvar="Fruit", timevar="Date",
-                      date.format = "\\%Y\\%m\\%d") 
+                      date.format = "\\\\\%Y\\\\\%m\\\\\%d") 
                       plot(M2)
                       
 ## Display weekly data:
-M3 <- gvisMotionChart(Fruits, "Fruit", "Date", date.format="\\%YW\\%W")
+M3 <- gvisMotionChart(Fruits, "Fruit", "Date", date.format="\\\\\%YW\\\\\%W")
 plot(M3) 
 }
 ## Options: no side panel on the right

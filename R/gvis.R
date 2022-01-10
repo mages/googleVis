@@ -553,9 +553,8 @@ gvisOptions <- function(options=list(gvis=list(width = 600, height=500))){
   #print(options)
   .par <- sapply(names(options), function(x){
     if(! (x %in% c("width", "height") & 
-            ! is.numeric(type.convert(gsub("px","", options[[x]])))) 
+            ! is.numeric(type.convert(gsub("px","", options[[x]]), as.is = TRUE))) 
   ){
-   
       paste("options[\"", x,"\"] = ",
             ifelse(any(checkSquareCurlBracketOps(options[[x]])),
                    paste(options[[x]], collapse="\n"),
