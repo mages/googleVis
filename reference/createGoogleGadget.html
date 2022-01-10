@@ -99,16 +99,16 @@ the menu "Insert" -&gt; "More gadgets ..." -&gt; "Add gadget ULR".</p>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="va">M</span> <span class="op">&lt;-</span> <span class="fu"><a href="gvisMotionChart.html">gvisMotionChart</a></span><span class="op">(</span><span class="va">Fruits</span>, idvar<span class="op">=</span><span class="st">"Fruit"</span>, timevar<span class="op">=</span><span class="st">"Year"</span><span class="op">)</span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Flash charts are no longer supported by most browsers.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> An alternative is plotly::ggplotly.</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> For more see https://plotly-r.com/animating-views.html</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> For more see https://plotly.com/r/animations/#mulitple-trace-animations</span>
 <span class="r-in"><span class="va">gdgt</span> <span class="op">&lt;-</span> <span class="fu">createGoogleGadget</span><span class="op">(</span><span class="va">M</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/base/cat.html" class="external-link">cat</a></span><span class="op">(</span><span class="va">gdgt</span><span class="op">)</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;?xml version="1.0" encoding="UTF-8" ?&gt; </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;Module&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;ModulePrefs title="MotionChartID2fb152ed24f2" /&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;ModulePrefs title="MotionChartID2c0e3d296611" /&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;Content type="html"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   &lt;![CDATA[ </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    &lt;!-- MotionChart generated in R 4.1.2 by googleVis 0.6.12 package --&gt;</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!-- Mon Jan 10 20:28:30 2022 --&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!-- Mon Jan 10 21:01:56 2022 --&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!-- jsHeader --&gt;</span>
@@ -116,7 +116,7 @@ the menu "Insert" -&gt; "More gadgets ..." -&gt; "Add gadget ULR".</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> // jsData </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> function gvisDataMotionChartID2fb152ed24f2 () {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> function gvisDataMotionChartID2c0e3d296611 () {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> var data = new google.visualization.DataTable();</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> var datajson =</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [</span>
@@ -215,8 +215,8 @@ the menu "Insert" -&gt; "More gadgets ..." -&gt; "Add gadget ULR".</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> // jsDrawChart</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> function drawChartMotionChartID2fb152ed24f2() {</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> var data = gvisDataMotionChartID2fb152ed24f2();</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> function drawChartMotionChartID2c0e3d296611() {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> var data = gvisDataMotionChartID2c0e3d296611();</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> var options = {};</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> options["width"] = 600;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> options["height"] = 500;</span>
@@ -224,7 +224,7 @@ the menu "Insert" -&gt; "More gadgets ..." -&gt; "Add gadget ULR".</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     var chart = new google.visualization.MotionChart(</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>     document.getElementById('MotionChartID2fb152ed24f2')</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     document.getElementById('MotionChartID2c0e3d296611')</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     );</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     chart.draw(data,options);</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     </span>
@@ -249,9 +249,9 @@ the menu "Insert" -&gt; "More gadgets ..." -&gt; "Add gadget ULR".</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   pkgs.push(chartid);</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> // Add the drawChart function to the global list of callbacks</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> callbacks.push(drawChartMotionChartID2fb152ed24f2);</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> callbacks.push(drawChartMotionChartID2c0e3d296611);</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> })();</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> function displayChartMotionChartID2fb152ed24f2() {</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> function displayChartMotionChartID2c0e3d296611() {</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   var pkgs = window.__gvisPackages = window.__gvisPackages || [];</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   var callbacks = window.__gvisCallbacks = window.__gvisCallbacks || [];</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   window.clearTimeout(window.__gvisLoad);</span>
@@ -277,12 +277,12 @@ the menu "Insert" -&gt; "More gadgets ..." -&gt; "Add gadget ULR".</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!-- jsChart --&gt;  </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID2fb152ed24f2"&gt;&lt;/script&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;script type="text/javascript" src="https://www.google.com/jsapi?callback=displayChartMotionChartID2c0e3d296611"&gt;&lt;/script&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;!-- divChart --&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div id="MotionChartID2fb152ed24f2" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;div id="MotionChartID2c0e3d296611" </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>   style="width: 600; height: 500;"&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;/div&gt;</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
