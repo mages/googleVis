@@ -188,8 +188,7 @@ gvisMotionChart <- function(data, idvar="id", timevar="time",
                             date.format="%Y/%m/%d",
                             options=list(), chartid){
   
-  .Deprecated("plotly::ggplotly",
-              msg = "Flash charts are no longer supported by most browsers.\nAn alternative is plotly::ggplotly.\nFor more see https://plotly-r.com/animating-views.html")
+  warning("Flash charts are no longer supported by most browsers.\nAn alternative is plotly::ggplotly.\nFor more see https://plotly.com/r/animations/#mulitple-trace-animations")
   
   
   my.type <- "MotionChart"

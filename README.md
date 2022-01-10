@@ -7,11 +7,10 @@
 
 The googleVis package provides an interface between R and the [Google's charts tools](https://developers.google.com/chart/). 
 It allows users to create web pages with interactive charts based on R data frames. Charts are displayed locally via the R HTTP help server. 
-A modern browser with Internet connection is required and for some 
-charts a Flash player. The data remains local and is not uploaded to 
+A modern browser with Internet connection is required. The data remains local and is not uploaded to 
 Google.
 
-You find [examples](https://CRAN.R-project.org/package=googleVis/vignettes/googleVis_examples.html) of all googleVis function on [CRAN](https://cran.r-project.org/package=googleVis/). 
+Check out the [examples](https://mages.github.io/googleVis/articles/googleVis_examples.html) from the googleVis demo. 
 
 Please read [Google's Terms of Use](https://developers.google.com/terms/) before you start using the package. 
 
@@ -32,7 +31,7 @@ library(googleVis)
 demo(googleVis)
 ```
 
-See the googleVis package [vignettes](https://cran.r-project.org/package=googleVis/) for more details. For a brief introduction read the five page [R Journal article](https://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf).
+See the googleVis package [vignette](http://mages.github.io/googleVis/articles/googleVis_intro.html) for more details. For a brief introduction read the five page [R Journal article](https://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf).
 
 ## License
 

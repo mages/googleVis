@@ -177,8 +177,6 @@ gvisAnnotatedTimeLine <- function(data, datevar="",
                                   options=list(), chartid){
   warning("AnnotatedTimeline (gvisAnnotatedTimeLine) is Flash based, consider using  AnnotationChart (gvisAnnotationChart) instead.")
   
-  .Deprecated("gvisAnnotationChart")
-  
   my.type <- "AnnotatedTimeLine"
   dataName <- deparse(substitute(data))
   
