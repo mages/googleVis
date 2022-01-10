@@ -2,3 +2,7 @@ url: https://mages.github.io/googleVis/
 template:
   bootstrap: 5
 
+navbar:
+  structure:
+    left:  [articles, reference, news]
+    right: [search, github]

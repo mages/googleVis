@@ -1,26 +1,21 @@
-# googleVis 0.6.12
-
- * Started using pkgdown to generate googleVis package website
-
 # googleVis 0.6.11
 
+ * Started using pkgdown to generate googleVis package website
+ * Fixed warning from type.convert()
  * Tidied up layout of googleVis vignette
 
 # googleVis 0.6.10
 
 * Allow custom HTML tooltips in gvisGeoCharts
  
-
 # googleVis 0.6.9
 
 * Fixed URLs to comply with CRAN checks
- 
 
 # googleVis 0.6.8
 
 * Fixed URLs to comply with CRAN checks
  
-
 # googleVis 0.6.7
 
 * Removed dependency on package knitcitations
@@ -41,19 +36,16 @@
 * added gvisWordTree function. 
    Thanks to Ashley Baldry for contributing the code.
 
-
 # googleVis 0.6.3
 
 * Corrected URL for gvisCalendar documentation by Google
 * Allow for numeric colorvar input for gvisBubbleChart to create 
    a gradient color scale
 
-
 # googleVis 0.6.2
 
  * Updated links to omegahat from omegahat.org
     to omegahat.net as requested by CRAN
-
 
 # googleVis 0.6.1
 
@@ -63,25 +55,21 @@
 * In some cases option settings were not converted 
    porperly into JSON objects.  
 
-
 # googleVis 0.6.0
 
  * Changed package dependency from RJSONIO to jsonlite.
  * Change demo AnimatedGeoMap to AnimatedGeoChart
-
 
 # googleVis 0.5.10
 
  * Ordered factors were ignored. 
    Thanks to Carsten Langer for reporting this issue.
 
-
 # googleVis 0.5.9
 
   * Added note section on width and height to help file of 
     gvisIntensityMap. Thanks to Sarang Brahme for his comment.
   * Updated NAMESPACE file to comply with new R CMD checks in R-3.3.0 
-  
   
 # googleVis 0.5.8
 
@@ -116,7 +104,6 @@
 
 * Tidying up of googleVis demo, vignette and README file
 
-
 # googleVis 0.5.3
 
 * Default chart width is set to 'automatic' instead of 500 pixels.
@@ -131,14 +118,12 @@
   the number is assumed to be pixels. This has been fixed.
   Thanks to Paul Murrell for reporting this issue.
 
-
 # googleVis 0.5.2
 
 * Fixed minor formatting issues in documentation and vignettes.
 * Added examples in demo googleVis to show how to
   customize points and lines and to the help files of
   gvisLineChart and gvisScatterChart.
-
 
 # googleVis 0.5.1
 
@@ -160,7 +145,6 @@
   longer available with the current version of RStudio, but is likely to   
   be introduced again with the release of RStudio version 0.99 or higher.
 
-
 # googleVis 0.4.7
 
 * New option 'googleVis.viewer' which controls the default output of
@@ -174,7 +158,6 @@
 * Added example to gvisMap that illustrates how the icon can be 
   changed.
 
-
 # googleVis 0.4.6
 
 * googleVis will use the Viewer pane in RStudio (version >= 0.98.441) 
@@ -182,12 +165,10 @@
   via the option viewer. Set options("viewer"=NULL) and the googleVis
   plot function will open all output in the default browser again.
 
-
 # googleVis 0.4.5
 
 * The indentation of some of the HTML output changed in version 0.4.4,
   which as a result stopped googleVis output to be rendered with knitr.
-
 
 # googleVis 0.4.4
 
@@ -199,7 +180,6 @@
   demonstrating how to change the width of bars
 * Extended FAQ section
 
-
 # googleVis 0.4.3
 
  * givsGeoChart has a new argument 'hovervar' to specify a column in
@@ -207,7 +187,6 @@
    chart. See the new example of plotting countries' credit rating in
    the help file for a use case. Thanks to John Muschelli for suggesting
    this feature.
-
 
 # googleVis 0.4.2
 
@@ -218,7 +197,6 @@
    Thanks to John Maindonald for providing the code.
  * Fixed typos in Stock and Andrew example data. 
    Thanks to Sebastian Campbell for reporting this issue. 
-
 
 # googleVis 0.4.0
 
@@ -242,19 +220,16 @@
  * The demo WorldBank didn't download all data but only the first
    12000 records. Many thanks to John Maindonald reported this issue. 
 
-
 # googleVis 0.3.3
 
  * Clarified the usage of the argument state in the help file of
    gvisMotionChart. Thanks to Leonardo Trabuco 
-
 
 # googleVis 0.3.3
 
  * plot.gvis didn't open a browser window when options(gvis.plot.tag)
    was not set to NULL, but the user explicitly called plot.gvis with
    tag NULL. Thanks to Sebastian Kranz for reporting this bug. 
-
 
 # googleVis 0.3.2
 
@@ -281,7 +256,6 @@
    with gvis-object it will copy the file into a temporary directory
    and display it via the R HTTP server. 
 
-
 # googleVis 0.3.1
 
 * The argument 'browser' introduced in version 0.3.0 has been removed
@@ -292,7 +266,6 @@
   experienced with RStudio and RGui.exe. The check is now handled
   internally by plot.gvis.
   Thanks to Sebastian Kranz for reporting this bug.
-
 
 # googleVis 0.3.0
 
@@ -316,7 +289,6 @@
 * Changed example in help file of gvisMap to show how to include html
   code in tooltip. 
 * Chart editor was not validated properly under XHMTL 1.0 Strict
-
 
 # googleVis 0.2.17
 
@@ -360,7 +332,6 @@
       	the original aspect ratio. How to keep the old behavior? Set the
   	keepAspectRatio option to false.
 
-
 # googleVis 0.2.14
 
 *  Updated help files to be in line with the Google Visualisation
@@ -372,7 +343,6 @@
 *  Updated links to Google's updated API Terms of Use:
    https://developers.google.com/terms/site-terms  
 *  New bubble chart function gvisBubbleChart
-
 
 # googleVis 0.2.13
 
@@ -420,7 +390,6 @@
    Motion Chart. Inspired by Google's Public Data Explorer, see
    https://www.google.com/publicdata/home
   
-
 # googleVis 0.2.9
 
 *  The documentation of googleVis has been update to reflect a new
@@ -443,7 +412,6 @@
    button to the page, allowing the user to edit, change and
    customise the chart on the fly.
 
-
 # googleVis 0.2.8
 
 *  Updated package welcome message. The message asks the user to read Google's
@@ -451,7 +419,6 @@
    googleVis package. 
 *  The caption gvis-plots contain an additional link to Google's data policy.
 *  New example for gvisBarChart using the XML package to chart online data from Wikipedia
-
 
 # googleVis 0.2.7
 
@@ -476,7 +443,6 @@
    - gvisGeoChart
    - gvisCandlestickChart
 *  New function 'gvisMerge' to align two charts next to each other
-
 
 # googleVis 0.2.5
 
@@ -538,9 +504,8 @@
 
     
  *  Fixed typos in documentation
-  *  New function:
+ *  New function:
      - createGoogleGadget which allows users to create Google Gadgets XML output  
-
 
 # googleVis 0.2.1
 
@@ -583,8 +548,6 @@
    can be set, plus further configurations.
 *  Updated demo PerformanceAnalyticsMotionChart   
 
-
 # googleVis 0.1.2
 
-
- * First public version.
+* First public version.
