@@ -34,8 +34,6 @@ demo(googleVis)
 
 See the googleVis package [vignettes](https://cran.r-project.org/package=googleVis/) for more details. For a brief introduction read the five page [R Journal article](https://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf).
 
-[![Donate](https://www.paypal.com/en_GB/i/btn/btn_donate_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=HHPMW8TXCCRSC&lc=GB&item_name=googleVis&currency_code=GBP&bn=PP%2dDonationsBF%3abtn_donate_SM%2egif%3aNonHosted)
-
 ## License
 
 This package is free and open source software, licensed under [GPL 2 or later](https://opensource.org/licenses/gpl-license).

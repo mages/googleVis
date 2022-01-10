@@ -1,8 +1,8 @@
 Package: googleVis
 Type: Package
 Title: R Interface to Google Charts
-Version: 0.6.11
-Date: 2021-02-20
+Version: 0.6.12
+Date: 2022-01-10
 Authors@R: c(person("Markus", "Gesmann", role = c("aut", "cre"),
     email = "markus.gesmann@googlemail.com"),
     person("Diego", "de Castillo", role = "aut",
@@ -31,11 +31,10 @@ Suggests:
     markdown,
     data.table
 License: GPL (>= 2)
-URL: https://github.com/mages/googleVis#googlevis
+URL: https://mages.github.io/googleVis/
 BugReports: https://github.com/mages/googleVis/issues
 LazyLoad: yes
 LazyData: yes
 VignetteBuilder: knitr, rmarkdown
-RoxygenNote: 7.1.1
+RoxygenNote: 7.1.2
 Encoding: UTF-8
-
