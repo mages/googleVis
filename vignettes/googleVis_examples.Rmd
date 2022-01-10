@@ -182,6 +182,10 @@ All the following chart requires a Flash player.
 
 
 ## Motion chart
+
+The Google motion chart requires Flash, which is no longer
+supported by most browsers. An alternative is `plotly::ggplotly`. For more see [https://plotly-r.com/animating-views.html](https://plotly-r.com/animating-views.html)
+
 ```{r MotionChart, results='asis', tidy=FALSE}
 ```
 
