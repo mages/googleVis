@@ -267,29 +267,24 @@ Diego de Castillo <a href="mailto:decastillo@gmail.com">decastillo@gmail.com</a>
 <span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Data with POSIXct datetime variable</span></span>
-<span class="r-in"><span class="va">A5</span> <span class="op">&lt;-</span> <span class="fu">gvisAnnotationChart</span><span class="op">(</span><span class="va">Andrew</span>, datevar<span class="op">=</span><span class="st">"Date/Time UTC"</span>,</span>
+<span class="r-in"><span class="va">A4</span> <span class="op">&lt;-</span> <span class="fu">gvisAnnotationChart</span><span class="op">(</span><span class="va">Andrew</span>, datevar<span class="op">=</span><span class="st">"Date/Time UTC"</span>,</span>
 <span class="r-in">                            numvar<span class="op">=</span><span class="st">"Pressure_mb"</span>,</span>
 <span class="r-in">                            options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>scaleType<span class="op">=</span><span class="st">'maximized'</span><span class="op">)</span></span>
 <span class="r-in">                            <span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">A4</span><span class="op">)</span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in plot(A4):</span> object 'A4' not found</span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co"># Change background to blue</span></span>
-<span class="r-in"><span class="va">A5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu">gvisAnnotationChart</span><span class="op">(</span><span class="va">Stock</span>, datevar<span class="op">=</span><span class="st">"Date"</span>,</span>
+<span class="r-in"><span class="va">A5</span> <span class="op">&lt;-</span> <span class="fu">gvisAnnotationChart</span><span class="op">(</span><span class="va">Stock</span>, datevar<span class="op">=</span><span class="st">"Date"</span>,</span>
 <span class="r-in">              numvar<span class="op">=</span><span class="st">"Value"</span>, idvar<span class="op">=</span><span class="st">"Device"</span>,</span>
 <span class="r-in">              titlevar<span class="op">=</span><span class="st">"Title"</span>, annotationvar<span class="op">=</span><span class="st">"Annotation"</span>,</span>
 <span class="r-in">              options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
 <span class="r-in">                displayAnnotations<span class="op">=</span><span class="cn">TRUE</span>,</span>
 <span class="r-in">                  chart <span class="op">=</span> <span class="st">"{chartArea:{backgroundColor:'#003b70'}}"</span>,</span>
 <span class="r-in">                            legendPosition<span class="op">=</span><span class="st">'newRow'</span>,</span>
-<span class="r-in">                            width<span class="op">=</span><span class="fl">600</span>, height<span class="op">=</span><span class="fl">350</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in">                            width<span class="op">=</span><span class="fl">600</span>, height<span class="op">=</span><span class="fl">350</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in">                            </span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">A5</span><span class="op">)</span></span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>no non-missing arguments to min; returning Inf</span>
-<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>no non-missing arguments to max; returning -Inf</span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in plot.window(...):</span> need finite 'ylim' values</span>
-<span class="r-plt img"><img src="gvisAnnotationChart-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
