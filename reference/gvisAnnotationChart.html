@@ -20,14 +20,14 @@ annotation charts are SVG/VML and should be preferred whenever possible."><meta 
     
     <a class="navbar-brand me-2" href="../index.html">googleVis</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.11</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.12</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div id="navbar" class="collapse navbar-collapse ms-2">
+    <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto"><li class="nav-item dropdown">
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
@@ -251,21 +251,10 @@ Diego de Castillo <a href="mailto:decastillo@gmail.com">decastillo@gmail.com</a>
 <span class="r-in">                          <span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">A2</span><span class="op">)</span></span>
 <span class="r-in"></span>
-<span class="r-in"><span class="co">## Zoom into the time window, no Y-axis ticks</span></span>
-<span class="r-in"><span class="va">A3</span> <span class="op">&lt;-</span> <span class="fu">gvisAnnotationChart</span><span class="op">(</span><span class="va">Stock</span>, datevar<span class="op">=</span><span class="st">"Date"</span>,</span>
-<span class="r-in">                           numvar<span class="op">=</span><span class="st">"Value"</span>, idvar<span class="op">=</span><span class="st">"Device"</span>,</span>
-<span class="r-in">                           titlevar<span class="op">=</span><span class="st">"Title"</span>, annotationvar<span class="op">=</span><span class="st">"Annotation"</span>,</span>
-<span class="r-in">                           options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span class="r-in">                             width<span class="op">=</span><span class="fl">600</span>, height<span class="op">=</span><span class="fl">350</span>,</span>
-<span class="r-in">                            zoomStartTime<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2008-01-04"</span><span class="op">)</span>,</span>
-<span class="r-in">                            zoomEndTime<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/as.Date.html" class="external-link">as.Date</a></span><span class="op">(</span><span class="st">"2008-01-05"</span><span class="op">)</span><span class="op">)</span> </span>
-<span class="r-in">                          <span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">A3</span><span class="op">)</span></span>
-<span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Colouring the area below the lines to create an area chart</span></span>
-<span class="r-in"><span class="va">A4</span> <span class="op">&lt;-</span> <span class="fu">gvisAnnotationChart</span><span class="op">(</span><span class="va">Stock</span>, datevar<span class="op">=</span><span class="st">"Date"</span>,</span>
+<span class="r-in"><span class="va">A3</span> <span class="op">&lt;-</span> <span class="fu">gvisAnnotationChart</span><span class="op">(</span><span class="va">Stock</span>, datevar<span class="op">=</span><span class="st">"Date"</span>,</span>
 <span class="r-in">                           numvar<span class="op">=</span><span class="st">"Value"</span>, idvar<span class="op">=</span><span class="st">"Device"</span>,</span>
 <span class="r-in">                           titlevar<span class="op">=</span><span class="st">"Title"</span>, annotationvar<span class="op">=</span><span class="st">"Annotation"</span>,</span>
 <span class="r-in">                           options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
@@ -274,7 +263,7 @@ Diego de Castillo <a href="mailto:decastillo@gmail.com">decastillo@gmail.com</a>
 <span class="r-in">                             colors<span class="op">=</span><span class="st">"['#0000ff','#00ff00']"</span><span class="op">)</span></span>
 <span class="r-in">                           <span class="op">)</span></span>
 <span class="r-in">                          </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">A4</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">A3</span><span class="op">)</span></span>
 <span class="r-in"></span>
 <span class="r-in"></span>
 <span class="r-in"><span class="co">## Data with POSIXct datetime variable</span></span>
@@ -283,9 +272,24 @@ Diego de Castillo <a href="mailto:decastillo@gmail.com">decastillo@gmail.com</a>
 <span class="r-in">                            options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>scaleType<span class="op">=</span><span class="st">'maximized'</span><span class="op">)</span></span>
 <span class="r-in">                            <span class="op">)</span></span>
 <span class="r-in"></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">A4</span><span class="op">)</span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in plot(A4):</span> object 'A4' not found</span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># Change background to blue</span></span>
+<span class="r-in"><span class="va">A5</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="fu">gvisAnnotationChart</span><span class="op">(</span><span class="va">Stock</span>, datevar<span class="op">=</span><span class="st">"Date"</span>,</span>
+<span class="r-in">              numvar<span class="op">=</span><span class="st">"Value"</span>, idvar<span class="op">=</span><span class="st">"Device"</span>,</span>
+<span class="r-in">              titlevar<span class="op">=</span><span class="st">"Title"</span>, annotationvar<span class="op">=</span><span class="st">"Annotation"</span>,</span>
+<span class="r-in">              options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span class="r-in">                displayAnnotations<span class="op">=</span><span class="cn">TRUE</span>,</span>
+<span class="r-in">                  chart <span class="op">=</span> <span class="st">"{chartArea:{backgroundColor:'#003b70'}}"</span>,</span>
+<span class="r-in">                            legendPosition<span class="op">=</span><span class="st">'newRow'</span>,</span>
+<span class="r-in">                            width<span class="op">=</span><span class="fl">600</span>, height<span class="op">=</span><span class="fl">350</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">A5</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>NAs introduced by coercion</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>no non-missing arguments to min; returning Inf</span>
+<span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>no non-missing arguments to max; returning -Inf</span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in plot.window(...):</span> need finite 'ylim' values</span>
+<span class="r-plt img"><img src="gvisAnnotationChart-1.png" alt="" width="700" height="433"></span>
 <span class="r-in"></span>
 </code></pre></div>
     </div>
@@ -298,7 +302,7 @@ Diego de Castillo <a href="mailto:decastillo@gmail.com">decastillo@gmail.com</a>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.1.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.2.</p>
 </div>
 
     </footer></div>
