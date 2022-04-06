@@ -1,3 +1,9 @@
+# googleVis 0.6.12
+
+ * Added example to gvisAnnotationChart help file that
+   demonstrates how to change the background colour
+ * The annotated timeline now automatically uses Annotation Charts instead
+   
 # googleVis 0.6.11
 
  * Started using pkgdown to generate googleVis package website

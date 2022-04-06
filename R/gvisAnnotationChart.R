@@ -111,21 +111,10 @@
 #'                           )
 #' plot(A2)
 #' 
-#' ## Zoom into the time window, no Y-axis ticks
-#' A3 <- gvisAnnotationChart(Stock, datevar="Date",
-#'                            numvar="Value", idvar="Device",
-#'                            titlevar="Title", annotationvar="Annotation",
-#'                            options=list(
-#'                              width=600, height=350,
-#'                             zoomStartTime=as.Date("2008-01-04"),
-#'                             zoomEndTime=as.Date("2008-01-05")) 
-#'                           )
-#' plot(A3)
-#' 
 #' 
 #' 
 #' ## Colouring the area below the lines to create an area chart
-#' A4 <- gvisAnnotationChart(Stock, datevar="Date",
+#' A3 <- gvisAnnotationChart(Stock, datevar="Date",
 #'                            numvar="Value", idvar="Device",
 #'                            titlevar="Title", annotationvar="Annotation",
 #'                            options=list(
@@ -134,7 +123,7 @@
 #'                              colors="['#0000ff','#00ff00']")
 #'                            )
 #'                           
-#' plot(A4)
+#' plot(A3)
 #' 
 #' 
 #' ## Data with POSIXct datetime variable
@@ -143,9 +132,18 @@
 #'                             options=list(scaleType='maximized')
 #'                             )
 #' 
+#' plot(A4)
+#' 
+#' # Change background to blue
+#' A5 <- plot(gvisAnnotationChart(Stock, datevar="Date",
+#'               numvar="Value", idvar="Device",
+#'               titlevar="Title", annotationvar="Annotation",
+#'               options=list(
+#'                 displayAnnotations=TRUE,
+#'                   chart = "{chartArea:{backgroundColor:'#003b70'}}",
+#'                             legendPosition='newRow',
+#'                             width=600, height=350)))
 #' plot(A5)
-#' 
-#' 
 #' 
 gvisAnnotationChart <- function(data, datevar="", 
                                   numvar="", idvar="", titlevar="", 

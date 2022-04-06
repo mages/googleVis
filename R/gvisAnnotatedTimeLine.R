@@ -79,16 +79,8 @@
 #' 
 #' % END DYNAMIC CONTENT
 #' @section Warnings:
-#' AnnotatedTimeline (gvisAnnotatedTimeLine) is Flash based, conisder using  AnnotationChart (gvisAnnotationChart) instead.
-#' For more details visit: goo.gl/tkiEV8
-#' 
-#' Because of Flash security settings the chart might not work correctly when
-#' accessed from a file location in the browser (e.g.,
-#' file:///c:/webhost/myhost/myviz.html) rather than from a web server URL
-#' (e.g. https://www.myhost.com/myviz.html). See the googleVis package vignette
-#' and the Macromedia web site
-#' (\url{https://www.macromedia.com/support/documentation/en/flashplayer/help/})
-#' for more details.
+#' AnnotatedTimeline (gvisAnnotatedTimeLine) is no longer supported by Google. 
+#' The annotated timeline now automatically uses Annotation Charts instead.
 #' 
 #' Important: To use this visualization, you must specify the height and width 
 #' of the container element explicitly on your page. So, for example:
@@ -133,21 +125,10 @@
 #'                           )
 #' plot(A2)
 #' 
-#' ## Zoom into the time window, no Y-axis ticks
-#' A3 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
-#'                            numvar="Value", idvar="Device",
-#'                            titlevar="Title", annotationvar="Annotation",
-#'                            options=list(
-#'                              width="600px", height="350px",
-#'                             zoomStartTime=as.Date("2008-01-04"),
-#'                             zoomEndTime=as.Date("2008-01-05")) 
-#'                           )
-#' plot(A3)
-#' 
 #' 
 #' 
 #' ## Colouring the area below the lines to create an area chart
-#' A4 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
+#' A3 <- gvisAnnotatedTimeLine(Stock, datevar="Date",
 #'                            numvar="Value", idvar="Device",
 #'                            titlevar="Title", annotationvar="Annotation",
 #'                            options=list(
@@ -156,17 +137,17 @@
 #'                              colors="['#0000ff','#00ff00']")
 #'                            )
 #'                           
-#' plot(A4)
+#' plot(A3)
 #' 
 #' 
 #' ## Data with POSIXct datetime variable
-#' A5 <- gvisAnnotatedTimeLine(Andrew, datevar="Date/Time UTC",
+#' A4 <- gvisAnnotatedTimeLine(Andrew, datevar="Date/Time UTC",
 #'                             numvar="Pressure_mb",
 #'                             options=list(scaleType='maximized',
 #'                                          width="600px", height="350px")
 #'                             )
 #' 
-#' plot(A5)
+#' plot(A4)
 #' 
 #' 
 #' 
