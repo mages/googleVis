@@ -272,7 +272,7 @@ gvisCheckMotionChartData <- function(data, options){
   typeMotionChart[[options$data$timevar]] <-
     testTimevar(x[[options$data$timevar]], options$data$date.format)
   
-  if(typeMotionChart[[options$data$timevar]] == "string" &
+  if(typeMotionChart[[options$data$timevar]] %in% "string" &
        (options$data$date.format %in% c("%YW%W","%YW%U"))){
     ## only true for weekly data
     x[[options$data$timevar]] <- format.Date(x[[options$data$timevar]],
@@ -296,7 +296,7 @@ gvisCheckMotionChartData <- function(data, options){
   
   typeMotionChart <- typeMotionChart[varOrder]
   x[varOthers] <- lapply(varOthers,function(.x){
-    if(class(x[[.x]])=="Date") as.character(x[[.x]]) else x[[.x]]
+    if(class(x[[.x]]) %in% "Date") as.character(x[[.x]]) else x[[.x]]
   }) 
   
   
@@ -323,18 +323,18 @@ testTimevar <- function(x, date.format){
   if( is.numeric(x) )
     return("number")  
   
-  if(class(x)=="Date"& date.format %in% c("%YW%W","%YW%U"))
+  if(class(x) %in% "Date"& date.format %in% c("%YW%W","%YW%U"))
     return("string") 
   
   ##Quarters. Accept in ISO format as a character
-  if(class(x)=="character" &  all(grepl("[0-9]{4}Q[1-4]" ,x)  == TRUE))
+  if(class(x) %in% "character" &  all(grepl("[0-9]{4}Q[1-4]" ,x)  == TRUE))
     return("string")
   
   ##Weeks. Accept in ISO format as a character
-  if(class(x)=="character" &  all(grepl("[0-9]{4}W[0-4][0-9]|5[0-3]" , x)  == TRUE))
+  if(class(x) %in% "character" &  all(grepl("[0-9]{4}W[0-4][0-9]|5[0-3]" , x)  == TRUE))
     return("string")
   
-  if(class(x)=="Date")
+  if(class(x) %in% "Date")
     return("date")
   
   stop(paste("The timevar has to be of numeric or Date format. Currently it is ", class(x)))

@@ -686,7 +686,7 @@ as.string <- function(x,file="",append=FALSE) {
            character=return(string(x,file,append)),
            numeric=return(string(as.character(x),file,append)),
            stop("Cannot coerse argument to a string"))
-  if (class(x)=="string")
+  if (class(x) %in% "string")
     return(x)
   stop("Cannot coerse argument to a string")
 }
