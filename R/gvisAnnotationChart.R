@@ -127,7 +127,7 @@
 #' 
 #' 
 #' ## Data with POSIXct datetime variable
-#' A5 <- gvisAnnotationChart(Andrew, datevar="Date/Time UTC",
+#' A4 <- gvisAnnotationChart(Andrew, datevar="Date/Time UTC",
 #'                             numvar="Pressure_mb",
 #'                             options=list(scaleType='maximized')
 #'                             )
@@ -135,14 +135,15 @@
 #' plot(A4)
 #' 
 #' # Change background to blue
-#' A5 <- plot(gvisAnnotationChart(Stock, datevar="Date",
+#' A5 <- gvisAnnotationChart(Stock, datevar="Date",
 #'               numvar="Value", idvar="Device",
 #'               titlevar="Title", annotationvar="Annotation",
 #'               options=list(
 #'                 displayAnnotations=TRUE,
 #'                   chart = "{chartArea:{backgroundColor:'#003b70'}}",
 #'                             legendPosition='newRow',
-#'                             width=600, height=350)))
+#'                             width=600, height=350))
+#'                             
 #' plot(A5)
 #' 
 gvisAnnotationChart <- function(data, datevar="", 
