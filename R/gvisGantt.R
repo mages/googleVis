@@ -149,7 +149,7 @@ gvisGantt <- function(data, taskID="", taskName="", resource= "", start="",
                                duration = duration, 
                                percentComplete = percentComplete, 
                                dependencies = dependencies,
-                               allowed=c("number", "string", "date"))
+                               allowed=c("number", "string", "date", "datetime"))
   )
   
   
