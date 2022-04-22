@@ -18,7 +18,7 @@
 ### MA 02110-1301, USA
 
 #' Google Gantt Chart with R
-#' \Sexpr{googleChartName <- "gantt"}
+#' \Sexpr{googleChartName <- "ganttchart"}
 #' \Sexpr{gvisChartName <- "gvisGantt"}
 #' 
 #' @description
@@ -32,13 +32,13 @@
 #'  \code{data} for the task name to be used
 #' @param resource a string that refers to the column name in 
 #'  \code{data} for the resource to be used
-#' @param start a string that refers to the column name in 
+#' @param start a string that refers to the date column name in 
 #'  \code{data} for the start dates
-#' @param end a string that refers to the column name in 
+#' @param end a string that refers to the date column name in 
 #'  \code{data} for the end dates
-#' @param duration a string that refers to the column name in 
+#' @param duration a string that refers to the numeric column name in 
 #'  \code{data} for the task duration in milliseconds
-#' @param percentComplete a string that refers to the column name in 
+#' @param percentComplete a string that refers to the numeric column name in 
 #'  \code{data} for the percent complete to be used
 #' @param dependencies a string that refers to the column name in 
 #'  \code{data} for the dependencies to be used
@@ -149,7 +149,7 @@ gvisGantt <- function(data, taskID="", taskName="", resource= "", start="",
                                duration = duration, 
                                percentComplete = percentComplete, 
                                dependencies = dependencies,
-                               allowed=c("number", "string", "date", "datetime"))
+                               allowed=c("number", "string", "date"))
   )
   
   

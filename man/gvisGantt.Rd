@@ -3,7 +3,7 @@
 \name{gvisGantt}
 \alias{gvisGantt}
 \title{Google Gantt Chart with R
-\Sexpr{googleChartName <- "gantt"}
+\Sexpr{googleChartName <- "ganttchart"}
 \Sexpr{gvisChartName <- "gvisGantt"}}
 \usage{
 gvisGantt(
@@ -32,16 +32,16 @@ gvisGantt(
 \item{resource}{a string that refers to the column name in 
 \code{data} for the resource to be used}
 
-\item{start}{a string that refers to the column name in 
+\item{start}{a string that refers to the date column name in 
 \code{data} for the start dates}
 
-\item{end}{a string that refers to the column name in 
+\item{end}{a string that refers to the date column name in 
 \code{data} for the end dates}
 
-\item{duration}{a string that refers to the column name in 
+\item{duration}{a string that refers to the numeric column name in 
 \code{data} for the task duration in milliseconds}
 
-\item{percentComplete}{a string that refers to the column name in 
+\item{percentComplete}{a string that refers to the numeric column name in 
 \code{data} for the percent complete to be used}
 
 \item{dependencies}{a string that refers to the column name in 
