@@ -152,37 +152,11 @@ gvisGantt <- function(data, taskID="", taskName="", resource= "", start="",
                                allowed=c("number", "string", "date", "datetime"))
   )
   
-  
-  checked.data <- gvisCheckGanttData(data, my.options)
-  
-  output <- gvisChart(type=my.type, checked.data=checked.data, options=my.options,
-                      chartid=chartid, package="gantt") 
-  
-  output$html$chart <- gsub("data.addColumn\\('datetime','start'\\)", 
-                            "data.addColumn\\('date','start'\\)", 
-                            output$html$chart)
-  output$html$chart <- gsub("data.addColumn\\('datetime','end'\\)", 
-                            "data.addColumn\\('date','end'\\)", 
-                            output$html$chart)
-  
-  return(output)
-}
 
-gvisCheckGanttData <- function(data, options){
-  
-  data.structure <- list(
-    taskID  = list(mode="required", FUN=check.char),
-    taskName = list(mode="required", FUN=check.char),
-    resource = list(mode="optional", FUN=check.char),
-    start = list(mode="required", FUN=check.datetime),
-    end = list(mode="required", FUN=check.datetime),
-    duration = list(mode="required", FUN=check.num),
-    percentComplete = list(mode="required", FUN=check.num),
-    dependencies = list(mode="required", FUN=check.char))
-  
-  x <- as.data.frame(gvisCheckData(data=data, options=options, data.structure=data.structure))
-  
-  return(x)
-  
+  output <- gvisChart(type=my.type, checked.data=data, options=my.options,
+                      chartid=chartid, package="gantt") 
+
+
+  return(output)
 }
 
