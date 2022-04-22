@@ -152,11 +152,16 @@ gvisGantt <- function(data, taskID="", taskName="", resource= "", start="",
                                allowed=c("number", "string", "date", "datetime"))
   )
   
-
+  
   output <- gvisChart(type=my.type, checked.data=data, options=my.options,
                       chartid=chartid, package="gantt") 
-
-
+  
+  output$html$chart <- gsub("data.addColumn\\('datetime','start'\\)", 
+                            "data.addColumn\\('date','start'\\)", 
+                            output$html$chart)
+  output$html$chart <- gsub("data.addColumn\\('datetime','end'\\)", 
+                            "data.addColumn\\('date','end'\\)", 
+                            output$html$chart)
+  
   return(output)
 }
-
