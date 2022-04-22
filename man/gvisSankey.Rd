@@ -11,10 +11,10 @@ gvisSankey(data, from = "", to = "", weight = "", options = list(), chartid)
 \arguments{
 \item{data}{data.frame that contains the data to be visualised}
 
-\item{from}{a string that referes to the column name in 
+\item{from}{a string that refers to the column name in 
 \code{data} for the source nodes to be used}
 
-\item{to}{a string that referes to the column name in 
+\item{to}{a string that refers to the column name in 
 \code{data} for the destination nodes to be used}
 
 \item{weight}{name of the column with the numerical weight of the connections}

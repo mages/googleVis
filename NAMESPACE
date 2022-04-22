@@ -34,6 +34,7 @@ export(gvisAnnotationChart)
 export(gvisTimeline)     
 export(gvisSankey)
 export(gvisWordTree)
+export(gvisGantt)
 
 # Support function
 export(renderGvis)

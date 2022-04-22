@@ -25,9 +25,9 @@
 #' proportional to heat loss.
 #'  
 #' @param data data.frame that contains the data to be visualised
-#' @param from a string that referes to the column name in 
+#' @param from a string that refers to the column name in 
 #'  \code{data} for the source nodes to be used
-#' @param to a string that referes to the column name in 
+#' @param to a string that refers to the column name in 
 #'  \code{data} for the destination nodes to be used
 #' @param weight name of the column with the numerical weight of the connections 
 #' @param options list of configuration options.

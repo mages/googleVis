@@ -1,3 +1,8 @@
+# googleVis 0.6.13
+
+ * Added gvisGantt function that renders gantt charts based on
+   https://developers.google.com/chart/interactive/docs/gallery/ganttchart
+
 # googleVis 0.6.12
 
  * Added example to gvisAnnotationChart help file that

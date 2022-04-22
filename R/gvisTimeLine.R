@@ -26,9 +26,9 @@
 #' over time. One popular type of timeline is the Gantt chart.
 #' 
 #' @param data data.frame that contains the data to be visualised
-#' @param rowlabel a string that referes to the column name in 
+#' @param rowlabel a string that refers to the column name in 
 #'  \code{data} for the row labels to be used
-#' @param barlabel a string that referes to the column name in 
+#' @param barlabel a string that refers to the column name in 
 #'  \code{data} for the bar labels to be used
 #' @param start number, date or datetime for the start dates
 #' @param end number, date or datetime for the end dates

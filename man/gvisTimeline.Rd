@@ -19,10 +19,10 @@ gvisTimeline(
 \arguments{
 \item{data}{data.frame that contains the data to be visualised}
 
-\item{rowlabel}{a string that referes to the column name in 
+\item{rowlabel}{a string that refers to the column name in 
 \code{data} for the row labels to be used}
 
-\item{barlabel}{a string that referes to the column name in 
+\item{barlabel}{a string that refers to the column name in 
 \code{data} for the bar labels to be used}
 
 \item{start}{number, date or datetime for the start dates}
