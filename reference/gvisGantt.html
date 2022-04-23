@@ -202,6 +202,7 @@ and link to Google's Terms of Use.</p></dd></dl></dd></dl></div>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"></span>
+<span class="r-in"><span class="co"># Helper function to generate example data</span></span>
 <span class="r-in"><span class="va">daysToMilliseconds</span> <span class="op">&lt;-</span> <span class="kw">function</span><span class="op">(</span><span class="va">days</span><span class="op">)</span><span class="op">{</span></span>
 <span class="r-in"> <span class="va">days</span> <span class="op">*</span> <span class="fl">24</span> <span class="op">*</span> <span class="fl">60</span> <span class="op">*</span> <span class="fl">60</span> <span class="op">*</span> <span class="fl">1000</span></span>
 <span class="r-in"><span class="op">}</span></span>
@@ -256,6 +257,29 @@ and link to Google's Terms of Use.</p></dd></dl></dd></dl></div>
 <span class="r-in">                     }}"</span></span>
 <span class="r-in"> <span class="op">)</span><span class="op">)</span></span>
 <span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">gntt2</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="co"># Example with date time</span></span>
+<span class="r-in"><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
+<span class="r-in">     taskID <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Research"</span>, <span class="st">"Write"</span>, <span class="st">"Complete"</span><span class="op">)</span>,</span>
+<span class="r-in">      taskName <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Find sources"</span>, <span class="st">"Write Paper"</span>, <span class="st">"Hand in paper"</span><span class="op">)</span>,</span>
+<span class="r-in">      resource <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="st">"write"</span>, <span class="st">"complete"</span><span class="op">)</span>,</span>
+<span class="r-in">      start <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="st">"2015-01-01 6:00:00"</span><span class="op">)</span>, <span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span>,</span>
+<span class="r-in">      end <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/as.POSIXlt.html" class="external-link">as.POSIXct</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"2015-01-01 8:00:00"</span>, <span class="st">"2015-01-01 13:30:00"</span>, </span>
+<span class="r-in">      <span class="st">"2015-01-01 20:30:00"</span><span class="op">)</span><span class="op">)</span>,</span>
+<span class="r-in">      duration <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="fu">daysToMilliseconds</span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">.1</span>, <span class="fl">.05</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>,</span>
+<span class="r-in">      percentComplete <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">100</span>, <span class="fl">25</span>, <span class="fl">0</span><span class="op">)</span>,</span>
+<span class="r-in">      dependencies <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="st">"Research"</span>, <span class="st">"Write"</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"></span>
+<span class="r-in"><span class="va">gntt3</span> <span class="op">&lt;-</span> <span class="fu">gvisGantt</span><span class="op">(</span><span class="va">dat</span>, taskID <span class="op">=</span> <span class="st">"taskID"</span>,</span>
+<span class="r-in">                   taskName <span class="op">=</span> <span class="st">"taskName"</span>,</span>
+<span class="r-in">                   resource <span class="op">=</span> <span class="st">"resource"</span>,</span>
+<span class="r-in">                   start <span class="op">=</span> <span class="st">"start"</span>,</span>
+<span class="r-in">                   end <span class="op">=</span> <span class="st">"end"</span>,</span>
+<span class="r-in">                   duration <span class="op">=</span> <span class="st">"duration"</span>,</span>
+<span class="r-in">                   percentComplete <span class="op">=</span> <span class="st">"percentComplete"</span>,</span>
+<span class="r-in">                   dependencies <span class="op">=</span> <span class="st">"dependencies"</span><span class="op">)</span></span>
+<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">gntt3</span><span class="op">)</span></span>
+<span class="r-in"></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
