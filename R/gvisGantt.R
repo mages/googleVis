@@ -77,6 +77,7 @@
 #' 
 #' @examples
 #' 
+#' # Helper function to generate example data
 #' daysToMilliseconds <- function(days){
 #'  days * 24 * 60 * 60 * 1000
 #' }
@@ -131,6 +132,29 @@
 #'                      }}"
 #'  ))
 #' plot(gntt2)
+#' 
+#' # Example with date time
+#' dat <- data.frame(
+#'      taskID = c("Research", "Write", "Complete"),
+#'       taskName = c("Find sources", "Write Paper", "Hand in paper"),
+#'       resource = c(NA, "write", "complete"),
+#'       start = c(as.POSIXct("2015-01-01 6:00:00"), NA, NA),
+#'       end = as.POSIXct(c("2015-01-01 8:00:00", "2015-01-01 13:30:00", 
+#'       "2015-01-01 20:30:00")),
+#'       duration = c(NA, daysToMilliseconds(c(.1, .05))),
+#'       percentComplete = c(100, 25, 0),
+#'       dependencies = c(NA, "Research", "Write"))
+#' 
+#' gntt3 <- gvisGantt(dat, taskID = "taskID",
+#'                    taskName = "taskName",
+#'                    resource = "resource",
+#'                    start = "start",
+#'                    end = "end",
+#'                    duration = "duration",
+#'                    percentComplete = "percentComplete",
+#'                    dependencies = "dependencies")
+#' plot(gntt3)
+#' 
 
 gvisGantt <- function(data, taskID="", taskName="", resource= "", start="", 
                       end="", duration = "", percentComplete = "", dependencies = "",
