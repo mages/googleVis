@@ -178,25 +178,3 @@ Left mouse-click to drill down, right mouse-click to move up a level.
 ```{r gvisMerge, results='asis', tidy=FALSE}
 ```
 
-# Flash charts
-All the following chart requires a Flash player.
-
-
-## Motion chart
-
-The Google motion chart requires Flash, which is no longer
-supported by most browsers. An alternative is `plotly::ggplotly`. For more see [https://plotly.com/r/animations/#mulitple-trace-animations](https://plotly.com/r/animations/#mulitple-trace-animations)
-
-```{r MotionChart, results='asis', tidy=FALSE}
-```
-
-You can change some of displaying settings via the browser,
-e.g. the level of opacity of non-selected items, or the chart type.
-The state string from the 'Advanced' tab can be used to set those
-settings via R. Just copy and past the string from the browser into
-the argument state of the options list.
-Here is an example of a motion chart, with an initial line chart
-displayed.
-
-```{r MotionChartSettings, results='asis', tidy=FALSE}
-```
