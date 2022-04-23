@@ -1,7 +1,7 @@
 ---
 title: "Introduction to googleVis"
 author: "Markus Gesmann and Diego de Castillo"
-abstract: "The googleVis package provides an interface between R and the Google Charts API. Google Charts offer interactive charts which can be embedded into web pages. The functions of the googleVis package allow the user to visualise data stored in R data frames with Google Charts without uploading the data to Google. The output of a googleVis function is HTML code that contains the data and references to JavaScript functions hosted by Google. googleVis makes use of the internal R HTTP server to display the output locally. A modern browser with an Internet connection is required and for some charts a Flash player."
+abstract: "The googleVis package provides an interface between R and the Google Charts API. Google Charts offer interactive charts which can be embedded into web pages. The functions of the googleVis package allow the user to visualise data stored in R data frames with Google Charts without uploading the data to Google. The output of a googleVis function is HTML code that contains the data and references to JavaScript functions hosted by Google. googleVis makes use of the internal R HTTP server to display the output locally. A modern browser with an Internet connection."
 date: "`r Sys.Date()`"
 output:
   html_document:
@@ -80,8 +80,7 @@ on the usage of the API as part of web pages.
 
 The Google Public Data Explorer [@GooglePublicData] provides a
 good example, demonstrating the use of interactive charts and how they can
-help to analyse data. Please note, that all of those charts are
-rendered by the browser.
+help to analyse data.
 
 The charting data can either be embedded into the HTML file or read
 dynamically. The key to the Google Charts is that the data is
