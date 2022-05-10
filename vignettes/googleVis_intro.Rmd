@@ -337,7 +337,7 @@ Here we will use the columns `'Country'` and
 ```
 
 The structural output of `gvisGeoChart` is a list of lists as
-described above 
+described below. 
 
 ```{r eval=FALSE}
  str(gchart)

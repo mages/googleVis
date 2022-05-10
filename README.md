@@ -31,7 +31,7 @@ library(googleVis)
 demo(googleVis)
 ```
 
-See the googleVis package [vignette](http://mages.github.io/googleVis/articles/googleVis_intro.html) for more details. For a brief introduction read the five page [R Journal article](https://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf).
+See the googleVis package [vignette](https://mages.github.io/googleVis/articles/googleVis_intro.html) for more details. For a brief introduction read the five page [R Journal article](https://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf).
 
 ## License
 
