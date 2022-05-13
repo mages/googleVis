@@ -364,7 +364,9 @@ gntt <- gvisGantt(dat, taskID = "taskID",
                   end = "end", 
                   duration = "duration",
                   percentComplete = "percentComplete",
-                  dependencies = "dependencies")
+                  dependencies = "dependencies",
+                  options = list(height = '300',
+                                 width = 'auto'))
 
 plot(gntt)
 
