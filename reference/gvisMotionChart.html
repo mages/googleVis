@@ -7,7 +7,7 @@ A motion chart is a dynamic chart to explore several indicators over
 time."><title>Google Motion Chart with R
 motionchart
 
-gvisMotionChart — gvisMotionChart • googleVis</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.1.0/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.1.0/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.js"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Google Motion Chart with R
+gvisMotionChart — gvisMotionChart • googleVis</title><!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png"><link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png"><link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png"><link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png"><link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png"><link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png"><script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"><link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet"><script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous"><!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="Google Motion Chart with R
 motionchart
 
 gvisMotionChart — gvisMotionChart"><meta property="og:description" content="The gvisMotionChart function reads a data.frame and
@@ -26,7 +26,7 @@ time."><meta property="og:image" content="https://mages.github.io/googleVis/logo
     
     <a class="navbar-brand me-2" href="../index.html">googleVis</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,18 +82,18 @@ time.</p>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="fu">gvisMotionChart</span><span class="op">(</span>
-  <span class="va">data</span>,
-  idvar <span class="op">=</span> <span class="st">"id"</span>,
-  timevar <span class="op">=</span> <span class="st">"time"</span>,
-  xvar <span class="op">=</span> <span class="st">""</span>,
-  yvar <span class="op">=</span> <span class="st">""</span>,
-  colorvar <span class="op">=</span> <span class="st">""</span>,
-  sizevar <span class="op">=</span> <span class="st">""</span>,
-  date.format <span class="op">=</span> <span class="st">"%Y/%m/%d"</span>,
-  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,
-  <span class="va">chartid</span>
-<span class="op">)</span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">gvisMotionChart</span><span class="op">(</span></span>
+<span>  <span class="va">data</span>,</span>
+<span>  idvar <span class="op">=</span> <span class="st">"id"</span>,</span>
+<span>  timevar <span class="op">=</span> <span class="st">"time"</span>,</span>
+<span>  xvar <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  yvar <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  colorvar <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  sizevar <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  date.format <span class="op">=</span> <span class="st">"%Y/%m/%d"</span>,</span>
+<span>  options <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="op">)</span>,</span>
+<span>  <span class="va">chartid</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -108,33 +108,49 @@ character/factor are optional. The combination of <code>idvar</code> and
 columns, if not specified by the other arguments (<code>xvar, yvar,
 colorvar, sizevar</code>), will be assumed to be in the order of the 
 arguments.</p></dd>
+
+
 <dt>idvar</dt>
 <dd><p>column name of <code>data</code> with the subject to be 
 analysed.</p></dd>
+
+
 <dt>timevar</dt>
 <dd><p>column name of <code>data</code> which shows the time 
 dimension. The information has to be either numeric, of class 
 <code><a href="https://rdrr.io/r/base/Dates.html" class="external-link">Date</a></code> or a character which follows the pattern  
 'YYYYWww' (e.g. '2010W04' for weekly data) or 'YYYYQq' 
 (e.g. '2010Q1' for quarterly data).</p></dd>
+
+
 <dt>xvar</dt>
 <dd><p>column name of a numerical vector in <code>data</code> to be 
 plotted on the x-axis.</p></dd>
+
+
 <dt>yvar</dt>
 <dd><p>column name of a numerical vector in <code>data</code> to be 
 plotted on the y-axis.</p></dd>
+
+
 <dt>colorvar</dt>
 <dd><p>column name of data that identifies bubbles in the 
 same series. Use the same value to identify all bubbles that belong 
 to the same series; bubbles in the same series will be assigned the 
 same color. Series can be configured using the <code>series</code> option.</p></dd>
+
+
 <dt>sizevar</dt>
 <dd><p>values in this column are mapped to actual pixel 
 values using the <code>sizeAxis</code> option.</p></dd>
+
+
 <dt>date.format</dt>
 <dd><p>if <code>timevar</code> is of class <code><a href="https://rdrr.io/r/base/Dates.html" class="external-link">Date</a></code> 
 then this argument specifies how the dates are reformatted to be 
 used by JavaScript.</p></dd>
+
+
 <dt>options</dt>
 <dd><p>list of configuration options for Google Motion Chart.
 The options are documented in detail by Google online:</p>
@@ -174,15 +190,22 @@ users to edit, change and customise the chart. By default no
 value is given and therefore no button is displayed.</p></li>
 </ul>
 For more details see the Google API documentation and the R examples below.</dd>
+
+
 <dt>chartid</dt>
 <dd><p>character. If missing (default) a random chart id will be 
 generated based on chart type and <code><a href="https://rdrr.io/r/base/tempfile.html" class="external-link">tempfile</a></code></p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
-    <p>gvisMotionChart
+    
+
+<p>gvisMotionChart
  returns list 
-of <code><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></code>"<code>gvis</code>" and "<code>list</code>".   
+of <code><a href="https://rdrr.io/r/base/class.html" class="external-link">class</a></code></p>
+<p></p>
+<p>"<code>gvis</code>" and "<code>list</code>".   
 An object of class "<code>gvis</code>" is a list containing at least the
 following components:
 </p><dl><dt><code>type</code></dt>
@@ -248,96 +271,96 @@ Diego de Castillo <a href="mailto:decastillo@gmail.com">decastillo@gmail.com</a>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span class="co">## Please note that by default the googleVis plot command</span></span>
-<span class="r-in"><span class="co">## will open a browser window and requires Flash and Internet</span></span>
-<span class="r-in"><span class="co">## connection to display the visualisation.</span></span>
-<span class="r-in"><span class="va">M1</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, idvar<span class="op">=</span><span class="st">"Fruit"</span>, timevar<span class="op">=</span><span class="st">"Year"</span><span class="op">)</span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="co">## Please note that by default the googleVis plot command</span></span></span>
+<span class="r-in"><span><span class="co">## will open a browser window and requires Flash and Internet</span></span></span>
+<span class="r-in"><span><span class="co">## connection to display the visualisation.</span></span></span>
+<span class="r-in"><span><span class="va">M1</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, idvar<span class="op">=</span><span class="st">"Fruit"</span>, timevar<span class="op">=</span><span class="st">"Year"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Flash charts are no longer supported by most browsers.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> An alternative is plotly::ggplotly.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> For more see https://plotly.com/r/animations/#mulitple-trace-animations</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M1</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span>
-<span class="r-in"><span class="co">## Usage of date variable</span></span>
-<span class="r-in"><span class="va">M2</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, idvar<span class="op">=</span><span class="st">"Fruit"</span>, timevar<span class="op">=</span><span class="st">"Date"</span>,</span>
-<span class="r-in">                      date.format <span class="op">=</span> <span class="st">"\\%Y\\%m\\%d"</span><span class="op">)</span> </span>
-<span class="r-in">                      <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M2</span><span class="op">)</span></span>
-<span class="r-in">                      </span>
-<span class="r-in"><span class="co">## Display weekly data:</span></span>
-<span class="r-in"><span class="va">M3</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, <span class="st">"Fruit"</span>, <span class="st">"Date"</span>, date.format<span class="op">=</span><span class="st">"\\%YW\\%W"</span><span class="op">)</span></span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M3</span><span class="op">)</span> </span>
-<span class="r-in"><span class="op">}</span></span>
-<span class="r-in"><span class="co">## Options: no side panel on the right</span></span>
-<span class="r-in"><span class="va">M4</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>,<span class="st">"Fruit"</span>, <span class="st">"Year"</span>,</span>
-<span class="r-in">                      options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>showSidePanel<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M1</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="co">## Usage of date variable</span></span></span>
+<span class="r-in"><span><span class="va">M2</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, idvar<span class="op">=</span><span class="st">"Fruit"</span>, timevar<span class="op">=</span><span class="st">"Date"</span>,</span></span>
+<span class="r-in"><span>                      date.format <span class="op">=</span> <span class="st">"\\%Y\\%m\\%d"</span><span class="op">)</span> </span></span>
+<span class="r-in"><span>                      <span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M2</span><span class="op">)</span></span></span>
+<span class="r-in"><span>                      </span></span>
+<span class="r-in"><span><span class="co">## Display weekly data:</span></span></span>
+<span class="r-in"><span><span class="va">M3</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, <span class="st">"Fruit"</span>, <span class="st">"Date"</span>, date.format<span class="op">=</span><span class="st">"\\%YW\\%W"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M3</span><span class="op">)</span> </span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span><span class="co">## Options: no side panel on the right</span></span></span>
+<span class="r-in"><span><span class="va">M4</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>,<span class="st">"Fruit"</span>, <span class="st">"Year"</span>,</span></span>
+<span class="r-in"><span>                      options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>showSidePanel<span class="op">=</span><span class="cn">FALSE</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Flash charts are no longer supported by most browsers.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> An alternative is plotly::ggplotly.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> For more see https://plotly.com/r/animations/#mulitple-trace-animations</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M4</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Options: trails un-ticked</span></span>
-<span class="r-in"><span class="va">M5</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, <span class="st">"Fruit"</span>, <span class="st">"Year"</span>,</span>
-<span class="r-in">                      options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>state<span class="op">=</span><span class="st">'{"showTrails":false};'</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M4</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Options: trails un-ticked</span></span></span>
+<span class="r-in"><span><span class="va">M5</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, <span class="st">"Fruit"</span>, <span class="st">"Year"</span>,</span></span>
+<span class="r-in"><span>                      options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>state<span class="op">=</span><span class="st">'{"showTrails":false};'</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Flash charts are no longer supported by most browsers.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> An alternative is plotly::ggplotly.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> For more see https://plotly.com/r/animations/#mulitple-trace-animations</span>
-<span class="r-in">                      </span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M5</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## You can change some of displaying settings via the browser,</span></span>
-<span class="r-in"><span class="co">## e.g. the level of opacity of non-selected items, or the chart type.</span></span>
-<span class="r-in"><span class="co">## The state string from the 'Advanced' tab can be used to set those</span></span>
-<span class="r-in"><span class="co">## settings via R. Just copy and past the string from the browser into</span></span>
-<span class="r-in"><span class="co">## the argument state of the options list.</span></span>
-<span class="r-in"><span class="co">## Here is an example of a motion chart, with an initial line chart</span></span>
-<span class="r-in"><span class="co">## displayed. Ensure that you have a newline at the start and end of</span></span>
-<span class="r-in"><span class="co">## your settings string.</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="va">myStateSettings</span> <span class="op">&lt;-</span><span class="st">'</span>
-<span class="r-in">{"xZoomedDataMin":1199145600000,"colorOption":"2",</span>
-<span class="r-in">"duration":{"timeUnit":"Y","multiplier":1},"yLambda":1,</span>
-<span class="r-in">"yAxisOption":"4","sizeOption":"_UNISIZE",</span>
-<span class="r-in">"iconKeySettings":[],"xLambda":1,"nonSelectedAlpha":0,</span>
-<span class="r-in">"xZoomedDataMax":1262304000000,"iconType":"LINE",</span>
-<span class="r-in">"dimensions":{"iconDimensions":["dim0"]},</span>
-<span class="r-in">"showTrails":false,"uniColorForNonSelected":false,</span>
-<span class="r-in">"xAxisOption":"_TIME","orderedByX":false,"playDuration":15000,</span>
-<span class="r-in">"xZoomedIn":false,"time":"2010","yZoomedDataMin":0,</span>
-<span class="r-in">"yZoomedIn":false,"orderedByY":false,"yZoomedDataMax":100}</span>
-<span class="r-in">'</span></span>
-<span class="r-in"><span class="va">M6a</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, <span class="st">"Fruit"</span>, <span class="st">"Year"</span>, </span>
-<span class="r-in">                       options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>state<span class="op">=</span><span class="va">myStateSettings</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span>                      </span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M5</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## You can change some of displaying settings via the browser,</span></span></span>
+<span class="r-in"><span><span class="co">## e.g. the level of opacity of non-selected items, or the chart type.</span></span></span>
+<span class="r-in"><span><span class="co">## The state string from the 'Advanced' tab can be used to set those</span></span></span>
+<span class="r-in"><span><span class="co">## settings via R. Just copy and past the string from the browser into</span></span></span>
+<span class="r-in"><span><span class="co">## the argument state of the options list.</span></span></span>
+<span class="r-in"><span><span class="co">## Here is an example of a motion chart, with an initial line chart</span></span></span>
+<span class="r-in"><span><span class="co">## displayed. Ensure that you have a newline at the start and end of</span></span></span>
+<span class="r-in"><span><span class="co">## your settings string.</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">myStateSettings</span> <span class="op">&lt;-</span><span class="st">'</span></span></span>
+<span class="r-in"><span><span class="st">{"xZoomedDataMin":1199145600000,"colorOption":"2",</span></span></span>
+<span class="r-in"><span><span class="st">"duration":{"timeUnit":"Y","multiplier":1},"yLambda":1,</span></span></span>
+<span class="r-in"><span><span class="st">"yAxisOption":"4","sizeOption":"_UNISIZE",</span></span></span>
+<span class="r-in"><span><span class="st">"iconKeySettings":[],"xLambda":1,"nonSelectedAlpha":0,</span></span></span>
+<span class="r-in"><span><span class="st">"xZoomedDataMax":1262304000000,"iconType":"LINE",</span></span></span>
+<span class="r-in"><span><span class="st">"dimensions":{"iconDimensions":["dim0"]},</span></span></span>
+<span class="r-in"><span><span class="st">"showTrails":false,"uniColorForNonSelected":false,</span></span></span>
+<span class="r-in"><span><span class="st">"xAxisOption":"_TIME","orderedByX":false,"playDuration":15000,</span></span></span>
+<span class="r-in"><span><span class="st">"xZoomedIn":false,"time":"2010","yZoomedDataMin":0,</span></span></span>
+<span class="r-in"><span><span class="st">"yZoomedIn":false,"orderedByY":false,"yZoomedDataMax":100}</span></span></span>
+<span class="r-in"><span><span class="st">'</span></span></span>
+<span class="r-in"><span><span class="va">M6a</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, <span class="st">"Fruit"</span>, <span class="st">"Year"</span>, </span></span>
+<span class="r-in"><span>                       options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>state<span class="op">=</span><span class="va">myStateSettings</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Flash charts are no longer supported by most browsers.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> An alternative is plotly::ggplotly.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> For more see https://plotly.com/r/animations/#mulitple-trace-animations</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M6a</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Newline set explicitly</span></span>
-<span class="r-in"><span class="va">myStateSettings</span> <span class="op">&lt;-</span><span class="st">'\n{"iconType":"LINE"}\n'</span></span>
-<span class="r-in"><span class="va">M6b</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, <span class="st">"Fruit"</span>, <span class="st">"Year"</span>, </span>
-<span class="r-in">                       options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>state<span class="op">=</span><span class="va">myStateSettings</span><span class="op">)</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M6a</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Newline set explicitly</span></span></span>
+<span class="r-in"><span><span class="va">myStateSettings</span> <span class="op">&lt;-</span><span class="st">'\n{"iconType":"LINE"}\n'</span></span></span>
+<span class="r-in"><span><span class="va">M6b</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, <span class="st">"Fruit"</span>, <span class="st">"Year"</span>, </span></span>
+<span class="r-in"><span>                       options<span class="op">=</span><span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>state<span class="op">=</span><span class="va">myStateSettings</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Flash charts are no longer supported by most browsers.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> An alternative is plotly::ggplotly.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> For more see https://plotly.com/r/animations/#mulitple-trace-animations</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M6b</span><span class="op">)</span></span>
-<span class="r-in"></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## Define which columns are used for the initial setup of the various</span></span>
-<span class="r-in"><span class="co">## dimensions</span></span>
-<span class="r-in"><span class="va">M7</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, idvar<span class="op">=</span><span class="st">"Fruit"</span>, timevar<span class="op">=</span><span class="st">"Year"</span>,</span>
-<span class="r-in">                      xvar<span class="op">=</span><span class="st">"Profit"</span>, yvar<span class="op">=</span><span class="st">"Expenses"</span>,</span>
-<span class="r-in">                      colorvar<span class="op">=</span><span class="st">"Location"</span>, sizevar<span class="op">=</span><span class="st">"Sales"</span><span class="op">)</span></span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M6b</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Define which columns are used for the initial setup of the various</span></span></span>
+<span class="r-in"><span><span class="co">## dimensions</span></span></span>
+<span class="r-in"><span><span class="va">M7</span> <span class="op">&lt;-</span> <span class="fu">gvisMotionChart</span><span class="op">(</span><span class="va">Fruits</span>, idvar<span class="op">=</span><span class="st">"Fruit"</span>, timevar<span class="op">=</span><span class="st">"Year"</span>,</span></span>
+<span class="r-in"><span>                      xvar<span class="op">=</span><span class="st">"Profit"</span>, yvar<span class="op">=</span><span class="st">"Expenses"</span>,</span></span>
+<span class="r-in"><span>                      colorvar<span class="op">=</span><span class="st">"Location"</span>, sizevar<span class="op">=</span><span class="st">"Sales"</span><span class="op">)</span></span></span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> <span class="warning">Warning: </span>Flash charts are no longer supported by most browsers.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> An alternative is plotly::ggplotly.</span>
 <span class="r-wrn co"><span class="r-pr">#&gt;</span> For more see https://plotly.com/r/animations/#mulitple-trace-animations</span>
-<span class="r-in"><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M7</span><span class="op">)</span></span>
-<span class="r-in"><span class="co">## For more information see:</span></span>
-<span class="r-in"><span class="co">## https://developers.google.com/chart/interactive/docs/gallery/motionchart</span></span>
-<span class="r-in"></span>
-<span class="r-in"><span class="co">## See also the demo(WorldBank). It demonstrates how you can access</span></span>
-<span class="r-in"><span class="co">## country level data from the World Bank to create Gapminder-like</span></span>
-<span class="r-in"><span class="co">## plots.</span></span>
-<span class="r-in"> </span>
+<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/graphics/plot.default.html" class="external-link">plot</a></span><span class="op">(</span><span class="va">M7</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="co">## For more information see:</span></span></span>
+<span class="r-in"><span><span class="co">## https://developers.google.com/chart/interactive/docs/gallery/motionchart</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## See also the demo(WorldBank). It demonstrates how you can access</span></span></span>
+<span class="r-in"><span><span class="co">## country level data from the World Bank to create Gapminder-like</span></span></span>
+<span class="r-in"><span><span class="co">## plots.</span></span></span>
+<span class="r-in"><span> </span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -349,7 +372,7 @@ Diego de Castillo <a href="mailto:decastillo@gmail.com">decastillo@gmail.com</a>
 </div>
 
 <div class="pkgdown-footer-right">
-  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.3.</p>
+  <p></p><p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.0.7.</p>
 </div>
 
     </footer></div>
