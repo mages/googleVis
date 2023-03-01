@@ -35,7 +35,7 @@
   
   ## This function are required to set option in googleVis functions,
   ## e.g. to set startZoom and stopZoom windows in gvisAnnotatedTimeLine
-
+  suppressMessages(
   setMethod("toJSON", "Date",
             function(x, container = length(x) > 1 || length(names(x)) > 0, ...) {
               dt <- as.Date(x)
@@ -46,7 +46,8 @@
               tmp <- paste("new Date(",y,",",m,",",d,")",sep="")
               paste(tmp, collapse=", ")
             })
-  
+  )
+  suppressMessages(
   setMethod("toJSON", "POSIXct",
             function(x, container = length(x) > 1 || length(names(x)) > 0, ...) {
               dt <- as.POSIXct(x)
@@ -60,7 +61,8 @@
               tmp <- paste("new Date(",y,",",m,",",d,",",H,",",M,",",S,")",sep="")
               paste(tmp, collapse=", ")
             })
-  
+  )
+  suppressMessages(
   setMethod("toJSON", "POSIXlt",
             function(x, container = length(x) > 1 || length(names(x)) > 0, ...) {
               dt <- as.POSIXlt(x)
@@ -74,7 +76,7 @@
               tmp <- paste("new Date(",y,",",m,",",d,",",H,",",M,",",S,")",sep="")
               paste(tmp, collapse=", ")
             })
-    
+  ) 
   invisible()
 }
 
