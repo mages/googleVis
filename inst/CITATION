@@ -1,17 +1,14 @@
-citHeader("To cite the googleVis package in publications use:")
-
-citEntry(entry="Article",
-         title = "googleVis: Interface between R and the Google Visualisation API",
-         author = personList(as.person("Markus Gesmann"), as.person("Diego de Castillo")),
-         journal = "The R Journal",
-         year = 2011,
-	       volume	= 3,
-	       number = 2,
- 	       pages = "40--44",
-	       month = "December",
-         url= "https://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf",
-         textVersion = 
-         paste("Markus Gesmann and Diego de Castillo.",
-	  "Using the Google Visualisation API with R.",
-	  "The R Journal, 3(2):40-44, December 2011."))
-
+ bibentry(
+  bibtype = "Article",
+  header = "To cite googleVis in publications, please use",
+ textVersion = "Markus Gesmann and Diego de Castillo. Using the Google Visualisation API with R. The R Journal, 3(2):40-44, December 2011.",
+  title = "googleVis: Interface between R and the Google Visualisation API",
+  author = "Markus Gesmann and Diego de Castillo",
+  journal = "The R Journal",
+  year = "2011",
+  volume = "3",
+  number = "2",
+  pages = "40--44",
+  month = "December",
+  url = "https://journal.r-project.org/archive/2011-2/RJournal_2011-2_Gesmann+de~Castillo.pdf"
+  )
