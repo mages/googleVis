@@ -35,7 +35,7 @@ See the googleVis package [vignette](https://mages.github.io/googleVis/articles/
 
 ## License
 
-This package is free and open source software, licensed under [GPL 2 or later](https://opensource.org/licenses/gpl-license).
+This package is free and open source software, licensed under GPL 2 or later.
 
 <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en_GB"><img alt="Creative Commons Licence" class="c1" src="https://i.creativecommons.org/l/by-sa/4.0/80x15.png" /></a><br />
 <span>googleVis documentation</span> by <a href="https://github.com/mages/googleVis" rel="cc:attributionURL">Markus Gesmann &amp; Diego de Castillo</a> is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/deed.en_GB">Creative Commons Attribution-ShareAlike 4.0 International License</a>
