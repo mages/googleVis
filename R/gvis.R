@@ -664,11 +664,13 @@ infoString <- function(type=""){
 
 ## define class string with nice '+' paste, taken from xtable.
 
+#' @export
 "+.string" <- function(x,y) {
   x$text <- paste(x$text,as.string(y)$text,sep="")
   return(x)
 }
 
+#' @export
 print.string <- function(x,...) {
   cat(x$text,file=x$file,append=x$append)
   return(invisible())

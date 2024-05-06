@@ -18,6 +18,7 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
+#' @export
 print.gvis <- function(x, tag=NULL, file="", ...){
 
   if(is.null(tag))
@@ -59,6 +60,7 @@ googlevis.httpd.handler <- function(path, query, ...) {
        "status code"=200L)
 }
 
+#' @export
 plot.gvis <- function(x, tag=NULL, ...){
 
   if(missing(tag)) ## Has tag being actively set?
