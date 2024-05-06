@@ -21,14 +21,14 @@ e.g.
 \code{options=list(colors="['#cbb69d', '#603913', '#c69c6e']")}
 }
 \item{Google API parameters with names that do include a "." present parameters with 
-several sub-options and have to be set as a character wrapped in "{ }".
+several sub-options and have to be set as a character wrapped in "\{ \}".
 The values of those sub-options are set via parameter:value. Boolean values
 have to be stated as \code{'true'} or \code{'false'}. 
 For example the Google documentaion states the formating options for the 
 vertical axis and states the parameter as \code{vAxis.format}. 
 Then this paramter can be set in R as:
 
-\code{options=list(vAxis="{format:'#,###\%'}")}. 
+\code{options=list(vAxis="\{format:'#,###\%'\}")}. 
 }
 \item{If several sub-options have to be set, e.g. 
 
@@ -36,14 +36,14 @@ Then this paramter can be set in R as:
 \code{titleTextStyle.fontSize}, then those can be combined in one list item 
 such as:
 
-\code{options=list(titleTextStyle="{color:'red', fontName:'Courier', fontSize:16}")}
+\code{options=list(titleTextStyle="\{color:'red', fontName:'Courier', fontSize:16\}")}
 }
 \item{paramters that can have more than one value per sub-options are 
 wrapped in "[ ]". For example to set the labels for left and right axes use:
 
-\code{options=list(vAxes="[{title:'val1'}, {title:'val2'}]")}
+\code{options=list(vAxes="[\{title:'val1'\}, \{title:'val2'\}]")}
 }
-\item{\code{gvis.editor}}{ a character label for an
+\item{\code{gvis.editor} a character label for an
  on-page button that opens an in-page dialog box enabling
 users to edit, change and customise the chart. By default no
 value is given and therefore no button is displayed. 
