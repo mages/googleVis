@@ -36,7 +36,7 @@
 #' @param parentvar (only when format is explicit) a string that refers to the 
 #' column name in \code{data} that contains the ID of the parent of the text.
 #' @param method a string to say whether the word tree is either:
-#' \itemize{
+#' \describe{
 #' \item{\code{implicit}}{ - will weight and connect automatically, or} 
 #' \item{\code{explicit}}{ - can specify weights and connections}
 #' }
