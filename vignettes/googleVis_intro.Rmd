@@ -555,7 +555,7 @@ and process it from there.
 
 # Using googleVis with shiny
 
-[Shiny](https://shiny.rstudio.com/) is a package by
+[Shiny](https://shiny.posit.co/) is a package by
 RStudio, which makes it incredibly easy to build interactive web
 applications with R.  
 
