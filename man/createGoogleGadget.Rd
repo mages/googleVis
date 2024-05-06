@@ -19,10 +19,6 @@ createGoogleGadget(gvis)
 \value{
   createGoogleGadget returns a Google Gadget XML string.
 }
-\references{
-  For more information about Google Gadgets see:
-  \url{https://developers.google.com/gadgets/}
-}
 \author{
 Markus Gesmann
 }
