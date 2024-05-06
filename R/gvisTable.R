@@ -41,7 +41,7 @@
 #' @param formats named list. If \code{NULL} (default) no specific format will 
 #' be used. The named list needs to contain the column names of the data and 
 #' the specified format. The format string is a subset of the ICU pattern set. 
-#' For instance, {pattern:'#,###\%'} will result in output values "1,000\%", 
+#' For instance, \{pattern:'#,###\%'\`\} will result in output values "1,000\%", 
 #' "750\%", and "50\%" for values 10, 7.5, and 0.5. 
 #' @param options list of configuration options, see: 
 #' 
