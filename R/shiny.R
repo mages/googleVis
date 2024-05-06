@@ -33,7 +33,7 @@
 #' 
 #' @section Details:
 #' More information about shiny is available online: 
-#'  \url{https://shiny.rstudio.com/}. 
+#'  \url{https://shiny.posit.co/}. 
 #'  You find further examples with googleVis on shiny on mages' blog:
 #'  \url{https://magesblog.com/tags/shiny/}
 #'  
