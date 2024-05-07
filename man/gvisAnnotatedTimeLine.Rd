@@ -87,7 +87,7 @@ Important: To use this visualization, you must specify the height and width
 of the container element explicitly on your page. So, for example:
 options=list(width="600px", height="350px")
 
-Use code{\link{gvisAnnotationChart}} for a non-Flash version of this plot.
+Use \code{\link{gvisAnnotationChart}} for a non-Flash version of this plot.
 }
 
 \examples{

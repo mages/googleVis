@@ -50,7 +50,7 @@ readLines(file.path(".", "inst",  "mansections",
  "mansections", "gvisOptions.txt")))}}
 
 \item{method}{a string to say whether the word tree is either:
-\itemize{
+\describe{
 \item{\code{implicit}}{ - will weight and connect automatically, or} 
 \item{\code{explicit}}{ - can specify weights and connections}
 }}
