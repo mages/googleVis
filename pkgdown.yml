@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   googleVis_examples: googleVis_examples.html
   googleVis_intro: googleVis_intro.html
-last_built: 2024-05-07T07:55Z
+last_built: 2024-05-25T14:28Z
 urls:
   reference: https://mages.github.io/googleVis/reference
   article: https://mages.github.io/googleVis/articles
