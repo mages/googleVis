@@ -17,6 +17,11 @@
 ### Software Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 ### MA 02110-1301, USA
 
+#' @importFrom utils, packageDescription, browseURL, type.convert
+#' @importFrom stats, na.omit, reshape
+#' @importFrom tools, startDynamicHelp
+#' @importFrom jsonlite, toJSON, unbox 
+
 
 .onLoad<- function(lib, pkg,...)
 {
