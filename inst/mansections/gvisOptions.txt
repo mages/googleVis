@@ -38,7 +38,7 @@ such as:
 
 \code{options=list(titleTextStyle="\{color:'red', fontName:'Courier', fontSize:16\}")}
 }
-\item{paramters that can have more than one value per sub-options are 
+\item{parameters that can have more than one value per sub-options are 
 wrapped in "[ ]". For example to set the labels for left and right axes use:
 
 \code{options=list(vAxes="[\{title:'val1'\}, \{title:'val2'\}]")}
